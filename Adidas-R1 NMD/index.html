@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /*font-family: 'bebas;
+font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif;*/
+      @font-face {
+        font-family: "bebas";
+        src: url("./font/BebasNeue-Regular.otf") format("truetype"),
+          url("./font/BebasNeue-Regular.woff2") format("woff2");
+      }
+      a,
+      .icons > div {
+        text-decoration: none;
+        color: white;
+        font-family: "Roboto", sans-serif;
+      }
+      div {
+        font-family: "bebas";
+      }
+
+      li {
+        list-style: none;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+      .wrapper {
+        background-color: #333;
+        height: 100vh;
+        z-index: 21;
+      }
+      .container_text {
+        position: absolute;
+        height: 100vh;
+        font-size: 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: rgba(85, 85, 85, 0.397);
+        z-index: 1;
+        overflow: hidden;
+      }
+      .middle-section{
+       overflow: hidden;
+      }
+      .navBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 60px;
+        align-items: center;
+        font-size: 1em;
+        height: 18vh;
+      }
+      .navBar img {
+        width: 60px;
+      }
+      .menu,
+      .icons {
+        display: flex;
+        gap: 10px;
+        color: white;
+      }
+      .menu {
+        gap: 150px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+      .middle_text {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        position: relative;
+        top: -34vh;
+      }
+      .top_text {
+        font-size: 3.2em;
+        position: relative;
+        top: -27vh;
+        left: -2.7vw;
+        letter-spacing: -10px;
+        z-index: 0;
+      }
+      .bottom_text {
+        position: relative;
+        bottom: 38vh;
+        font-size: 3.1em;
+      }
+      .text_mid {
+        font-size: 2.2em;
+        position: relative;
+        -webkit-text-stroke: 1px azure;
+      }
+      .text_mid::before {
+        content: "MEN'S ORIGINALs";
+        position: absolute;
+        font-family: "roboto", sans-serif;
+        top: -10px;
+        left: 10px;
+        font-size: 0.185em;
+        color: rgba(228, 228, 228, 0.397);
+        text-transform: uppercase;
+        -webkit-text-stroke:0px;
+      }
+      .text_mid::after {
+        content: "$130";
+        position: absolute;
+        bottom: 0px;
+        right: 10px;
+        font-size: 0.25em;
+        color: azure;
+      }
+      .js_balls {
+        border: 1px solid black;
+        width: 20vw;
+        height: 40vh;
+      }
+
+      .images {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top: 5vh;
+        left: 8vh;
+
+      }
+      .images img:nth-child(1) {
+        position: relative;
+        z-index: 23;
+      }
+      .images img:nth-child(2) {
+        position: absolute;
+        opacity: 0.5;
+      }
+      .footer__section {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+        margin: 0 auto;
+        z-index: 2414;
+        margin-top: 49px;
+      }
+      .footer__section p {
+        font-family: "roboto", sans-serif;
+        color: azure;
+        font-weight: 100;
+        line-height: 1.5;
+        font-size: 0.9em;
+        margin-left: 10vh;
+      }
+      .footer__section button {
+        padding: 10px 35px;
+        border-radius: 50px;
+        background: none;
+        outline: none;
+        color: azure;
+        border: 1px solid azure;
+      }
+      .navbar_middle {
+        position: absolute;
+        right: 0;
+        bottom: 40vh;
+      }
+      .navbar_middle li:nth-child(2) {
+        color: red !important;
+        background-color: blue;
+      }
+      .navbar_middle > div {
+        color: azure;
+        font-family: "roboto", sans-serif;
+      }
+      .navbar_middle > div:nth-child(4) {
+        transform: rotate(90deg);
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container_text">
+      <div class="top_text">ADIDAS</div>
+      <div class="middle_text">
+        <div class="js_balls">b</div>
+        <div class="text_mid">NMD -SHOES</div>
+      </div>
+      <div class="bottom_text">IMD R1 SHOE</div>
+    </div>
+    <div class="wrapper">
+      <div class="navBar">
+        <img src="./png/logo.png" alt="logo" />
+
+        <div class="menu">
+          <li><a href="#">MENS</a></li>
+          <li><a href="#">womens</a></li>
+          <li><a href="#">kids</a></li>
+          <li><a href="#">shop</a></li>
+        </div>
+        <div class="icons">
+          <div class="search">search</div>
+          <div class="cart">cart</div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="middle-section">
+          <div class="images">
+            <img src="./png/adidasR21.png" alt="adidas" />
+            <img src="./png/adidasShadow3.png" alt="shadow" data-topic="test" />
+          </div>
+          <div class="navbar_middle">
+            <div>left</div>
+            <div>right</div>
+            <br />
+            <div>02/03</div>
+          </div>
+        </div>
+        <div class="footer__section">
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing, <br />
+            elit. Fugitipsum dolor sit, amet consectetur.
+          </p>
+          <button>shop now</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
