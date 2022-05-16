@@ -35,7 +35,6 @@ body::before {
 */
 .section-one {
     height: 100vh;
-
     max-height: 1080px;
     display: flex;
     flex-direction: column;
@@ -45,20 +44,22 @@ body::before {
 
 .sectiontwo {
     height: 100vh;
+    padding: 1.48em 0;
     font-size: 44px;
-    width: 95%;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto 1em auto;
     position: relative;
     color: #fff;
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(5px);
+    border: 1px solid red;
 }
 
 .promo-text {
     font-size: 44px;
     width: 95%;
-    top: 13vh;
+    top: 18vh;
     padding: 0.48em 0;
     max-width: 1200px;
     position: relative;
@@ -66,6 +67,7 @@ body::before {
     align-items: center;
     justify-content: center;
     color: #fff;
+    z-index: 10;
     background-color: #2a2e38;
     font-weight: bold;
     text-align: center;
@@ -161,6 +163,9 @@ body::before {
         /* place-items: center; */
         justify-content: center;
         align-items: center;
+        transform: scale(0.8);
+        top: -2vh;
+        position: relative;
 
     }
 
