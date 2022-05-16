@@ -1,0 +1,179 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/bk_desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: unset;
+
+}
+/*
+.container_full {
+    background-image: url(./assets/bk_desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    background-color: red;
+}
+*/
+
+
+.section-one {
+    height: 100%;
+    border: 1px solid red;
+}
+
+.blueshape-container {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.charC {
+    border: 1px solid black;
+}
+
+.charOne {}
+
+.seteroSlots {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.container-char {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.grid-container>div {
+    border: 1px solid black;
+}
+
+.section-container{
+    max-width: 1200px;
+    width: 1200px;
+    margin: auto;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 400px);
+    grid-template-rows: 300px 550px 200px;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "stero pacanele third"
+        "char char char"
+        "jstable jstable jstable";
+    /* width: 80vw; */
+    /* height: 90vh; */
+    border: 1px solid black;
+    /* transform: scale(0.6); */
+    /* place-content: center; */
+    /* place-items: center; */
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.stero {
+    grid-area: stero;
+}
+
+.img-BlueShape {
+    height: 450px;
+    position: relative;
+}
+
+.stero img {
+    top: 9vh;
+    left: -6vw;
+
+}
+
+.pacanele {
+    grid-area: pacanele;
+}
+.pacanele img {
+    top: -1vh;
+    left: -0.7vw;
+}
+
+.third {
+    grid-area: third;
+}
+.third img {
+    top: 19vh;
+    left: 4.5vw;
+}
+
+.char {
+    grid-area: char;
+}
+
+.container-char > img:nth-child(1) {
+    position: relative;
+    left: 8vw;
+    top: -3vh;
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+}
+.container-char > img:nth-child(2) {
+ z-index: 2;
+}
+.container-char > img:nth-child(3) {
+    position: relative;
+    left: -7vw;
+    top: -4vh;
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+}
+.container-jsTable{
+    grid-area: jstable;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    top: -10vh;
+    position: relative;
+    z-index: 4;
+}
+.jcontents {
+    position: relative;
+}
+.jplay{
+    position: relative;
+    top: -5vh;
+    left: -2vw;
+}
+.jsky {
+    position: relative;
+   left: 2vw;
+}
+.jpragm {
+    position: relative;
+    top: -5vh;
+  left: 3.5vw;
+}
+
