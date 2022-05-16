@@ -5,7 +5,8 @@
     padding: 0;
     box-sizing: border-box;
 }
-body::before{
+
+body::before {
     content: '';
     position: fixed;
     top: 0;
@@ -19,6 +20,7 @@ body::before{
     z-index: unset;
 
 }
+
 /*
 .container_full {
     background-image: url(./assets/bk_desktop.jpg);
@@ -31,149 +33,333 @@ body::before{
     background-color: red;
 }
 */
-
-
 .section-one {
-    height: 100%;
-    border: 1px solid red;
-}
+    height: 100vh;
 
-.blueshape-container {
+    max-height: 1080px;
     display: flex;
-    justify-content: center;
-    max-width: 100%;
-}
-
-.charC {
-    border: 1px solid black;
-}
-
-.charOne {}
-
-.seteroSlots {
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-
-
-.container-char {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    backdrop-filter: blur(3px);
 }
 
-
-
-.grid-container>div {
-    border: 1px solid black;
-}
-
-.section-container{
+.sectiontwo {
+    height: 100vh;
+    font-size: 44px;
+    width: 95%;
     max-width: 1200px;
-    width: 1200px;
-    margin: auto;
+    margin: 0 auto 1em auto;
+    position: relative;
+    color: #fff;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
 }
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 400px);
-    grid-template-rows: 300px 550px 200px;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "stero pacanele third"
-        "char char char"
-        "jstable jstable jstable";
-    /* width: 80vw; */
-    /* height: 90vh; */
-    border: 1px solid black;
-    /* transform: scale(0.6); */
-    /* place-content: center; */
-    /* place-items: center; */
-    justify-content: center;
+
+.promo-text {
+    font-size: 44px;
+    width: 95%;
+    top: 13vh;
+    padding: 0.48em 0;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #2a2e38;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.steps {
+    font-size: 24px;
+    width: 100%;
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    position: absolute;
+    bottom: 100%;
+    z-index: 1;
    
 }
 
-.stero {
-    grid-area: stero;
+@media (orientation: landscape) {
+    .section-one {
+        min-height: 550px;
+    }
 }
 
-.img-BlueShape {
-    height: 450px;
+@media screen and (orientation:landscape) and (min-width:920px) {
+    .section-one {
+
+        border: 1px solid red;
+    }
+
+    .blueshape-container {
+        display: flex;
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .charC {
+        border: 1px solid black;
+    }
+
+
+
+    .seteroSlots {
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+
+
+    .container-char {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
     position: relative;
+    width: 100%;
+  
+    }
+
+
+
+    .grid-container>div {
+        border: 1px solid black;
+    }
+
+    .section-container {
+        max-width: 1200px;
+        width: 1200px;
+        margin: auto;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 400px);
+        grid-template-rows: 300px 550px 200px;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "stero pacanele third"
+            "char char char"
+            "jstable jstable jstable";
+        /* width: 80vw; */
+        height: 72vh;
+        border: 1px solid black;
+        /* transform: scale(0.6); */
+        /* place-content: center; */
+        /* place-items: center; */
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .stero {
+        grid-area: stero;
+    }
+
+    .img-BlueShape {
+        height: 450px;
+        position: relative;
+    }
+
+    .stero img {
+        top: 9vh;
+        left: -6vw;
+
+    }
+
+    .pacanele {
+        grid-area: pacanele;
+    }
+
+    .pacanele img {
+        top: -2vh;
+        left: -0.7vw;
+    }
+
+    .third {
+        grid-area: third;
+    }
+
+    .third img {
+        top: 19vh;
+        left: 4.5vw;
+    }
+
+    .char {
+        grid-area: char;
+    }
+
+    .container-char>img:nth-child(1) {
+        position: relative;
+        left: 8vw;
+        top: -3vh;
+        transform: scale(1.05);
+        -webkit-transform: scale(1.05);
+        -moz-transform: scale(1.05);
+    }
+
+    .container-char>img:nth-child(2) {
+        z-index: 2;
+    }
+
+    .container-char>img:nth-child(3) {
+        position: relative;
+        left: -7vw;
+        top: -4vh;
+        transform: scale(1.01);
+        -webkit-transform: scale(1.01);
+        -moz-transform: scale(1.01);
+    }
+
+    .container-jsTable {
+        grid-area: jstable;
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: center;
+        top: -10vh;
+        position: relative;
+        z-index: 4;
+    }
+
+    .jcontents {
+        position: relative;
+    }
+
+    .jplay {
+        position: relative;
+        top: -5vh;
+        left: -2vw;
+    }
+
+    .jsky {
+        position: relative;
+        left: 1vw;
+    }
+
+    .jpragm {
+        position: relative;
+        top: -5vh;
+        left: 3.5vw;
+    }
+
+
+
+
+
+
 }
 
-.stero img {
-    top: 9vh;
-    left: -6vw;
 
-}
 
-.pacanele {
-    grid-area: pacanele;
-}
-.pacanele img {
-    top: -1vh;
-    left: -0.7vw;
-}
 
-.third {
-    grid-area: third;
-}
-.third img {
-    top: 19vh;
-    left: 4.5vw;
-}
 
-.char {
-    grid-area: char;
-}
 
-.container-char > img:nth-child(1) {
-    position: relative;
-    left: 8vw;
-    top: -3vh;
-    transform: scale(1.05);
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-}
-.container-char > img:nth-child(2) {
- z-index: 2;
-}
-.container-char > img:nth-child(3) {
-    position: relative;
-    left: -7vw;
-    top: -4vh;
-    transform: scale(1.01);
-    -webkit-transform: scale(1.01);
-    -moz-transform: scale(1.01);
-}
-.container-jsTable{
-    grid-area: jstable;
-    display: inline-flex;
+
+/*steps*/
+.steps {
+    font-size: 24px;
+    width: 100%;
+    padding: 0.5em 1em;
+ 
+    display: flex;
     justify-content: space-between;
+  
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 1400px) {
+    .steps {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .steps {
+      font-size: 17px;
+    }
+  }
+  
+  .steps .step {
+    display: flex;
+  }
+  
+  .steps .number {
+    font-size: 3em;
+    height: 0.83em;
+    width: 0.83em;
+  
+    display: flex;
+    justify-content: center;
     align-items: center;
-    top: -10vh;
-    position: relative;
-    z-index: 4;
-}
-.jcontents {
-    position: relative;
-}
-.jplay{
-    position: relative;
-    top: -5vh;
-    left: -2vw;
-}
-.jsky {
-    position: relative;
-   left: 2vw;
-}
-.jpragm {
-    position: relative;
-    top: -5vh;
-  left: 3.5vw;
-}
+  
+    background: linear-gradient(136deg, #FF6333 0%, #FF832B 100%);
+    border-radius: 0.208em;
+  }
+  
+  .steps .text {
+    flex: 1;
+    padding-left: 0.5em;
+  
+    text-align: left;
+    text-shadow: 0 0.125em 0.625em #000000;
+  }
+  
+  .steps .separator {
+    width: 1.29em;
+    height: 2.63em;
+  
+    background: linear-gradient(146deg, #FF6333 0%, #FF832B 64%);
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  }
+  
+  @media (max-width: 991px) {
+    .steps .number {
+      display: none;
+    }
+  
+    .steps .text {
+      text-align: center;
+      padding-left: 0;
+    }
+  
+    .steps .separator {
+      width: 1px;
+      height: 2.5em;
+      background: #fff;
+      box-shadow: 0 0.125em 0.625em #000000;
+      clip-path: none;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .steps {
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    .steps {
+      font-size: 9px;
+    }
+  }
 
+    .steps {
+      position: absolute;
+      bottom: 100%;
+      z-index: 1;
+    }
