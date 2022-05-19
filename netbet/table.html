@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onLoad="buildHtmlTable('#excelDataTable')">
+    <table id="excelDataTable" border="1">
+    </table>
+
+
+    <p id="result"></p>
+
+    <table align="center" id="table" border="1">
+    </table>
+
+
+
+    <table>
+        <tr>
+            <th>Loc</th>
+            <th>Nume</th>
+            <th>puncte</th>
+            <th>stream</th>
+        </tr>
+
+        <tbody id="table_body">
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+
+
+
+    <script>
+        // const todoAPI = 'https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php';
+        // const tableBody = document.querySelector('tbody');
+
+        // fetch(todoAPI)
+        //     .then((response) => response.json())
+        //     .then((todos) => {
+        //         const stringifiedTodos = todos.reduce((itemsToRenderInTable, todo, index) => {
+        //             return (
+        //                 itemsToRenderInTable + `
+        // <tr> 
+        // <td>${index+1}</td>
+        // <td>${todo.title}</td>
+        // </tr>
+        //             `
+        //             );
+        //         }, '');
+        //         tableBody.innerHTML = stringifiedTodos
+        //     })
+
+        //     .catch(console.error);
+        // const linkData = 'https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php'
+        // async function getDataJson() {
+        //     const response = await fetch(linkData);
+        //     const data = await response.json();
+        //     const {ranking, username} = data;
+        //     console.log(ranking);
+        //     console.log(data)
+        // }
+        // getDataJson();
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getDataJson();
+        })
+
+        const dataLink = new Request('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php');
+        const table_body = document.getElementById('table_body');
+
+
+
+        async function getDataJson() {
+            const users_fetch = await fetch(dataLink, {
+                method: 'GET',
+                mode: 'cors',
+                cache: "default",
+            }).then(response => {
+                if (!response.ok) {
+                    throw new Error('Network Response is not OK');
+                }
+                return response;
+            });
+            return users_fetch.json()
+                .then((objectData) => {
+                    console.log(users_fetch.json)
+                    let tableData = '';
+                    console.log(tableData)
+                    objectData.map((values) => {
+                        tableData += ` <tr> 
+                            <td>${values.ranking}</td>
+                            <td>${values.username}</td>
+                            <td>${values.points}</td>
+                            <td>${values.stream}</td>
+                        </tr>
+                    `
+                    });
+                    table_body.innerHTML = tableData;
+                    document.getElementById("result").innerHTML = table;
+                }).catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        }
+
+
+
+
+
+
+        // var data = dataLink[0],
+        //     table = document.createElement('table'),
+        //     tr = document.createElement('tr'),
+        //     rows = [],
+        //     max = 0,
+        //     i;
+
+        // table.appendChild(tr);
+        // data.forEach(function (o) {
+        //     var th = document.createElement('th');
+        //     th.appendChild(document.createTextNode(o.Header));
+        //     tr.appendChild(th);
+        //     max = Math.max(max, o.Values.length);
+        // });
+        // for (i = 0; i < max; i++) {
+        //     tr = document.createElement('tr'),
+        //         table.appendChild(tr);
+        //     data.forEach(function (o) {
+        //         var td = document.createElement('td');
+        //         tr.appendChild(td);
+        //         td.appendChild(document.createTextNode(i in o.Values ? o.Values[i] : ''));
+        //     });
+        // }
+        // document.body.appendChild(table);
+
+
+
+
+        // function promisedDivision(n1, n2) {
+        //     if (n2 === 0) {
+        //         return Promise.reject(new Error("Cannot divide by 0"));
+        //     } else {
+        //         return Promise.resolve(n1 + n2);
+        //     }
+        // }
+        // console.log(promisedDivision(2, 24))
+    </script>
+
+
+
+
+</body>
+
+</html>
