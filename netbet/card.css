@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Play', sans-serif;
+}
+.card-container {
+    max-width: 236px;
+    width: 236px;
+    height: 180px;
+    max-height: 180px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.card-container::before{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ece8ec;
+    z-index: -2;
+    opacity: 0.7;
+}
+
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0.5em 1.5em 0em;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9em;
+}
+
+.card-header {
+    background-color: #173054;
+    text-align: center;
+    padding: 0.25em;
+}
+
+.card-header span {
+    color: white;
+    font-size: 1.4em;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.card-stars {
+    width: 100%;
+}
+
+.card-stars>div,
+.card-info>div {
+    margin-bottom: 0.6em;
+   
+}
+
+.card-info {
+
+    text-align: end;
+}
+
+
+.card-cta{
+    text-align: center;
+    place-content: center;
+    display: flex;
+    margin-top: 3px;
+}
+.cta-button {
+    background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;  
+    width: 176px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 1.2em;
+    white-space: nowrap;
+    color: white;
+}
+
+
+

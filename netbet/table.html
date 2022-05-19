@@ -6,22 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #demoA{
+            border: 1px sold black;
+        }
+    </style>
 </head>
 
-<body onLoad="buildHtmlTable('#excelDataTable')">
-    <table id="excelDataTable" border="1">
-    </table>
+<body>
 
 
     <p id="result"></p>
 
-    <table align="center" id="table" border="1">
+    <table align="center" id="table" class="table" border="1">
     </table>
 
 
 
     <table>
         <tr>
+            <th>positie DB</th>
             <th>Loc</th>
             <th>Nume</th>
             <th>puncte</th>
@@ -38,7 +42,31 @@
     </table>
 
 
-
+    <div id="demoA"></div>
+ 
+    <script>
+    window.addEventListener("load", () => {
+      // (B) PARSE THE JSON STRING INTO OBJECT FIRST
+      var data = '{"Name":"John Doe","Email":"john@doe.com","Gender":"male"}';
+      data = JSON.parse(data);
+      // console.table(data);
+     
+      // (C) GENERATE TABLE
+      // (C1) CREATE EMPTY TABLE
+      var table = document.createElement("table"), row, cellA, cellB;
+      document.getElementById("demoA").appendChild(table);
+      for (let key in data) {
+        // (C2) ROWS & CELLS
+        row = table.insertRow();
+        cellA = row.insertCell();
+        cellB = row.insertCell();
+     
+        // (C3) KEY & VALUE
+        cellA.innerHTML = key;
+        cellB.innerHTML = data[key];
+      }
+    });
+    </script>
 
 
     <script>
@@ -70,48 +98,51 @@
         //     console.log(ranking);
         //     console.log(data)
         // }
-        // getDataJson();
-
 
         document.addEventListener('DOMContentLoaded', () => {
             getDataJson();
         })
-
         const dataLink = new Request('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php');
         const table_body = document.getElementById('table_body');
-
-
-
         async function getDataJson() {
-            const users_fetch = await fetch(dataLink, {
-                method: 'GET',
-                mode: 'cors',
-                cache: "default",
-            }).then(response => {
-                if (!response.ok) {
-                    throw new Error('Network Response is not OK');
-                }
-                return response;
-            });
-            return users_fetch.json()
+            const response = await fetch(dataLink, {
+                    method: 'GET',
+                    mode: 'cors',
+                    cache: "default",
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network Response is not OK');
+                    }
+                    return response.json();
+                    console.log(response.json(), "response")
+                })
                 .then((objectData) => {
-                    console.log(users_fetch.json)
                     let tableData = '';
-                    console.log(tableData)
-                    objectData.map((values) => {
-                        tableData += ` <tr> 
+                    objectData.map((values, index, itemsToRenderInTable) => {                  
+                            let result = values.hasOwnProperty('stream');
+                            console.log(result, 'stream');
+                            return (
+                                tableData += ` <tr> 
+                                <td>${index+1}</td>
                             <td>${values.ranking}</td>
                             <td>${values.username}</td>
                             <td>${values.points}</td>
                             <td>${values.stream}</td>
                         </tr>
                     `
-                    });
+                            )
+                                    
+                    }).join("");
+ // true
+                    console.log(objectData, "objectData")
                     table_body.innerHTML = tableData;
-                    document.getElementById("result").innerHTML = table;
-                }).catch(error => {
+
+                })
+                .catch(error => {
                     console.error('There has been a problem with your fetch operation:', error);
                 });
+
         }
 
 
@@ -160,6 +191,6 @@
 
 
 
-</body>
+    </body>
 
 </html>
