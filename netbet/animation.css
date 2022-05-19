@@ -7,11 +7,12 @@ ul, li{
   }
   
   /* Container */
-  .grid-cosntainesr { 
+  .divContainer { 
     position: relative;
     width: 100%;
     overflow-x: hidden;
     transform: transitionX(0);
+    background-color: crimson;
   }
   
   /* Preview/Next Buttons */
@@ -20,11 +21,11 @@ ul, li{
     top: 50%;
     transform: translateY(-50%);
     left: 0.5em;
-    width: 20px;
-    height: 20x;
+    width: 30px;
+    height: 30px;
     line-height: 20px;
     font-size: 1.2em;
-    color: #666;
+    color: rgb(214, 214, 214);
     cursor: pointer;
     transform: translateY(-50%) scale(1);
     transition: transform .1s ease-out;

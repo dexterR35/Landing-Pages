@@ -305,7 +305,7 @@ height: 100vh;
 
 */
 .below-fold {
- 
+ height: 100vh;
   width: 95%;
   max-width: 1200px;
   margin: 0 auto 1em auto;
