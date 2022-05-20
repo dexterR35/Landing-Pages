@@ -494,11 +494,11 @@ body {
 /*offer */
 .offer-content {
   position: absolute;
-  top: 1vh;
-  left: -1vw;
+  top: 50vh;
+  left: -6vw;
   text-align: center;
   font-family: "PLAY"sans-serif;
-  transform: translateX(-8vw) translatey(14vw);
+
   vertical-align: middle;
   line-height: 0.75;
   z-index: 22;
@@ -867,11 +867,7 @@ body {
     -moz-transform: scale(1);
   }
 
-  .elements-wrapper {
-    position: absolute;
-    top: 11vh;
-    left: -24vw;
-  }
+  
 
   .stero {
     /* background-color: rgba(192, 12, 48, 0.452); */
@@ -893,8 +889,8 @@ body {
 
   .elements-wrapper {
     position: absolute;
-    top: 14vh;
-    left: -2vw;
+    top: 16vh;
+    left: -16vw;
     /* background-color: rgba(241, 93, 8, 0.842); */
   }
 }
@@ -971,4 +967,20 @@ body {
   .promo-text {
     font-size: 25px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.below-fold{
+  height: 100vh;
+  padding: 3em em;
 }
