@@ -258,54 +258,9 @@ body {
   z-index: 200;
 }
 
-/*
-.container_full {
-    background-image: url(./assets/bk_desktop.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100vh;
-    border: 1px solid black;
-    background-color: red;
-}
-*/
-/* .section-one {
-  max-width: 1200px;
-  width: 1200px;
-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
-/* .sectiontwo {
-  font-size: 44px;
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto 1em auto;
-  position: relative;
-  color: #fff;
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
-
-
-  height: 120vh;
-  padding: 6em 0;
-  width: 1200px;
-  max-width: 1200px;
-  margin: 0 auto 0 auto;
-  position: relative;
-  color: #fff;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  -webkit-box-shadow: 0px 0px 20px 10px rgba(21, 8, 29, 0.76);
-  box-shadow: 0px 0px 20px 5px rgba(21, 8, 29, 0.76); 
-}
-
-*/
 .below-fold {
- height: 100vh;
+  height: 100vh;
   width: 95%;
   max-width: 1200px;
   margin: 0 auto 1em auto;
@@ -334,12 +289,6 @@ height: 100vh;
 
 
 
-
-.blueshape-container {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-}
 
 
 
@@ -370,35 +319,25 @@ height: 100vh;
   justify-content: center;
 }
 
-.container-blueshape {
-  grid-area: stero;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  grid-area: stero;
-  position: relative;
-  top: 19vh;
-}
+
 
 .stero {
-
   /* background-color: rgba(192, 12, 48, 0.452); */
-  top: 1vh;
-  left: -5vw;
+  top: 25vh;
+  left: -12vw;
 }
 
 .pacanele {
-
   /* background-color: rgba(12, 111, 192, 0.452); */
-  top: -10vh;
-  left: -1vw;
+  top: 14vh;
+
 }
 
 .third {
 
   /* background-color: rgba(192, 180, 12, 0.452); */
-  top: 9vh;
-  left: 2.3vw;
+  top: 34vh;
+  left: 12vw;
 }
 
 .elements-wrapper {
@@ -415,7 +354,21 @@ height: 100vh;
 }
 
 
+.player-One {
+  left: 11vw;
+}
 
+.player-two {
+  left: 0vw;
+}
+
+.player-three {
+  left: -9vw;
+}
+
+.players {
+  position: relative;
+}
 
 
 
@@ -438,11 +391,12 @@ height: 100vh;
   position: relative;
   MAX-WIDTH: 1200px;
   min-width: 300px; */
-  display: grid;
+  /* display: grid;
   place-content: center;
   grid-template-columns: max-content max-content max-content;
   align-items: center;
-  position: relative;
+  position: relative; */
+  width: max-content;
 
 }
 
@@ -453,29 +407,31 @@ height: 100vh;
 }
 
 
-.container-char>img:nth-child(1) {
-
-  left: 8vw;
-  top: -4vh;
+.char-person3>img {
+  top: -1vh;
   /* transform: translateX(10vw) translateY(-1vh) scale(1.1); */
-
 }
 
-.container-char>img:nth-child(2) {
+.char-person2>img {
 
   z-index: 2;
   /* transform: translateY(3vh) translateX(-0.5vw);*/
-  top: 0vh;
+  top: 2vh;
 }
 
-.container-char>img:nth-child(3) {
-
-  left: -7vw;
+.char-person1 {
   top: -4vh;
   /* transform: scale(1.04);
   -webkit-transform: scale(1.04);
   -moz-transform: scale(1.04); */
   /* transform: translateX(-7.5vw) translateY(-1.5vh); */
+}
+
+.players {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container-jsTable {
@@ -494,19 +450,27 @@ height: 100vh;
 
 .jplay {
   position: relative;
-  top: -5vh;
-  left: -3.5vw;
+  top: -21vh;
+  left: -12.5vw;
 }
 
 .jsky {
   position: relative;
   left: 0vw;
+  top: -20vh;
+  z-index: 20;
 }
 
 .jpragm {
   position: relative;
-  top: -5vh;
-  left: 3.5vw;
+  top: -21vh;
+  left: 12.5vw;
+}
+
+.test {
+  position: relative;
+  top: -8vh;
+  transform: scale(0.98);
 }
 
 
@@ -718,7 +682,7 @@ height: 100vh;
     -moz-transform: scale(0.93);
   }
 
-  
+
 }
 
 @media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
@@ -742,7 +706,7 @@ height: 100vh;
   }
 
   .stero {
-    top: 6vh;
+    top: 25vh;
     left: -9vw;
   }
 
@@ -764,28 +728,65 @@ height: 100vh;
 
   .stero {
     /* background-color: rgba(192, 12, 48, 0.452); */
-    top: 6.5vh;
-    left: -8.3vw;
+    top: 30vh;
+    left: -16.5vw;
   }
+
   .pacanele {
-    top: -7.3vh;
+    top: 16.7vh;
   }
+
   .third {
-    top: 15vh;
-    left: 6vw;
+    top: 40vh;
+    left: 16vw;
   }
+
   .offer-text {
     font-size: 6.5em;
   }
+
   .offer-content {
     top: 10vh;
     left: 12vh;
   }
+
   .container-jsTable {
     top: -25vh;
   }
 
- }
+  .player-One {
+    left: 24vh;
+  }
+
+  .player-two {
+    left: 0vh;
+  }
+
+  .player-three {
+    left: -24vh;
+
+  }
+
+  .jplay {
+    position: relative;
+    top: -25vh;
+    left: -16.5vw;
+  }
+
+
+  .jsky {
+    position: relative;
+    top: -22vh;
+    left: .5vw;
+  }
+
+
+  .jpragm { position: relative;
+    top: -27vh;
+    left: 16.5vw;}
+}
+
+
 
 
 @media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
@@ -795,6 +796,7 @@ height: 100vh;
     -webkit-transform: scale(0.97);
     -moz-transform: scale(0.97);
   }
+
   .elements-wrapper {
     position: absolute;
     top: 7vh;
@@ -808,7 +810,7 @@ height: 100vh;
   }
 
   .pacanele {
-    top: -7.3vh;
+   
   }
 
   .third {
@@ -829,23 +831,49 @@ height: 100vh;
   }
 
   .above-fold {
-   
+
     background-position-y: 90%;
-}
+  }
 
 }
 
 @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
   .grid-container {
-    top: 5vh;
-    transform: scale(1.08);
-    -webkit-transform: scale(1.08);
-    -moz-transform: scale(1.08);
+    top: -1vh;
+    transform: scale(1.25);
+    -webkit-transform: scale(1.25);
+    -moz-transform: scale(1.25);
   }
+
   .elements-wrapper {
     position: absolute;
     top: 11vh;
     left: -24vw;
+  }
+
+  .stero {
+    /* background-color: rgba(192, 12, 48, 0.452); */
+    top: 25vh;
+    left: -12vw;
+  }
+
+  .pacanele {
+    /* background-color: rgba(12, 111, 192, 0.452); */
+    top: 14vh;
+
+  }
+
+  .third {
+    /* background-color: rgba(192, 180, 12, 0.452); */
+    top: 34vh;
+    left: 12vw;
+  }
+
+  .elements-wrapper {
+    position: absolute;
+    top: 14vh;
+    left: -2vw;
+    /* background-color: rgba(241, 93, 8, 0.842); */
   }
 }
 
@@ -858,7 +886,7 @@ height: 100vh;
 
     max-width: 1000px;
   }
- 
+
 }
 
 

@@ -12,7 +12,7 @@ ul, li{
     width: 100%;
     overflow-x: hidden;
     transform: transitionX(0);
-    background-color: crimson;
+ 
   }
   
   /* Preview/Next Buttons */
@@ -47,8 +47,8 @@ ul, li{
     padding: 2em 0;
     display: flex;
     width: 100%;
-    height: 150px;
-    transform: translateX(0);
+    /* height: 150px; */
+    transform: translateX(50%);
     transition: transform .3s ease-out;
   }
   
@@ -58,16 +58,16 @@ ul, li{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4em;
+ 
     font-weight: 500;
     font-family: arial;
-    color: #555;
+  
     min-width: calc(100% / 3);
-    background: #fff;
-    border-radius: .5em;
+    /* background: #ffffff0a; */
+    border-radius: 136px;
     /* Animation */
-    transform: translateX(10%) scale(0.5);
-    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    transform: translateX(10%) scale(0.8);
+    /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%); */
     transition: all .3s ease-out;
   }
   
@@ -75,11 +75,20 @@ ul, li{
   .featured {
     z-index: 1;
     /* Animation  */
-    transform: scale(1);
-    box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%)
+    transform: scale(0.9);
+    /* box-shadow: 0 16px 24px 2px rgb(0 0 0 / 14%), 0 6px 30px 5px rgb(0 0 0 / 12%), 0 8px 10px -7px rgb(0 0 0 / 20%) */
   }
   
   .featured + li {
     /* Offset the next element under the selected element */
-    transform: scale(.5) translateX(-25%) !important;
+    transform: scale(.8) translateX(-25%) !important;
+  }
+
+
+
+
+  .tests{
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }

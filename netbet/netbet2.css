@@ -1,0 +1,1373 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 1199px) {
+  body {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 991px) {
+  body {
+    font-size: 85%;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 75%;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Play', sans-serif;
+}
+
+
+
+
+/****************************************************/
+/****************************************************/
+/*********************CARD ECHIPE*******************************/
+
+.card-container {
+  max-width: 295px;
+  width: 295px;
+  height: 220px;
+  max-height: 220px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ece8ec;
+  z-index: -2;
+  opacity: 0.9;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 0.9em 1.5em 0em;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+}
+
+.card-header {
+  background-color: #173054;
+  text-align: center;
+  padding: 0.25em;
+}
+
+.card-header span {
+  color: white;
+  font-size: 1.7em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card-stars {
+  width: 100%;
+  margin-left: 10px;
+}
+
+.card-stars>div,
+.card-info>div {
+  margin-bottom: 0.5em;
+
+}
+
+.card-info>div {
+  margin-bottom: 14px;
+}
+
+.card-info {
+  text-align: end;
+
+}
+
+.card-cta {
+  text-align: center;
+  place-content: center;
+  display: flex;
+}
+
+.cta-button {
+  background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1rem;
+  width: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  padding: 1em;
+  white-space: nowrap;
+  color: white;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+  transition: .9s ease;
+}
+
+/****************************************************/
+/************************END CARD ECHIPE****************************/
+/****************************************************/
+/****************************************************/
+
+
+
+
+.btnScrollTop {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: crimson;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .5s;
+  font-size: 1em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnScrollTop.active {
+  bottom: 20px;
+  pointer-events: auto;
+  opacity: 1;
+  z-index: 1231;
+
+}
+
+.back-to-top_button {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 9px;
+  transform: rotate(-134deg);
+  -webkit-transform: rotate(-134deg);
+  margin-top: 13px;
+}
+
+.section-bg-one,
+.section-bg-two {
+  position: relative;
+
+}
+
+.section-bg-one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20em;
+}
+
+/* body::before{
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./assets/bk_desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: unset;
+} */
+
+.section-bg-one::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./assets/bk_desktop.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: unset;
+}
+
+.section-bg-two::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(31, 38, 56);
+  background: rgb(31, 38, 56);
+  background: linear-gradient(180deg, rgba(31, 38, 56, 1) 1%, rgba(47, 35, 64, 1) 57%, rgba(51, 22, 86, 1) 90%);
+  z-index: unset;
+}
+
+.nav-bar {
+  width: 100vw;
+  font-size: 18px;
+  height: 4em;
+  background-color: red;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+}
+
+/*
+.container_full {
+    background-image: url(./assets/bk_desktop.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+    background-color: red;
+}
+*/
+/* .section-one {
+  max-width: 1200px;
+  width: 1200px;
+height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+/* .sectiontwo {
+  font-size: 44px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto 1em auto;
+  position: relative;
+  color: #fff;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+
+
+  height: 120vh;
+  padding: 6em 0;
+  width: 1200px;
+  max-width: 1200px;
+  margin: 0 auto 0 auto;
+  position: relative;
+  color: #fff;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  -webkit-box-shadow: 0px 0px 20px 10px rgba(21, 8, 29, 0.76);
+  box-shadow: 0px 0px 20px 5px rgba(21, 8, 29, 0.76); 
+}
+
+*/
+.below-fold {
+ height: 100vh;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto 1em auto;
+  position: relative;
+  color: #fff;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.below-fold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2a2e38;
+  z-index: -1;
+  opacity: 0.8;
+  filter: brightness(50%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+
+
+
+
+.blueshape-container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.section-container {
+  /* max-width: 1200px;
+    width: 1200px; */
+  overflow: hidden;
+  margin: auto;
+  -webkit-box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+  box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+}
+
+
+
+.stero,
+.pacanele,
+.third {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.container-blueshape {
+  grid-area: stero;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: stero;
+  position: relative;
+  top: 19vh;
+}
+
+.stero {
+
+  /* background-color: rgba(192, 12, 48, 0.452); */
+  top: 1vh;
+  left: -5vw;
+}
+
+.pacanele {
+
+  /* background-color: rgba(12, 111, 192, 0.452); */
+  top: -10vh;
+  /* left: -1vw; */
+}
+
+.third {
+
+  /* background-color: rgba(192, 180, 12, 0.452); */
+  top: 9vh;
+  left: 2.3vw;
+}
+
+.elements-wrapper {
+  position: absolute;
+  top: 14vh;
+  left: -2vw;
+  /* background-color: rgba(241, 93, 8, 0.842); */
+}
+
+.img-BlueShape {
+  height: 380px;
+  position: relative;
+
+}
+
+
+
+
+
+
+.char-wrapper {
+  grid-area: char;
+  position: relative;
+  top: -6vh;
+  left: -2vw;
+  width: 100%;
+  transform: scale(0.93);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-char {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  MAX-WIDTH: 1200px;
+  min-width: 300px; */
+  /* display: grid; */
+  /* place-content: center; */
+  /* grid-template-columns: max-content max-content max-content; */
+  /* align-items: center; */
+  /* position: relative; */
+
+}
+
+.container-char>img {
+  position: relative;
+  /* width: 100%; */
+
+}
+
+
+.container-char>img:nth-child(1) {
+
+  /* left: 8vw; */
+  top: -4vh;
+  /* transform: translateX(10vw) translateY(-1vh) scale(1.1); */
+
+}
+
+.container-char>img:nth-child(2) {
+
+  z-index: 2;
+  /* transform: translateY(3vh) translateX(-0.5vw);*/
+  top: 0vh;
+}
+
+.container-char>img:nth-child(3) {
+
+  left: -7vw;
+  top: -4vh;
+  /* transform: scale(1.04);
+  -webkit-transform: scale(1.04);
+  -moz-transform: scale(1.04); */
+  /* transform: translateX(-7.5vw) translateY(-1.5vh); */
+}
+
+.container-jsTable {
+  grid-area: jstable;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+  top: -177px;
+}
+
+.jcontents {
+  position: relative;
+}
+
+.jplay {
+  position: relative;
+  top: -27vh;
+  left: -10.5vw;
+}
+
+.jsky {
+  position: relative;
+  left: 7vw;
+top: -22vh;}
+
+.jpragm {
+  position: relative;
+  top: -30vh;
+  left: 16.5vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*offer */
+.offer-content {
+  position: absolute;
+  top: 1vh;
+  left: -1vw;
+  text-align: center;
+  font-family: "PLAY"sans-serif;
+  transform: translateX(-8vw) translatey(14vw);
+  vertical-align: middle;
+  line-height: 0.75;
+  z-index: 22;
+}
+
+.offer-text {
+  width: 100%;
+  font-size: 8em;
+  display: block;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(233, 233, 233);
+  text-shadow: -2px 2px 9px #330a2f;
+}
+
+.offer-text>div:nth-child(1) {
+  font-size: 4rem;
+  /* text-shadow: 2px 2px rgba(151, 151, 151, 0.486); */
+}
+
+.offer-text>div:nth-child(2) {
+  font-size: 1.6em;
+}
+
+
+
+
+.outer {
+  background-image: url(./assets/png/outer-star3.png);
+  height: 25px;
+  width: 125px;
+  background-size: 25px;
+}
+
+.inner {
+  background-image: url(./assets/png/inner-star.png);
+  height: 25px;
+  width: 125px;
+  background-size: 25px;
+}
+
+.rating {
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  position: relative;
+  top: -5px;
+}
+
+
+/******************************/
+/******************************/
+/***********MEDIA QUERRYES*******************/
+/******************************/
+/******************************/
+
+
+
+
+/* @media (orientation: landscape) {
+  .section-bg-one {
+    min-height: 550px;
+  }
+}
+
+
+
+@media (orientation: landscape) and (min-width: 992px){
+.section-one {
+    top: -8vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    transform: scale(0.85);
+}
+}
+
+
+
+@media (orientation: landscape) and (min-width: 1920px) and (max-width: 2560px){
+.section-one {
+  transform: scale(0.95);
+  top: 7vh;
+  }
+}
+
+
+@media (orientation: landscape) {
+  .section-one {
+    min-height: 550px;
+  }
+} */
+
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+
+.container-char {
+  margin: 0 auto;
+}
+
+
+
+@media (orientation: landscape) and (min-width:992px) {
+  .above-fold {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+
+    background-image: url(./assets/bk_desktop.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #2a2e38;
+  }
+}
+
+@media (max-width: 450px) {
+  .above-fold {
+    height: calc(100vh - 113px);
+  }
+}
+
+@media (max-width: 400px) {
+  .above-fold {
+    height: calc(100vh - 65px);
+  }
+}
+
+@media (max-width: 350px) {
+  .above-fold {
+    height: 107vh;
+  }
+}
+
+
+
+.grid-container {
+  /* display: grid;
+    grid-template-columns: repeat(5, minmax(350px, 1fr));
+    grid-template-rows: repeat(3, minmax(100px, 250px));
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". stero stero stero ."
+      ". char char char ."
+      ". jstable jstable jstable .";
+    justify-content: center;
+    align-items: center;
+    /* transform: scale(0.85); 
+    position: relative;
+    transform: scale(0.93);
+  
+  
+    margin: 2em auto 1em;
+    place-content: center;
+    align-items: center; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+
+}
+
+@media (orientation: landscape) and (min-width: 992px) {
+  .grid-container {
+    top: 5vh;
+    transform: scale(0.93);
+    -webkit-transform: scale(0.93);
+    -moz-transform: scale(0.93);
+  }
+
+  
+}
+
+@media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
+
+  .grid-container {
+    top: 10vh;
+    transform: scale(0.79);
+    -webkit-transform: scale(0.79);
+  }
+
+  .offer-text {
+    font-size: 7em;
+  }
+
+  .offer-content {
+    top: 9vh;
+  }
+
+  .container-jsTable {
+    top: -32vh;
+  }
+
+  .stero {
+    top: 6vh;
+    left: -9vw;
+  }
+
+  .pacanele {
+    top: -9vh;
+  }
+
+  .third {
+    top: 15vh;
+    left: 6.3vw;
+  }
+
+  .char-wrapper {
+    top: -11vh;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 800px) and (max-height:919px) {
+
+  .stero {
+    /* background-color: rgba(192, 12, 48, 0.452); */
+    top: 6.5vh;
+    left: -8.3vw;
+  }
+  .pacanele {
+    top: -7.3vh;
+  }
+  .third {
+    top: 15vh;
+    left: 6vw;
+  }
+  .offer-text {
+    font-size: 6.5em;
+  }
+  .offer-content {
+    top: 10vh;
+    left: 12vh;
+  }
+  .container-jsTable {
+    top: -25vh;
+  }
+
+ }
+
+
+@media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
+  .grid-container {
+    top: 5vh;
+    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+  }
+  .elements-wrapper {
+    position: absolute;
+    top: 7vh;
+    left: -24vw;
+    transform: scale(1);
+  }
+
+  .stero {
+    top: 24vh;
+    left: -12vw;
+  }
+
+  .pacanele {
+    top: 9.7vh;
+  }
+
+  .third {
+    top: 35vh;
+    left: 12.3vw;
+  }
+
+  .offer-text {
+    font-size: 7em;
+  }
+
+  .offer-content {
+    top: 1.5vh;
+  }
+
+  .container-jsTable {
+    top: -24vh;
+  }
+
+  .above-fold {
+   
+    background-position-y: 90%;
+}
+
+}
+
+@media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
+  .grid-container {
+    top: 5vh;
+    transform: scale(1.08);
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+  }
+  .elements-wrapper {
+    position: absolute;
+    top: 11vh;
+    left: -24vw;
+  }
+}
+
+
+
+
+
+@media (max-width: 1400px) {
+  .below-fold {
+
+    max-width: 1000px;
+  }
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 450px) {
+  .section-one {
+    height: calc(100vh - 113px);
+  }
+}
+
+@media (max-width: 400px) {
+  .section-one {
+    height: calc(100vh - 65px);
+  }
+}
+
+@media (max-width: 350px) {
+  .section-one {
+    height: 107vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .promo-text>.inner>br {
+    display: none;
+  }
+}
+
+@media (max-width: 1400px) {
+  .promo-text {
+    font-size: 37px;
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .promo-text {
+    font-size: 31px;
+    max-width: 850px;
+  }
+}
+
+@media (max-width: 450px) {
+  .promo-text {
+    font-size: 25px;
+  }
+}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="netbet.css">
+    <link rel="stylesheet" href="./animation.css">
+    <title>netbet</title>
+</head>
+
+<body>
+    <div class="container_full">
+
+
+        <div class="section-container" style="position:relative">
+
+            <div class="tests">
+                <div class="player-One">
+                    <div class="stero">
+                        <img src="./assets/steroText.png" alt="stero" class="img-BlueShape">
+                    </div>
+                    <div class="char container-char">
+                        <img src="./assets/stero-desktop.png" alt="s">
+                    </div>
+                    <div class="jplay">
+                        <div class="card-container">
+                            <div class="card-header">
+                                <span>echipa skywind</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <div class="card-info">
+                                        <div>membri:</div>
+                                        <div>căstiguri:</div>
+                                        <div>activitate:</div>
+                                    </div>
+                                    <div class="card-stars product_1">
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-cta">
+                                    <div class="cta-button desktop">
+                                        intră in echipă
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="player-two">
+
+                    <div class="pacanele">
+                        <img src="./assets/PacaneleText.png" alt="pacanele" class="img-BlueShape">
+                    </div>
+                    <div class="char container-char">
+                        <img src="./assets/Gagica-desktop.png" alt="s">
+                    </div>
+                    <div class="jsky">
+                        <div class="card-container">
+                            <div class="card-header">
+                                <span>echipa play'n'go</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-content">
+                                    <div class="card-info">
+                                        <div>membri:</div>
+                                        <div>câștiguri:</div>
+                                        <div>activitate:</div>
+                                    </div>
+                                    <div class="card-stars product_2">
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="rating">
+                                            <div class="outer">
+                                                <div class="inner"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-cta">
+                                    <div class="cta-button desktop">
+                                        intră in echipă
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="player-three">
+                    <div class="third">
+                        <img src="./assets/ThirdText.png" alt="ThirdText" class="img-BlueShape">
+                    </div>
+                    <div class="char container-char">
+                        <img src="./assets/third_player-desktop.png" alt="s">
+                        </div>
+  <div class="jpragm">
+                                    <div class="card-container">
+                                        <div class="card-header">
+                                            <span>echipa pragmatic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-content">
+                                                <div class="card-info">
+                                                    <div>membri:</div>
+                                                    <div>castiguri:</div>
+                                                    <div>activitate:</div>
+                                                </div>
+                                                <div class="card-stars product_3">
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-cta">
+                                                <div class="cta-button desktop">
+                                                    intră in echipă
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
+            </div>
+
+            <div class="above-fold">
+                <div class="nav-bar">navbar</div>
+                <div class="hero">
+                    <div class="grid-container">
+                        <div class="elements-wrapper">
+                            <img src="./assets/elemente_desktop2.png" alt="">
+                        </div>
+                        <div class="container-blueshape">
+                            <div class="stero">
+                                <img src="./assets/steroText.png" alt="stero" class="img-BlueShape">
+                            </div>
+                            <div class="pacanele">
+                                <img src="./assets/PacaneleText.png" alt="pacanele" class="img-BlueShape">
+                            </div>
+                            <div class="third">
+                                <img src="./assets/ThirdText.png" alt="ThirdText" class="img-BlueShape">
+                            </div>
+                        </div>
+                        <div class="char-wrapper">
+
+                            <div class="char container-char">
+                                <img src="./assets/stero-desktop.png" alt="s">
+                                <img src="./assets/Gagica-desktop.png" alt="s">
+                                <img src="./assets/third_player-desktop.png" alt="s">
+                            </div>
+                            <div class="offer-content">
+                                <div class="offer-text">
+                                    <div>Bătălia</div>
+                                    <div>Streamerilor</div>
+                                </div>
+                            </div>
+                            <div class="container-jsTable">
+                                <div class="jplay">
+                                    <div class="card-container">
+                                        <div class="card-header">
+                                            <span>echipa skywind</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-content">
+                                                <div class="card-info">
+                                                    <div>membri:</div>
+                                                    <div>căstiguri:</div>
+                                                    <div>activitate:</div>
+                                                </div>
+                                                <div class="card-stars product_1">
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-cta">
+                                                <div class="cta-button desktop">
+                                                    intră in echipă
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="jsky">
+                                    <div class="card-container">
+                                        <div class="card-header">
+                                            <span>echipa play'n'go</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-content">
+                                                <div class="card-info">
+                                                    <div>membri:</div>
+                                                    <div>câștiguri:</div>
+                                                    <div>activitate:</div>
+                                                </div>
+                                                <div class="card-stars product_2">
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-cta">
+                                                <div class="cta-button desktop">
+                                                    intră in echipă
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="jpragm">
+                                    <div class="card-container">
+                                        <div class="card-header">
+                                            <span>echipa pragmatic</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="card-content">
+                                                <div class="card-info">
+                                                    <div>membri:</div>
+                                                    <div>castiguri:</div>
+                                                    <div>activitate:</div>
+                                                </div>
+                                                <div class="card-stars product_3">
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <div class="outer">
+                                                            <div class="inner"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-cta">
+                                                <div class="cta-button desktop">
+                                                    intră in echipă
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!-- <div class="promo-text"> 
+                        <a class="steps" href="https://banners.livepartners.com/click.php?l=ro&amp;p=120&amp;t=register&amp;bid2land=8">
+                        <div class="step animation">
+                        <div class="number">1</div>
+                        <div class="text">Crează-ți cont<br>pe NetBet Cazino</div>
+                        </div>
+                        <div class="separator animation"></div>
+                        <div class="step animation">
+                        <div class="number">2</div>
+                        <div class="text">Depune simplu<br> și rapid</div>
+                        </div>
+                        <div class="separator animation"></div>
+                        <div class="step animation">
+                        <div class="number">3</div>
+                        <div class="text">Bonusuri și runde garantate</div>
+                        </div>
+                        </a> 
+                        <div class="inner">button text table <span>+</span> oferta</div>
+                    </div>-->
+            </div>
+
+
+            <div class="below-fold">
+                <div class="grid-cosntainesr">
+                    <div class="divContainer">
+                        <!-- Container -->
+                        <ul>
+                            <!-- Slider -->
+                            <li>1</li> <!-- Ithems -->
+                            <li class="featured">2</li>
+                            <li>3</li>
+
+                        </ul>
+                        <b>ᐸ</b> <!-- Preview button -->
+                        <b>ᐳ</b> <!-- Next button -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <button id="btnToScroll" class="btnScrollTop">
+        <a href="#" class="back-to-top_button"></a>
+    </button>
+
+    <script>
+        const btnToScroll = document.querySelector(".btnScrollTop");
+        window.addEventListener("scroll", () => {
+            if (window.pageYOffset > 200) {
+                btnToScroll.classList.add("active");
+            } else {
+                btnToScroll.classList.remove("active");
+            }
+        })
+
+        const ratings = {
+            product_1: 2,
+            product_2: 3,
+            product_3: 4,
+        }
+        for (const rating in ratings) {
+            let ratePercentage = (ratings[rating] / 5) * 100;
+            const inner = document.querySelector(`.${rating} .inner`)
+            inner.style.width = `${ratePercentage}%`
+        }
+        // Button click events
+        const buttons = document.querySelectorAll('b')
+        buttons.forEach((button, i) =>
+            button.onclick = () => slide(i)
+        )
+
+        // Slide function
+        function slide(right) {
+            // Get the SLider elements
+            const container = document.querySelector('.divContainer');
+            const slider = document.querySelector('ul');
+            const items = document.querySelectorAll('li');
+            const featured = document.querySelector('.featured');
+
+            // Get the featured item
+            const featuredIndex = [...items].indexOf(featured);
+
+            // Set the move if not right then left
+            const move = right ? 1 : -1;
+
+            // Check the slider limits 
+            // if right and index 0: do nothing 
+            // if left and last item: do nothing
+            if ((!right && !featuredIndex) ||
+                (right && featuredIndex === items.length - 1))
+                return;
+
+            // Get the next item element
+            const nextIndex = featuredIndex + move;
+            const nextItem = items[nextIndex]
+
+            // Remove "featured" class from last item 
+            featured.classList.remove("featured");
+
+            // Add "featured" class the next item
+            nextItem.classList.add("featured");
+
+            // Get the container size 
+            const {
+                width: containerSize
+            } = container.getBoundingClientRect();
+
+            // Get the next item size and position
+            const itemSize = containerSize / 3; // Display only 3 items 
+            const itemPosition = itemSize * (nextIndex + 1); // Current position
+
+            // Compute the slider next position
+            const position = containerSize - itemPosition - itemSize;
+
+            // Move the slider on its X axis using css transform and transitionX
+            slider.style.transform = `translateX(${position}px)`
+        }
+    </script>
+</body>
+
+</html>
