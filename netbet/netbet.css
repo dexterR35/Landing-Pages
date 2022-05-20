@@ -676,10 +676,10 @@ body {
 
 @media (orientation: landscape) and (min-width: 992px) {
   .grid-container {
-    top: 5vh;
-    transform: scale(0.93);
-    -webkit-transform: scale(0.93);
-    -moz-transform: scale(0.93);
+    top: -1vh;
+    transform: scale(0.85);
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
   }
 
 
@@ -688,9 +688,9 @@ body {
 @media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
 
   .grid-container {
-    top: 10vh;
-    transform: scale(0.79);
-    -webkit-transform: scale(0.79);
+    top: -2vh;
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
   }
 
   .offer-text {
@@ -706,17 +706,17 @@ body {
   }
 
   .stero {
-    top: 25vh;
-    left: -9vw;
+    top: 36vh;
+    left: -17vw;
   }
 
   .pacanele {
-    top: -9vh;
+    top: 18vh;
   }
 
   .third {
-    top: 15vh;
-    left: 6.3vw;
+    top: 48vh;
+    left: 17.3vw;
   }
 
   .char-wrapper {
