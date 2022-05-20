@@ -48,7 +48,7 @@ ul, li{
     display: flex;
     width: 100%;
     /* height: 150px; */
-    transform: translateX(50%);
+    transform: translateX(0%);
     transition: transform .3s ease-out;
   }
   
@@ -66,7 +66,7 @@ ul, li{
     /* background: #ffffff0a; */
     border-radius: 136px;
     /* Animation */
-    transform: translateX(10%) scale(0.8);
+    transform: translateX(0%) scale(0.8);
     /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%); */
     transition: all .3s ease-out;
   }

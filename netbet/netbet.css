@@ -666,7 +666,7 @@ body {
     align-items: center; */
 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -781,9 +781,11 @@ body {
   }
 
 
-  .jpragm { position: relative;
+  .jpragm {
+    position: relative;
     top: -27vh;
-    left: 16.5vw;}
+    left: 16.5vw;
+  }
 }
 
 
@@ -791,10 +793,10 @@ body {
 
 @media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
   .grid-container {
-    top: 5vh;
-    transform: scale(0.97);
-    -webkit-transform: scale(0.97);
-    -moz-transform: scale(0.97);
+    top: -2vh;
+    transform: scale(0.86);
+    -webkit-transform: scale(0.86);
+    -moz-transform: scale(0.86);
   }
 
   .elements-wrapper {
@@ -805,17 +807,18 @@ body {
   }
 
   .stero {
-    top: 6vh;
-    left: -5vw;
+    top: 28.5vh;
+    left: -12vw;
   }
 
   .pacanele {
-   
+    top: 15vh;
+    left: 1vw;
   }
 
   .third {
-    top: 15vh;
-    left: 2.3vw;
+    top: 40vh;
+    left: 12vw;
   }
 
   .offer-text {
@@ -834,15 +837,18 @@ body {
 
     background-position-y: 90%;
   }
+  .player-three {
+    left: -11vw;
+}
 
 }
 
 @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
   .grid-container {
     top: -1vh;
-    transform: scale(1.25);
-    -webkit-transform: scale(1.25);
-    -moz-transform: scale(1.25);
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
   }
 
   .elements-wrapper {
