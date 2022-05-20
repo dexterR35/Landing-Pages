@@ -340,12 +340,7 @@ body {
   left: 12vw;
 }
 
-.elements-wrapper {
-  position: absolute;
-  top: 14vh;
-  left: -2vw;
-  /* background-color: rgba(241, 93, 8, 0.842); */
-}
+
 
 .img-BlueShape {
   height: 380px;
@@ -622,6 +617,10 @@ body {
     background-repeat: no-repeat;
     background-color: #2a2e38;
   }
+  .offer-content {
+    top: 50vh;
+    left: 1vh;
+}
 }
 
 @media (max-width: 450px) {
@@ -696,10 +695,13 @@ body {
   .offer-text {
     font-size: 7em;
   }
-
-  .offer-content {
-    top: 9vh;
+  .elements-wrapper {
+    position: absolute;
+    top: 8vh;
+    left: -25vw;
+    /* background-color: rgba(241, 93, 8, 0.842); */
   }
+  
 
   .container-jsTable {
     top: -32vh;
@@ -762,9 +764,9 @@ body {
   }
 
   .offer-content {
-    top: 10vh;
-    left: 12vh;
-  }
+    top: 50vh;
+    left: 1vh;
+}
 
   .container-jsTable {
     top: -25vh;
@@ -795,7 +797,10 @@ body {
     top: -22vh;
     left: .5vw;
   }
-
+  .elements-wrapper {
+    position: absolute;
+    top: 11vh;
+    left: -24vw;}
 
   .jpragm {
     position: relative;
