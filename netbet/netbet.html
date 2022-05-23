@@ -5,33 +5,1517 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="stylesheet" href="netbet.css">
-    <link rel="stylesheet" href="./animation.css">
-    <title>netbet</title>
+
+    <!-- <link rel="stylesheet" href="netbet.css">
+    <link rel="stylesheet" href="./animation.css"> -->
+    <title>Bătălia Streamerilor</title>
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+    html,
+    body {
+        padding: 0;
+        margin: 0;
+        line-height: 1;
+        font-size: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* anuleaza paddingul de la container-fluid */
+    .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logo_holder {
+        padding-left: 15px;
+    }
+
+    .left-box {
+        padding-left: 15px !important;
+    }
+
+    .right-box {
+        padding-right: 15px !important;
+    }
+
+    @media (max-width: 1199px) {
+        body {
+            font-size: 90%;
+        }
+    }
+
+    @media (max-width: 991px) {
+        body {
+            font-size: 85%;
+        }
+    }
+
+    @media (max-width: 767px) {
+        body {
+            font-size: 75%;
+        }
+    }
+
+    *,
+    *::after,
+    *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body,
+    table {
+        font-family: 'Play', sans-serif;
+    }
+
+
+
+
+    /****************************************************/
+    /************************Section below****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+    .below-fold {
+        height: 100vh;
+        width: 100%;
+        margin: 0 auto 1em auto;
+        position: relative;
+        color: #fff;
+        background-image: linear-gradient(to bottom, #6a718d, #6a718d, #666666, #545454, #223466);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+    }
+
+    .below-fold::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background-image: linear-gradient(to bottom, #1b233e, #25252e, #1e2738, #30343e, #343434);
+        z-index: -1;
+        opacity: 0.8;
+        filter: brightness(50%);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .section-container {
+        overflow: hidden;
+        margin: auto;
+        -webkit-box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+        box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+    }
+
+    /****************************************************/
+    /************************Section below****************************/
+    /****************************************************/
+    /****************************************************/
+
+    /****************************************************/
+    /****************************************************/
+    /*********************star powerBy*******************************/
+
+    .powerBy {
+        width: 220px;
+        max-width: 220px;
+        height: 300px;
+        max-height: 300px;
+        position: fixed;
+        top: 65%;
+        left: 0;
+        border-radius: 20px;
+        border-bottom-left-radius: 0;
+        outline: none;
+        overflow: hidden;
+
+    }
+
+    .powerBy-text {
+        font-size: 1.2em;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        line-height: 1.5;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: auto;
+    }
+
+    .powerBy-body {
+        background-color: white;
+        height: 100%;
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+    }
+
+
+    .pragmatic,
+    .skywind,
+    .pragmatic2 {
+
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .skywind {
+        padding: 21px 0;
+    }
+
+    .powerBy-body>div>img {
+        width: 65%;
+    }
+
+    .powerBy-body hr {
+        color: black;
+        width: 80%;
+        margin: auto;
+    }
+
+
+
+    /****************************************************/
+    /****************************************************/
+    /*********************end powerBy*******************************/
+
+
+
+
+
+    /****************************************************/
+    /****************************************************/
+    /*********************CARD ECHIPE*******************************/
+
+    .card-container {
+        max-width: 295px;
+        width: 295px;
+        height: 220px;
+        max-height: 220px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .card-container::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ece8ec;
+        z-index: -2;
+        opacity: 0.9;
+    }
+
+
+    .card-content {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        padding: 0.9em 1.5em 0em;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1em;
+    }
+
+    .card-header {
+        background-color: #173054;
+        text-align: center;
+        padding: 0.25em;
+    }
+
+    .card-header span {
+        color: white;
+        font-size: 1.7em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .card-stars {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .card-stars>div,
+    .card-info>div {
+        margin-bottom: 0.5em;
+
+    }
+
+    .card-info>div {
+        margin-bottom: 14px;
+    }
+
+    .card-info {
+        text-align: end;
+
+    }
+
+    .card-cta {
+        text-align: center;
+        place-content: center;
+        display: flex;
+    }
+
+    .cta-button {
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1rem;
+        width: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 1em;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+        transition: .9s ease;
+    }
+
+    .outer {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+    }
+
+    .inner-star {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+    }
+
+    .rating {
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        position: relative;
+        top: -5px;
+    }
+
+    /****************************************************/
+    /************************END CARD ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+    /****************************************************/
+    /************************btn scroll top****************************/
+    /****************************************************/
+    /****************************************************/
+
+    .btnScrollTop {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: crimson;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: ease .5s;
+        font-size: 1em;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btnScrollTop.active {
+        bottom: 20px;
+        pointer-events: auto;
+        opacity: 1;
+        z-index: 1231;
+
+    }
+
+    .back-to-top_button {
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 9px;
+        transform: rotate(-134deg);
+        -webkit-transform: rotate(-134deg);
+        margin-top: 13px;
+    }
+
+
+    /****************************************************/
+    /************************end ***btn scroll top****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+    /****************************************************/
+    /************************ABOVE FOLD HERO****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+    .stero,
+    .pacanele,
+    .third {
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+    .stero {
+        /* background-color: rgba(192, 12, 48, 0.452); */
+        top: 25vh;
+        left: -12vw;
+    }
+
+    .pacanele {
+        /* background-color: rgba(12, 111, 192, 0.452); */
+        top: 14vh;
+
+    }
+
+    .third {
+
+        /* background-color: rgba(192, 180, 12, 0.452); */
+        top: 34vh;
+        left: 12vw;
+    }
+
+
+
+    .img-BlueShape {
+        height: 380px;
+        position: relative;
+
+    }
+
+
+    .player-One {
+        left: 7vw;
+
+    }
+
+    .player-two,
+    .player-One,
+    .player-three {
+        transition: ease .5s;
+    }
+
+
+    .player-three {
+        left: -11vw;
+        top: -4vh;
+    }
+
+    .players {
+        position: relative;
+    }
+
+
+
+
+
+    .container-char {
+        /* display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  MAX-WIDTH: 1200px;
+  min-width: 300px; */
+        /* display: grid;
+  place-content: center;
+  grid-template-columns: max-content max-content max-content;
+  align-items: center;
+  position: relative; */
+        /* width: max-content; */
+    }
+
+    .container-char>img {
+        position: relative;
+        width: 100%;
+
+    }
+
+
+    .char-person3>img {
+        top: -1vh;
+        left: 2vw;
+
+    }
+
+    .char-person2>img {
+
+        z-index: 2;
+        top: 2vh;
+    }
+
+    .char-person1 {
+        top: -4vh;
+    }
+
+    .players {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-jsTable {
+        grid-area: jstable;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        z-index: 4;
+        top: -177px;
+    }
+
+    .jcontents {
+        position: relative;
+    }
+
+    .jplay {
+        position: relative;
+        top: -25vh;
+        left: -11.5vw;
+    }
+
+    .jsky {
+        position: relative;
+        left: 0vw;
+        top: -20vh;
+        z-index: 20;
+    }
+
+    .jpragm {
+        position: relative;
+        top: -20.6vh;
+        left: 15vw;
+    }
+
+
+    /****************************************************/
+    /************************ABOVE FOLD HERO****************************/
+    /****************************************************/
+    /****************************************************/
+
+    /*offer */
+    .offer-content {
+        position: absolute;
+        top: 45vh;
+        text-align: center;
+        font-family: "PLAY"sans-serif;
+        vertical-align: middle;
+        line-height: 0.75;
+        z-index: 22;
+    }
+
+    .offer-text {
+        width: 100%;
+        font-size: 8em;
+        display: block;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: rgb(233, 233, 233);
+        text-shadow: -2px 2px 9px #330a2f;
+    }
+
+    .offer-text>div:nth-child(1) {
+        font-size: 4rem;
+        /* text-shadow: 2px 2px rgba(151, 151, 151, 0.486); */
+    }
+
+    .offer-text>div:nth-child(2) {
+        font-size: 1.6em;
+    }
+
+
+
+    /****************************************************/
+    /************************ABOVE FOLD HERO****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+
+
+    /******************************/
+    /******************************/
+    /***********MEDIA QUERRYES*******************/
+    /******************************/
+    /******************************/
+
+
+
+
+    /* @media (orientation: landscape) {
+  .section-bg-one {
+    min-height: 550px;
+  }
+}
+
+
+
+@media (orientation: landscape) and (min-width: 992px){
+.section-one {
+    top: -8vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    transform: scale(0.85);
+}
+}
+
+
+
+@media (orientation: landscape) and (min-width: 1920px) and (max-width: 2560px){
+.section-one {
+  transform: scale(0.95);
+  top: 7vh;
+  }
+}
+
+
+@media (orientation: landscape) {
+  .section-one {
+    min-height: 550px;
+  }
+} */
+
+    .hero {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+
+
+
+
+    /****************************************************/
+    /************************start TABLE ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+    .below-fold {
+        text-align: center;
+        padding: 5em 15px;
+        margin: auto;
+    }
+
+    .row-table {
+        margin-left: -5px;
+        margin-right: -5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .column-table {
+        float: left;
+        width: 20%;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 21px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row-table::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .table_players {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+        height: 400px;
+        max-height: 400px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .table_players.scroll tbody {
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .table_players.scroll tbody,
+    .table_players.scroll thead {
+        display: block;
+    }
+
+    .table_players.scroll {
+
+        /* border-collapse: collapse; */
+        border-spacing: 0;
+
+    }
+
+    .table_players th,
+    td {
+        text-align: left;
+
+        padding: 15px 10px;
+    }
+
+    th {
+        position: sticky;
+        top: 0;
+    }
+
+    tbody::-webkit-scrollbar {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: red;
+    }
+
+    td:nth-child(1),
+    th:nth-child(1) {
+        width: 50px;
+    }
+
+    td:nth-child(2),
+    th:nth-child(2) {
+        width: 200px;
+    }
+
+    td:nth-child(3),
+    th:nth-child(3) {
+        width: 100px;
+    }
+
+    .counter-players {
+        border: 1px solid white;
+        text-align: center;
+        padding: 2px;
+        font-weight: bold;
+        font-size: 3em;
+        color: #0c2b4d;
+        background: white;
+    }
+
+    .below-fold h2 {
+        font-size: 3em;
+    }
+
+    .below-fold span {
+        font-size: 1.3em;
+        width: 90%;
+    }
+
+    .text-belowFold {
+
+        object-fit: fill;
+        margin-bottom: 58px;
+    }
+
+    .above-fold {
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
+    }
+
+    /****************************************************/
+    /************************start TABLE ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+
+    @media (orientation: landscape) and (min-width:992px) {
+        .above-fold {
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2a2e38;
+        }
+
+        /* .offer-content {
+    top: 50vh;
+    left: -12vh;
+} */
+    }
+
+
+
+    .grid-container {
+        /* display: grid;
+    grid-template-columns: repeat(5, minmax(350px, 1fr));
+    grid-template-rows: repeat(3, minmax(100px, 250px));
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". stero stero stero ."
+      ". char char char ."
+      ". jstable jstable jstable .";
+    justify-content: center;
+    align-items: center;
+    /* transform: scale(0.85); 
+    position: relative;
+    transform: scale(0.93);
+    margin: 2em auto 1em;
+    place-content: center;
+    align-items: center; */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+
+    }
+
+    @media (orientation: landscape) and (min-width: 768px) {
+        .grid-container-mobile {
+            display: none;
+        }
+    }
+
+    @media (orientation: landscape) and (min-width: 992px) {
+        .grid-container {
+            top: -1vh;
+            transform: scale(0.85);
+            -webkit-transform: scale(0.85);
+            -moz-transform: scale(0.85);
+        }
+
+        .grid-container-mobile {
+            display: none;
+        }
+
+    }
+
+    @media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
+
+        .grid-container {
+            top: -2vh;
+            transform: scale(0.7);
+            -webkit-transform: scale(0.7);
+        }
+
+        .offer-text {
+            font-size: 7em;
+        }
+
+        .elements-wrapper {
+            position: absolute;
+            top: 8vh;
+            left: -25vw;
+            /* background-color: rgba(241, 93, 8, 0.842); */
+        }
+
+
+
+
+        .container-jsTable {
+            top: -32vh;
+        }
+
+        .stero {
+            top: 36vh;
+            left: -17vw;
+        }
+
+        .pacanele {
+            top: 18vh;
+        }
+
+        .third {
+            top: 48vh;
+            left: 17.3vw;
+        }
+
+        .char-wrapper {
+            top: -11vh;
+        }
+
+        .player-three {
+            left: -11vw;
+        }
+
+        .player-One {
+            left: 7vw;
+        }
+
+        .jpragm {
+            position: relative;
+
+            left: 17.5vw;
+        }
+
+        .jplay {
+            position: relative;
+
+            left: -15.5vw;
+        }
+
+        .powerBy {
+            transform: scale(0.6);
+            left: -7vh;
+            top: 55%;
+        }
+    }
+
+    @media (orientation: landscape) and (min-height: 800px) and (max-height:919px) {
+        .powerBy {
+            transform: scale(0.7);
+            left: -4vh;
+            top: 50%;
+        }
+
+        .stero {
+            /* background-color: rgba(192, 12, 48, 0.452); */
+            top: 30vh;
+            left: -17.5vw;
+        }
+
+        .pacanele {
+            top: 16.7vh;
+        }
+
+        .third {
+            top: 40vh;
+            left: 19.5vw;
+        }
+
+        .offer-text {
+            font-size: 6.5em;
+        }
+
+        .offer-content {
+
+            top: 41vh;
+            /* left: 2vh; */
+            z-index: 1200021;
+
+        }
+
+        .container-jsTable {
+            top: -25vh;
+        }
+
+        .player-One {
+            left: 14vh;
+        }
+
+        .player-two {
+            left: 0vh;
+            z-index: 336556;
+        }
+
+        .player-three {
+            left: -20vh;
+
+        }
+
+        .jplay {
+            position: relative;
+            top: -31vh;
+            left: -16.5vw;
+        }
+
+
+        .jsky {
+            position: relative;
+            top: -22vh;
+            left: .5vw;
+        }
+
+        .elements-wrapper {
+            position: absolute;
+            top: 10vh;
+            left: -29vw;
+            transform: scale(0.93);
+        }
+
+
+        .jpragm {
+            position: relative;
+            top: -27vh;
+            left: 19.5vw;
+        }
+    }
+
+
+
+
+    @media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
+        .grid-container {
+            top: -2vh;
+            transform: scale(0.86);
+            -webkit-transform: scale(0.86);
+            -moz-transform: scale(0.86);
+        }
+
+        .elements-wrapper {
+            position: absolute;
+            top: 7vh;
+            left: -24vw;
+            transform: scale(1);
+        }
+
+        .stero {
+            top: 28vh;
+            left: -14vw;
+        }
+
+        .pacanele {
+            top: 15vh;
+
+        }
+
+        .third {
+            top: 40vh;
+            left: 14vw;
+        }
+
+        .offer-text {
+            font-size: 7em;
+        }
+
+        .offer-content {
+            top: 43vh;
+
+        }
+
+        .container-jsTable {
+            top: -24vh;
+        }
+
+        .above-fold {
+
+            background-position: 100% 100%;
+        }
+
+        .player-three {
+            left: -11vw;
+        }
+
+        .elements-wrapper {
+            position: absolute;
+            top: 15vh;
+            left: -20vw;
+            transform: scale(1.1);
+        }
+    }
+
+    @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
+        .grid-container {
+            top: -1vh;
+            transform: scale(1);
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+        }
+
+
+
+        .stero {
+            top: 21vh;
+            left: -13vw;
+        }
+
+        .pacanele {
+            top: 10vh;
+        }
+
+        .third {
+            top: 34vh;
+            left: 14vw;
+        }
+
+        .elements-wrapper {
+            position: absolute;
+            top: 14vh;
+            left: -24vw;
+        }
+
+
+    }
+
+
+
+
+
+    @media (max-width: 1400px) {
+        .below-fold {
+
+            max-width: 1000px;
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @media (max-width: 450px) {
+        .above-fold {
+            height: calc(100vh - 5px);
+        }
+    }
+
+    @media (max-width: 400px) {
+        .above-fold {
+            height: calc(100vh - 5px);
+        }
+    }
+
+    @media (max-width: 350px) {
+        .above-fold {
+            height: 100vh;
+        }
+    }
+
+
+
+    @media (max-width: 450px) {
+        .below-fold {
+            font-size: 0.7em;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .below-fold {
+            font-size: 0.4em;
+            /* max-width: 850px; */
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .below-fold {
+            font-size: 0.7em;
+
+        }
+    }
+
+
+    @media (orientation: portrait) and (max-width: 450px) and (max-aspect-ratio: 130 / 250) {
+        .offer {
+            right: -43vh;
+        }
+    }
+
+
+    /*Mobile */
+    @media (orientation: portrait) {
+        .above-fold {
+            overflow: hidden;
+            display: flex;
+            background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #2a2e38;
+        }
+
+        .below-fold {
+            height: auto;
+        }
+
+        .grid-container {
+            display: none;
+        }
+
+
+
+        .third {
+            top: 34vh;
+            left: 40vw;
+        }
+
+        .jpragm {
+            position: relative;
+            top: -20.6vh;
+            z-index: 100;
+            left: 45vw;
+        }
+
+
+        .char-person2 {
+            position: relative;
+        }
+
+
+        .stero {
+            top: 25vh;
+            left: -61vw;
+        }
+
+
+
+
+    }
+
+
+    @media (orientation: portrait) and (max-width:991px) {
+        .img-BlueShape {
+            height: 250px;
+            position: relative;
+        }
+
+        .offer-content-mobile {
+            position: absolute;
+            top: 4vh;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .offer-text-mobile img {
+            width: 280px;
+        }
+
+        .elements-wrapper {
+            position: absolute;
+        }
+
+        .elements-wrapper img {
+            width: 100%;
+            transform: scale(0.6);
+            left: 3vw;
+            position: relative;
+            top: 1vh;
+        }
+
+        .powerBy {
+            display: none;
+        }
+
+        .grid-container-mobile {
+            position: relative;
+        }
+
+        .container-mobile-players {
+            transform: scale(0.7);
+            -webkit-transform: scale(0.7);
+            -moz-transform: scale(0.7);
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+        }
+
+        .slide {
+            text-align: center;
+        }
+
+        .players {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .player-One-mobile {
+            position: relative;
+            left: 22vw;
+        }
+
+        .player-two-mobile {
+            transform: scale(1);
+            z-index: 12341;
+            top: 2vh;
+        }
+
+        .player-three-mobile {
+            left: -32vw;
+        }
+
+        .char-person3 img {
+            transform: scale(0.8);
+        }
+
+        .char-person2 {
+            top: 2vh;
+            left: 2vw;
+        }
+
+        .powerBy {
+            display: none;
+        }
+
+        .column-table {
+            width: 100%;
+            gap: 11px;
+        }
+
+        .row-table {
+            flex-direction: column;
+        }
+
+        .table_players {
+            height: 160px;
+        }
+
+        .card-container {
+            max-width: 250px;
+            width: 250px;
+            height: 180px;
+            max-height: 180px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        thead tr {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        tbody tr {
+            font-size: 0.8rem;
+        }
+
+        .table_players th,
+        td {
+            text-align: left;
+            padding: 8px 10px;
+        }
+
+        .cta-button {
+            font-size: 0.7rem;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .container-char>img {
+            width: 85%;
+            top: 10vh;
+        }
+
+        .stero,
+        .pacanele,
+        .third {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .jplay {
+            position: relative;
+            top: -11vh;
+            left: -32.5vw;
+            z-index: 123;
+        }
+
+
+        .pacanele {
+            top: 45vh;
+        }
+
+        .jsky {
+            position: relative;
+            left: 0vw;
+            top: -17vh;
+            z-index: 2000;
+        }
+
+        .pacanele img {
+            height: 250px;
+        }
+
+        .stero {
+            top: 29.5vh;
+            left: 13vw;
+        }
+
+        .stero img,
+        .third img {
+            height: 180px;
+        }
+
+        .third {
+            top: 40vh;
+            left: 15vw;
+        }
+
+
+
+
+        .container-mobile-shapes {
+            font-size: 44px;
+            width: 100%;
+            padding: 0.48em 0;
+            max-width: 1200px;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            /* background-color: #2a2e38; */
+            font-weight: bold;
+            text-align: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+
+
+        .container-mobile-shapes {
+            width: 100%;
+            height: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            gap: 50px;
+
+        }
+
+
+
+
+        .left-shape img,
+        .right-shape img {
+            width: 50px;
+        }
+
+        .right-shape img {
+            transform: rotate(-180deg);
+        }
+
+    }
+
+    @media (max-width: 450px) {
+        .container-mobile-shapes {}
+    }
+
+    @media (max-width: 1200px) {
+        .container-mobile-shapest {
+
+            max-width: 850px;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .container-mobile-shapes {
+
+            max-width: 1000px;
+        }
+    }
+
+    .c1 {
+	 transform: translateX(0px) scale(1);
+	 z-index: 99;
+}
+ .c2 {
+	 transform: translateX(0px) scale(1.1);
+}
+ .c3 {
+	 transform: translateX(0px) scale(1);
+}
+ .prev, .next {
+	 position: absolute;
+	 color: gray;
+	 border: 2px solid gray;
+	 width: 100px;
+	 height: 30px;
+	 line-height: 30px;
+	 text-align: center;
+	 cursor: pointer;
+	 top: 50%;
+}
+ .prev:hover, .next:hover {
+	 background: #57d0be;
+}
+ .prev {
+	 left: 20%;
+}
+ .next {
+	 right: 20%;
+}
+
+    @media (orientation: portrait) and (max-width: 450px) and (max-aspect-ratio: 130 / 250) {}
+</style>
 
 <body>
     <div class="container_full" style="position:relative;">
-
-
         <div class="section-container" style="position:relative">
             <div class="above-fold">
-                <div class="nav-bar">navbar</div>
                 <div class="hero">
                     <div class="grid-container">
                         <div class="elements-wrapper">
-                            <img src="./assets/elemente_desktop2.png" alt="s">
+                            <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente_desktop2-en.png"
+                                alt="s">
                         </div>
                         <div class="player-One players">
                             <div class="stero">
-                                <img src="./assets/steroText.png" alt="stero" class="img-BlueShape">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                                    alt="stero" class="img-BlueShape">
                             </div>
                             <div class="char-person1 container-char">
-                                <img src="./assets/stero-desktop.png" alt="s">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                                    alt="s">
                             </div>
                             <div class="jplay">
                                 <div class="card-container">
@@ -48,17 +1532,17 @@
                                             <div class="card-stars product_1">
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -76,10 +1560,12 @@
                         <div class="player-two players">
 
                             <div class="pacanele">
-                                <img src="./assets/PacaneleText.png" alt="pacanele" class="img-BlueShape">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                                    alt="pacanele" class="img-BlueShape">
                             </div>
                             <div class="char-person2 container-char">
-                                <img src="./assets/Gagica-desktop.png" alt="s">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                                    alt="s">
                             </div>
                             <div class="jsky">
                                 <div class="card-container">
@@ -96,17 +1582,17 @@
                                             <div class="card-stars product_2">
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -124,10 +1610,12 @@
 
                         <div class="player-three players">
                             <div class="third">
-                                <img src="./assets/ThirdText.png" alt="ThirdText" class="img-BlueShape">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                                    alt="ThirdText" class="img-BlueShape">
                             </div>
                             <div class="char-person3 container-char">
-                                <img src="./assets/third_player-desktop2.png" alt="s">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                                    alt="s">
                             </div>
                             <div class="jpragm">
                                 <div class="card-container">
@@ -144,17 +1632,17 @@
                                             <div class="card-stars product_3">
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                                 <div class="rating">
                                                     <div class="outer">
-                                                        <div class="inner"></div>
+                                                        <div class="inner-star"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,177 +1658,197 @@
                         </div>
                         <div class="offer-content">
                             <div class="offer-text">
-                                <img src="./assets/Title.png" alt="title">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                                    alt="title">
                             </div>
                         </div>
 
                     </div>
                     <div class="grid-container-mobile">
-
-                        <div class="container-mobile-players  ">
-                          
-                           
-                   
-                                    <div class="slide slide-1">
-                                        <div class="player-One-mobile players item ">
-                                            <div class="stero ">
-                                                <img src="./assets/steroText.png" alt="stero" class="img-BlueShape">
-                                            </div>
-                                            <div class="char-person1 container-char">
-                                                <img src="./assets/stero-desktop.png" alt="s">
-                                            </div>
-                                            <div class="jplay">
-                                                <div class="card-container">
-                                                    <div class="card-header">
-                                                        <span>echipa skywind</span>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="card-content">
-                                                            <div class="card-info">
-                                                                <div>membri:</div>
-                                                                <div>căstiguri:</div>
-                                                                <div>activitate:</div>
-                                                            </div>
-                                                            <div class="card-stars product_1">
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-cta">
-                                                            <div class="cta-button desktop">
-                                                                intră in echipă
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide slide-2">
-                                        <div class="player-two-mobile players item">
-
-                                            <div class="pacanele">
-                                                <img src="./assets/PacaneleText.png" alt="pacanele"
-                                                    class="img-BlueShape">
-                                            </div>
-                                            <div class="char-person2 container-char">
-                                                <img src="./assets/Gagica-desktop.png" alt="s">
-                                            </div>
-                                            <div class="jsky">
-                                                <div class="card-container">
-                                                    <div class="card-header">
-                                                        <span>echipa play'n'go</span>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="card-content">
-                                                            <div class="card-info">
-                                                                <div>membri:</div>
-                                                                <div>câștiguri:</div>
-                                                                <div>activitate:</div>
-                                                            </div>
-                                                            <div class="card-stars product_2">
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-cta">
-                                                            <div class="cta-button desktop">
-                                                                intră in echipă
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="slide slide-3">
-                                        <div class="player-three-mobile players item">
-                                            <div class="third">
-                                                <img src="./assets/ThirdText.png" alt="ThirdText" class="img-BlueShape">
-                                            </div>
-                                            <div class="char-person3 container-char">
-                                                <img src="./assets/third_player-desktop.png" alt="s">
-                                            </div>
-                                            <div class="jpragm">
-                                                <div class="card-container">
-                                                    <div class="card-header">
-                                                        <span>echipa pragmatic</span>
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <div class="card-content">
-                                                            <div class="card-info">
-                                                                <div>membri:</div>
-                                                                <div>castiguri:</div>
-                                                                <div>activitate:</div>
-                                                            </div>
-                                                            <div class="card-stars product_3">
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="rating">
-                                                                    <div class="outer">
-                                                                        <div class="inner"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-cta">
-                                                            <div class="cta-button desktop">
-                                                                intră in echipă
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                             
-                              
-                            
+                        <div class="elements-wrapper">
+                            <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente-en.png"
+                                alt="s">
                         </div>
-                        <!-- <div class="offer-content-mobile">
-                            <div class="offer-text-mobile">
-                           <img src="./assets/Title.png" alt="title" class="mobile" >
+                        <div class="container-mobile-players">
+                            <div class="slide slide-1 c1">
+                                <div class="player-One-mobile players item">
+
+                                    <div class="char-person1 container-char">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                                            alt="s">
+                                    </div>
+                                    <div class="stero ">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                                            alt="stero" class="img-BlueShape">
+                                    </div>
+                                    <div class="jplay">
+                                        <div class="card-container">
+                                            <div class="card-header">
+                                                <span>echipa skywind</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-content">
+                                                    <div class="card-info">
+                                                        <div>membri:</div>
+                                                        <div>căstiguri:</div>
+                                                        <div>activitate:</div>
+                                                    </div>
+                                                    <div class="card-stars product_1">
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-cta">
+                                                    <div class="cta-button desktop">
+                                                        intră in echipă
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div> -->
+                            <div class="slide slide-2 c2" >
+                                <div class="player-two-mobile players item">
 
+
+                                    <div class="char-person2 container-char">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                                            alt="s">
+                                    </div>
+                                    <div class="pacanele">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                                            alt="pacanele" class="img-BlueShape">
+                                    </div>
+                                    <div class="jsky">
+                                        <div class="card-container">
+                                            <div class="card-header">
+                                                <span>echipa play'n'go</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-content">
+                                                    <div class="card-info">
+                                                        <div>membri:</div>
+                                                        <div>câștiguri:</div>
+                                                        <div>activitate:</div>
+                                                    </div>
+                                                    <div class="card-stars product_2">
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-cta">
+                                                    <div class="cta-button desktop">
+                                                        intră in echipă
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="slide slide-3 c3">
+                                <div class="player-three-mobile players item">
+
+                                    <div class="char-person3 container-char">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                                            alt="s">
+                                    </div>
+                                    <div class="third">
+                                        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                                            alt="ThirdText" class="img-BlueShape">
+                                    </div>
+                                    <div class="jpragm">
+                                        <div class="card-container">
+                                            <div class="card-header">
+                                                <span>echipa pragmatic</span>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="card-content">
+                                                    <div class="card-info">
+                                                        <div>membri:</div>
+                                                        <div>castiguri:</div>
+                                                        <div>activitate:</div>
+                                                    </div>
+                                                    <div class="card-stars product_3">
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="rating">
+                                                            <div class="outer">
+                                                                <div class="inner-star"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-cta">
+                                                    <div class="cta-button desktop">
+                                                        intră in echipă
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="prev">Previous</div>
+                            <div class="next">Next</div> -->
+
+                        </div>
+                        <div class="container-mobile-shapes">
+                            <div class="left-shape prev">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                                    alt="nav">
+                            </div>
+                            <div class="center-shape">2</div>
+                            <div class="right-shape next">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                                    alt="nav">
+                            </div>
+
+                        </div>
+                        <div class="offer-content-mobile">
+                            <div class="offer-text-mobile">
+                                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                                    alt="title" class="mobile">
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
             <div class="below-fold">
@@ -681,42 +2189,81 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
-
         </div>
     </div>
-
     <div class="powerBy">
         <div class="powerBy-text">powered by</div>
         <div class="powerBy-body">
             <div class="pragmatic">
-                <img src="./assets/png/logo-pragmatic.png" alt="tesst">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+                    alt="tesst">
             </div>
             <hr>
             <div class="skywind">
-                <img src="./assets/png/logo-skywind.png" alt="tesst">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-skywind-en.png"
+                    alt="tesst">
             </div>
             <hr>
             <div class="pragmatic2">
-                <img src="./assets/png/logo-pragmatic.png" alt="tesst">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+                    alt="tesst">
             </div>
         </div>
     </div>
-    <button id="btnToScroll" class="btnScrollTop">
-        <a href="#" class="back-to-top_button"></a>
-    </button>
-
-    <script defer>
-        const btnToScroll = document.querySelector(".btnScrollTop");
-        window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 200) {
-                btnToScroll.classList.add("active");
-            } else {
-                btnToScroll.classList.remove("active");
-            }
-        })
+    <script>
+//----------JQuery-----------------//
+$(function(){
+  flag=0;
+  console.log(flag, "flag -0")
+  $('.next').click(function(){
+    if(flag == 0){
+        console.log(flag, "flag 0")
+      $('.c1').css({'transform':'translateX(330px) scale(1)','z-index':'9'});
+      $('.c2').css({'transform':'translateX(-150px) scale(1)','z-index':'9'});
+      $('.c3').css({'transform':'translateX(-101px) scale(1.2)','z-index':'99'});
+      flag = 1;
+    } else if(flag == 1){
+        console.log(flag, "flag 1")
+      $('.c3').css({'transform':'translateX(-340px) scale(1)','z-index':'9'});
+      $('.c1').css({'transform':'translateX(126px) scale(1.2)','z-index':'9'});
+      $('.c2').css({'transform':'translateX(200px) scale(1)','z-index':'99'});
+      flag = 2;
+    }else if(flag == 2){
+        console.log(flag, "flag 2" )
+      $('.c2').css({'transform':'translateX(0px) scale(1.2)','z-index':'9'});
+      $('.c3').css({'transform':'translateX(0px) scale(1)','z-index':'9'});
+      $('.c1').css({'transform':'translateX(0px) scale(1)','z-index':'99'});
+      flag = 0;
+    }
+  });
+//   $('.prev').click(function(){
+//     if(flag == 0){
+//       $('.c3').css({'transform':'translateX(-100px) scale(1)','z-index':'9'});
+//       $('.c1').css({'transform':'translateX(100px) scale(1)','z-index':'9'});
+//       $('.c2').css({'transform':'translateX(0) scale(1.5)','z-index':'99'});
+//       flag = 1;
+//     } else if(flag == 1){
+//       $('.c1').css({'transform':'translateX(-100px) scale(1)','z-index':'9'});
+//       $('.c2').css({'transform':'translateX(100px) scale(1)','z-index':'9'});
+//       $('.c3').css({'transform':'translateX(0) scale(1.5)','z-index':'99'});
+//       flag = 2;
+//     }else if(flag == 2){
+//       $('.c2').css({'transform':'translateX(-100px) scale(1)','z-index':'9'});
+//       $('.c3').css({'transform':'translateX(100px) scale(1)','z-index':'9'});
+//       $('.c1').css({'transform':'translateX(-25px) scale(1)','z-index':'99'});
+//       flag = 0;
+//     }
+//   });
+});
+        // const btnToScroll = document.querySelector(".btnScrollTop");
+        // window.addEventListener("scroll", () => {
+        //     if (window.pageYOffset > 200) {
+        //         btnToScroll.classList.add("active");
+        //     } else {
+        //         btnToScroll.classList.remove("active");
+        //     }
+        // })
 
         const ratings = {
             product_1: 2,
@@ -725,29 +2272,17 @@
         }
         for (const rating in ratings) {
             let ratePercentage = (ratings[rating] / 5) * 100;
-            const inner = document.querySelector(`.${rating} .inner`)
+            const inner = document.querySelector(`.${rating} .inner-star`)
             inner.style.width = `${ratePercentage}%`
         }
-       
-    
-        // // Change the selector if needed
-        // var $table = $('table.scroll'),
-        //     $bodyCells = $table.find('tbody tr:first').children(),
-        //     colWidth;
+        
 
-        // // Adjust the width of thead cells when window resizes
-        // $(window).resize(function () {
-        //     // Get the tbody columns width array
-        //     colWidth = $bodyCells.map(function () {
-        //         return $(this).width();
-        //     }).get();
-
-        //     // Set the width of thead columns
-        //     $table.find('thead tr').children().each(function (i, v) {
-        //         $(v).width(colWidth[i]);
-        //     });
-        // }).resize(); // Trigger resize handler
     </script>
+
+
+
+
+
 </body>
 
 </html>

@@ -375,7 +375,7 @@ table {
 
   /* background-color: rgba(192, 180, 12, 0.452); */
   top: 34vh;
-  left: 12vw;
+  left: 10vw;
 }
 
 
@@ -389,7 +389,10 @@ table {
 
 .player-One {
   left: 7vw;
-
+}
+.player-two{
+  display: grid;
+  place-items: center;
 }
 .player-two,.player-One,.player-three{
   transition: ease .5s;
@@ -398,14 +401,11 @@ table {
   transform: scale(1.054);
   cursor: pointer;
 }
-.player-One:hover{
 
- 
-}
 
 
 .player-three {
-  left: -11vw;
+  left: -6vw;
   top: -4vh;
 }
 
@@ -461,12 +461,12 @@ table {
   /* transform: translateX(-7.5vw) translateY(-1.5vh); */
 }
 
-.players {
+/* .players {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .container-jsTable {
   grid-area: jstable;
@@ -498,7 +498,7 @@ table {
 .jpragm {
   position: relative;
   top: -20.6vh;
-  left: 15vw;
+  left: 12vw;
 }
 
 
@@ -877,9 +877,7 @@ th:nth-child(3) {
     top: -11vh;
   }
 
-  .player-three {
-    left: -15vw;
-  }
+
 
   .player-One {
     left: 7vw;
@@ -929,18 +927,16 @@ th:nth-child(3) {
   }
 
   .player-One {
-    left: 24vh;
+    left: 17vh;
   }
 
   .player-two {
     left: 0vh;
     z-index: 336556;
+  
   }
 
-  .player-three {
-    left: -24vh;
-
-  }
+  
 
   .jplay {
     position: relative;
@@ -1051,10 +1047,7 @@ th:nth-child(3) {
     top: 10vh;
   }
 
-  .third {
-    top: 34vh;
-    left: 14vw;
-  }
+  
 
   .elements-wrapper {
     position: absolute;
@@ -1068,14 +1061,6 @@ th:nth-child(3) {
 
 
 
-
-@media (max-width: 1400px) {
-  .below-fold {
-
-    max-width: 1000px;
-  }
-
-}
 
 
 
@@ -1119,6 +1104,7 @@ th:nth-child(3) {
     font-size: 37px;
     max-width: 1000px;
   }
+  
 }
 
 @media (max-width: 1200px) {
@@ -1139,19 +1125,30 @@ th:nth-child(3) {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .below-fold {
     font-size: 0.4em;
     /* max-width: 850px; */
   }
+  .column-table{
+    width: 30%;
+  }
+  
 }
 
 @media (max-width: 1400px) {
   .below-fold {
     font-size: 0.7em;
-    max-width: 1000px;
+   
   }
 }
+@media (min-width:992px) {
+  .column-table{
+    width: 30%;
+  }
+}
+
+
 
 
 @media (orientation: portrait) and (max-width: 450px) and (max-aspect-ratio: 130 / 250) {
