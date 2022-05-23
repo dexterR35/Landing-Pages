@@ -236,7 +236,7 @@ table {
   cursor: pointer;
   opacity: 0;
   pointer-events: none;
-  transition: all .5s;
+  transition: ease .5s;
   font-size: 1em;
   text-decoration: none;
   display: flex;
@@ -389,6 +389,18 @@ table {
 
 .player-One {
   left: 7vw;
+
+}
+.player-two,.player-One,.player-three{
+  transition: ease .5s;
+}
+.player-two:hover,.player-One:hover,.player-three:hover{
+  transform: scale(1.054);
+  cursor: pointer;
+}
+.player-One:hover{
+
+ 
 }
 
 
@@ -430,6 +442,7 @@ table {
 
 .char-person3>img {
   top: -1vh;
+  left: 2vw;
   /* transform: translateX(10vw) translateY(-1vh) scale(1.1); */
 }
 
@@ -601,9 +614,6 @@ table {
 }
 
 
-.container-char {
-  margin: 0 auto;
-}
 
 
 
@@ -924,6 +934,7 @@ th:nth-child(3) {
 
   .player-two {
     left: 0vh;
+    z-index: 336556;
   }
 
   .player-three {
@@ -1168,32 +1179,68 @@ th:nth-child(3) {
   .grid-container {
     display: none;
   }
+  
+
+/* 3 person */
+  .third {
+    /* background-color: rgba(192, 180, 12, 0.452); */
+    top: 34vh;
+    left: 40vw;
+}
+.jpragm {
+  position: relative;
+  top: -20.6vh;
+  left: 45vw;
+}
+/* 3 person */
+
+/* 2 person */
+.char-person2{
+  left: 12vw;
+  position: relative;
+}
+/* 2 person */
+
+/* 1 person */
+
+.stero {
+  /* background-color: rgba(192, 12, 48, 0.452); */
+  top: 25vh;
+  left: -61vw;
+}
+.jplay {
+  position: relative;
+  top: -25vh;
+  left: -62.5vw;
+}
+/* 1 person */
 
 }
 
 
 @media (orientation: portrait) and (max-width:991px) {
 
- 
+  .img-BlueShape {
+    height: 320px;
+    position: relative;
+}
   .container-mobile-players {
     display: flex;
     transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
     position: relative;
     top: vh;
     left: 0vw;
   }
-
   .player-One-mobile {
     position: relative;
-    left: 50vw;
-
+    left: 51vw;
   }
 
   .player-three-mobile {
     position: relative;
-    left: -55vw;
-    top: -8vh;
-
+    left: -38vw;
   }
 
   .powerBy {
