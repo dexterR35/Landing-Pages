@@ -132,17 +132,17 @@
                         </tr>
                     `
                             )
-                                    
-                    }).join("");
- // true
-                    console.log(objectData, "objectData")
-                    table_body.innerHTML = tableData;
+                            
+                    }) .split(/\s+/)  ;
 
+              
+                    table_body.innerHTML = tableData;
+               
                 })
                 .catch(error => {
                     console.error('There has been a problem with your fetch operation:', error);
                 });
-
+               
         }
 
 
