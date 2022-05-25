@@ -170,7 +170,9 @@ height: 200px;
     padding: 0 !important;
 
   }
-
+  .ui-widget-overlay{
+    background: black !important;
+  }
   .ui-dialog-titlebar {
     padding: 0.5em 1em;
     border-bottom-left-radius: unset;
@@ -2169,8 +2171,6 @@ height: 200px;
                 </div>
             
 
-              <!-- <div class="prev">Previous</div>
-                            <div class="next">Next</div> -->
 
             </div>
             <div class="container-mobile-shapes">
@@ -2290,9 +2290,9 @@ height: 200px;
     </div>
   </div>
 
-  <!-- <div id="dialog" style="display: none" align="center">
+  <div id="dialog" style="display: none" align="center">
     Confirmare Echipa
-  </div> -->
+  </div>
 
   <script defer>
     // $('.rev_slider').on('init', function (event, slick) {
@@ -2559,6 +2559,7 @@ height: 200px;
 
     document.addEventListener('DOMContentLoaded', () => {
       getDataJson();
+     
     })
 
     //  var usernameToCheck = "NicolaeJan";
@@ -2586,7 +2587,7 @@ height: 200px;
           let tableData = '';
           objectData.map((values, index, itemsToRenderInTable) => {
             let result = values.hasOwnProperty('stream');
-          }).join("");
+          });
 
           // true
 
@@ -2600,7 +2601,7 @@ height: 200px;
           let team2scores = 0;
           let team3scores = 0;
 
-          for (var i = 0; i < objectData.length; i += 1) {
+          for (var i = 0; i < objectData.length; i++) {
             if (objectData[i].stream == 1) {
               team1scores += parseInt(objectData[i].points, 10);
               if (objectData[i].username == usernameToCheck) {
@@ -2670,11 +2671,12 @@ height: 200px;
 
       checkUserAsync(usernameToCheck)
         .then((data) => {
-          console.log(data)
+          console.log(data, "data")
           if (data.status == 0) {
             joinTeam1.innerHTML =
               '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
               '&optin=1&stream=1">intra in echipa 1</a>';
+             
             joinTeam2.innerHTML =
               '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
               '&optin=1&stream=2">intra in echipa 2</a>';
@@ -2707,7 +2709,7 @@ height: 200px;
               '&optin=0&stream=3">iesi din echipa 3</a>';
             joinTeam3.className = "cta-button";
           }
-        });
+        })  ;
     } else {
       joinTeam1.innerHTML = joinTeam2.innerHTML = joinTeam3.innerHTML =
         '<a href="#de pus aici linkul de conectare / inregistrare">Conectează-te</a>';

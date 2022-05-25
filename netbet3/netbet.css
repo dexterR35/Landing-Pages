@@ -1,13 +1,7 @@
 
   @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
-  #dialog {
-
-    width: 200px;
-    height: 200px;
-
-
-  }
+ 
 
   html,
   body {
@@ -62,7 +56,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+  #dialog {
 
+    width: 200px;
+    height: 200px;
+
+
+  }
   html {
     scroll-behavior: smooth;
   }
