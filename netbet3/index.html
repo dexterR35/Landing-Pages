@@ -8,286 +8,429 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
 		integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
 		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+	
 	<link rel="stylesheet" href="./netbet.css">
 	<title>Document</title>
 	<style>
-		 .rev_slider{
-background-color: purple;
-  }
-  .slick-slider {
-    margin-left: -12%;
-    margin-right: -12%;
-  }
+		/* ttl */
 
-  .slick-list {
-    padding-top: 10% !important;
-    padding-bottom: 10% !important;
-    padding-left: 15% !important;
-    padding-right: 15% !important;
-  }
+	/* ttl */
 
-  .slick-dots {
-    list-style-type: none;
-    margin: 25px 0 0;
-    padding: 0;
-    z-index: 241241;
-    width: 100px;
-    height: 100px;
-  }
-
-  .slick-dots li {
-    width: 100px;
-    height: 100px;
-    display: inline-flex;
-    padding: 0 5px;
-  }
-
-  .slick-dots li button {
-    width: 100px;
-    height: 100px;
-    padding: 10px;
-    font-size: 12px;
-    color: #666;
-    border: none;
-    background: #8b0b0b;
-  }
-
-  .slick-dots li button:before {
-    content: none;
-  }
-
-  .slick-dots li.slick-active button {
-    background: #ccc;
-  }
-.slick-snext,.slick-sprev{
-  background-color: red;
+.ttl {
+	font-size: 24px;
+	color: #525458;
+	text-transform: uppercase;
+	margin: 10px 0;
 }
 
-  /* .slick-dots {
-			text-align: center;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		} */
+/* news */
 
-  .slick-track {
-    width: 100%;
-    max-width: 100% !important;
-    transform: translate3d(0, 0, 0) !important;
-    perspective: 100px;
-  }
+.news {
+	max-width: 640px;
+	margin: 20px auto;
+	overflow: hidden;
+	outline: 2px solid red;
+}
 
-  .slick-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    opacity: 0;
-    width: 50% !important;
-    transform: translate3d(0, 0, 0); 
-    transition: transform 1s, opacity 1s; 
-  }
+.news__content {
+	overflow: hidden;
+}
 
-  .slick-snext,
-  .slick-sprev {
-    display: block;
-  }
+.news__arrows {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
-  .slick-current {
-    opacity: 1;
-    position: relative;
-    display: block;
-    transform: translate3d(0, 0, 20px);
-    z-index: 2;
-  }
+.news__arrow {
+	width: 14px;
+	height: 17px;
+	cursor: pointer;
+	filter: saturate(0%);
+}
 
-  .slick-snext {
-    opacity: 1;
-    transform: translate3d(20%, 0, 0px);
-    z-index: 1;
-  }
+.news__arrow:hover {
+	filter: saturate(100%);
+}
 
-  .slick-sprev {
-    opacity: 1;
-    transform: translate3d(-20%, 0, 0px);
-  }
+.news__arrow_dir_left {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/arrows__left.png)
+		no-repeat;
+}
 
+.news__arrow_dir_right {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/arrows__right.png)
+		no-repeat;
+}
 
-  /* .test {
-			display: block;
-			width: 30%;
-			height: 300px;
-			background: purple;
-			box-shadow: inset 0px 0px 0px 3px #000
-		} */
-  .rev_slider {
+.news__arrow_dir_up {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/arrows__left.png)
+		no-repeat;
+	transform: rotate(90deg);
+}
 
-    text-align: center;
-  }
+.news__arrow_dir_down {
+	background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/arrows__left.png)
+		no-repeat;
+	transform: rotate(-90deg);
+}
+
+.news__dots {
+	position: relative;
+}
+
+.news__dots-list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.news__dots-list li {
+	padding: 2px;
+	font-weight: bold;
+	font-family: arial;
+	font-size: 16px;
+	cursor: pointer;
+	color: rgb(143, 143, 143);
+	transition: 0.3s all;
+	width: 18px;
+	position: relative;
+	z-index: 0;
+	text-align: center;
+}
+
+.news__dots-list li:after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 2px;
+	right: 2px;
+	top: calc(50% - 2px);
+	height: 4px;
+	background-color: grey;
+	opacity: 0;
+	transition: 0.3s all;
+}
+
+.news__dots-list li:hover {
+}
+
+.news__dots-list li.slick-active {
+	color: rgb(11, 165, 218);
+	font-size: 0;
+}
+
+.news__dots-list li.slick-active:after {
+	opacity: 1;
+}
+
+.news__slider {
+	margin: 0 -10px !important;
+	overflow-x: hidden;
+}
+
+.news__slide {
+	box-sizing: border-box;
+}
+
+.news__panel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	width: calc(100% - 50px - 20px);
+	margin: 0 auto;
+}
+
+.news__arrows_2 {
+	display: block;
+	width: calc(100% - 50px - 20px);
+	position: relative;
+	z-index: 20;
+	margin: 0 auto;
+}
+
+.news__arrows_2 .news__arrow_dir_left {
+	position: absolute;
+	left: 0;
+	top: 70px;
+	filter: drop-shadow(0 0 10px orange) drop-shadow(0 0 20px orange);
+}
+
+.news__arrows_2 .news__arrow_dir_right {
+	position: absolute;
+	right: 0;
+	top: 70px;
+	filter: drop-shadow(0 0 10px orange) drop-shadow(0 0 20px orange);
+}
+
+/* article */
+
+.article {
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 20px);
+	margin: 0 auto;
+}
+
+.article__img-container {
+	height: 640px;
+	position: relative;
+	overflow: hidden;
+}
+
+.article__img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(../images/news__img_2.jpg) no-repeat center center;
+	background-size: cover;
+	transition: 0.3s all;
+}
+
+.article:hover .article__img {
+	transform: scale(1.05);
+}
+
+.article__title {
+	color: #8c570a;
+	font-weight: 700;
+	font-size: 22px;
+	padding: 20px 0;
+}
+
+.article__content {
+	color: #85878d;
+	font-size: 16px;
+	line-height: 20px;
+	height: 95px;
+	overflow: hidden;
+}
+
+.article__info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 15px;
+}
+
+.article__date {
+	color: #737373;
+	font-family: "Candara";
+	font-size: 15px;
+}
+
 	</style>
-	
+
 </head>
 
 <body>
+	<div class="news">
+		<div class="news__arrows_2">
+			<div class="news__arrow news__arrow_dir_left" onclick="slideGo('-')"></div>
+			<div class="news__arrow news__arrow_dir_right" onclick="slideGo('+')"></div>
+		</div>
+		<div class="news__content">
+			<div class="news__slider">
+				<div class="news__slide">
+					<div class="news__container article">
+						<div class="article__img-container">
+							<div class="article__img" >
+								<div class="player-two-mobile players item rev_slides">
 
-		<div class="rev_slider">
-			<div class="rev_slide">
-				<div class="slide slide-2 c2">
-					<div class="player-two-mobile players item">
 
-
-						<div class="char-person2 container-char">
-							<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
-								alt="girl-picture" class="pacanele_img">
-						</div>
-						<div class="pacanele">
-							<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
-								alt="pacanele" class="img-BlueShape">
-						</div>
-						<div class="jsky">
-							<div class="card-container">
-								<div class="card-header">
-									<span>echipa play'n'go</span>
-								</div>
-								<div class="card-body">
-									<div class="card-content">
-										<div class="card-info">
-											<div>membri:</div>
-											<div>câștiguri:</div>
-											<div>activitate:</div>
-										</div>
-										<div class="card-stars product_2">
-											<div class="rating">
-												<div class="outer">
-													<div class="inner-star"></div>
-												</div>
+									<div class="char-person2 container-char">
+										<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+											alt="girl-picture" class="pacanele_img">
+									</div>
+									<div class="pacanele">
+										<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+											alt="pacanele" class="img-BlueShape">
+									</div>
+									<div class="jsky">
+										<div class="card-container">
+											<div class="card-header">
+												<span>echipa play'n'go</span>
 											</div>
-											<div class="rating">
-												<div class="outer">
-													<div class="inner-star"></div>
+											<div class="card-body">
+												<div class="card-content">
+													<div class="card-info">
+														<div>membri:</div>
+														<div>câștiguri:</div>
+														<div>activitate:</div>
+													</div>
+													<div class="card-stars product_2">
+														<div class="rating">
+															<div class="outer">
+																<div class="inner-star"></div>
+															</div>
+														</div>
+														<div class="rating">
+															<div class="outer">
+																<div class="inner-star"></div>
+															</div>
+														</div>
+														<div class="rating">
+															<div class="outer">
+																<div class="inner-star"></div>
+															</div>
+														</div>
+													</div>
 												</div>
-											</div>
-											<div class="rating">
-												<div class="outer">
-													<div class="inner-star"></div>
+												<div class="card-cta">
+													<div class="cta-button desktop btnShowPplayers">
+														intră in echipă
+													</div>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="card-cta">
-										<div class="cta-button desktop btnShowPplayers">
-											intră in echipă
+					
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END  article  -->
+				</div>
+				<!-- END  news__slide  -->
+				<div class="news__slide">
+					<div class="news__container article">
+						<div class="article__img-container">
+							<div class="article__img" style="background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/news__img_2.jpg) no-repeat center center; background-size: cover;">
+							</div>
+						</div>
+					</div>
+					<!-- END  article  -->
+				</div>
+				<div class="news__slide">
+					<div class="news__container article">
+						<div class="article__img-container">
+							<div class="article__img" style="background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/2015738/news__img_1.jpg) no-repeat center center; background-size: cover;">
+							</div>
+						</div>
+					</div>
+					<!-- END  article  -->
+				</div>
+			
+				<!-- END  news__slide  -->
+			</div>
+			<!-- END  news__slider  -->
+		</div>
+		<div class="news__panel">
+			<div class="news__arrows"><div class="news__dots"></div></div>
+			<a href="#" class="news__link">Посетить галерею</a>
+		</div>
+		
+	</div>
+	<!-- END  news  -->
+	<!-- END  news  -->
+	<!-- <div class="rev_slider">
+
+		<div class="rev_slide">
+			<div class="player-two-mobile players item rev_slides">
+
+
+				<div class="char-person2 container-char">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+						alt="girl-picture" class="pacanele_img">
+				</div>
+				<div class="pacanele">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+						alt="pacanele" class="img-BlueShape">
+				</div>
+				<div class="jsky">
+					<div class="card-container">
+						<div class="card-header">
+							<span>echipa play'n'go</span>
+						</div>
+						<div class="card-body">
+							<div class="card-content">
+								<div class="card-info">
+									<div>membri:</div>
+									<div>câștiguri:</div>
+									<div>activitate:</div>
+								</div>
+								<div class="card-stars product_2">
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
+									</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
+									</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
 										</div>
 									</div>
 								</div>
 							</div>
+							<div class="card-cta">
+								<div class="cta-button desktop btnShowPplayers">
+									intră in echipă
+								</div>
+							</div>
 						</div>
-
 					</div>
 				</div>
-			</div>
-			<div class="rev_slide">
-				<div class="player-One-mobile players item">
 
-					<div class="char-person1 container-char">
-						<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
-							alt="s">
-					</div>
-					<div class="stero ">
-						<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
-							alt="stero" class="img-BlueShape">
-					</div>
-					<div class="jplay">
-						<div class="card-container">
-							<div class="card-header">
-								<span>echipa skywind</span>
-							</div>
-							<div class="card-body">
-								<div class="card-content">
-									<div class="card-info">
-										<div>membri:</div>
-										<div>căstiguri:</div>
-										<div>activitate:</div>
-									</div>
-									<div class="card-stars product_1">
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
-										</div>
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
-										</div>
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="card-cta">
-									<div class="cta-button desktop btnShowPplayers" id="btnShow1">
-										intră in echipă
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+			</div>
+		</div>
+
+		<div class="rev_slide">
+			<div class="player-One-mobile players item rev_slides">
+
+				<div class="char-person1 container-char">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+						alt="s">
 				</div>
-			</div>
-			<div class="rev_slide">
-				<div class="player-three-mobile players item">
-
-					<div class="char-person3 container-char">
-						<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
-							alt="boy-third" class="casinoBoy">
-					</div>
-					<div class="third">
-						<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
-							alt="ThirdText" class="img-BlueShape">
-					</div>
-					<div class="jpragm">
-						<div class="card-container">
-							<div class="card-header">
-								<span>echipa pragmatic</span>
-							</div>
-							<div class="card-body">
-								<div class="card-content">
-									<div class="card-info">
-										<div>membri:</div>
-										<div>castiguri:</div>
-										<div>activitate:</div>
+				<div class="stero ">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+						alt="stero" class="img-BlueShape">
+				</div>
+				<div class="jplay">
+					<div class="card-container">
+						<div class="card-header">
+							<span>echipa skywind</span>
+						</div>
+						<div class="card-body">
+							<div class="card-content">
+								<div class="card-info">
+									<div>membri:</div>
+									<div>căstiguri:</div>
+									<div>activitate:</div>
+								</div>
+								<div class="card-stars product_1">
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
 									</div>
-									<div class="card-stars product_3">
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
 										</div>
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
-										</div>
-										<div class="rating">
-											<div class="outer">
-												<div class="inner-star"></div>
-											</div>
+									</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
 										</div>
 									</div>
 								</div>
-								<div class="card-cta">
-									<div class="cta-button desktop btnShowPplayers">
-										intră in echipă
-									</div>
+							</div>
+							<div class="card-cta">
+								<div class="cta-button desktop btnShowPplayers" id="btnShow1">
+									intră in echipă
 								</div>
 							</div>
 						</div>
@@ -295,80 +438,160 @@ background-color: purple;
 				</div>
 			</div>
 		</div>
+		<div class="rev_slide">
+			<div class="player-three-mobile players item rev_slides">
+
+				<div class="char-person3 container-char">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+						alt="boy-third" class="casinoBoy">
+				</div>
+				<div class="third">
+					<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+						alt="ThirdText" class="img-BlueShape">
+				</div>
+				<div class="jpragm">
+					<div class="card-container">
+						<div class="card-header">
+							<span>echipa pragmatic</span>
+						</div>
+						<div class="card-body">
+							<div class="card-content">
+								<div class="card-info">
+									<div>membri:</div>
+									<div>castiguri:</div>
+									<div>activitate:</div>
+								</div>
+								<div class="card-stars product_3">
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
+									</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
+									</div>
+									<div class="rating">
+										<div class="outer">
+											<div class="inner-star"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-cta">
+								<div class="cta-button desktop btnShowPplayers">
+									intră in echipă
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
 
 	<script type="text/javascript">
-	
+		// $('.rev_slider').on('init', function (event, slick) {
+		// 	let dots = $('.slick-dots li');
+		// 	console.log('m iordache');
+		// 	dots.each(function (k, v) {
+		// 		$(this).find('.container').addClass('heading' + k);
 
-		$('.rev_slider').on('init', function (event, slick) {
-			let dots = $('.slick-dots li');
-			console.log('m iordache');
-			dots.each(function (k, v) {
-				$(this).find('.container').addClass('heading' + k);
-			
-			
+
+		// 	});
+		// 	console.log(dots,'button');
+		// 	let items = slick.$slides;
+		// 	items.each(function (k, v) {
+		// 		let text = $(this).find('h2').text();
+		// 		$('.heading' + k).text(text);
+		// 	});
+		// });
+		// let rev = $('.rev_slider');
+		// rev.on('init', function (event, slick, currentSlide) {
+		// 	let
+		// 		current = $(slick.$slides[slick.currentSlide]),
+		// 		next = current.next(),
+		// 		prev = current.prev();
+		// 	prev.addClass('slick-sprev');
+		// 	next.addClass('slick-snext');
+		// 	current.removeClass('slick-snext').removeClass('slick-sprev');
+		// 	slick.$prev = prev;
+		// 	slick.$next = next;
+		// }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+		// 	//console.log('beforeChange');
+		// 	let
+		// 		current = $(slick.$slides[nextSlide]);
+		// 	//console.log(slick.$prev, slick.$next);
+		// 	slick.$prev.removeClass('slick-sprev');
+		// 	slick.$next.removeClass('slick-snext');
+		// 	next = current.next(),
+		// 		prev = current.prev();
+		// 	prev.prev();
+		// 	prev.next();
+		// 	prev.addClass('slick-sprev');
+		// 	next.addClass('slick-snext');
+		// 	slick.$prev = prev;
+		// 	slick.$next = next;
+		// 	current.removeClass('slick-next').removeClass('slick-sprev');
+		// });
+
+		// rev.slick({
+		// 	centerMode: true,
+		// 	speed: 1000,
+		// 	arrows: true,
+		// 	dots: true,
+		// 	autoplay: true,
+		// 	autoplaySpeed: 5500,
+
+		// 	focusOnSelect: true,
+
+		// 	infinite: true,
+		// 	slidesPerRow: 1,
+		// 	slidesToShow: 1,
+		// 	slidesToScroll: 1,
+		// 	centerPadding: '',
+		// 	swipe: true,
+
+		// 	customPaging: function (slider, i) {
+		// 		return '';
+		// 	},
+
+		// });
+		$(function () {
+			let slider = $('.news__slider');
+			slider.slick({
+				infinite: true,
+				speed: 600,
+				slidesToShow: 1,
+				centerMode: true,
+				centerPadding: '150px',
+				autoplay: true,
+				autoplaySpeed: 5000,
+				fade: false,
+				arrows: true,
+				appendArrows: $('.news__arrows'),
+				prevArrow: '<div class="news__arrow news__arrow_dir_left"></div>',
+				nextArrow: '<div class="news__arrow news__arrow_dir_right"></div>',
+				dots: true,
+				appendDots: $('.news__dots'),
+				customPaging: function (slider, i) {
+					var thumb = $(slider.$slides[i]).data();
+
+					return '0' + (i + 1);
+				},
+				dotsClass: 'news__dots-list',
 			});
-			console.log(dots,'button');
-			let items = slick.$slides;
-			items.each(function (k, v) {
-				let text = $(this).find('h2').text();
-				$('.heading' + k).text(text);
-			});
-		});
-		let rev = $('.rev_slider');
-		rev.on('init', function (event, slick, currentSlide) {
-			let
-				current = $(slick.$slides[slick.currentSlide]),
-				next = current.next(),
-				prev = current.prev();
-			prev.addClass('slick-sprev');
-			next.addClass('slick-snext');
-			current.removeClass('slick-snext').removeClass('slick-sprev');
-			slick.$prev = prev;
-			slick.$next = next;
-		}).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-			//console.log('beforeChange');
-			let
-				current = $(slick.$slides[nextSlide]);
-			//console.log(slick.$prev, slick.$next);
-			slick.$prev.removeClass('slick-sprev');
-			slick.$next.removeClass('slick-snext');
-			next = current.next(),
-				prev = current.prev();
-			prev.prev();
-			prev.next();
-			prev.addClass('slick-sprev');
-			next.addClass('slick-snext');
-			slick.$prev = prev;
-			slick.$next = next;
-			current.removeClass('slick-next').removeClass('slick-sprev');
-		});
-	
-		rev.slick({
-			centerMode: true,
-			speed: 1000,
-			arrows: true,
-			dots: true,
-			autoplay: true,
-			autoplaySpeed: 500,
-	
-			focusOnSelect: true,
-			prevArrow: `<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
-                  alt="nav">`,
-			nextArrow:      `<img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
-                  alt="nav">`,
-			infinite: true,
-			slidesPerRow: 1,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			centerPadding: '',
-			swipe: true,
-
-			customPaging: function (slider, i) {
-				return '';
-			},
-			
 		});
 
+		function slideGo(dir) {
+			let slider = $('.news__slider');
+			if (dir === "+") {
+				slider.slick('slickNext');
+			} else if (dir === "-") {
+				slider.slick('slickPrev');
+			}
+		}
 	</script>
 
 </body>
