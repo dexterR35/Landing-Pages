@@ -8,16 +8,27 @@
     <link rel="stylesheet" href="/netbet3/carousel.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <title>Document</title>
-    <style>
-        @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
-    </style>
+
 </head>
 
 <body>
+    <div class="grid-container-mobile">
+        <div class="elements-wrapper">
+            <img
+        
+            src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente-en.png"
+            alt="s">
+          </div>
+          <div class="offer-text-mobile">
+            <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+              alt="title" class="mobile">
+          </div>
     <div class="container-carousel">
+        
         <input type="radio" name="slider" id="item-1" class="input-radio" value="1">
         <input type="radio" name="slider" id="item-2" class="input-radio" value="2" checked>
         <input type="radio" name="slider" id="item-3" class="input-radio" value="3" >
+ 
         <div class="cards">
             <label class="card-person" for="item-1" id="person-1">
                 <div class="player-One-mobile players item">
@@ -173,37 +184,23 @@
 
     </div>
     <div class="player-circles">
-        <div class="upper-part">
-
-            <div class="info-area" id="test">
-                <label class="song-info" id="song-info-1">
-                    <div class="title">Pacanele</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Sexy</div>
-                        <div class="time">join</div>
-                    </div>
-                </label>
-                <label class="song-info" id="song-info-2">
-                    <div class="title">Words Remain</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Moderator</div>
-                        <div class="time">4.05</div>
-                    </div>
-                </label>
-                <label class="song-info" id="song-info-3">
-                    <div class="title">Falling Out</div>
-                    <div class="sub-line">
-                        <div class="subtitle">Otzeki</div>
-                        <div class="time">4.05</div>
-                    </div>
-                </label>
+        <div class="container-mobile-shapes">
+            <div class="left-shape prev slick-sprev shapes-arrow">
+              <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                alt="nav">
             </div>
-        </div>
+            <div class="center-shape"></div>
+            <div class="right-shape next slick-next shapes-arrow">
+              <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                alt="nav">
+            </div>
+
+          </div>
         <div class="progress-bar">
             <span class="progress"></span>
         </div>
     </div>
-
+</div>
     <script>
         // var countChecked = function() {
         //   var n = $( "input:checked" ).length;
@@ -212,9 +209,19 @@
         // countChecked();
 
         $(document).ready(function () {
+            document.querySelector("#check").addEventListener("click", check)
             $('input').on('change', function () {
                 $('body').toggleClass('red');
             });
+//             function check() {
+//   var selected = document.querySelector('.container-carousel input[type="radio"]:checked')
+//   if(selected) {
+//     console.log(selected);
+//   } else {
+//     console.log('no selection');
+//   }
+// }
+
 
 
 
