@@ -236,7 +236,7 @@
             <div class="offer-content">
               <div class="offer-text">
                 <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
-                  alt="title" class="offer-img">
+                  alt="title" class="offer-img" >
               </div>
             </div>
 
@@ -251,11 +251,9 @@
                 alt="title" class="mobile">
         </div>
         <div class="container-carousel">
-
-            <input type="radio" name="slider" id="item-1" class="input-radio">
-            <input type="radio" name="slider" id="item-2" class="input-radio" checked>
-            <input type="radio" name="slider" id="item-3" class="input-radio">
-
+            <input type="radio" name="next[]" id="item-1" class="input-radio" value="1">
+            <input type="radio" name="next[]" id="item-2" class="input-radio" value="2"checked>
+            <input type="radio" name="next[]" id="item-3" class="input-radio" value="3">
             <div class="cards">
                 <label class="card-person" for="item-1" id="person-1">
                     <div class="player-One-mobile players item">
@@ -412,12 +410,14 @@
         </div>
         <div class="player-circles">
             <div class="container-mobile-shapes">
-                <div class="left-shape prev slick-sprev shapes-arrow">
+              <!-- <button type="button" onclick="dayNavigation('prev');" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">Previous</button>
+              <button type="button" onclick="dayNavigation('next');" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">Next</button> -->
+                <div class="left-shape prev slick-sprev shapes-arrow" onclick="dayNavigation('prev');" data-role="none" class="slick-prev"  tabindex="0" role="button">
                     <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
                         alt="nav">
                 </div>
                 <div class="center-shape"></div>
-                <div class="right-shape next slick-next shapes-arrow" id="item-1">
+                <div class="right-shape next slick-next shapes-arrow" id="item-1" onclick="dayNavigation('next');" data-role="none" class="slick-next"  tabindex="0" role="button">
                     <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
                         alt="nav">
                 </div>
@@ -530,13 +530,58 @@
     Confirmare Echipa
   </div>
 
-  <script defer>
+  <script>
+     $(document).ready(function() {
+    $("input[name$='next[]']").click(function() {
+      var test = $(this).val();
+
+      $("div.desc").hide();
+      $("#next" + test).show();
+    });
+
+
+  });
+
+  //this is in the bla bla next and previous -->
+  var index = 0;
+  dayNavigation = function(direction) {
+    var curr = $('input[name="next[]"]:checked');
+  
+    if (direction == 'next') {
+      console.log(curr.next().val())
+        curr.next().attr("checked", "checked");
+        curr.next().click();
+    } else {
+       curr.prev().attr("checked", "checked");
+        curr.prev().click();
+    }
+
+
+
+  };
    
   // $('.left-shape').click(function(test) {
   //   console.log(test)
   //   $("input[name=slider]:checked").nextAll(':radio:first').prop('checked', true);
   // });
-
+//   dayNavigation = function (direction) {
+   
+//     var assetsT = $('.container-carousel input:radio');
+//     console.log(assetsT)
+//     var current = $('.container-carousel input:radio:checked');
+//     console.log(current)
+//     var index;
+//     console.log(index)
+//     if (direction == 'prev') {
+//         index = assetsT.index(current) - 1;       
+//     } else {
+//         index = assetsT.index(current) + 1;        
+//     }
+    
+//     if(index >= assetsT.size()) index = 0;
+//     assetsT.eq(index).click();
+//     return false;
+// };
 
     function ratingsData() {
       const ratings = {

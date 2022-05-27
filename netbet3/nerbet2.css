@@ -1501,7 +1501,7 @@ th:nth-child(3) {
 
 
 .player-circles {
-
+z-index: 2123123;
     border-radius: 8px;
     min-width: 320px;
     padding: 1px 10px;
