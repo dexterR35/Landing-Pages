@@ -1,142 +1,125 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
 
-  html,
-  body {
+
+html,
+body {
     padding: 0;
     margin: 0;
     line-height: 1;
     font-size: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
+}
 
-  /* anuleaza paddingul de la container-fluid */
-  .container-fluid {
+/* anuleaza paddingul de la container-fluid */
+.container-fluid {
     padding-left: 0;
     padding-right: 0;
-  }
+}
 
-  .logo_holder {
+.logo_holder {
     padding-left: 15px;
-  }
+}
 
-  .left-box {
+.left-box {
     padding-left: 15px !important;
-  }
+}
 
-  .right-box {
+.right-box {
     padding-right: 15px !important;
-  }
+}
 
-  @media (max-width: 1199px) {
-    body {
-      font-size: 90%;
-    }
-  }
 
-  @media (max-width: 991px) {
-    body {
-      font-size: 85%;
-    }
-  }
 
-  @media (max-width: 767px) {
-    body {
-      font-size: 75%;
-    }
-  }
-
-  *,
-  *::after,
-  *::before {
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  #dialog {
+#dialog {
 
     width: 200px;
     height: 200px;
 
 
-  }
+}
 
-  html {
+html {
     scroll-behavior: smooth;
-  }
+}
 
-  body,
-  table,
-  button,
-  .ui-widget {
+body,
+table,
+button,
+.ui-widget {
     font-family: 'Play', sans-serif !important;
-  }
+}
 
 
-  /*MODAL POPUP*/
-  .ui-dialog .ui-dialog-buttonpane {
+/*MODAL POPUP*/
+.ui-dialog .ui-dialog-buttonpane {
     margin-top: 0 !important
-  }
+}
 
-  .ui-widget-header {
+.ui-widget-header {
     background: #173054 !important;
-  }
+}
 
-  .ui-widget-content {
+.ui-widget-content {
     background: none !important;
 
-  }
+}
 
-  /* .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+/* .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
     background-color: #ece8ec !important;
   } */
 
-  .ui-widget.ui-widget-content,
-  .ui-widget-header,
-  .ui-widget-content {
+.ui-widget.ui-widget-content,
+.ui-widget-header,
+.ui-widget-content {
     border: none !important;
-  }
+}
 
-  .ui-dialog {
+.ui-dialog {
     padding: 0 !important;
 
-  }
+}
 
-  .ui-widget-overlay {
+.ui-widget-overlay {
     background: black !important;
-  }
+}
 
-  .ui-dialog-titlebar {
+.ui-dialog-titlebar {
     padding: 0.5em 1em;
     border-bottom-left-radius: unset;
     border-bottom-right-radius: unset;
-  }
+}
 
-  .ui-widget-header {
+.ui-widget-header {
     border-top-left-radius: 10px !important;
     border-bottom-left-radius: unset !important;
     border-bottom-right-radius: unset !important;
     border-top-right-radius: 10px !important;
 
-  }
+}
 
 
-  #dialog {
+#dialog {
     position: relative;
     top: 1.5vh;
-  }
+}
 
-  .ui-dialog {
+.ui-dialog {
     border-top-left-radius: 40px !important;
     border-top-right-radius: 40px !important;
 
-  }
+}
 
-  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable::before {
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable::before {
     position: absolute;
     content: "";
     top: 0;
@@ -150,102 +133,25 @@
     border-top-right-radius: 12px !important;
     border-bottom-left-radius: 10px !important;
     border-bottom-right-radius: 10px !important;
-  }
+}
 
 
-  .ui-dialog-buttonpane {
+.ui-dialog-buttonpane {
     display: flex;
     justify-content: center;
-  }
-  *,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-
-/* 
-
-.carousel {
-  position: relative;
-  width: 100vw;
-  height: 82vh; 
-  margin: 0 auto;
-
-}
-
-.carousel-content {
-  position: relative;
-  overflow: hidden;
-  transition: width .4s;
-  height: 100%;
-}
-
-.slide {
-  height: 100%;
-  background-color: black;
-  position: absolute;
-  z-index: 1;
-  transition: left .4s cubic-bezier(.47,.13,.15,.89);
-}
-
-.slide-2 {
-  background-color: green;
-}
-
-.slide-3 {
-  background-color: red;
-}
-
-.slide-4 {
-  background-color: purple;
 }
 
 
 
-.nav {
-  position: absolute;
-  top: 50%;
-  margin-top: -10px;
-  background-color: rgba(150,150,150,.3);
-  width: 20px;
-  height: 20px;
-  z-index: 2;
-  cursor: pointer;
-  border-radius: 50%;
-  border: none;
-  outline: none;
-  color: white;
-  -webkit-user-select: none;
-}
+/*END MODAL POPup*/
 
-.nav-left {
-  left: -25px;
-}
-
-.nav-right {
-  right: -25px;
-}
-
-.carousel-arrow-icon-left {
-  margin-left: 5px;
-  margin-top: 2px;
-}
-
-.carousel-arrow-icon-right {
-  margin-left: 7px;
-  margin-top: 2px;
-} */
-
-  /*END MODAL POPup*/
-
-  /****************************************************/
-  /************************Section below****************************/
-  /****************************************************/
-  /****************************************************/
+/****************************************************/
+/************************Section below****************************/
+/****************************************************/
+/****************************************************/
 
 
-  .below-fold {
+.below-fold {
     height: 100vh;
     width: 100%;
     margin: 0 auto 1em auto;
@@ -254,9 +160,9 @@
     background-image: linear-gradient(to bottom, #6a718d, #6a718d, #666666, #545454, #223466);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
-  }
+}
 
-  .below-fold::before {
+.below-fold::before {
     content: '';
     position: absolute;
     top: 0;
@@ -270,223 +176,236 @@
     filter: brightness(50%);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-  }
+}
 
-  .section-container {
+.section-container {
     overflow: hidden;
     margin: auto;
     -webkit-box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
     box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
-  }
+}
 
-  /****************************************************/
-  /************************Section below****************************/
-  /****************************************************/
-  /****************************************************/
+/****************************************************/
+/************************Section below****************************/
+/****************************************************/
+/****************************************************/
 
-  /****************************************************/
-  /****************************************************/
-  /*********************star powerBy*******************************/
+/****************************************************/
+/****************************************************/
+/*********************star powerBy*******************************/
+@media (min-width:761px) {
+    .grid-container-mobile {
+        display: none;
+    }
 
-  .powerBy {
-    width: 220px;
-    max-width: 220px;
-    height: 300px;
-    max-height: 300px;
-    position: fixed;
-    top: 65%;
-    left: 0;
-    border-radius: 20px;
-    border-bottom-left-radius: 0;
-    outline: none;
-    overflow: hidden;
+    .powerBy {
+        width: 220px;
+        max-width: 220px;
+        height: 300px;
+        max-height: 300px;
+        position: fixed;
+        top: 65%;
+        left: 0;
+        border-radius: 20px;
+        border-bottom-left-radius: 0;
+        outline: none;
+        overflow: hidden;
 
-  }
+    }
 
-  .powerBy-text {
-    font-size: 1.2em;
-    color: white;
-    text-align: center;
-    padding: 5px 0;
-    line-height: 1.5;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin: auto;
-  }
+    .powerBy-text {
+        font-size: 1.2em;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        line-height: 1.5;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: auto;
+    }
 
-  .powerBy-body {
-    background-color: white;
-    height: 100%;
-    display: block;
-    margin: auto;
-    border-radius: 20px;
-    border-top-left-radius: 0;
-  }
-
-
-  .pragmatic,
-  .skywind,
-  .pragmatic2 {
-
-    text-align: center;
-    padding: 10px 0;
-  }
-
-  .skywind {
-    padding: 21px 0;
-  }
-
-  .powerBy-body>div>img {
-    width: 65%;
-  }
-
-  .powerBy-body hr {
-    color: black;
-    width: 80%;
-    margin: auto;
-  }
+    .powerBy-body {
+        background-color: white;
+        height: 100%;
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+    }
 
 
+    .pragmatic,
+    .skywind,
+    .pragmatic2 {
+        text-align: center;
+        padding: 10px 0;
+    }
 
-  /****************************************************/
-  /****************************************************/
-  /*********************end powerBy*******************************/
+    .skywind {
+        padding: 21px 0;
+    }
 
+    .powerBy-body>div>img {
+        width: 65%;
+    }
 
+    .powerBy-body hr {
+        color: black;
+        width: 80%;
+        margin: auto;
+    }
 
+}
 
+@media(min-width:991px) and (orientated:landscape) {
 
-  /****************************************************/
-  /****************************************************/
-  /*********************CARD ECHIPE*******************************/
+    /****************************************************/
+    /****************************************************/
+    /*********************CARD ECHIPE*******************************/
+    .grid-container-mobile {
+        display: none;
+    }
 
-  .card-container {
-    max-width: 295px;
-    width: 295px;
-    height: 220px;
-    max-height: 220px;
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-  }
+    .card-container {
+        max-width: 295px;
+        width: 295px;
+        height: 220px;
+        max-height: 220px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
 
-  .card-container::before {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ece8ec;
-    z-index: -2;
-    opacity: 0.9;
-  }
-
-
-  .card-content {
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    padding: 0.9em 1.5em 0em;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1em;
-  }
-
-  .card-header {
-    background-color: #173054;
-    text-align: center;
-    padding: 0.25em;
-  }
-
-  .card-header span {
-    color: white;
-    font-size: 1.7em;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-  .card-stars {
-    width: 100%;
-    margin-left: 10px;
-  }
-
-  .card-stars>div,
-  .card-info>div {
-    margin-bottom: 0.5em;
-
-  }
-
-  .card-info>div {
-    margin-bottom: 14px;
-  }
-
-  .card-info {
-    text-align: end;
-
-  }
-
-  .card-cta {
-    text-align: center;
-    place-content: center;
-    display: flex;
-  }
-
-  .cta-button {
-    background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1rem;
-    width: 210px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    padding: 1em;
-    white-space: nowrap;
-    color: white;
-    cursor: pointer;
-  }
-
-  .cta-button:hover {
-    background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
-    transition: .9s ease;
-  }
-
-  .outer {
-    background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
-    height: 25px;
-    width: 125px;
-    background-size: 25px;
-  }
-
-  .inner-star {
-    background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
-    height: 25px;
-    width: 125px;
-    background-size: 25px;
-  }
-
-  .rating {
-
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    position: relative;
-    top: -5px;
-  }
-
-  /****************************************************/
-  /************************END CARD ECHIPE****************************/
-  /****************************************************/
-  /****************************************************/
+    .card-container::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ece8ec;
+        z-index: -2;
+        opacity: 0.9;
+    }
 
 
-  /****************************************************/
-  /************************btn scroll top****************************/
-  /****************************************************/
-  /****************************************************/
+    .card-content {
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        padding: 0.9em 1.5em 0em;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1em;
+    }
 
+    .card-header {
+        background-color: #173054;
+        text-align: center;
+        padding: 0.25em;
+    }
+
+    .card-header span {
+        color: white;
+        font-size: 1.7em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .card-stars {
+        width: 100%;
+        margin-left: 10px;
+    }
+
+    .card-stars>div,
+    .card-info>div {
+        margin-bottom: 0.5em;
+
+    }
+
+    .card-info>div {
+        margin-bottom: 14px;
+    }
+
+    .card-info {
+        text-align: end;
+
+    }
+
+    .card-cta {
+        text-align: center;
+        place-content: center;
+        display: flex;
+    }
+
+    .cta-button {
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1rem;
+        width: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 1em;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+        transition: .9s ease;
+    }
+
+    .outer {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+    }
+
+    .inner-star {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+    }
+
+    .rating {
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        position: relative;
+        top: -5px;
+    }
+
+    /****************************************************/
+    /************************END CARD ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+}
+
+
+/****************************************************/
+/****************************************************/
+/*********************end powerBy*******************************/
+
+
+
+
+
+
+
+/****************************************************/
+/************************btn scroll top****************************/
+/****************************************************/
+/****************************************************/
+/* 
   .btnScrollTop {
     position: fixed;
     right: 30px;
@@ -507,9 +426,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+  } */
 
-  .btnScrollTop.active {
+/* .btnScrollTop.active {
     bottom: 20px;
     pointer-events: auto;
     opacity: 1;
@@ -525,219 +444,81 @@
     transform: rotate(-134deg);
     -webkit-transform: rotate(-134deg);
     margin-top: 13px;
-  }
-
-
-  /****************************************************/
-  /************************end ***btn scroll top****************************/
-  /****************************************************/
-  /****************************************************/
-
-
-  /****************************************************/
-  /************************ABOVE FOLD HERO****************************/
-  /****************************************************/
-  /****************************************************/
-
-
-  .stero,
-  .pacanele,
-  .third {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-
-
-  .stero {
-    /* background-color: rgba(192, 12, 48, 0.452); */
-    top: 25vh;
-    left: -12vw;
-  }
-
-  .pacanele {
-    /* background-color: rgba(12, 111, 192, 0.452); */
-    top: 14vh;
-
-  }
-
-  .third {
-
-    /* background-color: rgba(192, 180, 12, 0.452); */
-    top: 34vh;
-    left: 12vw;
-  }
-
-
-
-  .img-BlueShape {
-    height: 380px;
-    position: relative;
-
-  }
-
-
-  .player-One {
-    left: 7vw;
-
-  }
-
-  .player-two,
-  .player-One,
-  .player-three {
-    transition: ease .5s;
-  }
-
-
-  .player-three {
-    left: -11vw;
-    top: -4vh;
-  }
-
-  .players {
-    position: relative;
-  }
-
-
-
-
-
-  /* .container-char {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  MAX-WIDTH: 1200px;
-  min-width: 300px; 
-    display: grid;
-  place-content: center;
-  grid-template-columns: max-content max-content max-content;
-  align-items: center;
-  position: relative; 
-     width: max-content;
   } */
 
-  .container-char>img {
-    position: relative;
-    width: 100%;
 
-  }
-
-
-  .char-person3>img {
-    top: -1vh;
-    left: 2vw;
-
-  }
-
-  .char-person2>img {
-
-    z-index: 2;
-    top: 2vh;
-  }
-
-  .char-person1 {
-    top: 0vh;
-    position: relative;
-  }
-
-  .players {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .container-jsTable {
-    grid-area: jstable;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 4;
-    top: -177px;
-  }
-
-  .jcontents {
-    position: relative;
-  }
-
-  .jplay {
-    position: relative;
-    top: -25vh;
-    left: -11.5vw;
-  }
-
-  .jsky {
-    position: relative;
-    left: 0vw;
-    top: -20vh;
-    z-index: 20;
-  }
-
-  .jpragm {
-    position: relative;
-    top: -20.6vh;
-    left: 15vw;
-  }
+/****************************************************/
+/************************end ***btn scroll top****************************/
+/****************************************************/
+/****************************************************/
 
 
-  /****************************************************/
-  /************************ABOVE FOLD HERO****************************/
-  /****************************************************/
-  /****************************************************/
-
-  /*offer */
-  .offer-content {
-    position: absolute;
-    top: 45vh;
-    text-align: center;
-    font-family: "PLAY"sans-serif;
-    vertical-align: middle;
-    line-height: 0.75;
-    z-index: 22;
-  }
-
-  .offer-text {
-    width: 100%;
-    font-size: 8em;
-    display: block;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: rgb(233, 233, 233);
-    text-shadow: -2px 2px 9px #330a2f;
-  }
-
-  .offer-text>div:nth-child(1) {
-    font-size: 4rem;
-    /* text-shadow: 2px 2px rgba(151, 151, 151, 0.486); */
-  }
-
-  .offer-text>div:nth-child(2) {
-    font-size: 1.6em;
-  }
-
-
-
-  /****************************************************/
-  /************************ABOVE FOLD HERO****************************/
-  /****************************************************/
-  /****************************************************/
+/****************************************************/
+/************************ABOVE FOLD HERO****************************/
+/****************************************************/
+/****************************************************/
 
 
 
 
-  /******************************/
-  /******************************/
-  /***********MEDIA QUERRYES*******************/
-  /******************************/
-  /******************************/
 
 
 
 
-  /* @media (orientation: landscape) {
+
+
+
+.player-two,
+.player-One,
+.player-three {
+    transition: ease .5s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/****************************************************/
+/************************ABOVE FOLD HERO****************************/
+/****************************************************/
+/****************************************************/
+
+
+
+
+
+
+
+/****************************************************/
+/************************ABOVE FOLD HERO****************************/
+/****************************************************/
+/****************************************************/
+
+
+
+
+/******************************/
+/******************************/
+/***********MEDIA QUERRYES*******************/
+/******************************/
+/******************************/
+
+
+
+
+/* @media (orientation: landscape) {
   .section-bg-one {
     min-height: 550px;
   }
@@ -771,39 +552,39 @@
   }
 } */
 
-  .hero {
+.hero {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+
     align-items: center;
     position: relative;
     width: 100%;
-  }
+}
 
 
 
 
 
-  /****************************************************/
-  /************************start TABLE ECHIPE****************************/
-  /****************************************************/
-  /****************************************************/
-  .below-fold {
+/****************************************************/
+/************************start TABLE ECHIPE****************************/
+/****************************************************/
+/****************************************************/
+.below-fold {
     text-align: center;
     padding: 5em 15px;
     margin: auto;
-  }
+}
 
-  .row-table {
+.row-table {
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
+}
 
-  .column-table {
+.column-table {
     float: left;
     width: 20%;
     padding: 5px;
@@ -811,16 +592,16 @@
     justify-content: center;
     flex-direction: column;
     gap: 21px;
-  }
+}
 
-  /* Clearfix (clear floats) */
-  .row-table::after {
+/* Clearfix (clear floats) */
+.row-table::after {
     content: "";
     clear: both;
     display: table;
-  }
+}
 
-  .table_players {
+.table_players {
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
@@ -832,62 +613,62 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .table_players.scroll tbody {
+.table_players.scroll tbody {
     height: 400px;
     overflow-y: auto;
     overflow-x: hidden;
-  }
+}
 
-  .table_players.scroll tbody,
-  .table_players.scroll thead {
+.table_players.scroll tbody,
+.table_players.scroll thead {
     display: block;
-  }
+}
 
-  .table_players.scroll {
+.table_players.scroll {
 
     /* border-collapse: collapse; */
     border-spacing: 0;
 
-  }
+}
 
-  .table_players th,
-  td {
+.table_players th,
+td {
     text-align: left;
 
     padding: 15px 10px;
-  }
+}
 
-  th {
+th {
     position: sticky;
     top: 0;
-  }
+}
 
-  tbody::-webkit-scrollbar {
+tbody::-webkit-scrollbar {
     display: none;
-  }
+}
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: red;
-  }
+}
 
-  td:nth-child(1),
-  th:nth-child(1) {
+td:nth-child(1),
+th:nth-child(1) {
     width: 50px;
-  }
+}
 
-  td:nth-child(2),
-  th:nth-child(2) {
+td:nth-child(2),
+th:nth-child(2) {
     width: 200px;
-  }
+}
 
-  td:nth-child(3),
-  th:nth-child(3) {
+td:nth-child(3),
+th:nth-child(3) {
     width: 100px;
-  }
+}
 
-  .counter-players {
+.counter-players {
     border: 1px solid white;
     text-align: center;
     padding: 2px;
@@ -895,24 +676,24 @@
     font-size: 3em;
     color: #0c2b4d;
     background: white;
-  }
+}
 
-  .below-fold h2 {
+.below-fold h2 {
     font-size: 3em;
-  }
+}
 
-  .below-fold span {
+.below-fold span {
     font-size: 1.3em;
     width: 90%;
-  }
+}
 
-  .text-belowFold {
+.text-belowFold {
 
     object-fit: fill;
     margin-bottom: 58px;
-  }
+}
 
-  .above-fold {
+.above-fold {
     overflow: hidden;
     height: 100vh;
     display: flex;
@@ -921,36 +702,36 @@
     background-position: center;
     background-repeat: no-repeat;
     background-color: #2a2e38;
-  }
+}
 
-  /****************************************************/
-  /************************start TABLE ECHIPE****************************/
-  /****************************************************/
-  /****************************************************/
+/****************************************************/
+/************************start TABLE ECHIPE****************************/
+/****************************************************/
+/****************************************************/
 
 
 
-  @media (orientation: landscape) and (min-width:992px) {
+@media (orientation: landscape) and (min-width:992px) {
     .above-fold {
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #2a2e38;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
     }
 
     /* .offer-content {
     top: 50vh;
     left: -12vh;
 } */
-  }
+}
 
 
 
-  .grid-container {
+.grid-container {
     /* display: grid;
     grid-template-columns: repeat(5, minmax(350px, 1fr));
     grid-template-rows: repeat(3, minmax(100px, 250px));
@@ -975,579 +756,325 @@
     height: 100vh;
     position: relative;
 
-  }
+}
 
-  /* tablet media querry*/
+/* tablet media querry*/
 
-  @media (orientation: landscape) and (min-width: 768px) {
+@media (orientation: landscape) and (min-width: 768px) {
     .grid-container-mobile {
-      display: none;
+        display: none;
     }
-  }
+}
 
-  @media (orientation: landscape) and (min-width: 992px) {
+@media (orientation: landscape) and (min-width: 992px) {
     .grid-container {
-      top: -1vh;
-      transform: scale(0.85);
-      -webkit-transform: scale(0.85);
-      -moz-transform: scale(0.85);
+        top: -1vh;
+        transform: scale(0.85);
+        -webkit-transform: scale(0.85);
+        -moz-transform: scale(0.85);
     }
 
     .grid-container-mobile {
-      display: none;
+        display: none;
     }
 
-  }
+}
 
-  @media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
+@media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
 
     .grid-container {
-      top: -2vh;
-      transform: scale(0.7);
-      -webkit-transform: scale(0.7);
+        top: -2vh;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
     }
 
     .offer-text {
-      font-size: 7em;
+        font-size: 7em;
     }
 
     .elements-wrapper {
-      position: absolute;
-      top: 8vh;
-      left: -25vw;
-      /* background-color: rgba(241, 93, 8, 0.842); */
+        position: absolute;
+        top: 8vh;
+        left: -25vw;
+        /* background-color: rgba(241, 93, 8, 0.842); */
     }
 
 
 
 
     .container-jsTable {
-      top: -32vh;
+        top: -32vh;
     }
 
     .stero {
-      top: 36vh;
-      left: -17vw;
+        top: 36vh;
+        left: -17vw;
     }
 
     .pacanele {
-      top: 18vh;
+        top: 18vh;
     }
 
     .third {
-      top: 48vh;
-      left: 17.3vw;
+        top: 48vh;
+        left: 17.3vw;
     }
 
     .char-wrapper {
-      top: -11vh;
+        top: -11vh;
     }
 
     .player-three {
-      left: -11vw;
+        left: -11vw;
     }
 
     .player-One {
-      left: 7vw;
+        left: 7vw;
     }
 
     .jpragm {
-      position: relative;
+        position: relative;
 
-      left: 17.5vw;
+        left: 17.5vw;
     }
 
     .jplay {
-      position: relative;
+        position: relative;
 
-      left: -15.5vw;
+        left: -15.5vw;
     }
 
     .powerBy {
-      transform: scale(0.6);
-      left: -7vh;
-      top: 55%;
+        transform: scale(0.6);
+        left: -7vh;
+        top: 55%;
     }
-  }
+}
 
-  @media (orientation: landscape) and (min-height: 800px) and (max-height:919px) {
+@media (orientation: landscape) and (min-height: 800px) and (max-height:919px) {
     .powerBy {
-      transform: scale(0.7);
-      left: -4vh;
-      top: 50%;
+        transform: scale(0.7);
+        left: -4vh;
+        top: 50%;
     }
 
     .stero {
-      /* background-color: rgba(192, 12, 48, 0.452); */
-      top: 30vh;
-      left: -17.5vw;
+        /* background-color: rgba(192, 12, 48, 0.452); */
+        top: 30vh;
+        left: -17.5vw;
     }
 
     .pacanele {
-      top: 16.7vh;
+        top: 16.7vh;
     }
 
     .third {
-      top: 40vh;
-      left: 19.5vw;
+        top: 40vh;
+        left: 19.5vw;
     }
 
     .offer-text {
-      font-size: 6.5em;
+        font-size: 6.5em;
     }
 
     .offer-content {
 
-      top: 41vh;
-      /* left: 2vh; */
-      z-index: 1200021;
+        top: 41vh;
+        /* left: 2vh; */
+        z-index: 1200021;
 
     }
 
     .container-jsTable {
-      top: -25vh;
+        top: -25vh;
     }
 
     .player-One {
-      left: 14vh;
+        left: 14vh;
     }
 
     .player-two {
-      left: 0vh;
-      z-index: 336556;
+        left: 0vh;
+        z-index: 336556;
     }
 
     .player-three {
-      left: -20vh;
+        left: -20vh;
 
     }
 
     .jplay {
-      position: relative;
-      top: -31vh;
-      left: -16.5vw;
+        position: relative;
+        top: -31vh;
+        left: -16.5vw;
     }
 
 
     .jsky {
-      position: relative;
-      top: -22vh;
-      left: .5vw;
+        position: relative;
+        top: -22vh;
+        left: .5vw;
     }
 
     .elements-wrapper {
-      position: absolute;
-      top: 10vh;
-      left: -29vw;
-      transform: scale(0.93);
+        position: absolute;
+        top: 10vh;
+        left: -29vw;
+        transform: scale(0.93);
     }
 
 
     .jpragm {
-      position: relative;
-      top: -27vh;
-      left: 19.5vw;
+        position: relative;
+        top: -27vh;
+        left: 19.5vw;
     }
-  }
+}
 
 
 
 
-  @media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
+@media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
     .grid-container {
-      top: -2vh;
-      transform: scale(0.86);
-      -webkit-transform: scale(0.86);
-      -moz-transform: scale(0.86);
+        top: -2vh;
+        transform: scale(0.86);
+        -webkit-transform: scale(0.86);
+        -moz-transform: scale(0.86);
     }
 
     .elements-wrapper {
-      position: absolute;
-      top: 7vh;
-      left: -24vw;
-      transform: scale(1);
+        position: absolute;
+        top: 7vh;
+        left: -24vw;
+        transform: scale(1);
     }
 
     .stero {
-      top: 28vh;
-      left: -14vw;
+        top: 28vh;
+        left: -14vw;
     }
 
     .pacanele {
-      top: 15vh;
+        top: 15vh;
 
     }
 
     .third {
-      top: 40vh;
-      left: 14vw;
+        top: 40vh;
+        left: 14vw;
     }
 
     .offer-text {
-      font-size: 7em;
+        font-size: 7em;
     }
 
     .offer-content {
-      top: 43vh;
+        top: 43vh;
 
     }
 
     .container-jsTable {
-      top: -24vh;
+        top: -24vh;
     }
 
     .above-fold {
 
-      background-position: 100% 100%;
+        background-position: 100% 100%;
     }
 
     .player-three {
-      left: -11vw;
+        left: -11vw;
     }
 
     .elements-wrapper {
-      position: absolute;
-      top: 15vh;
-      left: -20vw;
-      transform: scale(1.1);
+        position: absolute;
+        top: 15vh;
+        left: -20vw;
+        transform: scale(1.1);
     }
-  }
+}
 
-  @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
+@media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
     .grid-container {
-      top: -1vh;
-      transform: scale(1);
-      -webkit-transform: scale(1);
-      -moz-transform: scale(1);
+        top: -1vh;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
     }
 
 
 
     .stero {
-      top: 21vh;
-      left: -13vw;
+        top: 21vh;
+        left: -13vw;
     }
 
     .pacanele {
-      top: 10vh;
+        top: 10vh;
     }
 
     .third {
-      top: 34vh;
-      left: 14vw;
+        top: 34vh;
+        left: 14vw;
     }
 
     .elements-wrapper {
-      position: absolute;
-      top: 14vh;
-      left: -24vw;
+        position: absolute;
+        top: 14vh;
+        left: -24vw;
     }
 
 
-  }
+}
 
 
 
 
-
-  @media (max-width: 1400px) {
-    .below-fold {
-
-      max-width: 1000px;
-    }
-
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-  @media (max-width: 450px) {
+@media (max-width: 450px) {
     .above-fold {
-      height: calc(100vh - 5px);
-    }
-  }
-
-  @media (max-width: 400px) {
-    .above-fold {
-      height: calc(100vh - 30px);
-    }
-  }
-
-  @media (max-width: 350px) {
-    .above-fold {
-      height: 100vh;
-    }
-  }
-
-
-
-  @media (max-width: 450px) {
-    .below-fold {
-      font-size: 0.7em;
-    }
-  }
-
-  @media (max-width: 1200px) {
-    .below-fold {
-      font-size: 0.4em;
-      /* max-width: 850px; */
-    }
-  }
-
-  @media (max-width: 1400px) {
-    .below-fold {
-      font-size: 0.7em;
-
-    }
-  }
-
-
-  /*Mobile */
-  @media (orientation: portrait) {
-    .above-fold {
-      overflow: hidden;
-      display: flex;
-      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #2a2e38;
-    }
-
-    .below-fold {
-      height: auto;
-    }
-
-    .grid-container {
-      display: none;
-    }
-
-    .third {
-      top: 34vh;
-      left: 40vw;
-    }
-    .jsky {
-      transform: scale(1.2);
-      top: -40vh;
-      position: relative;
-    }
-    .jpragm {
-      position: relative;
-      top: -22.6vh;
-      z-index: 100;
-      left: 45vw;
-
-    }
-
-    .char-person2 {
-      position: relative;
-    }
-
-    .stero {
-      top: 25vh;
-      left: -61vw;
-    }
-
-
-  }
-
-  @media (orientation: portrait) and (max-width:320px) {
-    .grid-container-mobile {
-      position: relative;
-      top: -3vh;
-    }
-
-    .container-char>img {
-      height: 100%;
-    }
-
-    .container-mobile-players {
-      transform: scale(0.65);
-      -webkit-transform: scale(0.65);
-      -moz-transform: scale(0.65);
-      top: -3vh;
-    }
-
-
-  }
-
-  @media (orientation: portrait) and (max-width:480px) {
-
-    .grid-container-mobile {
-      position: relative;
-      top: -3vh;
-    }
-
-    .container-char>img {
-      height: 100%;
-    }
-
-    .container-mobile-players {
-      transform: scale(0.60);
-      -webkit-transform: scale(0.60);
-      -moz-transform: scale(0.60);
-      /* top: 1vh;  */
-    }
-
-    /* .player-One-mobile,
-    .player-three-mobile {
-      transform: scale(0.93);
-
-    }
-
-    .player-One-mobile {
-      margin-right: 20px;
-    }
-
-    .player-three-mobile {
-      margin-left: 20px;
-    } */
-
-  }
-  @media only screen and (-webkit-min-device-pixel-ratio: 4) {
-    .container-mobile-players {
-      transform: scale(0.58);
-      -webkit-transform: scale(0.58);
-      -moz-transform: scale(0.58);
-       top: -3vh; 
+        height: calc(100vh - 5px);
     }
 }
-  /* @media (orientation: portrait) and (min-width:381px) and (max-width:480px) {
-    .container-char>img {
-      width: 85%;
-    }
 
-    .container-mobile-players {
-      transform: scale(0.75);
-      -webkit-transform: scale(0.75);
-      -moz-transform: scale(0.75);
-      top: -3vh;
-    }
-  } */
-
-  /*iphone 6 7 8 */
-  /* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 3) {
-    .container-mobile-players {
-      transform: scale(0.70);
-      top: -2vh;
-    }
-    .grid-container-mobile{
-      top: -5vh;
-    }
-  } */
-
-  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
-    .container-mobile-players {
-      transform: scale(0.55);
-      top: -2vh;
-    }
-
+@media (max-width: 400px) {
     .above-fold {
-      height: 92vh;
+        height: calc(100vh - 30px);
     }
+}
 
-    .grid-container-mobile {
-      top: 0vh;
+@media (max-width: 350px) {
+    .above-fold {
+        height: 100vh;
     }
+}
 
-    .elements-wrapper {
-      transform: scale(1.1);
-      top: -3vh;
-    }
-  }
 
-  /*iphone 11-11 pro */
-  /* @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .container-mobile-players {
-      transform: scale(0.70);
-      -webkit-transform: scale(0.70);
-      top: -3vh;
-    }
 
-    .grid-container-mobile {
-      top: 0vh;
-      height: 92vh;
+@media (max-width: 450px) {
+    .below-fold {
+        font-size: 0.7em;
+    }
+}
 
+@media (max-width: 1200px) {
+    .below-fold {
+        font-size: 0.4em;
+        /* max-width: 850px; */
     }
+}
 
-    .jsky {
-      top: -14vh !important;
+@media (max-width: 1400px) {
+    .below-fold {
+        font-size: 0.7em;
     }
-  } */
+}
 
-  /*iphone 13 - pro*/
-  /* @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
-    .container-mobile-players {
-      transform: scale(0.75);
-      top: -3vh;
-    }
 
-    .grid-container-mobile {
-      top: -5vh;
-    }
 
-    .elements-wrapper {
-      transform: scale(1.2);
-      top: -1vh;
-    }
 
-    .jsky {
-      top: -14vh !important;
-    }
-  } */
 
-  /*iPhone 13 mini, iPhone 12 mini, iPhone 11 Pro, iPhone Xs, and iPhone X*/
-  /* @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
-    .container-mobile-players {
-      transform: scale(0.70);
-      -webkit-transform: scale(0.70);
-      top: -3vh;
-    }
 
-    .grid-container-mobile {
-      top: 0vh;
-      height: 92vh;
-
-    }
-  } */
-  /* iPhone 13 Pro Max and iPhone 12 Pro Max*/
-  /* @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
-    .container-mobile-players {
-      transform: scale(0.8);
-      top: -3vh;
-    }
-    .grid-container-mobile {
-      top: -5vh;
-    }
-    .elements-wrapper {
-      transform: scale(1.2);
-      top: 2vh;
-    }
-    .jsky {
-      top: -10vh !important;
-    }
-  } */
-
-  /*Portrait*/
-  @media (orientation: portrait) and (max-width:480px) {
+/* @media (orientation: portrait) and (max-width:480px) {
     .img-BlueShape {
       height: 250px;
       position: relative;
@@ -1696,7 +1223,7 @@
     }
 
     .container-char>img {
-      /* width: 85%; */
+    
       top: 10vh;
     }
 
@@ -1760,7 +1287,7 @@
       justify-content: center;
       align-items: center;
       flex-direction: row;
-      /* gap: 50px; */
+     
       margin-top: -10%;
       position: absolute !important;
     }
@@ -1781,42 +1308,623 @@
       transform: rotate(-180deg);
     }
 
-  }
+  } */
 
 
-  @media only screen and (min-device-width : 414px) and (max-device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
+/**************************************/
+/*************************/
+/**************************************/
+/**************************************/
+/**************************************/
+/*mobile*/
+/**************************************/
+/**************************************/
+/**************************************/
+@media (orientation:portrait) and (min-width:320px) {
 
-    .container-mobile-players {
-      transform: scale(0.7);
-      -webkit-transform: scale(0.7);
-      top: 1vh;
+    .char-person1 img,
+    .char-person2 img,
+    .char-person3 img {
+        height: 400px;
+    }
+
+    .container-char {
+        position: relative;
+    }
+
+}
+
+
+/*Mobile */
+@media (orientation: portrait) and (min-width:320px) {
+    .above-fold {
+        overflow: hidden;
+        display: flex;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
+    }
+
+    .below-fold {
+        height: auto;
+    }
+
+    .grid-container {
+        display: none;
+    }
+
+
+}
+
+
+
+
+
+
+/*chacnge character*/
+@media (min-width:320px) {
+    .container-carousel>input[type="radio"] {
+        display: none;
+    }
+
+    .card-person {
+        position: absolute;
+        width: 300px;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transition: transform 0.4s ease;
+        cursor: pointer;
+        /* border: 1px solid black; */
+    }
+
+    .container-carousel {
+        width: 100%;
+        max-width: 800px;
+        height: calc(70vh - 10px);
+        transform-style: preserve-3d;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* border: 3px solid chartreuse; */
+
+    }
+
+    .cards {
+        position: relative;
+        width: 350px;
+        height: 100%;
+        /* margin-bottom: 20px; */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        /* border: 2px solid black; */
+    }
+
+    .pacanele,
+    .third,
+    .stero {
+        position: absolute;
+        bottom: 50%;
+    }
+
+    .img-BlueShape {
+        height: 130px;
+    }
+
+    .players {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box-rating {
+        position: absolute;
+        bottom: 15%;
+
+    }
+
+    .box-rating-pacanele {
+        bottom: 20%;
+    }
+
+    .box-rating-stero {
+        left: calc(0% + 1em);
+    }
+
+    .box-rating-casino {
+        right: calc(0% + 1em);
+    }
+
+    .elements-wrapper img {
+        height: 170px;
+        transform: translateX(1em) translateY(4em) rotate(10deg);
+    }
+
+    .elements-wrapper {
+        position: absolute;
+        top: 0;
 
     }
 
     .grid-container-mobile {
-      top: -3vh;
-      height: 92vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 92vh;
     }
-  }
 
-
-  @media (max-width: 1200px) {
     .container-mobile-shapes {
-      max-width: 850px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-  }
 
-  @media (max-width: 1400px) {
-    .container-mobile-shapes {
-      max-width: 1000px;
+    .shapes-arrow {
+        margin-left: 33%;
+        margin-right: 33%;
     }
-  }
 
-  /* iphone 6+, 6s+, 7+, 8+ */
+    .shapes-arrow>img {
+        height: 50px;
+    }
+
+    .right-shape img {
+        transform: rotate(180deg);
+    }
+
+    .offer-text-mobile {
+        position: relative;
+    }
+
+    .offer-text-mobile img {
+        height: 70px;
+        margin: 0 auto;
+
+    }
+
+
+}
+
+@media (min-width:320px) and (max-width:960px) {
+    /****************************************************/
+    /****************************************************/
+    /*********************CARD ECHIPE*******************************/
+
+    .card-container {
+        max-width: 180px;
+        width: 180px;
+        height: 130px;
+        max-height: 125px;
+        border-radius: 20px;
+        overflow: hidden;
+        font-size: 0.8rem;
+        position: relative;
+    }
+
+    .card-container::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ece8ec;
+        z-index: -2;
+        opacity: 0.9;
+    }
+
+
+    .card-content {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        padding: 0em 0.5em 0.3em;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75em;
+    }
+
+    .card-header {
+        background-color: #173054;
+        text-align: center;
+        padding: 0.25em;
+    }
+
+    .card-header span {
+        color: white;
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .card-stars {
+        width: 100%;
+
+    }
+
+    .card-body {
+
+
+        padding: 6px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .card-stars>div,
+    .card-info>div {
+        margin-bottom: 0.5em;
+
+    }
+
+    .card-info>div {
+        margin-bottom: 8px;
+    }
+
+    .card-info>div:nth-child(3) {
+        margin-bottom: 3.5px;
+    }
+
+    .card-info {
+        text-align: end;
+
+    }
+
+    .card-cta {
+        text-align: center;
+        place-content: center;
+        display: flex;
+        transform: translatey(-0.3em);
+    }
+
+    .cta-button {
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.7rem;
+        width: 120px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50px;
+        padding: .5em 0;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+        transition: .9s ease;
+    }
+
+    .outer {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+        height: 16px;
+        width: 81px;
+        background-size: 16px;
+    }
+
+    .inner-star {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+        height: 16px;
+        width: 42px;
+        background-size: 16px;
+    }
 
 
 
-  /* 
+    /****************************************************/
+    /************************END CARD ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+
+}
+
+
+
+/*right box*/
+#item-1:checked~.cards #person-3,
+#item-2:checked~.cards #person-1,
+#item-3:checked~.cards #person-2 {
+    transform: translatex(-40%) scale(1);
+    opacity: 1;
+    z-index: 0;
+}
+
+/*left box*/
+#item-1:checked~.cards #person-2,
+#item-2:checked~.cards #person-3,
+#item-3:checked~.cards #person-1 {
+    transform: translatex(40%) scale(1);
+    opacity: 1;
+    z-index: 0;
+}
+
+/*center box*/
+#item-1:checked~.cards #person-1,
+#item-2:checked~.cards #person-2,
+#item-3:checked~.cards #person-3 {
+    transform: translatex(0) scale(1.15) translateY(3em);
+    opacity: 1;
+    z-index: 1;
+ 
+}
+
+/*blue-shape-center box*/
+#item-1:checked~.cards #person-1 .img-BlueShape,
+#item-2:checked~.cards #person-2 .img-BlueShape,
+#item-3:checked~.cards #person-3 .img-BlueShape {
+    transform: translatex(0) scale(1.5) translateY(1.5em);
+    opacity: 1;
+    z-index: 1;
+    background-color: red;
+}
+
+#person-1{
+ 
+    border: 2px solid chartreuse;
+}
+#person-2{
+
+    border: 2px solid purple;
+}
+#person-3{
+
+    border:2px solid yellow
+}
+
+
+
+ /* #item-1:not(:checked)~.cards #person-1 .img-BlueShape,
+#item-2:not(:checked)~.cards #person-2 .img-BlueShape,
+#item-3:not(:checked)~.cards #person-3 .img-BlueShape {
+    transform: translatex(0) scale(1) translateY(-1em);
+    opacity: 1;
+    z-index: 1;
+    background-color: red;
+} 
+ #item-1:not(:checked)~.cards #person-3 .img-BlueShape,
+#item-2:not(:checked)~.cards #person-2 .img-BlueShape,
+#item-3:not(:checked)~.cards #person-1 .img-BlueShape {
+    transform: translatex(-1em) scale(1) translateY(-1em);
+    opacity: 1;
+    z-index: 1;
+    background-color: black;
+}  */
+
+/*card box center*/
+#item-1:checked~.cards #person-1 .box-rating,
+#item-2:checked~.cards #person-2 .box-rating,
+#item-3:checked~.cards #person-3 .box-rating {
+    transform: translatex(0) scale(1.1) translateY(-1em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+    background-color: purple;
+}
+/*person 1 stanga dreapta daca person 2-3 sunt active*/
+
+#item-1:checked~.cards #person-2 .box-rating
+ {
+    transform: translatex(6em) scale(1) translateY(-2em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid yellow;
+    color: red;
+}
+#item-1:checked~.cards #person-3 .box-rating
+ {
+    transform: translatex(-6em) scale(1) translateY(-3.55em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid yellow;
+    color: red;
+}
+
+
+
+
+#item-1:checked~.cards #person-1 .box-rating
+ {
+    transform: translatex(0) scale(1) translateY(-2em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid red;
+
+}
+
+/*person 1-3 stanga dreapta daca person 2 este activ*/
+#item-2:checked~.cards #person-1 .box-rating
+ {
+    transform: translatex(-6em) scale(1) translateY(-2em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid cyan;
+  
+}
+#item-2:checked~.cards #person-3 .box-rating
+ {
+    transform: translatex(6em) scale(1) translateY(-2em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid cyan;
+  
+}
+
+
+/*person 2-1 stanga dreapta daca person 3 este activ*/
+#item-3:checked~.cards #person-2 .box-rating
+ {
+    transform: translatex(-6em) scale(1) translateY(-2em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid yellow;
+  
+}
+#item-3:checked~.cards #person-1 .box-rating
+ {
+    transform: translatex(6em) scale(1) translateY(-3.55em);
+    right: unset;
+    left: unset;
+    opacity: 1;
+    z-index: 1;
+  border: 3px solid yellow;
+   
+}
+
+/* blue-shape-center box* no checker*/
+/* #item-1:not(:checked)~.cards #person-1 .box-rating,
+#item-2:not(:checked)~.cards #person-2 .box-rating,
+#item-3:not(:checked)~.cards #person-3 .box-rating {
+    transform: translatex(4em) scale(1) translateY(-1.5em);
+    opacity: 1;
+    z-index: 1;
+    background-color: black;
+}  */
+/* #item-1:not(:checked)~.cards #person-2 .box-rating,
+#item-2:not(:checked)~.cards #person-3 .box-rating,
+#item-3:not(:checked)~.cards #person-1 .box-rating {
+    transform: translatex(-4em) scale(1) translateY(-1.5em);
+    opacity: 1;
+    z-index: 1;
+    background-color: black;
+}  */
+
+/*card box img*/
+/* #item-1:checked~.cards #person-1 img,
+#item-2:checked~.cards #person-2 img,
+#item-3:checked~.cards #person-3 img {
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+ 
+} */
+/*card box img*/
+/* #item-1:not(:checked)~.cards #person-1 img,
+#item-2:not(:checked)~.cards #person-2 img,
+#item-3:not(:checked)~.cards #person-3 img {
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    transform: translatex(0) scale(1) translateY(2.5em);
+} */
+/* #item-1:not(:checked)~.cards #person-2 img,
+#item-2:not(:checked)~.cards #person-3 img,
+#item-3:not(:checked)~.cards #person-1 img {
+    box-shadow: 0px 0px 5px 0px rgba(81, 81, 81, 0.47);
+    transform: translatex(0) scale(1) translateY(2.5em);
+} */
+
+
+.player-circles {
+
+    border-radius: 8px;
+    min-width: 320px;
+    padding: 1px 10px;
+}
+
+.upper-part {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    height: 36px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 3px;
+    width: 30%;
+    background-color: #e9efff;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: -4vh;
+}
+
+.progress {
+    display: block;
+    position: relative;
+    width: 30%;
+    height: 100%;
+    background-color: #2992dc;
+    border-radius: 6px;
+}
+
+
+/* input[type="radio"]:checked {
+      color: purple;
+    } */
+
+#item-2:checked~.player-circles #test {
+    transform: translateY(0);
+    background-color: aqua;
+}
+
+#item-2:checked~.player-circles #test {
+    transform: translateY(-40px);
+
+}
+
+#item-3:checked~.player-circles #test {
+    transform: translateY(-80px);
+}
+
+
+/* smartphones, iPhone, portrait 480x320 phones */
+
+
+@media (min-width:481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+
+@media (min-width:641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+
+@media (min-width:961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}
+
+
+
+
+
+/* iphone 6+, 6s+, 7+, 8+ */
+
+
+
+/* 
   .c1 {
     transform: translateX(0px) scale(1);
     z-index: 99;
@@ -1842,7 +1950,7 @@
     cursor: pointer;
   
   } */
-  /* .rev_slider {
+/* .rev_slider {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1907,7 +2015,7 @@
 			right: 0;
 		} */
 
-  /* .slick-track {
+/* .slick-track {
     max-width: 100% !important;
     transform: translate3d(0, 0, 0) !important;
     perspective: 150px;
@@ -1956,10 +2064,10 @@
     text-align: center;
   } */
 
-  /* .prev:hover, .next:hover {
+/* .prev:hover, .next:hover {
 	 background: #57d0be;
 } */
-  /* .prev {
+/* .prev {
 	 left: 20%;
 }
  .next {
