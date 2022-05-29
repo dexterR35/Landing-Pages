@@ -1034,13 +1034,14 @@ th:nth-child(3) {
     .container-carousel {
         width: 100%;
         max-width: 800px;
-        height: calc(70vh - 10px);
+        height: calc(72vh - 10px);
         transform-style: preserve-3d;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
         /* border: 3px solid chartreuse; */
+        /* transform: translateY(2em); */
 
     }
 
@@ -1310,7 +1311,7 @@ th:nth-child(3) {
     transform: translatex(0) scale(1.15) translateY(3em);
     opacity: 1;
     z-index: 1;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
 
 /*blue-shape-center box*/
