@@ -1,0 +1,2853 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta name="robots" content="noindex,follow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="/lp-asset/shared/netbet/favicon.ico">
+<meta property="og:image" content="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/og-image2.png" />
+<meta property="title" content="NetBet Casino" />
+<title>NetBet Casino</title>
+<link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (max-width: 1199px) {
+    body {
+      font-size: 90%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    body {
+      font-size: 85%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      font-size: 75%;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }  
+</style>
+<style>
+body {
+  font-family: 'Play', sans-serif;
+}
+
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.css" integrity="sha512-blNStuTXAH9ZQGXnfUBp11D2aqRfiK/8pmAUpbNgTsjKgu6uha0S8Zp+aFlk+usVZ3jNzwHgkf5yxvPe3yBdyg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/Apa.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: unset;
+  }
+
+  @media (max-width: 450px) and (orientation: portrait) {
+    body::before {
+      background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/Apa.png");
+    }
+  }
+
+  img.lozad {
+    transition: opacity 0.5s linear;
+    transition-delay: 200ms;
+  }
+
+</style>
+<style>
+.splash-screen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2a2e38;
+}
+
+.splash-screen img {
+  display: block;
+  width: 50%;
+  max-width: 274px;
+}
+
+.splash-screen .loading-element {
+  font-size: 2em;
+  margin-top: 1.7em;
+  width: 25%;
+  max-width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.splash-screen .loading-element .dot {
+  width: 0.5em;
+  height: 0.5em;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  border-radius: 0.25em;
+  -webkit-animation-name: loading-dot-animation;
+          animation-name: loading-dot-animation;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.splash-screen .loading-element .dot:nth-child(2) {
+  -webkit-animation-delay: 350ms;
+          animation-delay: 350ms;
+}
+
+.splash-screen .loading-element .dot:nth-child(3) {
+  -webkit-animation-delay: 700ms;
+          animation-delay: 700ms;
+}
+
+.splash-screen .loading-element .dot::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  left: 0;
+  top: 0;
+  background-color: #2a2e38;
+  border-radius: 0.25em;
+  -webkit-transform: scale(0.65);
+      -ms-transform: scale(0.65);
+          transform: scale(0.65);
+}
+
+@-webkit-keyframes loading-dot-animation {
+  from {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+
+  to {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+}
+
+@keyframes loading-dot-animation {
+  from {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+
+  to {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+}
+</style>
+<style>
+header {
+  width: 100vw;
+  font-size: 18px;
+  height: 6.11em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: flex;
+  background-color: #333743;
+}
+
+@media (max-width: 1400px) {
+  header {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+  header {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 450px) {
+  header {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 350px) {
+  header {
+    font-size: 10px;
+  }
+}
+
+header .left {
+  flex: 1;
+  padding-left: 2.78em;
+
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 450px) {
+  header .left {
+    padding-left: 2em;
+  }
+}
+
+header .center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 991px) {
+  header .center {
+    display: none;
+  }
+}
+
+header .right {
+  flex: 1;
+  padding-right: 1.72em;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+header .logo-container {
+  z-index: 1;
+}
+
+header .logo {
+  display: block;
+  height: 2.5em;
+}
+
+@media (max-width: 450px) {
+  header .logo {
+    height: 2.3em;
+  }
+}
+
+header .login-button {
+  height: 2.33em;
+  padding: 0 1.06em;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+
+  color: #fff;
+  background-color: #2a2e38;
+  border-radius: 1.17em;
+  border: 1px solid #96999e;
+  text-decoration: none;
+}
+
+@media (max-width: 450px) {
+  header .login-button {
+    font-size: 1.2em;
+  }
+}
+
+header .login-button:hover {
+  background-color: #ff6333;
+}
+
+header .products {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+header .products li {
+  display: block;
+}
+
+header .products li a {
+  font-size: 1.33em;
+  display: block;
+  width: 6em;
+  padding-bottom: 1.18em;
+
+  text-decoration: none;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+header .products li a:hover {
+  color: #ff6333;
+}
+
+header .bottom {
+  position: absolute;
+  /* top: calc(100% + 0.167em); */
+  top: 100%;
+  width: 100%;
+  height: 2.611em;
+  font-size: 1.1em;
+
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+}
+
+/* @media (max-width:  450px) {
+  header .bottom {
+    top: calc(100% + 0.3em);
+  }
+} */
+
+header .bottom-link {
+  display: flex;
+
+  text-decoration: none;
+}
+
+header .bottom::before {
+  content: '';
+  position: absolute;
+  /* bottom: calc(100% - 0.056em); */
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 0.22em;
+
+  background-color: #ff6333;
+}
+
+@media (max-width: 450px) { 
+  header .bottom::before {
+    height: 0.48em;
+  }
+}
+
+header .bottom-center {
+  font-size: 1.22em;
+  padding: 0 1em;
+  border-bottom-left-radius: 1.1em;
+  border-bottom-right-radius: 1.1em;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #ff6333;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+@media (max-width: 450px) {
+  header .bottom-center {
+    font-size: 1.6em;
+  }
+}
+
+/* header .bottom-left img,
+header .bottom-right img {
+  display: block;
+  width: 1.72em;
+  height: 100%;
+}
+
+header .bottom-right img {
+  transform: scaleX(-1);
+} */
+</style>
+<style>
+  .above-fold {
+    height: 100vh;
+    max-height: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (orientation: landscape) {
+    .above-fold {
+      min-height: 550px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .above-fold {
+      height: calc(100vh - 113px);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .above-fold {
+      height: calc(100vh - 65px);
+    }
+  }
+
+  @media (max-width: 350px) {
+    .above-fold {
+      height: 107vh;
+    }
+  }
+  /*
+.container-hero{
+     display: grid;
+    width: 100%;
+    height: 100%;
+    MAX-WIDTH: 1200PX;
+    min-width: 300px;
+    margin: 0 auto 1em auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-content: center;
+    grid-template-columns: repeat( 2, minmax(250px, 1fr) );
+    align-items: center;
+    position:relative;
+}
+*/
+  .hero {
+    flex: 1;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+   
+  }
+/*
+  .char {
+     height: 100%;
+    top: 14vh;
+    position: relative;
+    left: -11vh;
+    z-index: 2;
+  }
+/*
+  @media (orientation: landscape) and (max-aspect-ratio: 1150/690) {
+    .char {
+     
+      margin-left: 5%;
+    }
+    .offer{
+      left:5vh;
+    }
+  }
+*/
+  @media (orientation: portrait) and (min-width: 992px) {
+    
+    .char {
+      margin-left: -42%;
+    }
+  }
+*/
+  .offer {
+    font-size: 2vmin;
+    position: relative;
+    height: 72%;
+    /*
+    margin-right: -32%;
+    margin-bottom: 5%;
+    */
+  }
+
+  @media (orientation: landscape) and (min-width: 992px) {
+    .offer {
+    display: grid;
+    justify-content: center;
+    place-items: center;
+    width: 430px;
+    position: relative;
+    /* height: 85%; */
+    height: 800px;
+      right: 4vh;
+    top: -8vh;
+    font-size: 1.35em;
+    grid-column: 2;
+    }
+
+   .char {
+top: 5vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    height: 85%;
+}
+    .offer img {
+    display: block;
+    height: 85% ;
+}
+  }
+
+  @media (orientation: portrait) and (max-width: 991px) {
+    .char {
+    align-self: center;
+    z-index: 2;
+    }
+
+
+  }
+
+  .offer img {
+    display: block;
+    height: 750px;
+   
+
+  }
+
+  .offer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .cta-button {
+    background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.3em;
+    height: 2.8em;
+    display: flex;
+    align-items: center;
+    border-radius: 1.4em;
+    padding: 0 1.4em;
+    margin-top: 0.7em;
+    white-space: nowrap;
+  }
+
+  .cta-button.mobile {
+    display: none;
+  }
+
+  @media (orientation: portrait) and (max-width: 450px) {
+    .cta-button.desktop {
+      display: none;
+    }
+
+    .cta-button.mobile {
+    margin-top: 10px;
+    z-index: 1;
+    display: inline-flex;
+    color: #fff;
+    text-decoration: none;
+    }
+
+ 
+
+  }
+
+
+
+  .promo-text {
+    font-size: 44px;
+    width: 95%;
+    padding: 0.48em 0;
+    max-width: 1200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    background-color: #2a2e38;
+    font-weight: bold;
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  @media (min-width: 992px) {
+    .promo-text>.inner>br {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .promo-text {
+      font-size: 37px;
+      max-width: 1000px;
+    }
+    .char {
+    top: 5vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    height: 80%;
+}
+  }
+
+  @media (max-width: 1200px) {
+    .promo-text {
+      font-size: 31px;
+      max-width: 850px;
+    }
+    .char {
+    top: 5vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    height: 75%;
+}
+  }
+
+  @media (max-width: 450px) {
+    .promo-text {
+      font-size: 25px;
+    }
+  }
+
+  .promo-text>.inner>span {
+    /*color: #f8bf00;*/
+    color:#FFF;
+  }
+</style>
+<style>
+feDisplacementMap {
+  position:relative;
+  left:200px;
+}
+body{
+   -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* .container-hero-img li img,
+.offer {
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+} */
+
+
+.container-hero-img {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.container-hero-img li {
+  position: relative;
+  height: 90%;
+  list-style-type: none;
+}
+
+
+.container-hero-img li:nth-child(1) {
+  top: 300px;
+  left: 275px;
+  -webkit-animation: rotating1 60s linear infinite alternate;
+}
+
+@-webkit-keyframes rotating1 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(-100px);
+  }
+
+  to {
+    -webkit-transform: rotate(320deg) translateY(-9px) translateX(90px);
+  }
+}
+
+.container-hero-img li:nth-child(2) {
+  top: -120px;
+  left: 167px;
+  -webkit-animation: rotating2 40s linear infinite alternate;
+
+}
+
+@-webkit-keyframes rotating2 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(-90deg) translateY(65px) translateX(100px);
+  }
+}
+
+.container-hero-img li:nth-child(3) {
+  top: 210px;
+  left: 120px;
+  -webkit-animation: rotating3 35s linear infinite alternate;
+}
+
+@-webkit-keyframes rotating3 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(-60deg) translateY(-45px);
+  }
+}
+
+.container-hero-img li:nth-child(4) {
+  top: 10px;
+  left: 150px;
+  -webkit-animation: rotating4 40s linear infinite alternate;
+  text-align: center;
+}
+
+@-webkit-keyframes rotating4 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+
+
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateY(-10px) translateX(0px);
+
+  }
+}
+
+.container-hero-img li:nth-child(5) {
+  top: 220px;
+  left: 230px;
+  -webkit-animation: rotating5 30s linear infinite alternate;
+}
+
+@-webkit-keyframes rotating5 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(-90deg) translateY(10px) translateX(20px);
+  }
+}
+
+.container-hero-img li:nth-child(6) {
+  top: -280px;
+  left: -280px;
+  -webkit-animation: rotating6 40s linear infinite alternate;
+}
+
+@-webkit-keyframes rotating6 {
+  from {
+    -webkit-transform: rotate(20deg) translateY(0px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(100deg) translateY(-65px) translateX(30px);
+  }
+}
+
+.container-hero-img li:nth-child(7) {
+  top: -220px;
+  left: -69px;
+  transform: rotate(207deg);
+  -webkit-animation: rotating7 50s linear infinite alternate;
+}
+
+@-webkit-keyframes rotating7 {
+  from {
+    -webkit-transform: rotate(207deg) translateY(90px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(100deg) translateY(40px) translateX(130px);
+  }
+}
+
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 89vh;
+  margin: 0 auto;
+  z-index: -3;
+  background-image: url(https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/logo3.png);
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  background-size: 96%;
+  opacity: 0.9;
+  filter: blur(2px) url("#logo-water-effect");
+
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/Apa.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -2;
+  filter: url("#under-water-effect");
+  transform: scale(1.1);
+   -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+}
+
+body {
+  background: #00ccff;
+  /*  background: linear-gradient(42deg, #8a9dad 0%,#96bdc3 46%,#5ed5f9 100%);*/
+}
+
+@media (orientation: landscape) and (min-width: 992px) {
+  .container-hero {
+    height: 78vh !important;
+    MAX-WIDTH: 100% !important;
+    /* min-width: 300px; */
+    margin: 1em 1em 1em 1em !important;
+    justify-content: center;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 0.5fr !important;
+    grid-auto-rows: 1fr 1fr !important;
+    align-items: center;
+    position: relative;
+  }
+
+  .offer {
+    display: unset !important;
+    justify-content: unset !important;
+    place-items: unset !important;
+    width: unset !important;
+    position: relative;
+    height: unset !important;
+    height: unset !important;
+    right: unset !important;
+    top: unset !important;
+    font-size: unset !important;
+    grid-column: unset !important;
+
+  }
+
+  .offer {
+    position: relative;
+    left: -200px;
+  }
+
+  .offer img {
+    display: block;
+    height: 700px !important;
+  }
+}
+
+@media only screen and (max-width:992px) {
+  .container-hero {
+    transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width:1599px) {
+  .container-hero {
+    transform: scale(0.8);
+  }
+}
+
+@media only screen and (max-width:1400px) {
+  .container-hero {
+    transform: scale(0.7);
+  }
+}
+
+@media (orientation:landscape) and (min-width:1600px) {
+  .container-hero {
+    transform: scale(1);
+  }
+}
+
+@media (orientation:landscape) and (min-width:1921px) {
+  .container-hero {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 450px) and (orientation: portrait) {
+  body::before {
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/Apa.png");
+    height:100%;
+    background-repeat:repeat;
+    overflow:hidden;
+  }
+
+  .cta-button.mobile {
+    margin-top: 10px;
+    z-index: 1;
+    display: inline-flex;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 1em;
+    position: absolute;
+    bottom: 50px;
+  }
+}
+
+
+@media (orientation: landscape) and (min-height: 920px) and (max-height:1000px) {
+  .container-hero {
+    transform: scale(0.85);
+  }
+}
+
+.steps {
+  z-index: 12 !important;
+}
+
+.hero {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.char {
+  height: 100%;
+}
+
+
+.char_water.onmobile {
+  display: none;
+}
+
+body::before {
+  z-index: unset !important;
+
+}
+
+header {
+  z-index: 200;
+}
+
+.offer-html {
+
+  font-weight: bold;
+}
+
+
+.plus-line {
+  display: flex;
+  align-items: center;
+  margin-top: -0.3em;
+  margin-bottom: 0.5em;
+  width: 16.6em;
+}
+
+.plus-line .line {
+  flex: 1;
+  height: 0.23em;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 0.06em;
+}
+
+.plus-line .plus {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1.1em;
+  height: 1.1em;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-right: 0.2em;
+  margin-left: 0.2em;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.plus-line .plus .plus-inside {
+  color: black;
+  font-weight: bold;
+  margin-top: -0.03em;
+}
+
+.line-3 {
+  color: #ffc107;
+}
+
+.line-1 {
+  text-align: justify;
+  margin-left: 0.2em;
+  margin-bottom: 0.8em;
+}
+
+.line-1 span {
+  background-color: #ffc107;
+  color: black;
+  font-size: 1.6em;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  height: 1em;
+  font-weight: bold;
+}
+
+.line-2 {
+  font-size: 2em;
+  margin-top: -0.7em;
+  font-weight: bold;
+}
+
+.line-3 {
+  font-size: 2.05em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.line-4 {
+  font-weight: bold;
+  font-size: 10em;
+  margin-top: -0.3em;
+  margin-left: -0.05em;
+}
+
+.line-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  transform: scale(1.5);
+}
+
+.line-5 .top {
+  font-size: 0.6em;
+  margin-bottom: -0.2em;
+  z-index: 5;
+  color: white;
+}
+
+.line-5 .bottom {
+  font-weight: 900;
+  border: 1px solid #ffc107;
+  color: #ffc107;
+  border-radius: 6px;
+  padding: .3em 1.2em .3em 1.2em;
+  transform: scale(1.2);
+  clip-path: polygon(24% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 0%, 76% 0%, 92% 22%, 8% 23%);
+}
+
+.offer {
+
+  position: relative;
+
+}
+
+.offer-text {
+  font-size: 0.9em;
+}
+
+
+
+@media (orientation: portrait) and (max-width:768px) {
+  .container-hero {
+    height: 78vh !important;
+    MAX-WIDTH: 100% !important;
+    /* min-width: 300px; */
+    margin: 1em 1em 3em 1em !important;
+    justify-content: center;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 1fr 0.5fr !important;
+    grid-auto-rows: 1fr 1fr !important;
+    align-items: center;
+    position: relative;
+  }
+
+  .offer {
+    display: unset !important;
+    justify-content: unset !important;
+    place-items: unset !important;
+    width: unset !important;
+    position: relative;
+    height: unset !important;
+    height: unset !important;
+    right: unset !important;
+    top: unset !important;
+    font-size: unset !important;
+    grid-column: unset !important;
+
+  }
+
+  .offer {
+    position: absolute;
+
+  }
+
+  .offer img {
+    display: block;
+    height: 700px !important;
+  }
+
+  .offer-text {
+    font-size: 1.2em;
+    text-align: center;
+
+  }
+
+}
+
+@media (orientation: portrait) {
+  .cta-button.mobile {
+    margin-top: 10px;
+    z-index: 1;
+    display: inline-flex;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    padding: 1em 1em;
+    position: absolute;
+    bottom: 50px;
+  }
+}
+
+
+
+
+
+
+@media (orientation: portrait) and (max-width: 480px) {
+  .container-hero {
+    height: 68vh !important;
+    top:-10px;
+    }
+
+  .container-hero-img li img {
+    height: 100px;
+  }
+
+  .container-hero {
+    transform: scale(0.85);
+   
+  }
+
+  .offer img {
+    display: block;
+    height: 470px !important;
+  }
+
+  body::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    margin: 0 auto;
+    z-index: -3;
+    background-image: url(https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/logo.png);
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.9;
+    filter: blur(2px) url(#logo-water-effect2);
+  }
+
+  .offer-text {
+    font-size: 0.86em;
+  }
+
+  .offer {
+    position: absolute;
+    left: 40px;
+  }
+
+}
+
+@media (orientation: portrait) and (max-width: 480px) {
+
+  .container-hero-img li:nth-child(1) {
+    top: 70px;
+    left: 26px;
+    -webkit-animation: rotating1 60s linear infinite alternate;
+
+  }
+
+  @-webkit-keyframes rotating1 {
+    from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+    }
+
+    to {
+      -webkit-transform: rotate(320deg) translateY(0px) translateX(9px);
+    }
+  }
+
+  .container-hero-img li:nth-child(2) {
+/*pepene*/
+    top: 0px;
+    left: 60px;
+    -webkit-animation: rotating2 35s linear infinite alternate;
+    z-index:100;
+  }
+
+  .container-hero-img li:nth-child(2) img {
+    height: 170px;
+    top: 20px;
+    left: 4px;
+    position: relative;
+  }
+
+  @-webkit-keyframes rotating2 {
+    from {
+      -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+    }
+
+    to {
+      -webkit-transform: rotate(-320deg) translateY(0px) translateX(0px);
+    }
+  }
+
+  .container-hero-img li:nth-child(3) {
+    /*flamingo*/
+ top: 170px;
+    left: -90px;
+    -webkit-animation: rotating3 25s linear infinite alternate;
+
+  
+  }
+
+  .container-hero-img li:nth-child(3) img {
+    height: 110px
+  }
+
+  @-webkit-keyframes rotating3 {
+    from {
+      -webkit-transform: rotate(0deg) translateY(0px);
+    }
+
+    to {
+      -webkit-transform: rotate(60deg) translateY(-4px);
+    }
+  }
+
+  .container-hero-img li:nth-child(4) {
+    /*gogoasa rosie*/
+      top: -200px;
+    left: 140px;
+    -webkit-animation: rotating4 40s linear infinite alternate;
+    text-align: center;
+
+  }
+@-webkit-keyframes rotating4 {
+  from {
+    -webkit-transform: rotate(0deg) translateY(0px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg) translateY(-10px) translateX(0px);
+
+  }
+}
+  .container-hero-img li:nth-child(5) {
+    top: 220px;
+    left: 230px;
+    -webkit-animation: rotating5 30s linear infinite alternate;
+
+  }
+
+  .container-hero-img li:nth-child(6) {
+    /*pizza*/
+    top: -185px;
+    left: -362px;
+    -webkit-animation: rotating6 40s linear infinite alternate;
+  }
+  @-webkit-keyframes rotating6 {
+  from {
+    -webkit-transform: rotate(20deg) translateY(0px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(100deg) translateY(-6px) translateX(10px);
+  }
+}
+
+
+  .container-hero-img li:nth-child(7) {
+    top: 190px;
+    left: -170px;
+    transform: rotate(207deg);
+    -webkit-animation: rotating7 50s linear infinite alternate;
+    z-index:20;
+  }
+@-webkit-keyframes rotating7 {
+  from {
+    -webkit-transform: rotate(207deg) translateY(9px) translateX(0px);
+  }
+
+  to {
+    -webkit-transform: rotate(-100deg) translateY(14px) translateX(40px);
+  }
+}
+
+}
+
+
+	</style>
+<style>
+.steps {
+  font-size: 24px;
+  width: 100%;
+  padding: 0.5em 1em;
+
+  display: flex;
+  justify-content: space-between;
+
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+  .steps {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .steps {
+    font-size: 17px;
+  }
+}
+
+.steps .step {
+  display: flex;
+}
+
+.steps .number {
+  font-size: 3em;
+  height: 0.83em;
+  width: 0.83em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(136deg, #FF6333 0%, #FF832B 100%);
+  border-radius: 0.208em;
+}
+
+.steps .text {
+  flex: 1;
+  padding-left: 0.5em;
+
+  text-align: left;
+  text-shadow: 0 0.125em 0.625em #000000;
+}
+
+.steps .separator {
+  width: 1.29em;
+  height: 2.63em;
+
+  background: linear-gradient(146deg, #FF6333 0%, #FF832B 64%);
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+@media (max-width: 991px) {
+  .steps .number {
+    display: none;
+  }
+
+  .steps .text {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .steps .separator {
+    width: 1px;
+    height: 2.5em;
+    background: #fff;
+    box-shadow: 0 0.125em 0.625em #000000;
+    clip-path: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .steps {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .steps {
+    font-size: 9px;
+  }
+}
+</style>
+<style>
+  .steps {
+    position: absolute;
+    bottom: 100%;
+    z-index: 1;
+  }
+</style>
+<style>
+  .section-header {
+    font-size: 0.91em;
+    padding: 0.3em 0;
+
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header .text-mobile {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .section-header .text {
+      display: none;
+    }
+
+    .section-header .text-mobile {
+      display: inline;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .section-header {
+      font-size: 0.80em;
+    }
+  }
+</style>
+<style>
+.payment-methods {
+  padding: 0.3em 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.payment-methods img {
+  width: 10%;
+  height: 1em;
+  object-fit: contain;
+}
+</style>
+<style>
+  .payment-methods .visa {
+    width: 8%;
+  }
+
+  .payment-methods .mastercard {
+    width: 6%;
+  }
+
+  .payment-methods .revolut {
+    width: 8%;
+  }
+
+  .payment-methods .smith {
+    width: 14%;
+  }
+
+  .payment-methods .top-pay {
+    width: 12%;
+  }
+
+  .payment-methods .skrill {
+    width: 8%;
+  }
+  .payment-methods .okto {
+    width: 10%;
+  }
+</style>
+<style>
+.banner {
+  font-size: 1.4em;
+  display: block;
+  position: relative;
+
+  color: inherit;
+}
+
+.banner > img {
+  display: block;
+  width: 100%;
+}
+
+.banner .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  padding-left: 5%;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+
+  font-weight: bold;
+  text-shadow: 0 2px 10px #000000;
+}
+
+@media (max-width: 991px) {
+  .banner .overlay {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 450px) {
+  .banner .overlay {
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 450px) {
+  .banner .overlay {
+    font-size: 0.6em;
+  }
+}
+</style>
+<style>
+.top-games {
+  width: 100%;
+  padding-bottom: 0.4em;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.top-games .game-box {
+  width: 22%;
+  overflow: hidden;
+
+  border-radius: 0.4em;
+}
+
+.top-games img {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 450px) {
+  .top-games .game-box {
+    width: 30%;
+  }
+
+  .top-games .game-box:last-child {
+    display: none;
+  }
+}
+</style>
+<style>
+.providers {
+  padding: 0.3em 2em 0.3em 1em;
+  width: 100%;
+
+  background-color: #fff;
+  opacity: 0.85;
+  -webkit-backdrop-filter: 3px;
+  backdrop-filter: 3px;
+}
+
+.providers .swiper-button-prev,
+.providers .swiper-button-next {
+  width: 1.5em;
+  outline: none;
+}
+
+.providers .swiper-button-prev {
+  left: 0;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0), #fff 30%);
+  justify-content: flex-start;
+  padding-left: 0.2em;
+}
+
+.providers .swiper-button-next {
+  right: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), #fff 30%);
+  justify-content: flex-end;
+  padding-right: 0.2em;
+}
+
+.providers .swiper-button-prev::after,
+.providers .swiper-button-next::after {
+  color: grey;
+  transform: scale(0.5, 0.8);
+}
+
+.providers .swiper-button-next::after {
+  transform: scale(0.5, 0.8);
+}
+
+.providers img {
+  width: 100%;
+  height: 0.8em;
+  object-fit: contain;
+}
+
+.providers .swiper-slide {
+  width: 18%;
+}
+
+.providers .pragmatic-play {
+  width: 10%;
+}
+
+.providers .egt {
+  width: 10%;
+}
+
+.providers .play-n-go {
+  width: 12%;
+}
+
+.providers .relax-gaming {
+  width: 12%;
+}
+
+.providers .evolution-gaming {
+  width: 14%;
+}
+
+.providers .microgaming {
+  width: 14%;
+}
+
+.providers .netent {
+  width: 10%;
+}
+
+@media (max-width: 991px){
+  .providers{
+    padding: 0.3em 2em 0.3em 1.3em;
+  }
+}
+</style>
+<style>
+footer {
+  font-size: 0.26em;
+  padding: 2.2em 5em;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-column-gap: 1em;
+
+  background-color: #2a2e38;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  opacity: 0.9;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+footer .terms-toggle {
+  font-size: 2em;
+  display: inline-block;
+  padding: 0.3em 0.5em;
+  margin-bottom: 0.8em;
+
+  background-color: #888;
+  border-radius:  6px;
+}
+
+footer .terms-toggle:hover {
+  cursor: pointer;
+}
+
+footer .terms-content {
+  display: none;
+  font-size: 1.4em;
+}
+
+@media (max-width: 450px) {
+  footer .terms-content {
+    font-size: 2em;
+  }
+}
+
+footer .responsible-gaming {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+footer .responsible-gaming .title {
+  text-transform: uppercase;
+  color: #888;
+}
+
+footer .responsible-gaming .logos {
+  padding-top: 0.7em;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+footer .responsible-gaming img {
+  display: block;
+  object-fit: contain;
+  width: 23%;
+  height: 2em;
+}
+
+footer .responsible-gaming .gamcare {
+  width: 10%;
+  height: 3em;
+}
+
+footer .awards {
+  display: flex;
+  justify-content: center;
+}
+
+footer .awards-inner {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .awards img {
+  display: block;
+  object-fit: contain;
+  width: 23%;
+  height: 10em;
+}
+
+footer .smallprint {
+  color: #888888;
+}
+
+footer .smallprint a {
+  color: inherit;
+}
+
+@media (max-width: 991px) {
+  footer {
+    padding: 2em 2em;
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 2em;
+  }
+
+  footer .smallprint {
+    order: 5;
+    font-size: 1.4em;
+  }
+
+  footer .terms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .responsible-gaming img {
+    height: 2.7em;
+  }
+
+  footer .awards img {
+    height: 13em;
+  }
+}
+</style>
+<style>
+.below-fold {
+  font-size: 44px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto 1em auto;
+  position: relative;
+
+  color: #fff;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.below-fold::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2a2e38;
+  z-index: -1;
+  opacity: 0.8;
+  filter: brightness(50%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+li a{
+  color: #fe7332;
+}
+
+@media (max-width: 1400px) {
+  .below-fold {
+    font-size: 37px;
+    max-width: 1000px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .below-fold {
+    font-size: 31px;
+    max-width: 850px;
+  }
+}
+
+@media (max-width: 450px) {
+  .below-fold {
+    font-size: 25px;
+  }
+}
+
+.below-fold > .inner > span {
+  color: #f8bf00;
+}
+</style>
+<style>
+  .gdpr-notification {
+    display: none;
+    position: fixed;
+    z-index: 15;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    text-align: center;
+    background-color: #272a31;
+    color: #9e9e9e;
+    padding: 0.75em;
+    font-size: 0.85em;
+  }
+
+  .gdpr-notification .gdpr-text-wrapper {
+    flex-grow: 1;
+  }
+
+  .gdpr-notification .gdpr-text-wrapper,
+  .gdpr-notification .gdpr-accept-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .gdpr-notification a {
+    display: inline;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .gdpr-notification button {
+    font-family: inherit;
+    background-color: #fff;
+    color: #272a31;
+    padding: 0 0.75em;
+    margin: 0 2em 0 0.5em;
+    height: 1.75em;
+    border-radius: 0.875em;
+    border: none;
+    font-weight: bold;
+  }
+
+  .gdpr-notification button:hover {
+    cursor: pointer;
+  }
+</style>
+<style>
+  .step,
+  .steps > .separator {
+    opacity: 0;
+  }
+
+  .cta-button.mobile.animation {
+    animation-delay: 3000ms;
+  }
+  </style>
+<style>
+
+.char,
+.offer,
+.cta-button.mobile, .cta-button1
+ {
+  opacity: 0;
+}
+
+.animation {
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-duration: 750ms;
+          animation-duration: 750ms;
+}
+
+.char.animation {
+  -webkit-animation-name: char-animation;
+          animation-name: char-animation;
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+
+.offer.animation {
+  -webkit-animation-name: offer-animation;
+          animation-name: offer-animation;
+}
+
+.step.animation {
+  -webkit-animation-name: steps-animation;
+          animation-name: steps-animation;
+}
+
+.steps > .separator {
+  -webkit-animation-name: steps-separator-animation;
+          animation-name: steps-separator-animation;
+}
+
+.steps > div:nth-child(1).animation {
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
+}
+
+.steps > div:nth-child(2).animation {
+  -webkit-animation-delay: 1800ms;
+          animation-delay: 1800ms;
+}
+
+.steps > div:nth-child(3).animation {
+  -webkit-animation-delay: 1600ms;
+          animation-delay: 1600ms;
+}
+
+.steps > div:nth-child(4).animation {
+  -webkit-animation-delay: 2300ms;
+          animation-delay: 2400ms;
+}
+
+.steps > div:nth-child(5).animation {
+  -webkit-animation-delay: 2200ms;
+          animation-delay: 2200ms;
+}
+
+.cta-button.mobile.animation {
+  -webkit-animation-name: cta-mobile-animation;
+          animation-name: cta-mobile-animation;
+  -webkit-animation-duration: 500ms;
+          animation-duration: 500ms;
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
+}
+
+@-webkit-keyframes char-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-35%);
+            transform: translateX(-35%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes char-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-35%);
+            transform: translateX(-35%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes offer-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(35%);
+            transform: translateX(35%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes offer-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(35%);
+            transform: translateX(35%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes steps-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-40%);
+            transform: translateY(-40%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes steps-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-40%);
+            transform: translateY(-40%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes steps-separator-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes steps-separator-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-20%);
+            transform: translateX(-20%);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes cta-mobile-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes cta-mobile-animation {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+</style>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer', "GTM-T96S3P");</script>
+
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T96S3P"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="splash-screen">
+<img src="/lp-asset/shared/netbet/netbet-logo.png">
+<div class="loading-element">
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+</div>
+<section class="above-fold">
+<header>
+<div class="left">
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="logo-container">
+<img class="logo" src="/lp-asset/shared/netbet/netbet-logo.png" alt="NetBet" />
+</a>
+</div>
+<div class="center">
+<ul class="products">
+<li>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=126&t=register&bid2land=8">Sport</a>
+</li>
+<li>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8">Cazino</a>
+</li>
+<li>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=152&t=register&bid2land=8">Loto</a>
+</li>
+<li>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8">Virtuale</a>
+</li>
+<li>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=121&t=register&bid2land=8">Poker</a>
+</li>
+</ul>
+</div>
+<div class="right">
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=login&bid2land=8" class="login-button">
+Loghează-te
+</a>
+</div>
+<div class="bottom">
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="bottom-link">
+<div class="bottom-center">Înregistrează-te</div>
+</a>
+</div>
+</header>
+<div class="hero">
+<div class="container-hero" style="position:relative;">
+<div class="container-hero-img move draggable" style="position:relative;">
+<li><img class="char_water animation" data-x="0.05" data-y="0.05" data-scale="1.05" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/donut2.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/pepene.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/flamingo.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/donut1.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/Septar.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/pizza.png" alt="chars" /></li>
+<li><img class="char_water animation" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/pinapple.png" alt="chars" /></li>
+<svg style="display: none">
+<defs>
+<filter id="under-water-effect" x="0" y="0" width="130px" height="100%" result="abc">
+<feTurbulence id="water-effect" numOctaves="4" seed="1" type="turbulence" baseFrequency="0.04" result="turbulence"></feTurbulence>
+<feDisplacementMap scale="45" in2="abc" in="SourceGraphic" xChannelSelector="R" yChannelSelector="B" result="turbulence"></feDisplacementMap>
+<animate xlink:href="#water-effect" attributeName="baseFrequency" dur="30s" begin="0" keyTimes="0;0.5;1" values="0.01;0.005;0.01" repeatCount="indefinite" />
+</filter>
+</defs>
+</svg>
+</div>
+<div class="offer">
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="offer-content">
+<div class="offer-text">
+<svg style="display: none">
+<defs>
+<filter id="logo-water-effect" x="0" y="0" width="100%" height="100%">
+<feTurbulence id="water-effect1" numOctaves="2" seed="1" baseFrequency="0.01"></feTurbulence>
+<feDisplacementMap scale="15" in="SourceGraphic" xChannelSelector="R" yChannelSelector="B" result="displacement"></feDisplacementMap>
+<animate xlink:href="#water-effect1" attributeName="baseFrequency" dur="30s" begin="0" keyTimes="0;0.5;1" values="0.01;0.003;0.01" repeatCount="indefinite" />
+</filter>
+</defs>
+</svg>
+<div class="offer-html">
+<div class="line-1"><span>PÂNĂ LA</span></div>
+<div class="line-4">500</div>
+<div class="line-2">ROTIRI GRATUITE</div>
+<div class="line-3">FĂRĂ DEPUNERE</div>
+<div class="plus-line">
+<div class="line"></div>
+<div class="plus">
+<div class="plus-inside">+</div>
+</div>
+<div class="line"></div>
+</div>turbulence
+<div class="line-5">
+<div class="top">COD BONUS:</div>
+<div class="bottom">500ROTIRI</div>
+</div>
+</div>
+</div>
+<div class="cta-button desktop">
+Înregistrează-te
+</div>
+</a>
+<img src="/lp-asset/shared/netbet/template-2022v2/offer-box.svg" alt="offer" />
+</div>
+</div>
+<div class="cta-button mobile">
+Înregistrează-te
+</div>
+</div>
+<div class="promo-text">
+<a class="steps" href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8">
+<div class="step">
+<div class="number">1</div>
+<div class="text">Crează-ți cont<br>pe NetBet Cazino</div>
+</div>
+<div class="separator"></div>
+<div class="step">
+<div class="number">2</div>
+<div class="text">Depune simplu<br> și rapid</div>
+</div>
+<div class="separator"></div>
+<div class="step">
+<div class="number">3</div>
+<div class="text">Bonusuri și<br> runde garantate</div>
+</div>
+</a>
+<div class="inner">650 DE RUNDE GRATUITE <br><span>+</span> 5000 DE RON BONUS</div>
+</div>
+</section>
+<div class="below-fold">
+<div class="section-header">
+<span class="text">METODE DE PLATĂ</span>
+<span class="text-mobile">METODE DE PLATĂ</span>
+</div>
+<div class="payment-methods">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/visa.png" alt="visa" class="visa lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/mastercard.png" alt="mastercard" class="mastercard lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/revolut.png" alt="revolut" class="revolut lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/paysafe.png" alt="paysafe" class="paysafe lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/smith.png" alt="smith" class="smith lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/top-pay.png" alt="top-pay" class="top-pay lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/skrill.png" alt="skrill" class="skrill lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/neteller.png" alt="neteller" class="neteller lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/payment-methods/okto.png" alt="okto" class="okto lozad" />
+</div>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="banner">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/banners/blackjack.jpg" alt="blackjack" class="lozad" />
+<div class="overlay">
+Joacă acum
+</div>
+</a>
+<div class="section-header">
+<span class="text">CELE MAI POPULARE JOCURI DE CAZINO LIVE</span>
+<span class="text-mobile">CELE MAI POPULARE JOCURI DE CAZINO LIVE</span>
+</div>
+<div class="top-games">
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="game-box">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/games/baccarat.webp" alt="baccarat" class="lozad" />
+</a>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="game-box">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/games/rouletteA.webp" alt="rouletteA" class="lozad" />
+</a>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="game-box">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/games/baccaratA.webp" alt="baccaratA" class="lozad" />
+</a>
+<a href="https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8" class="game-box">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/games/baccaratB.webp" alt="baccaratB" class="lozad" />
+</a>
+</div>
+<div class="providers swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide egt">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/egt.png" alt="egt" />
+</div>
+<div class="swiper-slide pragmatic-play">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/pragmatic-play.png" alt="pragmatic-play" />
+</div>
+<div class="swiper-slide novomatic">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/novomatic.png" alt="novomatic" />
+</div>
+<div class="swiper-slide play-n-go">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/play-n-go.png" alt="play-n-go" />
+</div>
+<div class="swiper-slide evolution-gaming">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/evolution-gaming.png" alt="evolution-gaming" />
+</div>
+<div class="swiper-slide relax-gaming">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/relax-gaming.png" alt="relax-gaming" />
+</div>
+<div class="swiper-slide isoftbet">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/isoftbet.png" alt="isoftbet" />
+</div>
+<div class="swiper-slide microgaming">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/microgaming.png" alt="microgaming" />
+</div>
+<div class="swiper-slide netent">
+<img src="/lp-asset/shared/netbet/template-2022v2/providers/netent.png" alt="netent" />
+</div>
+</div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</div>
+<footer>
+<div class="terms">
+<div class="terms-toggle">Termeni și Condiții</div>
+<div class="terms-content">
+<h1>CEL MAI MARE PACHET DE BUN VENIT</h1>
+<h2>Cine este eligibil?</h2>
+<ul>
+<li>Pachetul de Bun venit poate fi utilizat doar la primele 5 (cinci) depuneri eligibile pe platforma NetBet Cazino.</li>
+<li>Oferta se adresează exclusiv noilor jucători și este limitată la o singură utilizare per adresă domiciliu/calculator/adresă IP.</li>
+</ul>
+<h2>Cum funcționează?</h2>
+<h4>Pachetul de Bun Venit este împărțit în 5 (cinci) etape, astfel:</h4>
+<h3>Prima Depunere:</h3>
+<ul>
+<li>Bonusul maxim ce poate fi obținut este de 100% până la 1.000 RON și poate fi activat exclusiv pe prima depunere de minim 50 RON efectuată în cont de pe platforma Cazino utilizând codul Bonus 1NB.</li>
+<li>Bonusul maxim de până la 1.000 RON poate fi obținut doar în cazul în care jucătorul are contul validat (KYC), în caz contrar bonusul maxim care poate fi obținut este de până la 800 RON.</li>
+<li>Se aplică playthrough 40 (x40) la toate jocurile de pe platforma NetBet Cazino (disponibile pe desktop și mobil).</li>
+<li>Rundele Gratuite se declanșează la deschiderea jocului eligibil în mod real.</li>
+<li>Rundele Gratuite sunt valabile timp de 7 zile din momentul acordării și sunt utilizabile exclusiv la slotul 40 Burning Hot (versiunile de desktop sau de mobil, dacă sunt disponibile).</li>
+<li>Valoarea unei runde gratuite este de 0.40 RON.</li>
+<li>Câștigurile obținute în timpul Rundelor Gratuite vor fi creditate în balanța jucătorilor sub formă de bonus, de îndată ce toate rundele acordate sunt epuizate. Se aplică cerințele standard de mizare (x40).</li>
+</ul>
+<h3>A 2-a Depunere:</h3>
+<ul>
+<li>Bonusul maxim ce poate fi obținut este de 75% până la 1.000 RON și poate fi activat exclusiv pe următoarea depunere de minim 100 RON efectuată în cont de pe platforma Cazino utilizând codul Bonus 2NB.</li>
+<li>Se aplică playthrough 40 (x40) la toate jocurile de pe platforma NetBet Cazino (disponibile pe desktop și mobil).</li>
+<li>Rundele Gratuite se declanșează la deschiderea jocului eligibil în mod real.</li>
+<li>Rundele Gratuite sunt valabile timp de 7 zile din momentul acordării și sunt utilizabile exclusiv la slotul Shining Crown (versiunile de desktop sau de mobil, dacă sunt disponibile).</li>
+<li>Valoarea unei runde gratuite este de 0.20 RON.</li>
+<li>Câștigurile obținute în timpul Rundelor Gratuite vor fi creditate în balanța jucătorilor sub formă de bonus, de îndată ce toate rundele acordate sunt epuizate. Se aplică cerințele standard de mizare (x40).</li>
+</ul>
+<h3>A 3-a Depunere:</h3>
+<ul>
+<li>Bonusul maxim ce poate fi obținut este de 50% până la 1.000 RON și poate fi activat exclusiv pe următoarea depunere de minim 200 RON efectuată în cont de pe platforma Cazino utilizând codul Bonus 3NB.</li>
+<li>Se aplică playthrough 40 (x40) la toate jocurile de pe platforma NetBet Cazino (disponibile pe desktop și mobil).</li>
+<li>Rundele Gratuite se declanșează la deschiderea jocului eligibil în mod real.</li>
+<li>Rundele Gratuite sunt valabile timp de 7 zile din momentul acordării și sunt utilizabile exclusiv la slotul Book of Dead (versiunile de desktop sau de mobil, dacă sunt disponibile).</li>
+<li>Valoarea unei runde gratuite este de 0.50 RON.</li>
+<li>Câștigurile obținute în timpul Rundelor Gratuite vor fi creditate în balanța jucătorilor sub formă de bonus, de îndată ce toate rundele acordate sunt epuizate. Se aplică cerințele standard de mizare (x40).</li>
+</ul>
+<h3>A 4-a Depunere:</h3>
+<ul>
+<li>Bonusul maxim ce poate fi obținut este de 25% până la 1.000 RON și poate fi activat exclusiv pe următoarea depunere de minim 200 RON efectuată în cont de pe platforma Cazino utilizând codul Bonus 4NB.</li>
+<li>Se aplică playthrough 40 (x40) la toate jocurile de pe platforma NetBet Cazino (disponibile pe desktop și mobil).</li>
+<li>Rundele Gratuite se declanșează la deschiderea jocului eligibil în mod real.</li>
+<li>Rundele Gratuite sunt valabile timp de 7 zile din momentul acordării și sunt utilizabile exclusiv la slotul 20 Burning Hot (versiunile de desktop sau de mobil, dacă sunt disponibile).</li>
+<li>Valoarea unei runde gratuite este de 0.20 RON.</li>
+<li>Câștigurile obținute în timpul Rundelor Gratuite vor fi creditate în balanța jucătorilor sub formă de bonus, de îndată ce toate rundele acordate sunt epuizate. Se aplică cerințele standard de mizare (x40).</li>
+</ul>
+<h3>A 5-a Depunere:</h3>
+<ul>
+<li>Bonusul maxim ce poate fi obținut este de 25% până la 1.000 RON și poate fi activat exclusiv pe următoarea depunere de minim 200 RON efectuată în cont de pe platforma Cazino utilizând codul Bonus 5NB.</li>
+<li>Se aplică playthrough 40 (x40) la toate jocurile de pe platforma NetBet Cazino (disponibile pe desktop și mobil).</li>
+<li>Rundele Gratuite se declanșează la deschiderea jocului eligibil în mod real.</li>
+<li>Rundele Gratuite sunt valabile timp de 7 zile din momentul acordării și sunt utilizabile exclusiv la slotul 20 Burning Hot (versiunile de desktop sau de mobil, dacă sunt disponibile).</li>
+<li>Valoarea unei runde gratuite este de 0.20 RON.</li>
+<li>Câștigurile obținute în timpul Rundelor Gratuite vor fi creditate în balanța jucătorilor sub formă de bonus, de îndată ce toate rundele acordate sunt epuizate. Se aplică cerințele standard de mizare (x40).</li>
+</ul>
+<h2>Ce altceva trebuie să știu?</h2>
+<ul>
+<li>Partenerii noștri de plată Skrill și NETELLER nu participă la această ofertă. Depozitele efectuate pe platforma de cazino prin intermediul acestor metode de plată nu vor fi eligibile pentru bonusul de bun venit.</li>
+<li>Pentru a îndeplini condițiile de retragere a câștigurilor rezultate din folosirea bonusului, jucătorii vor trebui să mizeze de 40x valoarea inițială a bonusului primit.</li>
+<li>Un jucător poate obține până la 650 runde gratuite, cu mențiunea că 100 runde gratuite provin din cadrul promoției "Runde Gratuite de Bun Venit", iar 550 runde gratuite în urma depunerilor efectuate cu codurile bonus eligibile aferente celui mai mare pachet de bun venit.</li>
+<li>Suma de bani reali maximă ce poate fi câștigată în urma rulării bonusurilor este de 20.000 RON, fiind distribuite astfel: 10.000 RON se pot obține din rulajul bonusurilor și 10.000 RON se pot obține din rulajul rundelor gratuite.</li>
+<li>Anumite jocuri nu contribuie la efectuarea rulajului bonusurilor, lista completă poate fi regăsită în secțiunea Asistență bonusuri.</li>
+<li>Solicitările de retragere efectuate înaintea îndeplinirii condițiilor de mizare vor anula în mod automat valoarea bonusului și câștigurile derivate din acesta.</li>
+<li>Bonusurile sunt valabile timp de 7 zile de la data emiterii, cu excepția cazurilor în care se prevede altfel. La sfârșitul acestei perioade, toate bonusurile neutilizate, bonusurile al căror playthrough nu a fost epuizat sau câștigurile în așteptare provenite din acestea vor fi deduse automat din conturile de jucător.</li>
+<li>Oferta respectă <a href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions?lp=poolparty2" style="display:inline-block;">Termenii și Condițiile NetBet Cazino</a>.</li>
+<li>NetBet își rezervă dreptul de a exclude jucătorii care participă la promoții cu conturi multiple.</li>
+<li>NetBet își rezervă dreptul de a descalifica jucătorii în caz de coluziune sau joc incorect, sau în cazul in care consideră că jucătorii au abuzat de promoție.</li>
+<li>NetBet își rezervă dreptul de a anula sau modifica termenii și condițiile acestei oferte fără notificare prealabilă.</li>
+</ul>
+<br>
+<hr />
+</div>
+</div>
+<div class="responsible-gaming">
+<div class="title">Joc Responsabil</div>
+<div class="logos">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/responsible-gaming/gamcare.png" alt="gamcare" class="gamcare lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/responsible-gaming/joc-responsabil.png" alt="joc-responsabil" class="joc-responsabil lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/responsible-gaming/gambleaware.png" alt="gambleaware" class="gambleaware lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/responsible-gaming/itech-labs.png" alt="itech-labs" class="itech-labs lozad" />
+</div>
+</div>
+<div class="smallprint">
+<p>
+Netbet &copy; 2001-2022. Toate drepturile rezervate.<br> Site-ul NetBet este deținut și
+operat de către NetBet Enterprises Ltd, Ewropa Business Centre, etaj 3, camera 704, birou A, str. Dun Karm Street, Birkirkara, Malta.<br>
+Licența nr. L1160651W000195 emisă de Comitetul de Supraveghere ONJN pentru NetBet Enterprises Ltd., Ewropa Business Centre, etaj 3, camera 704, birou A, str. Dun Karm Street, Birkirkara, Malta, valabilă din data de 01 Iulie 2016 până la 30 Iunie 2026.<br>
+Cod unic de identificare fiscală 35831487 eliberat de Administrația Fiscală pentru Contribuabili Nerezidenți.<br>
+Accesul la site-urile online cu jocuri pe bani reali este interzis în conformitate cu unele legislații naționale.<br>
+Este responsabilitatea fiecărui jucător în parte de a se asigura că acționează în conformitate cu legislația în vigoare atunci când accesează site-ul NetBet.<br>
+Jocurile de noroc implică riscuri financiare și de dependență. Jucați cu moderație.
+</p>
+</div>
+<div class="awards">
+<div class="awards-inner">
+<img data-src="/lp-asset/shared/netbet/template-2022v2/awards/onjn.png" alt="onjn" class="onjn lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/awards/best-support.png" alt="best-support" class="best-support lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/awards/best-betting.png" alt="best-betting" class="best-betting lozad" />
+<img data-src="/lp-asset/shared/netbet/template-2022v2/awards/customer-service.png" alt="customer-service" class="customer-service lozad" />
+</div>
+</div>
+</footer>
+</div>
+<div id="gdpr-notification" class="gdpr-notification">
+<div class="gdpr-text-wrapper">
+<div class="gdpr-text">Acest site utilizează cookie-uri. Prin utilizarea acestui site confirmi că ești de acord cu utilizarea cookie-urilor noastre. <a href="https://casino.netbet.ro/help/terms-and-conditions/privacy?lp=poolparty2">Află mai multe aici.</a></div>
+</div>
+<div class="gdpr-accept-button-container">
+<button>OK</button>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/7.2.0/swiper-bundle.min.js" integrity="sha512-XHnWZWvy5TkCnPgLU7XsWhGAks1JQ3uFutVxRSH0Z4+djsGkCkxVsYu+JgfrDicvbCmjfUf1HeMWYUvUYKgjzQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.0.8/lozad.min.js" integrity="sha512-Nt+V5JYamXCSvlHzNVleriGhTrolnfxckJ8sEXxv/BJ0tKV1HyPDXH+bIFNcUJ5hcthQ95uAeU2JClPT16mFyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+<script>
+  var lang = "ro";
+
+  $(function() {
+    if (lang === 'en-GB') {
+      $('.terms').removeClass('hidden');
+      $('.terms-content').show();
+    }
+
+    $('.terms-toggle').click(function() {
+      $('.terms').toggleClass('hidden');
+      $('.terms-content').slideToggle();
+    });
+  });
+</script>
+<script>
+    $(function() {
+      if (localStorage.getItem('cookies_accepted') === null) {
+        $('.gdpr-notification').show();
+        $('.gdpr-notification').css('display', 'flex');
+      } else {
+        $('.gdpr-notification').hide();
+      }
+  
+      $('.gdpr-accept-button-container').click(function() {
+        localStorage.setItem('cookies_accepted', 'true');
+        $('.gdpr-notification').hide();
+      });
+    });
+  </script>
+<script>
+  const charImgUrl = "https://go-testing.netbet.ro/lp-asset/netbetro/casino/poolparty2/char.png";
+  const version = "A";
+</script>
+<script>
+
+    const stickyTimeout = version === 'A' ? 5000 : 3000;
+    function initStickyCTA() {
+      setTimeout(function() {
+        const headerHeight = $('header').height() - 50;
+        const observerOptions = {
+          rootMargin: `-${headerHeight}px 0px 0px 0px`,
+          threshold: 1.0
+        }
+
+        const callback = (entries, observer) => {
+          const entry = entries[0];
+
+          if (entry.isIntersecting) {
+            $('header .bottom').fadeOut(300);
+          } else {
+            $('header .bottom').fadeIn(300);
+            $('header .bottom').css('display', 'flex');
+          }
+        };
+
+        const ctaObserver = new IntersectionObserver(callback, observerOptions);
+
+
+        const selector = ($('.cta-button.desktop').css('display') === 'none') ? '.cta-button.mobile' :
+          '.cta-button.desktop'
+        const ctaButton = document.querySelector(selector);
+        ctaObserver.observe(ctaButton);
+
+        if (version === 'B') {
+          const updateFixedCTAPosition = () => {
+            const fixed_cta = $('header .bottom');
+            const cookie_bar = $('.gdpr-notification');
+            const fixed_cta_height = fixed_cta.height();
+
+            let cookie_bar_height;
+            if (cookie_bar.css('display') == 'none') {
+              cookie_bar_height = 0;
+            } else {
+              cookie_bar_height = cookie_bar.innerHeight() || 0;
+            }
+            cookie_bar_height += 3;
+
+            fixed_cta.css('bottom', `${cookie_bar_height}px`);
+          }
+
+          $(window).resize(_.throttle(updateFixedCTAPosition, 100));
+          $('.gdpr-button button').click(updateFixedCTAPosition);
+
+          updateFixedCTAPosition();
+        }
+
+      }, stickyTimeout);
+    }
+  </script>
+<script>
+    const charImg = new Image();
+    charImg.onload = function() {
+      let animatedClasses = [
+        '.char',
+        '.offer',
+        '.cta-button.mobile'
+      ];
+      if (version === 'A') {
+        animatedClasses = [
+          ...animatedClasses,
+          '.step',
+          '.steps > .separator'
+        ];
+      }
+      $('.splash-screen').fadeOut(300);
+      initStickyCTA();
+      setTimeout(function() {
+        $(animatedClasses.join(', ')).addClass('animation');
+      }, 300);
+    }
+    charImg.src = charImgUrl;
+
+    $(function() {
+      const observer = lozad();
+      $('img.lozad').each(function() {
+        const _this = $(this);
+        _this.css('opacity', 0);
+        _this.on('load', function() {
+          _this.css('opacity', 1);
+        });
+      });
+
+
+      observer.observe();
+      const swiper = new Swiper('.swiper', {
+        freeMode: true,
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        loop: 'true',
+        loopedSlides: 20,
+
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+
+     
+      const dial = document.querySelector('.dial');
+      const arrow = document.querySelector('.arrow-light');
+/*
+      window.onload=function(){
+          dial.classList.toggle("spinning");
+          setTimeout(function(){
+              arrow.classList.toggle("open-light")
+          }, 5000);
+      }
+ */
+
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+<script>
+  $("body").ripples({
+  resolution: 256,
+  perturbance: 0.04,
+  interactive:true,
+  dropRadius:30,
+}); 
+</script>
+<style>
+/* .gdpr-notification {
+  display: none !important;
+} */
+/*
+var b = document.getElementsByClassName("container-hero-img")[0];  
+
+b.addEventListener("mousemove", function(event) {
+  parallaxed(event);
+
+});
+
+function parallaxed(e) {
+      var amountMovedX = (e.clientX * -0.3 / 8);
+      var amountMovedY = (e.clientY * -0.3 / 8);
+      var x = document.getElementsByClassName("char_water");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].style.transform='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+      }
+}
+
+const calculate = (a, b) => (a / b * 20 - 10).toFixed(1);
+
+const cards = gsap.utils.toArray('.char_water')
+      backgrounds = gsap.utils.toArray('.container-hero-img');
+
+document.addEventListener("mousemove", (e) => {
+  const clientX = e.clientX,
+        clientY = e.clientY;
+  
+  let y = calculate(clientY, window.innerHeight),
+      x = calculate(clientX, window.innerWidth);
+  
+  cards.forEach( c => {
+    gsap.to(c, {
+      duration: 0.5,
+      rotationX: -y + "deg",
+      rotationY: x + "deg"
+    })
+  })
+  
+  backgrounds.forEach( bg => {
+    gsap.to(bg, {
+      backgroundPositionX: x * 0.45 + "px",
+      backgroundPositionY: -y * 0.45 + "px"
+    })
+  })
+  
+});
+var isMouseDown,initX,initY,height = draggable.offsetHeight,width = draggable.offsetWidth;
+
+draggable.addEventListener('mousedown', function(e) {
+  isMouseDown = true;
+  document.body.classList.add('no-select');
+  initX = e.offsetX;
+  initY = e.offsetY;
+})
+
+document.addEventListener('mousemove', function(e) {
+  if (isMouseDown) {
+    var cx = e.clientX - initX,
+        cy = e.clientY - initY;
+    if (cx < 0) {
+      cx = 0;
+    }
+    if (cy < 0) {
+      cy = 0;
+    }
+    if (window.innerWidth - e.clientX + initX < width) {
+      cx = window.innerWidth - width;
+    }
+    if (e.clientY > window.innerHeight - height+ initY) {
+      cy = window.innerHeight - height;
+    }
+    draggable.style.left = cx + 'px';
+    draggable.style.top = cy + 'px';
+  }
+})
+
+draggable.addEventListener('mouseup', function() {
+  isMouseDown = false;
+  document.body.classList.remove('no-select');
+})
+$(document).on("mousemove", function(event){
+
+  var $mouseX = event.pageX,
+      $mouseY = event.pageY;
+  
+  $('.char_water').css("margin-top", - ($mouseY * 0.01) + 'px');
+  $('.char_water').css("margin-left", - ($mouseX * 0.01) + 'px');
+});
+
+var b = document.getElementsByClassName("container-hero-img")[0];  
+b.addEventListener("mousemove", function(event) {
+  parallaxed(event);
+
+});
+
+function parallaxed(e) {
+      var amountMovedX = (e.clientX * -0.3 / 20);
+      var amountMovedY = (e.clientY * -0.3 / 20);
+      var x = document.getElementsByClassName("char_water");
+      var i;
+      for (i = 0; i < x.length; i++) {
+        x[i].style.transform ='translate(' + amountMovedX + 'px,' + amountMovedY + 'px)'
+      }
+}
+
+
+*/
+</style>
+<script>
+let tl = new TimelineLite({paused:true});
+tl.to(".char_water", 0.9, {x:-20}, 0);
+let hoverArea = $('.container-hero-img');
+hoverArea.on("mouseenter", function(){
+  tl.play();
+});
+hoverArea.on("mouseleave", function(){
+  tl.reverse();
+});
+
+// This stores the position of the current item being dragged
+const position = { x: 0, y: 0 };
+
+interact(".char_water")
+  .draggable({
+    // By setting manualStart to true - we control the manualStart.
+    // We need to do this so that we can clone the object before we begin dragging it.
+    manualStart: true,
+    listeners: {
+      move(event) {
+        position.x += event.dx;
+        position.y += event.dy;
+        event.target.style.transform = `translate(${position.x}px, ${position.y}px)`;
+      }
+    }
+  })
+  // This only gets called when we trigger it below using interact.start(...)
+  .on("move", function(event) {
+    const { currentTarget, interaction } = event;
+    let element = currentTarget;
+
+    // If we are dragging an item from the sidebar, its transform value will be ''
+    // We need to clone it, and then start moving the clone
+    if (
+      interaction.pointerIsDown &&
+      !interaction.interacting() &&
+      currentTarget.style.transform === ""
+    ) {
+      element = currentTarget.cloneNode(true);
+
+      // Add absolute positioning so that cloned object lives right on top of the original object
+      element.style.position = "absolute";
+      element.style.left = 0;
+      element.style.top = 0;
+
+      // Add the cloned object to the document
+      const container = document.querySelector(".container");
+      container && container.appendChild(element);
+
+      const { offsetTop, offsetLeft } = currentTarget;
+      position.x = offsetLeft;
+      position.y = offsetTop;
+
+      // If we are moving an already existing item, we need to make sure the position object has
+      // the correct values before we start dragging it
+    } else if (interaction.pointerIsDown && !interaction.interacting()) {
+      const regex = /translate\(([\d]+)px, ([\d]+)px\)/i;
+      const transform = regex.exec(currentTarget.style.transform);
+
+      if (transform && transform.length > 1) {
+        position.x = Number(transform[1]);
+        position.y = Number(transform[2]);
+      }
+    }
+
+    // Start the drag event
+    interaction.start({ name: "drag" }, event.interactable, element);
+  });
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
