@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      .container-all {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 400px;
+      }
+      .box {
+        border: 1px solid black;
+        width: 300px;
+        height: 400px;
+        text-align: start;
+        position: relative;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .box:hover::after {
+        content: "[data-name] + [data-points]";
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <title>Win or lose</title>
+  </head>
+  <body>
+    <div class="container-all">
+      <div class="box-one box" data-name="One">1</div>
+      <div class="box-two box" data-name="two">2</div>
+      <div class="box-three box" data-name="three">3</div>
+    </div>
+
+    <script>
+      var d = Math.random();
+      if (d < 0.5) {
+      }
+      // 50% chance of being here
+      else if (d < 0.7) {
+      }
+      // 20% chance of being here
+      else {
+      }
+      // 30% chance of being here
+
+      /*
+          int foo = Math.random() * 100;
+if (foo < 80) // 0-79
+    sendMessage("hi");
+else if (foo < 85) // 80-84
+    sendMessage("bye");
+else // 85-99
+    sendMessage("test");*/
+
+      // percentage chance function by creating a pool and using the fisher yates shuffle algorithm for a completely random chance. The snippet below tests the chance randomness 20 times.
+      var arrayShuffle = function (array) {
+        for (
+          var i = 0, length = array.length, swap = 0, temp = "";
+          i < length;
+          i++
+        ) {
+          swap = Math.floor(Math.random() * (i + 1));
+          temp = array[swap];
+          array[swap] = array[i];
+          array[i] = temp;
+        }
+        return array;
+      };
+
+      var percentageChance = function (values, chances) {
+        for (var i = 0, pool = []; i < chances.length; i++) {
+          for (var i2 = 0; i2 < chances[i]; i2++) {
+            pool.push(i);
+          }
+        }
+        return values[arrayShuffle(pool)["0"]];
+      };
+
+      for (var i = 0; i < 20; i++) {
+        console.log(percentageChance(["hi", "test", "bye"], [80, 15, 5]));
+      }
+
+      const abs = Math.floor(Math.random() * 11);
+      if (abs >= 8) {
+        // 20% chance
+        /*
+          CODE HERE
+        */
+      } else {
+        // 80% chance
+        /*
+          CODE HERE
+        */
+      }
+      //You can change 11 to 101 if you want.
+
+      //The reason why it has an extra one is so it does 1 - 10 instead of 1 - 9 (or 1 - 100 instead of 1 - 99)
+      const abc = Math.floor(Math.random() * 11);
+      if (abc >= 8) {
+        // 20% chance
+        /*
+          CODE HERE
+        */
+      } else {
+        // 80% chance
+        /*
+          CODE HERE
+        */
+      }
+
+      const testMyChance = () => {
+        const chance = [1, 0, 0, 0, 0].sort(() => Math.random() - 0.5)[0];
+
+        if (chance) console.log("Yupiii!");
+        else console.log("Oh my Duck!");
+      };
+
+      testMyChance();
+
+
+      /*The issue with the Math.floor(Math.random()) example is that Math.floor() removes all of the fractional values of a number. To get precision to a certain fixed point, multiply by the maximum whole number wanted, then adjust to a fixed decimal.*/
+
+
+      for (var i = 0; i < 10; i++) {
+    var num = 10 * Math.random();           // Max 10.000...
+    
+    console.log(num, num.toFixed(1) + '%')  // Fix (and round) the first decimal
+}
+    </script>
+  </body>
+</html>
