@@ -35,6 +35,22 @@
         height: 100%;
         width: 100%;
       }
+
+      .box:hover::before {
+        content: "test";
+        position:absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: flex-start;
+        color: red;
+        background-color: purple;
+      }
+
+
     </style>
     <title>Win or lose</title>
   </head>
@@ -71,16 +87,16 @@
                       sendMessage("test");*/
 
                         // percentage chance function by creating a pool and using the fisher yates shuffle algorithm for a completely random chance. The snippet below tests the chance randomness 20 times.
-                        var arrayShuffle = function (array) {
-                          for (var i = 0, length = array.length, swap = 0, temp = ""; i < length; i++) {
-                            swap = Math.floor(Math.random() * (i + 1));
-                            temp = array[swap];
-                            array[swap] = array[i];
-                            array[i] = temp;
-                          }
-                          return array;
-                        };
-      console.log(arrayShuffle, "arrayshuffle");
+      //                   var arrayShuffle = function (array) {
+      //                     for (var i = 0, length = array.length, swap = 0, temp = ""; i < length; i++) {
+      //                       swap = Math.floor(Math.random() * (i + 1));
+      //                       temp = array[swap];
+      //                       array[swap] = array[i];
+      //                       array[i] = temp;
+      //                     }
+      //                     return array;
+      //                   };
+      // console.log(arrayShuffle, "arrayshuffle");
                         // var percentageChance = function (values, chances) {
                         //   for (var i = 0, pool = []; i < chances.length; i++) {
                         //     for (var i2 = 0; i2 < chances[i]; i2++) {
@@ -88,24 +104,34 @@
                         //     }
                         //   }
                         //   return values[arrayShuffle(pool)["0"]];
-                        // };
+                         
+                        // console.log(chances,  "chances")
 
+                        //   console.log(values, "values")
+                        // };
+                        // console.log(percentageChance, "percent test");
+                  
+                        
                         // for (var i = 0; i < 20; i++) {
                         //   console.log(percentageChance(["hi", "test", "bye"], [80, 15, 5]));
                         // }
 
-                      //   const abs = Math.floor(Math.random() * 11)
-                      //   if (abs >= 8) {
-                      //     // 20% chance
-                      //     /*
-                      //       CODE HERE
-                      //     */
-                      //   } else {
-                      //     // 80% chance
-                      //     /*
-                      //       CODE HERE
-                      //     */
-                      //   }
+                        const abs = Math.floor(Math.random() * 11)
+                        console.log(abs , "test abs")
+                        if (abs >= 8) {
+                          // 20% chance
+                          /*
+                            CODE HERE
+                          */
+                         console.log(abs, "mai mare ca")
+                        } else {
+
+                          // 80% chance
+                          /*
+                            CODE HERE
+                          */console.log(abs, "else ca")
+                        
+                        }
                         //You can change 11 to 101 if you want.
 
                         //The reason why it has an extra one is so it does 1 - 10 instead of 1 - 9 (or 1 - 100 instead of 1 - 99)
