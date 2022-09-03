@@ -139,63 +139,43 @@
 
 
 
+                        const testMyChance = () => {
+                          const chance = [1, 0, 0, 0, 0].sort(() => Math.random() - 0.5)[0];
 
-                      //   const abc = Math.floor(Math.random() * 11)
+                          if (chance) console.log(chance,"Yupiii!");
+                          else console.log(chance, "Oh my Duck!");
+                        };
 
-
-                      //       if (abc >= 8) {
-                      //     // 20% chance
-                      //     /*
-                      //       CODE HERE
-                      //     */
-                      //   } else {
-                      //     // 80% chance
-                      //     /*
-                      //       CODE HERE
-                      //     */
-                      //   }
+                        testMyChance();
 
 
-
-                        // const testMyChance = () => {
-                        //   const chance = [1, 0, 0, 0, 0].sort(() => Math.random() - 0.5)[0];
-
-                        //   if (chance) console.log("Yupiii!");
-                        //   else console.log("Oh my Duck!");
-                        // };
-
-                        // testMyChance();
+                  //       /*The issue with the Math.floor(Math.random()) example is that Math.floor() removes all of the fractional values of a number. To get precision to a certain fixed point, multiply by the maximum whole number wanted, then adjust to a fixed decimal.*/
 
 
-                        /*The issue with the Math.floor(Math.random()) example is that Math.floor() removes all of the fractional values of a number. To get precision to a certain fixed point, multiply by the maximum whole number wanted, then adjust to a fixed decimal.*/
+                        for (var i = 0; i < 10; i++) {
+                      var num = 10 * Math.random();           // Max 10.000...
+
+                      console.log(num, num.toFixed(1) + '%')  // Fix (and round) the first decimal
+                  }
 
 
-                  //       for (var i = 0; i < 10; i++) {
-                  //     var num = 10 * Math.random();           // Max 10.000...
+                  const colors = ['blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'white']
 
-                  //     console.log(num, num.toFixed(1) + '%')  // Fix (and round) the first decimal
-                  // }
-
-
-                  // const colors = ['blue', 'blue', 'red', 'red', 'red', 'green', 'green', 'white']
-
-                  // const totalItems = colors.length
-                  // const uniqueItems = [...new Set(colors)]
-                  // uniqueItems.forEach(currColor => {
-                  //   const numItems = colors.filter(color => color === currColor)
-                  //   console.log(`color ${currColor} represents ${numItems.length * 100 / totalItems}%`)
-                  // });
-                  /*
-                  color blue represents 25%
-                  color red represents 37.5%
-                  color green represents 25%
-                  color white represents 12.5%
+                  const totalItems = colors.length
+                  const uniqueItems = [...new Set(colors)]
+                  uniqueItems.forEach(currColor => {
+                    const numItems = colors.filter(color => color === currColor)
+                    console.log(`color ${currColor} represents ${numItems.length * 100 / totalItems}%`)
+                  });
+                  
+                  // color blue represents 25%
+                  // color red represents 37.5%
+                  // color green represents 25%
+                  // color white represents 12.5%
 
 
-                */
+                
 
-
-                let person = document.getElementById(numberGenerate);
             
     </script>
   </body>
