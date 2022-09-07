@@ -1,0 +1,1417 @@
+{block name="add_char"}
+  
+<div class="container-hero-img animation" style="position:relative;">
+    <div class="container-wrapping">
+     
+         <img src="{$asset}/wheel/Swirl-Mobile.png" alt="Swirl" class="swirl-mobile">
+        <div class="wrapping_items">
+            <div class="VoleyBall animation-all-Items"><img src="{$asset}/wheel/VoleyBall.png" alt="VoleyBall"
+                    class="animation_rotate-reverse"></div>
+            <div class="seven animation-all-Items"><img src="{$asset}/fruits/seven2.png" alt="seven"
+                    class="animation_floating"></div>
+            <div class="strugure animation-all-Items"><img src="{$asset}/fruits/strugure.png" alt="strugure"
+                    class="reverse-floating"></div>
+            <div class="TennisBall animation-all-Items"><img src="{$asset}/wheel/TennisBall.png" alt="TennisBall"
+                    class="animation_rotate"></div>
+            <div class="cireasa1 animation-all-Items"><img src="{$asset}/fruits/cireasa2.png" alt="cireasa1"
+                    class="reverse-floating"></div>
+            <div class="pepene animation-all-Items"><img src="{$asset}/fruits/pepene.png" alt="pepene"
+                    class="animation_floating"></div>
+            <div class="BasketBall animation-all-Items"><img src="{$asset}/wheel/Basket-Ball.png" alt="BasketBall"
+                    class="animation_rotate"></div>
+            <div class="orange animation-all-Items"><img src="{$asset}/fruits/orange.png" alt="orange"
+                    class="reverse-floating"></div>
+            <div class="bell animation-all-Items"><img src="{$asset}/fruits/bell2.png" alt="bell"
+                    class="animation_floating "></div>
+            <div class="Football animation-all-Items"><img src="{$asset}/wheel/Football2.png" alt="Football"
+                    class="animation_rotate-reverse fotbalsl-moves"></div>
+            <div class="cireasa2 animation-all-Items"><img src="{$asset}/fruits/cireasa1.png" alt="cireasa2"
+                    class="reverse-floating"></div>
+                     <img src="{$asset}/wheel/Swirl.png" alt="Swirl" class="swirl-desktop">
+        </div>
+        <div class="crown-container">
+            <div class="Crown animation-all-Items2"><img src="{$asset}/wheel/Crown-Top.png" alt="Crown"
+                    class="animation_center"></div>
+            <div class="Crown crown-bottom animation-all-Items2"><img src="{$asset}/wheel/Crown-bottom.png" alt="Crown"
+                    class="animation_center"></div>
+        </div>
+         <div class="assets-behind">
+        <div class="BaseBall assetsBehindDiv"><img src="{$asset}/wheel/BaseBall.png" alt="BaseBall"></div>
+        <div class="Box assetsBehindDiv"><img src="{$asset}/wheel/Box2.png" alt="Box"></div>
+        <div class="AFootball assetsBehindDiv"><img src="{$asset}/wheel/AFootball.png" alt="AFootball"></div>
+    </div>
+
+    </div>
+</div>
+{/block}
+{block name="offer_html"}
+<div class="offer-html">
+    <div class="line-01">100 RON</div>
+<div class="line-11">BONUS SPORT</div>
+
+    <div class="plus-line">
+        <div class="line"></div>
+        <div class="plus">
+            <div class="plus-inside">+</div>
+        </div>
+        <div class="line"></div>
+    </div>
+        <div class="line-2">200 RUNDE GRATUITE</div>
+    <div class="line-3">LA SHINING CROWN</div>
+    <div class="line-5">
+        <div class="top">COD BONUS:</div>
+        <div class="bottom">PARIURIX100</div>
+    </div>
+</div>
+{/block}
+{block name="offer_css"}
+<style>
+
+   body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    .steps {
+        position: absolute;
+        bottom: 100%;
+        
+    }
+
+    .wrapping_items {
+        animation-name: rotating-container;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        animation-direction: alternate;
+        z-index: 332;
+    }
+ 
+
+    @keyframes rotating-container {
+    0% {
+    transform: translateY(20px) translateX(-100px) scale(1) rotate(20deg);
+}
+100% {
+    transform: translateY(-130px) translateX(100px) scale(1) rotate(-23deg);
+}
+    }
+
+    .animation_floating {
+        animation-name: floating-items;
+        animation-duration: 15s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+         animation-direction: alternate;
+
+    }
+
+    @keyframes floating-items {
+ 0% {
+    transform: translate(0, 0px) rotate(5deg);
+}
+
+65% {
+    transform: translate(0, 60px) rotate(95deg);
+}
+100% {
+    transform: translate(0, 0px) rotate(180deg);
+}
+    }
+
+    .reverse-floating {
+        animation-name: floating-items-reverse;
+        animation-duration: 17s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        animation-direction: alternate;
+
+    }
+
+    @keyframes floating-items-reverse {
+        from {
+            transform: translate(0, 0px);
+        }
+
+        65% {
+            transform: translate(-20px, -40px);
+        }
+
+        to {
+            transform: translate(0, -0px);
+        }
+    }
+
+    .animation-all-Items {
+        animation-name: move-all-items;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+    @keyframes move-all-items {
+        0% {
+            transform: translateY(0px) translateX(-20px) scale(1.05) rotate(10deg);
+        }
+
+        100% {
+            transform: translateY(-0px) translateX(-46px) scale(1) rotate(-40deg);
+        }
+    }
+
+  
+
+    .swirl-desktop {
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate-reverse;
+        animation-name: move-swirl;
+        transform: rotate(10deg);
+
+    }
+
+    @keyframes move-swirl {
+   0% {
+    transform: translateY(70px) translateX(10px) rotate(10deg) scale(1);
+}
+100% {
+    transform: translateY(-19px) translateX(-10px) rotate(-30deg) scale(0.9);
+}
+    }
+
+    .animation_center {
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function:linear;
+        animation-direction: alternate;
+        animation-name: crow-animation;
+        z-index: 36655;
+    }
+
+    @keyframes crow-animation {
+        0% {
+            transform:translateY(0px) translateX(-10px) rotate(0deg) scale(1);
+        }
+
+        100% {
+            transform:translateY(0px) translateX(50px) rotate(20deg) scale(1);
+        }
+    }
+
+    .animation_rotate {
+        animation-name: rotate-items;
+        animation-duration: 18s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+         animation-direction: alternate;
+    }
+
+    .animation_rotate-reverse {
+        animation-name: rotate-items-reverse;
+        animation-duration:18s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+ 
+
+    @keyframes rotate-items {
+        from {
+            transform: rotate(0deg) scale(0.95) ;
+            /*	filter: hue-rotate(0deg);*/
+        }
+
+        to {
+            transform: rotate(359deg) scale(1) ;
+            /*	filter: hue-rotate(360deg);*/
+        }
+    }
+
+    @keyframes rotate-items-reverse {
+        from {
+            transform: rotate(0deg) scale(1) ;
+            /*	filter: hue-rotate(0deg);*/
+        }
+
+        to {
+            transform: rotate(-360deg) scale(1);
+            /*	filter: hue-rotate(360deg);*/
+        }
+    }
+
+    .Crown::after {
+        animation: blink 3s infinite linear, vertical 20s linear infinite alternate;
+    }
+
+ 
+
+
+    @keyframes blink {
+        0% {
+            opacity: .6;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        99% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: .6;
+        }
+    }
+
+    @keyframes vertical {
+     0% {
+            transform:translateY(0px) translateX(-10px) rotate(0deg) scale(1);
+        }
+
+        100% {
+            transform:translateY(50px) translateX(50px) rotate(20deg) scale(1);
+        }
+    }
+    
+
+    .crown-container{
+    position: absolute;
+     top: 25px;
+    right: -10px;
+    }
+
+    .assetsBehindDiv {
+        position: relative;
+
+    }
+
+    .BaseBall {
+  top: -21em;
+    left: -86em;
+    opacity: 0;
+        animation: AFootball-rotate 5s ease-in-out forwards 1 2s, AFootball-rotate-infinite 10s infinite  ease alternate 4.5s;
+        position: relative;
+      
+    }
+   
+    .BaseBall::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("{$asset}/wheel/Basket-Swirl.png");
+    width: 150px;
+    height: 140px;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: screen;  
+    }
+    .BaseBall img {
+        height:100px;
+    }
+
+    .AFootball {
+        top: 230px;
+        left: 52em;
+        animation: AFootball-rotate2 15s linear infinite alternate, AFootball-rotate-infinite 10s infinite  ease alternate 1.5s;
+    }
+    .AFootball img {
+        height: 270px;
+    }
+
+
+      @keyframes AFootball-rotate {
+0% {
+    opacity: 0;
+    top: -21em;
+    left: -86em;
+}
+
+100% {
+    opacity: 1;
+    top: 2em;
+    left: -3em;
+}
+ 
+    }
+          @keyframes AFootball-rotate2 {
+0% {
+    top: 42em;
+    left: 84em;
+
+}
+
+30% {
+    top: 21em;
+    left: -45em;
+}
+60% {
+    top: 21em;
+    left: 40em;
+}
+100% {
+    top: 63em;
+    left: 101em;
+ 
+}
+ 
+    }
+  
+ @keyframes AFootball-rotate-infinite {
+          0% {
+        
+               transform: rotate(0deg);
+        }
+
+        100% {
+           
+                transform: rotate(-360deg);
+        }
+ 
+    }
+
+    .BasketBall {
+        z-index: 62626;
+    }
+
+    .BasketBall::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-image: url("{$asset}/wheel/Basket-Swirl.png");
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        mix-blend-mode: screen;
+        animation: blink2 1s infinite linear, turnTwo 10s linear infinite alternate;
+    }
+       @keyframes turnTwo {
+          0% {
+        
+               transform: rotate(0deg);
+        }
+
+        100% {
+           
+                transform: rotate(-360deg);
+        }
+ 
+    }
+    
+
+    @keyframes blink2 {
+        0% {
+            opacity: .6;
+        }
+
+        10% {
+            opacity: 1;
+        }
+
+        99% {
+            opacity: .6;
+        }
+
+        100% {
+            opacity: .6;
+        }
+    }
+
+    .Box::after {
+        content: "";
+        position: absolute;
+        top: -66px;
+        left: 0;
+        background-image: url("{$asset}/wheel/Basket-Swirl.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width: 100%;
+        height: 100%;
+        animation-name: rotate-box;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        z-index: -1;
+        mix-blend-mode: screen;
+    }
+       @keyframes rotate-box {
+          0% {
+        
+               transform: rotate(0deg);
+        }
+
+        100% {
+           
+                transform: rotate(-360deg);
+        }
+ 
+    }
+
+    .Box {
+        animation-name: rotate-box2;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+    }
+   @keyframes rotate-box2 {
+   0% {
+    transform: translateY(-20px) translateX(-60px) rotate(0deg) scale(1);
+}
+
+100% {
+    transform: translateY(0px) translateX(-60px) rotate(-20deg) scale(0.9);
+}
+    }
+    .offerA {
+        display: none !important;
+    }
+
+    .promo-text>.inner>span {
+        color: #f8bf00;
+    }
+
+
+
+    .container-hero-img,
+    .offer {
+        -khtml-user-select: none;
+        -o-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+
+    .container-hero-img {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+        position: relative;
+        justify-content: flex-end;
+        animation: itemsRight-animation 4s 0.3s linear forwards;
+        margin-left: -95px;
+
+    }
+
+
+
+    .wrapping_items {
+        position: relative;
+        left: 10%;
+        display: grid;
+        grid-template-columns: repeat(12, 110px);
+        grid-template-rows: 200px 170px 225px;
+        place-content: center;
+        place-items: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+    body {
+        background-color: #333;
+
+    }
+
+
+
+    .promo-text,
+    .below-fold {
+        z-index: 13;
+    }
+
+
+    .steps {
+        z-index: 12 !important;
+        font-size: 22px !important;
+    }
+
+    .hero {
+        overflow: hidden;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+
+
+    body::before {
+        z-index: unset !important;
+
+    }
+
+    header {
+        z-index: 200;
+    }
+
+    .offer-html {
+
+        font-weight: bold;
+    }
+
+
+    .plus-line {
+        display: flex;
+        align-items: center;
+        margin-top: -0.3em;
+        margin-bottom: 0.3em;
+       
+    }
+
+    .plus-line .line {
+        flex: 1;
+        height: 0.23em;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 0.06em;
+    }
+
+    .plus-line .plus {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 1.1em;
+        height: 1.1em;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: 0.2em;
+        margin-left: 0.2em;
+        border-radius: 50px;
+        background-color: white;
+    }
+
+    .plus-line .plus .plus-inside {
+        color: black;
+        font-weight: bold;
+        margin-top: -0.03em;
+    }
+
+    .line-3 {
+        color: #ffc107;
+    }
+
+ 
+    .line-01{
+    font-size: 5.65em;
+    font-weight: bold;
+    /* text-align: center; */
+    margin-left: -0.1em;
+    margin-bottom: -0.23em;
+    }
+    .offer-html{
+        text-align: center;
+    }
+
+    .line-11{
+  font-size: 3.2em;
+   font-weight: bold;
+  margin-bottom: 0.15em;
+
+    }
+
+   
+
+    .line-2 {
+        font-size: 2.1em;
+  color: #ffc107;
+        margin-bottom: -0.15em;
+        font-weight: bold;
+
+    }
+
+    .line-3 {
+        font-size: 2.31em;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+    }
+
+    .line-4 {
+        font-weight: bold;
+        font-size: 8.9em;
+        margin-top: -0.25em;
+        margin-left: -0.05em;
+    }
+
+    .line-5 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.2em;
+        margin-bottom: 1.2em;
+        transform: scale(1.8);
+    }
+
+    .line-5 .top {
+        font-size: 0.6em;
+        margin-bottom: -0.2em;
+        z-index: 5;
+        color: white;
+    }
+
+    .line-5 .bottom {
+        font-weight: 900;
+        border: 1px solid #ffc107;
+        color: #ffc107;
+        border-radius: 6px;
+        padding: .3em 1.2em .3em 1.2em;
+        transform: scale(1.2);
+        clip-path: polygon(24% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 0%, 76% 0%, 92% 22%, 8% 23%);
+    }
+
+    .offer {
+
+        position: relative;
+
+    }
+
+    .offer-text {
+        font-size: 1em;
+    }
+
+    header {
+        z-index: 2000 !important;
+    }
+
+
+
+
+    .container-wrapping {
+        position: relative;
+        left: 70px;
+    }
+
+    .swirl-desktop {
+        height: 1200px;
+
+    }
+
+    .swirl-desktop {
+        position: absolute;
+  top: -70%;
+    left: -12%;
+        z-index: 414;
+     
+    }
+
+    .wrapping_items>div {
+        position: relative;
+    }
+
+    /*assets*/
+    .VoleyBall {
+        grid-column: 1;
+        grid-row: 1;
+
+        top: -100px;
+        left: -60px;
+    }
+
+    .seven {
+        grid-column: 2;
+        grid-row: 1;
+      top: -278px;
+    left: -21px;
+    }
+
+    .strugure {
+        grid-column: 1;
+        grid-row: 1;
+        top: -50px;
+        left: 0px;
+        z-index: 3;
+    }
+
+    .TennisBall {
+        grid-column: 1;
+        grid-row: 2;
+        top: -55px;
+        left: 30px;
+        z-index: 2;
+    }
+
+    .cireasa1 {
+        grid-column: 1;
+        grid-row: 2;
+        left: -23px;
+        top: 69px;
+    }
+
+    .pepene {
+        grid-column: 2;
+        grid-row: 3;
+        top: -70px;
+        left: 0px;
+        z-index: 3;
+    }
+
+    .BasketBall {
+        grid-column: 3;
+        grid-row: 3;
+        left: 80px;
+        top: 30px;
+        z-index: 4;
+        position: relative;
+    }
+
+
+    .orange {
+        grid-column: 5;
+        grid-row: 3;
+        z-index: 5;
+        top: 35px;
+        left: -3px;
+    }
+
+    .bell {
+        grid-column: 6;
+        grid-row: 3;
+        top: 50px;
+    }
+
+    .Football {
+        grid-column: 8;
+        grid-row: 3;
+        top: -40px;
+        z-index: 10;
+    }
+
+    .Football img {
+        height: 320px;
+    }
+
+    .cireasa2 {
+        grid-column: 10;
+        grid-row: 3;
+        left: -100px;
+        z-index: 11;
+    }
+
+    .Crown {
+        grid-column: 9;
+        grid-row: 1;
+        z-index: 500;
+        position: relative;
+    }
+
+    .Crown::after {
+        content: "";
+        position: absolute;
+        right: -15%;
+        top: 9%;
+        background-image: url("{$asset}/wheel/Crown-Light.png");
+        height: 510px;
+        background-size: 100%;
+        width: 490px;
+        z-index: 623412400;
+        mix-blend-mode: screen;
+        background-repeat: no-repeat;
+    }
+
+    /* .Crown::before{
+    background-image: url("{$asset}/wheel/Crown-bottom.png");
+    content: "";
+    position: absolute;
+    right: 117px;
+    height: 100%;
+    bottom: 0px;
+    width: 80%;
+    z-index: 623412400;
+    mix-blend-mode: screen;
+    z-index: -2;
+    background-repeat: no-repeat;
+} */
+    .crown-bottom {
+        top: 2px;
+        z-index: 1;
+        position: absolute;
+    }
+
+
+    .assets-behind {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        top:0;
+    }
+
+
+    .Box {
+        align-self: flex-start;
+        position: relative;
+        left: 91em;
+    top: -5.5em;
+    }
+     @media (orientation: portrait) and (min-aspect-ratio: 500 / 736) and (min-width: 500px) { 
+
+.container-hero {
+    -webkit-transform: scale(0.60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-button.desktop{
+    display: none;
+}
+.cta-button.mobile {
+ 
+    bottom: 150px !important;
+    scale: 1.25 !important;
+}
+.offer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.offer img{
+    height: 900px;
+}
+.offer-text {
+    font-size: 1.2em;
+}
+
+
+ }
+
+    @media (orientation:portrait) and (max-width:991px) {
+        .offer-content {
+            position: absolute;
+            width: 80%;
+            display: flex;
+            flex-direction: row !important;
+            justify-content: center;
+            align-items: center !important;
+            color: #fff;
+            text-decoration: none;
+        }
+        .swirl-desktop {
+            display: none;
+            }
+            .swirl-mobile{
+                height: 1200px;
+    position: absolute;
+    top: -60%; 
+    left: -13%;
+    transform: rotate(-50deg);
+    mix-blend-mode: screen !important;
+    z-index: 414;
+}
+  .swirl-mobile {
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        animation-name: move-swirl-mobile;
+      transform: rotate(320deg);
+
+    }
+    .cireasa2 {
+    grid-column: 10;
+    grid-row: 3;
+    left: -358px;
+    z-index: 11;
+}
+.bell {
+    grid-column: 6;
+    grid-row: 3;
+    top: 35px;
+    left: -28px;
+}
+.seven {
+    grid-column: 2;
+    grid-row: 1;
+    top: -300px;
+    left: -151px;
+}
+
+    @keyframes move-swirl-mobile {
+0% {
+    transform: translateY(-195px) translateX(18px) scale(1.05) rotate(320deg);
+}
+
+100% {
+    transform: translateY(-42px) translateX(71px) scale(1) rotate(293deg);
+}
+    }
+
+
+.Football {
+    grid-column: 8;
+    grid-row: 3;
+    top: -157px;
+    left: -204px;
+    z-index: 10;
+}
+.Football img {
+    height:250px;
+}
+
+
+.Box {
+    align-self: flex-start;
+    position: relative;
+  left: 48em;
+    top: 55em;
+}
+
+@keyframes rotate-box2{
+
+ 0% {
+    transform: translateY(-20px) translateX(-60px) rotate(0deg) scale(0.5);
+ }
+ 100% {
+    transform: translateY(0px) translateX(-60px) rotate(-20deg) scale(0.55);
+ }
+ }
+}
+    
+
+
+    @media (orientation: landscape) and (min-width: 992px) {
+        .container-hero {
+            height: 78vh !important;
+            MAX-WIDTH: 100% !important;
+            /* min-width: 300px; */
+            margin: 1em 1em 1em 1em !important;
+            justify-content: center;
+            display: grid;
+            place-content: center;
+            grid-template-columns: 75em 0.5fr !important;
+            grid-auto-rows: 1fr 1fr !important;
+            align-items: center;
+            position: relative;
+        }
+
+.swirl-mobile{
+    display: none;
+}
+
+        .offer {
+         /*   display: unset !important;
+            justify-content: unset !important;
+            place-items: unset !important;
+            width: unset !important;
+            position: relative;
+            height: unset !important;
+            height: unset !important;
+            right: unset !important;
+            top: unset !important;
+            font-size: unset !important;
+            grid-column: unset !important;*/
+
+z-index:414;
+        display: grid;
+        justify-content: center;
+        place-items: center;
+        width: 100%;
+        position: relative;
+        height: 85%;
+        height: 800px;
+        top:unset;
+
+    /* font-size: 1.35em; */
+  
+
+        }
+
+
+
+
+        .offer {
+            position: relative;
+            left: -90px;
+
+        }
+
+        .offer img {
+            display: block;
+            height: 750px !important;
+        }
+
+        .offer-content {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.7em;
+           
+        }
+    }
+
+  
+
+    @media (max-width: 450px) and (orientation: portrait) {
+
+        .cta-button.mobile {
+            margin-top: 10px;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            padding: 1em 1em;
+            position: absolute;
+            bottom: 50px;
+        }
+    }
+
+
+
+    @media (orientation: portrait) and (max-width:768px) {
+ .cta-button.mobile.animation {
+            z-index: 136500;
+        }
+
+        .offer img {
+            display: block;
+            height: 650px !important;
+
+        }
+
+        .offer-text {
+            font-size: 1.2em;
+            text-align: center;
+
+        }
+        .container-wrapping {
+    position: relative;
+    top: -200px;
+    left: 50px;
+    transform: rotateY(-200deg) rotate(260deg) scale(0.85) translateY(100px) translateX(0px);
+    animation-name: stay-wrapping;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-direction: alternate;
+    
+}
+@keyframes stay-wrapsping {
+    
+0% {
+    transform: rotate(270deg) rotateY(-1deg) scale(0.80) translateY(100px) translateX(0px);
+}
+100% {
+    transform: rotate(290deg)  rotateY(-1deg) scale(0.85) translateY(-130px) translateX(50px);
+}
+}
+
+@keyframes floating-items {
+0% {
+    transform: translate(0, 0px) rotate(5deg) scaleX(-1);
+}
+65% {
+    transform: translate(0, 60px) rotate(95deg) scaleX(-1);
+}
+100% {
+    transform: translate(0, 0px) rotate(180deg) scaleX(-1);
+}
+}
+          @keyframes AFootball-rotate2 {
+0% {
+    top: 62em;
+    left: 84em;
+
+}
+
+30% {
+    top: 21em;
+    left: -95em;
+}
+60% {
+    top: 21em;
+    left: 40em;
+}
+100% {
+    top: 63em;
+    left: 101em;
+ 
+}
+ 
+    }
+
+.crown-container {
+ 
+      position: absolute;
+    top: -55px;
+    right: 240px;
+}
+   
+
+.Crown img{
+    height: 400px;
+}
+.Crown::after {
+    content: "";
+    position: absolute;
+    right: -20%;
+    top: -15%;
+    background-image: url(https://go-testing.netbet.ro/lp-asset/netbetro/casino/all-sports/wheel/Crown-Light.png);
+    height: 510px;
+    background-size: 100%;
+    width: 490px;
+    z-index: 623412400;
+    mix-blend-mode: screen;
+    background-repeat: no-repeat;
+}
+   } 
+    @media (orientation: portrait) {
+        .cta-button.mobile {
+            margin-top: 10px;
+            z-index: 1;
+            display: inline-flex;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            padding: 1em 1em;
+            position: absolute;
+            bottom: 50px;
+        }
+        .offer{
+     position:absolute;
+     left: 0px;
+    margin-left: 6.5em;
+     grid-column: 1;
+    grid-row: 2;
+        }
+    }
+
+
+    @media only screen and (orientation: portrait) and (max-width:360px) {
+
+        .container-hero-img {
+            -webkit-transform: scale(0.50);
+
+        }
+
+
+    }
+
+    @media (orientation: portrait) and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .steps{
+        font-size: 0.46em !important;
+    }
+
+        .container-hero {
+   height: 82vh !important;
+    max-width: 360px;
+    width: 360px;
+    margin: 1em 1em 3em 1em !important;
+    justify-content: center;
+    display: flex;
+   align-items: center;
+        }
+
+
+        .promo-text {
+            font-size: 20px;
+        }
+
+
+        .container-hero {
+            transform: scale(0.68);
+            -webkit-transform: scale(0.68);
+        }
+
+
+        .container-hero-img {
+        /*    max-width: 360px;
+            width: 360px;
+             height: 82vh;*/
+     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    -webkit-transform: scale(0.50);
+    z-index: 1;
+       
+
+        }
+
+        .cta-button.mobile.animation {
+            z-index: 100;
+        }
+.offer-content{
+    transform: scale(0.85);
+}
+
+
+
+    }
+
+
+    @media (orientation:portrait) and (min-width: 320px) and (max-width:768px) {
+
+        .offer-text {
+            font-size: 1em;
+       
+        }
+
+        .container-hero-img {
+    -webkit-transform: scale(0.6);
+    margin-right: 100px;
+    margin-top: 50px;
+
+
+        }
+@keyframes crow-animation {
+    
+0% {
+    transform: translateY(-78px) translateX(53px) rotate(-140deg) scaleY(-1);
+}
+100% {
+    transform: translateY(16px) translateX(103px) rotate(-120deg) scaleY(-1);
+}
+}
+        
+    }
+
+
+
+
+
+
+
+      @media only screen and (min-width:991px) {
+        .container-hero {
+            -webkit-transform: scale(0.60);
+        }
+        .swirl-desktop{
+               mix-blend-mode: screen;
+        }
+
+    }
+
+    @media only screen and (min-width:1200px) {
+        .container-hero {
+            -webkit-transform: scale(0.70);
+        }
+
+        .offer img {
+            display: block;
+            height: 750px !important;
+        }
+
+    }
+
+    @media only screen and (min-width: 1440px) {
+        .container-hero {
+            -webkit-transform: scale(0.75);
+        }
+
+        .offer img {
+            display: block;
+            height: 750px  !important;
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .container-hero {
+            -webkit-transform: scale(1);
+        }
+    }
+
+    @media only screen and (min-width: 2000px) {
+        .container-hero {
+            -webkit-transform: scale(1.05);
+            top: 40px;
+        }
+    }
+
+    @media only screen and (device-width: 1600px) and (device-height: 1200px) {
+        .container-hero {
+            -webkit-transform: scale(0.85);
+
+        }
+
+
+
+    }
+
+    @media only screen and (device-width: 1920px) and (device-height: 1200px) {
+        .container-hero {
+            -webkit-transform: scale(1);
+            top: 35px;
+        }
+
+
+    }
+
+    @media (orientation: landscape) and (min-height: 320px) and (max-height:619px) {
+        .container-hero {
+            -webkit-transform: scale(0.55);
+        }
+    }
+
+    @media (orientation: landscape) and (min-height: 620px) and (max-height:850px) {
+        .container-hero {
+            -webkit-transform: scale(0.65);
+        }
+          .steps {
+        z-index: 12 !important;
+        font-size: 18px !important;
+    }
+    }
+
+
+    @media (orientation: landscape) and (min-height: 850px) and (max-height:1000px) {
+        .container-hero {
+            -webkit-transform: scale(0.8);
+        }
+    }
+
+    @media (orientation: landscape) and (min-height: 1001px) and (max-height:1500px) {
+        .container-hero {
+            -webkit-transform: scale(1);
+        }
+    }
+    
+</style>
+{/block}
