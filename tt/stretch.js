@@ -1,5 +1,3 @@
-
-
 const doors = [];
 let state = "PICK";
 let pickedDoor;
@@ -11,7 +9,7 @@ let resultsP;
 let totalSwitchPlays = 0;
 let totalStayPlays = 0;
 let totalSwitchWins = 0;
-// let totalLose = 0;
+let totalLose = 0;
 let totalStayWins = 0;
 let wrapper;
 
@@ -21,7 +19,7 @@ function startOver() {
         door.prize = "🐐";
         door.html("doors");
         door.style("background-color", "lightgrey");
-       
+
     }
     const winner = random(doors);
     winner.prize = "🚂";
@@ -51,7 +49,7 @@ function setup() {
     buttonsDiv.class("buttonDiv");
 
 
-    
+
     resultDiv = createDiv("");
     resultDiv.parent("#test2");
     resultDiv.class("resultDiv");
@@ -61,7 +59,7 @@ function setup() {
     statusDiv.class("statusDiv");
 
 
-    
+
     switchButton = createButton("switch");
     switchButton.class("switchButton");
     switchButton.style("background-color", "orange");
@@ -115,10 +113,11 @@ function reveal() {
     revealedDoor = random(options);
     revealedDoor.html(revealedDoor.prize);
     revealedDoor.style("background-color", "green");
-    revealedDoor.html("show");
+    revealedDoor.attribute("align", "gaererea")
+    revealedDoor.html("show door");
     switchButton.show();
     stayButton.show();
-    
+
 }
 
 function winReveal() {
@@ -129,16 +128,16 @@ function winReveal() {
             pickedDoor.style("background-color", "red");
             pickedDoor.html("click");
         }
-        
-      
+
+
     }
-   
+
 }
 
 
 function playerSwitch() {
     totalSwitchPlays++;
-   
+
     let newPick;
 
     for (let i = 0; i < doors.length; i++) {
@@ -150,7 +149,7 @@ function playerSwitch() {
         }
         if (door == pickedDoor && door !== revealedDoor) {
             console.log(pickedDoor, "pickedDoor after switch ");
-            
+
         }
 
     }
@@ -163,7 +162,10 @@ function playerSwitch() {
 
 function playerStay() {
     totalStayPlays++;
-   
+
+    console.log(totalStayPlays, "totalstayPlays");
+
+
     checkWin(false);
 }
 
@@ -177,30 +179,38 @@ function checkWin(playerSwitch) {
     }
 
     if (pickedDoor.prize == "🚂") {
-        outcomeP.html("You win!");
+        outcomeP.html("You Win!");
         pickedDoor.style("background-color", "green");
         outcomeP.class("winClass");
         if (playerSwitch) {
             totalSwitchWins++;
-            
+
         } else {
             totalStayWins++;
-         
+
+            console.log(totalStayWins, "totalStayWins");
+
         }
     } else {
         outcomeP.html("You lose!");
+        totalLose++;
+        console.log(totalLose, "Total stay lose");
         outcomeP.class("loseClass");
         pickedDoor.style("background-color", "red");
     }
 
     let switchRate = totalSwitchWins / totalSwitchPlays;
     let stayRate = totalStayWins / totalStayPlays;
+    let loseRate = stayRate / totalLose;
+
 
     resultsP.html(
         `<div>Total Switches: ${totalSwitchPlays}</div>
-        <div>Switch Win Rate: ${nf(100 * switchRate, 2, 2)}</div>
+        <div>Switch Win Rate: ${nf(100 * switchRate, 2, 2)}%</div>
         <div>Total Stays: ${totalStayPlays}</div>
-        <div>Stay Win Rate: ${nf(100 * stayRate, 2, 2)}</div>`
+        <div>Stay Win Rate: ${nf(100 * stayRate, 2, 2)}%</div>
+        <div>Lose Win Rate: ${nf(100 * loseRate, 2, 2)}%</div>
+        `
     );
 
     playAgain.show();

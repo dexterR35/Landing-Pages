@@ -1,89 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
     <style>
+      html,
+      body {
+        background-color: #fff;
+      }
 
-html,
-body {
-  background-color: #FFF;
-}
+      p {
+        font-size: 32pt;
+        margin: 10px;
+      }
 
-p {
-  font-size: 32pt;
-  margin: 10px;
-}
+      #doors {
+        display: flex;
+      }
 
-#doors {
-  display: flex;  
-}
+      button {
+        font-size: 2em;
+        margin: 10px;
+      }
+      .switchButton {
+        background-color: aqua !important;
+      }
+      .wrapping {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
 
-button {
-  font-size: 2em;
-  margin: 10px;
-}
-.switchButton {
-  background-color: aqua !important;
-}
-.wrapping {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.door {
-  width: 15vw;
-  height: 42vh;
-  background-color: #AAA;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: calc(1em + 1vw);
-  margin: 10px;
-}
-.buttonDiv{
-  display: flex;
-  flex-direction: row;
-  height: 5em;
-  justify-content: unset!important;
-}
-.loseClass{
-  color: red;
-
-}
-.winClass {
-  color: green;
-}
-@media screen and (min-width:320px) and (orientation:portrait) {
-  .door {
-    height: 32vh;
-    width: 100vw;
-  }
-  
-}
-
-
-
+      .door {
+        width: 15vw;
+        height: 42vh;
+        background-color: #aaa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(1em + 1vw);
+        margin: 10px;
+      }
+      
+      
+      .door:hover{
+        background: black !important;
+        transition: ease 0.5s;
+        color: white;
+      }
+      .buttonDiv {
+        display: flex;
+        flex-direction: row;
+        height: 5em;
+        justify-content: unset !important;
+      }
+      .loseClass {
+        color: red;
+      }
+      .winClass {
+        color: green;
+      }
+      h1 {
+        position: relative;
+        text-transform: uppercase;
+      }
+      h1::after {
+        content: "monty hall problem";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 100%;
+        font-size: 0.4em;
+        text-transform: uppercase;
+      }
+      @media screen and (min-width: 320px) and (orientation: portrait) {
+        .door {
+          height: 32vh;
+          width: 100vw;
+        }
+      }
     </style>
     <title>Document</title>
-</head>
-<body>
-  <div class="wrapping" id="test2">
-    <h1>Let's make a deal</h1>
-    <div class="container-doors" id="test">
-      <div id="doors"></div>
-     </div>
-     
-  </div>
- 
-       
-        
-  <script src="./stretch.js"></script>
-</body>
+  </head>
+  <body>
+    <div class="wrapping" id="test2">
+      <h1>Let's make a deal</h1>
+      <div class="container-doors" id="test">
+        <div id="doors"></div>
+      </div>
+    </div>
 
+    <script src="./stretch.js"></script>
+  </body>
 </html>
