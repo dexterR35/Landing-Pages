@@ -23,16 +23,22 @@ p {
 }
 
 button {
-  font-size: 32pt;
+  font-size: 2em;
   margin: 10px;
 }
 .switchButton {
   background-color: aqua !important;
 }
+.wrapping {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 
 .door {
-  width: 100vw;
-  height: 82vh;
+  width: 15vw;
+  height: 42vh;
   background-color: #AAA;
   display: flex;
   justify-content: center;
@@ -40,9 +46,22 @@ button {
   font-size: calc(1em + 1vw);
   margin: 10px;
 }
+.buttonDiv{
+  display: flex;
+  flex-direction: row;
+  height: 5em;
+  justify-content: unset!important;
+}
+.loseClass{
+  color: red;
+
+}
+.winClass {
+  color: green;
+}
 @media screen and (min-width:320px) and (orientation:portrait) {
   .door {
-    height: 62vh;
+    height: 32vh;
     width: 100vw;
   }
   

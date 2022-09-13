@@ -12,6 +12,7 @@ let totalSwitchPlays = 0;
 let totalStayPlays = 0;
 let totalSwitchWins = 0;
 let totalStayWins = 0;
+let wrapper;
 
 
 function startOver() {
@@ -40,30 +41,51 @@ function setup() {
         doors[i].index = i;
         doors[i].mousePressed(pickDoor);
     }
-    
     console.log(doors, "doors")
-    switchButton = createButton("switch");
+
+
+
+    buttonsDiv = createDiv("");
+    buttonsDiv.parent("#test2");
+    buttonsDiv.class("buttonDiv");
+
+
     
+    resultDiv = createDiv("");
+    resultDiv.parent("#test2");
+    resultDiv.class("resultDiv");
+
+    statusDiv = createDiv("");
+    statusDiv.parent("#test2");
+    statusDiv.class("statusDiv");
+
+
+    
+    switchButton = createButton("switch");
     switchButton.class("switchButton");
     switchButton.style("background-color", "orange");
     switchButton.mousePressed(playerSwitch);
+    switchButton.parent(buttonsDiv)
     switchButton.hide();
-  
-   
+
     stayButton = createButton("stay");
     stayButton.class("buttonStay");
     stayButton.mousePressed(playerStay);
+    stayButton.parent(buttonsDiv)
     stayButton.hide();
 
     playAgain = createButton("play again");
     playAgain.mousePressed(startOver);
     playAgain.class("playAgain");
+    playAgain.parent(buttonsDiv)
     playAgain.hide();
 
-    resultsP = createP("");
+    resultsP = createDiv("");
+    resultsP.parent(resultDiv);
 
     console.log("results", resultsP);
     outcomeP = createP("");
+    outcomeP.parent(statusDiv);
     console.log("results", outcomeP);
 
     startOver();
@@ -169,10 +191,10 @@ function checkWin(playerSwitch) {
     let stayRate = totalStayWins / totalStayPlays;
 
     resultsP.html(
-        `Total Switches: ${totalSwitchPlays}<br/>
-Switch Win Rate: ${nf(100 * switchRate, 2, 2)}<br/>
-Total Stays: ${totalStayPlays}<br/>
-Stay Win Rate: ${nf(100 * stayRate, 2, 2)}`
+        `<div>Total Switches: ${totalSwitchPlays}</div>
+        <div>Switch Win Rate: ${nf(100 * switchRate, 2, 2)}</div>
+        <div>Total Stays: ${totalStayPlays}</div>
+        <div>Stay Win Rate: ${nf(100 * stayRate, 2, 2)}</div>`
     );
 
     playAgain.show();
