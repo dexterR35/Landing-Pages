@@ -11,6 +11,7 @@ let resultsP;
 let totalSwitchPlays = 0;
 let totalStayPlays = 0;
 let totalSwitchWins = 0;
+// let totalLose = 0;
 let totalStayWins = 0;
 let wrapper;
 
@@ -94,8 +95,8 @@ function setup() {
 function pickDoor() {
     if (state == "PICK") {
         state = "REVEAL";
-        // this.style("background-color:blue; color:white");
-        // this.html("winner");
+        this.style("background-color:blue; color:white");
+        this.html("winner");
         pickedDoor = this;
         reveal();
         winReveal();
@@ -117,23 +118,18 @@ function reveal() {
     revealedDoor.html("show");
     switchButton.show();
     stayButton.show();
-   
+    
 }
 
 function winReveal() {
     for (let i = 0; i < doors.length; i++) {
         const door = doors[i];
-        if (i !== pickedDoor.index && door.prize !== "🚂") {
+        if (i !== pickedDoor.index && door.prize !== "🐐") {
             console.log("pickedDoor", pickedDoor);
             pickedDoor.style("background-color", "red");
-            pickedDoor.html("winner");
+            pickedDoor.html("click");
         }
-        if (i == pickedDoor.index && door.prize == "🐐") {
-            console.log("pickedDoor", pickedDoor);
-            pickedDoor.style("background-color", "yellow");
-            pickedDoor.html("w");
-        }
-      
+        
       
     }
    
@@ -142,7 +138,7 @@ function winReveal() {
 
 function playerSwitch() {
     totalSwitchPlays++;
-
+   
     let newPick;
 
     for (let i = 0; i < doors.length; i++) {
@@ -154,6 +150,7 @@ function playerSwitch() {
         }
         if (door == pickedDoor && door !== revealedDoor) {
             console.log(pickedDoor, "pickedDoor after switch ");
+            
         }
 
     }
@@ -166,6 +163,7 @@ function playerSwitch() {
 
 function playerStay() {
     totalStayPlays++;
+   
     checkWin(false);
 }
 
@@ -184,8 +182,10 @@ function checkWin(playerSwitch) {
         outcomeP.class("winClass");
         if (playerSwitch) {
             totalSwitchWins++;
+            
         } else {
             totalStayWins++;
+         
         }
     } else {
         outcomeP.html("You lose!");
