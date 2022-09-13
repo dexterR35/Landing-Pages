@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <style>
+
+html,
+body {
+  background-color: #FFF;
+}
+
+p {
+  font-size: 32pt;
+  margin: 10px;
+}
+
+#doors {
+  display: flex;  
+}
+
+button {
+  font-size: 32pt;
+  margin: 10px;
+}
+.switchButton {
+  background-color: aqua !important;
+}
+
+.door {
+  width: 100vw;
+  height: 82vh;
+  background-color: #AAA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(1em + 1vw);
+  margin: 10px;
+}
+@media screen and (min-width:320px) and (orientation:portrait) {
+  .door {
+    height: 62vh;
+    width: 100vw;
+  }
+  
+}
+
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+  <div class="wrapping" id="test2">
+    <h1>Let's make a deal</h1>
+    <div class="container-doors" id="test">
+      <div id="doors"></div>
+     </div>
+     
+  </div>
+ 
+       
+        
+  <script src="./stretch.js"></script>
+</body>
+
+</html>
