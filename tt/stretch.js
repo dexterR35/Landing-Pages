@@ -94,8 +94,8 @@ function setup() {
 function pickDoor() {
     if (state == "PICK") {
         state = "REVEAL";
-        this.style("background-color", "blue");
-        this.html("winner");
+        // this.style("background-color:blue; color:white");
+        // this.html("winner");
         pickedDoor = this;
         reveal();
         winReveal();
@@ -117,17 +117,23 @@ function reveal() {
     revealedDoor.html("show");
     switchButton.show();
     stayButton.show();
-
+   
 }
 
 function winReveal() {
     for (let i = 0; i < doors.length; i++) {
         const door = doors[i];
-        if (i !== pickedDoor.index && door.prize == "🚂") {
+        if (i !== pickedDoor.index && door.prize !== "🚂") {
             console.log("pickedDoor", pickedDoor);
             pickedDoor.style("background-color", "red");
-            pickedDoor.html("click");
+            pickedDoor.html("winner");
         }
+        if (i == pickedDoor.index && door.prize == "🐐") {
+            console.log("pickedDoor", pickedDoor);
+            pickedDoor.style("background-color", "yellow");
+            pickedDoor.html("w");
+        }
+      
       
     }
    
