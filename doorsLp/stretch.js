@@ -19,8 +19,10 @@ function startOver() {
         door.prize = "100$";
         door.html("doors");
         door.style("background-color", "lightgrey");
-
+        console.log(door, "door");
+        console.log(doors, "doors");
     }
+
     const winner = random(doors);
     winner.prize = "1000$";
     playAgain.hide();
@@ -40,7 +42,7 @@ function setup() {
         doors[i].index = i;
         doors[i].mousePressed(pickDoor);
     }
-    console.log(doors, "doors")
+   
 
     buttonsDiv = createDiv("");
     buttonsDiv.parent("#test2");
@@ -78,10 +80,10 @@ function setup() {
     resultsP = createDiv("");
     resultsP.parent(resultDiv);
 
-    console.log("results", resultsP);
+    console.log("resultsP", resultsP);
     outcomeP = createP("");
     outcomeP.parent(statusDiv);
-    console.log("results", outcomeP);
+    console.log("outcomeP", outcomeP);
 
     startOver();
 }
@@ -90,6 +92,7 @@ function setup() {
 function pickDoor() {
     if (state == "PICK") {
         state = "REVEAL";
+        console.log(state, "state")
         this.style("background-color:blue; color:white");
         this.html("click usa");
         pickedDoor = this;
