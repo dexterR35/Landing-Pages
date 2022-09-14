@@ -16,13 +16,13 @@ let wrapper;
 
 function startOver() {
     for (let door of doors) {
-        door.prize = "🐐";
+        door.prize = "100$";
         door.html("doors");
         door.style("background-color", "lightgrey");
 
     }
     const winner = random(doors);
-    winner.prize = "🚂";
+    winner.prize = "1000$";
     playAgain.hide();
     outcomeP.html("");
     state = "PICK";
@@ -42,12 +42,9 @@ function setup() {
     }
     console.log(doors, "doors")
 
-
-
     buttonsDiv = createDiv("");
     buttonsDiv.parent("#test2");
     buttonsDiv.class("buttonDiv");
-
 
 
     resultDiv = createDiv("");
@@ -57,7 +54,6 @@ function setup() {
     statusDiv = createDiv("");
     statusDiv.parent("#test2");
     statusDiv.class("statusDiv");
-
 
 
     switchButton = createButton("switch");
@@ -90,50 +86,57 @@ function setup() {
     startOver();
 }
 
+
 function pickDoor() {
     if (state == "PICK") {
         state = "REVEAL";
         this.style("background-color:blue; color:white");
-        this.html("winner");
+        this.html("click usa");
         pickedDoor = this;
         reveal();
-        winReveal();
+        // winReveal();
     }
+
 }
+
 
 function reveal() {
     const options = [];
     for (let i = 0; i < doors.length; i++) {
         const door = doors[i];
-        if (i !== pickedDoor.index && door.prize !== "🚂") {
+
+        if (i !== pickedDoor.index && door.prize !== "1000$") {
             options.push(door);
+            console.log(door.prize, "test door.prize");
+            console.log(pickedDoor, "test pickedDoor");
         }
     }
 
     revealedDoor = random(options);
     revealedDoor.html(revealedDoor.prize);
-    revealedDoor.style("background-color", "green");
-    revealedDoor.attribute("align", "gaererea")
-    revealedDoor.html("show door");
+    revealedDoor.style("background:green;");
+    revealedDoor.attribute("align", "center")
+    revealedDoor.html("usa deschisa");
     switchButton.show();
     stayButton.show();
 
 }
 
-function winReveal() {
-    for (let i = 0; i < doors.length; i++) {
-        const door = doors[i];
-        if (i !== pickedDoor.index && door.prize !== "🐐") {
-            console.log("pickedDoor", pickedDoor);
-            pickedDoor.style("background-color", "red");
-            pickedDoor.html("click");
-        }
+// function winReveal() {
+//     for (let i = 0; i < doors.length; i++) {
+//         const door = doors[i];
+//         if (i !== pickedDoor.index && door.prize !== "🐐") {
+//             console.log("pickedDoor", pickedDoor);
+//             pickedDoor.style("background-color", "red");
+//             pickedDoor.html("click");
 
 
-    }
+//         }
 
-}
 
+//     }
+
+// }
 
 function playerSwitch() {
     totalSwitchPlays++;
@@ -162,23 +165,19 @@ function playerSwitch() {
 
 function playerStay() {
     totalStayPlays++;
-
     console.log(totalStayPlays, "totalstayPlays");
-
-
     checkWin(false);
 }
 
 function checkWin(playerSwitch) {
     switchButton.hide();
     stayButton.hide();
-
     for (let door of doors) {
         door.html(door.prize);
         door.style("background-color", "#AAA");
     }
 
-    if (pickedDoor.prize == "🚂") {
+    if (pickedDoor.prize == "1000$") {
         outcomeP.html("You Win!");
         pickedDoor.style("background-color", "green");
         outcomeP.class("winClass");
@@ -187,7 +186,6 @@ function checkWin(playerSwitch) {
 
         } else {
             totalStayWins++;
-
             console.log(totalStayWins, "totalStayWins");
 
         }
@@ -206,10 +204,10 @@ function checkWin(playerSwitch) {
 
     resultsP.html(
         `<div>Total Switches: ${totalSwitchPlays}</div>
-        <div>Switch Win Rate: ${nf(100 * switchRate, 2, 2)}%</div>
-        <div>Total Stays: ${totalStayPlays}</div>
-        <div>Stay Win Rate: ${nf(100 * stayRate, 2, 2)}%</div>
-        <div>Lose Win Rate: ${nf(100 * loseRate, 2, 2)}%</div>
+            <div>Switch Win Rate: ${nf(100 * switchRate, 2, 2)}%</div>
+            <div>Total Stays: ${totalStayPlays}</div>
+            <div>Stay Win Rate: ${nf(100 * stayRate, 2, 2)}%</div>
+            <div>Lose Win Rate: ${nf(100 * loseRate, 2, 2)}%</div>
         `
     );
 
