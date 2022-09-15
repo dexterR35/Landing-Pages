@@ -1,3 +1,6 @@
+
+
+
 const doors = [];
 let state = "PICK";
 let pickedDoor;
