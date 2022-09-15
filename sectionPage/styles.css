@@ -229,14 +229,14 @@ footer a {
   float: left;
 }
 .device {
-  width: 266px;
+  width: 170px;
   position: relative;
 }
 
 .device-slide1 {
   background: white;
-  width: 176px;
-  height: 325px;
+  width: 121px;
+  height: 207px;
   border: 7px dashed grey;
   color: grey;
   font-size: 3em;
@@ -244,8 +244,8 @@ footer a {
 
 .device-slide {
   position: absolute;
-  top: 33px;
-  left: 10px;
+  top: 26px;
+  left: 7px;
   z-index: 15;
   text-align: center;
 }
