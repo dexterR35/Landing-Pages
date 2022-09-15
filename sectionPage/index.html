@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="./style.css" />
  
     <title>sections lp</title>
@@ -14,20 +15,28 @@
       <h1>scroll testing</h1>
       <h2>test2</h2>
     </header>
-    <section class="fixed-content">
+    <nav class="Quick-navigation">
+      <a href="#A" class="Quick-navigation-item">A</a>
+      <a href="#B" class="Quick-navigation-item">B</a>
+      <a href="#C" class="Quick-navigation-item">C</a>
+      <a href="#D" class="Quick-navigation-item">D</a>
+      <a href="#E" class="Quick-navigation-item">E</a>
+      <div class="Scroll-progress-indicator"></div>
+    </nav>
+    <section class="fixed-content " id="A">
       <div class="content">
         <div class="device-frame">
           <div class="image-slides">
             <div class="device-slide device-slide1">
-              <p>Your app here</p>
+              <p>content or nav</p>
             </div>
           </div>
           <img class="device init-image" src="./png/device.svg" />
         </div>
       </div>
     </section>
-    <section class="scroll-container">
-      <div class="scroll-element js-scroll fade-in panel panel1">
+    <section class="scroll-container js-scroll-step" id="B">
+      <div class="scroll-element js-scroll fade-in panel panel1 ">
         <div class="inner" style="height: 1787px">
           <!-- <img
             width="515"
@@ -53,29 +62,27 @@
       </div>
       <div class="scroll-caption">this animation fades in.</div>
     </section>
-
-    <section class="scroll-container">
+    <section class="scroll-container js-scroll-step" id="C">
       <div class="scroll-element js-scroll fade-in-bottom">test2</div>
       <div class="scroll-caption">This animation slides in to the top.</div>
     </section>
-
-    <section class="scroll-container">
+    <section class="scroll-container js-scroll-step"  id="D">
       <div class="scroll-element js-scroll slide-left">test23</div>
       <div class="scroll-caption">This animation slides in from the left.</div>
     </section>
-
-    <section class="scroll-container">
+    <section class="scroll-container js-scroll-step"  id="E">
       <div class="scroll-element js-scroll slide-right">test45</div>
       <div class="scroll-caption">This animation slides in from the right.</div>
     </section>
-    <section class="scroll-container">
+    <section class="scroll-container js-scroll-step"  id="F">
       <div class="scroll-element js-scroll slide-right">test4ss5</div>
       <div class="scroll-caption">This animation slides in from the right.</div>
     </section>
-    <section class="scroll-container">
+    <section class="scroll-container js-scroll-step"  id="G">
       <div class="scroll-element js-scroll slide-right">test4ss5</div>
       <div class="scroll-caption">This animation slides in from the right.</div>
     </section>
+    <button class="Scroll-to-top">Scroll To Top</button>
     <footer>
       <p>
         test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
