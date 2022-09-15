@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js" integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <script>
+
+ </script>
+    <link rel="stylesheet" href="./styles.css" />
+ 
+    <title>sections lp</title>
+  </head>
+  <body>
+    <div class="wrapper">
+    <header class="container scroll-flow" id="A">
+      <h1>scroll testing</h1>
+      <h2>test2</h2>
+      <h1>A</h1>
+    </header>
+  
+    <section class="scroll-container scroll-flow js-scroll-step" id="B">
+      <div class="scroll-element js-scroll fade-in panel panel1 ">
+        <h1>B</h1>
+        <!-- <div class="inner" style="height: 1787px">
+          
+          <img
+            width="515"
+            class="layer-object leash js-load-async"
+            src="./png/leash.svg"
+          />
+          <img
+            width="668"
+            class="layer-object newspaper js-load-async"
+            src="./png/newspaper.svg"
+          />
+          <img
+            width="492"
+            class="layer-object sunglasses js-load-async"
+            src="./png/sunglasses.svg"
+          />
+          <img
+            width="1982"
+            class="section-bg section-bg-three js-load-async"
+            src="./png/bg_rect.svg"
+          />
+        </div> -->
+       </div>
+        <div class="scroll-caption"><h1>B</h1></div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="C">
+      <div class="scroll-element js-scroll fade-in-bottom"> <h1>C</h1></div>
+      <div class="scroll-caption"> <h1>C</h1></div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step"  id="D">
+      <div class="scroll-element js-scroll slide-left"> <h1>D</h1></div>
+      <div class="scroll-caption"> <h1>D</h1></div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step"  id="E">
+      <div class="scroll-element js-scroll slide-right"> <h1>E</h1></div>
+      <div class="scroll-caption"> <h1>E</h1></div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step"  id="F">
+      <div class="scroll-element js-scroll slide-right"> <h1>F</h1></div>
+      <div class="scroll-caption"> <h1>F</h1></div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step"  id="G">
+      <div class="scroll-element js-scroll slide-right"> <h1>G</h1></div>
+      <div class="scroll-caption"> <h1>G</h1></div>
+    </section>
+    <button class="Scroll-to-top">Scroll To Top</button>
+    <footer id="footer" class="scroll-flow">
+      <p>
+        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
+      </p>
+      <p>
+        by
+        <a href="https://www.marianiordache.ro" target="_blank"
+          >MCI</a
+        ><span style="color: #d11e15"> &#9829;</span>
+      </p>
+    </footer>
+    <section class="fixed-content" >
+      <div class="content">
+        <div class="device-frame">
+          <div class="image-slides">
+            <div class="device-slide device-slide1">
+              <p>CNT or nav</p>
+            </div>
+          </div>
+          <img class="device init-image" src="./pngs/device.svg" />
+        </div>
+      </div>
+    </section>
+    <nav class="Quick-navigation">
+      <a href="#A" class="Quick-navigation-item">A</a>
+      <a href="#B" class="Quick-navigation-item">B</a>
+      <a href="#C" class="Quick-navigation-item">C</a>
+      <a href="#D" class="Quick-navigation-item">D</a>
+      <a href="#E" class="Quick-navigation-item">E</a>
+      <a href="#F" class="Quick-navigation-item">F</a>
+      <a href="#G" class="Quick-navigation-item">G</a>
+      <a href="#G" class="Quick-navigation-item">fter</a>
+      <div class="Scroll-progress-indicator"></div>
+    </nav>
+
+    <script>
+      $.scrollify({
+    section : ".scroll-flow",
+    // sectionName : "section-name",
+    interstitialSection : "",
+    easing: "easeOutExpo",
+    scrollSpeed: 1100,
+    offset : 0,
+    scrollbars: true,
+    standardScrollElements: "",
+    setHeights: true,
+    overflowScroll: true,
+    updateHash: true,
+    touchScroll:true,
+    before:function() {},
+    after:function() {},
+    afterResize:function() {},
+    afterRender:function() {}
+  });
+  </script>
+    <script src="./indexx.js"></script>
+  </div>
+
+  </body>
+</html>

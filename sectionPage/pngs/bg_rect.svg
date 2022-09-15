@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="3856px" height="3320px" viewBox="0 0 3856 3320" style="enable-background:new 0 0 3856 3320;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{
+	fill:#58A466;
+	filter: url(#drop-shadow);
+	}
+]]>
+</style>
+<filter id="drop-shadow">
+		<feGaussianBlur in="SourceAlpha" stdDeviation="0.6"/>
+		<feOffset dx="2" dy="-1" result="offsetblur"/>
+		<feFlood flood-color="rgba(0,0,0,0.4)"/>
+		<feComposite in2="offsetblur" operator="in"/>
+		<feMerge>
+			<feMergeNode/>
+			<feMergeNode in="SourceGraphic"/>
+		</feMerge>
+	</filter>
+<rect x="1017.96" y="1314.777" transform="matrix(0.9609 0.277 -0.277 0.9609 463.9897 -350.3763)" class="st0" width="907.921" height="304.041"/>
+<rect x="566.96" y="310.777" transform="matrix(0.5519 0.8339 -0.8339 0.5519 843.3812 -643.9729)" class="st0" width="907.922" height="304.041"/>
+<rect x="1998.959" y="401.777" transform="matrix(-0.9699 0.2436 -0.2436 -0.9699 4966.8496 493.2653)" class="st0" width="907.922" height="304.042"/>
+<rect x="3000.957" y="729.777" transform="matrix(-0.6067 0.7949 -0.7949 -0.6067 6252.0664 -1329.5361)" class="st0" width="907.923" height="304.041"/>
+<rect x="2443.958" y="2013.777" transform="matrix(-0.9853 -0.1707 0.1707 -0.9853 5383.5093 4794.5723)" class="st0" width="907.923" height="304.041"/>
+<rect x="1406.957" y="2441.777" transform="matrix(-0.6831 -0.7304 0.7304 -0.6831 1237.6566 5724.6685)" class="st0" width="907.923" height="304.042"/>
+<rect x="24.957" y="2212.777" transform="matrix(0.7815 -0.624 0.624 0.7815 -1370.8816 815.6464)" class="st0" width="907.923" height="304.042"/>
+</svg>
