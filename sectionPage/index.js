@@ -1,8 +1,6 @@
 // //creating element 
 
 
-
-
 // // let ul = document.querySelector("ul");
 // // let container = document.getElementsByClassName("container");
 // // let li = document.createElement("li");
@@ -24,11 +22,7 @@
 
 
 
-
-
 // // ul.append(container);
-
-
 
 
 // // element.addEventListener('click', function(){});
@@ -43,14 +37,11 @@
 // alert("sss");
 // let text = "tests"
 // console.log(text);
-
 // };
 
 // button2.addEventListener("click", alertBtn);
 
-
 // let newBg = document.querySelector(".box3");
-
 
 // function changeBg() {
 //     newBg.style.backgroundColor = "blue";
@@ -59,34 +50,77 @@
 // newBg.addEventListener("mouseover", changeBg);
 
 
+// const revealBtn = document.querySelector(".reveal-btn");
+// const hiddenContent = document.querySelector(".hidden-content");
+// console.log(revealBtn);
+// console.log(hiddenContent);
+
+// function reveal() {
+//     if (hiddenContent.classList.contains("reveal-btn")) {
+//         hiddenContent.classList.remove("reveal-btn");
+//     } else {
+//         hiddenContent.classList.add("reveal-btn");
+//     }
+// }
+
+// revealBtn.addEventListener("click", reveal)
 
 
 
+// document.addEventListener("click", function(){
 
-const revealBtn = document.querySelector(".reveal-btn");
-const hiddenContent = document.querySelector(".hidden-content");
-console.log(revealBtn);
-console.log(hiddenContent);
+//     console.log(document);
+// },true);
 
-function reveal() {
-    if (hiddenContent.classList.contains("reveal-btn")) {
-        hiddenContent.classList.remove("reveal-btn");
-    } else {
-        hiddenContent.classList.add("reveal-btn");
-    }
+
+// document.querySelector(".reveal-btn").addEventListener("click", function(e){
+//     console.log(e.target.innerText = "clicked");
+
+// },{once:true});
+
+
+const scrollElements = document.querySelectorAll(".js-scroll");
+
+const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    return (
+        elementTop <=
+        (window.innerHeight || document.documentElement.clientHeight) / dividend
+    );
+};
+
+const elementOutofView = (el) => {
+    const elementTop = el.getBoundingClientRect().top;
+
+    return (
+        elementTop > (window.innerHeight || document.documentElement.clientHeight)
+    );
+};
+
+const displayScrollElement = (element) => {
+    element.classList.add("scrolled");
+};
+
+const hideScrollElement = (element) => {
+    element.classList.remove("scrolled");
+};
+
+const handleScrollAnimation = () => {
+    scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+        } else if (elementOutofView(el)) {
+            hideScrollElement(el)
+        }
+    })
 }
 
-revealBtn.addEventListener("click", reveal)
+window.addEventListener("scroll", () => {
+    handleScrollAnimation();
+});
 
 
 
-document.addEventListener("click", function(){
-
-    console.log(document);
-},true);
 
 
-document.querySelector(".reveal-btn").addEventListener("click", function(e){
-    console.log(e.target.innerText = "clicked");
- 
-},{once:true});
