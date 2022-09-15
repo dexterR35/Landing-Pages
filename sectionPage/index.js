@@ -124,10 +124,11 @@ window.addEventListener("scroll", () => {
 (function () {
 		
     //////////////////////
-     // Utils
+     // Utils smooth click on nav bar
    //////////////////////
+       // Default   precented
      function throttle(fn, delay, scope) {
-         // Default delay
+     
          delay = delay || 250;
          var last, defer;
          return function () {
