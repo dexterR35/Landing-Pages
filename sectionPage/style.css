@@ -57,18 +57,23 @@ header h2 {
 }
 
 .scroll-container:nth-of-type(1) {
-  background-color: #bdd0c4;
+  background-color: black;
 }
 .scroll-container:nth-of-type(2) {
-  background-color: #f5d2d3;
+  background-color: brown;
 }
 .scroll-container:nth-of-type(3) {
   background-color: #9ab7d3;
 }
 .scroll-container:nth-of-type(4) {
-  background-color: #dfccf1;
+  background-color: pink;
 }
-
+.scroll-container:nth-of-type(5) {
+  background-color: cyan;
+}
+.scroll-container:nth-of-type(6) {
+  background-color: crimson;
+}
 .scroll-container:nth-of-type(even) {
   flex-direction: row-reverse;
 }
@@ -121,7 +126,7 @@ footer a {
     width: 100%;
   }
 }
-/**Styling scrollable elements*/
+/**Styling scrollable elements**/
 
 .js-scroll {
   opacity: 0;
