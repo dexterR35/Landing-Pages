@@ -79,50 +79,54 @@
 // },{once:true});
 
 
-const scrollElements = document.querySelectorAll(".js-scroll");
 
-const elementInView = (el, dividend = 1) => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    return (
-        elementTop <=
-        (window.innerHeight || document.documentElement.clientHeight) / dividend
-    );
-};
-
-const elementOutofView = (el) => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    return (
-        elementTop > (window.innerHeight || document.documentElement.clientHeight)
-    );
-};
-
-const displayScrollElement = (element) => {
-    element.classList.add("scrolled");
-};
-
-const hideScrollElement = (element) => {
-    element.classList.remove("scrolled");
-};
-
-const handleScrollAnimation = () => {
-    scrollElements.forEach((el) => {
-        if (elementInView(el, 1.25)) {
-            displayScrollElement(el);
-        } else if (elementOutofView(el)) {
-            hideScrollElement(el)
-        }
-    })
-}
-
-window.addEventListener("scroll", () => {
-    handleScrollAnimation();
-});
 
 
 (function () {
-		
+    const scrollElements = document.querySelectorAll(".js-scroll");
+
+    const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+    
+        return (
+            elementTop <=
+            (window.innerHeight || document.documentElement.clientHeight) / dividend
+        );
+    };
+
+    console.log(scrollElements, "scrollElements");
+  
+    const elementOutofView = (el) => {
+        const elementTop = el.getBoundingClientRect().top;
+    
+        return (
+            elementTop > (window.innerHeight || document.documentElement.clientHeight)
+        );
+    };
+  
+    const displayScrollElement = (element) => {
+        element.classList.add("scrolled");
+    };
+   
+    
+    const hideScrollElement = (element) => {
+        element.classList.remove("scrolled");
+    };
+    
+    const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+            if (elementInView(el, 1.25)) {
+                displayScrollElement(el);
+            } else if (elementOutofView(el)) {
+                hideScrollElement(el)
+            }
+        })
+    } 
+    
+    window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+    });
+
     //////////////////////
      // Utils smooth click on nav bar
    //////////////////////
@@ -147,7 +151,7 @@ window.addEventListener("scroll", () => {
              }
          }
      }
- 
+    
      function extend(destination, source) {
          for (var k in source) {
              if (source.hasOwnProperty(k)) {
@@ -156,6 +160,7 @@ window.addEventListener("scroll", () => {
          }
          return destination;
      }
+ 
    
     //////////////////////
      // END Utils
@@ -169,7 +174,7 @@ window.addEventListener("scroll", () => {
  
          var defaults = {
  
-                 steps: null,
+                 steps: true,
                  navigationContainer: null,
                  links: null,
                  scrollToTopBtn: null,
@@ -324,15 +329,16 @@ window.addEventListener("scroll", () => {
          onScroll: function () {
              var percentage = ScrollManager.scrollPercentage();
              percentage >= 90 ? scrollToTopBtn.classList.add('visible') : scrollToTopBtn.classList.remove('visible');
- 
+             console.log(percentage, "percentage");
              if (percentage >= 10) {
                  progressIndicator.innerHTML = percentage + "%";
                  progressIndicator.classList.add('visible');
              } else {
                  progressIndicator.classList.remove('visible');
              }
+        
          },
-       
+         
          // Behavior when a step changes
          // default : highlight links 
        
@@ -353,5 +359,8 @@ window.addEventListener("scroll", () => {
      //////////////////////
  
  })();
+
+
+ 
 
 
