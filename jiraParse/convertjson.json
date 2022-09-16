@@ -1,0 +1,1082 @@
+{
+   "id": "https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined",
+   "link": [
+      {
+         "_href": "https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined",
+         "_rel": "self"
+      }
+   ],
+   "title": {
+      "_type": "text",
+      "__text": "undefined"
+   },
+   "timezone-offset": {
+      "__text": "+0300"
+   },
+   "updated": "2022-09-16T11:36:10.042Z",
+   "authorisation-message": {
+      "application-id": {
+         "__text": "4131241e-519b-31e3-9980-0a1007e4d7d7"
+      },
+      "application-name": {
+         "__text": "Jira ServiceDesk"
+      },
+      "application-uri": {
+         "__text": "https://servicedesk.rei-d-services.com"
+      },
+      "authorisation-uri": {
+         "__text": "https://jira.rei-d-services.com/plugins/servlet/applinks/oauth/login-dance/authorize?applicationLinkID=4131241e-519b-31e3-9980-0a1007e4d7d7&redirectUrl=https%3A%2F%2Fjira.rei-d-services.com%2Fplugins%2Fservlet%2Fstreams%2Fapplinks%2Foauth%2Fcompletion%3FapplinkId%3D4131241e-519b-31e3-9980-0a1007e4d7d7"
+      }
+   },
+   "entry": [
+      {
+         "id": "urn:uuid:c04ad4fb-e1c8-34b3-9d80-9e5a29444e4f",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=dana.ciortuz\" class=\"activity-item-user activity-item-author\">Dana Ciortuz</a> changed the status to Done on       <a href=\"https://jira.rei-d-services.com/browse/DO-5780\"><span class='resolved-link'>DO-5780</span> - [777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022</a>\n   with a resolution of 'Done'"
+         },
+         "author": {
+            "name": "Dana Ciortuz",
+            "email": "dana.ciortuz@imoservices.com",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=dana.ciortuz",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=dana.ciortuz&avatarId=13901&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=dana.ciortuz&avatarId=13901&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "dana.ciortuz"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:34:36.000Z",
+         "updated": "2022-09-16T11:34:36.000Z",
+         "category": {
+            "_term": "Done"
+         },
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/DO-5780",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            },
+            {
+               "__text": "http://streams.atlassian.com/syndication/verbs/jira/transition"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406",
+            "title": {
+               "_type": "text",
+               "__text": "DO-5780"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "[777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:9b97050e-89d4-3e62-bee2-f39909a63c79",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina\" class=\"activity-item-user activity-item-author\">Marcel Gaina</a> changed the Assignee to '<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=dana.ciortuz\" class=\"activity-item-user\">Dana Ciortuz</a>' on       <a href=\"https://jira.rei-d-services.com/browse/DO-5780\"><span class='resolved-link'>DO-5780</span> - [777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022</a>"
+         },
+         "author": {
+            "name": "Marcel Gaina",
+            "email": "Marcel.Gaina@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "Marcel.Gaina"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:19:11.000Z",
+         "updated": "2022-09-16T11:19:11.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/DO-5780",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406",
+            "title": {
+               "_type": "text",
+               "__text": "DO-5780"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "[777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:aeb1d39b-0ef2-3315-97c7-ff7267628da6",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina\" class=\"activity-item-user activity-item-author\">Marcel Gaina</a> commented on       <a href=\"https://jira.rei-d-services.com/browse/DO-5780\"><span class='resolved-link'>DO-5780</span> - [777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>Hi,</p>  <p>This has been done on Master, Development, and checked on Slave.</p>  <p><a class=\"user-hover\" href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=dana.ciortuz\">Dana Ciortuz</a> please check on your side if all is correct, please close the ticket by changing the status to &quot;Done&quot;.  </p>  <p>Regards,</p>  <p>Marcel</p>   </blockquote>"
+         },
+         "author": {
+            "name": "Marcel Gaina",
+            "email": "Marcel.Gaina@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "Marcel.Gaina"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:19:05.000Z",
+         "updated": "2022-09-16T11:19:05.000Z",
+         "category": {
+            "_term": "comment"
+         },
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/DO-5780?focusedCommentId=291495&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-291495",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "in-reply-to": {
+            "_ref": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406"
+         },
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/post"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:a70d7b28-e507-32c2-8ff6-d9fed9c8de8e",
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780?focusedCommentId=291495&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-291495"
+               }
+            ],
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/comment"
+            }
+         },
+         "target": {
+            "id": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406",
+            "title": {
+               "_type": "text",
+               "__text": "DO-5780"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "[777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/",
+         "_xmlns:thr": "http://purl.org/syndication/thread/1.0"
+      },
+      {
+         "id": "urn:uuid:dbfaaf1a-293a-3297-b616-f4553a0cc209",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina\" class=\"activity-item-user activity-item-author\">Marcel Gaina</a> updated 2 fields of       <a href=\"https://jira.rei-d-services.com/browse/DO-5780\"><span class='resolved-link'>DO-5780</span> - [777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<ul class=\"updates activity-list\">   <li>Changed the Remaining Estimate to '0h'   <li>Logged '10m' </ul>"
+         },
+         "author": {
+            "name": "Marcel Gaina",
+            "email": "Marcel.Gaina@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "Marcel.Gaina"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:18:54.000Z",
+         "updated": "2022-09-16T11:18:54.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/DO-5780",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406",
+            "title": {
+               "_type": "text",
+               "__text": "DO-5780"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "[777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:cff060bf-21fe-3d62-a31c-342e8bec341c",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=HeikoMaier\" class=\"activity-item-user activity-item-author\">Heiko Maier</a> commented on       <a href=\"https://jira.rei-d-services.com/browse/NDST-12586\">NDST-12586 - NetBet FI - Casino - Acquisition Lander PNP - 24/08/2022</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>Hi Denisia,</p>  <p>This looks good, yes I would say if bonus field empty we automatically insert the generic WO code WELCOMENB</p>  <p> </p>   </blockquote>"
+         },
+         "author": {
+            "name": "Heiko Maier",
+            "email": "heiko.maier@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=HeikoMaier",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/f5c358fcd946e16ae023d401a1fbda02?d=mm&s=48&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/f5c358fcd946e16ae023d401a1fbda02?d=mm&s=48&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "HeikoMaier"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:17:37.000Z",
+         "updated": "2022-09-16T11:17:37.000Z",
+         "category": {
+            "_term": "comment"
+         },
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/NDST-12586?focusedCommentId=291492&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-291492",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12586",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12586",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "in-reply-to": {
+            "_ref": "urn:uuid:fe58ac68-72a4-358f-9095-0d2591ce4d57"
+         },
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/post"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:a2e3b445-9547-3635-8394-99b9caedd173",
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/NDST-12586?focusedCommentId=291492&page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-291492"
+               }
+            ],
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/comment"
+            }
+         },
+         "target": {
+            "id": "urn:uuid:fe58ac68-72a4-358f-9095-0d2591ce4d57",
+            "title": {
+               "_type": "text",
+               "__text": "NDST-12586"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "NetBet FI - Casino - Acquisition Lander PNP - 24/08/2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/NDST-12586"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/",
+         "_xmlns:thr": "http://purl.org/syndication/thread/1.0"
+      },
+      {
+         "id": "urn:uuid:457f90cb-7f3f-347f-9303-2b32c5e3677d",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=paul.caligari\" class=\"activity-item-user activity-item-author\">paul caligari</a> logged '4h' on       <a href=\"https://jira.rei-d-services.com/browse/SA-103\">SA-103 - Jira/Git workflows</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>setting up repositories for git-flow (configuration-service, game-providers-service, operation-service, operators-service)</p>   </blockquote>"
+         },
+         "author": {
+            "name": "paul caligari",
+            "email": "paul.caligari@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=paul.caligari",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=paul.caligari&avatarId=15300&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=paul.caligari&avatarId=15300&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "paul.caligari"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:14:33.000Z",
+         "updated": "2022-09-16T11:14:33.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/SA-103",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/SA-103",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/SA-103",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/SA-103",
+               "_rel": "http://streams.atlassian.com/syndication/issue-vote"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:0ca75bdb-2038-31ed-ba17-0e471980c719",
+            "title": {
+               "_type": "text",
+               "__text": "SA-103"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "Jira/Git workflows"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/SA-103"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:5ad4d0e8-536d-3fee-815e-f76328fee945",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela\" class=\"activity-item-user activity-item-author\">Ionela Roxana Ionutescu</a> logged '2h 55m' on       <a href=\"https://jira.rei-d-services.com/browse/RIS-12\">RIS-12 - Risk France</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>Checkout checks -done</p>   </blockquote>"
+         },
+         "author": {
+            "name": "Ionela Roxana Ionutescu",
+            "email": "ionutescu.ionela@imoservices.com",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "ionutescu.ionela"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:14:20.000Z",
+         "updated": "2022-09-16T11:14:20.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/RIS-12",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Risk Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/issue-vote"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:4c242600-7c67-3dc5-989a-95efaa7e06d5",
+            "title": {
+               "_type": "text",
+               "__text": "RIS-12"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "Risk France"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/RIS-12"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:4b5bb9b1-2b09-33e5-811c-481b3d5d4312",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela\" class=\"activity-item-user activity-item-author\">Ionela Roxana Ionutescu</a> logged '0.75h' on       <a href=\"https://jira.rei-d-services.com/browse/RIS-12\">RIS-12 - Risk France</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>Safecharge checks- done</p>   </blockquote>"
+         },
+         "author": {
+            "name": "Ionela Roxana Ionutescu",
+            "email": "ionutescu.ionela@imoservices.com",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "ionutescu.ionela"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:12:43.000Z",
+         "updated": "2022-09-16T11:12:43.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/RIS-12",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Risk Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/issue-vote"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:4c242600-7c67-3dc5-989a-95efaa7e06d5",
+            "title": {
+               "_type": "text",
+               "__text": "RIS-12"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "Risk France"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/RIS-12"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:741c5680-608f-3943-9551-df0dc657025a",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela\" class=\"activity-item-user activity-item-author\">Ionela Roxana Ionutescu</a> logged '25m' on       <a href=\"https://jira.rei-d-services.com/browse/RIS-12\">RIS-12 - Risk France</a>"
+         },
+         "content": {
+            "_type": "html",
+            "__text": "<blockquote>    <p>Betobill checks-done</p>   </blockquote>"
+         },
+         "author": {
+            "name": "Ionela Roxana Ionutescu",
+            "email": "ionutescu.ionela@imoservices.com",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=ionutescu.ionela",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://jira.rei-d-services.com/secure/useravatar?avatarId=10349&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "ionutescu.ionela"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:11:18.000Z",
+         "updated": "2022-09-16T11:11:18.000Z",
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/RIS-12",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Risk Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/RIS-12",
+               "_rel": "http://streams.atlassian.com/syndication/issue-vote"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:4c242600-7c67-3dc5-989a-95efaa7e06d5",
+            "title": {
+               "_type": "text",
+               "__text": "RIS-12"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "Risk France"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/RIS-12"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      },
+      {
+         "id": "urn:uuid:fc103008-53cc-35e9-9917-6b69676b1d7f",
+         "title": {
+            "_type": "html",
+            "__text": "<a href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina\" class=\"activity-item-user activity-item-author\">Marcel Gaina</a> started progress on       <a href=\"https://jira.rei-d-services.com/browse/DO-5780\"><span class='resolved-link'>DO-5780</span> - [777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022</a>"
+         },
+         "author": {
+            "name": "Marcel Gaina",
+            "email": "Marcel.Gaina@gimo.co.uk",
+            "uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Marcel.Gaina",
+            "link": [
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=16",
+                  "_media:height": "16",
+                  "_media:width": "16"
+               },
+               {
+                  "_xmlns:media": "http://purl.org/syndication/atommedia",
+                  "_rel": "photo",
+                  "_href": "https://www.gravatar.com/avatar/32e3df0bc2716feeb017a454e25990ff?d=mm&s=48&s=48",
+                  "_media:height": "48",
+                  "_media:width": "48"
+               }
+            ],
+            "username": {
+               "__text": "Marcel.Gaina"
+            },
+            "object-type": {
+               "__text": "http://activitystrea.ms/schema/1.0/person"
+            },
+            "_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+         },
+         "published": "2022-09-16T11:05:50.000Z",
+         "updated": "2022-09-16T11:05:50.000Z",
+         "category": {
+            "_term": "started"
+         },
+         "link": [
+            {
+               "_href": "https://jira.rei-d-services.com/browse/DO-5780",
+               "_rel": "alternate"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+               "_rel": "http://streams.atlassian.com/syndication/icon",
+               "_title": "Task"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+               "_rel": "http://streams.atlassian.com/syndication/css"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/reply-to"
+            },
+            {
+               "_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/DO-5780",
+               "_rel": "http://streams.atlassian.com/syndication/watch"
+            }
+         ],
+         "generator": {
+            "_uri": "https://jira.rei-d-services.com"
+         },
+         "application": {
+            "__text": "com.atlassian.jira"
+         },
+         "verb": [
+            {
+               "__text": "http://activitystrea.ms/schema/1.0/update"
+            },
+            {
+               "__text": "http://streams.atlassian.com/syndication/verbs/jira/transition"
+            },
+            {
+               "__text": "http://streams.atlassian.com/syndication/verbs/jira/start"
+            }
+         ],
+         "object": {
+            "id": "urn:uuid:c0713d4f-1b29-335f-a6a5-940859912406",
+            "title": {
+               "_type": "text",
+               "__text": "DO-5780"
+            },
+            "summary": {
+               "_type": "text",
+               "__text": "[777.ch] DBA Additional reporting update for DEVEL and Production 16.09.2022"
+            },
+            "link": [
+               {
+                  "_rel": "alternate",
+                  "_href": "https://jira.rei-d-services.com/browse/DO-5780"
+               }
+            ],
+            "object-type": {
+               "__text": "http://streams.atlassian.com/syndication/types/issue"
+            }
+         },
+         "timezone-offset": {
+            "__text": "+0300"
+         },
+         "_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+      }
+   ],
+   "_xmlns": "http://www.w3.org/2005/Atom",
+   "_xmlns:atlassian": "http://streams.atlassian.com/syndication/general/1.0"
+}

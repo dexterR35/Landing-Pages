@@ -16,7 +16,7 @@
   </head>
   <body>
     <div class="wrapper">
-    <header class="container scroll-flow" id="A">
+    <header class="container scroll-flow panel home" data-section-name="home" style="height: 6480px;" id="A">
       <h1>scroll testing</h1>
       <h2>test2</h2>
       <h1>A</h1>
@@ -25,29 +25,14 @@
     <section class="scroll-container scroll-flow js-scroll-step" id="B">
       <div class="scroll-element js-scroll fade-in panel panel1 ">
         <h1>B</h1>
-        <!-- <div class="inner" style="height: 1787px">
-          
-          <img
-            width="515"
-            class="layer-object leash js-load-async"
-            src="./png/leash.svg"
-          />
-          <img
-            width="668"
-            class="layer-object newspaper js-load-async"
-            src="./png/newspaper.svg"
-          />
-          <img
-            width="492"
-            class="layer-object sunglasses js-load-async"
-            src="./png/sunglasses.svg"
-          />
-          <img
-            width="1982"
-            class="section-bg section-bg-three js-load-async"
-            src="./png/bg_rect.svg"
-          />
-        </div> -->
+      	<div class="inner" style="height: 1080px;">
+
+          <img width="427" class="layer-object coffee initial-state init-image" src="images/coffee.svg">
+          <img width="366" class="layer-object napkin initial-state init-image" src="images/napkin.svg">
+          <img width="457" class="layer-object dohnut initial-state init-image" src="images/donut.svg">
+          <img width="1660" class="section-bg section-bg-one initial-state init-image" src="images/bg_arch.svg">
+  
+        </div>
        </div>
         <div class="scroll-caption"><h1>B</h1></div>
     </section>
@@ -125,25 +110,7 @@
         </div>
       </div>
     </section>
-    <section class="panel home" data-section-name="home" style="height: 6480px;">
-
-			<div class="inner" style="height: 1080px;">
-
-				<img width="427" class="layer-object coffee initial-state init-image" src="images/coffee.svg">
-				<img width="366" class="layer-object napkin initial-state init-image" src="images/napkin.svg">
-				<img width="457" class="layer-object dohnut initial-state init-image" src="images/donut.svg">
-				<img width="1660" class="section-bg section-bg-one initial-state init-image" src="images/bg_arch.svg">
-
-			</div>
-
-
-			<div class="social-corner">
-				<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 73px; height: 20px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.c4bdc17e77719578b594d5555bee90db.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fprojects.lukehaas.me%2Fscrollify%2Fexamples%2Flayered-scrolling%2F&amp;size=m&amp;text=Scrollify%20-%20a%20jQuery%20plugin%20that%20assists%20scrolling%20and%20smoothly%20snaps%20to%20sections.&amp;time=1663279729790&amp;type=share&amp;url=http%3A%2F%2Fprojects.lukehaas.me%2Fscrollify%2F&amp;via=lukehaas" data-url="http://projects.lukehaas.me/scrollify/"></iframe>
-				<script async="" src="//www.google-analytics.com/analytics.js"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-				<span></span>
-			</div>
-
-		</section>
+  
     <nav class="Quick-navigation">
       <a href="#A" class="Quick-navigation-item">A</a>
       <a href="#B" class="Quick-navigation-item">B</a>
@@ -178,23 +145,79 @@
 
  
   $.scrollify({
+    // section should be an identifier that is the same for each section
+
+  // A selector for the sections.
+
     section : ".scroll-flow",
+    // The name of the data attribute is defined by 'sectionName'.
     // sectionName : "section-name",
+    // A CSS selector for non-full-height sections, such as a header and footer.
     interstitialSection : "",
+    // Define the easing method.
     easing: "easeOutExpo",
+     // Scrolling speed in milliseonds
     scrollSpeed: 1100,
+     // A distance in pixels to offset each sections position by.
     offset : 0,
+    // A boolean to define whether scroll bars are visible or not.
     scrollbars: true,
-    standardScrollElements: "",
+    // Target container
+    target:"html,body",
+    // A string of selectors for elements that require standard scrolling behaviour.
+    standardScrollElements: "false",
+    // A boolean to define whether Scollify assigns a height to the sections.
     setHeights: true,
+     // Allows scrolling over overflowing content within sections
     overflowScroll: true,
+    // Updates the browser location hash when scrolling through sections
     updateHash: true,
+    // Allows to handle touch scroll events
     touchScroll:true,
+      // callbacks
     before:function(i) {
       var active = $(".slide.active");
 
       active.addClass("remove");
+/*
+// Used to scroll to a particular section. 
+// It can be parsed the index of the section, or the name of the section preceded by a hash.
+$.scrollify.move("#name");
 
+// Used to scroll to a particular section without animation. 
+// It can be parsed the index of the section, or the name of the section preceded by a hash.
+$.scrollify.instantMove("#name");
+
+// Used to scroll to a panel that immediately follows the current panel.
+$.scrollify.next()
+
+// Used to scroll to a panel that immediately precedes the current panel.
+$.scrollify.previous()
+
+// Used to scroll to a panel that immediately follows the current panel, without animation.
+$.scrollify.instantNext()
+
+// Used to scroll to a panel that immediately precedes the current panel.
+$.scrollify.instantPrevious()
+
+// Removes all Scrollify events and removes set heights from the panels.
+$.scrollify.destroy()
+
+// The update methods recalculates the heights and positions of the panels.
+$.scrollify.update()
+
+// The current method returns the current section as a jQuery object.
+$.scrollify.current()
+
+// The disable method turns off the scroll snap behaviour so that the page scroll like normal.
+$.scrollify.disable()
+
+// The enable method resumes the scroll snap behaviour after the disable method has been used.
+$.scrollify.enable()
+
+// The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
+$.scrollify.isDisabled()
+*/
 
       //setTimeout(function() {
         $("[data-slide=" + i + "]").addClass("active");
@@ -203,7 +226,7 @@
 
     },
     afterRender() {
-      $(".panel").each(function() {
+      $(".panelsz").each(function() {
         $(this).css("height", parseInt($(window).height())*6 );
 
         $(this).find(".inner").css("height", $(window).height());

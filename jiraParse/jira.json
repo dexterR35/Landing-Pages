@@ -1,0 +1,1174 @@
+{
+	"feed": {
+		"id": "https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined",
+		"link": {
+			"_href": "https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined",
+			"_rel": "self"
+		},
+		"title": {
+			"_type": "text",
+			"__text": "undefined"
+		},
+		"timezone-offset": {
+			"__prefix": "atlassian",
+			"__text": "+0300"
+		},
+		"updated": "2022-09-16T09:20:56.225Z",
+		"authorisation-message": {
+			"application-id": {
+				"__prefix": "atlassian",
+				"__text": "4131241e-519b-31e3-9980-0a1007e4d7d7"
+			},
+			"application-name": {
+				"__prefix": "atlassian",
+				"__text": "Jira ServiceDesk"
+			},
+			"application-uri": {
+				"__prefix": "atlassian",
+				"__text": "https://servicedesk.rei-d-services.com"
+			},
+			"authorisation-uri": {
+				"__prefix": "atlassian",
+				"__text": "https://jira.rei-d-services.com/plugins/servlet/applinks/oauth/login-dance/authorize?applicationLinkID=4131241e-519b-31e3-9980-0a1007e4d7d7&redirectUrl=https%3A%2F%2Fjira.rei-d-services.com%2Fplugins%2Fservlet%2Fstreams%2Fapplinks%2Foauth%2Fcompletion%3FapplinkId%3D4131241e-519b-31e3-9980-0a1007e4d7d7"
+			},
+			"__prefix": "atlassian"
+		},
+		"entry": [
+			{
+				"id": "urn:uuid:e49e0803-c243-3456-ba11-52761f7ea713",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu\"\n      class=\"activity-item-user activity-item-author\">Denis Neagu</a> changed\n      the status to AWAITING FEEDBACK on <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12729\">NDST-12729 -\n      Casino777.ch - GOTW - W39 - Jingle Jim - 23.09</a>"
+				},
+				"author": {
+					"name": "Denis Neagu",
+					"email": "denis.neagu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "denis.neagu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:11:09.000Z",
+				"updated": "2022-09-16T09:11:09.000Z",
+				"category": {
+					"_term": "AWAITING FEEDBACK"
+				},
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": [
+					{
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/update"
+					},
+					{
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/verbs/jira/transition"
+					}
+				],
+				"object": {
+					"id": "urn:uuid:57b49074-db50-363f-a7e5-6bc5d5c75d4d",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12729"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Casino777.ch - GOTW - W39 - Jingle Jim - 23.09"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:7c2f92d2-323b-386b-acfe-86b54864faab",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu\"\n      class=\"activity-item-user activity-item-author\">Denis Neagu</a> changed\n      the Assignee to '<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=Riccardo.Cristiano\"\n      class=\"activity-item-user\">Riccardo Cristiano</a>' on <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12729\">NDST-12729 -\n      Casino777.ch - GOTW - W39 - Jingle Jim - 23.09</a>"
+				},
+				"author": {
+					"name": "Denis Neagu",
+					"email": "denis.neagu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "denis.neagu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:11:07.000Z",
+				"updated": "2022-09-16T09:11:07.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/update"
+				},
+				"object": {
+					"id": "urn:uuid:57b49074-db50-363f-a7e5-6bc5d5c75d4d",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12729"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Casino777.ch - GOTW - W39 - Jingle Jim - 23.09"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:4aca7209-0d6d-364b-96ed-6ef0073b0616",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu\"\n      class=\"activity-item-user activity-item-author\">Denis Neagu</a>\n      attached one file to <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12729\">NDST-12729 -\n      Casino777.ch - GOTW - W39 - Jingle Jim - 23.09</a>"
+				},
+				"content": {
+					"_type": "html",
+					"__text": "<ul class=\"attachments activity-list\"> <li><a\n      href=\"https://jira.rei-d-services.com/secure/attachment/235666/12729+Casino777.ch+-+GOTW+-+W39+-+Jungle+Jim-assets.zip\">12729\n      Casino777.ch - GOTW - W39 - Jungle Jim-assets.zip</a> </ul>"
+				},
+				"author": {
+					"name": "Denis Neagu",
+					"email": "denis.neagu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "denis.neagu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:11:01.000Z",
+				"updated": "2022-09-16T09:11:01.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12729",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/post"
+				},
+				"object": {
+					"id": "urn:uuid:4aca7209-0d6d-364b-96ed-6ef0073b0616",
+					"title": {
+						"_type": "text",
+						"__text": "12729 Casino777.ch - GOTW - W39 - Jungle Jim-assets.zip"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/secure/attachment/235666/12729+Casino777.ch+-+GOTW+-+W39+-+Jungle+Jim-assets.zip"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/file"
+					},
+					"__prefix": "activity"
+				},
+				"target": {
+					"id": "urn:uuid:57b49074-db50-363f-a7e5-6bc5d5c75d4d",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12729"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Casino777.ch - GOTW - W39 - Jingle Jim - 23.09"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12729"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:d5b5b52e-d8fa-38e0-888a-73cbcf15af43",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu\"\n      class=\"activity-item-user activity-item-author\">Denis Neagu</a>\n      attached one file to <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12728\">NDST-12728 -\n      Casino777.ch - GOTW - W38 - GOT- 20.09</a>"
+				},
+				"content": {
+					"_type": "html",
+					"__text": "<ul class=\"attachments activity-list\"> <li><a\n      href=\"https://jira.rei-d-services.com/secure/attachment/235665/12728+Casino777.ch+-+GOTW+-+W38+-+GOT-assets.zip\">12728\n      Casino777.ch - GOTW - W38 - GOT-assets.zip</a> </ul>"
+				},
+				"author": {
+					"name": "Denis Neagu",
+					"email": "denis.neagu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=denis.neagu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://jira.rei-d-services.com/secure/useravatar?ownerId=denis.neagu&avatarId=14501&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "denis.neagu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:10:39.000Z",
+				"updated": "2022-09-16T09:10:39.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12728",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12728",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12728",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12728",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/post"
+				},
+				"object": {
+					"id": "urn:uuid:d5b5b52e-d8fa-38e0-888a-73cbcf15af43",
+					"title": {
+						"_type": "text",
+						"__text": "12728 Casino777.ch - GOTW - W38 - GOT-assets.zip"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/secure/attachment/235665/12728+Casino777.ch+-+GOTW+-+W38+-+GOT-assets.zip"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/file"
+					},
+					"__prefix": "activity"
+				},
+				"target": {
+					"id": "urn:uuid:d933c8d8-9afe-3997-8f8e-63b7840ea525",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12728"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Casino777.ch - GOTW - W38 - GOT- 20.09"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12728"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:b64c7a39-35d0-3201-b4a0-5980d406c741",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu\"\n      class=\"activity-item-user activity-item-author\">Alex Lungeanu</a>\n      changed the Assignee to '<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=stuart.plant\"\n      class=\"activity-item-user\">Stuart Plant</a>' on <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12873\">NDST-12873 -\n      Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer Retirement\n      - ASAP</a>"
+				},
+				"author": {
+					"name": "Alex Lungeanu",
+					"email": "alex.lungeanu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "alex.lungeanu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:08:00.000Z",
+				"updated": "2022-09-16T09:08:00.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/update"
+				},
+				"object": {
+					"id": "urn:uuid:25110fbd-cfb0-3352-8117-9595fac87926",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12873"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer\n        Retirement - ASAP"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:feb7dfce-30f3-347b-a8e9-51ca3dd58f67",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu\"\n      class=\"activity-item-user activity-item-author\">Alex Lungeanu</a>\n      changed the status to AWAITING FEEDBACK on <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12873\">NDST-12873 -\n      Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer Retirement\n      - ASAP</a>"
+				},
+				"author": {
+					"name": "Alex Lungeanu",
+					"email": "alex.lungeanu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "alex.lungeanu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:07:57.000Z",
+				"updated": "2022-09-16T09:07:57.000Z",
+				"category": {
+					"_term": "AWAITING FEEDBACK"
+				},
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": [
+					{
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/update"
+					},
+					{
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/verbs/jira/transition"
+					}
+				],
+				"object": {
+					"id": "urn:uuid:25110fbd-cfb0-3352-8117-9595fac87926",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12873"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer\n        Retirement - ASAP"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:1757233d-0b1e-3ea6-b84d-9a5383c2bf04",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu\"\n      class=\"activity-item-user activity-item-author\">Alex Lungeanu</a>\n      changed the status to PRODUCT on <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12873\">NDST-12873 -\n      Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer Retirement\n      - ASAP</a>"
+				},
+				"author": {
+					"name": "Alex Lungeanu",
+					"email": "alex.lungeanu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "alex.lungeanu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:07:55.000Z",
+				"updated": "2022-09-16T09:07:55.000Z",
+				"category": {
+					"_term": "PRODUCT"
+				},
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": [
+					{
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/update"
+					},
+					{
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/verbs/jira/transition"
+					}
+				],
+				"object": {
+					"id": "urn:uuid:25110fbd-cfb0-3352-8117-9595fac87926",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12873"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer\n        Retirement - ASAP"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:94969cee-93db-33de-93ea-262086e6963b",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu\"\n      class=\"activity-item-user activity-item-author\">Alex Lungeanu</a>\n      attached 2 files to <a\n      href=\"https://jira.rei-d-services.com/browse/NDST-12873\">NDST-12873 -\n      Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer Retirement\n      - ASAP</a>"
+				},
+				"content": {
+					"_type": "html",
+					"__text": "<ul class=\"attachments thumbnails\"> <li><a\n      href=\"https://jira.rei-d-services.com/secure/attachment/235662/1080x1080-NL.png\"\n      target=\"_blank\"><img alt=\"\" height=\"100\"\n      src=\"https://jira.rei-d-services.com/secure/thumbnail/235662/_thumb_235662.png\"\n      width=\"100\"></a> <li><a\n      href=\"https://jira.rei-d-services.com/secure/attachment/235663/1080x1920-NL.png\"\n      target=\"_blank\"><img alt=\"\" height=\"100\"\n      src=\"https://jira.rei-d-services.com/secure/thumbnail/235663/_thumb_235663.png\"\n      width=\"56\"></a> </ul>"
+				},
+				"author": {
+					"name": "Alex Lungeanu",
+					"email": "alex.lungeanu@netbet.ro",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=alex.lungeanu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/a178a37abd59a477d9baa5077fcc8dcb?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "alex.lungeanu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T09:07:47.000Z",
+				"updated": "2022-09-16T09:07:47.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10318&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/NDST-12873",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/post"
+				},
+				"object": [
+					{
+						"id": "urn:uuid:94969cee-93db-33de-93ea-262086e6963b",
+						"title": {
+							"_type": "text",
+							"__text": "1080x1080-NL.png"
+						},
+						"link": {
+							"_rel": "alternate",
+							"_href": "https://jira.rei-d-services.com/secure/attachment/235662/1080x1080-NL.png"
+						},
+						"object-type": {
+							"__prefix": "activity",
+							"__text": "http://activitystrea.ms/schema/1.0/file"
+						},
+						"__prefix": "activity"
+					},
+					{
+						"id": "urn:uuid:94969cee-93db-33de-93ea-262086e6963b",
+						"title": {
+							"_type": "text",
+							"__text": "1080x1920-NL.png"
+						},
+						"link": {
+							"_rel": "alternate",
+							"_href": "https://jira.rei-d-services.com/secure/attachment/235663/1080x1920-NL.png"
+						},
+						"object-type": {
+							"__prefix": "activity",
+							"__text": "http://activitystrea.ms/schema/1.0/file"
+						},
+						"__prefix": "activity"
+					}
+				],
+				"target": {
+					"id": "urn:uuid:25110fbd-cfb0-3352-8117-9595fac87926",
+					"title": {
+						"_type": "text",
+						"__text": "NDST-12873"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Bet777 - W.C. 12/09 Social Media - Reactive - Static - Federer\n        Retirement - ASAP"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/NDST-12873"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:9e1779eb-0e38-3b1d-81df-2e8352e409fa",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=monalisa.teodorescu\"\n      class=\"activity-item-user activity-item-author\">Monalisa Teodorescu</a>\n      logged '5m' on <a\n      href=\"https://jira.rei-d-services.com/browse/RIS-10\">RIS-10 - Risk\n      Netherlands</a>"
+				},
+				"content": {
+					"_type": "html",
+					"__text": "<blockquote> <p>Alerts done</p> </blockquote>"
+				},
+				"author": {
+					"name": "Monalisa Teodorescu",
+					"email": "monalisa.teodorescu@imoservices.com",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=monalisa.teodorescu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/fa6c1ffb5b29c6e2f8e76be04c4fcd0f?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/fa6c1ffb5b29c6e2f8e76be04c4fcd0f?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "monalisa.teodorescu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T08:52:35.000Z",
+				"updated": "2022-09-16T08:52:35.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/RIS-10",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Risk Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/update"
+				},
+				"object": {
+					"id": "urn:uuid:bbd12c13-7a45-35f1-a4d9-2975edec273f",
+					"title": {
+						"_type": "text",
+						"__text": "RIS-10"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Risk Netherlands"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/RIS-10"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			},
+			{
+				"id": "urn:uuid:feb731d2-6c4d-3f0e-868f-99fb949de09e",
+				"title": {
+					"_type": "html",
+					"__text": "<a\n      href=\"https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=monalisa.teodorescu\"\n      class=\"activity-item-user activity-item-author\">Monalisa Teodorescu</a>\n      logged '7m' on <a\n      href=\"https://jira.rei-d-services.com/browse/RIS-10\">RIS-10 - Risk\n      Netherlands</a>"
+				},
+				"content": {
+					"_type": "html",
+					"__text": "<blockquote> <p>CHB check done</p> </blockquote>"
+				},
+				"author": {
+					"name": "Monalisa Teodorescu",
+					"email": "monalisa.teodorescu@imoservices.com",
+					"uri": "https://jira.rei-d-services.com/secure/ViewProfile.jspa?name=monalisa.teodorescu",
+					"link": [
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/fa6c1ffb5b29c6e2f8e76be04c4fcd0f?d=mm&s=48&s=16",
+							"_media:height": "16",
+							"_media:width": "16"
+						},
+						{
+							"_xmlns:media": "http://purl.org/syndication/atommedia",
+							"_rel": "photo",
+							"_href": "https://www.gravatar.com/avatar/fa6c1ffb5b29c6e2f8e76be04c4fcd0f?d=mm&s=48&s=48",
+							"_media:height": "48",
+							"_media:width": "48"
+						}
+					],
+					"username": {
+						"__prefix": "usr",
+						"__text": "monalisa.teodorescu"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://activitystrea.ms/schema/1.0/person"
+					},
+					"_xmlns:usr": "http://streams.atlassian.com/syndication/username/1.0"
+				},
+				"published": "2022-09-16T08:47:31.000Z",
+				"updated": "2022-09-16T08:47:31.000Z",
+				"link": [
+					{
+						"_href": "https://jira.rei-d-services.com/browse/RIS-10",
+						"_rel": "alternate"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/secure/viewavatar?size=xsmall&avatarId=10304&avatarType=issuetype",
+						"_rel": "http://streams.atlassian.com/syndication/icon",
+						"_title": "Risk Task"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/s/184xlg/820001/1dlckms/1.0/_/download/resources/jira.webresources:global-static/wiki-renderer.css",
+						"_rel": "http://streams.atlassian.com/syndication/css"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/plugins/servlet/streamscomments/issues/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/reply-to"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-watch/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/watch"
+					},
+					{
+						"_href": "https://jira.rei-d-services.com/rest/jira-activity-stream/1.0/actions/issue-vote/RIS-10",
+						"_rel": "http://streams.atlassian.com/syndication/issue-vote"
+					}
+				],
+				"generator": {
+					"_uri": "https://jira.rei-d-services.com"
+				},
+				"application": {
+					"__prefix": "atlassian",
+					"__text": "com.atlassian.jira"
+				},
+				"verb": {
+					"__prefix": "activity",
+					"__text": "http://activitystrea.ms/schema/1.0/update"
+				},
+				"object": {
+					"id": "urn:uuid:bbd12c13-7a45-35f1-a4d9-2975edec273f",
+					"title": {
+						"_type": "text",
+						"__text": "RIS-10"
+					},
+					"summary": {
+						"_type": "text",
+						"__text": "Risk Netherlands"
+					},
+					"link": {
+						"_rel": "alternate",
+						"_href": "https://jira.rei-d-services.com/browse/RIS-10"
+					},
+					"object-type": {
+						"__prefix": "activity",
+						"__text": "http://streams.atlassian.com/syndication/types/issue"
+					},
+					"__prefix": "activity"
+				},
+				"timezone-offset": {
+					"__prefix": "atlassian",
+					"__text": "+0300"
+				},
+				"_xmlns:activity": "http://activitystrea.ms/spec/1.0/"
+			}
+		],
+		"_xmlns": "http://www.w3.org/2005/Atom",
+		"_xmlns:atlassian": "http://streams.atlassian.com/syndication/general/1.0"
+	}
+}
