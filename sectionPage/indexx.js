@@ -84,18 +84,16 @@
 
 (function () {
     const scrollElements = document.querySelectorAll(".js-scroll");
-
+// for elements inside
     const elementInView = (el, dividend = 1) => {
         const elementTop = el.getBoundingClientRect().top;
-    
+        // console.log(elementTop, "elementTop");
         return (
             elementTop <=
             (window.innerHeight || document.documentElement.clientHeight) / dividend
         );
     };
-
-    console.log(scrollElements, "scrollElements");
-  
+// for elements outside
     const elementOutofView = (el) => {
         const elementTop = el.getBoundingClientRect().top;
     
@@ -107,7 +105,7 @@
     const displayScrollElement = (element) => {
         element.classList.add("scrolled");
     };
-   
+  
     
     const hideScrollElement = (element) => {
         element.classList.remove("scrolled");

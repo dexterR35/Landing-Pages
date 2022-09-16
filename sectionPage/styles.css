@@ -366,3 +366,121 @@ footer a {
 .Scroll-to-top:hover {
   color: rgba(255, 255, 255, 0.9);
 }
+
+
+
+
+
+.inner {
+	position: relative;
+	height:100%;
+
+}
+
+.home {
+	background: #4fd0ea;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4fd0ea), color-stop(100%, #4BB7B9));
+	background:-webkit-linear-gradient(top, #4fd0ea 0%, #4BB7B9 100%);
+	background:linear-gradient(to bottom, #4fd0ea 0%, #4BB7B9 100%);
+	background-repeat: no-repeat;
+}
+
+.panel1 {
+	background:#4BB7B9;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4BB7B9), color-stop(100%, #6AB981));
+	background: -webkit-linear-gradient(top, #4BB7B9 0%, #6AB981 100%);
+	background: linear-gradient(to bottom, #4BB7B9 0%, #6AB981 100%);
+	background-repeat: no-repeat;
+}
+
+.panel2 {
+	background: #6AB981;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #6AB981), color-stop(100%, #AAD292));
+	background: -webkit-linear-gradient(top, #6AB981 0%, #AAD292 100%);
+	background: linear-gradient(to bottom, #6AB981 0%, #AAD292 100%);
+	background-repeat: no-repeat;
+}
+
+.panel3 {
+		background: #AAD292;
+}
+
+
+.section-bg,
+.layer-object {
+		position:absolute;
+		z-index: 1;
+}
+
+.coffee {
+	right:10%;
+	top:0;
+}
+
+.napkin {
+	left:-150px;
+	top:375px;
+}
+.dohnut {
+	top:520px;
+	right:-100px;
+}
+.section-bg {
+	z-index: 0;
+}
+
+.content-text {
+  position: relative;
+  float: right;
+  width: 370px;
+}
+.content {
+  width: 640px;
+  margin: 50px auto;
+}
+.slide.active {
+  z-index: 10;
+}
+.slide {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+
+.slide .animatable {
+  opacity: 0;
+  -webkit-transform: translate(0,30px);
+  transform: translate(0,30px);
+  -webkit-transition: opacity 0.4s ease,-webkit-transform 0.4s ease;
+  transition: opacity 0.4s ease,transform 0.4s ease;
+}
+p {
+  font-size: 2em;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+a:link, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.arrow:before, .arrow:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 4px;
+  width: 2px;
+  height: 12px;
+  background: white;
+}
+
+.arrow:before {
+  transform: rotate(45deg);
+  top: 12px;
+}
+.arrow:after {
+  transform: rotate(-45deg);
+}

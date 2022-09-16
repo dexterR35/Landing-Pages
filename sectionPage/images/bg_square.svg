@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="3376px" height="2416px" viewBox="0 0 3376 2416" style="enable-background:new 0 0 3376 2416;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{
+	fill:#98C56E;
+	filter: url(#drop-shadow);
+	}
+]]>
+</style>
+<filter id="drop-shadow">
+		<feGaussianBlur in="SourceAlpha" stdDeviation="0.6"/>
+		<feOffset dx="1" dy="1" result="offsetblur"/>
+		<feFlood flood-color="rgba(0,0,0,0.4)"/>
+		<feComposite in2="offsetblur" operator="in"/>
+		<feMerge>
+			<feMergeNode/>
+			<feMergeNode in="SourceGraphic"/>
+		</feMerge>
+	</filter>
+<rect x="1404.001" y="875.4" transform="matrix(0.7796 0.6262 -0.6262 0.7796 1058.1959 -782.7244)" class="st0" width="474.503" height="473.607"/>
+<rect x="910.001" y="61.4" transform="matrix(0.9661 0.2582 -0.2582 0.9661 115.8971 -286.1078)" class="st0" width="474.503" height="473.607"/>
+<rect x="2139.001" y="61.4" transform="matrix(0.9835 -0.1809 0.1809 0.9835 -14.7468 434.6735)" class="st0" width="474.502" height="473.608"/>
+<rect x="2822.001" y="839.401" transform="matrix(0.2972 0.9548 -0.9548 0.2972 3177.7505 -2164.6604)" class="st0" width="474.503" height="473.607"/>
+<rect x="215.001" y="875.4" transform="matrix(0.5017 0.8651 -0.8651 0.5017 1187.5039 163.0273)" class="st0" width="474.503" height="473.607"/>
+<rect x="1150.001" y="1793.4" transform="matrix(0.8693 0.4943 -0.4943 0.8693 1184.8262 -420.3516)" class="st0" width="474.503" height="473.607"/>
+<rect x="2596.001" y="1883.399" transform="matrix(0.9557 0.2944 -0.2944 0.9557 749.8264 -740.2024)" class="st0" width="474.504" height="473.607"/>
+<rect x="32.001" y="1739.401" transform="matrix(0.9892 0.1465 -0.1465 0.9892 292.5138 -18.1226)" class="st0" width="474.504" height="473.605"/>
+</svg>

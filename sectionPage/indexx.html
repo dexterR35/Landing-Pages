@@ -51,23 +51,23 @@
        </div>
         <div class="scroll-caption"><h1>B</h1></div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step" id="C">
+    <section class="scroll-container scroll-flow js-scroll-step " id="C">
       <div class="scroll-element js-scroll fade-in-bottom"> <h1>C</h1></div>
       <div class="scroll-caption"> <h1>C</h1></div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step"  id="D">
+    <section class="scroll-container scroll-flow js-scroll-step "  id="D">
       <div class="scroll-element js-scroll slide-left"> <h1>D</h1></div>
       <div class="scroll-caption"> <h1>D</h1></div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step"  id="E">
+    <section class="scroll-container scroll-flow js-scroll-step "  id="E">
       <div class="scroll-element js-scroll slide-right"> <h1>E</h1></div>
       <div class="scroll-caption"> <h1>E</h1></div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step"  id="F">
+    <section class="scroll-container scroll-flow js-scroll-step "  id="F">
       <div class="scroll-element js-scroll slide-right"> <h1>F</h1></div>
       <div class="scroll-caption"> <h1>F</h1></div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step"  id="G">
+    <section class="scroll-container scroll-flow js-scroll-step "  id="G">
       <div class="scroll-element js-scroll slide-right"> <h1>G</h1></div>
       <div class="scroll-caption"> <h1>G</h1></div>
     </section>
@@ -85,6 +85,36 @@
     </footer>
     <section class="fixed-content" >
       <div class="content">
+        <div class="content-text">
+					<div class="slide" data-slide="0">
+						<h2 class="animatable">Layered scrolling</h2>
+						<div class="animatable">
+							<p>In this example, sections act as a scrolling background layer while foreground content stays in a fixed position.</p>
+							<p><a href="/scrollify#examples" class="arrow">See more examples</a></p>
+						</div>
+					</div>
+					<div class="slide" data-slide="1">
+						<h2 class="animatable">Versitility</h2>
+						<div class="animatable">
+							<p>This example helps illustrate the versitility of Scrollify. With a little imagination you can use it to craft remarkable sites.</p>
+						</div>
+					</div>
+
+					<div class="slide active" data-slide="2">
+						<h2 class="animatable">Promote your products</h2>
+						<div class="animatable">
+							<p>Scrollify enables you to build high impact sites quickly and easily. Great for promotional sites.</p>
+						</div>
+					</div>
+
+					<div class="slide" data-slide="3">
+						<h2 class="animatable">There's a callback for that</h2>
+						<div class="animatable">
+							<p>Use Scrollify's callbacks to bring your site to life.</p>
+						</div>
+					</div>
+
+				</div>
         <div class="device-frame">
           <div class="image-slides">
             <div class="device-slide device-slide1">
@@ -95,6 +125,25 @@
         </div>
       </div>
     </section>
+    <section class="panel home" data-section-name="home" style="height: 6480px;">
+
+			<div class="inner" style="height: 1080px;">
+
+				<img width="427" class="layer-object coffee initial-state init-image" src="images/coffee.svg">
+				<img width="366" class="layer-object napkin initial-state init-image" src="images/napkin.svg">
+				<img width="457" class="layer-object dohnut initial-state init-image" src="images/donut.svg">
+				<img width="1660" class="section-bg section-bg-one initial-state init-image" src="images/bg_arch.svg">
+
+			</div>
+
+
+			<div class="social-corner">
+				<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 73px; height: 20px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.c4bdc17e77719578b594d5555bee90db.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fprojects.lukehaas.me%2Fscrollify%2Fexamples%2Flayered-scrolling%2F&amp;size=m&amp;text=Scrollify%20-%20a%20jQuery%20plugin%20that%20assists%20scrolling%20and%20smoothly%20snaps%20to%20sections.&amp;time=1663279729790&amp;type=share&amp;url=http%3A%2F%2Fprojects.lukehaas.me%2Fscrollify%2F&amp;via=lukehaas" data-url="http://projects.lukehaas.me/scrollify/"></iframe>
+				<script async="" src="//www.google-analytics.com/analytics.js"></script><script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<span></span>
+			</div>
+
+		</section>
     <nav class="Quick-navigation">
       <a href="#A" class="Quick-navigation-item">A</a>
       <a href="#B" class="Quick-navigation-item">B</a>
@@ -108,7 +157,27 @@
     </nav>
 
     <script>
-      $.scrollify({
+  //     $.scrollify({
+  //   section : ".scroll-flow",
+  //   // sectionName : "section-name",
+  //   interstitialSection : "",
+  //   easing: "easeOutExpo",
+  //   scrollSpeed: 1100,
+  //   offset : 0,
+  //   scrollbars: true,
+  //   standardScrollElements: "",
+  //   setHeights: true,
+  //   overflowScroll: true,
+  //   updateHash: true,
+  //   touchScroll:true,
+  //   before:function() {},
+  //   after:function() {},
+  //   afterResize:function() {},
+  //   afterRender:function() {}
+  // });
+
+ 
+  $.scrollify({
     section : ".scroll-flow",
     // sectionName : "section-name",
     interstitialSection : "",
@@ -121,11 +190,35 @@
     overflowScroll: true,
     updateHash: true,
     touchScroll:true,
-    before:function() {},
-    after:function() {},
-    afterResize:function() {},
-    afterRender:function() {}
+    before:function(i) {
+      var active = $(".slide.active");
+
+      active.addClass("remove");
+
+
+      //setTimeout(function() {
+        $("[data-slide=" + i + "]").addClass("active");
+        active.removeClass("remove active");
+      //},300);
+
+    },
+    afterRender() {
+      $(".panel").each(function() {
+        $(this).css("height", parseInt($(window).height())*6 );
+
+        $(this).find(".inner").css("height", $(window).height());
+
+      });
+
+
+      $.scrollify.update();
+
+      $("[data-slide=0]").addClass("active");
+console.log('after render')
+    }
   });
+
+
   </script>
     <script src="./indexx.js"></script>
   </div>

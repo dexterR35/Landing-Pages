@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1288px" height="2056px" viewBox="0 0 1288 2056" style="enable-background:new 0 0 1288 2056;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{
+	fill:#8DB56F;
+filter: url(#drop-shadow1);
+	}
+
+	.st1{
+	fill:#66AE61;
+	filter: url(#drop-shadow0);
+	}
+
+	.st2{
+	fill:#6E994E;
+	filter: url(#drop-shadow);
+	}
+
+	.st3{
+	fill:#78A555;
+	filter: url(#drop-shadow);
+	}
+]]>
+</style>
+<defs>
+	<filter id="drop-shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+			<feOffset dx="5" dy="5" result="offsetblur"/>
+			<feFlood flood-color="rgba(0,0,0,0.4)"/>
+			<feComposite in2="offsetblur" operator="in"/>
+			<feMerge>
+				<feMergeNode/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+
+		<filter id="drop-shadow0">
+				<feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+				<feOffset dx="6" dy="12" result="offsetblur"/>
+				<feFlood flood-color="rgba(0,0,0,0.4)"/>
+				<feComposite in2="offsetblur" operator="in"/>
+				<feMerge>
+					<feMergeNode/>
+					<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+			<filter id="drop-shadow1">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+					<feOffset dx="5" dy="5" result="offsetblur"/>
+					<feFlood flood-color="rgba(0,0,0,0.2)"/>
+					<feComposite in2="offsetblur" operator="in"/>
+					<feMerge>
+						<feMergeNode/>
+						<feMergeNode in="SourceGraphic"/>
+					</feMerge>
+				</filter>
+</defs>
+<path class="st2" d="M134.5,654.5c0-305.137,199.121-552.5,444.75-552.5S1024,349.363,1024,654.5
+	c0,88.709-16.834,152.531-46.742,226.816C1041.401,788.413,1079.5,692.375,1079.5,566.5c0-305.137-223.857-552.5-500-552.5
+	s-500,247.363-500,552.5c0,125.078,37.62,220.441,101.03,313.047C151.065,805.702,134.5,742.504,134.5,654.5z"/>
+<rect x="64" y="787" transform="matrix(0.4816 0.8764 -0.8764 0.4816 822.5397 295.4985)" class="st0" width="195" height="112"/>
+<rect x="899" y="763.001" transform="matrix(-0.4729 0.8811 -0.8811 -0.4729 2189.3516 328.208)" class="st0" width="195" height="111.999"/>
+<ellipse class="st0" cx="369.5" cy="1201.5" rx="52.5" ry="197.5"/>
+<ellipse class="st1" cx="532.25" cy="1216.709" rx="94.75" ry="299.291"/>
+<rect x="379" y="1006" class="st3" width="85" height="393"/>
+<rect x="173" y="977" transform="matrix(0.7377 0.6751 -0.6751 0.7377 737.5106 67.8029)" class="st0" width="217" height="12"/>
+<rect x="133.905" y="1007.965" transform="matrix(0.7377 0.6751 -0.6751 0.7377 751.2546 94.3543)" class="st0" width="240.595" height="12"/>
+<ellipse transform="matrix(-0.9998 0.0177 -0.0177 -0.9998 1824.078 2368.2371)" class="st0" cx="901.548" cy="1192.199" rx="52.5" ry="197.499"/>
+<ellipse transform="matrix(-0.9998 0.0177 -0.0177 -0.9998 1499.5186 2407.2886)" class="st1" cx="739.093" cy="1210.289" rx="94.75" ry="299.292"/>
+<rect x="807.073" y="997.619" transform="matrix(-0.9998 0.0177 -0.0177 -0.9998 1720.1545 2373.0107)" class="st3" width="85.001" height="393.001"/>
+<rect x="816.162" y="925.174" transform="matrix(-0.3043 0.9526 -0.9526 -0.3043 2093.0562 333.7297)" class="st0" width="217" height="11.999"/>
+<rect x="834.206" y="976.649" transform="matrix(-0.4123 0.911 -0.911 -0.4123 2243.3091 518.2584)" class="st0" width="240.596" height="12.001"/>
+</svg>

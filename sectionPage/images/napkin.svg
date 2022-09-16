@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="732px"
+	 height="924px" viewBox="0 0 732 924" style="enable-background:new 0 0 732 924;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{
+	fill:#EFEFED;
+	filter: url(#drop-shadow);
+	}
+	.st1{fill:url(#rgrad__uniqueID_c1abc411b33a2);}
+]]>
+</style>
+<defs>
+	<radialGradient id="rgrad__uniqueID_c1abc411b33a2" cx="75%" cy="25%" r="50%" gradientUnits="objectBoundingBox">
+	 <stop offset="0%" style="stop-color:rgb(132, 199, 220); stop-opacity:1"></stop>
+	 <stop offset="100%" style="stop-color:rgb(104, 176, 218); stop-opacity:1"></stop>
+	</radialGradient>
+	<filter id="drop-shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="1.8"/>
+			<feOffset dx="0" dy="4" result="offsetblur"/>
+			<feFlood flood-color="rgba(0,0,0,0.4)"/>
+			<feComposite in2="offsetblur" operator="in"/>
+			<feMerge>
+				<feMergeNode/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+
+</defs>
+<g id="Layer_2">
+
+		<rect x="-140.932" y="117.065" transform="matrix(0.8731 -0.4876 0.4876 0.8731 -187.1033 139.5578)" class="st0" width="630.899" height="624.223"/>
+</g>
+<g id="Layer_3">
+	<path class="st1" d="M630.469,250.956c-15.043-36.941-70.776-49.159-124.484-27.289c-35.912,14.624-55.053,44.046-70.553,67.561
+		c-5.736,8.703-23.63,20.743-32.727,25.832c-109.642,61.344-471.731,173.27-471.731,173.27c-9.792,3.597-14.815,14.45-11.218,24.242
+		l0.077,0.21c3.597,9.791,14.45,14.814,24.243,11.218c0,0,344.208-146.802,465.88-171.121c12.239-2.446,37.905-1.614,49.887,1.881
+		c27.752,8.095,63.269,15.895,100.618,0.686C614.168,335.574,645.512,287.897,630.469,250.956z"/>
+</g>
+</svg>

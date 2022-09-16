@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="914px"
+	 height="1244px" viewBox="0 0 914 1244" style="enable-background:new 0 0 914 1244;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{
+	fill:#55B0D5;
+	filter: url(#drop-shadow);
+	}
+	.st1{fill:#663520;}
+]]>
+</style>
+<defs>
+	<filter id="drop-shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+			<feOffset dx="40" dy="40" result="offsetblur"/>
+			<feFlood flood-color="rgba(0,0,0,0.3)"/>
+			<feComposite in2="offsetblur" operator="in"/>
+			<feMerge>
+				<feMergeNode/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+</defs>
+<g id="Layer_2">
+	<circle class="st0" cx="578.985" cy="575.059" r="574.627"/>
+</g>
+<g id="Layer_3">
+	<g>
+		<path class="st1" d="M632.279,223.005c-208.962,0-378.359,169.397-378.359,378.359c0,208.961,169.397,378.358,378.359,378.358
+			s378.358-169.396,378.358-378.358C1010.638,392.402,841.241,223.005,632.279,223.005z M632.279,759.572
+			c-87.376,0-158.21-70.833-158.21-158.208c0-87.377,70.834-158.21,158.21-158.21c87.377,0,158.21,70.833,158.21,158.21
+			C790.489,688.739,719.656,759.572,632.279,759.572z"/>
+	</g>
+</g>
+</svg>

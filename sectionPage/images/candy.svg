@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="624px"
+	 height="912px" viewBox="0 0 624 912" style="enable-background:new 0 0 624 912;" xml:space="preserve">
+<style type="text/css">
+<![CDATA[
+	.st0{fill:#49A312;
+	filter: url(#drop-shadow);
+	}
+	.st1{fill:#19420A;
+	filter: url(#drop-shadow);
+	}
+
+	.st2{fill:#B1DA96;
+	filter: url(#drop-shadow);
+	}
+	.st3{fill:#2B6620;
+	filter: url(#drop-shadow);
+	}
+	.st4{fill:#74A33D;
+filter: url(#drop-shadow0);
+	}
+
+	.st5{fill:#A6D18D;
+	filter: url(#drop-shadow1);
+	}
+
+	.st6{fill:#419326;
+	filter: url(#drop-shadow);
+	}
+]]>
+</style>
+<defs>
+	<filter id="drop-shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+			<feOffset dx="5" dy="5" result="offsetblur"/>
+			<feFlood flood-color="rgba(0,0,0,0.4)"/>
+			<feComposite in2="offsetblur" operator="in"/>
+			<feMerge>
+				<feMergeNode/>
+				<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+		</filter>
+		<filter id="drop-shadow1">
+				<feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+				<feOffset dx="5" dy="2" result="offsetblur"/>
+				<feFlood flood-color="rgba(0,0,0,0.4)"/>
+				<feComposite in2="offsetblur" operator="in"/>
+				<feMerge>
+					<feMergeNode/>
+					<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+
+			<filter id="drop-shadow0">
+					<feGaussianBlur in="SourceAlpha" stdDeviation="9"/>
+					<feOffset dx="8" dy="5" result="offsetblur"/>
+					<feFlood flood-color="rgba(0,0,0,0.4)"/>
+					<feComposite in2="offsetblur" operator="in"/>
+					<feMerge>
+						<feMergeNode/>
+						<feMergeNode in="SourceGraphic"/>
+					</feMerge>
+				</filter>
+</defs>
+<g id="Layer_3">
+	<circle class="st0" cx="556.044" cy="848.165" r="45.604"/>
+	<circle class="st2" cx="547.044" cy="741.165" r="45.604"/>
+	<circle class="st5" cx="556.044" cy="650.165" r="45.604"/>
+	<circle class="st6" cx="456.044" cy="650.165" r="45.604"/>
+	<circle class="st3" cx="533.099" cy="556.11" r="40.659"/>
+	<circle class="st1" cx="432.044" cy="541.165" r="45.604"/>
+</g>
+<g id="Layer_2">
+
+		<rect x="-158.204" y="208.445" transform="matrix(0.77 0.638 -0.638 0.77 251.3904 -35.73)" class="st4" width="666.922" height="244.8"/>
+</g>
+</svg>
