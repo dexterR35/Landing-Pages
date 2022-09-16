@@ -237,12 +237,18 @@ async function postData(url = 'https://jira.rei-d-services.com/activity?maxResul
             .catch(err => console.log(err)); // Catch handles an error
     }
     
-    getData('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php?user=');
+    getData('https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined');
 
 
 
 
 
   
-
+    fetch('https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined', {method: "POST", mode: "no-cors"})
+    .then((response) => {
+        console.log(response);
+        response.text().then((data) => {
+            console.log("data2:" + data);
+    });
+});
 
