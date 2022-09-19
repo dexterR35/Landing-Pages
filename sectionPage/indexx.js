@@ -84,6 +84,7 @@
 
 (function () {
     const scrollElements = document.querySelectorAll(".js-scroll");
+    console.log(scrollElements, "scrollelement")
 // for elements inside
     const elementInView = (el, dividend = 1) => {
         const elementTop = el.getBoundingClientRect().top;
@@ -169,14 +170,11 @@
     //////////////////////
  
      var ScrollManager = (function () {
- 
          var defaults = {
- 
                  steps: true,
                  navigationContainer: null,
                  links: null,
                  scrollToTopBtn: null,
- 
                  navigationElementClass: '.Quick-navigation',
                  currentStepClass: 'current',
                  smoothScrollEnabled: true,
@@ -193,7 +191,6 @@
                      });
                      relativeLink[0].classList.add(self.currentStepClass);
                  },
- 
                  // Provide a default scroll animation
                  smoothScrollAnimation: function (target) {
                      $('html, body').animate({
@@ -212,9 +209,9 @@
          return {
  
              scrollPosition: 0,
- 
+
              init: function (opts) {
- 
+                
                  options = extend(defaults, opts);
  
                  if (options.steps === null) {
