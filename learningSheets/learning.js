@@ -42,15 +42,16 @@ myOtherArray.splice(2, 1);
 
 
 
-//Adding to an API with Fetch
+Adding to an API with Fetch
 
-// If we use a “POST” request, we are able to add data to an API. 
-// To post to an API, we now need to include a second argument in the original fetch request, which will be an object. 
-// The object will contain important information. Below, you can see that my configObj has three key-value pairs. 
-// The first is the type of request we are sending to the backend, which in this case is a post. 
-// The second key-value pair is our headers, which tell the application what type of data content we are sending and what type of data we will accept in return.
-// The third KV pair is our body, which is stringified form data. 
-// Notice in the API image above that “name”, “image”, and “likes” are the non-primary keys of our API
+If we use a “POST” request, we are able to add data to an API; 
+To post to an API, we now need to include a second argument in the original fetch request, which will be an object; 
+The object will contain important information. Below, you can see that my configObj has three key-value pairs; 
+The first is the type of; request we are sending to the backend, which in this case is a post;
+The second key-value pair is our headers, which tell the application what type of data content;
+we are sending and what type of; data we will accept in return;
+The third KV pair is our body, which is stringified form data;
+Notice in the API image above that “name”, “image”, and “likes” are the non-primary keys of our API;
 
 let configObj = {
     method: "POST",
@@ -77,16 +78,16 @@ fetch("link-httml", configObj)
 
 
 
-// FETCH APT GET REQEST USING ASYNC/AWAIT
+---FETCH APT GET REQUEST USING ASYNC/AWAIT
 
 const asyncGetCall = async () => {
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
         const data = await response.json();
-        // enter you logic when the fetch is successful
+        ---enter you logic when the fetch is successful
         console.log(data);
     } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
+        ---enter your logic for when there is an error (ex. error toast)
         console.log(error);
     }
 }
@@ -96,7 +97,7 @@ asyncGetCall();
 
 
 
-//Fetch api POST request using async/await:
+Fetch api POST request using async/await:
 
 const asyncPostCall = async () => {
     try {
@@ -106,16 +107,16 @@ const asyncPostCall = async () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                // your expected POST request payload goes here
+                --your expected POST request payload goes here
                 title: "My post title",
                 body: "My post content."
             })
         });
         const data = await response.json();
-        // enter you logic when the fetch is successful
+        --enter you logic when the fetch is successful
         console.log(data);
     } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
+        --enter your logic for when there is an error (ex. error toast)
 
         console.log(error)
     }
@@ -124,55 +125,55 @@ const asyncPostCall = async () => {
 asyncPostCall();
 
 
-//GET request using Promises:
+--GET request using Promises:
 
 fetch('https://jsonplaceholder.typicode.com/posts')
     .then(res => res.json())
     .then(data => {
-        // enter you logic when the fetch is successful
+        --enter you logic when the fetch is successful
         console.log(data)
     })
     .catch(error => {
-        // enter your logic for when there is an error (ex. error toast)
+        --enter your logic for when there is an error (ex. error toast)
         console.log(error)
     })
 
-//POST request using Promises:
+--POST request using Promises:
 fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            // your expected POST request payload goes here
+            --your expected POST request payload goes here
             title: "My post title",
             body: "My post content."
         })
     })
     .then(res => res.json())
     .then(data => {
-        // enter you logic when the fetch is successful
+        --enter you logic when the fetch is successful
         console.log(data)
     })
     .catch(error => {
-        // enter your logic for when there is an error (ex. error toast)
+        --enter your logic for when there is an error (ex. error toast)
         console.log(error)
     })
 
 
 
-//GET request using Axios:
+--GET request using Axios:
 
 const axiosGetCall = async () => {
     try {
         const {
             data
         } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-        // enter you logic when the fetch is successful
+        --enter you logic when the fetch is successful
         console.log(`data: `, data)
 
     } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
+        --enter your logic for when there is an error (ex. error toast)
         console.log(`error: `, error)
     }
 }
@@ -180,21 +181,21 @@ const axiosGetCall = async () => {
 axiosGetCall()
 
 
-//POST request using Axios:
+--POST request using Axios:
 const axiosPostCall = async () => {
     try {
         const {
             data
         } = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-            // your expected POST request payload goes here
+            --your expected POST request payload goes here
             title: "My post title",
             body: "My post content."
         })
-        // enter you logic when the fetch is successful
+        --enter you logic when the fetch is successful
         console.log(`data: `, data)
 
     } catch (error) {
-        // enter your logic for when there is an error (ex. error toast)
+        --enter your logic for when there is an error (ex. error toast)
         console.log(`error: `, error)
     }
 }
