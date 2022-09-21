@@ -22,10 +22,7 @@
  blockquote, q {
 	 quotes: none;
 }
- blockquote:before, blockquote:after, q:before, q:after {
-	 content: '';
-	 content: none;
-}
+
  table {
 	 border-collapse: collapse;
 	 border-spacing: 0;
@@ -95,6 +92,32 @@
 }
  .panel1.actived .ga3 {
 	 left: 640px;
+}
+
+
+.panel2 .gallery-wrap .ga1, .panel2 .gallery-wrap .ga2, .panel2 .gallery-wrap .ga3 {
+	position: absolute;
+	top: 50%;
+	transition: all 1s ease-in-out;
+}
+
+.panel2 .gallery-wrap {
+	position: relative;
+}
+.panel2 .gallery-wrap2 .ga1 {
+	left: 350px;
+}
+.panel2 .gallery-wrap2 .ga3 {
+	left: 610px;
+}
+.panel2.actived .ga1 {
+	left: 40px;
+}
+.panel2.actived .ga2 {
+	left: 350px;
+}
+.panel2.actived .ga3 {
+	left: 640px;
 }
  .panel2 {
 	 background: #64a0d4;
