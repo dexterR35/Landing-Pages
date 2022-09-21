@@ -13,43 +13,53 @@ $(function () {
         overflowScroll: true,
         updateHash: true,
         touchScroll: true,
-        
-        before: function (i, panels,section) {
-            console.log(i,"i");
-            var ref = panels[i].attr("data-section-name");
+        after: function (sectiontest, i) {
+            var sectiontest = document.getElementsByTagName("section");
+
+            console.log(sectiontest, "sectiontest");
+            console.log(i, "i after");
+
+        },
+        before: function (i, panels) {
+            console.log(i, "i");
+
+            var referenceSection = panels[i].attr("data-section-name");
+            // var sectiontest = document.getElementsByTagName("section");
+
+            // console.log(sectiontest,"sectiontest");
             $(".panel.actived").removeClass("actived");
-            $("[data-section-name=" + ref + "]").addClass("actived");
+            $("[data-section-name=" + referenceSection + "]").addClass("actived");
             // $('".' + ref+'"').addClass("actived");
 
             $(".pagination .active").removeClass("active");
-            $(".pagination").find("a[href=\"#" + ref + "\"]").addClass("active");
+            $(".pagination").find("a[href=\"#" + referenceSection + "\"]").addClass("active");
             // var cc = ref === "five",
             //     cc2 = ref === "second";
             //     cc3 = ref === "third";
             //     console.log(cc,"cc");
             //     console.log(cc2,"cc2");
             //     console.log(cc3,"cc2");
-                if (i === 1) {
-                    $('.panel h1').addClass("fadeIn");
-                    console.log(i,"test h1")
-                  }
-                
-                  if (i !== 1) {
-                    $('.panel h1').removeClass("fadeIn");
-                    console.log(i,"remove test h1")
-                  }
-                
-                  if (i === 2) {
-                    $('.panel h2').addClass("slideInUp");
-                  }
-                
-                  if (i !== 2) {
-                    $('.panel h2').removeClass("slideInUp");
-                  }
+            if (i === 0) {
+                $('.panel h1').addClass("fadeIn");
+                console.log(i, "test h1")
+            }
+
+            if (i !== 0) {
+                $('.panel h1').removeClass("fadeIn");
+                console.log(i, "remove test h1")
+            }
+
+            if (i === 2) {
+                $('.panel h2').addClass("slideInUp");
+            }
+
+            if (i !== 2) {
+                $('.panel h2').removeClass("slideInUp");
+            }
 
             // if (cc) {
             //     $(".panel4 .content").addClass("moved");
-                
+
             // } else {
             //     $(".panel4 .content").removeClass("moved");
             // }
@@ -59,14 +69,14 @@ $(function () {
             // } else {
             //     $(".panel1").removeClass("actived");
             // }
-     
-   
+
+
         },
         afterRender: function () {
             var pagination = "<ul class=\"pagination\">";
             var activeClass = "";
             $(".panel").each(function (i) {
-                console.log(i , "i after")
+                console.log(i, "i after")
                 activeClass = "";
                 if (i === 0) {
                     activeClass = "active";
@@ -79,9 +89,9 @@ $(function () {
             $(".home").append(pagination);
             console.log(pagination, "pagination")
         }
-        
+
     });
-   
+
 
 
     /*
