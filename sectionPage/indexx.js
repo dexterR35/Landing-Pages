@@ -152,6 +152,8 @@
      }
     
      function extend(destination, source) {
+        console.log(destination, "destination");
+        console.log(source, "source");
          for (var k in source) {
              if (source.hasOwnProperty(k)) {
                  destination[k] = source[k];
