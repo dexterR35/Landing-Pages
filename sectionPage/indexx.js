@@ -328,6 +328,7 @@
              percentage >= 90 ? scrollToTopBtn.classList.add('visible') : scrollToTopBtn.classList.remove('visible');
              console.log(percentage, "percentage");
              if (percentage >= 10) {
+                
                  progressIndicator.innerHTML = percentage + "%";
                  progressIndicator.classList.add('visible');
              } else {

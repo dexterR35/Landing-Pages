@@ -26,11 +26,37 @@ body {
   font-family: "Merriweather Sans", sans-serif;
 }
 
-.container {
+@media screen and (min-width:300px) {
+  body{
+    font-size: 50%;
+  }
+ 
+  
+}
+
+ @media screen and (min-width:478px) {
+  body{
+    font-size: 70%;
+  }
+
+  
+ }
+ @media screen and (min-width:991px) {
+  body{
+    font-size: 100%;
+  }
+  
+  
+}
+
+
+
+
+/* .container {
   max-width: 1280px;
   width: 95%;
   margin: 0 auto;
-}
+} */
 
 header {
   display: flex;
@@ -224,7 +250,7 @@ footer a {
   float: left;
 }
 .device {
-  width: 170px;
+  width: 17em;
   position: relative;
 }
 
