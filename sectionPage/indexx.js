@@ -90,12 +90,15 @@
      
         // console.log(el, "el");
         const elementTop = el.getBoundingClientRect().top;
+        console.log(window.innerHeight, "windows height");
+        console.log(window.innerWidth, "windows width");
         // console.log(elementTop, "elementTop");
         return (
            
             elementTop <=
             (window.innerHeight || document.documentElement.clientHeight) / dividend
         );
+       
       
     };
   

@@ -233,3 +233,20 @@ hotel.name = "new obj";
 console.log(hotel.name, "hotelChange")
 hotelName2.textContent = hotel.name;
 hotelDiv2.appendChild(hotelName2);
+
+
+let msgG = '<h2>browser windows</h2><p>witdh: ' + window.innerWidth + '</p>';
+msgG += '<p>height: ' + window.innerHeight + '</p>';
+
+msgG+= '<h2>history</h2><p>items: ' + window.history.length + '</p>';
+
+let dov = document.createElement('p');
+
+dov.innerHTML = msgG;
+hotelDiv2.appendChild(dov);
+
+
+let dov2 = document.getElementById("#tess");
+
+console.log(msgG, "msgg");
+dov2.innerHTML = msgG;
