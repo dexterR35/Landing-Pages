@@ -87,29 +87,38 @@
     console.log(scrollElements, "scrollelement")
 // for elements inside
     const elementInView = (el, dividend = 1) => {
+     
+        // console.log(el, "el");
         const elementTop = el.getBoundingClientRect().top;
         // console.log(elementTop, "elementTop");
         return (
+           
             elementTop <=
             (window.innerHeight || document.documentElement.clientHeight) / dividend
         );
+      
     };
+  
 // for elements outside
     const elementOutofView = (el) => {
         const elementTop = el.getBoundingClientRect().top;
-    
+        // console.log(elementTop, "elementTop");
         return (
             elementTop > (window.innerHeight || document.documentElement.clientHeight)
         );
     };
+
   
     const displayScrollElement = (element) => {
         element.classList.add("scrolled");
+        // console.log(element, "display")
     };
+   
   
     
     const hideScrollElement = (element) => {
         element.classList.remove("scrolled");
+        //   console.log(element, "hideScrollElement")
     };
     
     const handleScrollAnimation = () => {
@@ -131,13 +140,16 @@
    //////////////////////
        // Default   precented
      function throttle(fn, delay, scope) {
-     
+      
          delay = delay || 250;
-         var last, defer;
+         let last, defer;
+      
          return function () {
-             var context = scope || this,
+             let context = scope || this,
+          
                  now = +new Date(),
                  args = arguments;
+                
              if (last && now < last + delay) {
                  clearTimeout(defer);
                  defer = setTimeout(function () {
@@ -149,12 +161,17 @@
                  fn.apply(context, args);
              }
          }
+         
      }
     
      function extend(destination, source) {
         console.log(destination, "destination");
         console.log(source, "source");
+      
+        
          for (var k in source) {
+            console.log(source, "source2");
+            console.log(k, "k");
              if (source.hasOwnProperty(k)) {
                  destination[k] = source[k];
              }

@@ -215,12 +215,12 @@ var hotel = {
   gym: true,
   roomTypes: ["twin", "double", "suite"],
   checkAvailability: function () {
-   
+
     return this.rooms - this.booked;
   },
 };
 let check = hotel.checkAvailability();
-console.log(check,"check anailability")
+console.log(check, "check anailability")
 
 console.log(hotel, "Hotel");
 
