@@ -226,5 +226,10 @@ console.log(hotel, "Hotel");
 
 
 let hotelName = document.createElement('p');
-hotelName.textContent = hotel.name;
+hotelName.textContent = hotel.checkAvailability();
 hotelDiv2.appendChild(hotelName);
+let hotelName2 = document.createElement('p');
+hotel.name = "new obj";
+console.log(hotel.name, "hotelChange")
+hotelName2.textContent = hotel.name;
+hotelDiv2.appendChild(hotelName2);
