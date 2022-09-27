@@ -1,3 +1,18 @@
+
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBaPsn82u0CblmIXb9SktjOvfq2vRqeBPY",
+  authDomain: "macos-luna.firebaseapp.com",
+  databaseURL: "https://macos-luna-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "macos-luna",
+  storageBucket: "macos-luna.appspot.com",
+  messagingSenderId: "689056077392",
+  appId: "1:689056077392:web:8275d5fe7f18ac35a5a355",
+  measurementId: "G-5EMDZ1MDC2"
+};
+
 // // JSON Object
 // fetch('https://jira.rei-d-services.com/activity?maxResults=10&os_authType=basic&title=undefined', {
 //     method: 'POST',
@@ -18,11 +33,6 @@
 // }).catch(function (error) {
 //     console.warn('Something went wrong.', error);
 // });
-
-
-
-
-
 
 
 // let dataLink = new Request('https://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined');
@@ -142,12 +152,12 @@ async function getData() {
   result.innerText = "Loading....";
   console.log(result, "result");
   try {
-    const res = await fetch("https://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined");
+    const res = await fetch("https://macos-luna-default-rtdb.europe-west1.firebasedatabase.app/");
     
    
    
     const jsonResult = await res.json();
-    // result.innerText = JSON.stringify(jsonResult, null, 2);
+    result.innerText = JSON.stringify(jsonResult, null, 2);
   } catch (error) {
     console.log(error);
   }
@@ -216,7 +226,7 @@ fetchDataBtn.addEventListener("click", getData);
 
 
 
-    var url= 'https://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined';
+    var url= 'https://macos-luna-default-rtdb.europe-west1.firebasedatabase.app/';
     $.ajax({
         url: url,
         type: 'POST',
@@ -243,3 +253,48 @@ fetchDataBtn.addEventListener("click", getData);
                 break;
         }
     });
+
+
+    const ALLOWED_ORIGINS = ["https://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined", "hhttps://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined", "https://example.com"]
+
+
+// Set CORS headers for preflight requests
+function setCorsHeaders (req, res) {
+  var originUrl = "https://jira.rei-d-services.com/activity?maxResults=10&os_username=marian.iordache&os_password=Juyv3fwrhyYMZyTp&title=undefined"
+
+
+  if(ALLOWED_ORIGINS.includes(req.headers.origin)){
+    originUrl = req.headers.origin
+  }
+
+  res.set('Access-Control-Allow-Origin', originUrl);
+  res.set('Access-Control-Allow-Credentials', 'true');
+
+  if (req.method === 'OPTIONS') {
+    // Send response to OPTIONS requests
+    res.set('Access-Control-Allow-Methods', 'GET,POST','PUT','DELETE');
+    res.set('Access-Control-Allow-Headers', 'Bearer, Content-Type');
+    res.set('Access-Control-Max-Age', '3600');
+    res.status(204).send('');
+  }
+}
+
+function respondError (message, error, code, res) {
+  var response = {
+    message: message,
+    error: error
+  }
+  res.status(code).end(JSON.stringify(response));
+}
+
+
+function respondSuccess (result, res) {
+  var response = {
+    message: "OK",
+    result: result
+  }
+  res.status(200).end(JSON.stringify(response));
+}
+
+
+
