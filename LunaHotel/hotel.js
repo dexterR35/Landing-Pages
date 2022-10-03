@@ -273,7 +273,7 @@
 
 
 
-(function(){
+(function () {
 
 
 
@@ -324,6 +324,42 @@
   }
   today = new Date();
   elEnds = document.getElementById("offerEnds");
-  console.log(elEnds,"elEnds")
+  console.log(elEnds, "elEnds")
   elEnds.innerHTML = offerExpires(today);
 }());
+
+
+
+let pricessS = 5;
+let quantity = 15;
+let total = pricessS * quantity;
+let TextDocument = document.getElementById("textS");
+TextDocument.textContent = "$" + total;
+
+
+
+
+let colors = ['white', "black", "test"];
+let colors_text = document.getElementById("testS2");
+colors_text.textContent = colors.length;
+
+
+
+let msg_text;
+let level = 2;
+
+
+switch (level) {
+  case 1:
+    msg = "good luck mtfucker";
+    break;
+  case 2:
+    msg = "good afternoon whatever"
+    break;
+  default:
+    msg = "this is default";
+    break;
+}
+
+let switchS = document.getElementById('answer');
+switchS.textContent = msg;
