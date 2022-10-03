@@ -346,14 +346,14 @@ colors_text.textContent = colors.length;
 
 
 let msg_text;
-let level = 2;
+let level = 22;
 
 
 switch (level) {
   case 1:
     msg = "good luck mtfucker";
     break;
-  case 2:
+  case 22:
     msg = "good afternoon whatever"
     break;
   default:
