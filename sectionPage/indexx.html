@@ -1,211 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
-      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+    integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js" integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 
-    <title>sections lp</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <header
-      class="container scroll-flow panel home current"
-      data-section-name="home"
-      style="height: 6480px"
-      id="AA">
-      <h1>scroll testing2</h1>
-      <h2>test21</h2>
-      <h1>Aa</h1>
+  <title>sections lp</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="container scroll-flow panel home current" data-section-name="home" style="height: 6480px" id="A">
+      <h1>World Cup 2022</h1>
+      <div>Not The Interactive Walktrough We Want...</div>
+      <div>But The Interactive Walktrough We Need...</div>
     </header>
-      <section
-        class="container scroll-flow panel"
-        data-section-name="test"
-        style="height: 6480px"
-        id="A">
-        <h1>scroll testing</h1>
-        <h2>test2</h2>
-        <h1>A</h1>
-      </section>
+    <section class="container scroll-flow panel" data-section-name="test" style="height: 6480px" id="B">
+      <div>Section B</div>
+      <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
+      <h2>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. <br> Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, <br> temperaturile variază între 23 și 30 de grade Celsius.
+      </h2>
+      <h3>Section B</h3>
+      <div id="myChart"></div>
+    </section>
 
-      <section class="scroll-container scroll-flow js-scroll-step" id="B">
-        <div class="scroll-element js-scroll fade-in panel panel1">
-          <h1>B</h1>
-        </div>
-        <div class="scroll-caption"><h1>B</h1></div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="C">
-        <div class="scroll-element js-scroll fade-in-bottom panel"><h1>C</h1></div>
-        <div class="scroll-caption"><h1>C</h1></div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="D">
-        <div class="scroll-element js-scroll slide-left panel"><h1>D</h1></div>
-        <div class="scroll-caption"><h1>D</h1></div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="E">
-        <div class="scroll-element js-scroll slide-right panel"><h1>E</h1></div>
-        <div class="scroll-caption"><h1>E</h1></div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="F">
-        <div class="scroll-element js-scroll slide-right panel"><h1>F</h1></div>
-        <div class="scroll-caption"><h1>F</h1></div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="G">
-        <div class="scroll-element js-scroll slide-right panel"><h1>G</h1></div>
-        <div class="scroll-caption"><h1>G</h1></div>
-      </section>
-      <button class="Scroll-to-top">Scroll To Top</button>
-      <footer id="footer" class="scroll-flow">
-        <p>
-          test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
-        </p>
-        <p>
-          by
-          <a href="https://www.marianiordache.ro" target="_blank">MCI</a
-          ><span style="color: #d11e15"> &#9829;</span>
-        </p>
-      </footer>
-      <section class="fixed-content">
-        <div class="content">
-          <div class="content-text">
-            <div class="slide" data-slide="0">
-              <h2 class="animatable">Layered scrolling</h2>
-              <div class="animatable">
-                <p>
-                  In this example, sections act as a scrolling background layer
-                  while foreground content stays in a fixed position.
-                </p>
-                <p>
-                  <a href="/scrollify#examples" class="arrow"
-                    >See more examples</a
-                  >
-                </p>
-              </div>
-            </div>
-            <div class="slide" data-slide="1">
-              <h2 class="animatable">Versitility</h2>
-              <div class="animatable">
-                <p>
-                  This example helps illustrate the versitility of Scrollify.
-                  With a little imagination you can use it to craft remarkable
-                  sites.
-                </p>
-              </div>
-            </div>
-
-            <div class="slide active" data-slide="2">
-              <h2 class="animatable">Promote your products</h2>
-              <div class="animatable">
-                <p>
-                  Scrollify enables you to build high impact sites quickly and
-                  easily. Great for promotional sites.
-                </p>
-              </div>
-            </div>
-
-            <div class="slide" data-slide="3">
-              <h2 class="animatable">There's a callback for that</h2>
-              <div class="animatable">
-                <p>Use Scrollify's callbacks to bring your site to life.</p>
-              </div>
+    <section class="scroll-container scroll-flow js-scroll-step" id="C">
+      <div class="scroll-element js-scroll fade-in panel panel1 section_c">
+        <h1>C</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>C</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="D">
+      <div class="scroll-element js-scroll fade-in-bottom panel">
+        <h1>D</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>D</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="E">
+      <div class="scroll-element js-scroll slide-left panel">
+        <h1>E</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>E</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="F">
+      <div class="scroll-element js-scroll slide-right panel">
+        <h1>F</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>F</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="G">
+      <div class="scroll-element js-scroll slide-right panel">
+        <h1>G</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>G</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="H">
+      <div class="scroll-element js-scroll slide-right panel">
+        <h1>H</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>H</h1>
+      </div>
+    </section>
+    <button class="Scroll-to-top">Scroll To Top</button>
+    <footer id="footer" class="scroll-flow">
+      <p>
+        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
+      </p>
+      <p>
+        by
+        <a href="https://www.marianiordache.ro" target="_blank">MCI</a><span style="color: #d11e15"> &#9829;</span>
+      </p>
+    </footer>
+    <section class="fixed-content" style="display: none;">
+      <div class="content">
+        <div class="content-text">
+          <div class="slide" data-slide="0">
+            <h2 class="animatable">Layered scrolling</h2>
+            <div class="animatable">
+              <p>
+                In this example, sections act as a scrolling background layer
+                while foreground content stays in a fixed position.
+              </p>
+              <p>
+                <a href="/scrollify#examples" class="arrow">See more examples</a>
+              </p>
             </div>
           </div>
-          <div class="device-frame">
-            <div class="image-slides">
-              <div class="device-slide device-slide1">
-                <p>CNT or nav</p>
-              </div>
+          <div class="slide" data-slide="1">
+            <h2 class="animatable">Versitility</h2>
+            <div class="animatable">
+              <p>
+                This example helps illustrate the versitility of Scrollify.
+                With a little imagination you can use it to craft remarkable
+                sites.
+              </p>
             </div>
-            <img class="device init-image" src="./pngs/device.svg" />
+          </div>
+
+          <div class="slide active" data-slide="2">
+            <h2 class="animatable">Promote your products</h2>
+            <div class="animatable">
+              <p>
+                Scrollify enables you to build high impact sites quickly and
+                easily. Great for promotional sites.
+              </p>
+            </div>
+          </div>
+
+          <div class="slide" data-slide="3">
+            <h2 class="animatable">There's a callback for that</h2>
+            <div class="animatable">
+              <p>Use Scrollify's callbacks to bring your site to life.</p>
+            </div>
           </div>
         </div>
-      </section>
+        <div class="device-frame">
+          <div class="image-slides">
+            <div class="device-slide device-slide1">
+              <p>CNT or nav</p>
+            </div>
+          </div>
+          <img class="device init-image" src="./pngs/device.svg" />
+        </div>
+      </div>
+    </section>
 
-      <nav class="Quick-navigation">
-        <a href="#A" class="Quick-navigation-item">A</a>
-        <a href="#B" class="Quick-navigation-item">B</a>
-        <a href="#C" class="Quick-navigation-item">C</a>
-        <a href="#D" class="Quick-navigation-item">D</a>
-        <a href="#E" class="Quick-navigation-item">E</a>
-        <a href="#F" class="Quick-navigation-item">F</a>
-        <a href="#G" class="Quick-navigation-item">G</a>
-        <a href="#G" class="Quick-navigation-item">fter</a>
-        <div class="Scroll-progress-indicator"></div>
-      </nav>
-  
+    <nav class="Quick-navigation">
+      <a href="#A" class="Quick-navigation-item">A</a>
+      <a href="#B" class="Quick-navigation-item">B</a>
+      <a href="#C" class="Quick-navigation-item">C</a>
+      <a href="#D" class="Quick-navigation-item">D</a>
+      <a href="#E" class="Quick-navigation-item">E</a>
+      <a href="#F" class="Quick-navigation-item">F</a>
+      <a href="#G" class="Quick-navigation-item">G</a>
+      <a href="#G" class="Quick-navigation-item">fter</a>
+      <div class="Scroll-progress-indicator"></div>
+    </nav>
 
-      <script>
-        //     $.scrollify({
-        //   section : ".scroll-flow",
-        //   // sectionName : "section-name",
-        //   interstitialSection : "",
-        //   easing: "easeOutExpo",
-        //   scrollSpeed: 1100,
-        //   offset : 0,
-        //   scrollbars: true,
-        //   standardScrollElements: "",
-        //   setHeights: true,
-        //   overflowScroll: true,
-        //   updateHash: true,
-        //   touchScroll:true,
-        //   before:function() {},
-        //   after:function() {},
-        //   afterResize:function() {},
-        //   afterRender:function() {}
-        // });
+    <script>
+      //     $.scrollify({
+      //   section : ".scroll-flow",
+      //   // sectionName : "section-name",
+      //   interstitialSection : "",
+      //   easing: "easeOutExpo",
+      //   scrollSpeed: 1100,
+      //   offset : 0,
+      //   scrollbars: true,
+      //   standardScrollElements: "",
+      //   setHeights: true,
+      //   overflowScroll: true,
+      //   updateHash: true,
+      //   touchScroll:true,
+      //   before:function() {},
+      //   after:function() {},
+      //   afterResize:function() {},
+      //   afterRender:function() {}
+      // });
 
-        $.scrollify({
-          // section should be an identifier that is the same for each section
+      $.scrollify({
+        // section should be an identifier that is the same for each section
 
-          // A selector for the sections.
+        // A selector for the sections.
 
-          section: ".scroll-flow",
-          // The name of the data attribute is defined by 'sectionName'.
-          // sectionName : "section-name",
-          // A CSS selector for non-full-height sections, such as a header and footer.
-          interstitialSection: "",
-          // Define the easing method.
-          easing: "easeOutExpo",
-          // Scrolling speed in milliseonds
-          scrollSpeed: 1100,
-          // A distance in pixels to offset each sections position by.
-          offset: 0,
-          // A boolean to define whether scroll bars are visible or not.
-          scrollbars: true,
-          // Target container
-          target: "html,body",
-          // A string of selectors for elements that require standard scrolling behaviour.
-          standardScrollElements: "false",
-          // A boolean to define whether Scollify assigns a height to the sections.
-          setHeights: true,
-          // Allows scrolling over overflowing content within sections
-          overflowScroll: true,
-          // Updates the browser location hash when scrolling through sections
-          updateHash: true,
-          // Allows to handle touch scroll events
-          touchScroll: true,
-          // callbacks
-          before: function (i) {
-            var active = $(".slide.active");
-            console.log("before render");
-            active.addClass("remove");
-            /*
+        section: ".scroll-flow",
+        // The name of the data attribute is defined by 'sectionName'.
+        // sectionName : "section-name",
+        // A CSS selector for non-full-height sections, such as a header and footer.
+        interstitialSection: "",
+        // Define the easing method.
+        easing: "easeOutExpo",
+        // Scrolling speed in milliseonds
+        scrollSpeed: 1100,
+        // A distance in pixels to offset each sections position by.
+        offset: 0,
+        // A boolean to define whether scroll bars are visible or not.
+        scrollbars: true,
+        // Target container
+        target: "html,body",
+        // A string of selectors for elements that require standard scrolling behaviour.
+        standardScrollElements: "false",
+        // A boolean to define whether Scollify assigns a height to the sections.
+        setHeights: true,
+        // Allows scrolling over overflowing content within sections
+        overflowScroll: true,
+        // Updates the browser location hash when scrolling through sections
+        updateHash: true,
+        // Allows to handle touch scroll events
+        touchScroll: true,
+        // callbacks
+        before: function (i) {
+          var active = $(".slide.active");
+          console.log("before render");
+          active.addClass("remove");
+          /*
         // Used to scroll to a particular section.
         // It can be parsed the index of the section, or the name of the section preceded by a hash.
         $.scrollify.move("#name");
@@ -245,28 +254,28 @@
         $.scrollify.isDisabled()
         */
 
-            //setTimeout(function() {
-            $("[data-slide=" + i + "]").addClass("active");
-            active.removeClass("remove active");
-            console.log("[data-slide=" + i + "]");
-            //},300);
-          },
-          afterRender() {
-            $(".scroll-flow").each(function () {
-        
-              $(this).css("height", parseInt($(window).height()) * 6);
-            
-              $(this).find(".inner").css("height", $(window).height());
-            });
+          //setTimeout(function() {
+          $("[data-slide=" + i + "]").addClass("active");
+          active.removeClass("remove active");
+          console.log("[data-slide=" + i + "]");
+          //},300);
+        },
+        afterRender() {
+          $(".scroll-flow").each(function () {
+            $(this).css("height", parseInt($(window).height()) * 6);
 
-            $.scrollify.update();
+            $(this).find(".inner").css("height", $(window).height());
+          });
 
-            $("[data-slide=0]").addClass("active");
-            console.log("after render");
-          },
-        });
-      </script>
-      <script src="./indexx.js"></script>
-    </div>
-  </body>
+          $.scrollify.update();
+
+          $("[data-slide=0]").addClass("active");
+          console.log("after render");
+        },
+      });
+    </script>
+    <script src="./indexx.js"></script>
+  </div>
+</body>
+
 </html>
