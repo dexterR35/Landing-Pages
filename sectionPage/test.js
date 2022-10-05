@@ -13,23 +13,23 @@ xmlhttp.onreadystatechange = function () {
         const stadium = datapoints.MatchDayReport[0].MatchInfo.map(function (index, i) {
             return index.Stadium;
         });
-        const rain = datapoints.MatchDayReport.map(function (index, i) {
-            return index.test;
+        const rain = datapoints.MatchDayReport[0].MatchInfo.map(function (index, i) {
+            return index.Wind.slice(0, -3);
         });
         // console.log(temp);
         console.log(temp, "Test");
         // console.log(stadium);
-        console.log(rain.slice(0, 1));
+        console.log(rain);
 
 
         const ctx = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: stadium,
                 datasets: [{
                     label: 'temp',
-                    data: temp,
+                    data: rain,
                     backgroundColor: 'crimson',
 
                 }]
@@ -47,12 +47,13 @@ xmlhttp.onreadystatechange = function () {
 
             }
         });
-
+        myChart.data.labels = stadium;
+        myChart.data.datasets[0].data = temp;
         // myChart.config.data.datasets[0].data = temp.splice(0, 10);
         // myChart.config.data.labels = stadium.splice(0, 10);
-        console.log(myChart.config.data.labels = stadium.splice(0, 10));
+        console.log(myChart.config.data.labels = stadium);
         console.log(myChart.config.data.datasets[0].data = temp);
-        // myChart.update();
+        myChart.update();
         /*    const data = {
                 labels: stadium.slice(0,10),
                 datasets: [{

@@ -11,7 +11,7 @@
                     "Match": "Senegal v Netherlands",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "23c",
+                    "Temp": "53c",
                     "Rain": "3.1mm",
                     "Wind": "8mph",
                     "test":22222
@@ -21,7 +21,7 @@
                     "Match": "England v Iran",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "22c",
+                    "Temp": "42c",
                     "Rain": "0.4mm",
                     "Wind": "8mph"
                 },
@@ -120,7 +120,7 @@
                     "Match": "Switzerland v Cameroon",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "24c",
+                    "Temp": "42c",
                     "Rain": "0.7mm",
                     "Wind": "11mph"
                 },
@@ -525,7 +525,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "22c",
+                    "Temp": "42c",
                     "Rain": "0.8mm",
                     "Wind": "13mph"
                 }
