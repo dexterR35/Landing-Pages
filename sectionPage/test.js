@@ -1,3 +1,4 @@
+/*
 let xmlhttp = new XMLHttpRequest();
 let url = "./json/fixtureweather.json";
 xmlhttp.open("GET", url, true);
@@ -14,9 +15,10 @@ xmlhttp.onreadystatechange = function () {
             return index.Stadium;
         });
         const rain = datapoints.MatchDayReport[0].MatchInfo.map(function (index, i) {
+            console.log(i < 3);
             return index.Wind.slice(0, -3);
         });
-        // console.log(temp);
+     
         // console.log(temp, "Test");
         // // console.log(stadium);
         // console.log(rain);
@@ -81,10 +83,10 @@ xmlhttp.onreadystatechange = function () {
             const myChart = new Chart(
                 document.getElementById('myChart'),
                 config
-            );*/
+            );
     };
 };
-
+*/
 // window.addEventListener('beforeprint', () => {
 //     myChart.resize(200, 400);
 //   });
@@ -92,7 +94,7 @@ xmlhttp.onreadystatechange = function () {
 //     myChart.resize();
 //   });
 
-/*
+
 function updateChart() {
 
 
@@ -113,56 +115,59 @@ function updateChart() {
             return index.Stadium;
         });
         let dataTemp = datapoints.MatchDayReport[0].MatchInfo.map(function (index, i) {
-            return index.Temp;
+            return index.Temp.slice(0,2);
         });
 
 
 
+        const config = document.getElementById('myChart').getContext('2d');
+        
+        const myChart = new Chart(config, {
+            type: 'line',
+            data: {
+                labels:dataStadium.slice(0,10),
+                datasets: [{
+                    label: 'temp',
+                    data: dataTemp,
+                    backgroundColor: 'crimson',
+
+                }]
+            },
+            options: {
+                maintainAspectRatio: true,
+                responsive: true,
+
+               
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                },
+
+            }
+        });
+        
+        // myChart.data.datasets[0].data = temp;
+        // myChart.config.data.datasets[0].data = temp.splice(0, 10);
+        // myChart.config.data.labels = stadium.splice(0, 10);
+        console.log(myChart.config.data.labels = dataStadium);
+        console.log(myChart.config.data.datasets[0].data = dataTemp);
 
 
         // console.log(monthInfo, "Stadium");
         // console.log(TempInfo, "TempInfo");
-        console.log(myChart.config.data.labels);
-        console.log(myChart.config.data.datasets[0].data.splice(0, 10));
-        myChart.config.data.labels = dataStadium.splice(0, 10);
-        myChart.config.data.datasets[0].data = dataTemp.splice(0, 10);
-        myChart.update();
+        // console.log(myChart.config.data.labels);
+        // console.log(myChart.config.data.datasets[0].data.slice(0, 10));
+        // myChart.config.data.labels = dataStadium.splice(0, 10);
+        // myChart.config.data.datasets[0].data = dataTemp.splice(0, 10);
+        // myChart.update();
     });
     console.log(test)
 }
 
 
 
-// setup 
-const data = {
-    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    datasets: [{
-        label: 'stadium temp',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: "crimson"
-    }]
-};
-
-// config 
-const config = {
-    type: 'bar',
-    data,
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-};
-
-// render init block
-const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-);
-
-updateChart();*/
+updateChart();
 
 
 const removeChar = (str, c) => str.replaceAll(new RegExp(`[${c}]`, "gi"), "");
