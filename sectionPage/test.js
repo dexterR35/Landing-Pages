@@ -17,16 +17,17 @@ xmlhttp.onreadystatechange = function () {
             return index.Wind.slice(0, -3);
         });
         // console.log(temp);
-        console.log(temp, "Test");
-        // console.log(stadium);
-        console.log(rain);
+        // console.log(temp, "Test");
+        // // console.log(stadium);
+        // console.log(rain);
 
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
+        const config = document.getElementById('myChart').getContext('2d');
+        
+        const myChart = new Chart(config, {
             type: 'line',
             data: {
-                labels: stadium,
+                labels:stadium.splice(0,20),
                 datasets: [{
                     label: 'temp',
                     data: rain,
@@ -38,22 +39,22 @@ xmlhttp.onreadystatechange = function () {
                 maintainAspectRatio: true,
                 responsive: true,
 
-                normalized: true,
+               
                 scales: {
                     y: {
-                        beginAtZero: true
+                        beginAtZero: false
                     }
                 },
 
             }
         });
-        myChart.data.labels = stadium;
-        myChart.data.datasets[0].data = temp;
+        
+        // myChart.data.datasets[0].data = temp;
         // myChart.config.data.datasets[0].data = temp.splice(0, 10);
         // myChart.config.data.labels = stadium.splice(0, 10);
         console.log(myChart.config.data.labels = stadium);
         console.log(myChart.config.data.datasets[0].data = temp);
-        myChart.update();
+        // myChart.update();
         /*    const data = {
                 labels: stadium.slice(0,10),
                 datasets: [{
