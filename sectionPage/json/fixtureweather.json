@@ -2,8 +2,13 @@
     "event": "Quatar 2022",
     "SectionTwo": [
         {
+<<<<<<< HEAD
             "section-info": "Stadium",
             "test": "whatever",
+=======
+            "company": "Netbet",
+            "test": "100000",
+>>>>>>> e59a2b5fd754aec8dd12b67cbb9ffef0ee95849c
             "test2": "whatever2",
             "infoForSectionTwo": [
                 {
@@ -11,16 +16,17 @@
                     "Match": "Senegal v Netherlands",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "23�c",
+                    "Temp": "53c",
                     "Rain": "3.1mm",
-                    "Wind": "8mph"
+                    "Wind": "8mph",
+                    "test":22222
                 },
                 {
                     "Match Day": "11/21/2022",
                     "Match": "England v Iran",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "22�c",
+                    "Temp": "42c",
                     "Rain": "0.4mm",
                     "Wind": "8mph"
                 },
@@ -29,7 +35,7 @@
                     "Match": "Qatar v Ecuador",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.6mm",
                     "Wind": "8mph"
                 },
@@ -38,7 +44,7 @@
                     "Match": "USA v Wales",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.1mm",
                     "Wind": "6mph"
                 },
@@ -47,7 +53,7 @@
                     "Match": "Argentina v Saudi Arabia",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "27�c",
+                    "Temp": "27c",
                     "Rain": "3.4mm",
                     "Wind": "8mph"
                 },
@@ -56,7 +62,7 @@
                     "Match": "Denmark v Tunisia",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.2mm",
                     "Wind": "15mph"
                 },
@@ -65,7 +71,7 @@
                     "Match": "Mexico v Poland",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.1mm",
                     "Wind": "15mph"
                 },
@@ -74,7 +80,7 @@
                     "Match": "France v Australia",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -83,7 +89,7 @@
                     "Match": "Morocco v Croatia",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "27�c",
+                    "Temp": "27c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -92,7 +98,7 @@
                     "Match": "Germany v Japan",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "23�c",
+                    "Temp": "23c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -101,7 +107,7 @@
                     "Match": "Spain v Costa Rica",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "23�c",
+                    "Temp": "23c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -110,7 +116,7 @@
                     "Match": "Belgium v Canada",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "23�c",
+                    "Temp": "23c",
                     "Rain": "0.0mm",
                     "Wind": "11mph"
                 },
@@ -119,7 +125,7 @@
                     "Match": "Switzerland v Cameroon",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "24�c",
+                    "Temp": "42c",
                     "Rain": "0.7mm",
                     "Wind": "11mph"
                 },
@@ -128,7 +134,7 @@
                     "Match": "Uruguay v South Korea",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "11mph"
                 },
@@ -137,7 +143,7 @@
                     "Match": "Portugal v Ghana",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -146,7 +152,7 @@
                     "Match": "Brazil v Serbia",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "15mph"
                 },
@@ -155,7 +161,7 @@
                     "Match": "Wales v Iran",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "24�c",
+                    "Temp": "24c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -164,7 +170,7 @@
                     "Match": "Qatar v Senegal",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -173,7 +179,7 @@
                     "Match": "Netherlands v Ecuador",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -182,7 +188,7 @@
                     "Match": "England v USA",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "17mph"
                 },
@@ -191,7 +197,7 @@
                     "Match": "Tunisia v Australia",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.0mm",
                     "Wind": "15mph"
                 },
@@ -200,7 +206,7 @@
                     "Match": "Poland v Saudi Arabia",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -209,7 +215,7 @@
                     "Match": "France v Denmark",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -218,7 +224,7 @@
                     "Match": "Argentina v Mexico",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -227,7 +233,7 @@
                     "Match": "Japan v Costa Rica",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.0mm",
                     "Wind": "11mph"
                 },
@@ -236,7 +242,7 @@
                     "Match": "Belgium v Morocco",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -245,7 +251,7 @@
                     "Match": "Croatia v Canada",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -254,7 +260,7 @@
                     "Match": "Spain v Germany",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -263,7 +269,7 @@
                     "Match": "Cameroon v Serbia",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "10:00BST",
-                    "Temp": "25�c",
+                    "Temp": "25c",
                     "Rain": "0.0mm",
                     "Wind": "4mph"
                 },
@@ -272,7 +278,7 @@
                     "Match": "South Korea v Ghana",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "13:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -281,7 +287,7 @@
                     "Match": "Brazil v Switzerland",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "16:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -290,7 +296,7 @@
                     "Match": "Portugal v Uruguay",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "18�c",
+                    "Temp": "18c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -299,7 +305,7 @@
                     "Match": "Netherlands v Qatar",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -308,7 +314,7 @@
                     "Match": "Ecuador v Senegal",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -317,7 +323,7 @@
                     "Match": "Wales v England",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -326,7 +332,7 @@
                     "Match": "Iran v USA",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -335,7 +341,7 @@
                     "Match": "Australia v Denmark",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -344,7 +350,7 @@
                     "Match": "Tunisia v France",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -353,7 +359,7 @@
                     "Match": "Poland v Argentina",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "4mph"
                 },
@@ -362,7 +368,7 @@
                     "Match": "Saudi Arabia v Mexico",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "4mph"
                 },
@@ -371,7 +377,7 @@
                     "Match": "Croatia v Belgium",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -380,7 +386,7 @@
                     "Match": "Canada v Morocco",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.0mm",
                     "Wind": "8mph"
                 },
@@ -389,7 +395,7 @@
                     "Match": "Costa Rica v Germany",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "13mph"
                 },
@@ -398,7 +404,7 @@
                     "Match": "Japan v Spain",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "11mph"
                 },
@@ -407,7 +413,7 @@
                     "Match": "South Korea v Portugal",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -416,7 +422,7 @@
                     "Match": "Ghana v Uruguay",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -425,7 +431,7 @@
                     "Match": "Serbia v Switzerland",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -434,7 +440,7 @@
                     "Match": "Cameroon v Brazil",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -443,7 +449,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Khalifa International Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -452,7 +458,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Ahmad bin Ali Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "6mph"
                 },
@@ -461,7 +467,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Al Thumama Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "20�c",
+                    "Temp": "20c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -470,7 +476,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Al Bayt Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "18�c",
+                    "Temp": "18c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -479,7 +485,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Al Janoub Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "2mph"
                 },
@@ -488,7 +494,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Stadium 974",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "18�c",
+                    "Temp": "18c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -497,7 +503,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "21�c",
+                    "Temp": "21c",
                     "Rain": "0.0mm",
                     "Wind": "4mph"
                 },
@@ -506,7 +512,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "19�c",
+                    "Temp": "19c",
                     "Rain": "0.0mm",
                     "Wind": "0mph"
                 },
@@ -515,7 +521,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Education City Stadium",
                     "Kick Off Time": "15:00BST",
-                    "Temp": "22�c",
+                    "Temp": "22c",
                     "Rain": "0.8mm",
                     "Wind": "13mph"
                 },
@@ -524,7 +530,7 @@
                     "Match": "TBC v TBC",
                     "Stadium": "Lusail Iconic Stadium",
                     "Kick Off Time": "19:00BST",
-                    "Temp": "22�c",
+                    "Temp": "42c",
                     "Rain": "0.8mm",
                     "Wind": "13mph"
                 }
