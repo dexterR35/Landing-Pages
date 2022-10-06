@@ -116,8 +116,12 @@ header > div:nth-child(2) {
   align-items: center;
   place-items: center;
   justify-content: center;
-  grid-template-columns: repeat(4,10vh);
-  grid-template-rows: repeat(7,14em);
+  --auto-grid-min-size: 16rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  grid-gap: 1rem;
+  /* grid-template-columns: repeat(4,10vh);
+  grid-template-rows: repeat(7,14em); */
 border: 2px solid black;
   box-sizing: border-box;
 }
@@ -557,6 +561,22 @@ a:visited {
 }
 
 /****************************SECTION 5***********************************/
+
+.section_3 {
+  background-image: url(./images/section3/bg-section3.png);
+}
+.section_4 {
+  background-image: url(./images/section4/bg-section4.png);
+}
+.section_5 {
+  background-image: url(./images/section5/bg-section5.jpg);
+}
+.section_1, .section_2, .section_3, .section_4, .section_5 , .section_6{
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 
 @media screen and (orientation: portrait) {
   .section_5 {
