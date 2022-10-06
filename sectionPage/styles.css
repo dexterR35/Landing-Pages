@@ -1,15 +1,16 @@
 *,
 *::after,
 *::before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
-body {
-  background-color: #333;
-  color: white;
-}
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap");
+
 .js-scroll {
   color: black;
 }
@@ -18,11 +19,10 @@ body {
   overflow: hidden;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap");
-
 /*General styling for structure*/
 body {
-  margin: 0;
+  background-color: #333;
+  color: white;
   font-family: "Play", sans-serif;
 }
 
@@ -73,12 +73,11 @@ header > div {
 header > div:nth-child(2) {
   font-size: 2.5vmin;
   margin-top: 1em;
-
 }
 .chartMenu {
   width: 100vw;
   height: 40px;
-  background: #1A1A1A;
+  background: #1a1a1a;
   color: rgba(255, 26, 104, 1);
 }
 .chartMenu p {
@@ -106,15 +105,18 @@ header > div:nth-child(2) {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background: transpar;
+  background: transparent;
 }
 
 .scroll-container {
   height: 100vh;
   min-height: 450px;
   padding: 2rem 1rem;
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: repeat(4,10vh);
+  grid-template-rows: repeat(7,14em);
+  background: red !important;
   box-sizing: border-box;
 }
 
@@ -148,7 +150,7 @@ header > div:nth-child(2) {
 .scroll-element {
   min-height: 300px;
   height: 100%;
-  background-color: #eaeaea;
+  background-color: #a13f3f3b;
 }
 
 .scroll-caption {
@@ -551,3 +553,190 @@ a:visited {
 .arrow:after {
   transform: rotate(-45deg);
 }
+
+/****************************SECTION 5***********************************/
+
+@media screen and (orientation: portrait) {
+  .section_5 {
+    background-image: url(./images/section5/bg-section5.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+  }
+  .section_5::before {
+    content: "";
+    position: absolute;
+    right: -39px;
+    top: -5px;
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/section5/palmier_5.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .section_5 h2 {
+    font: bold 4.5em Sans-Serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px 10px;
+    margin: 10px 0 0;
+    line-height: 1;
+    writing-mode: tb-rl;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    white-space: nowrap;
+    display: block;
+  }
+  .section_5 h2 span:nth-child(1) {
+    font-size: 2.6rem;
+  }
+  .scroll-element h1 {
+    text-align: center;
+  }
+
+  .section_5 .quatarLogo {
+    height: 7vh;
+    position: relative;
+    margin-top: -10px;
+  }
+
+  .card-box-section5.card-box {
+    border: 1.5px solid white;
+    background: rgba(29, 29, 35, 0.516);
+    border-radius: 15px;
+    width: 220px;
+    height: 100px;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+  }
+  .box-Section.box-section5 {
+    position: absolute;
+    top: 20vh;
+    left: 118px;
+    display: flex;
+    flex-direction: column;
+    gap: 161px;
+  }
+  .card-box .arrow-box {
+    background: rgba(15, 15, 15, 0.478);
+    font-size: 20px;
+    width: 30%;
+  }
+  .card-box-text {
+    display: block;
+    margin: 4px;
+  }
+  .card-box-section5.card-box.card2 {
+    flex-direction: row-reverse;
+  }
+
+  .card-box-section5.card-box::after,
+  .card-box-section5.card-box::after {
+    content: "";
+    position: absolute;
+    width: 127px;
+    height: 128px;
+    background-repeat: no-repeat;
+    background-size: 7.5em;
+    position: absolute;
+  }
+
+  .card-box-section5.card-box.card1::after {
+    background-image: url(./images/section5/icon_50.png);
+    top: -28px;
+    right: -90px;
+  }
+  .card-box-section5.card-box.card2::after {
+    background-image: url(./images/section5/icon_5.png);
+    top: -25px;
+    left: -27px;
+  }
+  .scroll-caption {
+    z-index: 212;
+  }
+  .footer-section .stadion_picture {
+    width: 100%;
+    z-index: 20;
+  }
+}
+/****************************END SECTION 5***********************************/
+
+
+
+
+
+
+
+
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 320px) 
+    and (max-device-width : 480px) {
+    /* Styles */
+    }
+    
+    /* Smartphones (landscape) ----------- */
+    @media only screen 
+    and (min-width : 321px) {
+    /* Styles */
+    }
+    
+    /* Smartphones (portrait) ----------- */
+    @media only screen 
+    and (max-width : 320px) {
+    /* Styles */
+    }
+    
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) {
+    /* Styles */
+    }
+    
+    /* iPads (landscape) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : landscape) {
+    /* Styles */
+    }
+    
+    /* iPads (portrait) ----------- */
+    @media only screen 
+    and (min-device-width : 768px) 
+    and (max-device-width : 1024px) 
+    and (orientation : portrait) {
+    /* Styles */
+    }
+    
+    /* Desktops and laptops ----------- */
+    @media only screen 
+    and (min-width : 1224px) {
+    /* Styles */
+    }
+    
+    /* Large screens ----------- */
+    @media only screen 
+    and (min-width : 1824px) {
+    /* Styles */
+    }
+    
+    /* iPhone 4 ----------- */
+    @media
+    only screen and (-webkit-min-device-pixel-ratio : 1.5),
+    only screen and (min-device-pixel-ratio : 1.5) {
+    /* Styles */
+    }

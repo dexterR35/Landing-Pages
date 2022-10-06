@@ -46,27 +46,21 @@
 
 
 var xhr = new XMLHttpRequest();
-
 xhr.onload = function () {
-
-
     if (xhr.status === 200) {
         responseObject = JSON.parse(xhr.responseText);
         console.log(responseObject,'test')
         //build dom manipulation
-
         let newContent = '';
         console.log(newContent,"test");
         for (var i = 0; i < responseObject.events.length; i++); {
             console.log(i,"events de i")
             newContent += '<div class = "events">';
-            
             newContent += '<img src ="' + responseObject.events[i].SectionTwo.Stadium + ' " ';
             newContent += 'alt="' + responseObject.events[i].Stadium + ' " />';
             newContent += '<p><b>' + responseObject.events[i].Temp + '</b><br>';
             newContent += responseObject.events[i].Wind + '</p>';
             newContent += '</div>';
-      
         }
         document.getElementById('content').innerHTML = newContent;
     }
