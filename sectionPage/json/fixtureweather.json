@@ -1,11 +1,11 @@
 {
     "event": "Quatar 2022",
-    "MatchDayReport": [
+    "SectionTwo": [
         {
-            "company": "Netbet",
+            "section-info": "Stadium",
             "test": "whatever",
             "test2": "whatever2",
-            "MatchInfo": [
+            "infoForSectionTwo": [
                 {
                     "Match Day": "11/21/2022",
                     "Match": "Senegal v Netherlands",

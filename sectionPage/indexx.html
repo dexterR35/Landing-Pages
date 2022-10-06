@@ -12,7 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
     integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js" integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"
+    integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <link rel="stylesheet" href="./styles.css" />
 
@@ -26,10 +28,23 @@
       <div>Not The Interactive Walktrough We Want...</div>
       <div>But The Interactive Walktrough We Need...</div>
     </header>
+    <nav class="Quick-navigation">
+      <a href="#A" class="Quick-navigation-item">A</a>
+      <a href="#B" class="Quick-navigation-item">B</a>
+      <a href="#C" class="Quick-navigation-item">C</a>
+      <a href="#D" class="Quick-navigation-item">D</a>
+      <a href="#E" class="Quick-navigation-item">E</a>
+      <a href="#F" class="Quick-navigation-item">F</a>
+      <a href="#G" class="Quick-navigation-item">G</a>
+      <a href="#G" class="Quick-navigation-item">fter</a>
+      <div class="Scroll-progress-indicator"></div>
+    </nav>
     <section class="container scroll-flow panel" data-section-name="test" style="height: 6480px" id="B">
       <div>Section B</div>
       <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
-      <h2>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. <br> Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, <br> temperaturile variază între 23 și 30 de grade Celsius.
+      <h2>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. <br> Va fi iarnă doar în gândurile
+        participanților, deoarece în Doha, în noiembrie-decembrie, <br> temperaturile variază între 23 și 30 de grade
+        Celsius.
       </h2>
       <h3>Section B</h3>
       <div id="myChart"></div>
@@ -38,8 +53,7 @@
     <section class="scroll-container scroll-flow js-scroll-step" id="C">
       <div class="scroll-element js-scroll fade-in panel panel1 section_c">
         <h1>C</h1>
-
-        
+       
       </div>
       <div class="scroll-caption">
         <h1>C</h1>
@@ -56,7 +70,7 @@
             <canvas id="myChart"></canvas>
           </div>
         </div>
-        
+
       </div>
       <div class="scroll-caption">
         <h1>D</h1>
@@ -94,16 +108,6 @@
         <h1>H</h1>
       </div>
     </section>
-    <button class="Scroll-to-top">Scroll To Top</button>
-    <footer id="footer" class="scroll-flow">
-      <p>
-        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
-      </p>
-      <p>
-        by
-        <a href="https://www.marianiordache.ro" target="_blank">MCI</a><span style="color: #d11e15"> &#9829;</span>
-      </p>
-    </footer>
     <section class="fixed-content" style="display: none;">
       <div class="content">
         <div class="content-text">
@@ -157,18 +161,19 @@
         </div>
       </div>
     </section>
+    <button class="Scroll-to-top">Scroll To Top</button>
+    <footer id="footer" class="scroll-flow">
+      <p>
+        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
+      </p>
+      <p>
+        by
+        <a href="https://www.marianiordache.ro" target="_blank">MCI</a><span style="color: #d11e15"> &#9829;</span>
+      </p>
+    </footer>
+  
 
-    <nav class="Quick-navigation">
-      <a href="#A" class="Quick-navigation-item">A</a>
-      <a href="#B" class="Quick-navigation-item">B</a>
-      <a href="#C" class="Quick-navigation-item">C</a>
-      <a href="#D" class="Quick-navigation-item">D</a>
-      <a href="#E" class="Quick-navigation-item">E</a>
-      <a href="#F" class="Quick-navigation-item">F</a>
-      <a href="#G" class="Quick-navigation-item">G</a>
-      <a href="#G" class="Quick-navigation-item">fter</a>
-      <div class="Scroll-progress-indicator"></div>
-    </nav>
+   
 
     <script>
       //     $.scrollify({
