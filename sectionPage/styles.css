@@ -114,9 +114,11 @@ header > div:nth-child(2) {
   padding: 2rem 1rem;
   display: grid;
   align-items: center;
+  place-items: center;
+  justify-content: center;
   grid-template-columns: repeat(4,10vh);
   grid-template-rows: repeat(7,14em);
-  background: red !important;
+border: 2px solid black;
   box-sizing: border-box;
 }
 
