@@ -98,8 +98,6 @@ xmlhttp.onreadystatechange = function () {
 function updateChart() {
     async function fetchData() {
         const url = './json/fixtureweather.json';
-     
-
         const response = await fetch(url);
         //wait until the request has been completed;
         const datapoints = await response.json();
@@ -108,7 +106,6 @@ function updateChart() {
     }
 
     let test = fetchData().then(datapoints => {
-
         let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
             return index.Stadium;
         });
@@ -116,7 +113,6 @@ function updateChart() {
         let dataTemp = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
             return index.Temp.slice(0, 2);
         });
-
         const config = document.getElementById('myChart').getContext('2d');
         const myChart = new Chart(config, {
             type: 'line',
@@ -175,12 +171,10 @@ function updateChart() {
 
 */
 
-
-
-function boldString(str, substr) {
-    var strRegExp = new RegExp(substr, 'g');
-    return str.replace(strRegExp, '<b>'+substr+'</b>');
-  }
+// function boldString(str, substr) {
+//     var strRegExp = new RegExp(substr, 'g');
+//     return str.replace(strRegExp, '<b>'+substr+'</b>');
+//   }
 
 
 //   var fruitsArray = [

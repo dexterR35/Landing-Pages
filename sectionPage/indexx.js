@@ -457,21 +457,24 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 //   console.log(allSectionLogo);
 // }
 
-window.onload = function () {
+// window.onload = function () {
 
  
-  let imgLogoQuatar = document.createElement("img");
-  imgLogoQuatar.src = "./images/section5/Quatar-logo.png";
-  imgLogoQuatar.setAttribute("alt", "logo");
-  imgLogoQuatar.classList.add("quatarLogo");
-  let srcLogo = document.getElementById("LogoInsert");
+//   let imgLogoQuatar = document.createElement("img");
+//   imgLogoQuatar.src = "./images/section5/Stadion.png";
+//   imgLogoQuatar.setAttribute("alt", "logo");
+//   imgLogoQuatar.classList.add("quatarLogo", "lazy");
+//   let srcLogo = document.getElementById("LogoInsert");
+//   console.log(srcLogo,"srcLogo");
+//   console.log(imgLogoQuatar,"imgLogoQuatar");
   
-  srcLogo.appendChild(imgLogoQuatar);
-  for (i = 0; i< srcLogo.length; i++) {
-    console.log(i, "youudasas")
+//   srcLogo.appendChild(imgLogoQuatar);
+//   for (i = 0; i< srcLogo.length; i++) {
+//     console.log(i, "youudasas")
+//     console.log(srcLogo.length, "srcLogo.length")
     
-    }
-};
+//     }
+// };
 
 function expand(card) {
   card.classList.toggle('profile--expanded');
