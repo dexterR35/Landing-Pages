@@ -12,9 +12,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
     integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"
     integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
   <link rel="stylesheet" href="./styles.css" />
 
@@ -23,7 +23,7 @@
 
 <body>
   <div class="wrapper">
-    <nav class="Quick-navigation">
+    <!-- <nav class="Quick-navigation">
       <a href="#A" class="Quick-navigation-item">A</a>
       <a href="#B" class="Quick-navigation-item">B</a>
       <a href="#C" class="Quick-navigation-item">C</a>
@@ -33,13 +33,104 @@
       <a href="#G" class="Quick-navigation-item">G</a>
       <a href="#G" class="Quick-navigation-item">fter</a>
       <div class="Scroll-progress-indicator"></div>
+    </nav> -->
+
+    <nav class="Quick-navigation">
+      <ul class="primaryNav">
+        <li class="active" data-marker="0">
+          <em>01</em>
+          <a href="#A">Section 1</a>
+        </li>
+        <li data-marker="1">
+          <em>02</em>
+          <a href="#B">Section 2</a>
+        </li>
+        <li data-marker="2">
+          <em>03</em>
+          <a href="#C">section 3</a>
+        </li>
+        <li data-marker="3">
+          <em>04</em>
+          <a href="#D">section 4</a>
+        </li>
+        <li data-marker="4">
+          <em>05</em>
+          <a href="#E">section 5</a>
+        </li>
+        <li data-marker="5">
+          <em>06</em>
+          <a href="#F">section 6</a>
+        </li>
+        <li data-marker="6">
+          <em>07</em>
+          <a href="#G">section 7</a>
+        </li>
+        <li data-marker="7">
+          <em>08</em>
+          <a href="#H">section 8</a>
+        </li>
+        <li data-marker="8">
+          <em>09</em>
+          <a href="#I">section 9</a>
+        </li>
+        <li data-marker="9">
+          <em>10</em>
+          <a href="#J">section 10</a>
+        </li>
+        <li data-marker="10">
+          <em>11</em>
+          <a href="#K">section 11</a>
+        </li>
+        <li data-marker="11">
+          <em>12</em>
+          <a href="#L">section 12</a>
+        </li>
+        <li data-marker="12">
+          <em>13</em>
+          <a href="#M">section 13</a>
+        </li>
+        <li data-marker="13">
+          <em>14</em>
+          <a href="#N">section 14</a>
+        </li>
+        <li data-marker="14">
+          <em>15</em>
+          <a href="#O">section 15</a>
+        </li>
+        <li data-marker="14">
+          <em>16</em>
+          <a href="#O">section 16</a>
+        </li>
+        <li data-marker="14">
+          <em>17</em>
+          <a href="#P">section 17</a>
+        </li>
+        <li data-marker="15">
+          <em>18</em>
+          <a href="#R">section 18</a>
+        </li>
+        <li data-marker="16">
+          <em>19</em>
+          <a href="#S">section 19</a>
+        </li>
+        <li data-marker="16">
+          <em>20</em>
+          <a href="#Q">section 20</a>
+        </li>
+      </ul>
+      <div class="Scroll-progress-indicator"></div>
     </nav>
-    <header class="container scroll-flow panel home current" data-section-name="home" style="height: 6480px" id="A">
+
+
+
+    <section class="container scroll-flow home current header" data-section-name="home" style="height: 6480px" id="A">
+      
       <h1>World Cup 2022</h1>
       <div>Not The Interactive Walktrough We Want...</div>
       <div>But The Interactive Walktrough We Need...</div>
-    </header>
-    <section class="container scroll-flow panel" data-section-name="test" style="height: 6480px" id="B">
+    </section>
+    <section class="container scroll-flow" data-section-name="test" style="height: 6480px" id="B">
+      <div class="testM" id="testMM"></div>
       <div>Section B</div>
       <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
       <h2>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. <br> Va fi iarnă doar în gândurile
@@ -47,10 +138,12 @@
         Celsius.
       </h2>
       <h3>Section B</h3>
-      <div id="myChart"></div>
+
     </section>
     <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
+      <div class="testM" id="testMM"></div>
       <div class="scroll-element js-scroll fade-in panel panel1 section_c">
+        <div id="LogoInsert"></div>
         <h1>C</h1>
       </div>
       <div class="scroll-caption">
@@ -59,15 +152,13 @@
     </section>
     <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
       <div class="scroll-element js-scroll fade-in-bottom panel">
-        <!-- <img src="./images/section5/Quatar-logo.png" alt="quatar logo"> -->
-        <!-- <div class="chartMenu">
-          <p>test</p>
-        </div> -->
-        <!-- <div class="chartCard">
-          <div class="chartBox">
-            <canvas id="myChart"></canvas>
-          </div>
-        </div> -->
+        <div id="LogoInsert"></div>
+      
+       
+       
+       
+    
+ 
       </div>
       <div class="scroll-caption">
         <h1>D</h1>
@@ -77,37 +168,38 @@
     <!--SECTION 5-->
     <section class="scroll-container scroll-flow js-scroll-step section_5" id="E">
       <div class="scroll-element js-scroll slide-left panel">
-        <h1><img src="./images/section5/Quatar-logo.png" alt="quatar logo" class="quatarLogo"></h1>
-        <h2> <span> Mesaj pentru </span> <br> </span>protectia mediului</span></h2>
-        <div class="container-section5-items">
-          <div class="box-Section box-section5">
-            <div class="card-box-section5 card-box card1">
+        <h1 class="firstItem"><img src="./images/section5/Quatar-logo.png" alt="quatar logo" class="quatarLogo"></h1>
+        <h2 class="secondItem"> <span> Mesaj pentru </span> <br> <span>protectia mediului</span></h2>
+     
+        
+            <div class="card-box-section5 card-box card1 thirdItem">
               <div class="card-box-text">
                 <h1>title</h1>
                 <p>Lorem ipsum dolor sit.</p>
               </div>
               <div class="arrow-box">arrow</div>
             </div>
-            <div class="card-box-section5 card-box card2">
-            <div class="card-box-text">
-              <h1>title</h1>
-              <p>Lorem ipsum dolor sit.</p>
-            </div>
+            <div class="card-box-section5 card-box card2 fourItem">
+              <div class="card-box-text">
+                <h1>title</h1>
+                <p>Lorem ipsum dolor sit.</p>
+              </div>
               <div class="arrow-box">a</div>
             </div>
-          </div>
-        </div>
+        
+        
       </div>
       <div class="scroll-caption">
-       <div class="footer-section footer-section5">
-        <img src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture">
-       </div>
+        <div class="footer-section footer-section5">
+          <img src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture">
+        </div>
       </div>
     </section>
     <!-- end SECTION 5-->
     <!-- end SECTION 5-->
     <section class="scroll-container scroll-flow js-scroll-step" id="F">
       <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
         <h1>F</h1>
       </div>
       <div class="scroll-caption">
@@ -116,6 +208,7 @@
     </section>
     <section class="scroll-container scroll-flow js-scroll-step" id="G">
       <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
         <h1>G</h1>
       </div>
       <div class="scroll-caption">
@@ -124,65 +217,14 @@
     </section>
     <section class="scroll-container scroll-flow js-scroll-step" id="H">
       <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
         <h1>H</h1>
       </div>
       <div class="scroll-caption">
         <h1>H</h1>
       </div>
     </section>
-    <section class="fixed-content" style="display: none;">
-      <div class="content">
-        <div class="content-text">
-          <div class="slide" data-slide="0">
-            <h2 class="animatable">Layered scrolling</h2>
-            <div class="animatable">
-              <p>
-                In this example, sections act as a scrolling background layer
-                while foreground content stays in a fixed position.
-              </p>
-              <p>
-                <a href="/scrollify#examples" class="arrow">See more examples</a>
-              </p>
-            </div>
-          </div>
-          <div class="slide" data-slide="1">
-            <h2 class="animatable">Versitility</h2>
-            <div class="animatable">
-              <p>
-                This example helps illustrate the versitility of Scrollify.
-                With a little imagination you can use it to craft remarkable
-                sites.
-              </p>
-            </div>
-          </div>
 
-          <div class="slide active" data-slide="2">
-            <h2 class="animatable">Promote your products</h2>
-            <div class="animatable">
-              <p>
-                Scrollify enables you to build high impact sites quickly and
-                easily. Great for promotional sites.
-              </p>
-            </div>
-          </div>
-
-          <div class="slide" data-slide="3">
-            <h2 class="animatable">There's a callback for that</h2>
-            <div class="animatable">
-              <p>Use Scrollify's callbacks to bring your site to life.</p>
-            </div>
-          </div>
-        </div>
-        <div class="device-frame">
-          <div class="image-slides">
-            <div class="device-slide device-slide1">
-              <p>CNT or nav</p>
-            </div>
-          </div>
-          <img class="device init-image" src="./pngs/device.svg" />
-        </div>
-      </div>
-    </section>
     <button class="Scroll-to-top">Scroll To Top</button>
     <footer id="footer" class="scroll-flow">
       <p>
@@ -195,25 +237,7 @@
     </footer>
 
     <script>
-      //     $.scrollify({
-      //   section : ".scroll-flow",
-      //   // sectionName : "section-name",
-      //   interstitialSection : "",
-      //   easing: "easeOutExpo",
-      //   scrollSpeed: 1100,
-      //   offset : 0,
-      //   scrollbars: true,
-      //   standardScrollElements: "",
-      //   setHeights: true,
-      //   overflowScroll: true,
-      //   updateHash: true,
-      //   touchScroll:true,
-      //   before:function() {},
-      //   after:function() {},
-      //   afterResize:function() {},
-      //   afterRender:function() {}
-      // });
-
+ 
       $.scrollify({
         // section should be an identifier that is the same for each section
 
@@ -247,9 +271,9 @@
         // callbacks
         before: function (i) {
           var active = $(".slide.active");
-          console.log("before render");
+          console.log( active,".slide.active");
           active.addClass("remove");
-          /*
+      /*    
         // Used to scroll to a particular section.
         // It can be parsed the index of the section, or the name of the section preceded by a hash.
         $.scrollify.move("#name");
@@ -293,6 +317,7 @@
           $("[data-slide=" + i + "]").addClass("active");
           active.removeClass("remove active");
           console.log("[data-slide=" + i + "]");
+          console.log("after render");
           //},300);
         },
         afterRender() {
@@ -305,7 +330,9 @@
           $("[data-slide=0]").addClass("active");
           console.log("after render");
         },
+        
       });
+      
     </script>
     <script src="./indexx.js"></script>
   </div>

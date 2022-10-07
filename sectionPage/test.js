@@ -94,7 +94,7 @@ xmlhttp.onreadystatechange = function () {
 //     myChart.resize();
 //   });
 
-
+/*
 function updateChart() {
     async function fetchData() {
         const url = './json/fixtureweather.json';
@@ -169,3 +169,70 @@ function updateChart() {
             return result;
         };
         console.log(run());
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+        var images = new Array();
+        function preload() {
+          for (i = 0; i < preload.arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+            if (i == 143) {
+              function endPreloader() {
+                $(".preloader").fadeOut();
+                $(window).scrollTop(0);
+              }
+              images[i].onload = endPreloader;
+            }
+          }
+        }
+        preload(
+          "https://www.exsus.com/highway-one-roadtrip/_res/css/images/bg_alcatraz.png",
+          "https://www.exsus.com/highway-one-roadtrip/_res/images/img_thumbnail.jpg"
+        );
+  */

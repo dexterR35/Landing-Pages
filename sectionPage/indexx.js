@@ -120,7 +120,7 @@
   //////////////////////
   // Default   precented
   function throttle(fn, delay, scope) {
-    delay = delay || 250;
+    delay = delay || 150;
     let last, defer;
 
     return function () {
@@ -187,11 +187,10 @@
         },
         // Provide a default scroll animation
         smoothScrollAnimation: function (target) {
-          $("html, body").animate(
-            {
+          $("html, body").animate({
               scrollTop: target,
             },
-            "slow"
+            "medium"
           );
         },
       },
@@ -262,8 +261,10 @@
         var percentage = Math.round(
           (this.scrollPosition / (documentHeight - window.innerHeight)) * 100
         );
+
         if (percentage < 0) percentage = 0;
         if (percentage > 100) percentage = 100;
+        // console.log(percentage,"percentagesss")
         return percentage;
       },
 
@@ -272,15 +273,16 @@
           e.preventDefault();
           if (
             location.pathname.replace(/^\//, "") ===
-              e.target.pathname.replace(/^\//, "") &&
+            e.target.pathname.replace(/^\//, "") &&
             location.hostname === e.target.hostname
           ) {
             var targetStep = document.querySelector(e.target.hash);
             targetStep
-              ? _animation(targetStep)
-              : console.warn(
-                  "Hi! You should give an animation callback function to the Scroller module! :)"
-                );
+              ?
+              _animation(targetStep) :
+              console.warn(
+                "Hi! You should give an animation callback function to the Scroller module! :)"
+              );
           }
         }
       },
@@ -348,9 +350,9 @@
     // Customize onScroll behavior
     onScroll: function () {
       var percentage = ScrollManager.scrollPercentage();
-      percentage >= 90
-        ? scrollToTopBtn.classList.add("visible")
-        : scrollToTopBtn.classList.remove("visible");
+      percentage >= 90 ?
+        scrollToTopBtn.classList.add("visible") :
+        scrollToTopBtn.classList.remove("visible");
       //  console.log(percentage, "percentage");
       if (percentage >= 10) {
         progressIndicator.innerHTML = percentage + "%";
@@ -378,7 +380,7 @@
   // END APP init
   //////////////////////
 })();
-
+/*
 function updateChart() {
   async function fetchData() {
     const url = "./json/fixtureweather.json";
@@ -449,5 +451,91 @@ const config = {
 const myChart = new Chart(document.getElementById("myChart"), config);
 // render init block
 
+*/
+// let allSectionLogo = document.querySelectorAll("#LogoInsert");
+// for (i = 0; i< allSectionLogo.length; i++) {
+//   console.log(allSectionLogo);
+// }
+
+window.onload = function () {
+
+ 
+  let imgLogoQuatar = document.createElement("img");
+  imgLogoQuatar.src = "./images/section5/Quatar-logo.png";
+  imgLogoQuatar.setAttribute("alt", "logo");
+  imgLogoQuatar.classList.add("quatarLogo");
+  let srcLogo = document.getElementById("LogoInsert");
+  
+  srcLogo.appendChild(imgLogoQuatar);
+  for (i = 0; i< srcLogo.length; i++) {
+    console.log(i, "youudasas")
+    
+    }
+};
 
 
+// const projectData = [{
+//     coverImg: './images/section3/bg-section3.png'
+//   },
+//   {
+//     coverImg: './images/section3/bg-section3.png'
+//   },
+//   {
+//     coverImg: './images/section3/bg-section3.png'
+//   },
+//   {
+//     coverImg: 'https://via.placeholder.com/350x150?text=image4'
+//   },
+//   {
+//     coverImg: 'https://via.placeholder.com/350x150?text=image5'
+//   },
+//   {
+//     coverImg: 'https://via.placeholder.com/350x150?text=image6'
+//   },
+//   {
+//     coverImg: 'https://via.placeholder.com/350x150?text=image7'
+//   },
+//   {
+//     coverImg: 'https://via.placeholder.com/350x150?text=image8'
+//   }
+// ];
+
+
+// document.addEventListener("DOMContentLoaded", function (event) {
+
+//   const projects_container = document.createElement("div");
+//   projects_container.classList.add('projects_container');
+//   for (i = 0; i < projectData.length; i++) {
+//     const card_block_El = document.createElement("div");
+//     const card_img_div_El = document.createElement("div");
+//     const card_img_El = document.createElement("img");
+//     card_img_El.src = projectData[i].coverImg;
+
+//     card_img_div_El.appendChild(card_img_El);
+//     card_block_El.appendChild(card_img_div_El);
+//     projects_container.appendChild(card_block_El);
+//   }
+
+
+//   document.getElementById("testMM").style.display = "none";
+//   document.getElementById("testMM").appendChild(projects_container);
+
+
+//   var CheckImages = function () {
+//     var loadedimages = 0;
+//     var images = document.getElementById("testMM").getElementsByTagName("img");
+//     console.log(images, "iumagesss");
+//     for (i = 0; i < images.length; i++) {
+//       if (images[i].complete && images[i].naturalHeight !== 0) {
+//         loadedimages++;
+//       }
+
+//     }
+//     if (images.length == loadedimages) {
+//       document.getElementById("testM3").style.display = "block";
+//     } else {
+//       setTimeout(CheckImages, 1000);
+//     }
+//   }
+//   CheckImages();
+// });
