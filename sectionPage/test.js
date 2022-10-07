@@ -94,10 +94,12 @@ xmlhttp.onreadystatechange = function () {
 //     myChart.resize();
 //   });
 
-/*
+
 function updateChart() {
     async function fetchData() {
         const url = './json/fixtureweather.json';
+     
+
         const response = await fetch(url);
         //wait until the request has been completed;
         const datapoints = await response.json();
@@ -157,7 +159,7 @@ function updateChart() {
 
     updateChart();
 
-
+/*
         const removeChar = (str, c) => str.replaceAll(new RegExp(`[${c}]`, "gi"), "");
         const run = () => {
             const str = "Achievement unlocked";
@@ -171,10 +173,65 @@ function updateChart() {
         console.log(run());
 
 
-
 */
 
 
+
+function boldString(str, substr) {
+    var strRegExp = new RegExp(substr, 'g');
+    return str.replace(strRegExp, '<b>'+substr+'</b>');
+  }
+
+
+  var fruitsArray = [
+    { name: 'Banana', image: 'banana.jpg' }, 
+    { name: 'Apple', image: 'apple.jpg' }, 
+    { name: 'Orange', image: 'orange.jpg' }
+  ];
+
+  for (var i = 0; i < boldStuffs.length; i += 1) {
+    var fruit = getRandomItem(fruitsArray);
+    boldStuffs[i].innerHTML = fruit.name + '<img src="'+fruit.image+'">';
+}
+
+
+var count =0;
+$(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#files").on("change", function(e) {
+
+      var files = e.target.files,
+        filesLength = files.length;
+        console.log(filesLength);
+        count++;
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $("<span class=\"pip\">" +
+            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><span class=\"removeImg\">Remove image</span>" +
+            "</span>").insertAfter("#files");
+          $(".removeImg").click(function(){
+            $(this).parent(".pip").remove();
+          });
+
+          // Old code here
+          /*$("<img></img>", {
+            class: "imageThumb",
+            src: e.target.result,
+            title: file.name + " | Click to remove"
+          }).insertAfter("#files").click(function(){$(this).remove();});*/
+
+        });
+        fileReader.readAsDataURL(f);
+      }
+    });
+  } else {
+    alert("Your browser doesn't support to File API")
+  }
+});
 
 
 
