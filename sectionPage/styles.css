@@ -21,20 +21,19 @@
   --scrollSectionsColumns: 25%;
   --scrollSectionsRows: 20%;
   /*Bg-img*/
+  --bg-section-one: url(./images/section1/bg-section1.jpg);
+  --bg-section-two: url(./images/section2/bg-section2.png);
   --bg-section-three: url(./images/section3/bg-section3.png);
   --bg-section-four: url(./images/section4/bg-section4.png);
   --bg-section-five: url(./images/section5/bg-section5.jpg);
   /*colors all*/
-
   --background-gradient: crimson;
-
   --light-bg: white;
   --light-primary: rgb(247, 249, 250);
-
   --dark-bg: black;
   --dark-primary: #15181c;
-
   --gray-text: rgb(153, 153, 153);
+  /*colors all*/
 }
 
 html {
@@ -470,9 +469,13 @@ footer a {
 }
 
 /*****************************END  HEADER - HOME 1 ***********************************/
-
+.section_1 {
+  background-image: var(--bg-section-one);
+}
 /****************************SECTION 2***********************************/
-
+.section_2 {
+  background-image: var(--bg-section-two);
+}
 /****************************SECTION 3***********************************/
 .section_3 {
   background-image: var(--bg-section-three);
@@ -571,7 +574,6 @@ footer a {
 }
 .profile--unexpanded > .profile__data,
 .profile--expanded > .profile__data {
-
   width: 100%;
   text-align: center;
   padding-top: inherit;
@@ -639,66 +641,60 @@ footer a {
   }
 }
 
-
-
-
-
 /* Lightbox container */
 #container-1 {
   width: 207px;
   height: 63px;
-	margin: 0px auto 0 auto;
-	background-color: #2980b9;
-	color: white;
-	text-align: center;
+  margin: 0px auto 0 auto;
+  background-color: #2980b9;
+  color: white;
+  text-align: center;
 }
 
 #container-inner:hover {
-  
 }
 
 #container-inner {
-	line-height: 70px;
+  line-height: 70px;
 }
 
 /* Empty container that will replace the original container */
 #empty-container {
-	width: 500px;
-	height: 200px;
-	margin: 40px auto 0 auto;
+  width: 500px;
+  height: 200px;
+  margin: 40px auto 0 auto;
 }
 
 #close {
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	cursor: pointer;
-	display: none;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  display: none;
 }
 
 .in-animation {
-	animation: inlightbox 0.8s forwards;
-	position: fixed !important;
-	margin: 0 !important;
+  animation: inlightbox 0.8s forwards;
+  position: fixed !important;
+  margin: 0 !important;
 }
 
 .out-animation {
-	animation: outlightbox 0.8s forwards;
+  animation: outlightbox 0.8s forwards;
 }
 
-@keyframes inlightbox 
-{ 
-	50% { 
-		width: 100%;
-		left: 0;
-		height: 200px;
-	}
-	100% {
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-	}
+@keyframes inlightbox {
+  50% {
+    width: 100%;
+    left: 0;
+    height: 200px;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 }
 
 /*******************END General *****************************/
