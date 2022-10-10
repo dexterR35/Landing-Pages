@@ -459,7 +459,7 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 
 // window.onload = function () {
 
- 
+
 //   let imgLogoQuatar = document.createElement("img");
 //   imgLogoQuatar.src = "./images/section5/Stadion.png";
 //   imgLogoQuatar.setAttribute("alt", "logo");
@@ -467,12 +467,12 @@ const myChart = new Chart(document.getElementById("myChart"), config);
 //   let srcLogo = document.getElementById("LogoInsert");
 //   console.log(srcLogo,"srcLogo");
 //   console.log(imgLogoQuatar,"imgLogoQuatar");
-  
+
 //   srcLogo.appendChild(imgLogoQuatar);
 //   for (i = 0; i< srcLogo.length; i++) {
 //     console.log(i, "youudasas")
 //     console.log(srcLogo.length, "srcLogo.length")
-    
+
 //     }
 // };
 
@@ -498,23 +498,26 @@ function toggleTheme() {
 $("body").append('<style id="lightbox-animations" type="text/css"></style>');
 
 /* Click on the container */
-$("#container-1").on('click', function() {
-	/* The position of the container will be set to fixed, so set the top & left properties of the container */ 
-	var bounding_box = $("#container-1").get(0).getBoundingClientRect();
-	$(this).css({ top: bounding_box.top + 'px', left: bounding_box.left + 'px' });
+$("#container-1").on('click', function () {
+  /* The position of the container will be set to fixed, so set the top & left properties of the container */
+  var bounding_box = $("#container-1").get(0).getBoundingClientRect();
+  $(this).css({
+    top: bounding_box.top + 'px',
+    left: bounding_box.left + 'px'
+  });
 
-	/* Set container to fixed position. Add animation */
-	$(this).addClass('in-animation');
-  
+  /* Set container to fixed position. Add animation */
+  $(this).addClass('in-animation');
+
   $(this).css('overflow', 'auto');
 
-	/* An empty container has to be added in place of the lightbox container so that the elements below don't come up
-	Dimensions of this empty container is the same as the original container */
-	$('<div id="empty-container"></div>').insertAfter("#container-1");
+  /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
+  Dimensions of this empty container is the same as the original container */
+  $('<div id="empty-container"></div>').insertAfter("#container-1");
 
-	/* To animate the container from full-screen to normal, we need dynamic keyframes */
-	var styles = ``;
-	styles = `@keyframes outlightbox {
+  /* To animate the container from full-screen to normal, we need dynamic keyframes */
+  var styles = ``;
+  styles = `@keyframes outlightbox {
 		0% {
       height: 100%;
       width: 100%;
@@ -533,44 +536,44 @@ $("#container-1").on('click', function() {
 		}
 	}`;
 
-	/* Add keyframe to CSS */
-	$("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
+  /* Add keyframe to CSS */
+  $("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
 
-	/* Hide the window scrollbar */
-	$("body").css('overflow', 'hidden');
+  /* Hide the window scrollbar */
+  $("body").css('overflow', 'hidden');
 });
 
 /* Click on close button when full-screen */
-$("#close").on('click', function(e) {
-	$("#close").hide();
+$("#close").on('click', function (e) {
+  $("#close").hide();
 
-	/* Window scrollbar normal */
-	$("body").css('overflow', 'auto');
+  /* Window scrollbar normal */
+  $("body").css('overflow', 'auto');
 
-	/* Show animation */
-	$("#container-1").addClass('out-animation');
+  /* Show animation */
+  $("#container-1").addClass('out-animation');
 
-	e.stopPropagation();
+  e.stopPropagation();
 });
 
 /* On animationend : from normal to full screen & full screen to normal */
-$("#container-1").on('animationend', function(e) {
-	/* On animation end from normal to full-screen */
-	if(e.originalEvent.animationName == 'inlightbox') {
-		$("#close").show();
-	}
-	/* On animation end from full-screen to normal */
-	else if(e.originalEvent.animationName == 'outlightbox') {
+$("#container-1").on('animationend', function (e) {
+  /* On animation end from normal to full-screen */
+  if (e.originalEvent.animationName == 'inlightbox') {
+    $("#close").show();
+  }
+  /* On animation end from full-screen to normal */
+  else if (e.originalEvent.animationName == 'outlightbox') {
     $("#container-1").css('overflow', 'hidden');
-		/* Remove fixed positioning, remove animation rules */
-		$("#container-1").removeClass('in-animation').removeClass('out-animation');
-		
-		/* Remove the empty container that was earlier added */
-		$("#empty-container").remove();
+    /* Remove fixed positioning, remove animation rules */
+    $("#container-1").removeClass('in-animation').removeClass('out-animation');
 
-		/* Delete the dynamic keyframe rule that was earlier created */
-		$("#lightbox-animations").get(0).sheet.deleteRule(0);
-	}
+    /* Remove the empty container that was earlier added */
+    $("#empty-container").remove();
+
+    /* Delete the dynamic keyframe rule that was earlier created */
+    $("#lightbox-animations").get(0).sheet.deleteRule(0);
+  }
 });
 // const projectData = [{
 //     coverImg: './images/section3/bg-section3.png'

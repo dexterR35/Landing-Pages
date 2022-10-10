@@ -215,44 +215,7 @@
         <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy" class="quatarLogo lazy lazy-scroll">
             <div id="LogoInsert"></div>
         <h1 class="secondItem vertical-title"> <span> Mesaj pentru </span> <br> <span>protectia mediului</span></h1>
-        <div class="card-box-section5 card-box card1 thirdItem">
-          <div class="card-box-text">
-            <h1>title</h1>
-            <p>Lorem ipsum dolor sit.</p>
-          </div>
-          <button onclick="toggleTheme()" class="themer">sssss</button>
-          <div class="arrow-box profile" onclick="expand(this)">
-            arrow
-            <div class="profile__data">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa quis inventore facilis animi repellat
-                magnam aperiam voluptatem similique tempore suscipit!</p>
-            </div>
-
-          </div>
-        </div>
-        <div class="card-box-section5 card-box card2 fourItem">
-          <div class="card-box-text">
-            <h1>title</h1>
-            <p>Lorem ipsum dolor sit.</p>
-          </div>
-
-          <div class="arrow-box">
-            <div id="container-1">
-              <div id="container-inner">wwwww</div>
-              <h1>FIFA a dezvoltat o strategie amplă pentru a reduce emisiile cu 50% până în 2030 și net-zero până în
-                2040. Trebuie să protejăm frumoasa noastră planetă și frumosul fotbal”
-                Gianni Infantino, președinte FIFA</h1>
-              <div>dwqjdn</div>
-              <ol>
-                <li>dqwdq</i>
-                <li>dqwdq</li>
-              </ol>
-              <div id="close">Close</div>
-            </div>
-          </div>
-        </div>
-
-
+            
       </div>
       <div class="scroll-caption">
         <div class="footer-section footer-section5">
@@ -261,8 +224,24 @@
         </div>
       </div>
     </section>
+    <script>
+         
+      $(".expand-button").on("click", function () {
+        $(".special-text-box").toggleClass("-expanded");
+        // $(".js-expand-box").toggleClass("is-expanded");
+        //  $(".figcaption").toggleClass("is-expanded");
+
+        if ($(".special-text-box").hasClass("-expanded")) {
+          $(".expand-button").html("inchide fereastra");
+        } else {
+          $(".expand-button").html("Citeste mai mult");
+        }
+      });
+  
+    </script>
 
     <!-- end SECTION 5-->
+     <!-- TODO:end SECTION 5-->
     <section class="scroll-container scroll-flow js-scroll-step" id="F">
       <div class="scroll-element js-scroll slide-right panel">
         <div id="LogoInsert"></div>
