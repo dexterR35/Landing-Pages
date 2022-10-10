@@ -765,3 +765,92 @@ footer a {
   /* Styles */
 }
 /********************* //TODO:MEDIA QUERRY *****************************/
+
+
+
+
+
+
+
+/*test*/
+
+/* Our overlay */
+.lid {
+  background: #f00;
+  /* positon: absolute; */
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.box{
+ background:#98bf21;margin:6px;
+ position: relative; /* parent element needs to be relative to .close button */
+ overflow: hidden;
+ width:  100px;
+ height: 100px;
+ z-index: 3;
+ /*border: 1px solid #f00;*/
+ /* cursor: pointer; */
+}
+
+.stuff {
+  /* position: absolute; */
+  overflow: hidden;
+
+  font-size: 2em;
+
+}
+.box{
+  width: 230px;
+  height: 142px;
+  grid-column: 1;
+  grid-row: 2 / span 2;
+}
+ 
+.close {
+         /*position: fixed;         /* If it is fixed, it will appear where it should, in the top-right of this expanded element */
+         position: absolute;  /* If it is absolute, it will appear in the position of the top-right corner of the parent element */
+         top: 20px;
+         right: 20px;
+
+         width: 36px;
+         height: 36px;
+         margin: 4px 8px;
+         background-color: gray;
+         opacity: 0.7;
+         display: none;
+         z-index: 10;  /* This should be on top of .stuff */
+         font-size: 24pt;
+         font-weight: bold;
+         border-radius: 25px;  /* Almost makes our box a circle. */
+         cursor: pointer;
+         text-align: center;
+      }
+
+    .box {
+      z-index:211212 !important ;
+    }
+
+
+    .hidden {
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-100%);
+      transition: all 1s;
+    
+      
+    }
+    .show {
+      opacity: 1;
+      background: rgb(158, 140, 140) !important;
+      filter: blur(0);
+      transform: translateX(0);
+    }
+
+@media(prefers-reduced-motion){
+  .hidden {
+    transition: none;
+  }
+}

@@ -26,10 +26,11 @@
       .container-box:has(.-expanded) {
         color: pink;
         /* max-width: 400px; */
-        overflow: scroll;
+        overflow: inherit;
         transition: all 0.5s;
         transition-delay: 0s;
       }
+
       .out-animation {
         animation: outlightbox 0.8s forwards;
       }
@@ -66,12 +67,14 @@
       }
       .special-text-box.-expanded {
         max-height: 50vh;
-        overflow: scroll;
+        overflow: normal;
       }
+
       .special-text-box:not(.-expanded)::after {
-        content: "expand after";
+        content: "";
         position: absolute;
         top: 0;
+        color: crimson;
         bottom: 0;
         left: 0;
         right: 0;
@@ -79,6 +82,11 @@
           rgba(141, 142, 142, 0),
           rgba(255, 255, 255, 0.37)
         );
+      }
+      .container-box:has(.-expanded) {
+        color: crimson;
+        background: crimson;
+        transition: max-height 1.2s ease;
       }
       .container-box-icon {
         display: flex;
@@ -102,19 +110,18 @@
         transition-delay: 0s;
       }
 
-
       .box-container-section ul li {
         list-style: none;
       }
-
-
     </style>
     <title>Document</title>
   </head>
 
   <body>
     <div class="container-box">
-      <span class="container-box-icon js-expand-box" title="Did You Know?">&plus; close</span>
+      <span class="container-box-icon js-expand-box" title="Did You Know?"
+        >&plus; close</span
+      >
       <div class="box-container-section">
         <div class="special-text-box">
           <ul>
@@ -146,6 +153,7 @@
       </div>
     </div>
     <script>
+
       $(".expand-button").on("click", function () {
         $(".special-text-box").toggleClass("-expanded");
         // $(".js-expand-box").toggleClass("is-expanded");
@@ -159,89 +167,92 @@
       });
     </script>
     <script>
-      //       $("body").append(
-      //         '<style id="lightbox-animations" type="text/css"></style>'
-      //       );
+            console.log("start2");
+            // $("body").append(
+            //   '<style id="lightbox-animations" type="text/css"></style>'
+            // );
+            console.log("start3");
+            /* Click on the container */
+            $(".container-box").on("click", function () {
+              /* The position of the container will be set to fixed, so set the top & left properties of the container */
+              let bounding_box = $("#container-box").get(0).getBoundingClientRect();
+              console.log("start4");
+              console.log(bounding_box, "testss");
+              $(this).css({
+                top: bounding_box.top + "px",
+                left: bounding_box.left + "px",
+              });
+              console.log("start3");
+              /* Set container to fixed position. Add animation */
+              $(this).addClass("in-animation");
+              $(this).css("overflow", "auto");
 
-      //       /* Click on the container */
-      //       $("#container-box").on("click", function () {
-      //         /* The position of the container will be set to fixed, so set the top & left properties of the container */
-      //         let bounding_box = $("#container-box").get(0).getBoundingClientRect();
-      //         $(this).css({
-      //           top: bounding_box.top + "px",
-      //           left: bounding_box.left + "px",
-      //         });
+              /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
+        Dimensions of this empty container is the same as the original container */
+                $('<div id="empty-container">sdasda</div>').insertAfter("#container-box-icon");
 
-      //         /* Set container to fixed position. Add animation */
-      //         $(this).addClass("in-animation");
-      //         $(this).css("overflow", "auto");
+              /* To animate the container from full-screen to normal, we need dynamic keyframes */
+      let styles = ``;
 
-      //         /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
-      //   Dimensions of this empty container is the same as the original container */
-      //           $('<div id="empty-container">sdasda</div>').insertAfter("#container-box");
+      styles = `@keyframes outlightbox {
+      		0% {
+                  height: 100%;
+                  width: 100%;
+                  top: 0px;
+                  left: 0px;
+      		}
+            50% {
+              height: 200px;
+              top: ${bounding_box.y}px;
+      		}
+      		100% {
+            height: 200px;
+            width: 500px;
+            top: ${bounding_box.y}px;
+            left: ${bounding_box.x}px;
+      		}
+      	}`;
 
-      //         /* To animate the container from full-screen to normal, we need dynamic keyframes */
-      //         let styles = ``;
+              /* Add keyframe to CSS */
+              $("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
 
-      //         styles = `@keyframes outlightbox {
-      // 		0% {
-      //             height: 100%;
-      //             width: 100%;
-      //             top: 0px;
-      //             left: 0px;
-      // 		}
-      //       50% {
-      //         height: 200px;
-      //         top: ${bounding_box.y}px;
-      // 		}
-      // 		100% {
-      //       height: 200px;
-      //       width: 500px;
-      //       top: ${bounding_box.y}px;
-      //       left: ${bounding_box.x}px;
-      // 		}
-      // 	}`;
+              /* Hide the window scrollbar */
+              //   $("body").css('overflow', 'hidden');
+            });
 
-      //         /* Add keyframe to CSS */
-      //         $("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
+            /* Click on close button when full-screen */
+            $("#close").on("click", function (e) {
+              $("#close").hide();
 
-      //         /* Hide the window scrollbar */
-      //         //   $("body").css('overflow', 'hidden');
-      //       });
+              /* Window scrollbar normal */
+              //   $("body").css('overflow', 'auto');
 
-      //       /* Click on close button when full-screen */
-      //       $("#close").on("click", function (e) {
-      //         $("#close").hide();
+              /* Show animation */
+              $("#container-box-icon").addClass("out-animation");
 
-      //         /* Window scrollbar normal */
-      //         //   $("body").css('overflow', 'auto');
-
-      //         /* Show animation */
-      //         $("#container-box").addClass("out-animation");
-
-      //         e.stopPropagation();
-      //       });
+              e.stopPropagation();
+            });
 
       /* On animationend : from normal to full screen & full screen to normal */
-      //   $("#container-box").on("animationend", function (e) {
-      //     /* On animation end from normal to full-screen */
-      //     if (e.originalEvent.animationName == "inlightbox") {
-      //       $("#close").show();
-      //     } else if (e.originalEvent.animationName == "outlightbox") {
-      //       /* On animation end from full-screen to normal */
-      //       $("#container-box").css("overflow", "hidden");
-      //       /* Remove fixed positioning, remove animation rules */
-      //       $("#container-box")
-      //         .removeClass("in-animation")
-      //         .removeClass("out-animation");
+        $("#container-box").on("animationend", function (e) {
+          /* On animation end from normal to full-screen */
+          if (e.originalEvent.animationName == "inlightbox") {
+            $("#close").show();
+          } else if (e.originalEvent.animationName == "outlightbox") {
+            /* On animation end from full-screen to normal */
+            $("#container-box").css("overflow", "hidden");
+            /* Remove fixed positioning, remove animation rules */
+            $("#container-box")
+              .removeClass("in-animation")
+              .removeClass("out-animation");
 
-      //       /* Remove the empty container that was earlier added */
-      //       $("#empty-container").remove();
+            /* Remove the empty container that was earlier added */
+            $("#empty-container").remove();
 
-      //       /* Delete the dynamic keyframe rule that was earlier created */
-      //       $("#lightbox-animations").get(0).sheet.deleteRule(0);
-      //     }
-      //   });
+            /* Delete the dynamic keyframe rule that was earlier created */
+            $("#lightbox-animations").get(0).sheet.deleteRule(0);
+          }
+        });
     </script>
   </body>
 </html>

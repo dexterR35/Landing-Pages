@@ -380,6 +380,82 @@
   // END APP init
   //////////////////////
 })();
+
+
+$(document).ready(function(){
+  // Basically, we can click anywhere in the body to get our .on() events to work.
+  var $body = $(document.body);
+
+  // Click on a frame to expand it
+  $body.on("click",".lid",function()
+  {
+     var $box = $(this).parent();
+     var $lid = $box.children(".lid");
+     var $stuff = $box.children(".stuff"); // instead of $(this)
+     var $close = $box.children(".close");
+     var $width  = 300;
+     var $height = 300;
+    
+     $lid.css({
+       "cursor" : "default"
+     });
+    
+     $lid.animate({
+       "width" : "0px",
+       "height" : "0px",
+       "opacity" : 0.0
+     }, "fast");
+    
+     $box.animate({
+       "width" : $width,
+       "height": $height
+     },"fast");
+    
+     $stuff.css({
+      "width" : $width,
+      "height": $height,
+      /* "position": "fixed", */
+      "overflow" : "scroll",
+      "z-index" : 4
+     });    
+     // TODO: Eventually, box growth animation
+    $close.fadeIn("fast");
+  });
+
+  // Click on the return box to restore it back to its screen position.
+  $body.on("click",".close",function()
+  {
+     var $box   = $(this).parent();
+     var $lid   = $box.children(".lid");
+     var $stuff = $box.children(".stuff"); 
+    var $close = $box.children(".close"); // Instead of $(this)
+    var $width  = 100;
+    var $height = 100;
+    // Do what we did in reverse!
+     $close.fadeOut("fast");
+     // TODO: Eventually, box shrink animation
+     $stuff.css({
+      "width" : $width,
+      "height": $height,
+      /* "position" : "absolute", */
+      "overflow" : "hidden",
+      "z-index"  : 0
+     });
+     $box.animate({
+       "width" : $width,
+       "height": $height
+     },"fast");
+    
+    $lid.animate({
+      "width" : "100px",
+      "height" : "100px",
+      "opacity" : 1.0
+    },"fast");
+    $lid.css({
+      "cursor" : "pointer"
+    });
+  });
+});
 /*
 function updateChart() {
   async function fetchData() {
