@@ -14,245 +14,212 @@
       /* Lightbox container */
 
       /* Empty container that will replace the original container */
-
+      *,
+      *::after,
+      *::before {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
       :root {
         --width-container-box-text: calc(50% + 5em);
-      }
-      .container-box {
-        max-width: var(--width-container-box-text);
-        background: rgba(217, 217, 217, 0.716);
-        height: auto;
-      }
-      .container-box:has(.-expanded) {
-        color: pink;
-        /* max-width: 400px; */
-        overflow: inherit;
-        transition: all 0.5s;
-        transition-delay: 0s;
-      }
-
-      .out-animation {
-        animation: outlightbox 0.8s forwards;
-      }
-
-      .expand-button {
-        cursor: pointer;
-        display: block;
-        min-width: 30%;
-        max-width: 40%;
-        margin-top: 1rem;
-        margin-left: auto;
-        margin-right: auto;
-        border: 4px solid #005858;
-        border-radius: 3px;
-        background-color: darkcyan;
-        color: white;
-        font-size: 0.7rem;
-        padding: 0.5rem;
-      }
-
-      .expand-button:hover,
-      .expand-button:active,
-      .expand-button:focus {
-        background-color: #cad00e;
-      }
-
-      .special-text-box {
-        white-space: wrap;
-        position: relative;
-        max-height: 50px;
-        overflow: hidden;
-        transition: max-height 1s ease;
-        /* text-align: justify; */
-      }
-      .special-text-box.-expanded {
-        max-height: 50vh;
-        overflow: normal;
-      }
-
-      .special-text-box:not(.-expanded)::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        color: crimson;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(
-          rgba(141, 142, 142, 0),
-          rgba(255, 255, 255, 0.37)
-        );
-      }
-      .container-box:has(.-expanded) {
-        color: crimson;
-        background: crimson;
-        transition: max-height 1.2s ease;
-      }
-      .container-box-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        font-size: 18px;
-        z-index: 5;
-        color: #fff;
-        transform: rotate(0deg);
-        cursor: pointer;
-        border-radius: 50%;
-        transition: all 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
-        transition-delay: 0.5s;
-      }
-      .container-box-icon.is-expanded {
-        left: 100%;
-        transform: rotate(405deg);
-        transition-delay: 0s;
       }
 
       .box-container-section ul li {
         list-style: none;
       }
+
+      .container-card-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: var(--width-container-box-text);
+        min-width: calc(var(--width-container-box-text) - 40vh);
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.529);
+        border: 1px solid white;
+        box-shadow: 0 10px 20px 4px rgba(0, 0, 0, 0.496);
+      }
+      .container-card-box.expanded2 {
+       
+ transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+      }
+      .container-card-box ul li {
+        list-style: none;
+      }
+      .section-text-cards {
+        border: 1px solid black;
+        white-space: wrap;
+        text-align: center;
+        position: relative;
+        max-height: 3em;
+        overflow: hidden;
+        transition: max-height 1s ease;
+        line-height: 1;
+        color: white;
+        padding: 1px 0.4rem;
+        font-size: 0.8rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .section-text-cards{
+        font-size: 1.6em;
+        text-transform: uppercase;
+      }
+      .section-text-cards:not(.-expanded)::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        color: rgb(211, 8, 8);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.4;
+        background: linear-gradient(
+          rgba(238, 238, 238, 0),
+          rgba(26, 26, 26, 0.37)
+        );
+      }
+      .container-card-box:has(.-expanded) {
+        /* color: crimson;
+      background: crimson; */
+        /* transition: max-height 1.2s ease;
+        background: purple !important; */
+      }
+
+      .section-text-cards.-expanded {
+        max-height: 30vh;
+        overflow: scroll;
+        
+      }
+
+      .section-text-cards .nav-ul-boxes {
+        font-size: 0.9rem;
+        color: red;
+        text-transform: lowercase;
+        background: blue;
+   transform: translateY(-1.4em);
+   transition: all ease 1s;
+    
+      
+      }
+
+      
+   
+      .button-boxes {
+        border: 1px solid black;
+        height: 7em;
+        cursor: pointer;
+        display: block;
+        min-width: 5em;
+        max-width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 3px;
+        background-color: darkcyan;
+        color: white;
+        font-size: 0.7rem;
+        padding: 0.6rem;
+        margin-right: 0.5em;
+      }
+
+      .button-boxes:hover,
+      .button-boxes:active,
+      .button-boxes:focus {
+        background-color: #cad00e;
+      }
+      .title-icon {
+        top: 0%;
+        left: 120%;
+        font-size: 1rem;
+        z-index: 5;
+        color: #fff;
+        /* transform: transformX(2em); */
+        cursor: pointer;
+        border-radius: 2%;
+        transition: all 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+        /* transition-delay: 4.2s; */
+        position: relative;
+        background: #3b0084;
+        text-transform: uppercase;
+        display: inline-block;
+        padding: 5px 7.5px;
+        margin-bottom: 0.3rem;
+      }
+      .title-icon.is-expanded {
+        left: 0%;
+        transition-delay: 0.5s;
+        transform: transformX(0);
+      }
+      /* .title-icon.is-expanded ~ .nav-ul-boxes li {
+        transition: all 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+        color: chartreuse !important;
+    
+      } */
+    
+
+   /* .nav-ul-boxes.-expanded + .nav-ul-boxes  {
+    color: rgb(255, 255, 255) !important;
+    font-size: 234em;
+   } */
+
+      /* .figcaption-icon.is-expanded + .caption-title {
+        opacity: 1;
+        white-space: nowrap;
+        transition-delay: 0.3s;
+      } */
     </style>
     <title>Document</title>
   </head>
 
   <body>
-    <div class="container-box">
-      <span class="container-box-icon js-expand-box" title="Did You Know?"
-        >&plus; close</span
-      >
-      <div class="box-container-section">
-        <div class="special-text-box">
-          <ul>
-            <li>
-              Acest loc unic aduce un omagiu tradiției de lungă durată a
-              Qatarului în ceea ce privește comerțul mondial și navigația
-              maritimă. Nu numai că 974 este prefixul internațional al
-              Qatarului, dar este și numărul exact al containerelor de transport
-              maritim folosite la construcție. Situat în zona portuară și cu
-              vedere la peisajul urban de coastă al orașului Doha, fanii de la
-              Stadionul 974 vor simți briza răcoroasă care vine dinspre Golful
-              Arabiei.
-            </li>
-            <li>Au fost utilizate 27.000 de tone de oțel</li>
-            <li>
-              Au fost necesare 4.5 milioane de ore de muncă pentru a fi ridicat.
-            </li>
-            <li>Are o capacitate de 40.000 de locuri.</li>
-            <li>Construcție 2018 - 2021.</li>
-            <li>Proiectare: Fenwick Iribarren Architects'</li>
-            <li>
-              După turneu, containerele și suprastructura vor fi refolosite.
-              Acest nou concept asigură că, deși prezența fizică a stadionului
-              974 poate fi temporară, moștenirea sa va fi eternă
-            </li>
-          </ul>
-        </div>
-        <button class="expand-button">Citeste mai mult</button>
+    <div class="container-card-box expanded2">
+      <button class="button-boxes btn-cards">citeste mai mult</button>
+      <div class="section-text-cards">
+        <span>Qatar 2022</span>
+        <li class="title-icon js-expand">STIAI CA...?</li>
+        <ul class="nav-ul-boxes -expanded">
+          <li>
+            Stadionul Ras Abu Aboud, cunoscut și ca Stadionul 974, este
+            construit din containere de transport maritim și la finalul World
+            Cup 2022 va fi complet dezmembrat
+          </li>
+          <li>
+            Este un mod de a promova reducerea deșeurilor și reciclarea în
+            construcții de stadioane și nu numai.
+          </li>
+        </ul>
       </div>
     </div>
     <script>
+      // $(".expand-button").on("click", function () {
+      //   $(".special-text-box").toggleClass("-expanded");
+      //   // $(".js-expand-box").toggleClass("is-expanded");
+      //   //  $(".figcaption").toggleClass("is-expanded");
 
-      $(".expand-button").on("click", function () {
-        $(".special-text-box").toggleClass("-expanded");
+      //   if ($(".special-text-box").hasClass("-expanded")) {
+      //     $(".expand-button").html("inchide fereastra");
+      //   } else {
+      //     $(".expand-button").html("Citeste mai mult");
+      //   }
+      // });
+
+      $(".button-boxes").on("click", function () {
+        $(".section-text-cards").toggleClass("-expanded");
+        
+        $(".js-expand").toggleClass("is-expanded");
         // $(".js-expand-box").toggleClass("is-expanded");
         //  $(".figcaption").toggleClass("is-expanded");
 
-        if ($(".special-text-box").hasClass("-expanded")) {
-          $(".expand-button").html("inchide fereastra");
+        if ($(".section-text-cards").hasClass("-expanded")) {
+          $(".button-boxes").html("Inchide");
+          $(".nav-ul-boxes").css({"background-color":"yellow","transform": "translateY(0.5em)"});
         } else {
-          $(".expand-button").html("Citeste mai mult");
+          $(".button-boxes").html("Citeste mai mult");
+          $(".nav-ul-boxes").css({"transform":"translateY(-1.2em)","transition":" 1s ease" });
         }
       });
-    </script>
-    <script>
-            console.log("start2");
-            // $("body").append(
-            //   '<style id="lightbox-animations" type="text/css"></style>'
-            // );
-            console.log("start3");
-            /* Click on the container */
-            $(".container-box").on("click", function () {
-              /* The position of the container will be set to fixed, so set the top & left properties of the container */
-              let bounding_box = $("#container-box").get(0).getBoundingClientRect();
-              console.log("start4");
-              console.log(bounding_box, "testss");
-              $(this).css({
-                top: bounding_box.top + "px",
-                left: bounding_box.left + "px",
-              });
-              console.log("start3");
-              /* Set container to fixed position. Add animation */
-              $(this).addClass("in-animation");
-              $(this).css("overflow", "auto");
-
-              /* An empty container has to be added in place of the lightbox container so that the elements below don't come up
-        Dimensions of this empty container is the same as the original container */
-                $('<div id="empty-container">sdasda</div>').insertAfter("#container-box-icon");
-
-              /* To animate the container from full-screen to normal, we need dynamic keyframes */
-      let styles = ``;
-
-      styles = `@keyframes outlightbox {
-      		0% {
-                  height: 100%;
-                  width: 100%;
-                  top: 0px;
-                  left: 0px;
-      		}
-            50% {
-              height: 200px;
-              top: ${bounding_box.y}px;
-      		}
-      		100% {
-            height: 200px;
-            width: 500px;
-            top: ${bounding_box.y}px;
-            left: ${bounding_box.x}px;
-      		}
-      	}`;
-
-              /* Add keyframe to CSS */
-              $("#lightbox-animations").get(0).sheet.insertRule(styles, 0);
-
-              /* Hide the window scrollbar */
-              //   $("body").css('overflow', 'hidden');
-            });
-
-            /* Click on close button when full-screen */
-            $("#close").on("click", function (e) {
-              $("#close").hide();
-
-              /* Window scrollbar normal */
-              //   $("body").css('overflow', 'auto');
-
-              /* Show animation */
-              $("#container-box-icon").addClass("out-animation");
-
-              e.stopPropagation();
-            });
-
-      /* On animationend : from normal to full screen & full screen to normal */
-        $("#container-box").on("animationend", function (e) {
-          /* On animation end from normal to full-screen */
-          if (e.originalEvent.animationName == "inlightbox") {
-            $("#close").show();
-          } else if (e.originalEvent.animationName == "outlightbox") {
-            /* On animation end from full-screen to normal */
-            $("#container-box").css("overflow", "hidden");
-            /* Remove fixed positioning, remove animation rules */
-            $("#container-box")
-              .removeClass("in-animation")
-              .removeClass("out-animation");
-
-            /* Remove the empty container that was earlier added */
-            $("#empty-container").remove();
-
-            /* Delete the dynamic keyframe rule that was earlier created */
-            $("#lightbox-animations").get(0).sheet.deleteRule(0);
-          }
-        });
     </script>
   </body>
 </html>

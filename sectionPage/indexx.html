@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
-      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+    integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"
     integrity="sha512-d6nObkPJgV791iTGuBoVC9Aa2iecqzJRE0Jiqvk85BhLHAPhWqkuBiQb1xz2jvuHNqHLYoN3ymPfpiB1o+Zgpw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <!-- <script src="https://unpkg.com/scroll-out@2.2.3/dist/scroll-out.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/scroll-out@2.2.3/dist/scroll-out.min.js"></script> -->
 
-    <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css" />
 
-    <title>sections lp</title>
-  </head>
+  <title>sections lp</title>
+</head>
 
-  <body>
-    <script>
-      $(window).scroll(function () {
-        $.each($(".lazy-scroll"), function (data2) {
-          if (
-            $(this).attr("data-src") &&
-            $(this).offset().top <
-              $(window).scrollTop() + $(window).height() + 100
-          ) {
-            let source = $(this).data("src");
-            $(this).attr("src", source);
-            $(this).removeAttr("data-src");
-            console.log(data2, "data-src");
-          }
-        });
+<body>
+  <script>
+    $(window).scroll(function () {
+      $.each($(".lazy-scroll"), function (data2) {
+        if (
+          $(this).attr("data-src") &&
+          $(this).offset().top <
+          $(window).scrollTop() + $(window).height() + 100
+        ) {
+          let source = $(this).data("src");
+          $(this).attr("src", source);
+          $(this).removeAttr("data-src");
+          console.log(data2, "data-src");
+        }
       });
-    </script>
-    <div class="wrapper">
-      <!-- <nav class="Quick-navigation">
+    });
+  </script>
+  <div class="wrapper">
+    <!-- <nav class="Quick-navigation">
       <a href="#A" class="Quick-navigation-item">A</a>
       <a href="#B" class="Quick-navigation-item">B</a>
       <a href="#C" class="Quick-navigation-item">C</a>
@@ -57,448 +52,404 @@
       <div class="Scroll-progress-indicator"></div>
     </nav> -->
 
-      <nav class="Quick-navigation">
-        <ul class="primaryNav">
-          <li class="active" data-marker="0">
-            <em>01</em>
-            <a href="#A">Section 1</a>
-          </li>
-          <li data-marker="1">
-            <em>02</em>
-            <a href="#B">Section 2</a>
-          </li>
-          <li data-marker="2">
-            <em>03</em>
-            <a href="#C">section 3</a>
-          </li>
-          <li data-marker="3">
-            <em>04</em>
-            <a href="#D">section 4</a>
-          </li>
-          <li data-marker="4">
-            <em>05</em>
-            <a href="#E">section 5</a>
-          </li>
-          <li data-marker="5">
-            <em>06</em>
-            <a href="#F">section 6</a>
-          </li>
-          <li data-marker="6">
-            <em>07</em>
-            <a href="#G">section 7</a>
-          </li>
-          <li data-marker="7">
-            <em>08</em>
-            <a href="#H">section 8</a>
-          </li>
-          <li data-marker="8">
-            <em>09</em>
-            <a href="#I">section 9</a>
-          </li>
-          <li data-marker="9">
-            <em>10</em>
-            <a href="#J">section 10</a>
-          </li>
-          <li data-marker="10">
-            <em>11</em>
-            <a href="#K">section 11</a>
-          </li>
-          <li data-marker="11">
-            <em>12</em>
-            <a href="#L">section 12</a>
-          </li>
-          <li data-marker="12">
-            <em>13</em>
-            <a href="#M">section 13</a>
-          </li>
-          <li data-marker="13">
-            <em>14</em>
-            <a href="#N">section 14</a>
-          </li>
-          <li data-marker="14">
-            <em>15</em>
-            <a href="#O">section 15</a>
-          </li>
-          <li data-marker="15">
-            <em>16</em>
-            <a href="#O">section 16</a>
-          </li>
-          <li data-marker="16">
-            <em>17</em>
-            <a href="#P">section 17</a>
-          </li>
-          <li data-marker="17">
-            <em>18</em>
-            <a href="#R">section 18</a>
-          </li>
-          <li data-marker="18">
-            <em>19</em>
-            <a href="#S">section 19</a>
-          </li>
-          <li data-marker="19">
-            <em>20</em>
-            <a href="#Q">section 20</a>
-          </li>
-          <li data-marker="20">
-            <em>21</em>
-            <a href="#Q">section 21</a>
-          </li>
-          <li data-marker="21">
-            <em>22</em>
-            <a href="#Q">section 22</a>
-          </li>
-        </ul>
-        <div class="Scroll-progress-indicator"></div>
-      </nav>
+    <nav class="Quick-navigation">
+      <ul class="primaryNav">
+        <li class="active" data-marker="0">
+          <em>01</em>
+          <a href="#A">Section 1</a>
+        </li>
+        <li data-marker="1">
+          <em>02</em>
+          <a href="#B">Section 2</a>
+        </li>
+        <li data-marker="2">
+          <em>03</em>
+          <a href="#C">section 3</a>
+        </li>
+        <li data-marker="3">
+          <em>04</em>
+          <a href="#D">section 4</a>
+        </li>
+        <li data-marker="4">
+          <em>05</em>
+          <a href="#E">section 5</a>
+        </li>
+        <li data-marker="5">
+          <em>06</em>
+          <a href="#F">section 6</a>
+        </li>
+        <li data-marker="6">
+          <em>07</em>
+          <a href="#G">section 7</a>
+        </li>
+        <li data-marker="7">
+          <em>08</em>
+          <a href="#H">section 8</a>
+        </li>
+        <li data-marker="8">
+          <em>09</em>
+          <a href="#I">section 9</a>
+        </li>
+        <li data-marker="9">
+          <em>10</em>
+          <a href="#J">section 10</a>
+        </li>
+        <li data-marker="10">
+          <em>11</em>
+          <a href="#K">section 11</a>
+        </li>
+        <li data-marker="11">
+          <em>12</em>
+          <a href="#L">section 12</a>
+        </li>
+        <li data-marker="12">
+          <em>13</em>
+          <a href="#M">section 13</a>
+        </li>
+        <li data-marker="13">
+          <em>14</em>
+          <a href="#N">section 14</a>
+        </li>
+        <li data-marker="14">
+          <em>15</em>
+          <a href="#O">section 15</a>
+        </li>
+        <li data-marker="15">
+          <em>16</em>
+          <a href="#O">section 16</a>
+        </li>
+        <li data-marker="16">
+          <em>17</em>
+          <a href="#P">section 17</a>
+        </li>
+        <li data-marker="17">
+          <em>18</em>
+          <a href="#R">section 18</a>
+        </li>
+        <li data-marker="18">
+          <em>19</em>
+          <a href="#S">section 19</a>
+        </li>
+        <li data-marker="19">
+          <em>20</em>
+          <a href="#Q">section 20</a>
+        </li>
+        <li data-marker="20">
+          <em>21</em>
+          <a href="#Q">section 21</a>
+        </li>
+        <li data-marker="21">
+          <em>22</em>
+          <a href="#Q">section 22</a>
+        </li>
+      </ul>
+      <div class="Scroll-progress-indicator"></div>
+    </nav>
 
-      <!--SECTION 1-->
+    <!--SECTION 1-->
 
-      <section
-        class="container scroll-container scroll-flow home current header js-scroll-step section_1 hidden"
-        data-section-name="home"
-        style="height: 6480px"
-        id="A"
-      >
-        <div class="top-section_1 all-section">
-          <h1 class="vertical-title h1-section1">World Cup 2022</h1>
-          <img
-            src="./images/section1/element-section1.png"
-            alt="element_section1"
-          />
-        </div>
-        <div class="info-section1">
-          <div class="line1">Not The Interactive Walktrough</div>
-          <div class="line2">We Want...</div>
-          <div class="line3">But The Interactive Walktrough</div>
-          <div class="line4">We Need...</div>
-        </div>
-      </section>
-      <!--end SECTION 1 -->
+    <section class="container scroll-container scroll-flow home current header js-scroll-step section_1 hidden"
+      data-section-name="home" style="height: 6480px" id="A">
+      <div class="top-section_1 all-section">
+        <h1 class="vertical-title h1-section1">World Cup 2022</h1>
+        <img src="./images/section1/element-section1.png" alt="element_section1" />
+      </div>
+      <div class="info-section1">
+        <div class="line1">Not The Interactive Walktrough</div>
+        <div class="line2">We Want...</div>
+        <div class="line3">But The Interactive Walktrough</div>
+        <div class="line4">We Need...</div>
+      </div>
+    </section>
+    <!--end SECTION 1 -->
 
-      <!--SECTION 2-->
-      <section
-        class="container scroll-flow js-scroll-step section_2 hidden"
-        data-section-name="test"
-        style="height: 6480px"
-        id="B"
-      >
-        <div class="testM" id="testMM"></div>
-        <div>Section B</div>
-        <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
-        <h2>
-          Va fi pentru prima dată când Mondialul se va desfășura în lunile de
-          iarnă. <br />
-          Va fi iarnă doar în gândurile participanților, deoarece în Doha, în
-          noiembrie-decembrie, <br />
-          temperaturile letiază între 23 și 30 de grade Celsius.
-        </h2>
-        <h3>Section B</h3>
-      </section>
-      <!--END- SECTION 2-->
+    <!--SECTION 2-->
+    <section class="container scroll-flow js-scroll-step section_2 hidden" data-section-name="test"
+      style="height: 6480px" id="B">
+      <div class="testM" id="testMM"></div>
+      <div>Section B</div>
+      <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
+      <h2>
+        Va fi pentru prima dată când Mondialul se va desfășura în lunile de
+        iarnă. <br />
+        Va fi iarnă doar în gândurile participanților, deoarece în Doha, în
+        noiembrie-decembrie, <br />
+        temperaturile letiază între 23 și 30 de grade Celsius.
+      </h2>
+      <h3>Section B</h3>
+    </section>
+    <!--END- SECTION 2-->
 
-      <!--- SECTION 3-->
-      <section
-        class="scroll-container scroll-flow js-scroll-step section_3"
-        id="C"
-      >
-        <div class="testM" id="testMM"></div>
-        <div class="scroll-element js-scroll fade-in panel panel1 section_c">
-          <div id="LogoInsert"></div>
-          <h1>C</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>C</h1>
-        </div>
-      </section>
-      <!--END- SECTION 3-->
+    <!--- SECTION 3-->
+    <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
+      <div class="testM" id="testMM"></div>
+      <div class="scroll-element js-scroll fade-in panel panel1 section_c">
+        <div id="LogoInsert"></div>
+        <h1>C</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>C</h1>
+      </div>
+    </section>
+    <!--END- SECTION 3-->
 
-      <!-- SECTION 4-->
-      <section
-        class="scroll-container scroll-flow js-scroll-step section_4"
-        id="D"
-      >
-        <div class="scroll-element js-scroll fade-in-bottom panel">
-          <div id="LogoInsert"></div>
-        </div>
-        <div class="scroll-caption">
-          <h1>D</h1>
-        </div>
-      </section>
-      <!--END- SECTION 4-->
+    <!-- SECTION 4-->
+    <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
+      <div class="scroll-element js-scroll fade-in-bottom panel">
+        <div id="LogoInsert"></div>
+      </div>
+      <div class="scroll-caption">
+        <h1>D</h1>
+      </div>
+    </section>
+    <!--END- SECTION 4-->
 
-      <!--SECTION 5-->
-      <section
-        class="scroll-container scroll-flow js-scroll-step section_5 hidden"
-        id="E"
-      >
-        <div class="scroll-element js-scroll slide-left panel">
-          <img
-            src=""
-            data-src="./images/section5/Quatar-logo.png"
-            alt="quatar logo lazy"
-            class="quatarLogo lazy lazy-scroll"
-          />
-          <div id="LogoInsert"></div>
-          <h1 class="secondItem vertical-title">
-            <span> Mesaj pentru </span> <br />
-            <span>protectia mediului</span>
-          </h1>
+    <!--SECTION 5-->
+    <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
+      <div class="scroll-element js-scroll slide-left panel">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
+          class="quatarLogo lazy lazy-scroll" />
+        <div id="LogoInsert"></div>
+        <h1 class="secondItem vertical-title">
+          <span> Mesaj pentru </span> <br />
+          <span>protectia mediului</span>
+        </h1>
 
-          <div class="box">
-            <div class="lid" title="Open">Click this box</div>
-            <div class="stuff testss">
-              <p>
-                I use the <code>.on()</code> events not
-                <code>.click()</code> because <code>.click()</code> does not
-                work on dynamically generated objects.
-              </p>
-              <p>
-                The Javascript section shows the variables that represent the
-                same objects.
-              </p>
-              <p>
-                <code>$(this)</code> returns an array of one object, but the
-                literal usage of the object does not, which could be
-                problematic.
-              </p>
-              <p>
-                When creating something like this, don't apply it to the
-                container of all your objects (<code>.box</code>) but to a
-                container inside that container (<code>.stuff</code>), otherwise
-                it will not work.
-              </p>
-              <p>
-                In this <code>.box</code>-<code>.stuff</code> relationship,
-                <code>.box</code> must use <code>position: relative;</code> and
-                <code>.stuff</code> must use <code>position: absolute;</code>.
-              </p>
-              <p>
-                <code>.code</code> should use
-                <code>position: absoulte;</code> in relation to the geometry of
-                <code>.box</code>, but can use <code>position: fixed;</code> if
-                you are interested in making an overlay that covers the window.
-              </p>
-              <p>shown/hidden depending on the toggle above.</p>
-              <p>
-                <code>.box</code> and <code>.stuff</code> should be the same
-                size. Eventually, I'd like to try using some CSS variables, but
-                for compatiblity, the numbers in the CSS section will have to be
-                literal. Javascript/jQuery doesn't have to abide to that.
-              </p>
-              <p>
-                <code>.animate</code> works <strong>exactly</strong> like
-                <code>.css</code>. Well, at least for attributes like
-                <code>"width"</code>, <code>"height"</code>, and so on. I'll
-                have some more examples in the future.
-              </p>
-              <p>
-                In this version, we added an overlay to our box called
-                <code>.lid</code>
-              </p>
-            </div>
-
-            <div class="close" title="Close">&times;</div>
+        <div class="box">
+          <div class="lid" title="Open">Click this box</div>
+          <div class="stuff testss">
+            <p>
+              I use the <code>.on()</code> events not
+              <code>.click()</code> because <code>.click()</code> does not
+              work on dynamically generated objects.
+            </p>
+            <p>
+              The Javascript section shows the variables that represent the
+              same objects.
+            </p>
+            <p>
+              <code>$(this)</code> returns an array of one object, but the
+              literal usage of the object does not, which could be
+              problematic.
+            </p>
+            <p>
+              When creating something like this, don't apply it to the
+              container of all your objects (<code>.box</code>) but to a
+              container inside that container (<code>.stuff</code>), otherwise
+              it will not work.
+            </p>
+            <p>
+              In this <code>.box</code>-<code>.stuff</code> relationship,
+              <code>.box</code> must use <code>position: relative;</code> and
+              <code>.stuff</code> must use <code>position: absolute;</code>.
+            </p>
+            <p>
+              <code>.code</code> should use
+              <code>position: absoulte;</code> in relation to the geometry of
+              <code>.box</code>, but can use <code>position: fixed;</code> if
+              you are interested in making an overlay that covers the window.
+            </p>
+            <p>shown/hidden depending on the toggle above.</p>
+            <p>
+              <code>.box</code> and <code>.stuff</code> should be the same
+              size. Eventually, I'd like to try using some CSS variables, but
+              for compatiblity, the numbers in the CSS section will have to be
+              literal. Javascript/jQuery doesn't have to abide to that.
+            </p>
+            <p>
+              <code>.animate</code> works <strong>exactly</strong> like
+              <code>.css</code>. Well, at least for attributes like
+              <code>"width"</code>, <code>"height"</code>, and so on. I'll
+              have some more examples in the future.
+            </p>
+            <p>
+              In this version, we added an overlay to our box called
+              <code>.lid</code>
+            </p>
           </div>
-        </div>
 
-        <div class="scroll-caption">
-          <div class="footer-section footer-section5">
-            <img
-              src=""
-              data-src="./images/section5/Stadion.png"
-              alt="stadion"
-              class="stadion_picture lazy lazy-scroll"
-            />
-          </div>
+          <div class="close" title="Close">&times;</div>
         </div>
-      </section>
-      <script>
-        $(".expand-button").on("click", function () {
-          $(".special-text-box").toggleClass("-expanded");
-          // $(".js-expand-box").toggleClass("is-expanded");
-          //  $(".figcaption").toggleClass("is-expanded");
+      </div>
 
-          if ($(".special-text-box").hasClass("-expanded")) {
-            $(".expand-button").html("inchide fereastra");
-          } else {
-            $(".expand-button").html("Citeste mai mult");
-          }
-        });
-      </script>
+      <div class="scroll-caption">
+        <div class="footer-section footer-section5">
+          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy lazy-scroll" />
+        </div>
+      </div>
+    </section>
+    <script>
+      $(".expand-button").on("click", function () {
+        $(".special-text-box").toggleClass("-expanded");
+        // $(".js-expand-box").toggleClass("is-expanded");
+        //  $(".figcaption").toggleClass("is-expanded");
 
-      <!-- end SECTION 5-->
-      <!-- TODO:end SECTION 5-->
-      <section
-        class="scroll-container scroll-flow js-scroll-step hidden"
-        id="F"
-      >
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>F</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>F</h1>
-        </div>
-      </section>
-      <section
-        class="scroll-container scroll-flow js-scroll-step hidden"
-        id="G"
-      >
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>G</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>G</h1>
-        </div>
-      </section>
-      <section
-        class="scroll-container scroll-flow js-scroll-step hidden"
-        id="H"
-      >
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>H</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>H</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="I">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>I</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>I</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="J">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>J</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>J</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="K">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>K</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>K</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="L">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>L</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>L</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="M">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>M</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>M</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="N">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>N</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>N</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="O">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>O</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>O</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="P">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>P</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>P</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="Q">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>q</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>q</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="R">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>r</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>r</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="T">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>t</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>t</h1>
-        </div>
-      </section>
-      <section class="scroll-container scroll-flow js-scroll-step" id="U">
-        <div class="scroll-element js-scroll slide-right panel">
-          <div id="LogoInsert"></div>
-          <h1>u</h1>
-        </div>
-        <div class="scroll-caption">
-          <h1>u</h1>
-        </div>
-      </section>
+        if ($(".special-text-box").hasClass("-expanded")) {
+          $(".expand-button").html("inchide fereastra");
+        } else {
+          $(".expand-button").html("Citeste mai mult");
+        }
+      });
+    </script>
 
-      <button class="Scroll-to-top">Scroll To Top</button>
-      <footer id="footer" class="scroll-flow">
-        <p>
-          test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
-        </p>
-        <p>
-          by
-          <a href="https://www.marianiordache.ro" target="_blank">MCsI</a
-          ><span style="color: #d11e15"> &#9829;</span>
-        </p>
-      </footer>
+    <!-- end SECTION 5-->
+    <!-- TODO:end SECTION 5-->
+    <section class="scroll-container scroll-flow js-scroll-step hidden" id="F">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>F</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>F</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step hidden" id="G">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>G</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>G</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step hidden" id="H">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>H</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>H</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="I">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>I</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>I</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="J">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>J</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>J</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="K">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>K</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>K</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="L">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>L</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>L</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="M">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>M</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>M</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="N">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>N</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>N</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="O">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>O</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>O</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="P">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>P</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>P</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="Q">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>q</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>q</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="R">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>r</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>r</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="T">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>t</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>t</h1>
+      </div>
+    </section>
+    <section class="scroll-container scroll-flow js-scroll-step" id="U">
+      <div class="scroll-element js-scroll slide-right panel">
+        <div id="LogoInsert"></div>
+        <h1>u</h1>
+      </div>
+      <div class="scroll-caption">
+        <h1>u</h1>
+      </div>
+    </section>
 
-      <form
-        id="imageform"
-        method="post"
-        enctype="multipart/form-data"
-        action="upload.php"
-      >
-        <div class="field" align="left">
-          <h3>Upload your images</h3>
-          <input type="file" id="files" name="files[]" multiple />
-        </div>
-        <input type="submit" name="submit" value="Submit" />
-      </form>
+    <button class="Scroll-to-top">Scroll To Top</button>
+    <footer id="footer" class="scroll-flow">
+      <p>
+        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
+      </p>
+      <p>
+        by
+        <a href="https://www.marianiordache.ro" target="_blank">MCsI</a><span style="color: #d11e15"> &#9829;</span>
+      </p>
+    </footer>
 
-      <!-- <form id="imageform" method="post" enctype="multipart/form-data">
+    <form id="imageform" method="post" enctype="multipart/form-data" action="upload.php">
+      <div class="field" align="left">
+        <h3>Upload your images</h3>
+        <input type="file" id="files" name="files[]" multiple />
+      </div>
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+
+    <!-- <form id="imageform" method="post" enctype="multipart/form-data">
           <div class="field" align="left">
               <h3>Upload your images</h3>
               <input type="file" id="files" name="files[]" multiple />
@@ -506,116 +457,116 @@
             <input type="submit" name="submit" value="Submit">
         </form> -->
 
-      <script>
-        $.scrollify({
-          // section should be an identifier that is the same for each section
+    <script>
+      $.scrollify({
+        // section should be an identifier that is the same for each section
 
-          // A selector for the sections.
+        // A selector for the sections.
 
-          section: ".scroll-flow",
-          // The name of the data attribute is defined by 'sectionName'.
-          // sectionName : "section-name",
-          // A CSS selector for non-full-height sections, such as a header and footer.
-          interstitialSection: "",
-          // Define the easing method.
-          easing: "easeOutExpo",
-          // Scrolling speed in milliseonds
-          scrollSpeed: 1100,
-          // A distance in pixels to offset each sections position by.
-          offset: 0,
-          // A boolean to define whether scroll bars are visible or not.
-          scrollbars: true,
-          // Target container
-          target: "html,body",
-          // A string of selectors for elements that require standard scrolling behaviour like boxes with text.
-          standardScrollElements: ".testss",
-          // A boolean to define whether Scollify assigns a height to the sections.
-          setHeights: true,
-          // Allows scrolling over overflowing content within sections
-          overflowScroll: true,
-          // Updates the browser location hash when scrolling through sections
-          updateHash: true,
-          // Allows to handle touch scroll events
-          touchScroll: true,
-          // callbacks
-          before: function (i) {
-            let active = $(".slide.active");
-            console.log(active, ".slide.active");
-            active.addClass("remove");
-            /*    
-            // Used to scroll to a particular section.
-            // It can be parsed the index of the section, or the name of the section preceded by a hash.
-            $.scrollify.move("#name");
+        section: ".scroll-flow",
+        // The name of the data attribute is defined by 'sectionName'.
+        // sectionName : "section-name",
+        // A CSS selector for non-full-height sections, such as a header and footer.
+        interstitialSection: "",
+        // Define the easing method.
+        easing: "easeOutExpo",
+        // Scrolling speed in milliseonds
+        scrollSpeed: 1100,
+        // A distance in pixels to offset each sections position by.
+        offset: 0,
+        // A boolean to define whether scroll bars are visible or not.
+        scrollbars: true,
+        // Target container
+        target: "html,body",
+        // A string of selectors for elements that require standard scrolling behaviour like boxes with text.
+        standardScrollElements: ".testss",
+        // A boolean to define whether Scollify assigns a height to the sections.
+        setHeights: true,
+        // Allows scrolling over overflowing content within sections
+        overflowScroll: true,
+        // Updates the browser location hash when scrolling through sections
+        updateHash: true,
+        // Allows to handle touch scroll events
+        touchScroll: true,
+        // callbacks
+        before: function (i) {
+          let active = $(".slide.active");
+          console.log(active, ".slide.active");
+          active.addClass("remove");
+          /*    
+          // Used to scroll to a particular section.
+          // It can be parsed the index of the section, or the name of the section preceded by a hash.
+          $.scrollify.move("#name");
 
-            // Used to scroll to a particular section without animation.
-            // It can be parsed the index of the section, or the name of the section preceded by a hash.
-            $.scrollify.instantMove("#name");
+          // Used to scroll to a particular section without animation.
+          // It can be parsed the index of the section, or the name of the section preceded by a hash.
+          $.scrollify.instantMove("#name");
 
-            // Used to scroll to a panel that immediately follows the current panel.
-            $.scrollify.next()
+          // Used to scroll to a panel that immediately follows the current panel.
+          $.scrollify.next()
 
-            // Used to scroll to a panel that immediately precedes the current panel.
-            $.scrollify.previous()
+          // Used to scroll to a panel that immediately precedes the current panel.
+          $.scrollify.previous()
 
-            // Used to scroll to a panel that immediately follows the current panel, without animation.
-            $.scrollify.instantNext()
+          // Used to scroll to a panel that immediately follows the current panel, without animation.
+          $.scrollify.instantNext()
 
-            // Used to scroll to a panel that immediately precedes the current panel.
-            $.scrollify.instantPrevious()
+          // Used to scroll to a panel that immediately precedes the current panel.
+          $.scrollify.instantPrevious()
 
-            // Removes all Scrollify events and removes set heights from the panels.
-            $.scrollify.destroy()
+          // Removes all Scrollify events and removes set heights from the panels.
+          $.scrollify.destroy()
 
-            // The update methods recalculates the heights and positions of the panels.
-            $.scrollify.update()
+          // The update methods recalculates the heights and positions of the panels.
+          $.scrollify.update()
 
-            // The current method returns the current section as a jQuery object.
-            $.scrollify.current()
+          // The current method returns the current section as a jQuery object.
+          $.scrollify.current()
 
-            // The disable method turns off the scroll snap behaviour so that the page scroll like normal.
-            $.scrollify.disable()
+          // The disable method turns off the scroll snap behaviour so that the page scroll like normal.
+          $.scrollify.disable()
 
-            // The enable method resumes the scroll snap behaviour after the disable method has been used.
-            $.scrollify.enable()
+          // The enable method resumes the scroll snap behaviour after the disable method has been used.
+          $.scrollify.enable()
 
-            // The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
-            $.scrollify.isDisabled()
-            */
+          // The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
+          $.scrollify.isDisabled()
+          */
 
-            //setTimeout(function() {
-            $("[data-slide=" + i + "]").addClass("active");
-            active.removeClass("remove active");
-            console.log("[data-slide=" + i + "]");
-            console.log("after render");
-            //},300);
-          },
-          afterRender() {
-            $(".scroll-flow").each(function () {
-              $(this).css("height", parseInt($(window).height()) * 6);
-              $(this).find(".inner").css("height", $(window).height());
-            });
-
-            $.scrollify.update();
-            $("[data-slide=0]").addClass("active");
-            console.log("after render");
-          },
-        });
-      </script>
-      <script>
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            console.log(entry, "entries caca");
-            if(entry.isIntersecting){
-              entry.target.classList.add('show');
-            } else {
-              entry.target.classList.remove('show');
-            }
+          //setTimeout(function() {
+          $("[data-slide=" + i + "]").addClass("active");
+          active.removeClass("remove active");
+          console.log("[data-slide=" + i + "]");
+          console.log("after render");
+          //},300);
+        },
+        afterRender() {
+          $(".scroll-flow").each(function () {
+            $(this).css("height", parseInt($(window).height()) * 6);
+            $(this).find(".inner").css("height", $(window).height());
           });
-        });
-        const hiddenElement = document.querySelectorAll(".hidden");
-        hiddenElement.forEach((el) => observer.observe(el));
 
-        /*
+          $.scrollify.update();
+          $("[data-slide=0]").addClass("active");
+          console.log("after render");
+        },
+      });
+    </script>
+    <script>
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log(entry, "entries caca");
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          } else {
+            entry.target.classList.remove('show');
+          }
+        });
+      });
+      const hiddenElement = document.querySelectorAll(".hidden");
+      hiddenElement.forEach((el) => observer.observe(el));
+
+      /*
       document.addEventListener("DOMContentLoaded", function() {
   var lazyloadImages;    
 
@@ -666,9 +617,10 @@
   }
 })
 */
-      </script>
-      <script></script>
-      <script src="./indexx.js" defer></script>
-    </div>
-  </body>
+    </script>
+    <script></script>
+    <script src="./indexx.js" defer></script>
+  </div>
+</body>
+
 </html>
