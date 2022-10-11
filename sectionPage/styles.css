@@ -12,7 +12,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather&family=Merriweather+Sans:wght@300&display=swap");
 
-
 /******************* //TODO:ROOT *****************************/
 :root {
   /*responsive*/
@@ -25,10 +24,6 @@
   /*Bg-img*/
   --bg-section-one: url(./images/section1/bg-section1.jpg);
   --section-5-elements-tree: url(./images/section5/palmier_5.png);
-
-
-
-
 
   --bg-section-two: url(./images/section2/bg-section2.png);
   --bg-section-three: url(./images/section3/bg-section3.png);
@@ -43,9 +38,8 @@
   --gray-text: rgb(153, 153, 153);
   /*colors all*/
 
-
   /**container box for text**/
-  --width-container-box-text: 30em !important;
+  --width-container-box-text: calc(50% + 5em);
   /**end container box for text**/
 }
 /******************* //END ROOT *****************************/
@@ -84,23 +78,160 @@ body {
   }
 }
 
-
 /******************* //TODO:General *****************************/
 
+/**box element**/
+
+.box-container-section ul li {
+  list-style: none;
+}
+
+.container-card-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+height: 12em;
+  /* max-width: var(--width-container-box-text);
+  min-width: calc(var(--width-container-box-text) - 40vh); */
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.529);
+  border: 1px solid white;
+  box-shadow: 0 10px 20px 4px rgba(0, 0, 0, 0.496);
+}
+
+.container-card-box ul li {
+  list-style: none;
+}
+.section-text-cards {
+  border: 1px solid black;
+  white-space: wrap;
+  text-align: center;
+  position: relative;
+  max-height: 6em;
+  overflow: hidden;
+  transition: max-height 1s ease;
+  line-height: 1;
+  color: white;
+  padding: 1px 0.4rem;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+.section-text-cards {
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
+.section-text-cards:not(.-expanded)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  color: rgb(211, 8, 8);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.4;
+  background: linear-gradient(rgba(238, 238, 238, 0), rgba(26, 26, 26, 0.37));
+}
+.container-card-box:has(.-expanded) {
+  /* color: crimson;
+background: crimson; */
+  /* transition: max-height 1.2s ease;
+  background: purple !important; */
+}
+
+.section-text-cards.-expanded {
+  max-height: 30vh;
+  overflow: scroll;
+}
+
+.section-text-cards .nav-ul-boxes {
+  font-size: 0.9rem;
+  color: red;
+  text-transform: lowercase;
+  background: blue;
+  transform: translateY(-1.4em);
+  transition: all ease 1s;
+}
+
+.button-boxes {
+  border: 1px solid black;
+  height: 7em;
+  cursor: pointer;
+  display: block;
+  min-width: 5em;
+  max-width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  background-color: darkcyan;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.6rem;
+  margin-right: 0.5em;
+}
+
+.button-boxes:hover,
+.button-boxes:active,
+.button-boxes:focus {
+  background-color: #cad00e;
+}
+.title-icon {
+  top: 0%;
+  left: 120%;
+  font-size: 1rem;
+  z-index: 5;
+  color: #fff;
+  /* transform: transformX(2em); */
+  cursor: pointer;
+  border-radius: 2%;
+  transition: all 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  /* transition-delay: 4.2s; */
+  position: relative;
+  background: #3b0084;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px 7.5px;
+  margin-bottom: 0.3rem;
+}
+.title-icon.is-expanded {
+  left: 0%;
+  transition-delay: 0.5s;
+  transform: transformX(0);
+}
+/* .title-icon.is-expanded ~ .nav-ul-boxes li {
+  transition: all 0.75s cubic-bezier(0.215, 0.61, 0.355, 1);
+  color: chartreuse !important;
+
+} */
+
+/* .nav-ul-boxes.-expanded + .nav-ul-boxes  {
+color: rgb(255, 255, 255) !important;
+font-size: 234em;
+} */
+
+/* .figcaption-icon.is-expanded + .caption-title {
+  opacity: 1;
+  white-space: nowrap;
+  transition-delay: 0.3s;
+} */
+
+/**END box element**/
 .scroll-element {
   display: grid;
   grid-template-columns: repeat(4, minmax(10vw, 1fr));
   grid-template-rows: repeat(7, 70px);
 }
 
-.all-section{
+.all-section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
-
 
 .vertical-title {
   font: bold 4.5em Sans-Serif;
@@ -119,8 +250,6 @@ body {
   display: block;
 }
 
-
-
 .section_1,
 .section_2,
 .section_3,
@@ -130,10 +259,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-
-
-
 
 /* .container {
   max-width: 1280px;
@@ -211,13 +336,12 @@ a:visited {
   grid-row: 1;
   min-height: 300px;
   height: 100%;
-  background-color: #d815153b !important;
+  /* background-color: #d815153b !important; */
 }
 
 .scroll-caption {
   margin: 1rem;
 }
-
 
 footer {
   text-align: center;
@@ -416,7 +540,6 @@ footer a {
 }
 /*******************END General *****************************/
 
-
 /***************************** //TODO: section 1- HEADER - HOME- SECTION 1 ***********************************/
 .section_1 {
   background-image: var(--bg-section-one);
@@ -430,20 +553,17 @@ footer a {
   margin-left: 8vh;
   margin-top: 2vh;
 }
-.info-section1{
+.info-section1 {
   display: block;
 }
-.line1, .line3{
+.line1,
+.line3 {
   font-size: 3em;
 }
-.scroll-container:nth-of-type(2)
-.h1-section1 {
+.scroll-container:nth-of-type(2) .h1-section1 {
   font-size: 5.2em !important;
   letter-spacing: 0;
 }
-
-
-
 
 /*****************************END  HEADER - HOME 1 ***********************************/
 
@@ -486,10 +606,9 @@ footer a {
   grid-row: 3 / span 3;
 }
 
-
 @media screen and (orientation: portrait) {
   .section_5 {
-background-image: var(--bg-section-five) !important;
+    background-image: var(--bg-section-five) !important;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -497,22 +616,20 @@ background-image: var(--bg-section-five) !important;
     z-index: 10;
   }
 
-   .section_5::before {
+  .section_5::before {
     content: "";
     position: absolute;
     right: -39px;
     top: -5px;
     width: 100%;
-    height: 100%; 
-    background-image:var(--section-5-elements-tree);
-    background-size: 80%; 
+    height: 100%;
+    background-image: var(--section-5-elements-tree);
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center;
-  } 
+  }
 
-
-
-   .section_5 .secondItem {
+  .section_5 .secondItem {
     font: bold 4.5em Sans-Serif;
     text-transform: uppercase;
     color: #fff;
@@ -527,7 +644,7 @@ background-image: var(--bg-section-five) !important;
     transform: rotate(-180deg);
     white-space: nowrap;
     display: block;
-  } 
+  }
 
   .section_5 .secondItem span:nth-child(1) {
     font-size: 3rem;
@@ -562,7 +679,6 @@ background-image: var(--bg-section-five) !important;
     padding: 1em;
   }
 
- 
   .card-box-section5.card-box::after,
   .card-box-section5.card-box::after {
     content: "";
@@ -600,11 +716,6 @@ background-image: var(--bg-section-five) !important;
 }
 
 /****************************END SECTION 5***********************************/
-
-
-
-
-
 
 /********************* //TODO:NAV LINKS LEFT*****************************/
 
@@ -700,7 +811,6 @@ background-image: var(--bg-section-five) !important;
 
 /*********************END NAV LINKS LEFT*****************************/
 
-
 /********************* //TODO:MEDIA QUERRY *****************************/
 
 /* Smartphones (portrait and landscape) ----------- */
@@ -774,12 +884,6 @@ background-image: var(--bg-section-five) !important;
 }
 /********************* //TODO:MEDIA QUERRY *****************************/
 
-
-
-
-
-
-
 /*test*/
 
 /* Our overlay */
@@ -792,15 +896,16 @@ background-image: var(--bg-section-five) !important;
   z-index: 15;
 }
 
-.box{
- background:#98bf21;margin:6px;
- position: relative; /* parent element needs to be relative to .close button */
- overflow: hidden;
- width:  100px;
- height: 100px;
- z-index: 3;
- /*border: 1px solid #f00;*/
- /* cursor: pointer; */
+.box {
+  background: #98bf21;
+  margin: 6px;
+  position: relative; /* parent element needs to be relative to .close button */
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  z-index: 3;
+  /*border: 1px solid #f00;*/
+  /* cursor: pointer; */
 }
 
 .stuff {
@@ -808,56 +913,52 @@ background-image: var(--bg-section-five) !important;
   overflow: hidden;
 
   font-size: 2em;
-
 }
-.box{
+.box {
   width: 230px;
   height: 142px;
   grid-column: 1;
   grid-row: 2 / span 2;
 }
- 
+
 .close {
-         /*position: fixed;         /* If it is fixed, it will appear where it should, in the top-right of this expanded element */
-         position: absolute;  /* If it is absolute, it will appear in the position of the top-right corner of the parent element */
-         top: 20px;
-         right: 20px;
+  /*position: fixed;         /* If it is fixed, it will appear where it should, in the top-right of this expanded element */
+  position: absolute; /* If it is absolute, it will appear in the position of the top-right corner of the parent element */
+  top: 20px;
+  right: 20px;
 
-         width: 36px;
-         height: 36px;
-         margin: 4px 8px;
-         background-color: gray;
-         opacity: 0.7;
-         display: none;
-         z-index: 10;  /* This should be on top of .stuff */
-         font-size: 24pt;
-         font-weight: bold;
-         border-radius: 25px;  /* Almost makes our box a circle. */
-         cursor: pointer;
-         text-align: center;
-      }
+  width: 36px;
+  height: 36px;
+  margin: 4px 8px;
+  background-color: gray;
+  opacity: 0.7;
+  display: none;
+  z-index: 10; /* This should be on top of .stuff */
+  font-size: 24pt;
+  font-weight: bold;
+  border-radius: 25px; /* Almost makes our box a circle. */
+  cursor: pointer;
+  text-align: center;
+}
 
-    .box {
-      z-index:211212 !important ;
-    }
+.box {
+  z-index: 211212 !important ;
+}
 
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+.show {
+  opacity: 1;
+  background: rgb(158, 140, 140);
+  filter: blur(0);
+  transform: translateX(0);
+}
 
-    .hidden {
-      opacity: 0;
-      filter: blur(5px);
-      transform: translateX(-100%);
-      transition: all 1s;
-    
-      
-    }
-    .show {
-      opacity: 1;
-      background: rgb(158, 140, 140);
-      filter: blur(0);
-      transform: translateX(0);
-    }
-
-@media(prefers-reduced-motion){
+@media (prefers-reduced-motion) {
   .hidden {
     transition: none;
   }

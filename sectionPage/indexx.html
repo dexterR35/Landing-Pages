@@ -214,62 +214,25 @@
           <span> Mesaj pentru </span> <br />
           <span>protectia mediului</span>
         </h1>
-
-        <div class="box">
-          <div class="lid" title="Open">Click this box</div>
-          <div class="stuff testss">
-            <p>
-              I use the <code>.on()</code> events not
-              <code>.click()</code> because <code>.click()</code> does not
-              work on dynamically generated objects.
-            </p>
-            <p>
-              The Javascript section shows the variables that represent the
-              same objects.
-            </p>
-            <p>
-              <code>$(this)</code> returns an array of one object, but the
-              literal usage of the object does not, which could be
-              problematic.
-            </p>
-            <p>
-              When creating something like this, don't apply it to the
-              container of all your objects (<code>.box</code>) but to a
-              container inside that container (<code>.stuff</code>), otherwise
-              it will not work.
-            </p>
-            <p>
-              In this <code>.box</code>-<code>.stuff</code> relationship,
-              <code>.box</code> must use <code>position: relative;</code> and
-              <code>.stuff</code> must use <code>position: absolute;</code>.
-            </p>
-            <p>
-              <code>.code</code> should use
-              <code>position: absoulte;</code> in relation to the geometry of
-              <code>.box</code>, but can use <code>position: fixed;</code> if
-              you are interested in making an overlay that covers the window.
-            </p>
-            <p>shown/hidden depending on the toggle above.</p>
-            <p>
-              <code>.box</code> and <code>.stuff</code> should be the same
-              size. Eventually, I'd like to try using some CSS variables, but
-              for compatiblity, the numbers in the CSS section will have to be
-              literal. Javascript/jQuery doesn't have to abide to that.
-            </p>
-            <p>
-              <code>.animate</code> works <strong>exactly</strong> like
-              <code>.css</code>. Well, at least for attributes like
-              <code>"width"</code>, <code>"height"</code>, and so on. I'll
-              have some more examples in the future.
-            </p>
-            <p>
-              In this version, we added an overlay to our box called
-              <code>.lid</code>
-            </p>
+        <div class="container-card-box -expanded thirdItem">
+          <button class="button-boxes btn-cards">citeste mai mult</button>
+          <div class="section-text-cards testss">
+            <span>Qatar 2022</span>
+            <li class="title-icon js-expand">STIAI CA...?</li>
+            <ul class="nav-ul-boxes -expanded">
+              <li>
+                Stadionul Ras Abu Aboud, cunoscut și ca Stadionul 974, este
+                construit din containere de transport maritim și la finalul World
+                Cup 2022 va fi complet dezmembrat
+              </li>
+              <li>
+                Este un mod de a promova reducerea deșeurilor și reciclarea în
+                construcții de stadioane și nu numai.
+              </li>
+            </ul>
           </div>
-
-          <div class="close" title="Close">&times;</div>
         </div>
+     
       </div>
 
       <div class="scroll-caption">
@@ -279,15 +242,33 @@
       </div>
     </section>
     <script>
-      $(".expand-button").on("click", function () {
-        $(".special-text-box").toggleClass("-expanded");
+     // $(".expand-button").on("click", function () {
+      //   $(".special-text-box").toggleClass("-expanded");
+      //   // $(".js-expand-box").toggleClass("is-expanded");
+      //   //  $(".figcaption").toggleClass("is-expanded");
+
+      //   if ($(".special-text-box").hasClass("-expanded")) {
+      //     $(".expand-button").html("inchide fereastra");
+      //   } else {
+      //     $(".expand-button").html("Citeste mai mult");
+      //   }
+      // });
+
+      $(".button-boxes").on("click", function () {
+        $(".section-text-cards").toggleClass("-expanded");
+  
+        
+        $(".js-expand").toggleClass("is-expanded");
         // $(".js-expand-box").toggleClass("is-expanded");
         //  $(".figcaption").toggleClass("is-expanded");
 
-        if ($(".special-text-box").hasClass("-expanded")) {
-          $(".expand-button").html("inchide fereastra");
+        if ($(".section-text-cards").hasClass("-expanded")) {
+     
+          $(".button-boxes").html("Inchide");
+          $(".nav-ul-boxes").css({"background-color":"yellow","transform": "translateY(0.5em)"});
         } else {
-          $(".expand-button").html("Citeste mai mult");
+          $(".button-boxes").html("Citeste mai mult");
+          $(".nav-ul-boxes").css({"transform":"translateY(-1.2em)","transition":" 1s ease" });
         }
       });
     </script>
