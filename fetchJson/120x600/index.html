@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>TG 120X600</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body class="body">
+  <div class="banner-container" v-cloak>
+  <div :class="{'banner':true , 'slide-2' : isSlide(2), 'slide-1' : isSlide(1), 'slide-0' : isSlide(0)}">
+    <img src="images/betfirst_logo_500px.png" loading="lazy" alt="" class="logo">
+    <div class="match">Man City<br><span>VS</span> Real Madrid</div>
+    <div class="odds">
+      <img src="images/left.svg" class="left-arrow" @click="decrementSlide">
+      <div class="view">
+        <div
+            class="content"
+            :style="{transform: this.transformValue}"
+        >
+          <div class="center-odds" v-for="slide in slides">
+            <div class="title" v-html="slide.name"></div>
+            <div class="odds-new">
+              <div>{{ slide.oddname1 }}</div>
+              <a href="#" class="odd first">{{ slide.totalgoals }}</a>
+            </div>
+            <div class="odds-new">
+              <div>{{ slide.oddname2 }}</div>
+              <a href="#" class="odd second">{{ slide.goalsplus }}<a>
+            </div>
+            <div class="odds-new">
+              <div>{{ slide.oddname3 }}</div>
+              <a href="#" class="odd third">{{ slide.goalsminus }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="images/right.svg" class="right-arrow"  @click="incrementSlide">
+    </div>
+    <div class="dots">
+      <div
+          v-for="i in this.slides.length"
+          :class="['dot', i-1 === currentSlideIndex ? 'active' : '']"
+      ></div>
+    </div>
+    <a href="#" class="cta">PARIEZ</a>
+    <div class="footer">
+      <div class="year">18+</div>
+      <div class="footertext">PLAY WITH MODERATION</div>
+    </div>
+  </div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <script>
+    const app = new Vue({
+                el: ".banner-container",
+                data: {
+                    timer: 0, 
+                    currentSlideIndex: 0,
+                    slides: [
+                        {
+                            name:"Total Goals",
+                            oddname1:"Goals",
+                            oddname2:"+",
+                            oddname3:"-",
+                            totalgoals: "2.24",
+                            goalsplus: "2.24",
+                            goalsminus: "3.5",
+                        },
+                        {
+                            name:"Both Teams to Score",
+                            oddname1: "",
+                            oddname2:"Yes",
+                            oddname3:"No",
+                            totalgoals: "",
+                            goalsplus: "1.24",
+                            goalsminus: "1.24",
+                        },
+                        {
+                            name:"Man City <br><span>VS</span><br> Real Madrid",
+                            oddname1: "1",
+                            oddname2:"X",
+                            oddname3:"2",
+                            totalgoals: "2.24",
+                            goalsplus: "3.5",
+                            goalsminus: "5.7",
+                        },
+                    ],
+                },
+                computed: {
+                    transformValue: function () {
+                        return `translateX(-${this.currentSlideIndex * 100}%)`;
+                    },
+                },
+                methods: {
+                    incrementSlide: function () {
+                        if (this.currentSlideIndex === this.slides.length - 1) {
+                            this.currentSlideIndex = 0;
+                            clearInterval(this.timer);
+                            this.timer = setInterval(this.incrementSlide, 5000);
+                        } else {
+                            this.currentSlideIndex++;
+                            clearInterval(this.timer);
+                            this.timer = setInterval(this.incrementSlide, 5000);
+                        }
+                    },
+                    decrementSlide: function () {
+                        if (this.currentSlideIndex === 0) {
+                            this.currentSlideIndex = this.slides.length - 1;
+                            clearInterval(this.timer);
+                            this.timer = setInterval(this.incrementSlide, 5000);
+                        } else {
+                            this.currentSlideIndex--;
+                            clearInterval(this.timer);
+                            this.timer = setInterval(this.incrementSlide, 5000);
+                        }
+                    },
+                    isSlide: function (n) {
+                        return this.currentSlideIndex === n;
+                    }
+                },
+                mounted: function (){
+                  this.timer = setInterval(this.incrementSlide, 5000);
+                }
+        });
+  </script>
+</body>
+</html>

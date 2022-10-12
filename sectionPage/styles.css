@@ -87,13 +87,13 @@ body {
 }
 
 .container-card-box {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 250px;
-height: 12em;
+  width: 220px;
+  height: auto;
   /* max-width: var(--width-container-box-text);
   min-width: calc(var(--width-container-box-text) - 40vh); */
   padding: 5px;
@@ -599,11 +599,11 @@ footer a {
 
 .thirdItem {
   grid-column: 2;
-  grid-row: 5 / span 1;
+  grid-row: 2;
 }
 .fourItem {
   grid-column: 2;
-  grid-row: 3 / span 3;
+  grid-row: 6 ;
 }
 
 @media screen and (orientation: portrait) {

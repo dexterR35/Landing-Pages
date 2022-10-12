@@ -66,6 +66,9 @@
 
 // },{once:true});
 
+
+  
+/*
 (function () {
   const scrollElements = document.querySelectorAll(".js-scroll");
   console.log(scrollElements, "scrollelement");
@@ -380,82 +383,166 @@
   // END APP init
   //////////////////////
 })();
-
-
-$(document).ready(function(){
+*/
+/*
+$(document).ready(function () {
   // Basically, we can click anywhere in the body to get our .on() events to work.
+  
   var $body = $(document.body);
 
   // Click on a frame to expand it
-  $body.on("click",".lid",function()
-  {
-     var $box = $(this).parent();
-     var $lid = $box.children(".lid");
-     var $stuff = $box.children(".stuff"); // instead of $(this)
-     var $close = $box.children(".close");
-     var $width  = 300;
-     var $height = 300;
-    
-     $lid.css({
-       "cursor" : "default"
-     });
-    
-     $lid.animate({
-       "width" : "0px",
-       "height" : "0px",
-       "opacity" : 0.0
-     }, "fast");
-    
-     $box.animate({
-       "width" : $width,
-       "height": $height
-     },"fast");
-    
-     $stuff.css({
-      "width" : $width,
+  $body.on("click", ".lid", function () {
+    var $box = $(this).parent();
+    var $lid = $box.children(".lid");
+    var $stuff = $box.children(".stuff"); // instead of $(this)
+    var $close = $box.children(".close");
+    var $width = 300;
+    var $height = 300;
+
+    $lid.css({
+      "cursor": "default"
+    });
+
+    $lid.animate({
+      "width": "0px",
+      "height": "0px",
+      "opacity": 0.0
+    }, "fast");
+
+    $box.animate({
+      "width": $width,
+      "height": $height
+    }, "fast");
+
+    $stuff.css({
+      "width": $width,
       "height": $height,
-      /* "position": "fixed", */
-      "overflow" : "scroll",
-      "z-index" : 4
-     });    
-     // TODO: Eventually, box growth animation
+       "position": "fixed", 
+      "overflow": "scroll",
+      "z-index": 4
+    });
+
     $close.fadeIn("fast");
+
+ 
   });
 
   // Click on the return box to restore it back to its screen position.
-  $body.on("click",".close",function()
-  {
-     var $box   = $(this).parent();
-     var $lid   = $box.children(".lid");
-     var $stuff = $box.children(".stuff"); 
+  $body.on("click", ".close", function () {
+    var $box = $(this).parent();
+    var $lid = $box.children(".lid");
+    var $stuff = $box.children(".stuff");
     var $close = $box.children(".close"); // Instead of $(this)
-    var $width  = 100;
+    var $width = 100;
     var $height = 100;
     // Do what we did in reverse!
-     $close.fadeOut("fast");
-     // TODO: Eventually, box shrink animation
-     $stuff.css({
-      "width" : $width,
+    $close.fadeOut("fast");
+
+    $stuff.css({
+      "width": $width,
       "height": $height,
-      /* "position" : "absolute", */
-      "overflow" : "hidden",
-      "z-index"  : 0
-     });
-     $box.animate({
-       "width" : $width,
-       "height": $height
-     },"fast");
-    
+      "overflow": "hidden",
+      "z-index": 0
+    });
+    $box.animate({
+      "width": $width,
+      "height": $height
+    }, "fast");
+
     $lid.animate({
-      "width" : "100px",
-      "height" : "100px",
-      "opacity" : 1.0
-    },"fast");
+      "width": "100px",
+      "height": "100px",
+      "opacity": 1.0
+    }, "fast");
     $lid.css({
-      "cursor" : "pointer"
+      "cursor": "pointer"
     });
   });
 });
+*/
+let text = 'STIAI CA..s?';
+
+var box_div_element = `<div class="container-card-box -expanded">
+<button class="button-boxes btn-cards btn-card-normal">citeste mai mult</button>
+<div class="section-text-cards section-card-normal forScrollingInside">
+  <span>Qatar 2022</span>
+  <li class="title-icon js-expand-normal">{text}]</li>
+  <ul class="nav-ul-boxes ul-card-normal -expanded">
+    <li>
+      Stadionul Ras Abu Aboud, cunoscut și ca Stadionul 974, este
+      construit din containere de transport maritim și la finalul World
+      Cup 2022 va fi complet dezmembrat
+    </li>
+    <li>
+      Este un mod de a promova reducerea deșeurilor și reciclarea în
+      construcții de stadioane și nu numai.
+    </li>
+  </ul>
+</div>
+</div>
+`;
+let box_div_element_reverse = `<div class="container-card-box -expanded ">
+<button class="button-boxes btn-cards btn-card-reverse">citeste mai mult</button>
+<div class="section-text-cards section-card-reverse forScrollingInside">
+  <span>Qatar 2022</span>
+  <li class="title-icon js-expand-reverse">${text}</li>
+  <ul class="nav-ul-boxes ul-card-reverse -expanded">
+    <li>
+      Stadionul Ras Abu Aboud, cunoscut și ca Stadionul 974, este
+      construit din containere de transport maritim și la finalul World
+      Cup 2022 va fi complet dezmembrat
+    </li>
+    <li>
+      Este un mod de a promova reducerea deșeurilor și reciclarea în
+      construcții de stadioane și nu numai.
+    </li>
+  </ul>
+</div>
+</div>
+`;
+
+let allBoxes = [box_div_element, box_div_element_reverse];
+console.log(allBoxes, "boxes");
+
+
+let allbuttons = document.getElementsByClassName("button-boxes");
+console.log(allbuttons, "boxes");
+
+
+
+$(document).ready(function () {
+    $(".insert_box").append(box_div_element);
+    $(".insert_box_reverse").append(box_div_element_reverse);
+
+    $(".btn-card-normal").on("click", function () {
+      $(".js-expand-normal").addClass("is-expanded");
+      $(".section-card-normal").toggleClass("-expanded");
+        if ($(".section-card-normal").hasClass("-expanded")) {
+          $(".btn-card-normal").html("Inchide");
+          $(".ul-card-normal").css({"background-color": "yellow",transform: "translateY(0.5em)"});
+        } else {
+          $(".js-expand-normal").removeClass("is-expanded");
+          $(".button-boxes").html("Citeste mai mult");
+          $(".ul-card-normal").css({transform: "translateY(-1.2em)",transition: " 1s ease",
+          });
+        }
+    });
+    $(".btn-card-reverse").on("click", function () {
+      $(".section-card-reverse").toggleClass("-expanded");
+      $(".js-expand-reverse").addClass("is-expanded");
+      if ($(".section-card-reverse").hasClass("-expanded")) {
+        $(".btn-card-reverse").html("Inchide");
+        $(".ul-card-reverse").css({ "background-color": "yellow", "transform": "translateY(0.5em)"});
+      } else {
+        $(".js-expand-reverse").removeClass("is-expanded");
+        $(".button-boxes").html("Citeste mai mult");
+        $(".ul-card-reverse").css({ transform: "translateY(-1.2em)","transition": "1s ease"});
+      }
+  });
+});
+
+
+
 /*
 function updateChart() {
   async function fetchData() {

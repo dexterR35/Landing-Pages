@@ -154,6 +154,8 @@
         <h1 class="vertical-title h1-section1">World Cup 2022</h1>
         <img src="./images/section1/element-section1.png" alt="element_section1" />
       </div>
+      <div class="insert_box thirdItem"></div>
+      <div class="insert_box_reverse fourItem"></div>
       <div class="info-section1">
         <div class="line1">Not The Interactive Walktrough</div>
         <div class="line2">We Want...</div>
@@ -166,30 +168,29 @@
     <!--SECTION 2-->
     <section class="container scroll-flow js-scroll-step section_2 hidden" data-section-name="test"
       style="height: 6480px" id="B">
-      <div class="testM" id="testMM"></div>
-      <div>Section B</div>
-      <h1>Qatar 2022. Primul turneu pe timp de iarnă</h1>
-      <h2>
-        Va fi pentru prima dată când Mondialul se va desfășura în lunile de
-        iarnă. <br />
-        Va fi iarnă doar în gândurile participanților, deoarece în Doha, în
-        noiembrie-decembrie, <br />
-        temperaturile letiază între 23 și 30 de grade Celsius.
-      </h2>
+
+   
       <h3>Section B</h3>
     </section>
     <!--END- SECTION 2-->
 
     <!--- SECTION 3-->
     <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
-      <div class="testM" id="testMM"></div>
-      <div class="scroll-element js-scroll fade-in panel panel1 section_c">
+      <div class="scroll-element js-scroll slide-left panel">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
+          class="quatarLogo lazy lazy-scroll" />
         <div id="LogoInsert"></div>
-        <h1>C</h1>
+        <h1 class="secondItem vertical-title">
+          <span>Mesaj pentru</span><br/>
+          <span>protectia mediului</span>
+        </h1>
+       <div class="insert_box thirdItem"></div>
+       <div class="insert_box_reverse fourItem"></div>
       </div>
       <div class="scroll-caption">
-        <h1>C</h1>
-      </div>
+        <div class="footer-section footer-section5">
+          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy lazy-scroll" />
+        </div>
     </section>
     <!--END- SECTION 3-->
 
@@ -206,7 +207,7 @@
 
     <!--SECTION 5-->
     <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
-      <div class="scroll-element js-scroll slide-left panel">
+      <div class="scroll-element js-scrolling slide-left panel">
         <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
           class="quatarLogo lazy lazy-scroll" />
         <div id="LogoInsert"></div>
@@ -214,24 +215,8 @@
           <span> Mesaj pentru </span> <br />
           <span>protectia mediului</span>
         </h1>
-        <div class="container-card-box -expanded thirdItem">
-          <button class="button-boxes btn-cards">citeste mai mult</button>
-          <div class="section-text-cards testss">
-            <span>Qatar 2022</span>
-            <li class="title-icon js-expand">STIAI CA...?</li>
-            <ul class="nav-ul-boxes -expanded">
-              <li>
-                Stadionul Ras Abu Aboud, cunoscut și ca Stadionul 974, este
-                construit din containere de transport maritim și la finalul World
-                Cup 2022 va fi complet dezmembrat
-              </li>
-              <li>
-                Este un mod de a promova reducerea deșeurilor și reciclarea în
-                construcții de stadioane și nu numai.
-              </li>
-            </ul>
-          </div>
-        </div>
+       <div class="insert_box thirdItem"></div>
+       <div class="insert_box_reverse fourItem"></div>
      
       </div>
 
@@ -254,23 +239,20 @@
       //   }
       // });
 
-      $(".button-boxes").on("click", function () {
-        $(".section-text-cards").toggleClass("-expanded");
-  
-        
-        $(".js-expand").toggleClass("is-expanded");
-        // $(".js-expand-box").toggleClass("is-expanded");
-        //  $(".figcaption").toggleClass("is-expanded");
+      // $(".button-boxes").on("click", function () {
+      //   $(".section-text-cards").toggleClass("-expanded");
+      //   $(".js-expand").toggleClass("is-expanded");
+      //   // $(".js-expand-box").toggleClass("is-expanded");
+      //   //  $(".figcaption").toggleClass("is-expanded");
 
-        if ($(".section-text-cards").hasClass("-expanded")) {
-     
-          $(".button-boxes").html("Inchide");
-          $(".nav-ul-boxes").css({"background-color":"yellow","transform": "translateY(0.5em)"});
-        } else {
-          $(".button-boxes").html("Citeste mai mult");
-          $(".nav-ul-boxes").css({"transform":"translateY(-1.2em)","transition":" 1s ease" });
-        }
-      });
+      //   if ($(".section-text-cards").hasClass("-expanded")) {
+      //     $(".button-boxes").html("Inchide");
+      //     $(".nav-ul-boxes").css({"background-color":"yellow","transform": "translateY(0.5em)"});
+      //   } else {
+      //     $(".button-boxes").html("Citeste mai mult");
+      //     $(".nav-ul-boxes").css({"transform":"translateY(-1.2em)","transition":" 1s ease" });
+      //   }
+      // });
     </script>
 
     <!-- end SECTION 5-->
@@ -460,7 +442,7 @@
         // Target container
         target: "html,body",
         // A string of selectors for elements that require standard scrolling behaviour like boxes with text.
-        standardScrollElements: ".testss",
+        standardScrollElements: ".forScrollingInside",
         // A boolean to define whether Scollify assigns a height to the sections.
         setHeights: true,
         // Allows scrolling over overflowing content within sections
