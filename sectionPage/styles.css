@@ -222,7 +222,7 @@ font-size: 234em;
 .scroll-element {
   display: grid;
   grid-template-columns: repeat(5, minmax(10vw, 1fr));
-  grid-template-rows: repeat(7, 70px);
+  grid-template-rows: repeat(8, 70px);
 }
 
 .all-section {
@@ -248,6 +248,8 @@ font-size: 234em;
   transform: rotate(-180deg);
   white-space: nowrap;
   display: block;
+  position: relative;
+  top: 4vh;
 }
 
 .section_1,
@@ -279,7 +281,7 @@ a:visited {
 
 .scroll-container {
   height: 100vh;
-  min-height: 450px !important;
+  /* min-height: 450px !important; */
   padding: 1.2rem 1rem;
   display: grid;
   align-items: center;
@@ -291,15 +293,16 @@ a:visited {
     auto-fill,
     minmax(var(--auto-grid-min-size), 1fr)
   );
+  /* grid-template-rows: repeat(3,1fr); */
   /* grid-gap: 1rem; */
   /* grid-template-columns: repeat(4,10vh);
   grid-template-rows: repeat(7,14em); */
 
-  box-sizing: border-box;
 }
 
 .scroll-container:nth-of-type(1) {
   background-color: black;
+  border: 1em solid #fff;
 }
 
 .scroll-container:nth-of-type(2) {
@@ -341,6 +344,8 @@ a:visited {
 
 .scroll-caption {
   margin: 1rem;
+  grid-column: 1;
+  grid-row: 3;
 }
 
 footer {
@@ -550,8 +555,22 @@ footer a {
 /***************************** //TODO: section 1- HEADER - HOME- SECTION 1 ***********************************/
 .section_1 {
   background-image: var(--bg-section-one);
+  position: relative;
 }
-
+.section_1::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* mix-blend-mode: revert; */
+  /* opacity: 0.5; */
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-image: url(./images/section1/footbal.png);
+}
 
 .top-section_1 {
   justify-content: space-around !important;
@@ -567,13 +586,13 @@ footer a {
   text-align: center;
   /* margin-left: 1em; */
   margin-right: 2.5em;
-  margin-top: 5.3em;
+  margin-top: 4.3em;
   text-transform: uppercase;
   text-shadow: 0px 5px 5px rgb(0 0 0 / 40%);
 }
 .info-section1 .line1,
 .info-section1 .line3 {
-  font-size: 2.3vmax;
+  font-size: 2.05em;
   letter-spacing: -0.5px;
 }
 .info-section1 .line2,
@@ -583,7 +602,7 @@ footer a {
   margin-top: -0.18em;
 }
 .info-section1 .line2 {
-  font-size: 8vmax;
+  font-size: 7.2em;
 }
 .info-section1 .line2 span {
   font-size: 0.65em;
@@ -592,12 +611,12 @@ footer a {
   margin-top: -0.5em;
 }
 .info-section1 .line4 {
-  font-size: 7.3vmax;
+  font-size: 6.6em;
   /* margin-left: 0.35em;
 } */
 }
 .top-section_1 .h1-section1 {
-  font-size: 8em !important;
+  font-size: 8.5em !important;
   letter-spacing: 0;
   opacity: 0.8;
   text-shadow: 0px 7px 5px rgb(0 0 0 / 70%);
@@ -716,22 +735,7 @@ height: auto;
     background-position: center;
   }
 
-  .section_5 .secondItem {
-    font: bold 4.5em Sans-Serif;
-    text-transform: uppercase;
-    color: #fff;
-    padding: 5px 10px;
-    margin: 10px -20px 0px;
-    line-height: 0.85;
-    writing-mode: tb-rl;
-    -webkit-transform: rotate(-180deg);
-    -moz-transform: rotate(-180deg);
-    -o-transform: rotate(-180deg);
-    -ms-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-    white-space: nowrap;
-    display: block;
-  }
+
 
   .section_5 .secondItem span:nth-child(1) {
     font-size: 3rem;
@@ -791,9 +795,7 @@ height: auto;
     left: -102px;
   }
 
-  .scroll-caption {
-    z-index: 212;
-  }
+
 
   .footer-section .stadion_picture {
     width: 100%;
