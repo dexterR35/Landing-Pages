@@ -384,82 +384,21 @@
   //////////////////////
 })();
 */
-/*
-$(document).ready(function () {
-  // Basically, we can click anywhere in the body to get our .on() events to work.
-  
-  var $body = $(document.body);
 
-  // Click on a frame to expand it
-  $body.on("click", ".lid", function () {
-    var $box = $(this).parent();
-    var $lid = $box.children(".lid");
-    var $stuff = $box.children(".stuff"); // instead of $(this)
-    var $close = $box.children(".close");
-    var $width = 300;
-    var $height = 300;
+      // const observer = new IntersectionObserver((entries) => {
+      //   entries.forEach((entry) => {
+      //     console.log(entry, "entries caca");
+      //     console.log(entries, "entries caca");
+      //     if (entry.isIntersecting) {
+      //       entry.target.classList.add('show');
+      //     } else {
+      //       entry.target.classList.remove('show');
+      //     }
+      //   });
+      // });
+      // const hiddenElement = document.querySelectorAll(".thirdItem");
+      // hiddenElement.forEach((el) => observer.observe(el));
 
-    $lid.css({
-      "cursor": "default"
-    });
-
-    $lid.animate({
-      "width": "0px",
-      "height": "0px",
-      "opacity": 0.0
-    }, "fast");
-
-    $box.animate({
-      "width": $width,
-      "height": $height
-    }, "fast");
-
-    $stuff.css({
-      "width": $width,
-      "height": $height,
-       "position": "fixed", 
-      "overflow": "scroll",
-      "z-index": 4
-    });
-
-    $close.fadeIn("fast");
-
- 
-  });
-
-  // Click on the return box to restore it back to its screen position.
-  $body.on("click", ".close", function () {
-    var $box = $(this).parent();
-    var $lid = $box.children(".lid");
-    var $stuff = $box.children(".stuff");
-    var $close = $box.children(".close"); // Instead of $(this)
-    var $width = 100;
-    var $height = 100;
-    // Do what we did in reverse!
-    $close.fadeOut("fast");
-
-    $stuff.css({
-      "width": $width,
-      "height": $height,
-      "overflow": "hidden",
-      "z-index": 0
-    });
-    $box.animate({
-      "width": $width,
-      "height": $height
-    }, "fast");
-
-    $lid.animate({
-      "width": "100px",
-      "height": "100px",
-      "opacity": 1.0
-    }, "fast");
-    $lid.css({
-      "cursor": "pointer"
-    });
-  });
-});
-*/
 let text = 'STIAI CA..s?';
 
 var box_div_element = `<div class="container-card-box -expanded">
@@ -501,12 +440,12 @@ let box_div_element_reverse = `<div class="container-card-box -expanded ">
 </div>
 `;
 
-let allBoxes = [box_div_element, box_div_element_reverse];
-console.log(allBoxes, "boxes");
+// let allBoxes = [box_div_element, box_div_element_reverse];
+// console.log(allBoxes, "boxes");
 
 
-let allbuttons = document.getElementsByClassName("button-boxes");
-console.log(allbuttons, "boxes");
+// let allbuttons = document.getElementsByClassName("button-boxes");
+// console.log(allbuttons, "boxes");
 
 
 

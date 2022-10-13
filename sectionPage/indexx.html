@@ -23,18 +23,22 @@
 </head>
 
 <body>
+
   <script>
+let ttttest = $(window).height();
+console.log( ttttest,"ready!2" );
+let current_img_lazy = document.getElementsByClassName("current_img_lazy");
+      console.log(current_img_lazy,"curent")
     $(window).scroll(function () {
+
+ 
       $.each($(".lazy-scroll"), function (data2) {
-        if (
-          $(this).attr("data-src") &&
-          $(this).offset().top <
-          $(window).scrollTop() + $(window).height() + 100
-        ) {
+        if ($(this).attr("data-src") && $(this).offset().top < $(window).scrollTop() + $(window).height() + 100)  {
+   
+          console.log(($(this).offset().top), "hey1");
           let source = $(this).data("src");
           $(this).attr("src", source);
           $(this).removeAttr("data-src");
-          console.log(data2, "data-src");
         }
       });
     });
@@ -148,14 +152,13 @@
 
     <!--SECTION 1-->
 
-    <section class="container scroll-container scroll-flow home current header js-scroll-step section_1 hidden"
+    <section class="container scroll-container scroll-flow home current js-scroll-step section_1"
       data-section-name="home" style="height: 6480px" id="A">
       <div class="top-section_1 all-section">
         <h1 class="vertical-title h1-section1">World Cup 2022</h1>
-        <img src="./images/section1/element-section1.png" alt="element_section1" />
+        <img src="" data-src="./images/section1/element-section1.png" alt="element_section1" loading="lazy"
+          class="lazy-scroll current_img_lazy" />
       </div>
-      <div class="insert_box thirdItem"></div>
-      <div class="insert_box_reverse fourItem"></div>
       <div class="info-section1">
         <div class="line1">Not The Interactive Walktrough</div>
         <div class="line2">We Want...</div>
@@ -166,10 +169,10 @@
     <!--end SECTION 1 -->
 
     <!--SECTION 2-->
-    <section class="container scroll-flow js-scroll-step section_2 hidden" data-section-name="test"
-      style="height: 6480px" id="B">
+    <section class="container scroll-flow js-scroll-step section_2" data-section-name="test" style="height: 6480px"
+      id="B">
 
-   
+
       <h3>Section B</h3>
     </section>
     <!--END- SECTION 2-->
@@ -178,18 +181,19 @@
     <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
       <div class="scroll-element js-scroll slide-left panel">
         <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
-          class="quatarLogo lazy lazy-scroll" />
+          class="quatarLogo lazy-scroll" />
         <div id="LogoInsert"></div>
         <h1 class="secondItem vertical-title">
-          <span>Mesaj pentru</span><br/>
+          <span>Mesaj pentru</span><br />
           <span>protectia mediului</span>
         </h1>
-       <div class="insert_box thirdItem"></div>
-       <div class="insert_box_reverse fourItem"></div>
+        <div class="insert_box thirdItem"></div>
+        <div class="insert_box_reverse fourItem"></div>
       </div>
       <div class="scroll-caption">
         <div class="footer-section footer-section5">
-          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy lazy-scroll" />
+          <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
+            class="stadion_picture lazy lazy-scroll" />
         </div>
     </section>
     <!--END- SECTION 3-->
@@ -209,55 +213,32 @@
     <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
       <div class="scroll-element js-scrolling slide-left panel">
         <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
-          class="quatarLogo lazy lazy-scroll" />
+          class="quatarLogo lazy-scroll" />
+        <img src="" data-src="./images/section5/palmier_5.png" alt="palmier"
+          class="palmier lazy-scroll image_section_all" />
+
+
         <div id="LogoInsert"></div>
         <h1 class="secondItem vertical-title">
           <span> Mesaj pentru </span> <br />
           <span>protectia mediului</span>
         </h1>
-       <div class="insert_box thirdItem"></div>
-       <div class="insert_box_reverse fourItem"></div>
-     
+        <div class="insert_box thirdItem"></div>
+        <div class="insert_box_reverse fourItem"></div>
+
       </div>
 
       <div class="scroll-caption">
         <div class="footer-section footer-section5">
-          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy lazy-scroll" />
+          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy-scroll" />
         </div>
       </div>
     </section>
-    <script>
-     // $(".expand-button").on("click", function () {
-      //   $(".special-text-box").toggleClass("-expanded");
-      //   // $(".js-expand-box").toggleClass("is-expanded");
-      //   //  $(".figcaption").toggleClass("is-expanded");
 
-      //   if ($(".special-text-box").hasClass("-expanded")) {
-      //     $(".expand-button").html("inchide fereastra");
-      //   } else {
-      //     $(".expand-button").html("Citeste mai mult");
-      //   }
-      // });
-
-      // $(".button-boxes").on("click", function () {
-      //   $(".section-text-cards").toggleClass("-expanded");
-      //   $(".js-expand").toggleClass("is-expanded");
-      //   // $(".js-expand-box").toggleClass("is-expanded");
-      //   //  $(".figcaption").toggleClass("is-expanded");
-
-      //   if ($(".section-text-cards").hasClass("-expanded")) {
-      //     $(".button-boxes").html("Inchide");
-      //     $(".nav-ul-boxes").css({"background-color":"yellow","transform": "translateY(0.5em)"});
-      //   } else {
-      //     $(".button-boxes").html("Citeste mai mult");
-      //     $(".nav-ul-boxes").css({"transform":"translateY(-1.2em)","transition":" 1s ease" });
-      //   }
-      // });
-    </script>
 
     <!-- end SECTION 5-->
     <!-- TODO:end SECTION 5-->
-    <section class="scroll-container scroll-flow js-scroll-step hidden" id="F">
+    <section class="scroll-container scroll-flow js-scroll-step" id="F">
       <div class="scroll-element js-scroll slide-right panel">
         <div id="LogoInsert"></div>
         <h1>F</h1>
@@ -266,7 +247,7 @@
         <h1>F</h1>
       </div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step hidden" id="G">
+    <section class="scroll-container scroll-flow js-scroll-step" id="G">
       <div class="scroll-element js-scroll slide-right panel">
         <div id="LogoInsert"></div>
         <h1>G</h1>
@@ -275,7 +256,7 @@
         <h1>G</h1>
       </div>
     </section>
-    <section class="scroll-container scroll-flow js-scroll-step hidden" id="H">
+    <section class="scroll-container scroll-flow js-scroll-step" id="H">
       <div class="scroll-element js-scroll slide-right panel">
         <div id="LogoInsert"></div>
         <h1>H</h1>
@@ -404,21 +385,9 @@
       </p>
     </footer>
 
-    <form id="imageform" method="post" enctype="multipart/form-data" action="upload.php">
-      <div class="field" align="left">
-        <h3>Upload your images</h3>
-        <input type="file" id="files" name="files[]" multiple />
-      </div>
-      <input type="submit" name="submit" value="Submit" />
-    </form>
 
-    <!-- <form id="imageform" method="post" enctype="multipart/form-data">
-          <div class="field" align="left">
-              <h3>Upload your images</h3>
-              <input type="file" id="files" name="files[]" multiple />
-            </div>
-            <input type="submit" name="submit" value="Submit">
-        </form> -->
+
+
 
     <script>
       $.scrollify({
@@ -453,8 +422,10 @@
         touchScroll: true,
         // callbacks
         before: function (i) {
+      
           let active = $(".slide.active");
           console.log(active, ".slide.active");
+
           active.addClass("remove");
           /*    
           // Used to scroll to a particular section.
@@ -495,94 +466,45 @@
           // The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
           $.scrollify.isDisabled()
           */
-
-          //setTimeout(function() {
-          $("[data-slide=" + i + "]").addClass("active");
-          active.removeClass("remove active");
-          console.log("[data-slide=" + i + "]");
-          console.log("after render");
-          //},300);
+          console.log("before")
+          
+          console.log(i,"i")
+          setTimeout(function () {
+          
+            $("[data-slide=" + i + "]").addClass("active");
+            console.log(("[data-slide=" + i + "]"), "one");
+            console.log(i, "i2");
+            console.log("after render 3");
+            console.log("active active 4", active);
+            active.removeClass("remove active");
+          }, 300);
         },
-        afterRender() {
+        afterRender(test) {
+          
+     
           $(".scroll-flow").each(function () {
             $(this).css("height", parseInt($(window).height()) * 6);
             $(this).find(".inner").css("height", $(window).height());
           });
+          console.log((parseInt($(window).height()) * 6), "windows height + 6");
+          console.log((parseInt($(window).height())), "windows height");
 
           $.scrollify.update();
           $("[data-slide=0]").addClass("active");
-          console.log("after render");
+      
+
         },
+    
       });
     </script>
     <script>
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          console.log(entry, "entries caca");
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          } else {
-            entry.target.classList.remove('show');
-          }
-        });
-      });
-      const hiddenElement = document.querySelectorAll(".hidden");
-      hiddenElement.forEach((el) => observer.observe(el));
 
-      /*
-      document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages;    
 
-  if ("IntersectionObserver" in window) {
-    lazyloadImages = document.querySelectorAll(".lazy-scroll");
-    var imageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var image = entry.target;
-          image.src = image.dataset.src;
-          image.classList.remove("lazy");
-          imageObserver.unobserve(image);
-        }
-      });
-    });
 
-    lazyloadImages.forEach(function(image) {
-      imageObserver.observe(image);
-    });
-  } else {  
-    var lazyloadThrottleTimeout;
-    lazyloadImages = document.querySelectorAll(".lazy");
-    
-    function lazyload () {
-      if(lazyloadThrottleTimeout) {
-        clearTimeout(lazyloadThrottleTimeout);
-      }    
 
-      lazyloadThrottleTimeout = setTimeout(function() {
-        var scrollTop = window.pageYOffset;
-        lazyloadImages.forEach(function(img) {
-            if(img.offsetTop < (window.innerHeight + scrollTop)) {
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-            }
-        });
-        if(lazyloadImages.length == 0) { 
-          document.removeEventListener("scroll", lazyload);
-          window.removeEventListener("resize", lazyload);
-          window.removeEventListener("orientationChange", lazyload);
-        }
-      }, 20);
-    }
-
-    document.addEventListener("scroll", lazyload);
-    window.addEventListener("resize", lazyload);
-    window.addEventListener("orientationChange", lazyload);
-  }
-})
-*/
     </script>
     <script></script>
-    <script src="./indexx.js" defer></script>
+    <script src="./indexx.js"></script>
   </div>
 </body>
 
