@@ -25,16 +25,17 @@
 <body>
 
   <script>
-let ttttest = $(window).height();
-console.log( ttttest,"ready!2" );
-let current_img_lazy = document.getElementsByClassName("current_img_lazy");
-      console.log(current_img_lazy,"curent")
+    let ttttest = $(window).height();
+    console.log(ttttest, "ready!2");
+    let current_img_lazy = document.getElementsByClassName("current_img_lazy");
+    console.log(current_img_lazy, "curent")
     $(window).scroll(function () {
 
- 
+
       $.each($(".lazy-scroll"), function (data2) {
-        if ($(this).attr("data-src") && $(this).offset().top < $(window).scrollTop() + $(window).height() + 100)  {
-   
+        if ($(this).attr("data-src") && $(this).offset().top < $(window).scrollTop() + $(window).height() +
+          100) {
+
           console.log(($(this).offset().top), "hey1");
           let source = $(this).data("src");
           $(this).attr("src", source);
@@ -150,94 +151,112 @@ let current_img_lazy = document.getElementsByClassName("current_img_lazy");
       <div class="Scroll-progress-indicator"></div>
     </nav>
 
-    <!--SECTION 1-->
+    <!--TODO:SECTION 1-->
 
-    <section class="container scroll-container scroll-flow home current js-scroll-step section_1"
-      data-section-name="home" style="height: 6480px" id="A">
-      <div class="top-section_1 all-section">
-        <h1 class="vertical-title h1-section1">World Cup 2022</h1>
+    <section class="container scroll-container scroll-flow js-scroll-step section_1" style="height: 6480px" id="A">
+      <div class="top-section_1 all-section slide-left panel">
+        <h1 class="vertical-title h1-section1">World Cup <br><span>2022</span></h1>
         <img src="" data-src="./images/section1/element-section1.png" alt="element_section1" loading="lazy"
-          class="lazy-scroll current_img_lazy" />
+          class="lazy-scroll current_img_lazy image_section_all " />
       </div>
       <div class="info-section1">
         <div class="line1">Not The Interactive Walktrough</div>
-        <div class="line2">We Want...</div>
+        <div class="line2">We Want<span>,</span></div>
         <div class="line3">But The Interactive Walktrough</div>
         <div class="line4">We Need...</div>
       </div>
+
+
     </section>
     <!--end SECTION 1 -->
 
-    <!--SECTION 2-->
-    <section class="container scroll-flow js-scroll-step section_2" data-section-name="test" style="height: 6480px"
-      id="B">
+    <!--TODO:SECTION 2-->
+    <section class="scroll-container scroll-flow js-scroll-step section_2" style="height: 6480px" id="B">
 
-
-      <h3>Section B</h3>
-    </section>
-    <!--END- SECTION 2-->
-
-    <!--- SECTION 3-->
-    <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
-      <div class="scroll-element js-scroll slide-left panel">
-        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
-          class="quatarLogo lazy-scroll" />
-        <div id="LogoInsert"></div>
-        <h1 class="secondItem vertical-title">
-          <span>Mesaj pentru</span><br />
-          <span>protectia mediului</span>
+      <div class="scroll-element js-scroll slide-left panel hidden top-section_2">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-scroll" />
+        <img src="" data-src="./images/section2/element-section2.png" alt="element_section2" loading="lazy"
+          class="lazy-scroll current_img_lazy thirdItem element-section_2 image_section_all " />
+        <h1 class="secondItem vertical-title h1-section2">
+          <span>Primul turneu</span><br />
+          <span>pe timp de iarna</span>
         </h1>
-        <div class="insert_box thirdItem"></div>
-        <div class="insert_box_reverse fourItem"></div>
       </div>
       <div class="scroll-caption">
-        <div class="footer-section footer-section5">
+        <div class="footer-section footer-section2">
           <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
             class="stadion_picture lazy lazy-scroll" />
         </div>
-    </section>
-    <!--END- SECTION 3-->
-
-    <!-- SECTION 4-->
-    <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
-      <div class="scroll-element js-scroll fade-in-bottom panel">
-        <div id="LogoInsert"></div>
-      </div>
-      <div class="scroll-caption">
-        <h1>D</h1>
       </div>
     </section>
-    <!--END- SECTION 4-->
+    <!--END- SECTION 2-->
 
-    <!--SECTION 5-->
-    <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
-      <div class="scroll-element js-scrolling slide-left panel">
-        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
-          class="quatarLogo lazy-scroll" />
-        <img src="" data-src="./images/section5/palmier_5.png" alt="palmier"
-          class="palmier lazy-scroll image_section_all" />
-
-
-        <div id="LogoInsert"></div>
-        <h1 class="secondItem vertical-title">
-          <span> Mesaj pentru </span> <br />
-          <span>protectia mediului</span>
+    <!-- TODO:SECTION 3-->
+    <section class="scroll-container scroll-flow js-scroll-step section_3" id="C">
+      <div class="scroll-element js-scroll slide-left panel hidden top-section_3">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-scroll" />
+        <img src="" data-src="./images/section3/element_section3.png" alt="element_section2" loading="lazy"
+          class="lazy-scroll current_img_lazy element-section_3 element-sections" />
+        <h1 class="secondItem vertical-title h1-section3">
+          <span>audiente asteptate si</span><br />
+          <span>bugetele competitiei</span>
         </h1>
         <div class="insert_box thirdItem"></div>
         <div class="insert_box_reverse fourItem"></div>
-
       </div>
-
       <div class="scroll-caption">
-        <div class="footer-section footer-section5">
-          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy-scroll" />
+        <div class="footer-section footer-section3">
+          <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
+            class="stadion_picture lazy lazy-scroll" />
         </div>
       </div>
-    </section>
+ 
+  </section>
+  <!--END- SECTION 3-->
 
+  <!--TODO:SECTION 4-->
+  <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
+    <div class="scroll-element js-scroll slide-left panel hidden top-section_4">
+      <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-scroll" />
+      <img src="" data-src="./images/section4/element_section4.png" alt="element_section4" loading="lazy"
+        class="lazy-scroll current_img_lazy element-section_4 element-sections" />
+      <h1 class="secondItem vertical-title h1-section4">
+        <span>Stadioanele</span><br />
+        <span>Turneului final</span>
+      </h1>
+    </div>
+    <div class="scroll-caption">
+      <div class="footer-section footer-section4">
+        <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
+          class="stadion_picture lazy lazy-scroll" />
+      </div>
+    </div>
+  </section>
+  <!--END- SECTION 4-->
 
-    <!-- end SECTION 5-->
-    <!-- TODO:end SECTION 5-->
+  <!--TODO:SECTION 5-->
+  <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
+    <div class="scroll-element js-scrolling slide-left panel">
+      <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy" class="quatarLogo lazy-scroll" />
+      <img src="" data-src="./images/section5/palmier_5.png" alt="palmier"
+        class="palmier lazy-scroll image_section_all" />
+      <div id="LogoInsert"></div>
+      <h1 class="secondItem vertical-title">
+        <span>Mesaj pentru </span> <br />
+        <span>protectia mediului</span>
+      </h1>
+      <div class="insert_box thirdItem"></div>
+      <div class="insert_box_reverse fourItem"></div>
+    </div>
+    <div class="scroll-caption">
+      <div class="footer-section footer-section5">
+        <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy-scroll" />
+      </div>
+    </div>
+  </section>
+
+  <!--
+
     <section class="scroll-container scroll-flow js-scroll-step" id="F">
       <div class="scroll-element js-scroll slide-right panel">
         <div id="LogoInsert"></div>
@@ -373,138 +392,139 @@ let current_img_lazy = document.getElementsByClassName("current_img_lazy");
         <h1>u</h1>
       </div>
     </section>
+  -->
+</div>
+  <button class="Scroll-to-top">Scroll To Top</button>
+  <footer id="footer" class="scroll-flow">
+    <p>
+      test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
+    </p>
+    <p>
+      by
+      <a href="https://www.marianiordache.ro" target="_blank">MCsI</a><span style="color: #d11e15"> &#9829;</span>
+    </p>
+  </footer>
 
-    <button class="Scroll-to-top">Scroll To Top</button>
-    <footer id="footer" class="scroll-flow">
-      <p>
-        test <a href="https://casino.netbet.ro" target="_blank">Netbet.ro</a>
-      </p>
-      <p>
-        by
-        <a href="https://www.marianiordache.ro" target="_blank">MCsI</a><span style="color: #d11e15"> &#9829;</span>
-      </p>
-    </footer>
-
-
-
-
-
-    <script>
-      $.scrollify({
-        // section should be an identifier that is the same for each section
-
-        // A selector for the sections.
-
-        section: ".scroll-flow",
-        // The name of the data attribute is defined by 'sectionName'.
-        // sectionName : "section-name",
-        // A CSS selector for non-full-height sections, such as a header and footer.
-        interstitialSection: "",
-        // Define the easing method.
-        easing: "easeOutExpo",
-        // Scrolling speed in milliseonds
-        scrollSpeed: 1100,
-        // A distance in pixels to offset each sections position by.
-        offset: 0,
-        // A boolean to define whether scroll bars are visible or not.
-        scrollbars: true,
-        // Target container
-        target: "html,body",
-        // A string of selectors for elements that require standard scrolling behaviour like boxes with text.
-        standardScrollElements: ".forScrollingInside",
-        // A boolean to define whether Scollify assigns a height to the sections.
-        setHeights: true,
-        // Allows scrolling over overflowing content within sections
-        overflowScroll: true,
-        // Updates the browser location hash when scrolling through sections
-        updateHash: true,
-        // Allows to handle touch scroll events
-        touchScroll: true,
-        // callbacks
-        before: function (i) {
-      
-          let active = $(".slide.active");
-          console.log(active, ".slide.active");
-
-          active.addClass("remove");
-          /*    
-          // Used to scroll to a particular section.
-          // It can be parsed the index of the section, or the name of the section preceded by a hash.
-          $.scrollify.move("#name");
-
-          // Used to scroll to a particular section without animation.
-          // It can be parsed the index of the section, or the name of the section preceded by a hash.
-          $.scrollify.instantMove("#name");
-
-          // Used to scroll to a panel that immediately follows the current panel.
-          $.scrollify.next()
-
-          // Used to scroll to a panel that immediately precedes the current panel.
-          $.scrollify.previous()
-
-          // Used to scroll to a panel that immediately follows the current panel, without animation.
-          $.scrollify.instantNext()
-
-          // Used to scroll to a panel that immediately precedes the current panel.
-          $.scrollify.instantPrevious()
-
-          // Removes all Scrollify events and removes set heights from the panels.
-          $.scrollify.destroy()
-
-          // The update methods recalculates the heights and positions of the panels.
-          $.scrollify.update()
-
-          // The current method returns the current section as a jQuery object.
-          $.scrollify.current()
-
-          // The disable method turns off the scroll snap behaviour so that the page scroll like normal.
-          $.scrollify.disable()
-
-          // The enable method resumes the scroll snap behaviour after the disable method has been used.
-          $.scrollify.enable()
-
-          // The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
-          $.scrollify.isDisabled()
-          */
-          console.log("before")
-          
-          console.log(i,"i")
-          setTimeout(function () {
-          
-            $("[data-slide=" + i + "]").addClass("active");
-            console.log(("[data-slide=" + i + "]"), "one");
-            console.log(i, "i2");
-            console.log("after render 3");
-            console.log("active active 4", active);
-            active.removeClass("remove active");
-          }, 300);
-        },
-        afterRender(test) {
-          
-     
-          $(".scroll-flow").each(function () {
-            $(this).css("height", parseInt($(window).height()) * 6);
-            $(this).find(".inner").css("height", $(window).height());
-          });
-          console.log((parseInt($(window).height()) * 6), "windows height + 6");
-          console.log((parseInt($(window).height())), "windows height");
-
-          $.scrollify.update();
-          $("[data-slide=0]").addClass("active");
-      
-
-        },
-    
-      });
-    </script>
-    <script>
+ 
 
 
 
+  <script>
+    $.scrollify({
+      // section should be an identifier that is the same for each section
 
-    </script>
-    <script></script>
-    <script src="./indexx.js"></script>
+      // A selector for the sections.
+
+      section: ".scroll-flow",
+      // The name of the data attribute is defined by 'sectionName'.
+      // sectionName : "section-name",
+      // A CSS selector for non-full-height sections, such as a header and footer.
+      interstitialSection: "",
+      // Define the easing method.
+      easing: "easeOutExpo",
+      // Scrolling speed in milliseonds
+      scrollSpeed: 1100,
+      // A distance in pixels to offset each sections position by.
+      offset: 0,
+      // A boolean to define whether scroll bars are visible or not.
+      scrollbars: true,
+      // Target container
+      target: "html,body",
+      // A string of selectors for elements that require standard scrolling behaviour like boxes with text.
+      standardScrollElements: ".forScrollingInside",
+      // A boolean to define whether Scollify assigns a height to the sections.
+      setHeights: true,
+      // Allows scrolling over overflowing content within sections
+      overflowScroll: true,
+      // Updates the browser location hash when scrolling through sections
+      updateHash: true,
+      // Allows to handle touch scroll events
+      touchScroll: true,
+      // callbacks
+      before: function (i) {
+
+        let active = $(".slide.active");
+        console.log(active, ".slide.active");
+
+        active.addClass("remove");
+        /*    
+        // Used to scroll to a particular section.
+        // It can be parsed the index of the section, or the name of the section preceded by a hash.
+        $.scrollify.move("#name");
+
+        // Used to scroll to a particular section without animation.
+        // It can be parsed the index of the section, or the name of the section preceded by a hash.
+        $.scrollify.instantMove("#name");
+
+        // Used to scroll to a panel that immediately follows the current panel.
+        $.scrollify.next()
+
+        // Used to scroll to a panel that immediately precedes the current panel.
+        $.scrollify.previous()
+
+        // Used to scroll to a panel that immediately follows the current panel, without animation.
+        $.scrollify.instantNext()
+
+        // Used to scroll to a panel that immediately precedes the current panel.
+        $.scrollify.instantPrevious()
+
+        // Removes all Scrollify events and removes set heights from the panels.
+        $.scrollify.destroy()
+
+        // The update methods recalculates the heights and positions of the panels.
+        $.scrollify.update()
+
+        // The current method returns the current section as a jQuery object.
+        $.scrollify.current()
+
+        // The disable method turns off the scroll snap behaviour so that the page scroll like normal.
+        $.scrollify.disable()
+
+        // The enable method resumes the scroll snap behaviour after the disable method has been used.
+        $.scrollify.enable()
+
+        // The isDisabled method returns true if Scrollify is currently disabled, otherwise false.
+        $.scrollify.isDisabled()
+        */
+        console.log("before")
+
+        console.log(i, "i")
+        setTimeout(function () {
+
+          $("[data-slide=" + i + "]").addClass("active");
+          console.log(("[data-slide=" + i + "]"), "one");
+          console.log(i, "i2");
+          console.log("after render 3");
+          console.log("active active 4", active);
+          active.removeClass("remove active");
+        }, 300);
+      },
+      afterRender(test) {
+
+
+        $(".scroll-flow").each(function () {
+          $(this).css("height", parseInt($(window).height()) * 6);
+          $(this).find(".inner").css("height", $(window).height());
+        });
+        console.log((parseInt($(window).height()) * 6), "windows height + 6");
+        console.log((parseInt($(window).height())), "windows height");
+
+        $.scrollify.update();
+        $("[data-slide=0]").addClass("active");
+
+
+      },
+
+    });
+  </script>
+  <script>
+
+
+
+
+  </script>
+  <script></script>
+  <script src="./indexx.js"></script>
   </div>
 </body>
 
