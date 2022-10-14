@@ -158,10 +158,13 @@
         -webkit-backface-visibility: hidden;
         -moz-backface-visibility: hidden;
         backface-visibility: hidden;
+        
       }
       .md-show {
         visibility: visible;
         display: block;
+        transition-delay: 0s;
+			transition: 0.5s;
       }
       .md-overlay {
         position: fixed;
@@ -173,9 +176,9 @@
         z-index: 1000;
         opacity: 0;
         background: rgba(228, 240, 227, 0.8);
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
+        -webkit-transition: all 0.8s ease ;
+        -moz-transition: all 0.8s ease;
+        transition: all 0.8s ease;
         overflow: scroll;
       }
       .md-show ~ .md-overlay {
@@ -433,7 +436,7 @@
         });
 
         $(".md-close").on("click", function () {
-          $(".md-modal").removeClass("md-show");
+          $(".md-modal").removeClass("mWd-show");
           $(".md-trigger").css({ display: "inherit" });
           $(".container-two h1").css({ display: "inherit" });
           rrtest.removeChild(fsmActual);
