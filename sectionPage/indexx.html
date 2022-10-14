@@ -25,17 +25,14 @@
 <body>
 
   <script>
-    let ttttest = $(window).height();
-    console.log(ttttest, "ready!2");
+  
     let current_img_lazy = document.getElementsByClassName("current_img_lazy");
     console.log(current_img_lazy, "curent")
+
     $(window).scroll(function () {
-
-
       $.each($(".lazy-scroll"), function (data2) {
         if ($(this).attr("data-src") && $(this).offset().top < $(window).scrollTop() + $(window).height() +
           100) {
-
           console.log(($(this).offset().top), "hey1");
           let source = $(this).data("src");
           $(this).attr("src", source);
@@ -45,18 +42,6 @@
     });
   </script>
   <div class="wrapper">
-    <!-- <nav class="Quick-navigation">
-      <a href="#A" class="Quick-navigation-item">A</a>
-      <a href="#B" class="Quick-navigation-item">B</a>
-      <a href="#C" class="Quick-navigation-item">C</a>
-      <a href="#D" class="Quick-navigation-item">D</a>
-      <a href="#E" class="Quick-navigation-item">E</a>
-      <a href="#F" class="Quick-navigation-item">F</a>
-      <a href="#G" class="Quick-navigation-item">G</a>
-      <a href="#G" class="Quick-navigation-item">fter</a>
-      <div class="Scroll-progress-indicator"></div>
-    </nav> -->
-
     <nav class="Quick-navigation">
       <ul class="primaryNav">
         <li class="active" data-marker="0">
@@ -210,52 +195,53 @@
             class="stadion_picture lazy lazy-scroll" />
         </div>
       </div>
- 
-  </section>
-  <!--END- SECTION 3-->
 
-  <!--TODO:SECTION 4-->
-  <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
-    <div class="scroll-element js-scroll slide-left panel hidden top-section_4">
-      <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-scroll" />
-      <img src="" data-src="./images/section4/element_section4.png" alt="element_section4" loading="lazy"
-        class="lazy-scroll current_img_lazy element-section_4 element-sections" />
-      <h1 class="secondItem vertical-title h1-section4">
-        <span>Stadioanele</span><br />
-        <span>Turneului final</span>
-      </h1>
-    </div>
-    <div class="scroll-caption">
-      <div class="footer-section footer-section4">
-        <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
-          class="stadion_picture lazy lazy-scroll" />
+    </section>
+    <!--END- SECTION 3-->
+
+    <!--TODO:SECTION 4-->
+    <section class="scroll-container scroll-flow js-scroll-step section_4" id="D">
+      <div class="scroll-element js-scroll slide-left panel hidden top-section_4">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-scroll" />
+        <img src="" data-src="./images/section4/element_section4.png" alt="element_section4" loading="lazy"
+          class="lazy-scroll current_img_lazy element-section_4 element-sections" />
+        <h1 class="secondItem vertical-title h1-section4">
+          <span>Stadioanele</span><br />
+          <span>Turneului final</span>
+        </h1>
       </div>
-    </div>
-  </section>
-  <!--END- SECTION 4-->
-
-  <!--TODO:SECTION 5-->
-  <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
-    <div class="scroll-element js-scrolling slide-left panel">
-      <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy" class="quatarLogo lazy-scroll" />
-      <img src="" data-src="./images/section5/palmier_5.png" alt="palmier"
-        class="palmier lazy-scroll image_section_all" />
-      <div id="LogoInsert"></div>
-      <h1 class="secondItem vertical-title">
-        <span>Mesaj pentru </span> <br />
-        <span>protectia mediului</span>
-      </h1>
-      <div class="insert_box thirdItem"></div>
-      <div class="insert_box_reverse fourItem"></div>
-    </div>
-    <div class="scroll-caption">
-      <div class="footer-section footer-section5">
-        <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy-scroll" />
+      <div class="scroll-caption">
+        <div class="footer-section footer-section4">
+          <img loading="lazy" src="" data-src="./images/section5/Stadion.png" alt="stadion"
+            class="stadion_picture lazy lazy-scroll" />
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <!--END- SECTION 4-->
 
-  <!--
+    <!--TODO:SECTION 5-->
+    <section class="scroll-container scroll-flow js-scroll-step section_5 hidden" id="E">
+      <div class="scroll-element js-scrolling slide-left panel">
+        <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar logo lazy"
+          class="quatarLogo lazy-scroll" />
+        <img src="" data-src="./images/section5/palmier_5.png" alt="palmier"
+          class="palmier lazy-scroll image_section_all" />
+        <div id="LogoInsert"></div>
+        <h1 class="secondItem vertical-title">
+          <span>Mesaj pentru </span> <br />
+          <span>protectia mediului</span>
+        </h1>
+        <div class="insert_box thirdItem"></div>
+        <div class="insert_box_reverse fourItem"></div>
+      </div>
+      <div class="scroll-caption">
+        <div class="footer-section footer-section5">
+          <img src="" data-src="./images/section5/Stadion.png" alt="stadion" class="stadion_picture lazy-scroll" />
+        </div>
+      </div>
+    </section>
+
+    <!--
 
     <section class="scroll-container scroll-flow js-scroll-step" id="F">
       <div class="scroll-element js-scroll slide-right panel">
@@ -393,7 +379,7 @@
       </div>
     </section>
   -->
-</div>
+  </div>
   <button class="Scroll-to-top">Scroll To Top</button>
   <footer id="footer" class="scroll-flow">
     <p>
@@ -405,7 +391,7 @@
     </p>
   </footer>
 
- 
+
 
 
 
@@ -423,7 +409,7 @@
       // Define the easing method.
       easing: "easeOutExpo",
       // Scrolling speed in milliseonds
-      scrollSpeed: 1100,
+      scrollSpeed: 1200,
       // A distance in pixels to offset each sections position by.
       offset: 0,
       // A boolean to define whether scroll bars are visible or not.
@@ -517,15 +503,9 @@
 
     });
   </script>
-  <script>
 
-
-
-
-  </script>
-  <script></script>
   <script src="./indexx.js"></script>
-  </div>
+
 </body>
 
 </html>
