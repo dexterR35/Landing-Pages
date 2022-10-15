@@ -178,7 +178,7 @@
 
   <body>
     <div id="container"></div>
-    <!-- <div class="container-card-box expanded2">
+    <div class="container-card-box expanded2">
       <button class="button-boxes btn-cards">citeste mai mult</button>
       <div class="section-text-cards">
         <span>Qatar 2022</span>
@@ -195,19 +195,19 @@
           </li>
         </ul>
       </div>
-    </div> -->
+    </div>
     <script>
-      // $(".expand-button").on("click", function () {
-      //   $(".special-text-box").toggleClass("-expanded");
-      //   // $(".js-expand-box").toggleClass("is-expanded");
-      //   //  $(".figcaption").toggleClass("is-expanded");
+      $(".expand-button").on("click", function () {
+        $(".special-text-box").toggleClass("-expanded");
+        // $(".js-expand-box").toggleClass("is-expanded");
+        //  $(".figcaption").toggleClass("is-expanded");
 
-      //   if ($(".special-text-box").hasClass("-expanded")) {
-      //     $(".expand-button").html("inchide fereastra");
-      //   } else {
-      //     $(".expand-button").html("Citeste mai mult");
-      //   }
-      // });
+        if ($(".special-text-box").hasClass("-expanded")) {
+          $(".expand-button").html("inchide fereastra");
+        } else {
+          $(".expand-button").html("Citeste mai mult");
+        }
+      });
      
       var box_div_element = `<div class="container-card-box -expanded thirdItem">
           <button class="button-boxes btn-cards">citeste mai mult</button>

@@ -418,7 +418,7 @@
 -->
 
     <script>
-      let rrtest = document.querySelector(".md-modal");
+      // let rrtest = document.querySelector(".md-modal");
       var fsmActual = document.createElement("div");
 
       var label = document.createTextNode(" - new div - ");
@@ -431,7 +431,7 @@
           if ($(".md-modal").hasClass("md-show")) {
             $(".md-trigger").css({ display: "none" });
             $(".container-two h1").css({ display: "none" });
-            rrtest.appendChild(fsmActual);
+            // rrtest.appendChild(fsmActual);
           }
         });
 
@@ -439,7 +439,7 @@
           $(".md-modal").removeClass("mWd-show");
           $(".md-trigger").css({ display: "inherit" });
           $(".container-two h1").css({ display: "inherit" });
-          rrtest.removeChild(fsmActual);
+          // rrtest.removeChild(fsmActual);
         });
       });
     </script>
