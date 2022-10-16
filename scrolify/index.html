@@ -34,28 +34,38 @@
 
 
 </div>
+ <!--TODO:SECTION---HOME---->
     <section class="panel home" data-section-name="home">
-        <div class="inner inner_section_1">
+      
+        <div class="inner inner_section_1 grid-template">
+          
             <div class="header-content-text ">
-                <h1>world cup <br><span>2022</span></h1>
+                <h1 class="vertical-title section_1" data-fill="d"> <span> world cup</span> <br> <span>2022</span></h1>
               
             </div>
             <div class="gallery0"><img src="./images/section1/element-section1.png" /></div>
-            
+            <div class="text-bottom">
+                <ul>
+                    <li class="line1">Not The Interactive Walktrough</li>
+                    <li class="line2">We Want<span>,</span></li>
+                    <li class="line3">But The Interactive Walktrough</li>
+                    <li class="line4">We Need...</li>
+                </ul>
+               </div>
         </div>
-       <div class="text-bottom">
-        <ul>
-            <li class="line1">Not The Interactive Walktrough</li>
-            <li class="line2">We Want<span>,</span></li>
-            <li class="line3">But The Interactive Walktrough</li>
-            <li class="line4">We Need...</li>
-        </ul>
-       </div>
+    
      
       
     </section>
-    <section class="panel section_2" data-section-name="section_2">
-        <div class="inner">
+     <!--TODO:SECTIONS---SECTION 2---->
+    <section class="panel section_2_container" data-section-name="section_2">
+        <div class="inner inner_section_2 grid-template">
+       <div class="insert-logo">insert logo</div>
+            <div class="header-content-text">
+                <h1 class="vertical-title section_2"> <span>Primul turneu</span><br />
+                    <span>pe timp de iarna</span></h1>
+              
+            </div>
             <div class="content">
                 <h2>Flexibility</h2>
                 <p>lorem54</p>
@@ -64,18 +74,14 @@
             </div>
 
             <div class="gallery0">
-                <img src="images/color_split_front_ipad_l.png" />
+                <img src="./images/section2/element-section2.png" />
             </div>
 
-            <div class="gallery1">
-                <img src="images/color_split_back_ipad_l.png" />
-            </div>
-
-            <div class="gallery2">
-                <img src="images/color_split_side_ipad_l.png" />
-            </div>
+          
         </div>
     </section>
+
+       <!--TODO:SECTIONS---SECTION 3---->
     <section class="panel section_3" data-section-name="section_3">
         <div class="inner">
             <div class="content">
@@ -97,6 +103,10 @@
             </div>
         </div>
     </section>
+
+
+    
+       <!--TODO:SECTIONS---SECTION 4---->
     <section class="panel section_4" data-section-name="section_4">
         <div class="inner">
             <div class="content">
@@ -116,8 +126,44 @@
         </div>
     </section>
 
-</div>
 
+    
+       <!--TODO:SECTIONS---SECTION 5---->
+    <section class="panel section_2" data-section-name="section_2">
+        <div class="inner inner_section_2 grid-template">
+            <div class="header-content-text">
+                <h1 class="vertical-title section_2"> <span>Primul turneu</span><br />
+                    <span>pe timp de iarna</span></h1>
+              
+            </div>
+            <div class="content">
+                <h2>Flexibility</h2>
+                <p>lorem54</p>
+                <p>Scrollify is highly configurable and easily adaptable to your needs, which means you can build sites
+                    the way you want to build them.</p>
+            </div>
+
+            <div class="gallery0">
+                <img src="images/color_split_front_ipad_l.png" />
+            </div>
+
+            <div class="gallery1">
+                <img src="images/color_split_back_ipad_l.png" />
+            </div>
+
+            <div class="gallery2">
+                <img src="images/color_split_side_ipad_l.png" />
+            </div>
+        </div>
+    </section>
+
+</div>
+<script>
+    let vh = window.innerWidth * 0.005;
+    console.log(vh,"vh");
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+</script>
     <script src="./main.js"></script>
 </body>
 
