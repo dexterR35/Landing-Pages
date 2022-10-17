@@ -1,551 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>jQuery Scrollify - Apple Example</title>
-    <meta
-      name="description"
-      content="A jQuery Scrollify recreation of Apple's iPhone 5c scrolling page."
-    />
-    <!--<meta name="viewport" content="width=device-width,initial-scale=1">-->
-    <meta property="og:title" content="jQuery Scrollify - Apple Example" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:description"
-      content="A jQuery Scrollify recreation of Apple's iPhone 5c scrolling page."
-    />
-    <meta
-      property="og:image"
-      content="http://projects.lukehaas.me/scrollify/images/scrollify-screenshot.jpg"
-    />
-    <meta
-      property="og:url"
-      content="http://projects.lukehaas.me/scrollify/examples/apple"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
-      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link rel="stylesheet" href="./main.css" />
-  </head>
 
-  <body>
-    <script>
-      let current_img_lazy =
-        document.getElementsByClassName("lazy-img");
-      console.log(current_img_lazy, "curent");
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-      $(window).scroll(function () {
-        $.each($(".lazy-img"), function (data2) {
-          if (
-            $(this).attr("data-src") &&
-            $(this).offset().top <
-              $(window).scrollTop() + $(window).height() + 100
-          ) {
-            console.log($(this).offset().top, "hey1");
-            let source = $(this).data("src");
-            $(this).attr("src", source);
-            $(this).removeAttr("data-src");
-          }
-        });
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+    integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="./main.css" />
+  <title>world cup 2022</title>
+</head>
+
+<body>
+  <script>
+    let current_img_lazy =
+      document.getElementsByClassName("lazy-img");
+    console.log(current_img_lazy, "curent");
+
+    $(window).scroll(function () {
+      $.each($(".lazy-img"), function (data2) {
+        if (
+          $(this).attr("data-src") &&
+          $(this).offset().top <
+          $(window).scrollTop() + $(window).height() + 100
+        ) {
+          console.log($(this).offset().top, "hey1");
+          let source = $(this).data("src");
+          $(this).attr("src", source);
+          $(this).removeAttr("data-src");
+        }
       });
-    </script>
-    <div class="wrapper">
-      <div class="Quick-navigation">
-        <ul class="pagination">
-          <li>
-            <a href="#home" class="active"
-              ><span class="hover-text">Home</span></a
-            >
-          </li>
-          <li>
-            <a href="#section_2"><span class="hover-text">section_2</span></a>
-          </li>
-          <li>
-            <a href="#section_3"><span class="hover-text">section_3</span></a>
-          </li>
-          <li>
-            <a href="#section_4"><span class="hover-text">section_4</span></a>
-          </li>
-          <li>
-            <a href="#section_5"><span class="hover-text">section_5</span></a>
-          </li>
-        </ul>
+    });
+  </script>
+  <div class="wrapper">
+    <div class="Quick-navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#home" class="active"><span class="hover-text">Home</span></a>
+        </li>
+        <li>
+          <a href="#section_2"><span class="hover-text">section_2</span></a>
+        </li>
+        <li>
+          <a href="#section_3"><span class="hover-text">section_3</span></a>
+        </li>
+        <li>
+          <a href="#section_4"><span class="hover-text">section_4</span></a>
+        </li>
+        <li>
+          <a href="#section_5"><span class="hover-text">section_5</span></a>
+        </li>
+      </ul>
+    </div>
+    <!--TODO:SECTION---HOME---->
+    <section class="panel home" data-section-name="home">
+      <div class="inner inner_section_1 grid-template">
+        <div class="header-content-text">
+          <h1 class="vertical-title section_1-title" data-fill="d">
+            <span> world cup</span> <br />
+            <span class="span-h1-s1">2022</span>
+          </h1>
+        </div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section1/element-section1.png" class="lazy-img" />
+        </div>
+        <div class="text-bottom">
+          <ul>
+            <li class="line1">22 de afirmații</li>
+            <li class="line2">-- despre --</li>
+            <li class="line3">Cupa Mondială</li>
+            <li class="line4">Recorduri, date si istoric</li>
+          </ul>
+        </div>
       </div>
-      <!--TODO:SECTION---HOME---->
-      <section class="panel home" data-section-name="home">
-        <div class="inner inner_section_1 grid-template">
-          <div class="header-content-text">
-            <h1 class="vertical-title section_1-title" data-fill="d">
-              <span> world cup</span> <br />
-              <span class="span-h1-s1">2022</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section1/element-section1.png"
-              class="lazy-img"
-            />
-          </div>
-          <div class="text-bottom">
-            <ul>
-              <li class="line1">Not The Interactive Walktrough</li>
-              <li class="line2">We Want<span>,</span></li>
-              <li class="line3">But The Interactive Walktrough</li>
-              <li class="line4">We Need...</li>
-            </ul>
+    </section>
+    <!--TODO:SECTIONS---SECTION 2---->
+    <section class="panel section_2_container" data-section-name="section_2">
+      <div class="inner inner_section_2 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-img" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_2-title">
+            <span>Primul turneu</span><br />
+            <span>pe timp de iarna</span>
+          </h1>
+        </div>
+        <div class="content">
+          <div class="container-cards card_section_5 card_normal entry">
+            <h2 class="entry-title"><a href="#">fifa safa</a></h2>
+            <div class="entry-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
+                sit amet lectus et ligula sagittis blandit a eget odio.
+                Suspendisse auctor sollicitudin justo, accumsan volutpat neque
+                ornare molestie. Nulla augue ligula, accumsan vitae aliquam
+                vel, viverra a ante. Phasellus porttitor interdum eleifend.
+                Proin ac lorem eget sem interdum congue. Aenean sodales tellus
+                non augue condimentum, sit amet porta sapien hendrerit. Etiam
+                gravida turpis at elit placerat aliquam. Duis mattis velit vel
+                odio adipiscing sodales. Phasellus ac aliquet enim. Aenean
+                quis posuere libero, sit amet convallis nisl. Vestibulum
+                commodo tincidunt urna eu commodo. Vestibulum eleifend tempus
+                felis, in sollicitudin odio. In lacinia hendrerit risus,
+                elementum egestas est pretium
+                etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facere unde dolores, consectetur obcaecati consequuntur
+                debitis sunt deleniti corrupti architecto! Autem totam cumque
+                eum nihil. Cum explicabo error tempore, ab sunt similique
+                voluptate doloremque quibusdam nisi, nemo ex nam, dolore
+                repudiandae inventore aliquid quisquam obcaecati iste nobis!
+                Rem sed veniam, quam sequi ut cum esse maiores officia nisi
+                aliquid unde, corrupti repellat dolorem dolorum tempore nihil
+                id illum soluta nulla architecto? Voluptas quae illum, libero
+                deleniti explicabo aperiam sed iste dolorem dolor autem non
+                beatae culpa dignissimos voluptates ex? Nulla laudantium omnis
+                iste rem beatae exercitationem necessitatibus adipisci dolore
+                odit illo?
+              </p>
+            </div>
+            <!-- end .entry-content -->
           </div>
         </div>
-      </section>
-      <!--TODO:SECTIONS---SECTION 2---->
-      <section class="panel section_2_container" data-section-name="section_2">
-        <div class="inner inner_section_2 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_2-title">
-              <span>Primul turneu</span><br />
-              <span>pe timp de iarna</span>
-            </h1>
-          </div>
-          <div class="content">
-            <div class="container-cards card_section_5 card_normal entry">
-              <h2 class="entry-title"><a href="#">fifa safa</a></h2>
-              <div class="entry-content">
+        <div class="content2">
+          <h3>Full-screen modal window</h3>
+          <button class="md-trigger" data-modal="modal-12">Show modal</button>
+
+          <div class="md-modal md-effect-12">
+            <div class="md-content">
+              <h3>Modal Dialog</h3>
+              <div>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                  sit amet lectus et ligula sagittis blandit a eget odio.
-                  Suspendisse auctor sollicitudin justo, accumsan volutpat neque
-                  ornare molestie. Nulla augue ligula, accumsan vitae aliquam
-                  vel, viverra a ante. Phasellus porttitor interdum eleifend.
-                  Proin ac lorem eget sem interdum congue. Aenean sodales tellus
-                  non augue condimentum, sit amet porta sapien hendrerit. Etiam
-                  gravida turpis at elit placerat aliquam. Duis mattis velit vel
-                  odio adipiscing sodales. Phasellus ac aliquet enim. Aenean
-                  quis posuere libero, sit amet convallis nisl. Vestibulum
-                  commodo tincidunt urna eu commodo. Vestibulum eleifend tempus
-                  felis, in sollicitudin odio. In lacinia hendrerit risus,
-                  elementum egestas est pretium
-                  etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+                  This is a modal window. You can do the following things with
+                  it:
                 </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Facere unde dolores, consectetur obcaecati consequuntur
-                  debitis sunt deleniti corrupti architecto! Autem totam cumque
-                  eum nihil. Cum explicabo error tempore, ab sunt similique
-                  voluptate doloremque quibusdam nisi, nemo ex nam, dolore
-                  repudiandae inventore aliquid quisquam obcaecati iste nobis!
-                  Rem sed veniam, quam sequi ut cum esse maiores officia nisi
-                  aliquid unde, corrupti repellat dolorem dolorum tempore nihil
-                  id illum soluta nulla architecto? Voluptas quae illum, libero
-                  deleniti explicabo aperiam sed iste dolorem dolor autem non
-                  beatae culpa dignissimos voluptates ex? Nulla laudantium omnis
-                  iste rem beatae exercitationem necessitatibus adipisci dolore
-                  odit illo?
-                </p>
-              </div>
-              <!-- end .entry-content -->
-            </div>
-          </div>
-          <div class="content2">
-            <h3>Full-screen modal window</h3>
-            <button class="md-trigger" data-modal="modal-12">Show modal</button>
-
-            <div class="md-modal md-effect-12">
-              <div class="md-content">
-                <h3>Modal Dialog</h3>
-                <div>
-                  <p>
-                    This is a modal window. You can do the following things with
-                    it:
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Read:</strong> modal windows will probably tell
-                      you something important so don't forget to read what they
-                      say.
-                    </li>
-                    <li>
-                      <strong>Look:</strong> a modal window enjoys a certain
-                      kind of attention; just look at it and appreciate its
-                      presence.
-                    </li>
-                    <li>
-                      <strong>Close:</strong> click on the button below to close
-                      the modal.
-                    </li>
-                  </ul>
-                  <button class="md-close">Close</button>
-                </div>
+                <ul>
+                  <li>
+                    <strong>Read:</strong> modal windows will probably tell
+                    you something important so don't forget to read what they
+                    say.
+                  </li>
+                  <li>
+                    <strong>Look:</strong> a modal window enjoys a certain
+                    kind of attention; just look at it and appreciate its
+                    presence.
+                  </li>
+                  <li>
+                    <strong>Close:</strong> click on the button below to close
+                    the modal.
+                  </li>
+                </ul>
+                <button class="md-close">Close</button>
               </div>
             </div>
-
-            <div class="md-overlay"></div>
           </div>
+
+          <div class="md-overlay"></div>
+        </div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section2/element-section2.png" class="lazy-img" />
+        </div>
+        <div class="chartJs-section place-bottom">
+          <img src="./images/section5/Stadion.png" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 3---->
+    <section class="panel section_3_container" data-section-name="section_3">
+      <div class="inner inner_section_3 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-img" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_3-title" data-fill="d">
+            <span>AUDIENȚE AȘTEPTATE</span> <br />
+            <span class="line-2-span">și BUGETELE ROMENIEI</span>
+          </h1>
+        </div>
+
+        <div id="content" class="content content-placeHold">
+          <div class="container-cards card_section_5 card_normal entry">
+            <h2 class="entry-title"><a href="#">This is a blog post</a></h2>
+            <div class="entry-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+                amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+                auctor sollicitudin justo, accumsan volutpat neque ornare
+                molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+                a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+                sem interdum congue. Aenean sodales tellus non augue condimentum,
+                sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+                placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+                Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+                convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+                Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+                hendrerit risus, elementum egestas est pretium
+                etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores, consectetur obcaecati
+                consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil. Cum explicabo
+                error tempore, ab sunt similique voluptate doloremque quibusdam nisi, nemo ex nam, dolore repudiandae
+                inventore aliquid quisquam obcaecati iste nobis! Rem sed veniam, quam sequi ut cum esse maiores officia
+                nisi aliquid unde, corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto?
+                Voluptas quae illum, libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa
+                dignissimos voluptates ex? Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci
+                dolore odit illo?</p>
+            </div>
+            <!-- end .entry-content -->
+          </div>
+          <!-- end .entry -->
+
+          <div class="container-cards card_section_5 card_reverse entry">
+            <h2 class="entry-title"><a href="#">Fifa</a></h2>
+            <div class="entry-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+                amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+                auctor sollicitudin justo, accumsan volutpat neque ornare
+                molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+                a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+                sem interdum congue. Aenean sodales tellus non augue condimentum,
+                sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+                placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+                Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+                convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+                Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+                hendrerit risus, elementum egestas est pretium et.
+              </p>
+            </div>
+
+            <!-- end .entry-content -->
+          </div>
+          <!-- end .entry -->
+        </div>
+        <!-- end #content -->
+
+        <div class="gallery-wrapper">
           <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section2/element-section2.png"
-              class="lazy-img"
-            />
-          </div>
-          <div class="chartJs-section place-bottom">
-            <img src="./images/section5/Stadion.png" />
-          </div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 3---->
-      <section class="panel section_3_container" data-section-name="section_3">
-        <div class="inner inner_section_3 grid-template">
-            <div class="logo-top">
-                <img
-                  src=""
-                  data-src="./images/section5/Quatar-logo.png"
-                  alt="quatar-logo"
-                  class="quatarLogo lazy-img"
-                />
-              </div>
-            <div class="header-content-text">
-                <h1 class="vertical-title section_3-title" data-fill="d">
-                  <span>AUDIENȚE AȘTEPTATE</span> <br />
-                  <span>și BUGETELE ROMENIEI</span>
-                </h1>
-            </div>
-       
-            <div id="content" class="content content-placeHold">
-                    <div class="container-cards card_section_5 card_normal entry">
-                        <h2 class="entry-title"><a href="#">This is a blog post</a></h2>
-                        <div class="entry-content">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-                            amet lectus et ligula sagittis blandit a eget odio. Suspendisse
-                            auctor sollicitudin justo, accumsan volutpat neque ornare
-                            molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
-                            a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
-                            sem interdum congue. Aenean sodales tellus non augue condimentum,
-                            sit amet porta sapien hendrerit. Etiam gravida turpis at elit
-                            placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
-                            Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
-                            convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
-                            Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
-                            hendrerit risus, elementum egestas est pretium
-                            etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
-                        </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores, consectetur obcaecati consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil. Cum explicabo error tempore, ab sunt similique voluptate doloremque quibusdam nisi, nemo ex nam, dolore repudiandae inventore aliquid quisquam obcaecati iste nobis! Rem sed veniam, quam sequi ut cum esse maiores officia nisi aliquid unde, corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto? Voluptas quae illum, libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa dignissimos voluptates ex? Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci dolore odit illo?</p>
-                        </div>
-                        <!-- end .entry-content -->
-                    </div>
-                    <!-- end .entry -->
-            
-                    <div class="container-cards card_section_5 card_reverse entry">
-                        <h2 class="entry-title"><a href="#">Fifa</a></h2>
-                        <div class="entry-content">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-                            amet lectus et ligula sagittis blandit a eget odio. Suspendisse
-                            auctor sollicitudin justo, accumsan volutpat neque ornare
-                            molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
-                            a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
-                            sem interdum congue. Aenean sodales tellus non augue condimentum,
-                            sit amet porta sapien hendrerit. Etiam gravida turpis at elit
-                            placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
-                            Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
-                            convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
-                            Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
-                            hendrerit risus, elementum egestas est pretium et.
-                        </p>
-                        </div>
-                        
-                        <!-- end .entry-content -->
-                    </div>
-                    <!-- end .entry -->
-            </div>
-                <!-- end #content -->
-       
-          <div class="gallery-wrapper">
-            <div class="gallery0">
-              <img src="" data-src="./images/section3/element_section3.png" class="lazy-img" />
-            </div>
-
-            <div class="gallery1">
-              <img src="images/capable_pink_ipad_l.png" />
-            </div>
-          </div>
-          <div class="gallery2 chartJs-section">
-           <h3>chartJs</h3>
-          </div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 4---->
-      <section class="panel section_4_container" data-section-name="section_4">
-        <div class="inner inner_section_4 grid-template ">
-            <div class="logo-top">
-                <img
-                  src=""
-                  data-src="./images/section5/Quatar-logo.png"
-                  alt="quatar-logo"
-                  class="quatarLogo lazy-img"
-                />
-              </div>
-            <div class="header-content-text">
-                    <h1 class="vertical-title section_4-title" data-fill="d">
-                    <span>Stadioanele</span> <br />
-                    <span class="turneu">Turneului Final</span>
-                    </h1>
-            </div>
-            <div class="gallery-wrap">
-                <div class="gallery0">
-               <div class="box-style" style="width:150px; height:150px;background-color: blue; color: white; font-size: 2em;">item move</div>
-                </div>
-
-                <div class="gallery1">
-                    <div class="box-style2" style="width:150px; height:150px;background-color: rgb(255, 0, 174); color: white; font-size: 2em;">item move</div>
-                </div>
-            </div>
-            <div class="content-place-items section_4_img">
-                <img src="./images/section4/element_section4.png" alt="stadion">
-            </div>
-            <div class="content-box">content-box</div>
-            <div class="chartjs-section chartJs-section4">chart</div>
-            <div class="carousel carousel-section">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatum nihil beatae? Nisi quae aliquid ducimus. Perspiciatis est fugit possimus molestiae illo ut, facere, ipsum distinctio numquam minima maxime nobis.lorem12 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia nam odit rerum nesciunt. Incidunt praesentium cum cupiditate vitae fugit suscipit.</p>
-            </div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 5---->
-
-      <section class="panel section_5_container" data-section-name="section_5">
-        <div class="inner inner_section_5 grid-template">
-            <div class="logo-top">
-                <img
-                  src=""
-                  data-src="./images/section5/Quatar-logo.png"
-                  alt="quatar-logo"
-                  class="quatarLogo lazy-img"
-                />
-              </div>
-            <div class="header-content-text">
-                <h1 class="vertical-title section_5-title" data-fill="d">
-                  <span>mesaj pentru</span> <br />
-                  <span>protectia mediului</span>
-                </h1>
-            </div>
-       
-            <div id="content" class="content content-placeHold">
-                    <div class="container-cards card_section_5 card_normal entry">
-                        <h2 class="entry-title"><a href="#">This is a blog post</a></h2>
-                        <div class="entry-content">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-                            amet lectus et ligula sagittis blandit a eget odio. Suspendisse
-                            auctor sollicitudin justo, accumsan volutpat neque ornare
-                            molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
-                            a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
-                            sem interdum congue. Aenean sodales tellus non augue condimentum,
-                            sit amet porta sapien hendrerit. Etiam gravida turpis at elit
-                            placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
-                            Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
-                            convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
-                            Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
-                            hendrerit risus, elementum egestas est pretium
-                            etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
-                        </p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores, consectetur obcaecati consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil. Cum explicabo error tempore, ab sunt similique voluptate doloremque quibusdam nisi, nemo ex nam, dolore repudiandae inventore aliquid quisquam obcaecati iste nobis! Rem sed veniam, quam sequi ut cum esse maiores officia nisi aliquid unde, corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto? Voluptas quae illum, libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa dignissimos voluptates ex? Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci dolore odit illo?</p>
-                        </div>
-                        <!-- end .entry-content -->
-                    </div>
-                    <!-- end .entry -->
-            
-                    <div class="container-cards card_section_5 card_reverse entry">
-                        <h2 class="entry-title"><a href="#">Fifa</a></h2>
-                        <div class="entry-content">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-                            amet lectus et ligula sagittis blandit a eget odio. Suspendisse
-                            auctor sollicitudin justo, accumsan volutpat neque ornare
-                            molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
-                            a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
-                            sem interdum congue. Aenean sodales tellus non augue condimentum,
-                            sit amet porta sapien hendrerit. Etiam gravida turpis at elit
-                            placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
-                            Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
-                            convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
-                            Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
-                            hendrerit risus, elementum egestas est pretium et.
-                        </p>
-                        </div>
-                        
-                        <!-- end .entry-content -->
-                    </div>
-                    <!-- end .entry -->
-            </div>
-                <!-- end #content -->
-       
-          <div class="gallery-wrapper">
-            <div class="gallery0">
-              <img src="./images/section5/palmier_5.png" />
-            </div>
-
-            <div class="gallery1">
-              <img src="images/capable_pink_ipad_l.png" />
-            </div>
-          </div>
-          <div class="gallery2 chartJs-section place-bottom">
-            <img src="./images/section5/Stadion.png" />
-          </div>
-        </div>
-      </section>
-
-
-      <!--TODO:SECTIONS---SECTION 6---->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <section class="panel section_2" data-section-name="section_2">
-        <div class="inner inner_section_2 grid-template">
-          <div class="header-content-text">
-            <h1 class="vertical-title section_2">
-              <span>Primul turneu</span><br />
-              <span>pe timp de iarna</span>
-            </h1>
-          </div>
-          <div class="content">
-            <h2>Flexibility</h2>
-            <p>lorem54</p>
-            <p>
-              Scrollify is highly configurable and easily adaptable to your
-              needs, which means you can build sites the way you want to build
-              them.
-            </p>
-          </div>
-
-          <div class="gallery0">
-            <img src="images/color_split_front_ipad_l.png" />
+            <img src="" data-src="./images/section3/element_section3.png" class="lazy-img" />
           </div>
 
           <div class="gallery1">
-            <img src="images/color_split_back_ipad_l.png" />
-          </div>
-
-          <div class="gallery2">
-            <img src="images/color_split_side_ipad_l.png" />
+            <img src="images/capable_pink_ipad_l.png" />
           </div>
         </div>
-      </section>
-    </div>
-    <script>
-      /* Make sure to change all $() to jQuery() if you're using directly in WordPress */
+        <div class="gallery2 chartJs-section">
+          <h3>chartJs</h3>
+        </div>
+      </div>
+    </section>
 
-      $(document).ready(function () {
-        let closeHeight = "6em"; /* Default "closed" height */
-        let moreText = "citeste mai mult"; /* Default "Read More" text */
-        let lessText = "inchide"; /* Default "Read Less" text */
-        let duration = "1000"; /* Animation duration */
-        let easing = "slow"; /* Animation easing option */
-        // let fullHeight = $(".entry-content").css("max-height", "10em");
-        // console.log(fullHeight,"fullHeight")
-        // let fullHeight = "1em"
+    <!--TODO:SECTIONS---SECTION 4---->
+    <section class="panel section_4_container" data-section-name="section_4">
+      <div class="inner inner_section_4 grid-template ">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-img" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_4-title" data-fill="d">
+            <span>Stadioanele</span> <br />
+            <span class="turneu">Turneului Final</span>
+          </h1>
+        </div>
+        <div class="gallery-wrap">
+          <div class="gallery0">
+            <div class="box-style"
+              style="width:50px; height:50px;background-color: blue; color: white; font-size: 1em;">item move</div>
+          </div>
 
-        // Limit height of .entry-content div
-        $(".container-cards").each(function () {
-          // Set data attribute to record original height
-          let current = $(this).children(".entry-content");
-          console.log($(this), "curent child");
-          current
-            .data("fullHeight", current.height())
-            .css("height", closeHeight);
+          <div class="gallery1">
+            <div class="box-style2"
+              style="width:50px; height:50px;background-color: rgb(255, 0, 174); color: white; font-size: 1em;">item
+              move</div>
+          </div>
+        </div>
+        <div class="content-place-items section_4_img">
+          <img src="./images/section4/element_section4.png" alt="stadion">
+        </div>
+        <div class="content-box">content-box</div>
+        <div class="chartjs-section chartJs-section4">chart</div>
+        <div class="carousel carousel-section">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime voluptatum nihil beatae? Nisi quae aliquid
+            ducimus. Perspiciatis est fugit possimus molestiae illo ut, facere, ipsum distinctio numquam minima maxime
+            nobis.lorem12 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia nam odit rerum nesciunt.
+            Incidunt praesentium cum cupiditate vitae fugit suscipit.</p>
+        </div>
+      </div>
+    </section>
 
-          // Insert "Read More" link
-          current.after(
-            '<button class="more-link closed">' + moreText + "</button>"
-          );
-          console.log(current, "sss");
-        });
+    <!--TODO:SECTIONS---SECTION 5---->
 
-        // Link functinoality
-        let openSlider = function () {
-          link = $(this);
-          let openHeight =
-            link.prev(".entry-content").data("fullHeight") / 2 + "px";
-          link
-            .prev(".entry-content")
-            .animate({ height: openHeight }, { duration: duration }, easing);
-          link.text(lessText).addClass("open").removeClass("closed");
-          if ($(".more-link").hasClass("open")) {
-            $(".entry-content").addClass("forScrolling");
-          }
-          link.unbind("click", openSlider);
-          link.bind("click", closeSlider);
-        };
+    <section class="panel section_5_container" data-section-name="section_5">
+      <div class="inner inner_section_5 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-img" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_5-title" data-fill="d">
+            <span class="line-1-s5">mesaj pentru</span> <br />
+            <span>protectia mediului</span>
+          </h1>
+        </div>
 
-        let closeSlider = function () {
-          link = $(this);
-          link.prev(".entry-content").animate(
-            {
-              height: closeHeight,
-            },
-            {
-              duration: duration,
-            },
+        <div id="content" class="content content-placeHold">
+          <div class="container-cards card_section_5 card_normal entry">
+            <h2 class="entry-title"><a href="#">This is a blog post</a></h2>
+            <div class="entry-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+                amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+                auctor sollicitudin justo, accumsan volutpat neque ornare
+                molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+                a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+                sem interdum congue. Aenean sodales tellus non augue condimentum,
+                sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+                placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+                Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+                convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+                Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+                hendrerit risus, elementum egestas est pretium
+                etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+              </p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores, consectetur obcaecati
+                consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil. Cum explicabo
+                error tempore, ab sunt similique voluptate doloremque quibusdam nisi, nemo ex nam, dolore repudiandae
+                inventore aliquid quisquam obcaecati iste nobis! Rem sed veniam, quam sequi ut cum esse maiores officia
+                nisi aliquid unde, corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto?
+                Voluptas quae illum, libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa
+                dignissimos voluptates ex? Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci
+                dolore odit illo?</p>
+            </div>
+            <!-- end .entry-content -->
+          </div>
+          <!-- end .entry -->
 
-            easing
-          );
-          link.text(moreText).addClass("closed").removeClass("open");
-          link.unbind("click");
-          link.bind("click", openSlider);
+          <div class="container-cards card_section_5 card_reverse entry">
+            <h2 class="entry-title"><a href="#">Fifa</a></h2>
+            <div class="entry-content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+                amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+                auctor sollicitudin justo, accumsan volutpat neque ornare
+                molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+                a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+                sem interdum congue. Aenean sodales tellus non augue condimentum,
+                sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+                placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+                Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+                convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+                Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+                hendrerit risus, elementum egestas est pretium et.
+              </p>
+            </div>
 
-          if ($(".more-link").hasClass("closed")) {
-            $(".entry-content").removeClass("forScrolling");
-          }
-        };
+            <!-- end .entry-content -->
+          </div>
+          <!-- end .entry -->
+        </div>
+        <!-- end #content -->
 
-        // Attach link click functionality
-        $(".more-link").bind("click", openSlider);
+        <div class="gallery-wrapper">
+          <div class="gallery0">
+            <img src="./images/section5/palmier_5.png" />
+          </div>
+
+          <div class="gallery1">
+            <div class="box-style">element move</div>
+          </div>
+        </div>
+        <div class="gallery2 chartJs-section place-bottom">
+          <img src="./images/section5/Stadion.png" />
+        </div>
+      </div>
+    </section>
+
+
+    <!--TODO:SECTIONS---SECTION 6---->
+
+
+    <section class="panel section_6_container" data-section-name="section_6">
+      <div class="inner inner_section_6 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo" class="quatarLogo lazy-img" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_6-title" data-fill="d">
+            <span>mai multe schimbări</span> <br />
+            <span class="line-6-span">mai mulți fotbaliști</span>
+          </h1>
+        </div>
+
+       
+
+        <div class="gallery-wrapper">
+          <div class="gallery0">
+            <img src="" data-src="./images/section6/player1.png" class="lazy-img" />
+          </div>
+
+          <div class="gallery1">
+            <img src="./images/section6/player2.png" />
+          </div>
+          <div class="gallery2">
+            <img src="./images/section6/player3.png" />
+          </div>
+        </div>
+        <div class="place-bottom">
+          <h3>chartJs</h3>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="panel section_2" data-section-name="section_2">
+      <div class="inner inner_section_2 grid-template">
+        <div class="header-content-text">
+          <h1 class="vertical-title section_2">
+            <span>Primul turneu</span><br />
+            <span>pe timp de iarna</span>
+          </h1>
+        </div>
+        <div class="content">
+          <h2>Flexibility</h2>
+          <p>lorem54</p>
+          <p>
+            Scrollify is highly configurable and easily adaptable to your
+            needs, which means you can build sites the way you want to build
+            them.
+          </p>
+        </div>
+
+        <div class="gallery0">
+          <img src="images/color_split_front_ipad_l.png" />
+        </div>
+
+        <div class="gallery1">
+          <img src="images/color_split_back_ipad_l.png" />
+        </div>
+
+        <div class="gallery2">
+          <img src="images/color_split_side_ipad_l.png" />
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    /* Make sure to change all $() to jQuery() if you're using directly in WordPress */
+
+    $(document).ready(function () {
+      let closeHeight = "3em"; /* Default "closed" height */
+      let moreText = "citeste mai mult"; /* Default "Read More" text */
+      let lessText = "inchide"; /* Default "Read Less" text */
+      let duration = "1000"; /* Animation duration */
+      let easing = "slow"; /* Animation easing option */
+      // let fullHeight = $(".entry-content").css("max-height", "10em");
+      // console.log(fullHeight,"fullHeight")
+      // let fullHeight = "1em"
+
+      // Limit height of .entry-content div
+      $(".container-cards").each(function () {
+        // Set data attribute to record original height
+        let current = $(this).children(".entry-content");
+        console.log($(this), "curent child");
+        current
+          .data("fullHeight", current.height())
+          .css("height", closeHeight);
+
+        // Insert "Read More" link
+        current.after(
+          '<button class="more-link closed">' + moreText + "</button>"
+        );
+        console.log(current, "sss");
       });
-    </script>
 
-    <script src="./main.js"></script>
-  </body>
+      // Link functinoality
+      let openSlider = function () {
+        link = $(this);
+        let openHeight =
+          link.prev(".entry-content").data("fullHeight") / 2 + "px";
+        link
+          .prev(".entry-content")
+          .animate({
+            height: openHeight
+          }, {
+            duration: duration
+          }, easing);
+        link.text(lessText).addClass("open").removeClass("closed");
+        if ($(".more-link").hasClass("open")) {
+          $(".entry-content").addClass("forScrolling");
+        }
+        link.unbind("click", openSlider);
+        link.bind("click", closeSlider);
+      };
+
+      let closeSlider = function () {
+        link = $(this);
+        link.prev(".entry-content").animate({
+            height: closeHeight,
+          }, {
+            duration: duration,
+          },
+
+          easing
+        );
+        link.text(moreText).addClass("closed").removeClass("open");
+        link.unbind("click");
+        link.bind("click", openSlider);
+
+        if ($(".more-link").hasClass("closed")) {
+          $(".entry-content").removeClass("forScrolling");
+        }
+      };
+
+      // Attach link click functionality
+      $(".more-link").bind("click", openSlider);
+    });
+  </script>
+
+  <script src="./main.js"></script>
+</body>
+
 </html>
