@@ -506,6 +506,8 @@ body {
 .inner_section_1 .modal_home_container {
   grid-column: 4;
   grid-row: 2;
+  margin-left: -30px;
+  /*https://codepen.io/kucznierzm/pen/KKaypgd*/
 }
 
 /******EMBLEM BUTTON*********/
