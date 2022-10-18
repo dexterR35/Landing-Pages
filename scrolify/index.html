@@ -88,6 +88,17 @@
               <span class="span-h1-s1">2022</span>
             </h1>
           </div>
+          <div class="modal_home_container modEmbl" style="z-index: 2000">
+            <button id="window" class="btn_Emblem btn-home btn-open">+</button>
+            <div id="modal_info" class="modal_Emblem">
+              <button id="close_info" class="close_emblem btn-home btn-close">
+                X
+              </button>
+              <div class="modal-content-info">
+                <img src="./images/section1/footbal.png" alt="" />
+              </div>
+            </div>
+          </div>
           <div class="gallery0">
             <img
               src=""
@@ -707,7 +718,10 @@
 
       <!--TODO:SECTIONS---SECTION 10---->
 
-      <section class="panel section_10_container" data-section-name="section_10">
+      <section
+        class="panel section_10_container"
+        data-section-name="section_10"
+      >
         <div class="inner inner_section_10 grid-template">
           <div class="logo-top">
             <img
@@ -825,6 +839,31 @@
 
         // Attach link click functionality
         $(".more-link").bind("click", openSlider);
+      });
+      $("#window").click(function (e) {
+        $.scrollify.disable();
+        e.preventDefault();
+        let showInfo = $(this).text();
+        $(this).text("");
+        $(this).addClass("ball_animation");
+        setTimeout(function () {
+          if ($(".modal_home_container").find("modEmbl")) {
+            $(".modal_Emblem").addClass("activeTwo");
+          }
+          $(".close_emblem").css("width", "30px");
+          $(".close_emblem").css("height", "30px");
+          setTimeout(function () {
+            $(".btn_Emblem").removeClass("ball_animation");
+            $(".btn_Emblem").text(showInfo);
+          }, 500);
+        }, 700);
+      });
+
+      $(".close_emblem").click(function () {
+        $(".modal_Emblem").removeClass("activeTwo");
+        $(".close_emblem").css("width", "0px");
+        $(".close_emblem").css("height", "0px");
+        $.scrollify.enable();
       });
     </script>
 
