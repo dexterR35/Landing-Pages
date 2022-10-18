@@ -32,6 +32,11 @@ $(function() {
   
           $(".inner_section_4 .gallery0").css("top",0);
         }
+        if(ref==="inner_section_5") {
+          $(".inner_section_5 .content").addClass("moved");
+  
+          $(".inner_section_5 .gallery0").css("top",0);
+        }
       },
       after:function(i,panels) {
         var ref = panels[i].attr("data-section-name");
