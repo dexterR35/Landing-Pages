@@ -18,7 +18,19 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="./main.css" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.0.8/lozad.js"
+      integrity="sha512-EHoqSuE5gjP4d5pRn885fGdTbnXGsPjBY04Uf+3NJsqVNUfjfG6Pv6WJ4PjLBQLp3hUxKqB7qCEKcqCtHv95oQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="preload" href="./main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+
+    <!-- <link rel="stylesheet" href="./main.css" /> -->
     <title>world cup 2022</title>
   </head>
 
@@ -27,19 +39,32 @@
       let current_img_lazy = document.getElementsByClassName("lazy-img");
       console.log(current_img_lazy, "curent");
 
-      $(window).scroll(function () {
-        $.each($(".lazy-img"), function (data2) {
-          if (
-            $(this).attr("data-src") &&
-            $(this).offset().top <
-              $(window).scrollTop() + $(window).height() + 100
-          ) {
-            console.log($(this).offset().top, "hey1");
-            let source = $(this).data("src");
-            $(this).attr("src", source);
-            $(this).removeAttr("data-src");
-          }
+      // $(window).scroll(function () {
+      //   $.each($(".lazy-img"), function (data2) {
+      //     if (
+      //       $(this).attr("data-src") &&
+      //       $(this).offset().top <
+      //         $(window).scrollTop() + $(window).height() + 100)
+      //      {
+      //       console.log($(this).offset().top, "hey1");
+      //       let source = $(this).data("src");
+      //       $(this).attr("src", source);
+      //       $(this).removeAttr("data-src");
+      //     }
+      //   });
+      // });
+      $(function () {
+        const observer = lozad();
+        $(".lazy-img").each(function () {
+          const _this = $(this);
+          _this.css("opacity", 0);
+          _this.on("load", function () {
+            _this.css("opacity", 1);
+          });
+     
         });
+
+        observer.observe();
       });
     </script>
     <div class="wrapper">
@@ -95,7 +120,52 @@
                 X
               </button>
               <div class="modal-content-info">
-                <img src="./images/section1/footbal.png" alt="" />
+                <div class="container-shape">
+                  <div class="title-shape">
+                    <h2>welcome to whatever</h2>
+                    <p>Lorem ipsum dolor sit.</p>
+                  </div>
+                  <div class="item-1 color-1 item">
+                    item-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
+                    repudiandae.
+                  </div>
+                  <div class="item-2 color-2 item">
+                    item-2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="item-3 color-3 item">
+                    item-3 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="item-4 color-4 item">
+                    item-4 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="item-5 color-5 item">
+                    item-5 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="item-6 color-6 item">
+                    item-6 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="item-7 color-7 item">
+                    item-7 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio,
+                    laborum.
+                  </div>
+                  <div class="emblem item-shape">
+                    <img
+                      src="" data-src="./images/section1/element-section1.png"
+                      alt="el2"
+                      class="shape-img lozad lazy-img"
+                    />
+                  </div>
+                  <div class="title-shape-bottom">
+                    <h2>welcome to whatever</h2>
+                    <p>Lorem ipsum dolor sit.</p>
+                  </div>
+                </div>
+            
               </div>
             </div>
           </div>
@@ -103,7 +173,7 @@
             <img
               src=""
               data-src="./images/section1/element-section1.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="text-bottom">
@@ -124,7 +194,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -172,50 +242,20 @@
               <!-- end .entry-content -->
             </div>
           </div>
-          <div class="content2">
-            <h3>Full-screen modal window</h3>
-            <button class="md-trigger" data-modal="modal-12">Show modal</button>
-
-            <div class="md-modal md-effect-12">
-              <div class="md-content">
-                <h3>Modal Dialog</h3>
-                <div>
-                  <p>
-                    This is a modal window. You can do the following things with
-                    it:
-                  </p>
-                  <ul>
-                    <li>
-                      <strong>Read:</strong> modal windows will probably tell
-                      you something important so don't forget to read what they
-                      say.
-                    </li>
-                    <li>
-                      <strong>Look:</strong> a modal window enjoys a certain
-                      kind of attention; just look at it and appreciate its
-                      presence.
-                    </li>
-                    <li>
-                      <strong>Close:</strong> click on the button below to close
-                      the modal.
-                    </li>
-                  </ul>
-                  <button class="md-close">Close</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="md-overlay"></div>
-          </div>
+       
           <div class="gallery0">
             <img
               src=""
               data-src="./images/section2/element-section2.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="chartJs-section place-bottom">
-            <img src="./images/section5/Stadion.png" />
+            <img
+              src=""
+              data-src="./images/section5/Stadion.png"
+              class="lazy-img lozad"
+            />
           </div>
         </div>
       </section>
@@ -228,7 +268,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -309,7 +349,7 @@
               <img
                 src=""
                 data-src="./images/section3/element_section3.png"
-                class="lazy-img"
+                class="lazy-img lozad"
               />
             </div>
 
@@ -318,7 +358,14 @@
             </div>
           </div>
           <div class="gallery2 chartJs-section">
-            <h3>chartJs</h3>
+            <!-- <div class="chartMenu">
+              <p>whatever</p>
+            </div> -->
+            <div class="chartCard">
+              <div class="chartBox">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -331,7 +378,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -372,7 +419,12 @@
             </div>
           </div>
           <div class="content-place-items section_4_img">
-            <img src="./images/section4/element_section4.png" alt="stadion" />
+            <img
+              src=""
+              data-src="./images/section4/element_section4.png"
+              alt="stadion"
+              class="lozad lazy-img"
+            />
           </div>
           <div class="content-box">content-box</div>
           <div class="chartjs-section chartJs-section4">chart</div>
@@ -398,7 +450,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -476,7 +528,11 @@
 
           <div class="gallery-wrapper">
             <div class="gallery0">
-              <img src="./images/section5/palmier_5.png" />
+              <img
+                src=""
+                data-src="./images/section5/palmier_5.png"
+                class="lazy-img lozad"
+              />
             </div>
 
             <div class="gallery1">
@@ -484,7 +540,11 @@
             </div>
           </div>
           <div class="gallery2 chartJs-section place-bottom">
-            <img src="./images/section5/Stadion.png" />
+            <img
+              src=""
+              data-src="./images/section5/Stadion.png"
+              class="lazy-img lozad"
+            />
           </div>
         </div>
       </section>
@@ -498,7 +558,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -513,15 +573,23 @@
               <img
                 src=""
                 data-src="./images/section6/player1.png"
-                class="lazy-img"
+                class="lazy-img lozad"
               />
             </div>
 
             <div class="gallery1">
-              <img src="./images/section6/player2.png" />
+              <img
+                src=""
+                data-src="./images/section6/player2.png"
+                class="lazy-img lozad"
+              />
             </div>
             <div class="gallery2">
-              <img src="./images/section6/player3.png" />
+              <img
+                src=""
+                data-src="./images/section6/player3.png"
+                class="lazy-img lozad"
+              />
             </div>
           </div>
           <div class="place-bottom">
@@ -539,7 +607,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -548,22 +616,24 @@
             </h1>
           </div>
           <img
-            src="./images/section7/pole.png"
+            src=""
+            data-src="./images/section7/pole.png"
             alt="pole"
-            class="pole-section7"
+            class="pole-section7 lozad lazy-img"
           />
           <div class="flag-container">
             <img
-              src="./images/section7/flag.png"
+              src=""
+              data-src="./images/section7/flag.png"
               alt="pole"
-              class="flag-section7"
+              class="flag-section7 lozad lazy-img"
             />
           </div>
           <div class="gallery0">
             <img
               src=""
               data-src="./images/section7/emblem-stars.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="section-7-bottom place-bottom">
@@ -581,7 +651,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -665,16 +735,22 @@
               <img
                 src=""
                 data-src="./images/section8/trofeu.png"
-                class="lazy-img"
+                class="lazy-img lozad"
               />
             </div>
           </div>
           <div class="section-8-bottom place-bottom">
-            <img src="./images/section8/photo1.png" alt="photoS7" />
             <img
-              src="./images/section8/photo2.png"
+              src=""
+              data-src="./images/section8/photo1.png"
+              alt="photoS7"
+              class="lazy-img lozad"
+            />
+            <img
+              src=""
+              data-src="./images/section8/photo2.png"
               alt="photos77"
-              class="cup-s8"
+              class="cup-s8 lazy-img lozad"
             />
           </div>
         </div>
@@ -689,7 +765,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -699,19 +775,24 @@
             </h1>
           </div>
           <div class="gallery1">
-            <img src="./images/section9/maracana.png" alt="maracana" />
+            <img
+              src=""
+              data-src="./images/section9/maracana.png"
+              alt="maracana"
+              class="lazy-img lozad"
+            />
           </div>
 
           <div class="gallery2">
             <img
               src=""
               data-src="./images/section9/fans.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="gallery0">
-            <img src="" data-src="./images/section9/confetti-small.png""
-            class="lazy-img" />
+            <img src="" data-src="./images/section9/confetti-small.png"" class="
+            lazy-img lozad" />
           </div>
         </div>
       </section>
@@ -728,7 +809,7 @@
               src=""
               data-src="./images/section5/Quatar-logo.png"
               alt="quatar-logo"
-              class="quatarLogo lazy-img"
+              class="quatarLogo lazy-img lozad"
             />
           </div>
           <div class="header-content-text">
@@ -741,25 +822,25 @@
             <img
               src=""
               data-src="./images/section10/player4.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="gallery1">
             <img
               src=""
               data-src="./images/section10/player3.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
           <div class="gallery2">
-            <img src="./images/section10/ball.png" alt="player3" />
+            <img src="" data-src="./images/section10/ball.png" alt="player3" class="lazy-img lozad"/>
           </div>
 
           <div class="gallery3">
             <img
               src=""
               data-src="./images/section10/ro-flag.png"
-              class="lazy-img"
+              class="lazy-img lozad"
             />
           </div>
         </div>
@@ -841,6 +922,7 @@
         $(".more-link").bind("click", openSlider);
       });
       $("#window").click(function (e) {
+ 
         $.scrollify.disable();
         e.preventDefault();
         let showInfo = $(this).text();
@@ -849,6 +931,7 @@
         setTimeout(function () {
           if ($(".modal_home_container").find("modEmbl")) {
             $(".modal_Emblem").addClass("activeTwo");
+          
           }
           $(".close_emblem").css("width", "30px");
           $(".close_emblem").css("height", "30px");
@@ -865,7 +948,64 @@
         $(".close_emblem").css("height", "0px");
         $.scrollify.enable();
       });
+
     </script>
+ <script>
+  // setup 
+  const data = {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    datasets: [{
+      label: 'Weekly Sales',
+      data: [18, 12, 6, 9, 12, 3, 9],
+      backgroundColor: [
+        'rgba(255, 26, 104, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(0, 0, 0, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 26, 104, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(0, 0, 0, 1)'
+      ],
+      borderWidth: 1
+    }]
+  };
+
+  // config 
+  const config = {
+    type: 'bar',
+    data,
+    options: {
+      maintainAspectRatio:true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  };
+
+  // render init block
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+
+//   window.addEventListener('beforeprint', () => {
+//   myChart.resize(1200, 100);
+// });
+// window.addEventListener('afterprint', () => {
+//   myChart.resize();
+// });
+  </script>
 
     <script src="./main.js"></script>
   </body>
