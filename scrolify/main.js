@@ -49,11 +49,11 @@ $(function() {
         let ref = panels[i].attr("data-section-name");
         if(ref==="home") {
           $(".inner_section_2").find(".gallery0,.gallery1,.gallery2").removeClass("moved");
-          alert("vrei sa .... whatever")
+          // alert("vrei sa .... whatever")
         }
         if(ref==="section_3") {
    
-          alert("continua,")
+          // alert("continua,")
         }
       },
       afterResize:initialPosition,

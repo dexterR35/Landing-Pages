@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+      }
+
+      /* Add Animation */
+      @-webkit-keyframes animatetop {
+        from {
+          width: 100%;
+          height: 0;
+          opacity: 0;
+        }
+        to {
+          width: 100vw;
+          height: 100%;
+          opacity: 1;
+        }
+      }
+
+      /* The Close Button */
+      .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+      }
+
+      .modal-body {
+        padding: 2px 16px;
+      }
+
+      .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+      }
+      .modals-container {
+        border: 1px solid black;
+        width: 100%;
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-modal1 modals-container">
+      <h2>1st Modal</h2>
+
+      <!-- Trigger/Open The Modal -->
+      <button class="modal-button" href="#myModal1">Open Modal</button>
+
+      <!-- The Modal -->
+      <div id="myModal1" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2>Modal Heade2ssss222r</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-modal2 modals-container">
+      <h2>2nd Modal</h2>
+      <!-- Trigger/Open The Modal -->
+      <button class="modal-button" href="#myModal2">Open Modal</button>
+      <!-- The Modal -->
+      <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2>Modal Header2222</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container_modal3 modals-container">
+      <h2>2nd Modal</h2>
+
+      <!-- Trigger/Open The Modal -->
+      <button class="modal-button" href="#myModal2">Open Modal</button>
+
+      <!-- The Modal -->
+      <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2>Modal Header2222</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    //   // Get the button that opens the modal
+    //   var btn = document.querySelectorAll("button.modal-button");
+
+    //   // All page modals
+    //   var modals = document.querySelectorAll(".modal");
+
+    //   // Get the <span> element that closes the modal
+    //   var spans = document.getElementsByClassName("close");
+
+    //   // When the user clicks the button, open the modal
+    //   for (var i = 0; i < btn.length; i++) {
+    //     btn[i].onclick = function (e) {
+    //       e.preventDefault();
+    //       modal = document.querySelector(e.target.getAttribute("href"));
+    //       modal.style.display = "block";
+    //     };
+    //   }
+
+    //   // When the user clicks on <span> (x), close the modal
+    //   for (var i = 0; i < spans.length; i++) {
+    //     spans[i].onclick = function () {
+    //       for (var index in modals) {
+    //         if (typeof modals[index].style !== "undefined")
+    //           modals[index].style.display = "none";
+    //       }
+    //     };
+    //   }
+
+    //   // When the user clicks anywhere outside of the modal, close it
+    //   window.onclick = function (event) {
+    //     if (event.target.classList.contains("modal")) {
+    //       for (var index in modals) {
+    //         if (typeof modals[index].style !== "undefined")
+    //           modals[index].style.display = "none";
+    //       }
+    //     }
+    //   };
+
+      $(".modal-button").on("click", function (e) {
+        e.preventDefault();
+        let parentS = $(this).parent();
+        parentS.toggleClass();
+      });
+    </script>
+  </body>
+</html>
