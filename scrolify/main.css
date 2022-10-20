@@ -44,14 +44,8 @@
   }
   
 }
-.panel[data-section-name] {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.panel[data-section-name="home"] {
 
-}
+
 @media screen and (min-width: 480px) {
   :root {
     --bg-section-one: url(./images/section1/bg-section1.jpg);
@@ -131,6 +125,35 @@ body {
   padding: 0;
   margin: 0;
 }
+
+
+
+/*****background general******/
+
+
+.lozad[data-src]:not(.no-fade) {
+  transition: opacity 0.8s ease;
+  opacity: 0;
+}
+.lozad[data-src]:not(.no-fade)[data-fully-loaded="true"] {
+  opacity: 1;
+}
+
+.panel[data-section-name] {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.panel[data-section-name="home"] {
+background-image: var(--bg-section-one);
+}
+
+
+/*****background general******/
+
+
+
 /****** Main ********/
 
 .inner {
