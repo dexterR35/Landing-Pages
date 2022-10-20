@@ -59,7 +59,7 @@ body {
 }
 
 body {
-  font-family: "Play", sans-serif;
+
   font-size: 100%;
 }
 li {
@@ -289,6 +289,7 @@ body {
   grid-row: 3 / span 6;
   text-align: center;
   font-size: 3.4vh;
+  z-index: 20;
 }
 
 .logo-top {
@@ -296,6 +297,7 @@ body {
   grid-row: 1;
   /* background: rgba(137, 137, 137, 0.285); */
   text-align: center;
+  z-index: 200;
 }
 .logo-top img {
   width: 100%;
@@ -318,6 +320,7 @@ body {
 .home {
   background-color: cyan !important;
 }
+
 .panel {
   width: 100%;
   height: 100%;
@@ -326,8 +329,8 @@ body {
   background-size: cover;
 }
 .content-place-items {
-  grid-column: 3 / span 4;
-  grid-row: 2 / span 6;
+  grid-column: 2 / 6;
+  grid-row: 2 / 6;
 }
 .place-bottom {
   grid-row: 9;
@@ -341,8 +344,11 @@ body {
 }
 
 .gallery-wrapper {
-  grid-column: 2 / span 4;
-  grid-row: 2 / span 7;
+  /* grid-column: 2 / span 4;
+  grid-row: 2 / span 7; */
+  grid-column: 1 / 6;
+  grid-row: 1 / 9;
+  z-index: 0;
 }
 
 /*******************TODO:section 1  START***********************/
@@ -393,11 +399,17 @@ body {
   border-radius: 20px;
 
 } */
-
+.forT{
+  animation-name: bounceBall;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  position: absolute;
+}
 .home .gallery0 {
   grid-column: 3 / span 3;
   grid-row: 1 / span 7;
-  position: relative;
+position: relative;
 }
 .home .gallery0::after {
   content: "";
@@ -665,26 +677,7 @@ body {
   top: 10%;
 } */
 
-/* .section_2_container .gallery0 {
-  z-index: 0;
-  left: 180px;
 
-  height: 563px;
-}
-
-.section_2_container .gallery1 {
-  z-index: 2;
-  left: 180px;
-
-  height: 563px;
-}
-
-.section_2_container .gallery2 {
-  z-index: 0;
-  left: 360px;
-
-  height: 563px;
-} */
 
 /* .section_2_container .gallery0,
 .section_2_container .gallery1,
@@ -712,12 +705,13 @@ body {
 
 /*TODO: start SECTION 3*************/
 .inner_section_3 .header-content-text {
-  grid-row: 2 / span 7;
+  grid-row: 3 / 8;
   position: relative;
+  margin-bottom: 8px;
 }
 
 .inner_section_3 .vertical-title {
-  font-size: 1.7em;
+  font-size: 1.5em;
   letter-spacing: -0.5px;
 }
 .inner_section_3 .vertical-title .line-2-span {
@@ -732,14 +726,21 @@ body {
 }
 .inner_section_3 .gallery2 {
   grid-column: 1 / 6;
-  grid-row: 8 / span 3;
+  grid-row: 7 ;
+  background-color: black;
   /* border: 5px solid rgb(10, 227, 224); */
   font-size: 4em;
   display: grid;
   place-items: center;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
-  height: 90%;
+
+
+  -webkit-transition: bottom 0.8s ease 0.4s;
+  transition: bottom 0.8s ease 0.4s;
+  position: relative;
+  bottom: 0px;
+
 }
 .inner_section_3 .content-placeHold .container-cards.card_reverse {
   left: -30%;
@@ -865,15 +866,15 @@ body {
 }
 
 .inner_section_3 .gallery2 {
-  -webkit-transition: bottom 0.8s ease 0.4s;
+ 
+  /* -webkit-transition: bottom 0.8s ease 0.4s;
   transition: bottom 0.8s ease 0.4s;
-  position: absolute;
-  bottom: -100px;
-  /* left: 632px; */
+  position: relative;
+  bottom: 0px; */
 }
 
 .inner_section_3 .gallery2.moved {
-  bottom: 0px;
+  bottom: -100px;
 }
 
 .inner_section_3 .gallery-wrapper {
@@ -1012,7 +1013,7 @@ body {
   left: -20%;
 }
 .inner_section_5 .gallery-wrapper {
-  grid-column: 2 / span 7;
+  /* grid-column: 2 / span 7; */
   position: relative;
 }
 .inner_section_5 .gallery0 img {
@@ -1038,10 +1039,10 @@ body {
 /*******TODO: START SECTION 6 *************/
 
 .inner_section_6 .gallery0 img {
-  width: 105%;
+  width: 110%;
   position: absolute;
   top: 50px;
-  left: 10px;
+  left: -4px;
 }
 .inner_section_6 .place-bottom {
   border: 1px solid black;
@@ -1057,11 +1058,11 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 20px;
-  left: 50px;
+  top: 16px;
+  left: 41px;
 }
 .inner_section_6 .section_6-title {
-  font-size: 1.6em;
+  font-size: 1.65em;
   margin-bottom: 5px;
 }
 
@@ -1118,11 +1119,11 @@ body {
   font-size: 1.24em;
 }
 .inner_section_8 .gallery-wrapper {
-  position: relative;
-  left: 10px;
+  grid-column: 1;
+  grid-row: 1;
 }
 .inner_section_8 .gallery0 img {
-  width: 100%;
+  width: auto;
 }
 .inner_section_8 .place-bottom {
   grid-row: 9;
@@ -1380,3 +1381,117 @@ body {
 
 
 /****************** start chat menu *****************/
+
+
+
+
+#ball-loading-wrap {
+  position: relative;
+  height: 75px;
+  width: 30px;
+}
+
+#ball-loading-wrap::after {
+  background: rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  content: "";
+  height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+  transform: scaley(0.1);
+  transform-origin: center bottom;
+  -webkit-animation-name: bounceballShadow;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-delay: 0;
+  -webkit-animation-timing-function: ease-out;
+  animation-name: bounceballShadow;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0;
+  timing-function: ease-out;
+  animation-play-state: running;
+  animation-fill-mode: none;
+}
+
+#ball-loading-wrap #ball {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-animation-name: bounceball-splash;
+  -webkit-animation-duration: 0.4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-delay: 0;
+  -webkit-animation-timing-function: ease-out;
+  animation-name: bounceball-splash;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-delay: 0;
+  timing-function: ease-out;
+  animation-play-state: running;
+  animation-fill-mode: none;
+  overflow: hidden;
+}
+
+#ball-loading-wrap #ball svg {
+  height: 30px;
+  width: 30px;
+}
+
+@-webkit-keyframes bounceball-splash {
+  from {
+    bottom: 0;
+    height: 20px;
+  }
+
+  10% {
+    bottom: 0;
+    height: 30px;
+  }
+
+  to {
+    bottom: 50%;
+  }
+}
+
+@keyframes bounceball-splash {
+  from {
+    bottom: 0;
+    height: 20px;
+  }
+
+  10% {
+    bottom: 0;
+    height: 30px;
+  }
+
+  to {
+    bottom: 50%;
+  }
+}
+
+@keyframes bounceballShadow {
+  from {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scaleY(0.1) scaleX(1);
+  }
+
+  10% {
+    background: rgba(0, 0, 0, 0.3);
+    transform: scaleY(0.1) scaleX(0.8);
+  }
+
+  to {
+    background: rgba(0, 0, 0, 0.2);
+    transform: scaleY(0.1) scaleX(1);
+  }
+}
