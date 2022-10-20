@@ -28,39 +28,7 @@
   box-sizing: border-box;
   font-family: "Play", sans-serif;
 }
-@media screen and (max-width: 479px) {
-  :root {
-    --bg-section-one: url(./images/section1/bg-section1.jpg);
-    --bg-section-two: url(./images/section2/bg-section2.png);
-    --bg-section-three: url(./images/section3/bg-section3.png);
-    --bg-section-four: url(./images/section4/bg-section4.png);
-    --bg-section-five: url(./images/section5/bg-section5.jpg);
-    --bg-section-six: url(./images/section5/bg-section5.jpg);
-    --bg-section-seven: url(./images/section5/bg-section5.jpg);
-    --bg-section-eight: url(./images/section5/bg-section5.jpg);
-    --bg-section-nine: url(./images/section5/bg-section5.jpg);
-    --bg-section-ten: url(./images/section5/bg-section5.jpg);
-    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
-  }
-  
-}
 
-
-@media screen and (min-width: 480px) {
-  :root {
-    --bg-section-one: url(./images/section1/bg-section1.jpg);
-    --bg-section-two: url(./images/section2/bg-section2.png);
-    --bg-section-three: url(./images/section3/bg-section3.png);
-    --bg-section-four: url(./images/section4/bg-section4.png);
-    --bg-section-five: url(./images/section5/bg-section5.jpg);
-    --bg-section-six: url(./images/section5/bg-section5.jpg);
-    --bg-section-seven: url(./images/section5/bg-section5.jpg);
-    --bg-section-eight: url(./images/section5/bg-section5.jpg);
-    --bg-section-nine: url(./images/section5/bg-section5.jpg);
-    --bg-section-ten: url(./images/section5/bg-section5.jpg);
-    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
-  }
-}
 h1,
 li,
 p,
@@ -125,7 +93,39 @@ body {
   padding: 0;
   margin: 0;
 }
+@media screen and (max-width: 479px) {
+  :root {
+    --bg-section-one: url(./images/section1/bg-section1.jpg);
+    --bg-section-two: url(./images/section2/bg-section2.png);
+    --bg-section-three: url(./images/section3/bg-section3.png);
+    --bg-section-four: url(./images/section4/bg-section4.png);
+    --bg-section-five: url(./images/section5/bg-section5.jpg);
+    --bg-section-six: url(./images/section5/bg-section5.jpg);
+    --bg-section-seven: url(./images/section5/bg-section5.jpg);
+    --bg-section-eight: url(./images/section5/bg-section5.jpg);
+    --bg-section-nine: url(./images/section5/bg-section5.jpg);
+    --bg-section-ten: url(./images/section5/bg-section5.jpg);
+    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
+  }
+  
+}
 
+
+@media screen and (min-width: 480px) {
+  :root {
+    --bg-section-one: url(./images/section1/bg-section1.jpg);
+    --bg-section-two: url(./images/section2/bg-section2.png);
+    --bg-section-three: url(./images/section3/bg-section3.png);
+    --bg-section-four: url(./images/section4/bg-section4.png);
+    --bg-section-five: url(./images/section5/bg-section5.jpg);
+    --bg-section-six: url(./images/section5/bg-section5.jpg);
+    --bg-section-seven: url(./images/section5/bg-section5.jpg);
+    --bg-section-eight: url(./images/section5/bg-section5.jpg);
+    --bg-section-nine: url(./images/section5/bg-section5.jpg);
+    --bg-section-ten: url(./images/section5/bg-section5.jpg);
+    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
+  }
+}
 
 
 /*****background general******/
@@ -147,6 +147,35 @@ body {
 
 .panel[data-section-name="home"] {
 background-image: var(--bg-section-one);
+}
+
+.panel[data-section-name="section_2"] {
+  background-image: var(--bg-section-two);
+  
+}
+.panel[data-section-name="section_3"] {
+  background-image: var(--bg-section-three);
+}
+.panel[data-section-name="section_4"] {
+  background-image: var(--bg-section-four);
+}
+.panel[data-section-name="section_5"] {
+  background-image: var(--bg-section-five);
+}
+.panel[data-section-name="section_6"] {
+  background-image: var(--bg-section-six);
+}
+.panel[data-section-name="section_7"] {
+  background-image: var(--bg-section-seven);
+}
+.panel[data-section-name="section_8"] {
+  background-image: var(--bg-section-eight);
+}
+.panel[data-section-name="section_9"] {
+  background-image: var(--bg-section-nine);
+}
+.panel[data-section-name="section_10"] {
+  background-image: var(--bg-section-ten);
 }
 
 
