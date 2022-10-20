@@ -93,7 +93,7 @@ body {
   padding: 0;
   margin: 0;
 }
-@media  (max-width: 768px) {
+@media screen and (max-width: 992px) {
   :root {
     --bg-section-one: url(./images/section1/bg-section1.jpg);
     --bg-section-two: url(./images/section2/bg-section2.png);
@@ -106,6 +106,18 @@ body {
     --bg-section-nine: url(./images/section9/bg-section9.jpg);
     --bg-section-ten: url(./images/section10/bg-section10.jpg);
     --bg-section-eleven: url(./images/section11/bg-section11.jpg);
+    --bg-section-twelve: url(./images/section11/bg-section11.jpg);
+    --bg-section-thirteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-fourteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-Fifteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-sixteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-seventeen: url(./images/section11/bg-section11.jpg);
+    --bg-section-eighteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-nineteen: url(./images/section11/bg-section11.jpg);
+    --bg-section-twenty: url(./images/section11/bg-section11.jpg);
+    --bg-section-twentyOne: url(./images/section11/bg-section11.jpg);
+    --bg-section-twentyTwo: url(./images/section11/bg-section11.jpg);
+    --bg-section-Quizz: url(./images/section11/bg-section11.jpg);
   }
 }
 
