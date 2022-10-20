@@ -93,43 +93,39 @@ body {
   padding: 0;
   margin: 0;
 }
-@media screen and (max-width: 479px) {
+@media  (max-width: 768px) {
   :root {
     --bg-section-one: url(./images/section1/bg-section1.jpg);
     --bg-section-two: url(./images/section2/bg-section2.png);
     --bg-section-three: url(./images/section3/bg-section3.png);
     --bg-section-four: url(./images/section4/bg-section4.png);
     --bg-section-five: url(./images/section5/bg-section5.jpg);
-    --bg-section-six: url(./images/section5/bg-section5.jpg);
-    --bg-section-seven: url(./images/section5/bg-section5.jpg);
-    --bg-section-eight: url(./images/section5/bg-section5.jpg);
-    --bg-section-nine: url(./images/section5/bg-section5.jpg);
-    --bg-section-ten: url(./images/section5/bg-section5.jpg);
-    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
+    --bg-section-six: url(./images/section6/bg-section6.jpg);
+    --bg-section-seven: url(./images/section7/bg-section7.png);
+    --bg-section-eight: url(./images/section8/bg-section8.png);
+    --bg-section-nine: url(./images/section9/bg-section9.jpg);
+    --bg-section-ten: url(./images/section10/bg-section10.jpg);
+    --bg-section-eleven: url(./images/section11/bg-section11.jpg);
   }
-  
 }
 
-
-@media screen and (min-width: 480px) {
+/* @media screen and (min-width: 480px) {
   :root {
     --bg-section-one: url(./images/section1/bg-section1.jpg);
     --bg-section-two: url(./images/section2/bg-section2.png);
     --bg-section-three: url(./images/section3/bg-section3.png);
     --bg-section-four: url(./images/section4/bg-section4.png);
     --bg-section-five: url(./images/section5/bg-section5.jpg);
-    --bg-section-six: url(./images/section5/bg-section5.jpg);
-    --bg-section-seven: url(./images/section5/bg-section5.jpg);
-    --bg-section-eight: url(./images/section5/bg-section5.jpg);
-    --bg-section-nine: url(./images/section5/bg-section5.jpg);
-    --bg-section-ten: url(./images/section5/bg-section5.jpg);
-    --bg-section-eleven: url(./images/section5/bg-section5.jpg);
+    --bg-section-six: url(./images/section5/bg-section6.jpg);
+    --bg-section-seven: url(./images/section5/bg-section7.png);
+    --bg-section-eight: url(./images/section5/bg-section8.png);
+    --bg-section-nine: url(./images/section5/bg-section9.jpg);
+    --bg-section-ten: url(./images/section5/bg-section10.jpg);
+    --bg-section-eleven: url(./images/section5/bg-section11.jpg);
   }
-}
-
+} */
 
 /*****background general******/
-
 
 .lozad[data-src]:not(.no-fade) {
   transition: opacity 0.8s ease;
@@ -146,12 +142,11 @@ body {
 }
 
 .panel[data-section-name="home"] {
-background-image: var(--bg-section-one);
+  background-image: var(--bg-section-one);
 }
 
 .panel[data-section-name="section_2"] {
   background-image: var(--bg-section-two);
-  
 }
 .panel[data-section-name="section_3"] {
   background-image: var(--bg-section-three);
@@ -178,10 +173,7 @@ background-image: var(--bg-section-one);
   background-image: var(--bg-section-ten);
 }
 
-
 /*****background general******/
-
-
 
 /****** Main ********/
 
@@ -194,7 +186,7 @@ background-image: var(--bg-section-one);
 
 .panel {
   position: relative;
-  background-color: rgb(212, 23, 23);
+
 }
 
 .home {
