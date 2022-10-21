@@ -47,15 +47,26 @@ $(function() {
       },
       after:function(i,panels) {
         let ref = panels[i].attr("data-section-name");
+        console.log(ref,"ref")
         if(ref==="home") {
           $(".inner_section_2").find(".gallery0,.gallery1,.gallery2").removeClass("moved");
           // alert("vrei sa .... whatever")
         }
         if(ref==="section_3") {
+          
    
           // alert("continua,")
         }
+
+      let machan =  $(".panel").find("grid-template");
+      console.log(machan,"machan")
+    for(let k = 0; k < i.length; k++){
+      console.log(k,"k");
+      console.log(ref[k],"k");
+
+    }
       },
+      
       afterResize:initialPosition,
       afterRender:initialPosition
       });
