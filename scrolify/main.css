@@ -199,7 +199,6 @@ body {
 
 .panel {
   position: relative;
-
 }
 
 .home {
@@ -214,132 +213,6 @@ body {
 
 /*TODO:START general*/
 
-/***********TODO: START CARDS **************************/
-.container-cards {
-  max-width: 250px;
-  border-radius: 20px;
-  width: 200px;
-}
-
-.entry {
-  position: relative;
-  /* overflow: hidden; */
-  /* margin: 30px 0; */
-  padding: 1em 0.3em 1em 0.3em;
-  background: #3c3c3c99;
-  box-shadow: 5px 12px 21px 5px #00000091;
-  color: white;
-}
-
-.entry-title,
-.entry-title a {
-  margin-top: 0;
-  font-family: Oswald, sans-serif;
-  color: #fff;
-  text-decoration: none;
-}
-
-.entry-title a:hover {
-  color: #555;
-}
-.entry-content p {
-  font-size: 1em;
-}
-
-.more-link {
-  display: block;
-  height: 30px;
-  width: 120px;
-  line-height: 1;
-  font-size: 0.6em;
-  padding: 0 1.5em;
-  background: #1706ce;
-  color: #fff;
-  border-radius: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: bold;
-  border: 0;
-  /* box-shadow: 0 2px 4px #000; */
-  outline: none;
-  border: none;
-  /* margin-top: 1.1em;*/
-}
-
-.more-link:hover {
-  background: #c4d905;
-}
-
-.more-link:after {
-  /* content: "\2193"; */
-  margin-left: 8px;
-  font-size: 0.7em;
-}
-
-.more-link.open:after {
-  content: "\2191";
-}
-
-.entry-content.expanded {
-  overflow-y: scroll;
-}
-
-.entry-content {
-  overflow: hidden;
-  line-height: 1;
-}
-
-.entry-content.forScrolling {
-  overflow-y: scroll;
-  max-height: 200px;
-}
-.container-cards.card_normal::after {
-  content: "test";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 30px;
-  background-color: rgb(133, 165, 15);
-  height: 30px;
-}
-.container-cards.card_normal::before {
-  content: "test";
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30px;
-  background-color: rgb(222, 190, 10);
-  height: 30px;
-}
-.container-cards.card_normal .more-link {
-  float: left;
-}
-.container-cards.card_reverse .more-link {
-  float: right;
-}
-.container-cards.card_reverse::after {
-  content: "test";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 30px;
-  background-color: red;
-  height: 30px;
-}
-.container-cards.card_reverse::before {
-  content: "test";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 30px;
-  background-color: red;
-  height: 30px;
-}
-.container-cards .entry-title {
-  font-size: 1.2em;
-}
-/***********TODO: end CARDS **************************/
 .wrapper {
   overflow: hidden;
   display: flex;
@@ -425,7 +298,7 @@ body {
   grid-row: 9;
   grid-column: 1 / span 6;
   z-index: 30;
-  background: rgba(0, 0, 0, 0.479);
+  /* background: rgba(0, 0, 0, 0.479); */
   color: white;
 }
 .place-bottom img {
@@ -607,8 +480,10 @@ body {
 .inner_section_1 .modal_home_container {
   grid-column: 4;
   grid-row: 2;
-  margin-left: -30px;
-  /*https://codepen.io/kucznierzm/pen/KKaypgd*/
+  margin-left: -25px;
+  margin-top: 3px;
+
+ 
 }
 
 /******EMBLEM BUTTON*********/
@@ -616,16 +491,16 @@ body {
 .inner_section_1 .btn-home {
   border: none;
   border-radius: 100%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   position: absolute;
-
   color: #fff;
   font-size: 1.8em;
   outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: crimson;
 }
 
 .btn-home:focus {
@@ -635,40 +510,27 @@ body {
 .ball_animation {
   animation-name: bounceBall;
   animation-duration: 1s;
+  animation-delay: 0.1s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   position: absolute;
+
 }
 @keyframes bounceBall {
   0% {
-    width: 50px;
-    height: 20px;
     border-radius: 5em;
-    margin: 0 0px 0;
+    opacity: 1;
+  
   }
 
-  12% {
-    width: 100px;
-    height: 10px;
-  }
-
-  20% {
-    width: 150px;
-
-    margin: 0 -400px 0;
-  }
-
-  25% {
-    width: 150px;
-    height: 300px;
-    margin: 0 -350px 0;
-  }
 
   100% {
     border-radius: 0em;
     width: 200%;
     height: 200%;
-    margin: -350px -500px 0;
+    opacity: 0;
+margin: 0px 0 0 -350px;
+
   }
 }
 #modal_info {
@@ -689,7 +551,7 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  background: rgb(117, 117, 117);
+  background: rgb(16 29 81);
   position: absolute;
   top: 0;
   left: 0;
@@ -710,6 +572,7 @@ body {
   align-items: center;
   justify-content: center;
   background: rgb(79, 4, 29);
+  margin: 0 auto;
 }
 .inner_section_1 .modal-content-info img {
   width: 100%;
@@ -1353,24 +1216,36 @@ body {
 
 .container-shape {
   display: grid;
-  grid-template-columns: repeat(3, minmax(10vw, 1fr));
-  grid-template-rows: repeat(10, 10vh);
+  grid-template-columns: repeat(3, minmax(10vw, 350px));
+  grid-template-rows: repeat(10, minmax(10vh, 100px));
+  background: rgb(16 29 81);
+  /* grid-template-rows: repeat(10, 10vh); */
   height: 100%;
   padding: 0em 0.5em;
 }
 .title-shape {
   grid-column: 1 / span 3;
   background: purple;
-  grid-row: 1 / span 2;
+  grid-row: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-shape > .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .item-1 {
   grid-column: 1;
-  grid-row: 3 / span 2;
+  grid-row: 2 / span 2;
   background-color: black;
 }
 .item-2 {
   grid-column: 1;
-  grid-row: 5 / span 1;
+  grid-row: 4 / span 2;
   background: yellow;
 }
 .item-3 {
@@ -1415,7 +1290,7 @@ body {
 .title-shape-bottom {
   grid-column: 1 / span 3;
   grid-row: 9 / span 2;
-  background: green;
+  /* background: green; */
 }
 
 /**************end content section 1**************/
