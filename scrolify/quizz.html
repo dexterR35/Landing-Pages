@@ -3,454 +3,444 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
       integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: "play", sans-serif;
-      }
+      @charset "UTF-8";
+      /* CSS Document */
 
       body {
-        height: 100vh;
-        background: linear-gradient(184deg, #8754ff, #8e2de2);
+        font-family: "Fjalla One", Segoe, "Segoe UI", "DejaVu Sans",
+          "Trebuchet MS", Verdana, sans-serif;
       }
 
-      .start-screen,
-      .score-container {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      .content-quiz {
+        background-color: #eee;
+        width: 75%;
+        max-width: 800px;
+        min-height: 170px;
+        box-shadow: 5px 5px 9px #333;
       }
 
+      #quiz {
+        display: none;
+        margin-top: 50px;
+        font-size: x-large;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 10px;
+        font-size: smaller;
+      }
+
+      input[type="radio"] {
+        margin-right: 15px;
+      }
       button {
-        border: none;
-        outline: none;
-        cursor: pointer;
-      }
-
-      #start-button,
-      #restart {
-        font-size: 1.3em;
-        padding: 0.5em 1.8em;
-        border-radius: 0.2em;
-        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
-      }
-
-      #restart {
-        margin-top: 0.9em;
-      }
-
-      #display-container {
-        background-color: #ffffff;
-        padding: 3.1em 1.8em;
-        width: 80%;
-        max-width: 37.5em;
-        margin: 0 auto;
-        position: absolute;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        border-radius: 0.6em;
-      }
-
-      .header {
-        margin-bottom: 1.8em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 0.6em;
-        border-bottom: 0.1em solid #c0bfd2;
-      }
-
-      .timer-div {
-        background-color: #e1f5fe;
-        width: 7.5em;
-        border-radius: 1.8em;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.7em 1.8em;
-      }
-
-      .question {
-        margin-bottom: 1.25em;
-        font-weight: 600;
-      }
-
-      .option-div {
-        font-size: 0.9em;
-        width: 100%;
-        padding: 1em;
-        margin: 0.3em 0;
-        text-align: left;
-        outline: none;
-        background: transparent;
-        border: 1px solid #c0bfd2;
-        border-radius: 0.3em;
-      }
-
-      .option-div:disabled {
-        color: #000000;
-        cursor: not-allowed;
-      }
-
-      #next-button {
-        font-size: 1em;
-        margin-top: 1.5em;
-        background-color: #8754ff;
-        color: #ffffff;
-        padding: 0.7em 1.8em;
-        border-radius: 0.3em;
+        position: relative;
         float: right;
-        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.3);
+        margin-left: 5px;
+        margin-top: 15px;
       }
 
-      .hide-Qz {
+      #prev_quiz {
         display: none;
       }
 
-      .incorrect {
-        background-color: #ffdde0;
-        color: #d32f2f;
-        border-color: #d32f2f;
+      #start-quiz {
+        display: none;
+        width: 90px;
       }
 
-      .correct {
-        background-color: #e7f6d5;
-        color: #689f38;
-        border-color: #689f38;
+      #warning {
+        color: #800000;
+        font-weight: bold;
+        margin-top: 25px;
       }
 
-      #user-score {
-        font-size: 1.5em;
-        color: #ffffff;
-      }
-      .quote {
-        visibility: hidden;
-      }
-      .show_quotes {
-        visibility: visible;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="start-screen">
-      <button id="start-button">Start</button>
-    </div>
-    <div id="display-container">
-      <div class="header">
-        <div class="number-of-count">
-          <span class="number-of-question">1 of 3 questions</span>
-        </div>
-        <div class="timer-div">
-          <span>100 </span>
-          <span class="bonus-quiz">bonus</span>
-        </div>
-      </div>
-      <div id="container-questions">
-        <!-- questions and options will be displayed here -->
-      </div>
-      <button id="next-button">Next</button>
-    </div>
-    <div class="score-container hide-Qz">
-      <div id="user-score">Demo Score</div>
-      <button id="restart">Restart</button>
-    </div>
-
-    <script>
-      //References
-      let timeLeft = document.querySelector(".bonus-quiz");
-      let quizContainer = document.getElementById("container-questions");
-      let nextBtn = document.getElementById("next-button");
-      let countOfQuestion = document.querySelector(".number-of-question");
-      let displayContainer = document.getElementById("display-container");
-      let scoreContainer = document.querySelector(".score-container");
-      let restart = document.getElementById("restart");
-      let userScore = document.getElementById("user-score");
-      let startScreen = document.querySelector(".start-screen");
-      let startButton = document.getElementById("start-button");
-      let questionCount;
-      let scoreCount = 0;
-      let count = 110;
-      let countdown;
-      var selections = []; //Array containing user choices
-      //Questions and Options array
-
-      const quizArray = [
-        {
-          id: "0",
-          question:
-            "Când a fost folosit sistemul de arbitraj video (VAR) pentru prima dată la Turneul Final?",
-          options: ["in 2010", "in 2018", "in 2022 va fi priuma dată"],
-          correct: "in 2018",
-          quote: "test",
-        },
-        {
-          id: "1",
-          question:
-            "Care a fost Campionatul cu cea mai scăzută medie de goluri pe meci?",
-          options: ["North America", "Asia", "Africa"],
-          correct: "Europe",
-          quote: "test",
-        },
-        {
-          id: "2",
-          question: "Who invented Computer?",
-          options: ["Charles Babbage", "Henry Luce", "Henry Babbage"],
-          correct: "Charles Babbage",
-          quote: "test",
-        },
-        {
-          id: "3",
-          question:
-            "What do you call a computer on a network that requests files from another computer?",
-          options: ["A client", "A host", "A router"],
-          correct: "A client",
-          quote: "test",
-        },
-        {
-          id: "4",
-          question:
-            "Hardware devices that are not part of the main computer system and are often added later to the system.",
-          options: ["Peripheral", "Clip art", "Highlight"],
-          correct: "Peripheral",
-          quote: "test",
-        },
-        {
-          id: "5",
-          question:
-            "The main computer that stores the files that can be sent to computers that are networked together is:",
-          options: ["Clip art", "Mother board", "File server"],
-          correct: "File server",
-          quote: "test",
-        },
-        {
-          id: "6",
-          question: "How can you catch a computer virus?",
-          options: [
-            "Sending e-mail messages",
-            "Opening e-mail attachments",
-            "Shopping on-line",
-          ],
-          correct: "Opening e-mail attachments",
-          quote: "test",
-        },
-        {
-          id: "7",
-          question: "Google (www.google.com) is a:",
-          options: [
-            "Search Engine",
-            "Number in Math",
-            "Chat service on the web",
-          ],
-          correct: "Search Engine",
-          quote: "test",
-        },
-        {
-          id: "8",
-          question: "Which is not an Internet protocol?",
-          options: ["HTTP", "STP", "IP"],
-          correct: "STP",
-          quote: "test",
-        },
-        {
-          id: "9",
-          question: "Which of the following is not a valid domain name?",
-          options: ["www.yahoo.com", "www.com.yahoo", "www.yahoo.co.in"],
-          correct: "www.com.yahoo",
-          quote: "test",
-        },
-        {
-          id: "10",
-          question: "Which of the following is not a valid domain name?",
-          options: ["www.yahoo.com", "www.com.yahoo", "www.yahoo.co.in"],
-          correct: "www.com.yahoo",
-          quote: "test",
-        },
-        {
-          id: "11",
-          question: "Which of the following is not a valid domain name?",
-          options: ["www.yahoo.com", "www.com.yahoo", "www.yahoo.co.in"],
-          correct: "www.com.yahoo",
-          quote: "test",
-        },
-      ];
-
-      //Restart Quiz
-      // restart.addEventListener("click", () => {
-      //     initial();
-      //     displayContainer.classList.remove("hide-Qz");
-      //     scoreContainer.classList.add("hide-Qz");
-      // });
-
-      //Next Button
-      nextBtn.addEventListener(
-        "click",
-        (displayNext = () => {
-          //increment questionCount
-          questionCount += 1;
-          //if last question
-          if (questionCount == quizArray.length) {
-            //hide-Qz question container and display score
-            displayContainer.classList.add("hide-Qz");
-            scoreContainer.classList.remove("hide-Qz");
-            //user score
-            userScore.innerHTML =
-              "Scorul tau este " + scoreCount + " din " + questionCount;
-          } else {
-            //display questionCount
-            countOfQuestion.innerHTML =
-              questionCount + 1 + " din " + quizArray.length + " Întrebări";
-            //display quiz
-            quizDisplay(questionCount);
-            count = 11;
-            // clearInterval(countdown);
-            // timerDisplay();
-          }
-        })
-      );
-
-      //Timer
-      // const timerDisplay = () => {
-      //     countdown = setInterval(() => {
-      //         count--;
-      //         timeLeft.innerHTML = `${count}s`;
-      //         if (count == 0) {
-      //             clearInterval(countdown);
-      //             displayNext();
-      //         }
-      //     }, 1000);
-      // };
-
-      //Display quiz
-      const quizDisplay = (questionCount) => {
-        let quizCards = document.querySelectorAll(".container-mid");
-        //hide-Qz other cards
-        quizCards.forEach((card) => {
-          card.classList.add("hide-Qz");
-        });
-        //display current question card
-        quizCards[questionCount].classList.remove("hide-Qz");
-      };
-
-      //Quiz Creation
-      function quizCreator() {
-        //randomly sort questions
-        quizArray.sort(() => Math.random() - 0);
-        console.log(quizArray);
-        //generate quiz
-        for (let i of quizArray) {
-          console.log(i, "i of quizArray");
-          console.log(i.correct, "corect");
-          //randomly sort options
-          // i.options.sort(() => Math.random() - 0.5);
-          //quiz card creation
-          let divs = document.createElement("div");
-          divs.classList.add("container-mid", "hide-Qz");
-          //question number
-          countOfQuestion.innerHTML =
-            1 + " din " + quizArray.length + "Întrebări";
-          //question
-          let question_DIV = document.createElement("p");
-          question_DIV.classList.add("question");
-          question_DIV.innerHTML = i.question;
-          console.log(question_DIV, "i question");
-          divs.appendChild(question_DIV);
-
-          let quote_DIV = document.createElement("p");
-          quote_DIV.classList.add("quote");
-          quote_DIV.innerHTML = i.quote;
-          divs.appendChild(quote_DIV);
-
-          console.log(divs, "i quote");
-          //options
-          divs.innerHTML += `
-    <button class="option-div" onclick="checker(this)">${i.options[0]}</button>
-     <button class="option-div" onclick="checker(this)">${i.options[1]}</button>
-      <button class="option-div" onclick="checker(this)">${i.options[2]}</button>
-    `;
-          quizContainer.appendChild(divs);
-          // console.log(i.question , "i options");
+      @media (max-width: 767px) {
+        #start-quiz {
+          margin-left: 25px;
         }
       }
 
-      //Checker Function to check if option is correct or not
-      function checker(userOption) {
-        let userSolution = userOption.innerText;
-        let question =
-          document.getElementsByClassName("container-mid")[questionCount];
-        let options = question.querySelectorAll(".option-div");
-        let quotes = document.querySelector(".quote");
-        console.log(options, "options checker");
-        console.log(userSolution, "userSolution checker");
+  
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="content-quiz container-fluid-quiz" id="quiz">
+    
+      <div id="container-questions">
+        <!-- questions and options will be displayed here -->
+      </div>
+      <button class="btn-quiz" id="next-quiz">next-quiz</button>
+      <button class="btn-quiz" id="prev_quiz">prev_quiz</button>
+      <button class="btn-quiz" id="start-quiz">start-quiz Over</button>
+    </section>
 
-        //if user clicked answer == correct option stored in object
-        if (userSolution == quizArray[questionCount].correct) {
-          userOption.classList.add("correct");
-          quotes.classList.add("show_quotes");
-          console.log(userOption,"win")
-          scoreCount++;
-        } else {
-          userOption.classList.add("incorrect");
-       
-          //For marking the correct option
-          options.forEach((element) => {
-            if (element.innerText === quizArray[questionCount].correct) {
-              element.classList.add("correct");
-            console.log(userOption,"lose")
+    <script>
+      // JavaScript Document
+      $(document).ready(function () {
+        "use strict";
+
+        let questions = [
+          {
+            id: 0,
+            question:
+              "What is defined in physics as 'a nuclear reaction in which nuclei combine to form more massive nuclei'?",
+            choices: ["fission", "farking", "fracking"],
+            details: "test",
+            correctAnswer: 1,
+          },
+          {
+            id: 1,
+            question: "What is the capital of Australia?",
+            choices: ["Melbourne", "Sydney", "Canberra"],
+            details: "test2",
+            correctAnswer: 2,
+          }
+          // },
+          // {
+          //   id: 2,
+          //   question: "Who is the prime minister of the U.K.?",
+          //   choices: ["Tony Blair", "David Cameron", "Nicolas Sarkozy"],
+          //   details: "test",
+          //   correctAnswer: 1,
+          // },
+          // {
+          //   id: 3,
+          //   question: "What is the first perfect number?",
+          //   details: "test",
+          //   choices: [38, 6, 0],
+          //   correctAnswer: 1,
+          // },
+          // {
+          //   id: 4,
+          //   question: "What colors are on the flag of Norway?",
+          //   choices: [
+          //     "red and blue",
+          //     "red and white",
+          //     "red, white, and silver",
+          //   ],
+          //   details: "test",
+          //   correctAnswer: 3,
+          // },
+          // {
+          //   id: 5,
+          //   question: "When did the Soviet Union collapse?",
+          //   choices: ["14 February 1989", "1 January 1988", "31 October 1993"],
+          //   details: "test",
+          //   correctAnswer: 3,
+          // },
+          // {
+          //   id: 6,
+          //   question: "What is the currency of Switzerland?",
+          //   details: "test",
+          //   choices: ["franc", "Euro", "rupee"],
+          //   correctAnswer: 1,
+          // },
+          // {
+          //   id: 7,
+          //   question: "What is the square root of 256?",
+          //   details: "test",
+          //   choices: [24, 25, 30],
+          //   correctAnswer: 2,
+          // },
+          // {
+          //   id: 8,
+          //   question: "What are the three main types of rocks?",
+          //   choices: [
+          //     "igneous, volcanic, quartz",
+          //     "sedimentary, igneous, metamorphic",
+          //     "gargantuan, feldspar, quartz",
+          //   ],
+          //   details: "test",
+          //   correctAnswer: 1,
+          // },
+          // {
+          //   id: 9,
+          //   question:
+          //     "What movie did Leonardo DiCaprio win a BAFTA Film Award for?",
+          //   choices: [
+          //     "Inception",
+          //     "What's Eating Gilbert Grape",
+          //     "The Revenant",
+          //   ],
+          //   details: "test",
+          //   correctAnswer: 2,
+          // },
+          // {
+          //   id: 10,
+          //   question:
+          //     "What movie did Leonardo DiCaprio win a BAFTA Film Award for?",
+          //   choices: [
+          //     "Inception",
+          //     "What's Eating Gilbert Grape",
+          //     "The Revenant",
+          //   ],
+          //   details: "test",
+          //   correctAnswer: 2,
+          // },
+          // {
+          //   id: 11,
+          //   question:
+          //     "What movie did Leonardo DiCaprio win a BAFTA Film Award for?",
+          //   choices: [
+          //     "Inception",
+          //     "What's Eating Gilbert Grape",
+          //     "The Revenant",
+          //   ],
+          //   details: "test2",
+          //   correctAnswer: 2,
+          // },
+        ];
+        let countOfQuestion = document.querySelector(".number-of-questions");
+        let questionCounter = 0; //Tracks question number
+        let selections = []; //Array containing user choices
+        let quiz = $(".content-quiz"); //Quiz div object
+        let details = 0;
+        let correctAnswer = questions[0].correctAnswer;
+        let questionCount;
+        console.log(correctAnswer);
+
+        // Display initial question
+        displayNext();
+
+        // Click handler for the 'next-quiz' button
+        $("#next-quiz").on("click", function (e) {
+          e.preventDefault();
+
+          // Suspend click listener during fade animation
+          if (quiz.is(":animated")) {
+            return false;
+          }
+          choose();
+
+          // If no user selection, progress is stopped
+          if (isNaN(selections[questionCounter])) {
+            $("#warning").text("Please make a selection!");
+          } else {
+            questionCounter++;
+            displayNext();
+            $("#warning").text("");
+          }
+        });
+
+        // Click handler for the 'prev_quiz' button
+        $("#prev_quiz").on("click", function (e) {
+          e.preventDefault();
+
+          if (quiz.is(":animated")) {
+            return false;
+          }
+          choose();
+          questionCounter--;
+          displayNext();
+        });
+        //
+
+    
+        
+        // Click handler for the 'start-quiz Over' button
+        $("#start-quiz").on("click", function (e) {
+          e.preventDefault();
+
+          if (quiz.is(":animated")) {
+            return false;
+          }
+          questionCounter = 0;
+          selections = [];
+          displayNext();
+          $("#start-quiz").hide();
+        });
+
+        // Creates and returns the div that contains the questions and
+        // the answer selections
+        function createQuestionElement(index) {
+          console.log(index, "index");
+
+          let qElement = $("<div>", {
+            id: "question",
+          });
+
+          let headerQz = $("<h3>Întrebarea " + (index + 1) +  " " + "din" + " " + questions.length  + ":</h3>");
+          qElement.append(headerQz);
+
+          let question = $("<p>").append(questions[index].question);
+          let quotes = $("<p>").append(questions[index].details);
+          let answers = $("<p>").append(questions[index].correctAnswer);
+          qElement.append(question, quotes, answers);
      
+          for (let i of questions) {
+            console.log(i, "i of questions");
+            console.log(i.correctAnswer, "corect");
+          }
+        
+          let radioButtons = createRadios(index);
+          qElement.append(radioButtons);
+          // this is new
+          let warningText = $('<p id="warning">');
+          qElement.append(warningText);
+
+          return qElement;
+        }
+    
+
+
+        //Checker Function to check if option is correct or not
+        function checker(userOption) {
+          let userSolution = userOption.innerText;
+          let question =
+            document.getElementsByClassName("container-mid")[questionCount];
+          let options = question.querySelectorAll(".option-div");
+
+          console.log(options, "options checker");
+          console.log(userSolution, "userSolution checker");
+
+          //if user clicked answer == correct option stored in object
+          if (userSolution == questions[questionCount].correct) {
+            userOption.classList.add("correct");
+            quotes.classList.add("show_quotes");
+            console.log(userOption, "win");
+            scoreCount++;
+          } else {
+            userOption.classList.add("incorrect");
+
+            //For marking the correct option
+            options.forEach((element) => {
+              if (element.innerText === questions[questionCount].correct) {
+                element.classList.add("correct");
+                console.log(userOption, "lose");
+              }
+            });
+          }
+
+          // //clear interval(stop timer)
+          // clearInterval(countdown);
+          // //disable all options
+          // options.forEach((element) => {
+          //     element.disabled = true;
+          // });
+        }
+        // Creates a list of the answer choices as radio inputs
+        function createRadios(index) {
+          let radioList = $("<ul>");
+          let itemQz;
+          let input = "";
+
+          for (let i = 0; i < questions[index].choices.length; i++) {
+            console.log(i, "i");
+            itemQz = $("<li>");
+            input = '<input type="radio" name="answer" value=' + i + " />";
+            input += questions[index].choices[i];
+            itemQz.append(input);
+            radioList.append(itemQz);
+          }
+
+          return radioList;
+        }
+
+        // Reads the user selection and pushes the value to an array
+        function choose() {
+          selections[questionCounter] = +$(
+            'input[name="answer"]:checked'
+          ).val();
+          console.log("am ales casuta cu nr", selections[questionCounter]);
+          console.log(questions, "lala");
+     
+       
+        }
+
+        // Displays next-quiz requested element
+        function displayNext() {
+          quiz.fadeOut(function () {
+            $("#question").remove();
+
+            if (questionCounter < questions.length) {
+              let nextQuestion = createQuestionElement(questionCounter);
+              quiz.append(nextQuestion).fadeIn();
+              if (!isNaN(selections[questionCounter])) {
+                $("input[value=" + selections[questionCounter] + "]").prop(
+                  "checked",
+                  true
+                );
+              }
+
+              // Controls display of 'prev_quiz' button
+              if (questionCounter === 1) {
+                $("#prev_quiz").show();
+              } else if (questionCounter === 0) {
+                $("#prev_quiz").hide();
+                $("#next-quiz").show();
+              }
+            } else {
+              let scoreElem = displayScore();
+              quiz.append(scoreElem).fadeIn();
+              $("#next-quiz").hide();
+              $("#prev_quiz").hide();
+              $("#start-quiz").show();
             }
           });
         }
 
-        // //clear interval(stop timer)
-        // clearInterval(countdown);
-        // //disable all options
-        // options.forEach((element) => {
-        //     element.disabled = true;
-        // });
-      }
+        console.log(details, "questions");
 
-      //initial setup
-      function initial() {
-        quizContainer.innerHTML = "";
-        questionCount = 0;
-        scoreCount = 0;
-        count = 11;
-        // clearInterval(countdown);
-        // timerDisplay();
-        quizCreator();
-        quizDisplay(questionCount);
-      }
-      initial();
+        // Computes score and returns a paragraph element to be displayed
+        function displayScore() {
+          let score = $("<h3 class='scoteTs'>", { id: "question" });
 
-      // when user click on start button
-      // startButton.addEventListener("click", () => {
-      //     startScreen.classList.add("hide-Qz");
-      //     displayContainer.classList.remove("hide-Qz");
-      //     initial();
-      // });
-
-      //hide-Qz quiz and display start screen
-      // window.onload = () => {
-      //     startScreen.classList.remove("hide-Qz");
-      //     displayContainer.classList.add("hide-Qz");
-      // };
+          let numCorrect = 0;
+          for (let i = 0; i < selections.length; i++) {
+            if (selections[i] === questions[i].correctAnswer) {
+              numCorrect++;
+            }
+          }
+          // Calculate score and display relevant message
+          let percentage = numCorrect / questions.length;
+          if (percentage >= 0.9) {
+            score.append(
+              "Incredible! You got " +
+                numCorrect +
+                " out of " +
+                questions.length +
+                " questions right!"
+            );
+          } else if (percentage >= 0.7) {
+            score.append(
+              "Good job! You got " +
+                numCorrect +
+                " out of " +
+                questions.length +
+                " questions right!"
+            );
+          } else if (percentage >= 0.5) {
+            score.append(
+              "You got " +
+                numCorrect +
+                " out of " +
+                questions.length +
+                " questions right."
+            );
+          } else {
+            score.append(
+              "You only got " +
+                numCorrect +
+                " out of " +
+                questions.length +
+                " right. Want to try again?"
+            );
+          }
+          return score;
+        }
+      });
     </script>
   </body>
 </html>
