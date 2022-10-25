@@ -4,212 +4,189 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <style>
-      /* The Modal (background) */
-      .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0); /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-      }
-
-      /* Modal Content */
-      .modal-content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #fefefe;
-        margin: auto;
+      * {
+        margin: 0;
         padding: 0;
-        border: 1px solid #888;
+      }
+
+      .morecontent span {
+        display: none;
+      }
+
+      .button-expand {
+        display: block;
+        margin: 0.5em 0 0.5em 0;
+      }
+
+      .more-inbox {
+        font-size: 0.9em;
+        max-height: 250px;
+      }
+
+      .container-inbox {
+        max-width: 250px;
+        padding: 0.5em 1em;
+        height: auto;
+        background-color: rgba(33, 33, 33, 0.482);
+        border-radius: 10px;
+        position: relative;
+        max-height: 500px;
+      }
+
+      .parent-inbox {
+        transition: height 2s ease;
+        overflow-y: auto;
+      }
+
+      .parent-inbox::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      .parent-inbox::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 5px;
+      }
+
+      .parent-inbox::-webkit-scrollbar-thumb {
+        background: black;
+        border-radius: 5px;
+      }
+
+      .parent-inbox::-webkit-scrollbar-thumb:hover {
+        background: rgb(54, 56, 58);
+        /* .more-inbox.scroll {
+        overflow-y: scroll;
+      } */
+      }
+
+      .container-inbox > h3 {
+        font-size: 1.1em;
+        text-transform: uppercase;
+        padding: 0.3em 0;
+        width: fit-content;
+        position: relative;
+      }
+
+      .container-inbox .btn-readMore {
+        border: none;
+        outline: none;
+        padding: 0.2em 0.5em;
+        width: 140px;
+        background: crimson;
+        color: white;
+        height: 20px;
+        /* position: absolute;
+      left: 111px;
+      top: 4px; */
+        border-radius: 2em;
+      }
+      .container-inbox.inbox-reverse h3 {
+        text-align: left;
+        text-align: end;
         width: 100%;
-        height: 100%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        -webkit-animation-name: animatetop;
-        -webkit-animation-duration: 0.4s;
-        animation-name: animatetop;
-        animation-duration: 0.4s;
-      }
-
-      /* Add Animation */
-      @-webkit-keyframes animatetop {
-        from {
-          width: 100%;
-          height: 0;
-          opacity: 0;
-        }
-        to {
-          width: 100vw;
-          height: 100%;
-          opacity: 1;
-        }
-      }
-
-      /* The Close Button */
-      .close {
-        color: white;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      .close:hover,
-      .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-      }
-
-      .modal-header {
-        padding: 2px 16px;
-        background-color: #5cb85c;
-        color: white;
-      }
-
-      .modal-body {
-        padding: 2px 16px;
-      }
-
-      .modal-footer {
-        padding: 2px 16px;
-        background-color: #5cb85c;
-        color: white;
-      }
-      .modals-container {
-        border: 1px solid black;
-        width: 100%;
-        max-width: 300px;
       }
     </style>
   </head>
+
   <body>
-    <div class="container-modal1 modals-container">
-      <h2>1st Modal</h2>
-
-      <!-- Trigger/Open The Modal -->
-      <button class="modal-button" href="#myModal1">Open Modal</button>
-
-      <!-- The Modal -->
-      <div id="myModal1" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">×</span>
-            <h2>Modal Heade2ssss222r</h2>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <p>Some other text...</p>
-          </div>
-          <div class="modal-footer">
-            <h3>Modal Footer</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container-modal2 modals-container">
-      <h2>2nd Modal</h2>
-      <!-- Trigger/Open The Modal -->
-      <button class="modal-button" href="#myModal2">Open Modal</button>
-      <!-- The Modal -->
-      <div id="myModal2" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">×</span>
-            <h2>Modal Header2222</h2>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <p>Some other text...</p>
-          </div>
-          <div class="modal-footer">
-            <h3>Modal Footer</h3>
-          </div>
+    <div class="container-inbox inbox-normal">
+      <h3>title</h3>
+      <div class="parent-inbox">
+        <div class="more-inbox">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum
+          dolor sit amet consectetur, adipisicing elit. Recusandae esse ipsum
+          provident vero sint numquam iure, laudantium, ipsa iste officia totam,
+          veniam ipsam asperiores cum. Voluptatum temporibus eos veritatis
+          nostrum? Quos impedit architecto sequi officiis? Vero voluptatem
+          delectus harum minima numquam quae illo, voluptate quidem ab
+          voluptatibus possimus nihil laborum sunt et iste, quam quod ex rem est
+          dolores commodi autem. Tempora debitis porro maxime autem nisi. Autem
+          vero aperiam recusandae ratione deleniti illum qui necessitatibus,
+          maiores soluta quaerat, ab laudantium labore aliquam doloribus culpa
+          cum velit? At temporibus illo facere ad quaerat a accusantium! Ea rem
+          voluptate numquam aut.
         </div>
       </div>
     </div>
 
-    <div class="container_modal3 modals-container">
-      <h2>2nd Modal</h2>
-
-      <!-- Trigger/Open The Modal -->
-      <button class="modal-button" href="#myModal2">Open Modal</button>
-
-      <!-- The Modal -->
-      <div id="myModal2" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <span class="close">×</span>
-            <h2>Modal Header2222</h2>
-          </div>
-          <div class="modal-body">
-            <p>Some text in the Modal Body</p>
-            <p>Some other text...</p>
-          </div>
-          <div class="modal-footer">
-            <h3>Modal Footer</h3>
-          </div>
+    <br /><br />
+    <div class="container-inbox inbox-reverse">
+      <h3>title</h3>
+      <div class="parent-inbox">
+        <div class="more-inbox">
+          Morbi placerat imperdiet risus quis blandit. Ut lobortis elit luctus,
+          feugiat erat vitae, interdum diam. Nam sit amet arcu vitae justo
+          lacinia ultricies nec eget tellus. Curabitur id sapien massa. In hac
+          <a href="#">habitasse</a> platea dictumst. Integer tristique leo
+          consectetur libero pretium pretium. Nunc sed mauris magna. Praesent
+          varius purus id turpis iaculis iaculis. Nulla
+          <em>convallis magna nunc</em>, id rhoncus massa ornare in. Donec et
+          feugiat sem, ac rhoncus mauris. Quisque eget tempor massa. Lorem ipsum
+          dolor sit amet consectetur adipisicing elit. Dolorem, officia commodi,
+          vitae modi exercitationem explicabo error labore culpa, animi dolore
+          dolorum eveniet voluptas officiis saepe dignissimos eum provident
+          tempore <et class="1"></et>
         </div>
       </div>
     </div>
 
     <script>
-    //   // Get the button that opens the modal
-    //   var btn = document.querySelectorAll("button.modal-button");
+      $(function () {
+        let showChar = 140;
+        let ellipsestext = "...";
+        let moretext = "Citeste mai mult >";
+        let lesstext = "Inchide";
 
-    //   // All page modals
-    //   var modals = document.querySelectorAll(".modal");
+        $(".more-inbox").each(function () {
+          let content = $(this).html();
+          if (content.length > showChar) {
+            let cs = content.substr(0, showChar);
+            let hs = content.substr(showChar, content.length - showChar);
+            let html_show =
+              cs +
+              '<span class="moreellipses">' +
+              ellipsestext +
+              '&nbsp;</span><span class="morecontent"><span>' +
+              hs +
+              '</span>&nbsp;&nbsp;<button class="button-expand btn-readMore">' +
+              moretext +
+              "</button></span>";
+            $(this).html(html_show);
+          }
+        });
 
-    //   // Get the <span> element that closes the modal
-    //   var spans = document.getElementsByClassName("close");
+        $(".button-expand").on("click", function (e) {
+          e.preventDefault();
+          // if ($(this).data("clicked", true)) {
+          //   $(".more-inbox").toggleClass("scroll");
+          // }
+          if ($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+          } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+          }
 
-    //   // When the user clicks the button, open the modal
-    //   for (var i = 0; i < btn.length; i++) {
-    //     btn[i].onclick = function (e) {
-    //       e.preventDefault();
-    //       modal = document.querySelector(e.target.getAttribute("href"));
-    //       modal.style.display = "block";
-    //     };
-    //   }
-
-    //   // When the user clicks on <span> (x), close the modal
-    //   for (var i = 0; i < spans.length; i++) {
-    //     spans[i].onclick = function () {
-    //       for (var index in modals) {
-    //         if (typeof modals[index].style !== "undefined")
-    //           modals[index].style.display = "none";
-    //       }
-    //     };
-    //   }
-
-    //   // When the user clicks anywhere outside of the modal, close it
-    //   window.onclick = function (event) {
-    //     if (event.target.classList.contains("modal")) {
-    //       for (var index in modals) {
-    //         if (typeof modals[index].style !== "undefined")
-    //           modals[index].style.display = "none";
-    //       }
-    //     }
-    //   };
-
-      $(".modal-button").on("click", function (e) {
-        e.preventDefault();
-        let parentS = $(this).parent();
-        parentS.toggleClass();
+          $(this).parent().prev().toggle(); // Using toggle in place of show() or hide() to toggle visisbiliy, like toggleClass()
+          $(this).prev().toggle();
+          return false;
+        });
       });
     </script>
   </body>

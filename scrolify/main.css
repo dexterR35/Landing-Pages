@@ -273,10 +273,9 @@ body {
   flex-direction: column;
   margin-bottom: 2em;
   align-items: center;
-  justify-content: space-around;
-  height: 100%;
+  justify-content: space-evenly;
+  height: 80%;
   position: absolute;
-  top: 50px;
   z-index: 2;
 }
 .home {
@@ -326,7 +325,7 @@ body {
   grid-column: 1 / span 2;
   grid-row: 1 / span 7;
   text-align: center;
-  letter-spacing: -0.2ch;
+  letter-spacing: -0.2px;
   z-index: 4;
 }
 
@@ -336,13 +335,46 @@ body {
   width: 100%;
   text-align: start;
   opacity: 0.8;
-  font-size: 3.1em;
-  line-height: 0.75;
+  font-size: 3em;
+  line-height: 0.66;
+}
+.home h1 span:not(.span-h1-s1){
+  font-size: 0.46em;
+}
+.home .span-h1-s1 {
+  font-size: 1em;
 }
 
-.home .header-content-text .line3 {
-  position: relative;
-  font-size: 1.6em;
+
+
+.ball_animation {
+  animation: ball-animation 0.7s ease forwards;
+}
+
+@keyframes ball-animation {
+  0%{
+    width: 40px;
+    height: 40px;
+    border-radius: 2em;
+    transform: translateX(0px) translateY(0px);
+    opacity: 0;
+
+  
+  }
+
+  25% {
+   transform: translateX(-200px) translateY(-10px);
+   opacity: 1;
+   width: 100%;
+   height: 10%;
+   border-radius: 2em;
+  }
+  to {
+    border-radius: 0em;
+    width: 200%;
+    height: 200%;
+    transform: translateX(-350px) translateY(-300px);
+  }
 }
 /* .section_1-title .span-h1-s1::after {
   position: absolute;
@@ -434,7 +466,7 @@ body {
 .text-bottom ul li {
   line-height: 1;
   letter-spacing: -1.5px;
-  margin-top: -6px;
+  margin-top: -2px;
 }
 /* .text-bottom .line1,
 .text-bottom .line3 {
@@ -470,7 +502,7 @@ body {
   font-style: italic;
 }
 .inner_section_1 .text-bottom .line3 {
-  font-size: 1.45em;
+  font-size: 1.50em;
   font-weight: bold;
 }
 .inner_section_1 .text-bottom .line4 {
@@ -480,7 +512,7 @@ body {
 .inner_section_1 .modal_home_container {
   grid-column: 4;
   grid-row: 2;
-  margin-left: -21px;
+  margin-left: -28px;
   margin-top: -4px;
 }
 
@@ -554,6 +586,10 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  width: 100%;
+  background: #c31432;
+  background: -webkit-linear-gradient(to top, #65000B, #850813);
+  background: linear-gradient(to top, #65000B, #850813);
 }
 .inner_section_1 .modal-content-info img {
   width: 90%;
@@ -642,6 +678,7 @@ body {
 .inner_section_3 .vertical-title {
   font-size: 1.5em;
   letter-spacing: -0.5px;
+  margin-bottom: -0.2em;
 }
 .inner_section_3 .vertical-title .line-2-span {
   font-size: 0.95em;
@@ -669,9 +706,7 @@ body {
   position: relative;
   bottom: 0px;
 }
-.inner_section_3 .content-placeHold .container-cards.card_reverse {
-  left: -30%;
-}
+
 /* 
 .inner_section_3 .content {
     grid-column: 3 /span 3;
@@ -805,16 +840,15 @@ body {
 
 .inner_section_3 .gallery-wrapper {
   margin: auto;
-  /* width: 840px; */
   position: absolute;
   left: 0;
   right: 0;
-
   height: 100%;
 }
 
 .inner_section_3 .content-placeHold {
   top: 38px;
+  left: -50px;
 }
 /*TODO: END SECTION 3*************/
 
@@ -1199,13 +1233,9 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(10vw, 1fr));
   grid-template-rows: repeat(10, minmax(10vh, 1fr));
-  /* grid-template-rows: repeat(10, 10vh); */
   height: 100%;
   padding: 0em 0.5em;
-  background: #c31432;
-  background: -webkit-linear-gradient(to top, #65000B, #850813);
-  background: linear-gradient(to top, #65000B, #850813);
-  padding: 0 1em;
+
 }
 .container-shape > .item {
   text-align: start;
@@ -1218,6 +1248,7 @@ body {
 .container-shape .item > h2 {
   font-size: 1.1em;
   line-height: 0.9;
+  margin-bottom: 0.2em;
 }
 
 .container-shape .item > p {
@@ -1258,11 +1289,14 @@ body {
 .item-3 {
   grid-column: 1 / span 1;
   grid-row: 7 / span 1;
-  margin-top: 4em;
+
   width: 160px !important;
   max-width: 160px;
 
   /* background: orange; */
+}
+.item-33 {
+  margin-top: 4em;
 }
 .item-4 {
   grid-column: 3 / span 2;
@@ -1277,10 +1311,12 @@ body {
 .item-5 {
   grid-column: 2 / span 2;
   grid-row: 3 / span 2;
-  position: relative;
+  /* position: relative;
   left: 4.5em;
-  top: -3em;
-  width: 75% !important;
+  top: -3em; */
+  margin-left: 60px;
+  margin-top: -33px;
+  width: 170px !important;
 }
 .item-6 {
   grid-column: 1 / span 2;
@@ -1292,7 +1328,7 @@ body {
   grid-row: 8;
   /* background: red; */
   margin-left: 4em;
-  margin-top: 1em;
+  margin-top: -0.5em;
   width: 180px !important;
   /* width: 250px !important; */
   /* background: rgb(13, 214, 174); */
@@ -1311,13 +1347,14 @@ body {
   width: 50%;
   margin: 0 auto;
   max-width: 300px;
+  
 }
-
+/* 
 .title-shape-bottom {
   grid-column: 1 / span 3;
   grid-row: 9 / span 2;
-  /* background: green; */
-}
+
+} */
 
 /**************end content section 1**************/
 
@@ -1461,3 +1498,90 @@ body {
     transform: scaleY(0.1) scaleX(1);
   }
 }
+
+
+
+
+
+
+
+
+/*** cards CARDS****/
+.morecontent span {
+  display: none;
+}
+
+.button-expand {
+  display: block;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.more-inbox {
+  font-size: 0.9em;
+  max-height: 250px;
+}
+
+.container-inbox {
+  max-width: 250px;
+  padding: 0.5em 1em;
+  height: auto;
+  background-color: rgba(33, 33, 33, 0.482);
+  border-radius: 10px;
+  position: relative;
+  max-height: 500px;
+  box-shadow: inset 0 0 5px grey;
+  color: white;
+}
+.container-inbox.inbox-reverse{
+  color: yellow;
+  /* margin-left: -50%; */
+}
+.parent-inbox {
+  transition: height 2s ease;
+  overflow-y: auto;
+}
+
+.parent-inbox::-webkit-scrollbar {
+  width: 5px;
+}
+
+.parent-inbox::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+.parent-inbox::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
+}
+
+.parent-inbox::-webkit-scrollbar-thumb:hover {
+  background: rgb(54, 56, 58);
+  /* .more-inbox.scroll {
+  overflow-y: scroll;
+} */
+}
+
+.container-inbox > h3 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  padding: 0.3em 0;
+  width: fit-content;
+  position: relative;
+}
+
+.container-inbox .btn-readMore {
+  border: none;
+  outline: none;
+  padding: 0.2em 0.5em;
+  width: 140px;
+  background: crimson;
+  color: white;
+  height: 20px;
+  /* position: absolute;
+left: 111px;
+top: 4px; */
+  border-radius: 2em;
+}
+
+/***END cards CARDS****/

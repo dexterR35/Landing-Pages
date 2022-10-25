@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <title>Document</title>
+    <style>
+        #section {
+  width: 200px;
+  height: auto;
+  overflow: hidden;
+  word-wrap: break-word;
+  border: 2px solid black;
+}
+
+.moretext {
+  display: none;
+}
+
+    </style>
+</head>
+<body>
+    
+
+
+<div class="container-readMore">
+
+    <div id="section">
+        <div class="article">1
+          <p>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților,  
+          </p>
+          <p class="moretext">
+            deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius.. 
+          </p>
+        </div>
+        <a class="moreless-button" href="#">Read more</a>
+      </div>
+
+      
+    <div id="section">
+        <div class="article">2
+          <p>Va fi pentru prima dată când Mondialul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților,  
+          </p>
+          <p class="moretext">
+            deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius.. 
+          </p>
+        </div>
+      
+      </div>
+   
+</div>
+<a class="moreless-button" href="#">Read more</a>
+<script>
+    // The function toggles more (hidden) text when the user clicks on "Read more". The IF ELSE statement ensures that the text 'read more' and 'read less' changes interchangeably when clicked on.
+// $('.moreless-button').on("click", function(e) {
+//     e.preventDefault();
+//         let parentS = $(this).parent();
+//         parentS.toggleClass();
+
+//   if ($('.moreless-button').text() == "Citește mai mult") {
+//     $(this).text("Închide")
+//   } else {
+//     $(this).text("Citește mai mult")
+//   }
+// });
+
+
+$('.moreless-button').on("click", function(e){
+
+    e.preventDefault();
+ 
+ 
+    console.log(parent);
+    if ($('.moreless-button').text() == "Citește mai mult") {
+        let parent = $(this).parent();
+        parent.slideToggle();
+    $(this).text("Închide")
+   
+  } else {
+    $(this).text("Citește mai mult")
+  }
+})
+</script>
+
+</body>
+</html>

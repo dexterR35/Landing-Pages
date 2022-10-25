@@ -104,6 +104,7 @@ function updateChart() {
         console.log(datapoints, "datapoints");
         return datapoints;
     }
+    
 
     let test = fetchData().then(datapoints => {
         let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
