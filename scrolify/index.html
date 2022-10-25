@@ -79,8 +79,8 @@
 
     <title>Campionatul Mondial 2022</title>
   </head>
-
-  <body>
+<body>
+  <!-- <body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;"> -->
     <script>
       AOS.init({
         offset: 200,
@@ -88,6 +88,12 @@
         easing: "ease",
         delay: 100,
       });
+
+//       $(document).keydown(function(e){
+//     if(e.which === 123){
+//        return false;
+//     }
+// });
     </script>
     <script>
       document.onreadystatechange = function () {
