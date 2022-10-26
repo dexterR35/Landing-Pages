@@ -1243,7 +1243,12 @@ body {
 .inner_section_12 .header-content-text .line-2s12 {
   font-size: 0.90em;
 }
-
+.inner_section_12 .place-bottom {
+  grid-column: 2 /span 5;
+  grid-row: 8 /span 3;
+  background: red;
+  z-index: 120;
+}
 /*******TODO:9 start SECTION 12 *************/
 
 
