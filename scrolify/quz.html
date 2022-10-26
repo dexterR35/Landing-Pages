@@ -45,7 +45,7 @@
       .game-quiz-container {
         width: 40rem;
         height: 30rem;
-        background-color: lightgray;
+        background-color: #2a2e38;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -61,7 +61,7 @@
         align-items: center;
       }
 
-      .game-details-container h1 {
+      .game-details-container h2 {
         font-size: 1.2rem;
       }
 
@@ -71,8 +71,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid darkgray;
+        border: 2px solid rgb(211, 211, 211);
         border-radius: 25px;
+        color: white;
+        background: rgba(39, 39, 39, 0.432);
+        
       }
 
       .game-options-container .span-infoQ {
@@ -86,20 +89,20 @@
         font-size: 0.9em;
       }
 
-      .game-question-container h1 {
+      .game-question-container h2 {
         font-size: 1.1rem;
         text-align: center;
-        padding: 3px;
+        padding: 0 0.56em;
+        text-transform: uppercase;
       }
 
       .game-options-container {
         width: 80%;
-        height: auto;
+        height: 30vh;
         max-height: 80vh;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;
+        background-color: red;
+        display: grid;
+        place-items: center;
       }
 
       .game-options-container span {
@@ -119,7 +122,8 @@
         cursor: pointer;
         transition: transform 0.3s;
         font-weight: 600;
-        color: rgb(22, 22, 22);
+        color: #FFF;
+        text-transform: lowercase ;
       }
 
       span label:hover {
@@ -150,11 +154,13 @@
         height: 2rem;
         border-radius: 10px;
         background: none;
-        color: rgb(25, 25, 25);
+        color: #FFF;
         font-weight: 600;
-        border: 2px solid gray;
+        border: none;
+        outline: none;
         cursor: pointer;
         outline: none;
+        background: #ff832b ;
       }
 
       .next-button-container button:hover {
@@ -190,7 +196,7 @@
         border-radius: 25px;
       }
 
-      .modal-content-container h1 {
+      .modal-content-container h2 {
         font-size: 1.3rem;
         height: 3rem;
         color: lightgray;
@@ -241,7 +247,7 @@
           height: 80vh;
         }
 
-        .game-details-container h1 {
+        .game-details-container h2 {
           font-size: 0.8rem;
         }
 
@@ -249,12 +255,12 @@
           height: 6rem;
         }
 
-        .game-question-container h1 {
+        .game-question-container h2 {
           font-size: 0.9rem;
         }
 
         .game-options-container span {
-          width: 90%;
+          width: 100%;
           height: 2.5rem;
         }
 
@@ -271,7 +277,7 @@
           height: 25rem;
         }
 
-        .modal-content-container h1 {
+        .modal-content-container h2 {
           font-size: 1.2rem;
         }
       }
@@ -282,7 +288,7 @@
           height: 80vh;
         }
 
-        .game-details-container h1 {
+        .game-details-container h2 {
           font-size: 1rem;
         }
 
@@ -290,7 +296,7 @@
           height: 8rem;
         }
 
-        .game-question-container h1 {
+        .game-question-container h2 {
           font-size: 0.9rem;
         }
 
@@ -303,7 +309,7 @@
           height: 25rem;
         }
 
-        .modal-content-container h1 {
+        .modal-content-container h2 {
           font-size: 1.2rem;
         }
       }
@@ -336,7 +342,7 @@
         <!-- creating a modal for when quiz ends -->
         <div class="modal-container" id="score-modal">
           <div class="modal-content-container">
-            <h1>Congratulations, Quiz Completed.</h1>
+            <h2>Congratulations, Quiz Completed.</h2>
 
             <div class="grade-details">
               <p>Attempts : 12</p>
@@ -354,21 +360,21 @@
 
         <div class="game-quiz-container">
           <div class="game-details-container">
-            <h1>Scor : <span id="player-score"></span> / 12</h1>
-            <h1>Intrebari : <span id="question-number"></span> / 12</h1>
+            <h2>Scor : <span id="player-score"></span> / 12</h2>
+            <h2>Intrebari : <span id="question-number"></span> / 12</h2>
           </div>
 
           <div class="game-question-container">
-            <h1 id="display-question"></h1>
+            <h2 id="display-question"></h2>
           </div>
 
           <div class="game-options-container">
             <div class="modal-container" id="option-modal">
               <div class="modal-content-container">
-                <h1>Please Pick An Option</h1>
+                <h2>Please Pick An Option</h2>
 
                 <div class="modal-button-container">
-                  <button onclick="closeOptionModal()">Continue</button>
+                  <button onclick="closeOptionModal()" style="background:#ff832b ;">Continue</button>
                 </div>
               </div>
             </div>
@@ -653,51 +659,37 @@
         });
 
         //checking to make sure a radio input has been checked or an option being chosen
-        if (
-          options[0].checked === false &&
-          options[1].checked === false &&
-          options[2].checked === false
-        ) {
-          document.getElementById("option-modal").style.display = "flex";
-          let ttest = (document.getElementById(
-            "option-four-label"
-          ).style.display = "none");
+        if (options[0].checked === false && options[1].checked === false && options[2].checked === false) {
+          document.getElementById("option-modal").style.display = "block";
+          const quotes = (document.getElementById("option-four-label").style.display = "none");
         }
 
         //checking if checked radio button is same as answer
         options.forEach((option) => {
-          if (
-            option.checked === true &&
-            option.value === currentQuestionAnswer
-          ) {
-            document.getElementById(correctOption).style.backgroundColor =
-              "green";
-            let ttest = document.getElementById("option-four-label");
-            ttest.innerHTML = currentQuestion.infoQ;
-            ttest.style.display = "block";
+          console.log(option,"options")
+          if (option.checked === true && option.value === currentQuestionAnswer) {
+            document.getElementById(correctOption).style.backgroundColor = "green";
+            let quotes = document.getElementById("option-four-label");
+            quotes.innerHTML = currentQuestion.infoQ;
+            quotes.style.display = "block";
             playerScore++;
             indexNumber++;
             //set to delay question number till when next question loads
             setTimeout(() => {
               questionNumber++;
-            }, 2000);
+            }, 5000);
           } else if (option.checked && option.value !== currentQuestionAnswer) {
             const wrongLabelId = option.labels[0].id;
             console.log(wrongLabelId, "wrongLabelId");
             document.getElementById(wrongLabelId).style.backgroundColor = "red";
-            document.getElementById(correctOption).style.backgroundColor =
-              "green";
+            document.getElementById(correctOption).style.backgroundColor = "green";
             wrongAttempt++;
             indexNumber++;
-            document.getElementById("option-four-label").innerHTML =
-              currentQuestion.infoQ;
-            let ttest = document.getElementById("option-four-label");
-            ttest.innerHTML = currentQuestion.infoQ;
-            ttest.style.display = "block";
+            document.getElementById("option-four-label").innerHTML = currentQuestion.infoQ;
             //set to delay question number till when next question loads
             setTimeout(() => {
               questionNumber++;
-            }, 2000);
+            }, 5000);
           }
         });
       }
@@ -708,22 +700,22 @@
         unCheckRadioButtons();
         //delays next question displaying for a second
         setTimeout(() => {
-          if (indexNumber < 12) {
+          if (indexNumber <= 12) {
             console.log(indexNumber, "index");
             NextQuestion(indexNumber);
+          
           } else {
             handleEndGame();
           }
           resetOptionBackground();
-        }, 1000);
+        }, 5000);
       }
 
       //sets options background back to null after display the right/wrong colors
       function resetOptionBackground() {
         const options = document.getElementsByName("option");
         options.forEach((option) => {
-          document.getElementById(option.labels[0].id).style.backgroundColor =
-            "";
+          document.getElementById(option.labels[0].id).style.backgroundColor = "";
           console.log(document.getElementById(option.labels[0].id), "options");
         });
       }
