@@ -105,8 +105,8 @@ body {
     --bg-section-eight: url(./images/section8/bg-section8.png);
     --bg-section-nine: url(./images/section9/bg-section9.jpg);
     --bg-section-ten: url(./images/section10/bg-section10.jpg);
-    --bg-section-eleven: url(./images/section11/bg-section11.jpg);
-    --bg-section-twelve: url(./images/section11/bg-section11.jpg);
+    --bg-section-eleven: url(./images/section1/bg-section1.jpg);
+    --bg-section-twelve: url(./images/section2/bg-section2.png);
     --bg-section-thirteen: url(./images/section11/bg-section11.jpg);
     --bg-section-fourteen: url(./images/section11/bg-section11.jpg);
     --bg-section-Fifteen: url(./images/section11/bg-section11.jpg);
@@ -184,6 +184,13 @@ body {
 }
 .panel[data-section-name="section_10"] {
   background-image: var(--bg-section-ten);
+}
+.panel[data-section-name="section_11"] {
+  background-image: var(--bg-section-eleven);
+}
+
+.panel[data-section-name="section_12"] {
+  background-image: var(--bg-section-twelve);
 }
 
 /*****background general******/
@@ -1187,7 +1194,70 @@ body {
   z-index: 2;
 }
 
-/*******TODO:9 start SECTION 10 *************/
+/*******TODO:9 end SECTION 10 *************/
+
+
+
+/*******TODO:9 start SECTION 11 *************/
+.inner_section_11 .gallery-wrapper {
+  grid-row: 2 / span 6;
+}
+.inner_section_11 .gallery-wrapper img {
+  height: 100%;
+  width: 100%;
+}
+.inner_section_11 .header-content-text {
+  grid-row: 4 / span 6;
+}
+.inner_section_11 .line-1s11 {
+  font-size: 0.95em;
+}
+.inner_section_11 .place-bottom {
+  grid-column: 2 /span 4;
+  background: black;
+}
+
+
+/*******TODO:9 end SECTION 11 *************/
+
+
+.inner_section_12 .gallery-wrapper {
+  grid-column: 3 /span 6;
+  grid-row:2 /span 8;
+  z-index: 100;
+}
+.inner_section_12 .gallery-wrapper img {
+  height: 100%;
+}
+.inner_section_12 .gallery0 {
+  grid-column: 2 /span 3;
+  grid-row: 5 /span 2;
+}
+.inner_section_12 .gallery0 img {
+  width: 90%;
+  margin-left: 1em;
+}
+.inner_section_12 .header-content-text {
+  text-align: start;
+}
+.inner_section_12 .header-content-text .line-2s12 {
+  font-size: 0.90em;
+}
+
+/*******TODO:9 start SECTION 12 *************/
+
+
+
+
+
+
+
+/*******TODO:9 end SECTION 12 *************/
+
+
+
+
+
 
 .gallery0 img,
 .gallery1 img,

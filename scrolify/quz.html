@@ -439,7 +439,7 @@
       };
       const questions = [
         {
-          id: "0",
+          id: "1",
           question:
             "Când a fost folosit sistemul de arbitraj video (VAR) pentru prima dată la Turneul Final?",
           optionA: "În 2010",
@@ -451,7 +451,7 @@
         },
 
         {
-          id: "1",
+          id: "2",
           question:
             "Care a fost Campionatul cu cea mai scăzută medie de goluri pe meci?",
           optionA: "Mexic 1970",
@@ -463,7 +463,7 @@
         },
 
         {
-          id: "2",
+          id: "3",
           question: "Care este simbolul din Turneul de anul acesta?",
           optionA: "Infinit",
           optionB: "Trofeu",
@@ -474,7 +474,7 @@
         },
 
         {
-          id: "3",
+          id: "4",
           question:
             "Care națională ar putea egala anul acesta recordul de 5 trofee deținut în prezent de Brazilia?",
           optionA: "Franța",
@@ -486,7 +486,7 @@
         },
 
         {
-          id: "4",
+          id: "5",
           question: "Care este cel mai bun marcator din istoria Cupei?",
           optionA: "Miroslav Klose (Germania)",
           optionB: "Ronaldo Nazario (Brazilia)",
@@ -497,7 +497,7 @@
         },
 
         {
-          id: "5",
+          id: "6",
           question: "Ce țară participantă are cel mai valoros lot?",
           optionA: "Brazilia",
           optionB: "Anglia",
@@ -508,7 +508,7 @@
         },
 
         {
-          id: "6",
+          id: "7",
           question:
             "Anul acesta se modifică numărul jucătorilor din loturile naționalelor. Care este noul număr?",
           optionA: "30",
@@ -520,7 +520,7 @@
         },
 
         {
-          id: "7",
+          id: "8",
           question: "Ce nume purta primul trofeu?",
           optionA: "Fortuna",
           optionB: "Joga Bonito",
@@ -531,7 +531,7 @@
         },
 
         {
-          id: "8",
+          id: "9",
           question:
             "Cum se numește stadionul temporar, construit din containere?",
           optionA: "Stadionul 974",
@@ -543,7 +543,7 @@
         },
 
         {
-          id: "9",
+          id: "10",
           question:
             "Care este jucătorul ce poate depăși recordul lui Matthäus la acest turneu?",
           optionA: "Cristiano Ronaldo",
@@ -555,7 +555,7 @@
         },
 
         {
-          id: "10",
+          id: "11",
           question:
             "Când a fost pentru prima dată difuzat la televizor Turneul de fotbal?",
           optionA: "1954",
@@ -566,9 +566,9 @@
           correctOption: "optionA",
         },
         {
-          id: "11",
+          id: "12",
           question:
-            "Când a fost pentru prima dată difuzat la televizor Turneul de fotbal?",
+            "Când a fost pentru prima dată difuzat la televizor Turneul de fotbal?222222",
           optionA: "1954",
           optionB: "1958",
           optionC: "2002",
@@ -583,23 +583,23 @@
       function handleQuestions(index) {
         //eu
 
-        for (iquestion of questions) {
-          console.log(iquestion, "i");
-          const linearQuestion = iquestion;
-          console.log(linearQuestion, "linearQuestion");
-          if (!shuffledQuestions.includes(linearQuestion)) {
-            shuffledQuestions.push(linearQuestion);
-          }
-        }
+        // for (iquestion of questions) {
+        // //   console.log(iquestion, "i");
+        //   const linearQuestion = iquestion;
+        //   if (!shuffledQuestions.includes(linearQuestion)) {
+        //     shuffledQuestions.push(linearQuestion);
+        //   }
+        // }
 
-        //    for (j = 0 ; j < questions.length; j++){
-        //     console.log(j,'j')
-        //     const linearQuestion = questions[j];
-        //     console.log(linearQuestion,'linearQuestion')
-        //     if (!shuffledQuestions.includes(linearQuestion)) {
-        //         shuffledQuestions.push(linearQuestion);
-        //       }
-        //     }
+           for (j = 0 ; j < questions.length; j++){
+            // console.log(j,'j')
+            const linearQuestion = questions[j];
+            // console.log(linearQuestion,'linearQuestion')
+            if (!shuffledQuestions.includes(linearQuestion)) {
+                shuffledQuestions.push(linearQuestion);
+              }
+          
+            }
         // as vrea sa nu mai fie random;
 
         //function to shuffle and push 10 questions to shuffledQuestions array
@@ -614,6 +614,7 @@
         //     shuffledQuestions.push(random);
         //   }
         // }
+        questionNumber;
       }
       //   console.log("shuffledQuestions", shuffledQuestions);
 
@@ -707,7 +708,7 @@
         unCheckRadioButtons();
         //delays next question displaying for a second
         setTimeout(() => {
-          if (indexNumber <= 11) {
+          if (indexNumber < 12) {
             console.log(indexNumber, "index");
             NextQuestion(indexNumber);
           } else {
@@ -741,15 +742,16 @@
         let remarkColor = null;
 
         // condition check for player remark and remark color
-        if (playerScore <= 3) {
+        if (playerScore <= 12) {
           remark = "Bad Grades, Keep Practicing.";
           remarkColor = "red";
-        } else if (playerScore >= 4 && playerScore < 7) {
-          remark = "Average Grades, You can do better.";
-          remarkColor = "orange";
+        // } else if (playerScore >= 4 && playerScore < 7) {
+        //   remark = "Average Grades, You can do better.";
+        //   remarkColor = "orange";
         } else if (playerScore >= 7) {
           remark = "Excellent, Keep the good work going.";
           remarkColor = "green";
+      
         }
         const playerGrade = (playerScore / 10) * 100;
         console.log(playerGrade, "player");
