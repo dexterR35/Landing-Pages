@@ -1125,11 +1125,8 @@ body {
   width: 100%;
 }
 
-/* .inner_section_7 .header-content-text {
-  width: fit-content;
-} */
-.inner_section_7 .section_7-title span {
-  font-size: 1.2em;
+.inner_section_7 .header-content-text {
+  grid-row: 7;
 }
 .inner_section_7 .section-7-bottom.place-bottom {
   height: 16vh;
@@ -2147,3 +2144,107 @@ body {
 }
 
 /*TODO:CARDS**END cards CARDS****/
+
+
+
+/*TODO:start TABLE **************************/
+
+.table_section7 {
+  grid-column: 1 /span 5;
+  grid-row: 8;
+
+  width: 90%;
+  position: relative;
+  left: 1em;
+  z-index: 50;
+}
+.inner_section_7 table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.inner_section_7 table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+.inner_section_7 table tr {
+  background-color: #f8f8f8e6;
+  border: 1px solid #ddd;
+  padding: 0 .35em;
+}
+
+.inner_section_7 table th,
+.inner_section_7 table td {
+  padding: .625em;
+  text-align: center;
+}
+
+.inner_section_7 table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.td-label {
+  text-align: start;
+}
+@media screen and (max-width: 600px) {
+  .inner_section_7 table {
+    border: 0;
+  }
+
+  .inner_section_7 table caption {
+    font-size: 1.3em;
+  }
+
+  .inner_section_7 table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .td-label {
+    font-size: 0.7em;
+    text-align: start !important; 
+
+  }
+  .inner_section_7 table tr {
+border: none;
+    display: block;
+   
+  }
+  
+  .inner_section_7 table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  .inner_section_7 table td::before {
+    content: attr(data-label);
+    float: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .inner_section_7table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+
+
+/*TODO:end TABLE **************************/

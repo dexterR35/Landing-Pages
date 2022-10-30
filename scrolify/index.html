@@ -1,1919 +1,1491 @@
 <!DOCTYPE html>
 <html lang="ro">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="CM 2022" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
-      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.0.8/lozad.js"
-      integrity="sha512-EHoqSuE5gjP4d5pRn885fGdTbnXGsPjBY04Uf+3NJsqVNUfjfG6Pv6WJ4PjLBQLp3hUxKqB7qCEKcqCtHv95oQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="CM 2022" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+    integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
-      integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.0.8/lozad.js"
+    integrity="sha512-EHoqSuE5gjP4d5pRn885fGdTbnXGsPjBY04Uf+3NJsqVNUfjfG6Pv6WJ4PjLBQLp3hUxKqB7qCEKcqCtHv95oQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- <link
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+    integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- <link
       rel="preload"
       href="./main.css"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
-    <link
-      rel="preload"
-      href="./main.css"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <!-- <link rel="stylesheet" href="./main.css"  defer/> -->
-    <style>
-      .header-bar {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 2000;
+  <!-- <link rel="preload" href="./main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /> -->
+  <link rel="stylesheet" href="./main.css">
+  <!-- <link rel="stylesheet" href="./main.css"  defer/> -->
+  <style>
+    .header-bar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      z-index: 2000;
+    }
+
+    .progress-container {
+      background-color: rgba(150, 150, 150, 0.6);
+      height: auto;
+      width: 100%;
+      z-index: 200;
+    }
+
+    .progress-bar {
+      background-color: crimson;
+      height: 8px;
+      width: 0%;
+    }
+  </style>
+
+  <title>CM 2022</title>
+</head>
+
+<body>
+  <!-- <body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;"> -->
+  <script>
+    AOS.init({
+      offset: 200,
+      duration: 300,
+      easing: "ease",
+      delay: 100,
+    });
+
+    //       $(document).keydown(function(e){
+    //     if(e.which === 123){
+    //        return false;
+    //     }
+    // });
+  </script>
+  <script>
+    document.onreadystatechange = function () {
+      let state = document.readyState;
+      console.log(state, "state");
+      if (state == "interactive") {
+        $.scrollify.disable();
+        document.getElementById("wrapper").style.visibility = "hidden";
+      } else if (state == "complete") {
+        setTimeout(function () {
+          getImagesOn();
+          document.getElementById("interactive");
+          document.getElementById("load").style.display = "none";
+          document.getElementById("ball").style.animationName = "none";
+          document.getElementById("wrapper").style.visibility = "visible";
+          $.scrollify.enable();
+          console.log(state, "state");
+        }, 1000);
       }
+    };
 
-      .progress-container {
-        background-color: rgba(150, 150, 150, 0.6);
-        height: auto;
-        width: 100%;
-        z-index: 200;
-      }
-
-      .progress-bar {
-        background-color: crimson;
-        height: 8px;
-        width: 0%;
-      }
-    </style>
-
-    <title>CM 2022</title>
-  </head>
-
-  <body>
-    <!-- <body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;"> -->
-    <script>
-      AOS.init({
-        offset: 200,
-        duration: 300,
-        easing: "ease",
-        delay: 100,
-      });
-
-      //       $(document).keydown(function(e){
-      //     if(e.which === 123){
-      //        return false;
-      //     }
-      // });
-    </script>
-    <script>
-      document.onreadystatechange = function () {
-        let state = document.readyState;
-        console.log(state, "state");
-        if (state == "interactive") {
-          $.scrollify.disable();
-          document.getElementById("wrapper").style.visibility = "hidden";
-        } else if (state == "complete") {
-          setTimeout(function () {
-            getImagesOn();
-            document.getElementById("interactive");
-            document.getElementById("load").style.display = "none";
-            document.getElementById("ball").style.animationName = "none";
-            document.getElementById("wrapper").style.visibility = "visible";
-            $.scrollify.enable();
-            console.log(state, "state");
-          }, 1000);
-        }
-      };
-
-      function getImagesOn() {
-        const observer = lozad();
-        $(".lazy-img").each(function () {
-          const _this = $(this);
-          _this.css("opacity", 0);
-          _this.on("load", function () {
-            _this.css("opacity", 1);
-          });
-          observer.observe();
+    function getImagesOn() {
+      const observer = lozad();
+      $(".lazy-img").each(function () {
+        const _this = $(this);
+        _this.css("opacity", 0);
+        _this.on("load", function () {
+          _this.css("opacity", 1);
         });
-      }
-    </script>
-    <div
-      id="load"
-      style="
+        observer.observe();
+      });
+    }
+  </script>
+  <div id="load" style="
         display: flex;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-      "
-    >
-      <div id="ball-loading-wrap" style="position: relative">
-        <h4 style="position: absolute; left: -0.9em; bottom: -30px">NETBET</h4>
-        <div id="ball">
-          <svg viewBox="0 0 18.9 19">
-            <path
-              fill="#ffffff"
-              d="M11.2 12.9H7.8L6.4 15l1.1 2.7c.6.2 1.3.2 2 .2s1.4-.1 2.1-.3l1-2.6-1.4-2.1zM13 9.3l-1 3 1.5 2.3 2.7.2c1-1.2 1.6-2.8 1.8-4.4l-2.2-1.7-2.8.6zm-5.9 3L6 9.1l-2.8-.7L1 10.1c.1 1.7.8 3.3 1.8 4.6l2.8-.2 1.5-2.2zm-.6-4.1L9 6.4V3.2L6.7 1.5c-1.8.6-3.3 1.8-4.3 3.3l1 2.6 3.1.8zM10 6.4l2.7 1.9 2.9-.7 1-2.7c-1-1.5-2.5-2.7-4.3-3.4L10 3.2v3.2z"
-            ></path>
-            <path
-              fill="#2d2a6c"
-              d="M17.3 4c-1-1.5-2.5-2.6-4.2-3.3C12 .3 10.8 0 9.5 0S7 .3 5.9.7c-1.6.7-3 1.8-4.1 3.2C.7 5.4 0 7.4 0 9.5c0 .5 0 .9.1 1.4.2 1.5.8 2.9 1.6 4.1 1.4 2 3.5 3.4 6 3.9.6 0 1.2.1 1.8.1s1.2-.1 1.8-.2c2.5-.5 4.6-1.9 6-4 .8-1.1 1.3-2.4 1.5-3.8.1-.5.1-1 .1-1.5.1-2-.5-3.9-1.6-5.5zM10 3.2l2.3-1.7c1.8.6 3.3 1.8 4.3 3.4l-1 2.7-2.9.7L10 6.4V3.2zM6.7 1.5L9 3.2v3.2L6.5 8.2l-3.1-.8-1-2.6c1-1.5 2.5-2.7 4.3-3.3zM2.8 14.7c-1-1.3-1.7-2.9-1.8-4.6l2.2-1.7 2.8.7 1 3.2-1.5 2.3-2.7.1zm8.8 3c-.7.2-1.4.3-2.1.3-.7 0-1.3-.1-2-.2l-1.1-2.7L7.8 13h3.4l1.4 2.2-1 2.5zm4.6-3l-2.7-.2-1.5-2.2 1-3 2.8-.7 2.2 1.7c-.2 1.7-.8 3.2-1.8 4.4z"
-            ></path>
-          </svg>
-        </div>
+      ">
+    <div id="ball-loading-wrap" style="position: relative">
+      <h4 style="position: absolute; left: -0.9em; bottom: -30px">NETBET</h4>
+      <div id="ball">
+        <svg viewBox="0 0 18.9 19">
+          <path fill="#ffffff"
+            d="M11.2 12.9H7.8L6.4 15l1.1 2.7c.6.2 1.3.2 2 .2s1.4-.1 2.1-.3l1-2.6-1.4-2.1zM13 9.3l-1 3 1.5 2.3 2.7.2c1-1.2 1.6-2.8 1.8-4.4l-2.2-1.7-2.8.6zm-5.9 3L6 9.1l-2.8-.7L1 10.1c.1 1.7.8 3.3 1.8 4.6l2.8-.2 1.5-2.2zm-.6-4.1L9 6.4V3.2L6.7 1.5c-1.8.6-3.3 1.8-4.3 3.3l1 2.6 3.1.8zM10 6.4l2.7 1.9 2.9-.7 1-2.7c-1-1.5-2.5-2.7-4.3-3.4L10 3.2v3.2z">
+          </path>
+          <path fill="#2d2a6c"
+            d="M17.3 4c-1-1.5-2.5-2.6-4.2-3.3C12 .3 10.8 0 9.5 0S7 .3 5.9.7c-1.6.7-3 1.8-4.1 3.2C.7 5.4 0 7.4 0 9.5c0 .5 0 .9.1 1.4.2 1.5.8 2.9 1.6 4.1 1.4 2 3.5 3.4 6 3.9.6 0 1.2.1 1.8.1s1.2-.1 1.8-.2c2.5-.5 4.6-1.9 6-4 .8-1.1 1.3-2.4 1.5-3.8.1-.5.1-1 .1-1.5.1-2-.5-3.9-1.6-5.5zM10 3.2l2.3-1.7c1.8.6 3.3 1.8 4.3 3.4l-1 2.7-2.9.7L10 6.4V3.2zM6.7 1.5L9 3.2v3.2L6.5 8.2l-3.1-.8-1-2.6c1-1.5 2.5-2.7 4.3-3.3zM2.8 14.7c-1-1.3-1.7-2.9-1.8-4.6l2.2-1.7 2.8.7 1 3.2-1.5 2.3-2.7.1zm8.8 3c-.7.2-1.4.3-2.1.3-.7 0-1.3-.1-2-.2l-1.1-2.7L7.8 13h3.4l1.4 2.2-1 2.5zm4.6-3l-2.7-.2-1.5-2.2 1-3 2.8-.7 2.2 1.7c-.2 1.7-.8 3.2-1.8 4.4z">
+          </path>
+        </svg>
       </div>
     </div>
+  </div>
 
-    <div class="wrapper" id="wrapper">
-      <div class="header-bar">
-        <div class="progress-container">
-          <div class="progress-bar" id="progressBar"></div>
+  <div class="wrapper" id="wrapper">
+    <div class="header-bar">
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+    <div class="Quick-navigation">
+      <ul class="pagination">
+        <li>
+          <a href="#home" class="active"><span class="hover-text">Home</span></a>
+        </li>
+        <li>
+          <a href="#section_2"><span class="hover-text">section_2</span></a>
+        </li>
+        <li>
+          <a href="#section_3"><span class="hover-text">section_3</span></a>
+        </li>
+        <li>
+          <a href="#section_4"><span class="hover-text">section_4</span></a>
+        </li>
+        <li>
+          <a href="#section_5"><span class="hover-text">section_5</span></a>
+        </li>
+        <li>
+          <a href="#section_6"><span class="hover-text">section_6</span></a>
+        </li>
+        <li>
+          <a href="#section_7"><span class="hover-text">section_7</span></a>
+        </li>
+        <li>
+          <a href="#section_8"><span class="hover-text">section_8</span></a>
+        </li>
+        <li>
+          <a href="#section_9"><span class="hover-text">section_9</span></a>
+        </li>
+        <li>
+          <a href="#section_10"><span class="hover-text">section_10</span></a>
+        </li>
+        <li>
+          <a href="#section_11"><span class="hover-text">section_11</span></a>
+        </li>
+        <li>
+          <a href="#section_12"><span class="hover-text">section_12</span></a>
+        </li>
+        <li>
+          <a href="#section_13"><span class="hover-text">section_13</span></a>
+        </li>
+        <li>
+          <a href="#section_14"><span class="hover-text">section_14</span></a>
+        </li>
+        <li>
+          <a href="#section_15"><span class="hover-text">section_15</span></a>
+        </li>
+        <li>
+          <a href="#section_16"><span class="hover-text">section_16</span></a>
+        </li>
+        <li>
+          <a href="#section_17"><span class="hover-text">section_17</span></a>
+        </li>
+        <li>
+          <a href="#section_18"><span class="hover-text">section_18</span></a>
+        </li>
+        <li>
+          <a href="#section_19"><span class="hover-text">section_19</span></a>
+        </li>
+        <li>
+          <a href="#section_20"><span class="hover-text">section_20</span></a>
+        </li>
+        <li>
+          <a href="#section_21"><span class="hover-text">section_21</span></a>
+        </li>
+        <li>
+          <a href="#section_22"><span class="hover-text">section_22</span></a>
+        </li>
+        <li>
+          <a href="#section_23"><span class="hover-text">section_23</span></a>
+        </li>
+      </ul>
+    </div>
+    <!--TODO:SECTION---HOME---->
+    <section class="panel home" data-section-name="home">
+      <div class="inner inner_section_1 grid-template">
+        <div class="header-content-text forC" data-aos="slide-right">
+          <h1 class="vertical-title section_1-title" data-fill="d">
+            <span>campionatul de fotbal</span> <br />
+            <span class="span-h1-s1">2022</span>
+          </h1>
         </div>
-      </div>
-      <div class="Quick-navigation">
-        <ul class="pagination">
-          <li>
-            <a href="#home" class="active"
-              ><span class="hover-text">Home</span></a
-            >
-          </li>
-          <li>
-            <a href="#section_2"><span class="hover-text">section_2</span></a>
-          </li>
-          <li>
-            <a href="#section_3"><span class="hover-text">section_3</span></a>
-          </li>
-          <li>
-            <a href="#section_4"><span class="hover-text">section_4</span></a>
-          </li>
-          <li>
-            <a href="#section_5"><span class="hover-text">section_5</span></a>
-          </li>
-          <li>
-            <a href="#section_6"><span class="hover-text">section_6</span></a>
-          </li>
-          <li>
-            <a href="#section_7"><span class="hover-text">section_7</span></a>
-          </li>
-          <li>
-            <a href="#section_8"><span class="hover-text">section_8</span></a>
-          </li>
-          <li>
-            <a href="#section_9"><span class="hover-text">section_9</span></a>
-          </li>
-          <li>
-            <a href="#section_10"><span class="hover-text">section_10</span></a>
-          </li>
-          <li>
-            <a href="#section_11"><span class="hover-text">section_11</span></a>
-          </li>
-          <li>
-            <a href="#section_12"><span class="hover-text">section_12</span></a>
-          </li>
-          <li>
-            <a href="#section_13"><span class="hover-text">section_13</span></a>
-          </li>
-          <li>
-            <a href="#section_14"><span class="hover-text">section_14</span></a>
-          </li>
-          <li>
-            <a href="#section_15"><span class="hover-text">section_15</span></a>
-          </li>
-          <li>
-            <a href="#section_16"><span class="hover-text">section_16</span></a>
-          </li>
-          <li>
-            <a href="#section_17"><span class="hover-text">section_17</span></a>
-          </li>
-          <li>
-            <a href="#section_18"><span class="hover-text">section_18</span></a>
-          </li>
-          <li>
-            <a href="#section_19"><span class="hover-text">section_19</span></a>
-          </li>
-          <li>
-            <a href="#section_20"><span class="hover-text">section_20</span></a>
-          </li>
-          <li>
-            <a href="#section_21"><span class="hover-text">section_21</span></a>
-          </li>
-          <li>
-            <a href="#section_22"><span class="hover-text">section_22</span></a>
-          </li>
-          <li>
-            <a href="#section_23"><span class="hover-text">section_23</span></a>
-          </li>
-        </ul>
-      </div>
-      <!--TODO:SECTION---HOME---->
-      <section class="panel home" data-section-name="home">
-        <div class="inner inner_section_1 grid-template">
-          <div class="header-content-text forC" data-aos="slide-right">
-            <h1 class="vertical-title section_1-title" data-fill="d">
-              <span>campionatul de fotbal</span> <br />
-              <span class="span-h1-s1">2022</span>
-            </h1>
-          </div>
 
-          <div class="modal_home_container modEmbl" style="z-index: 2000">
-            <button
-              id="window"
-              class="btn_Emblem btn-home btn-open custom-btn btn-11"
-            >
-              +
+        <div class="modal_home_container modEmbl" style="z-index: 2000">
+          <button id="window" class="btn_Emblem btn-home btn-open custom-btn btn-11">
+            +
+          </button>
+
+          <div id="modal_info" class="modal_Emblem">
+            <button id="close_info" class="close_emblem btn-close">
+              Închide >
             </button>
-
-            <div id="modal_info" class="modal_Emblem">
-              <button id="close_info" class="close_emblem btn-close">
-                Închide >
-              </button>
-              <div class="modal-content-info">
-                <div class="container-shape">
-                  <div class="title-shape">
-                    <h2>Campionatul Mondial 2022</h2>
-                    <p>Lorem ipsum dolor sit.</p>
-                  </div>
-                  <div class="item-1 animate-1 item item-left">
-                    <h2>Puncte diacritice</h2>
-                    <p>
-                      Semne plasate deasupra și dedesubtul literelor în limba
-                      arabă.
-                    </p>
-                  </div>
-                  <div class="item-2 animate-2 item item-left">
-                    <h2>Minge de fotbal</h2>
-                    <p>
-                      Prezentată într-un stil geometric, care face trimitere la
-                      cultura arabă.
-                    </p>
-                  </div>
-                  <div class="item-3 animate-3 item item-left">
-                    <h2>Forma trofeului</h2>
-                    <p>Cea mai renumită siluetă din lumea fotbalului.</p>
-                  </div>
-
-                  <div class="item-4 animate-4 item item-right">
-                    <h2>
-                      Simbolul <br />
-                      și cifra 8
-                    </h2>
-                    <p>
-                      Acest simbol are mai multe fațete, reprezentând cele 8
-                      stadioane pe care se va juca Cupa Mondială FIFA și
-                      legăturile umane care vor dăinui mult timp după turneu.
-                    </p>
-                  </div>
-                  <div class="item-5 animate-5 item item-right">
-                    <h2>Fluiditatea șalului</h2>
-                    <p>
-                      Partea de sus a emblemei reprezintă mișcarea elegantă a
-                      șalului, care este purtat în întreaga lume - și în special
-                      în regiunea arabă și a Golfului - de o varietate de
-                      persoane și în diferite stiluri.
-                    </p>
-                  </div>
-                  <div class="item-6 animate-6 item item-left">
-                    <h2>Un obiect 3D intrigant</h2>
-                    <p>
-                      Concepută pentru a surprinde și a încânta, emblema se
-                      poate roti pentru a dezvălui un cerc perfect, reflectând
-                      atât planeta noastră, cât și o minge de fotbal.
-                    </p>
-                  </div>
-                  <div class="item-7 animate-7 item item-right">
-                    <h2>Elemente decorative</h2>
-                    <p>
-                      Modelele florale, precum cele brodate pe șalurile din
-                      Qatar, sunt elemente importante ale moștenirii Qatarului.
-                      Bazate pe arta arabă tradițională, aceste decorațiuni
-                      reflectă bogăția culturii Orientului Mijlociu.
-                    </p>
-                  </div>
-                  <div class="item-8 animate-8 item item-right">
-                    <h2>Dune unduite</h2>
-                    <p>
-                      curbele ample ale emblemei reprezintă dunele din Qatar,
-                      care sunt veșnice, indiferent de factorii naturali sau de
-                      altă natură.
-                    </p>
-                  </div>
-                  <div class="emblem item-shape">
-                    <img
-                      src=""
-                      data-src="./images/section1/element-section1.webp"
-                      class="lazy-img lozad ttesttt shape-modal"
-                      alt="em1"
-                    />
-                  </div>
-                  <div class="title-shape-bottom"></div>
+            <div class="modal-content-info">
+              <div class="container-shape">
+                <div class="title-shape">
+                  <h2>Campionatul Mondial 2022</h2>
+                  <p>Lorem ipsum dolor sit.</p>
                 </div>
+                <div class="item-1 animate-1 item item-left">
+                  <h2>Puncte diacritice</h2>
+                  <p>
+                    Semne plasate deasupra și dedesubtul literelor în limba
+                    arabă.
+                  </p>
+                </div>
+                <div class="item-2 animate-2 item item-left">
+                  <h2>Minge de fotbal</h2>
+                  <p>
+                    Prezentată într-un stil geometric, care face trimitere la
+                    cultura arabă.
+                  </p>
+                </div>
+                <div class="item-3 animate-3 item item-left">
+                  <h2>Forma trofeului</h2>
+                  <p>Cea mai renumită siluetă din lumea fotbalului.</p>
+                </div>
+
+                <div class="item-4 animate-4 item item-right">
+                  <h2>
+                    Simbolul <br />
+                    și cifra 8
+                  </h2>
+                  <p>
+                    Acest simbol are mai multe fațete, reprezentând cele 8
+                    stadioane pe care se va juca Cupa Mondială FIFA și
+                    legăturile umane care vor dăinui mult timp după turneu.
+                  </p>
+                </div>
+                <div class="item-5 animate-5 item item-right">
+                  <h2>Fluiditatea șalului</h2>
+                  <p>
+                    Partea de sus a emblemei reprezintă mișcarea elegantă a
+                    șalului, care este purtat în întreaga lume - și în special
+                    în regiunea arabă și a Golfului - de o varietate de
+                    persoane și în diferite stiluri.
+                  </p>
+                </div>
+                <div class="item-6 animate-6 item item-left">
+                  <h2>Un obiect 3D intrigant</h2>
+                  <p>
+                    Concepută pentru a surprinde și a încânta, emblema se
+                    poate roti pentru a dezvălui un cerc perfect, reflectând
+                    atât planeta noastră, cât și o minge de fotbal.
+                  </p>
+                </div>
+                <div class="item-7 animate-7 item item-right">
+                  <h2>Elemente decorative</h2>
+                  <p>
+                    Modelele florale, precum cele brodate pe șalurile din
+                    Qatar, sunt elemente importante ale moștenirii Qatarului.
+                    Bazate pe arta arabă tradițională, aceste decorațiuni
+                    reflectă bogăția culturii Orientului Mijlociu.
+                  </p>
+                </div>
+                <div class="item-8 animate-8 item item-right">
+                  <h2>Dune unduite</h2>
+                  <p>
+                    curbele ample ale emblemei reprezintă dunele din Qatar,
+                    care sunt veșnice, indiferent de factorii naturali sau de
+                    altă natură.
+                  </p>
+                </div>
+                <div class="emblem item-shape">
+                  <img src="" data-src="./images/section1/element-section1.webp"
+                    class="lazy-img lozad ttesttt shape-modal" alt="em1" />
+                </div>
+                <div class="title-shape-bottom"></div>
               </div>
             </div>
           </div>
-          <div class="gallery0 forB">
-            <img
-              data-src="./images/section1/element-section1.webp"
-              src=""
-              class="lazy-img lozad"
-              alt="em2"
-            />
-          </div>
-          <div class="text-bottom forD">
-            <ul>
-              <li class="line1">22 de afirmații</li>
-              <li class="line2">-- despre --</li>
-              <li class="line3">Turneul Final</li>
-              <li class="line4">Recorduri, date si istoric</li>
-            </ul>
-          </div>
         </div>
-      </section>
+        <div class="gallery0 forB">
+          <img data-src="./images/section1/element-section1.webp" src="" class="lazy-img lozad" alt="em2" />
+        </div>
+        <div class="text-bottom forD">
+          <ul>
+            <li class="line1">22 de afirmații</li>
+            <li class="line2">-- despre --</li>
+            <li class="line3">Turneul Final</li>
+            <li class="line4">Recorduri, date si istoric</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-      <style>
-        .item-left {
-          animation: move-items-left 1s ease forwards;
-          -webkit-animation: move-items-left 1s ease forwards;
-          position: relative;
+    <style>
+      .item-left {
+        animation: move-items-left 1s ease forwards;
+        -webkit-animation: move-items-left 1s ease forwards;
+        position: relative;
+      }
+
+      .item-right {
+        animation: move-items-right 1s ease forwards;
+        -webkit-animation: move-items-right 1s ease forwards;
+        position: relative;
+      }
+
+      .item-shape {
+        animation: item-shape-animation 1s ease forwards;
+      }
+
+      @keyframes move-items-left {
+
+        0%,
+        10% {
+          transform: translateX(-200px);
+          opacity: 0;
         }
 
-        .item-right {
-          animation: move-items-right 1s ease forwards;
-          -webkit-animation: move-items-right 1s ease forwards;
-          position: relative;
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      @keyframes move-items-right {
+
+        0%,
+        10% {
+          transform: translateX(200px);
+          opacity: 0;
         }
 
-        .item-shape {
-          animation: item-shape-animation 1s ease forwards;
+        100% {
+          transform: translateX(0px);
+          opacity: 1;
+        }
+      }
+
+      @keyframes item-shape-animation {
+        from {
+          opacity: 0;
         }
 
-        @keyframes move-items-left {
-          0%,
-          10% {
-            transform: translateX(-200px);
-            opacity: 0;
-          }
-
-          100% {
-            transform: translateX(0px);
-            opacity: 1;
-          }
+        to {
+          opacity: 1;
         }
+      }
+    </style>
+    <!--TODO:SECTIONS---SECTION 2---->
+    <section class="panel section_2_container" data-section-name="section_2" data-cards="single">
+      <div class="inner inner_section_2 grid-template single">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text" data-aos="slide-right">
+          <h1 class="vertical-title section_2-title">
+            <span>Primul turneu</span><br />
+            <span>pe timp de iarnă</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
 
-        @keyframes move-items-right {
-          0%,
-          10% {
-            transform: translateX(200px);
-            opacity: 0;
-          }
+        <div class="gallery0">
+          <img src="" data-src="./images/section2/element-section2.png" class="lazy-img lozad" alt="sm23" />
+        </div>
+        <div class="chartJs-section place-bottom">
+          <img src="" data-src="./images/section5/Stadion.png" class="lazy-img lozad" alt="em5" />
+        </div>
+      </div>
+    </section>
 
-          100% {
-            transform: translateX(0px);
-            opacity: 1;
-          }
-        }
-
-        @keyframes item-shape-animation {
-          from {
-            opacity: 0;
-          }
-
-          to {
-            opacity: 1;
-          }
-        }
-      </style>
-      <!--TODO:SECTIONS---SECTION 2---->
-      <section
-        class="panel section_2_container"
-        data-section-name="section_2"
-        data-cards="single"
-      >
-        <div class="inner inner_section_2 grid-template single">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text" data-aos="slide-right">
-            <h1 class="vertical-title section_2-title">
-              <span>Primul turneu</span><br />
-              <span>pe timp de iarnă</span>
-            </h1>
-          </div>
-          <div id="constent" class="container-parent-cars insert_cars"></div>
-
+    <!--TODO:SECTIONS---SECTION 3---->
+    <section class="panel section_3_container" data-section-name="section_3" data-cards="double">
+      <div class="inner inner_section_3 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text" data-aos="zoom-in">
+          <h1 class="vertical-title section_3-title" data-fill="d">
+            <span>AUDIENȚE Estimate</span> <br />
+            <span class="line-2-span">și BUGETE</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
+        <div class="gallery-wrapper">
           <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section2/element-section2.png"
-              class="lazy-img lozad"
-              alt="sm23"
-            />
+            <img src="" data-src="./images/section3/element_section3.webp" class="lazy-img lozad" alt="ss3" />
           </div>
-          <div class="chartJs-section place-bottom">
-            <img
-              src=""
-              data-src="./images/section5/Stadion.png"
-              class="lazy-img lozad"
-              alt="em5"
-            />
+          <div class="gallery1">
+            <img src="images/capable_pink_ipad_l.png" alt="ss43" />
           </div>
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 3---->
-      <section
-        class="panel section_3_container"
-        data-section-name="section_3"
-        data-cards="double"
-      >
-        <div class="inner inner_section_3 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text" data-aos="zoom-in">
-            <h1 class="vertical-title section_3-title" data-fill="d">
-              <span>AUDIENȚE Estimate</span> <br />
-              <span class="line-2-span">și BUGETE</span>
-            </h1>
-          </div>
-          <div
-            id="constent"
-            class="container-parent-cars insert_cars_double"
-          ></div>
-          <div class="gallery-wrapper">
-            <div class="gallery0">
-              <img
-                src=""
-                data-src="./images/section3/element_section3.webp"
-                class="lazy-img lozad"
-                alt="ss3"
-              />
-            </div>
-            <div class="gallery1">
-              <img src="images/capable_pink_ipad_l.png" alt="ss43" />
-            </div>
-          </div>
-          <div class="gallery2 chartJs-section">
-            <!-- <div class="chartMenu">
+        <div class="gallery2 chartJs-section">
+          <!-- <div class="chartMenu">
               <p>whatever</p>
             </div> -->
-            <div class="chartCard">
-              <div class="chartBox">
-                <canvas id="myChart"></canvas>
-              </div>
+          <div class="chartCard">
+            <div class="chartBox">
+              <canvas id="myChart"></canvas>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 4---->
-      <section
-        class="panel section_4_container"
-        data-section-name="section_4"
-        data-cards="single"
-      >
-        <div class="inner inner_section_4 grid-template single">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_4-title" data-fill="d">
-              <span>Stadioanele</span> <br />
-              <span class="turneu">Turneului Final</span>
-            </h1>
-          </div>
-          <div id="constent" class="container-parent-cars insert_cars"></div>
-          <div class="gallery-wrap">
-            <div class="gallery0">
-              <div
-                class="box-style"
-                style="
+    <!--TODO:SECTIONS---SECTION 4---->
+    <section class="panel section_4_container" data-section-name="section_4" data-cards="single">
+      <div class="inner inner_section_4 grid-template single">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_4-title" data-fill="d">
+            <span>Stadioanele</span> <br />
+            <span class="turneu">Turneului Final</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery-wrap">
+          <div class="gallery0">
+            <div class="box-style" style="
                   width: 50px;
                   height: 50px;
                   background-color: blue;
                   color: white;
                   font-size: 1em;
-                "
-              >
-                item move
-              </div>
+                ">
+              item move
             </div>
+          </div>
 
-            <div class="gallery1">
-              <div
-                class="box-style2"
-                style="
+          <div class="gallery1">
+            <div class="box-style2" style="
                   width: 50px;
                   height: 50px;
                   background-color: rgb(255, 0, 174);
                   color: white;
                   font-size: 1em;
-                "
-              >
-                item move
-              </div>
+                ">
+              item move
             </div>
           </div>
-          <div class="content-place-items section_4_img">
-            <img
-              src=""
-              data-src="./images/section4/element_section4.png"
-              alt="stadion"
-              class="lozad lazy-img"
-            />
-          </div>
+        </div>
+        <div class="content-place-items section_4_img">
+          <img src="" data-src="./images/section4/element_section4.png" alt="stadion" class="lozad lazy-img" />
+        </div>
 
-          <div class="chartjs-section chartJs-section4">chart</div>
-          <div class="carousel carousel-section" id="carousel">
-            <div class="carousel__wrapper">
-              <div>
-                <div class="carousel__content">
-                  <div class="carousel__container">
-                    <div class="carousel__slide">
-                      <div class="card_self">
-                        <div class="card__inner">
-                          <div class="card__image">
-                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                          </div>
-                    
-                          <h4>lusail </h4>
-                          <div class="card__description">
-                         
-                            <span class="fire">locuri: 80.000</span>
-                          </div>
+        <div class="chartjs-section chartJs-section4">chart</div>
+        <div class="carousel carousel-section" id="carousel">
+          <div class="carousel__wrapper">
+            <div>
+              <div class="carousel__content">
+                <div class="carousel__container">
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+
+                        <h4>lusail </h4>
+                        <div class="card__description">
+
+                          <span class="fire">locuri: 80.000</span>
                         </div>
                       </div>
                     </div>
-          
-                    <div class="carousel__slide">
-                      <div class="cards_self">
-                        <div class="card__inner">
-                          <div class="card__image">
-                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                          </div>
-                          <h4>al bayt </h4>
-                          <div class="card__description">
-                    
-                            <span class="psychic">locuri: 60.000</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-          
-                    <div class="carousel__slide">
-                      <div class="card_self">
-                        <div class="card__inner">
-                          <div class="card__image">
-                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                          </div>
-                          <h4>education city </h4>
-                          <div class="card__description">
-                 
-                            <span class="electric">locuri:45.350</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-          
-                    <div class="carousel__slide">
-                      <div class="card_self">
-                        <div class="card__inner">
-                          <div class="card__image">
-                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                          </div>
-                          <h4>khalifa int </h4>
-                          <div class="card__description">
-                     
-                            <span class="rock">locuri: 45.416</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-          
-                    <div class="carousel__slide">
-                      <div class="card_self">
-                        <div class="card__inner">
-                          <div class="card__image">
-                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                          </div>
-                          <h4> 974</h4>
-                          <div class="card__description">
-                       
-                            <span class="grass">locuri: 40.000</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="carousel__slide">
-                        <div class="card_self">
-                          <div class="card__inner">
-                            <div class="card__image">
-                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                            </div>
-                            <h4>al janoub </h4>
-                            <div class="card__description">
-                    
-                              <span class="grass">locuri: 40.000</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="carousel__slide">
-                        <div class="card_self">
-                          <div class="card__inner">
-                            <div class="card__image">
-                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                            </div>
-                            <h4>al thumama </h4>
-                            <div class="card__description">
-                      
-                              <span class="grass">locuri: 40.000</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="carousel__slide">
-                        <div class="card_self">
-                          <div class="card__inner">
-                            <div class="card__image">
-                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
-                            </div>
-                            <h4>ahmad bin ali </h4>
-                            <div class="card__description">
-           
-                              <span class="grass">locuri: 44.740</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                 
                   </div>
-                  <div id="prev-slide" class="arrow-card arrow--left">
-                    <i class="bx bx-chevron-left"></i>
+
+                  <div class="carousel__slide">
+                    <div class="cards_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>al bayt </h4>
+                        <div class="card__description">
+
+                          <span class="psychic">locuri: 60.000</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div id="next-slide" class="arrow-card arrow--right">
-                    <i class="bx bx-chevron-right"></i>
+
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>education city </h4>
+                        <div class="card__description">
+
+                          <span class="electric">locuri:45.350</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>khalifa int </h4>
+                        <div class="card__description">
+
+                          <span class="rock">locuri: 45.416</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4> 974</h4>
+                        <div class="card__description">
+
+                          <span class="grass">locuri: 40.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>al janoub </h4>
+                        <div class="card__description">
+
+                          <span class="grass">locuri: 40.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>al thumama </h4>
+                        <div class="card__description">
+
+                          <span class="grass">locuri: 40.000</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel__slide">
+                    <div class="card_self">
+                      <div class="card__inner">
+                        <div class="card__image">
+                          <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                        </div>
+                        <h4>ahmad bin ali </h4>
+                        <div class="card__description">
+
+                          <span class="grass">locuri: 44.740</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div id="prev-slide" class="arrow-card arrow--left">
+                  <i class="bx bx-chevron-left"></i>
+                </div>
+                <div id="next-slide" class="arrow-card arrow--right">
+                  <i class="bx bx-chevron-right"></i>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 5---->
+    <!--TODO:SECTIONS---SECTION 5---->
 
-      <section
-        class="panel section_5_container"
-        data-section-name="section_5"
-        data-cards="double"
-      >
-        <div class="inner inner_section_5 grid-template double">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_5-title" data-fill="d">
-              <span class="line-1-s5">mesaj pentru</span> <br />
-              <span>protectia mediului</span>
-            </h1>
-          </div>
-
-          <div
-            id="constent"
-            class="container-parent-cars insert_cars_double"
-          ></div>
-
-          <div class="gallery-wrapper">
-            <div class="gallery0">
-              <img
-                src=""
-                data-src="./images/section5/palmier_5.webp"
-                class="lazy-img lozad"
-                alt="p5"
-              />
-            </div>
-
-            <div class="gallery1">
-              <div class="box-style">element move</div>
-            </div>
-          </div>
-          <div class="gallery2 chartJs-section place-bottom">
-            <img
-              src=""
-              data-src="./images/section5/Stadion.webp"
-              class="lazy-img lozad"
-              alt="s2"
-            />
-          </div>
+    <section class="panel section_5_container" data-section-name="section_5" data-cards="double">
+      <div class="inner inner_section_5 grid-template double">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 6---->
-
-      <section
-        class="panel section_6_container"
-        data-section-name="section_6"
-        data-cards="single"
-      >
-        <div class="inner inner_section_6 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_6-title" data-fill="d">
-              <span>mai multe schimbări</span> <br />
-              <span class="line-6-span">mai mulți fotbaliști</span>
-            </h1>
-          </div>
-          <div id="constent" class="container-parent-cars insert_cars"></div>
-          <div class="gallery-wrapper">
-            <div class="gallery0">
-              <img
-                src=""
-                data-src="./images/section6/player1.png"
-                class="lazy-img lozad"
-                alt="s6p1"
-              />
-            </div>
-
-            <div class="gallery1">
-              <img
-                src=""
-                data-src="./images/section6/player2.png"
-                class="lazy-img lozad"
-                alt="s6p0"
-              />
-            </div>
-            <div class="gallery2">
-              <img
-                src=""
-                data-src="./images/section6/player3.png"
-                class="lazy-img lozad"
-                alt="s6p7"
-              />
-            </div>
-          </div>
-          <div class="place-bottom">
-            <h3>chartJs</h3>
-          </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_5-title" data-fill="d">
+            <span class="line-1-s5">mesaj pentru</span> <br />
+            <span>protectia mediului</span>
+          </h1>
         </div>
-      </section>
 
-      <!--TODO:SECTIONS---SECTION 7---->
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
 
-      <section
-        class="panel section_7_container"
-        data-section-name="section_7"
-        data-cards="single"
-      >
-        <div class="inner inner_section_7 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_7-title" data-fill="d">
-              <span>Brazilia cea mare</span> <br />
-            </h1>
-          </div>
-          <div id="constent" class="container-parent-cars insert_cars"></div>
-          <img
-            src=""
-            data-src="./images/section7/pole.png"
-            alt="pole"
-            class="pole-section7 lozad lazy-img"
-          />
-          <div class="flag-container">
-            <img
-              src=""
-              data-src="./images/section7/flag.png"
-              alt="pole"
-              class="flag-section7 lozad lazy-img"
-            />
-          </div>
+        <div class="gallery-wrapper">
           <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section7/emblem-stars.png"
-              class="lazy-img lozad"
-              alt="stars"
-            />
-          </div>
-          <div class="section-7-bottom place-bottom">
-            <h3>chartJs</h3>
-          </div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 8---->
-
-      <section
-        class="panel section_8_container"
-        data-section-name="section_8"
-        data-cards="double"
-      >
-        <div class="inner inner_section_8 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_8-title" data-fill="d">
-              <span class="line-1s8"
-                >primul trofeul, câstigat definitiv în 1970</span
-              >
-              <br />
-              <span class="line-2s8">Trofeul Jules Rimet</span>
-              <br />
-            </h1>
+            <img src="" data-src="./images/section5/palmier_5.webp" class="lazy-img lozad" alt="p5" />
           </div>
 
-          <div
-            id="constent"
-            class="container-parent-cars insert_cars_double"
-          ></div>
-
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section8/trofeu.png"
-              class="lazy-img lozad"
-              alt="trophee"
-            />
-          </div>
-
-          <div class="section-8-bottom place-bottom">
-            <img
-              src=""
-              data-src="./images/section8/photo1.png"
-              alt="photoS7"
-              class="lazy-img lozad"
-            />
-            <img
-              src=""
-              data-src="./images/section8/photo2.png"
-              alt="photos77"
-              class="cup-s8 lazy-img lozad"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 9---->
-
-      <section
-        class="panel section_9_container"
-        data-section-name="section_9"
-        data-cards="single"
-      >
-        <div class="inner inner_section_9 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_9-title" data-fill="d">
-              <span class="line-1s9">maracana și un record</span> <br />
-              <span class="line-2s9">ce va dăinui probabil pe vecie</span>
-            </h1>
-          </div>
-          <div id="constent" class="container-parent-cars insert_cars"></div>
           <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section9/maracana.png"
-              alt="maracana"
-              class="lazy-img lozad"
-            />
-          </div>
-
-          <div class="gallery2">
-            <img
-              src=""
-              data-src="./images/section9/fans.png"
-              class="lazy-img lozad"
-              alt="fans"
-            />
-          </div>
-          <div class="gallery0">
-            <img src="" data-src="./images/section9/confetti-small.png"" class="
-            lazy-img lozad" alt="confetii" />
+            <div class="box-style">element move</div>
           </div>
         </div>
-      </section>
+        <div class="gallery2 chartJs-section place-bottom">
+          <img src="" data-src="./images/section5/Stadion.webp" class="lazy-img lozad" alt="s2" />
+        </div>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 10---->
+    <!--TODO:SECTIONS---SECTION 6---->
 
-      <section
-        class="panel section_10_container"
-        data-section-name="section_10"
-        data-cards="double"
-      >
-        <div class="inner inner_section_10 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_10-title" data-fill="d">
-              <span class="line-1s10">românul parte din</span> <br />
-              <span class="line-2s10">meciul cel mai "mic"</span>
-            </h1>
-          </div>
-          <div
-            id="constent"
-            class="container-parent-cars insert_cars_double"
-          ></div>
+    <section class="panel section_6_container" data-section-name="section_6" data-cards="single">
+      <div class="inner inner_section_6 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_6-title" data-fill="d">
+            <span>mai multe schimbări</span> <br />
+            <span class="line-6-span">mai mulți fotbaliști</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery-wrapper">
           <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section10/player4.png"
-              class="lazy-img lozad"
-              alt="p4"
-            />
+            <img src="" data-src="./images/section6/player1.png" class="lazy-img lozad" alt="s6p1" />
           </div>
+
           <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section10/player3.png"
-              class="lazy-img lozad"
-              alt="p3"
-            />
+            <img src="" data-src="./images/section6/player2.png" class="lazy-img lozad" alt="s6p0" />
           </div>
           <div class="gallery2">
-            <img
-              src=""
-              data-src="./images/section10/ball.png"
-              alt="player3"
-              class="lazy-img lozad"
-            />
-          </div>
-
-          <div class="gallery3">
-            <img
-              src=""
-              data-src="./images/section10/ro-flag.png"
-              class="lazy-img lozad"
-              alt="p5"
-            />
+            <img src="" data-src="./images/section6/player3.png" class="lazy-img lozad" alt="s6p7" />
           </div>
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 11---->
-
-      <section
-        class="panel section_11_container"
-        data-section-name="section_11"
-      >
-        <div class="inner inner_section_11 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_11-title" data-fill="d">
-              <span class="line-1s11">americanii și soccer-ul</span> <br />
-              <!-- <span class="line-2s11">meciul cel mai "mic"</span> -->
-            </h1>
-          </div>
-          <div class="gallery-wrapper">
-            <img
-              src=""
-              data-src="./images/section11/element_section11.png"
-              class="lazy-img lozad"
-              alt="98"
-            />
-          </div>
-
-          <div class="section-11-bottom place-bottom">chart</div>
+        <div class="place-bottom">
+          <h3>chartJs</h3>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 12---->
+    <!--TODO:SECTIONS---SECTION 7---->
 
-      <section
-        class="panel section_12_container"
-        data-section-name="section_12"
-      >
-        <div class="inner inner_section_12 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_12-title" data-fill="d">
-              <span class="line-1s12">diferența dintre</span> <br />
-              <span class="line-2s12">pele și restul</span>
-            </h1>
-          </div>
-          <div class="gallery-wrapper">
-            <img
-              src=""
-              data-src="./images/section12/element_section12.png"
-              class="lazy-img lozad"
-              alt="sr12"
-            />
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section12/number_section12.png"
-              class="lazy-img lozad"
-              alt="se12"
-            />
-          </div>
-          <div class="section-12-bottom place-bottom">chart</div>
+    <section class="panel section_7_container" data-section-name="section_7" data-cards="single">
+      <div class="inner inner_section_7 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
         </div>
-      </section>
-      <!--TODO:SECTIONS---SECTION 13---->
-
-      <section
-        class="panel section_13_container"
-        data-section-name="section_13"
-      >
-        <div class="inner inner_section_13 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_13-title" data-fill="d">
-              <span class="line-1s13">cel mai jucat duel</span> <br />
-              <span class="line-2s13">al nemțiilor</span>
-            </h1>
-          </div>
-
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section13/netB_section13.png"
-              class="lazy-img lozad"
-              alt="s13"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section13/ball_section13.png"
-              class="lazy-img lozad rotate-imgS13"
-              alt="s13"
-            />
-          </div>
-          <div class="section-13-bottom place-bottom">
-            <div class="gallery2">
-              <img
-                src=""
-                data-src="./images/section13/flag_section13.png"
-                class="lazy-img lozad"
-                alt="s13"
-              />
-            </div>
-          </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_7-title" data-fill="d">
+            <span>Brazilia cea mare</span> <br />
+          </h1>
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 14---->
-
-      <section
-        class="panel section_14_container"
-        data-section-name="section_14"
-      >
-        <div class="inner inner_section_14 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_14-title" data-fill="n">
-              <span class="line-1s14">recordul lui mathaus</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section14/player_section14.png"
-              class="lazy-img lozad"
-              alt="s14"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section14/player2_section14.png"
-              class="lazy-img lozad"
-              alt="s14"
-            />
-          </div>
-          <div class="section-14-bottom place-bottom">chart</div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <img src="" data-src="./images/section7/pole.png" alt="pole" class="pole-section7 lozad lazy-img" />
+        <div class="flag-container">
+          <img src="" data-src="./images/section7/flag.png" alt="pole" class="flag-section7 lozad lazy-img" />
         </div>
-      </section>
+        <div class="gallery0">
+          <img src="" data-src="./images/section7/emblem-stars.png" class="lazy-img lozad" alt="stars" />
+        </div>
+        <div class="table_section7">
+          <table>
+            <caption></caption>
+            <thead>
+              <tr>
+                <th scope="col">Brazilia</th>
+                <th scope="col">germania, italia</th>
+                <th scope="col">argentina, franta, uruguay</th>
+                <th scope="col">anglia, spania</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Brazilia">5 titluri</td>
+                <td data-label="germania,italia">4 titluri</td>
+                <td data-label="argentina,franta,uruguay">2 titluri</td>
+                <td data-label="anglia,spani">1 titlu</td>
+              
+            
+              
+            </tr>
+            <td class="td-label" data-label="" colspan="4">Germania ar putea egala numărul de trofee in Qatar. Italia are tot 4 titluri ca nemții dar nu sa calificat pentru CM 2022</td>
+           
+            </tbody>
+            
+          </table>
+        </div>
+       
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 15---->
+    <!--TODO:SECTIONS---SECTION 8---->
 
-      <section
-        class="panel section_15_container"
-        data-section-name="section_15"
-      >
-        <div class="inner inner_section_15 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_15-title" data-fill="o">
-              <span class="line-1s15">Și recordul lui Klose</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section15/playerL_section15.png"
-              class="lazy-img lozad"
-              alt="s15"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section15/playerC_section15.png"
-              class="lazy-img lozad"
-              alt="s15"
-            />
-          </div>
+    <section class="panel section_8_container" data-section-name="section_8" data-cards="double">
+      <div class="inner inner_section_8 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_8-title" data-fill="d">
+            <span class="line-1s8">primul trofeul, câstigat definitiv în 1970</span>
+            <br />
+            <span class="line-2s8">Trofeul Jules Rimet</span>
+            <br />
+          </h1>
+        </div>
+
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
+
+        <div class="gallery0">
+          <img src="" data-src="./images/section8/trofeu.png" class="lazy-img lozad" alt="trophee" />
+        </div>
+
+        <div class="section-8-bottom place-bottom">
+          <img src="" data-src="./images/section8/photo1.png" alt="photoS7" class="lazy-img lozad" />
+          <img src="" data-src="./images/section8/photo2.png" alt="photos77" class="cup-s8 lazy-img lozad" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 9---->
+
+    <section class="panel section_9_container" data-section-name="section_9" data-cards="single">
+      <div class="inner inner_section_9 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_9-title" data-fill="d">
+            <span class="line-1s9">maracana și un record</span> <br />
+            <span class="line-2s9">ce va dăinui probabil pe vecie</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section9/maracana.png" alt="maracana" class="lazy-img lozad" />
+        </div>
+
+        <div class="gallery2">
+          <img src="" data-src="./images/section9/fans.png" class="lazy-img lozad" alt="fans" />
+        </div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section9/confetti-small.png"" class=" lazy-img lozad" alt="confetii" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 10---->
+
+    <section class="panel section_10_container" data-section-name="section_10" data-cards="double">
+      <div class="inner inner_section_10 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_10-title" data-fill="d">
+            <span class="line-1s10">românul parte din</span> <br />
+            <span class="line-2s10">meciul cel mai "mic"</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section10/player4.png" class="lazy-img lozad" alt="p4" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section10/player3.png" class="lazy-img lozad" alt="p3" />
+        </div>
+        <div class="gallery2">
+          <img src="" data-src="./images/section10/ball.png" alt="player3" class="lazy-img lozad" />
+        </div>
+
+        <div class="gallery3">
+          <img src="" data-src="./images/section10/ro-flag.png" class="lazy-img lozad" alt="p5" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 11---->
+
+    <section class="panel section_11_container" data-section-name="section_11">
+      <div class="inner inner_section_11 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_11-title" data-fill="d">
+            <span class="line-1s11">americanii și soccer-ul</span> <br />
+            <!-- <span class="line-2s11">meciul cel mai "mic"</span> -->
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery-wrapper">
+          <img src="" data-src="./images/section11/element_section11.png" class="lazy-img lozad" alt="98" />
+        </div>
+
+        <div class="section-11-bottom place-bottom">chart</div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 12---->
+
+    <section class="panel section_12_container" data-section-name="section_12">
+      <div class="inner inner_section_12 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_12-title" data-fill="d">
+            <span class="line-1s12">diferența dintre</span> <br />
+            <span class="line-2s12">pele și restul</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery-wrapper">
+          <img src="" data-src="./images/section12/element_section12.png" class="lazy-img lozad" alt="sr12" />
+        </div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section12/number_section12.png" class="lazy-img lozad" alt="se12" />
+        </div>
+        <div class="section-12-bottom place-bottom">chart</div>
+      </div>
+    </section>
+    <!--TODO:SECTIONS---SECTION 13---->
+
+    <section class="panel section_13_container" data-section-name="section_13">
+      <div class="inner inner_section_13 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_13-title" data-fill="d">
+            <span class="line-1s13">cel mai jucat duel</span> <br />
+            <span class="line-2s13">al nemțiilor</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section13/netB_section13.png" class="lazy-img lozad" alt="s13" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section13/ball_section13.png" class="lazy-img lozad rotate-imgS13" alt="s13" />
+        </div>
+        <div class="section-13-bottom place-bottom">
           <div class="gallery2">
-            <img
-              src=""
-              data-src="./images/section15/playerR_section15.png"
-              class="lazy-img lozad"
-              alt="s15"
-            />
-          </div>
-          <div class="section-15-bottom place-bottom">chart</div>
-        </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 16---->
-
-      <section
-        class="panel section_16_container"
-        data-section-name="section_16"
-      >
-        <div class="inner inner_section_16 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_16-title" data-fill="o">
-              <span class="line-1s16">Golul de 11 secunde</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section16/player_swirl_section16.png"
-              class="lazy-img lozad"
-              alt="s16"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section16/stopWatch_section16.png"
-              class="lazy-img lozad"
-              alt="s16"
-            />
-          </div>
-          <div class="gallery2">
-            <img
-              src=""
-              data-src="./images/section16/swirl_section16.png"
-              class="lazy-img lozad"
-              alt="s16"
-            />
-          </div>
-          <div class="gallery3">
-            <img
-              src=""
-              data-src="./images/section16/ball_section16.png"
-              class="lazy-img lozad"
-              alt="s16"
-            />
+            <img src="" data-src="./images/section13/flag_section13.png" class="lazy-img lozad" alt="s13" />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 17---->
+    <!--TODO:SECTIONS---SECTION 14---->
 
-      <section
-        class="panel section_17_container"
-        data-section-name="section_17"
-      >
-        <div class="inner inner_section_17 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_17-title" data-fill="o">
-              <span class="line-1s17">apropo de kane</span> <br />
-              <span class="line-2s17">și de anglia...</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section17/player_section17.webp"
-              class="lazy-img lozad"
-              alt="s17"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section17/bag_section17.webp"
-              class="lazy-img lozad"
-              alt="s17"
-            />
-          </div>
+    <section class="panel section_14_container" data-section-name="section_14">
+      <div class="inner inner_section_14 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 18---->
-
-      <section
-        class="panel section_18_container"
-        data-section-name="section_18"
-      >
-        <div class="inner inner_section_18 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_18-title" data-fill="o">
-              <span class="line-1s18">Disputa continentelor</span> <br />
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section18/ball1_section18.webp"
-              class="lazy-img lozad"
-              alt="s18"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section18/ball2_section18.webp"
-              class="lazy-img lozad"
-              alt="s18"
-            />
-          </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_14-title" data-fill="n">
+            <span class="line-1s14">recordul lui mathaus</span>
+          </h1>
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 19---->
-
-      <section
-        class="panel section_19_container"
-        data-section-name="section_19"
-      >
-        <div class="inner inner_section_19 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_19-title" data-fill="o">
-              <span class="line-1s19">Se înscrie mai rar.</span> <br />
-              <span class="line-2s19">Dar mai mult.</span>
-            </h1>
-          </div>
-          <div class="chart_s19">chart1</div>
-          <div class="chart_two_s19">chart2</div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section19/christmas_section19.webp"
-              class="lazy-img lozad"
-              alt="s19"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section19/gate_section19.webp"
-              class="lazy-img lozad"
-              alt="s19"
-            />
-          </div>
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section14/player_section14.png" class="lazy-img lozad" alt="s14" />
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 20---->
-
-      <section
-        class="panel section_20_container"
-        data-section-name="section_20"
-      >
-        <div class="inner inner_section_20 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_20-title" data-fill="o">
-              <span class="line-1s20">Era arbitrajului</span> <br />
-              <span class="line-2s20">video</span>
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section20/cam_section20.webp"
-              class="lazy-img lozad"
-              alt="s20"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section20/isometric_section20.webp"
-              class="lazy-img lozad"
-              alt="s20"
-            />
-          </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section14/player2_section14.png" class="lazy-img lozad" alt="s14" />
         </div>
-      </section>
+        <div class="section-14-bottom place-bottom">chart</div>
+      </div>
+    </section>
 
-      <!--TODO:SECTIONS---SECTION 21---->
+    <!--TODO:SECTIONS---SECTION 15---->
 
-      <section
-        class="panel section_21_container"
-        data-section-name="section_21"
-      >
-        <div class="inner inner_section_21 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_21-title" data-fill="o">
-              <span class="line-1s21">Cel mai costisitor turneu final</span>
-              <br />
-            </h1>
-          </div>
-          <div class="chart_s21">chart1</div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section21/ball_section21.webp"
-              class="lazy-img lozad"
-              alt="s21"
-            />
-          </div>
-          <div class="gallery1">
-            <img
-              src=""
-              data-src="./images/section21/gold_section21.webp"
-              class="lazy-img lozad"
-              alt="s21"
-            />
-          </div>
+    <section class="panel section_15_container" data-section-name="section_15">
+      <div class="inner inner_section_15 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 22---->
-
-      <section
-        class="panel section_22_container"
-        data-section-name="section_22"
-      >
-        <div class="inner inner_section_22 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_22-title" data-fill="o">
-              <span class="line-1s22">Cea mai mică țară gazdă</span> <br />
-            </h1>
-          </div>
-          <div class="gallery0">
-            <img
-              src=""
-              data-src="./images/section22/quatar_section22.webp"
-              class="lazy-img lozad"
-              alt="s22"
-            />
-          </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_15-title" data-fill="o">
+            <span class="line-1s15">Și recordul lui Klose</span>
+          </h1>
         </div>
-      </section>
-
-      <!--TODO:SECTIONS---SECTION 23---->
-
-      <section
-        class="panel section_23_container"
-        data-section-name="section_23"
-      >
-        <div class="inner inner_section_23 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
-          <div class="header-content-text">
-            <h1 class="vertical-title section_23-title" data-fill="o">
-              <span class="line-1s23">chestionar</span> <br />
-            </h1>
-          </div>
+        <div id="constent" class="container-parent-cars insert_cars_double"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section15/playerL_section15.png" class="lazy-img lozad" alt="s15" />
         </div>
-      </section>
-    </div>
-    <script>
-      /*--------------------------------------------------------
+        <div class="gallery1">
+          <img src="" data-src="./images/section15/playerC_section15.png" class="lazy-img lozad" alt="s15" />
+        </div>
+        <div class="gallery2">
+          <img src="" data-src="./images/section15/playerR_section15.png" class="lazy-img lozad" alt="s15" />
+        </div>
+        <div class="section-15-bottom place-bottom">chart</div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 16---->
+
+    <section class="panel section_16_container" data-section-name="section_16">
+      <div class="inner inner_section_16 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_16-title" data-fill="o">
+            <span class="line-1s16">Golul de 11 secunde</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section16/player_swirl_section16.png" class="lazy-img lozad" alt="s16" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section16/stopWatch_section16.png" class="lazy-img lozad" alt="s16" />
+        </div>
+        <div class="gallery2">
+          <img src="" data-src="./images/section16/swirl_section16.png" class="lazy-img lozad" alt="s16" />
+        </div>
+        <div class="gallery3">
+          <img src="" data-src="./images/section16/ball_section16.png" class="lazy-img lozad" alt="s16" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 17---->
+
+    <section class="panel section_17_container" data-section-name="section_17">
+      <div class="inner inner_section_17 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_17-title" data-fill="o">
+            <span class="line-1s17">apropo de kane</span> <br />
+            <span class="line-2s17">și de anglia...</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section17/player_section17.webp" class="lazy-img lozad" alt="s17" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section17/bag_section17.webp" class="lazy-img lozad" alt="s17" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 18---->
+
+    <section class="panel section_18_container" data-section-name="section_18">
+      <div class="inner inner_section_18 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_18-title" data-fill="o">
+            <span class="line-1s18">Disputa continentelor</span> <br />
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section18/ball1_section18.webp" class="lazy-img lozad" alt="s18" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section18/ball2_section18.webp" class="lazy-img lozad" alt="s18" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 19---->
+
+    <section class="panel section_19_container" data-section-name="section_19">
+      <div class="inner inner_section_19 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_19-title" data-fill="o">
+            <span class="line-1s19">Se înscrie mai rar.</span> <br />
+            <span class="line-2s19">Dar mai mult.</span>
+          </h1>
+        </div>
+        <div class="chart_s19">chart1</div>
+        <div class="chart_two_s19">chart2</div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section19/christmas_section19.webp" class="lazy-img lozad" alt="s19" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section19/gate_section19.webp" class="lazy-img lozad" alt="s19" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 20---->
+
+    <section class="panel section_20_container" data-section-name="section_20">
+      <div class="inner inner_section_20 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_20-title" data-fill="o">
+            <span class="line-1s20">Era arbitrajului</span> <br />
+            <span class="line-2s20">video</span>
+          </h1>
+        </div>
+        <div id="constent" class="container-parent-cars insert_cars"></div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section20/cam_section20.webp" class="lazy-img lozad" alt="s20" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section20/isometric_section20.webp" class="lazy-img lozad" alt="s20" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 21---->
+
+    <section class="panel section_21_container" data-section-name="section_21">
+      <div class="inner inner_section_21 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_21-title" data-fill="o">
+            <span class="line-1s21">Cel mai costisitor turneu final</span>
+            <br />
+          </h1>
+        </div>
+        <div class="chart_s21">chart1</div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section21/ball_section21.webp" class="lazy-img lozad" alt="s21" />
+        </div>
+        <div class="gallery1">
+          <img src="" data-src="./images/section21/gold_section21.webp" class="lazy-img lozad" alt="s21" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 22---->
+
+    <section class="panel section_22_container" data-section-name="section_22">
+      <div class="inner inner_section_22 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_22-title" data-fill="o">
+            <span class="line-1s22">Cea mai mică țară gazdă</span> <br />
+          </h1>
+        </div>
+        <div class="gallery0">
+          <img src="" data-src="./images/section22/quatar_section22.webp" class="lazy-img lozad" alt="s22" />
+        </div>
+      </div>
+    </section>
+
+    <!--TODO:SECTIONS---SECTION 23---->
+
+    <section class="panel section_23_container" data-section-name="section_23">
+      <div class="inner inner_section_23 grid-template">
+        <div class="logo-top">
+          <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
+            class="quatarLogo lazy-img lozad" />
+        </div>
+        <div class="header-content-text">
+          <h1 class="vertical-title section_23-title" data-fill="o">
+            <span class="line-1s23">chestionar</span> <br />
+          </h1>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    /*--------------------------------------------------------
       Set carousel config here
   
       @autoload : true / false
       @itemsToBeVisible: Defines how many items should be visible
       @speed: Speed at which items will be passed in milliseconds
       ----------------------------------------------------------*/
-  const config = {
-    autoload: true,
-    itemsToBeVisible: 3,
-    speed: 3000
-  };
-  
-  /*-------------------
-    Entry point 
-    ---------------------*/
-  function start() {
-    window.onload = function () {
-      setSlidersStyle(config);
-  
-      const prevSlideButton = document.getElementById("prev-slide");
-      const nextSlideButton = document.getElementById("next-slide");
-  
-      prevSlideButton.addEventListener("click", () => {
-        navigate("backward", config);
-      });
-  
-      nextSlideButton.addEventListener("click", () => {
-        navigate("forward", config);
-      });
-  
-      if (config.autoload) {
-        playCarousel(nextSlideButton, config);
-      }
+    const config = {
+      autoload: true,
+      itemsToBeVisible: 3,
+      speed: 3000
     };
-  }
-  
-  /*--------------------------------------------------------------
-      Sets the style of slides based on the number of visible items.
-    ---------------------------------------------------------------*/
-  function setSlidersStyle(config) {
-    document.querySelector(
-      "style"
-    ).textContent += `@media screen and (min-width:1180px) { .carousel__slide{ min-width: ${
+
+    /*-------------------
+      Entry point 
+      ---------------------*/
+    function start() {
+      window.onload = function () {
+        setSlidersStyle(config);
+
+        const prevSlideButton = document.getElementById("prev-slide");
+        const nextSlideButton = document.getElementById("next-slide");
+
+        prevSlideButton.addEventListener("click", () => {
+          navigate("backward", config);
+        });
+
+        nextSlideButton.addEventListener("click", () => {
+          navigate("forward", config);
+        });
+
+        if (config.autoload) {
+          playCarousel(nextSlideButton, config);
+        }
+      };
+    }
+
+    /*--------------------------------------------------------------
+        Sets the style of slides based on the number of visible items.
+      ---------------------------------------------------------------*/
+    function setSlidersStyle(config) {
+      document.querySelector(
+        "style"
+      ).textContent += `@media screen and (min-width:1180px) { .carousel__slide{ min-width: ${
       100 / config.itemsToBeVisible
     }% } }`;
-  }
-  
-  /*----------------------------------------
-     Performs the sliding behavior of items.
-    ----------------------------------------*/
-  function navigate(position, config) {
-    const carouselEl = document.getElementById("carousel");
-    const slideContainerEl = carouselEl.querySelector(".carousel__container");
-    const slideEl = carouselEl.querySelector(".carousel__slide");
-    let slideWidth = slideEl.offsetWidth;
-    slideContainerEl.scrollLeft = this.getNewScrollPosition(
-      position,
-      slideContainerEl,
-      slideWidth,
-      config
-    );
-  }
-  
-  /*-------------------------------
-     Get the new scroll position.
-    ---------------------------------*/
-  function getNewScrollPosition(position, slideContainerEl, slideWidth, config) {
-    const maxScrollLeft =
-      slideContainerEl.scrollWidth - slideWidth * config.itemsToBeVisible;
-    if (position === "forward") {
-      const x = slideContainerEl.scrollLeft + slideWidth;
-      return x <= maxScrollLeft ? x : 0;
-    } else {
-      const x = slideContainerEl.scrollLeft - slideWidth;
-      return x >= 0 ? x : maxScrollLeft;
     }
-  }
-  
-  /*-------------------------------
-    Autoplay
-    ---------------------------------*/
-  function playCarousel(nextButton, config) {
-    const play = () => {
-      nextButton.click();
-      setTimeout(play, config.speed);
-    };
-    play();
-  }
-  start();
-  
+
+    /*----------------------------------------
+       Performs the sliding behavior of items.
+      ----------------------------------------*/
+    function navigate(position, config) {
+      const carouselEl = document.getElementById("carousel");
+      const slideContainerEl = carouselEl.querySelector(".carousel__container");
+      const slideEl = carouselEl.querySelector(".carousel__slide");
+      let slideWidth = slideEl.offsetWidth;
+      slideContainerEl.scrollLeft = this.getNewScrollPosition(
+        position,
+        slideContainerEl,
+        slideWidth,
+        config
+      );
+    }
+
+    /*-------------------------------
+       Get the new scroll position.
+      ---------------------------------*/
+    function getNewScrollPosition(position, slideContainerEl, slideWidth, config) {
+      const maxScrollLeft =
+        slideContainerEl.scrollWidth - slideWidth * config.itemsToBeVisible;
+      if (position === "forward") {
+        const x = slideContainerEl.scrollLeft + slideWidth;
+        return x <= maxScrollLeft ? x : 0;
+      } else {
+        const x = slideContainerEl.scrollLeft - slideWidth;
+        return x >= 0 ? x : maxScrollLeft;
+      }
+    }
+
+    /*-------------------------------
+      Autoplay
+      ---------------------------------*/
+    function playCarousel(nextButton, config) {
+      const play = () => {
+        nextButton.click();
+        setTimeout(play, config.speed);
+      };
+      play();
+    }
+    start();
   </script>
-    <script>
-      $(function () {
-        $.scrollify({
-          section: ".panel",
-          scrollbars: false,
-          standardScrollElements: ".forScrolling",
-          before: function (i, panels) {
-            let ref = panels[i].attr("data-section-name");
+  <script>
+    $(function () {
+      $.scrollify({
+        section: ".panel",
+        scrollbars: false,
+        standardScrollElements: ".forScrolling",
+        before: function (i, panels) {
+          let ref = panels[i].attr("data-section-name");
 
-            //  $(".pagination a.active").removeClass("active");
+          //  $(".pagination a.active").removeClass("active");
 
-            // $(".pagination a[href=#" + ref + "]").addClass("active");
+          // $(".pagination a[href=#" + ref + "]").addClass("active");
 
-            if (ref === "section_3") {
-              $(
-                ".inner_section_3 .gallery0,.inner_section_3 .gallery1,.inner_section_3 .gallery2"
-              ).addClass("moved");
-            }
-            panels[i].find(".gallery0,.gallery1,.gallery2").addClass("moved");
-            console.log("panels i", panels[i]);
-            if (ref === "section_2") {
-              $(".inner_section_3")
-                .find(".gallery0,.gallery1,.gallery2")
-                .removeClass("moved");
-              $(".inner_section_4 .gallery0").css("top", 0);
-            }
-            if (ref === "inner_section_3") {
-              $(".inner_section_4 .content").removeClass("moved");
-              initialPosition();
-            }
-            if (ref === "section_4") {
-              $(".inner_section_5 .content").addClass("moved");
-
-              $(".inner_section_5 .gallery0").css("top", 0);
-            }
-            for (var j = 0; j < panels.length; j++) {
-              if (j < i) {
-                panels[j].find(".moved").removeClass("moved");
-              }
-              if (j > i) {
-                panels[j].find(".moved").removeClass("moved");
-              }
-            }
-            console.log(i, "i-section");
-          },
-          after: function (i, panels) {
-            
-            let ref = panels[i].attr("data-section-name");
-            if (ref === "home") {
-              $(".inner_section_2")
-                .find(".gallery0,.gallery1,.gallery2")
-                .removeClass("moved");
-              // alert("vrei sa .... whatever")
-            }
-            if (ref === "section_3") {
-              // alert("continua,")
-            }
-          },
-          afterResize: initialPosition,
-          afterRender: initialPosition,
-        });
-
-        $(".pagination a").on("click", function () {
-          $.scrollify.move($(this).attr("href"));
-        });
-
-        function initialPosition() {
-          var current = $.scrollify.current();
-          if (current.hasClass("inner_section_4") === false) {
-            var height = parseInt($(".inner_section_4").height());
-            var f = parseInt($(".inner_section_3 .gallery1").height()) - 50;
-            console.log(f, "f");
-            console.log(f, "height");
-            var top = 0 - height * 0.3 - (height - f);
-            $(".inner_section_4 .gallery0").css("top", top);
-          } else {
+          if (ref === "section_3") {
+            $(
+              ".inner_section_3 .gallery0,.inner_section_3 .gallery1,.inner_section_3 .gallery2"
+            ).addClass("moved");
+          }
+          panels[i].find(".gallery0,.gallery1,.gallery2").addClass("moved");
+          console.log("panels i", panels[i]);
+          if (ref === "section_2") {
             $(".inner_section_3")
               .find(".gallery0,.gallery1,.gallery2")
-              .addClass("moved");
+              .removeClass("moved");
+            $(".inner_section_4 .gallery0").css("top", 0);
           }
-        }
-        $(".md-trigger").on("click", function () {
-          $(".md-modal").addClass("md-show");
-        });
-
-        $(".md-close").on("click", function () {
-          $(".md-modal").removeClass("md-show");
-        });
-      });
-    </script>
-
-    <script>
-      $(document).ready(function () {
-        $("#window").on("click", function (e) {
-          e.preventDefault();
-          // $(".shape-modal").remove();
-
-          // setTimeout(function () {
-          //   $(".item-shape").append(
-          //   '<img src="./images/section1/element-section1.png" data-src="./images/section1/element-section1.png" class="lazy-img lozad ttesttt shape-modal"/>'
-          // );
-          //   $(".shape-modal").css("opacity", "1");
-          // }, 800);
-          $.scrollify.disable();
-          let showInfo = $(this).text();
-          $(this).text("");
-          $(this).addClass("ball_animation");
-          if ($(this).find("forB")) {
-            $(".forC, .forD, .forB").css({
-              opacity: "0",
-              transition: "opacity 0.4s ease 0.2s",
-            });
+          if (ref === "inner_section_3") {
+            $(".inner_section_4 .content").removeClass("moved");
+            initialPosition();
           }
-          setTimeout(function () {
-            if ($(".modal_home_container").find("modEmbl")) {
-              $(".modal_Emblem").addClass("activeTwo");
+          if (ref === "section_4") {
+            $(".inner_section_5 .content").addClass("moved");
+
+            $(".inner_section_5 .gallery0").css("top", 0);
+          }
+          for (var j = 0; j < panels.length; j++) {
+            if (j < i) {
+              panels[j].find(".moved").removeClass("moved");
             }
-            $(".close_emblem").css("width", "30px");
-            $(".close_emblem").css("height", "30px");
+            if (j > i) {
+              panels[j].find(".moved").removeClass("moved");
+            }
+          }
+          console.log(i, "i-section");
+        },
+        after: function (i, panels) {
 
-            setTimeout(function () {
-              $(".btn_Emblem").removeClass("ball_animation");
-              $(".forB").removeClass("ball_animation");
-              $(".btn_Emblem").text(showInfo);
-            }, 500);
-          }, 600);
-        });
-
-        $(".close_emblem").click(function () {
-          $(".modal_Emblem").removeClass("activeTwo");
-          $(".close_emblem").css("width", "0px");
-          $(".close_emblem").css("height", "0px");
-          $.scrollify.enable();
-          $(".forC, .forD, .forB").css({
-            opacity: "1",
-            transition: "opacity 0.4s ease",
-          });
-        });
-
-        function progressBarScroll() {
-          let winScroll =
-              document.body.scrollTop || document.documentElement.scrollTop,
-            height =
-              document.documentElement.scrollHeight -
-              document.documentElement.clientHeight,
-            scrolled = (winScroll / height) * 100;
-          document.getElementById("progressBar").style.width = scrolled + "%";
-        }
-        window.onscroll = function () {
-          progressBarScroll();
-        };
+          let ref = panels[i].attr("data-section-name");
+          if (ref === "home") {
+            $(".inner_section_2")
+              .find(".gallery0,.gallery1,.gallery2")
+              .removeClass("moved");
+            // alert("vrei sa .... whatever")
+          }
+          if (ref === "section_3") {
+            // alert("continua,")
+          }
+        },
+        afterResize: initialPosition,
+        afterRender: initialPosition,
       });
-    </script>
-    <script>
-      // setup
-      const data = {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        datasets: [
-          {
-            label: "Weekly Sales",
-            data: [18, 12, 6, 9, 12, 3, 9],
-            backgroundColor: [
-              "rgba(255, 26, 104, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)",
-              "rgba(0, 0, 0, 0.2)",
-            ],
-            borderColor: [
-              "rgba(255, 26, 104, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
-              "rgba(0, 0, 0, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
+
+      $(".pagination a").on("click", function () {
+        $.scrollify.move($(this).attr("href"));
+      });
+
+      function initialPosition() {
+        var current = $.scrollify.current();
+        if (current.hasClass("inner_section_4") === false) {
+          var height = parseInt($(".inner_section_4").height());
+          var f = parseInt($(".inner_section_3 .gallery1").height()) - 50;
+          console.log(f, "f");
+          console.log(f, "height");
+          var top = 0 - height * 0.3 - (height - f);
+          $(".inner_section_4 .gallery0").css("top", top);
+        } else {
+          $(".inner_section_3")
+            .find(".gallery0,.gallery1,.gallery2")
+            .addClass("moved");
+        }
+      }
+      $(".md-trigger").on("click", function () {
+        $(".md-modal").addClass("md-show");
+      });
+
+      $(".md-close").on("click", function () {
+        $(".md-modal").removeClass("md-show");
+      });
+    });
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      $("#window").on("click", function (e) {
+        e.preventDefault();
+        // $(".shape-modal").remove();
+
+        // setTimeout(function () {
+        //   $(".item-shape").append(
+        //   '<img src="./images/section1/element-section1.png" data-src="./images/section1/element-section1.png" class="lazy-img lozad ttesttt shape-modal"/>'
+        // );
+        //   $(".shape-modal").css("opacity", "1");
+        // }, 800);
+        $.scrollify.disable();
+        let showInfo = $(this).text();
+        $(this).text("");
+        $(this).addClass("ball_animation");
+        if ($(this).find("forB")) {
+          $(".forC, .forD, .forB").css({
+            opacity: "0",
+            transition: "opacity 0.4s ease 0.2s",
+          });
+        }
+        setTimeout(function () {
+          if ($(".modal_home_container").find("modEmbl")) {
+            $(".modal_Emblem").addClass("activeTwo");
+          }
+          $(".close_emblem").css("width", "30px");
+          $(".close_emblem").css("height", "30px");
+
+          setTimeout(function () {
+            $(".btn_Emblem").removeClass("ball_animation");
+            $(".forB").removeClass("ball_animation");
+            $(".btn_Emblem").text(showInfo);
+          }, 500);
+        }, 600);
+      });
+
+      $(".close_emblem").click(function () {
+        $(".modal_Emblem").removeClass("activeTwo");
+        $(".close_emblem").css("width", "0px");
+        $(".close_emblem").css("height", "0px");
+        $.scrollify.enable();
+        $(".forC, .forD, .forB").css({
+          opacity: "1",
+          transition: "opacity 0.4s ease",
+        });
+      });
+
+      function progressBarScroll() {
+        let winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop,
+          height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight,
+          scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      }
+      window.onscroll = function () {
+        progressBarScroll();
       };
-      // config
-      const configT = {
-        type: "bar",
-        data,
-        options: {
-          maintainAspectRatio: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
+    });
+  </script>
+  <script>
+    // setup
+    const data = {
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      datasets: [{
+        label: "Weekly Sales",
+        data: [18, 12, 6, 9, 12, 3, 9],
+        backgroundColor: [
+          "rgba(255, 26, 104, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+          "rgba(0, 0, 0, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 26, 104, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(0, 0, 0, 1)",
+        ],
+        borderWidth: 1,
+      }, ],
+    };
+    // config
+    const configT = {
+      type: "bar",
+      data,
+      options: {
+        maintainAspectRatio: true,
+        scales: {
+          y: {
+            beginAtZero: true,
           },
         },
-      };
-      // render init block
-      const myChart = new Chart(document.getElementById("myChart"), configT);
-      //   window.addEventListener('beforeprint', () => {
-      //   myChart.resize(1200, 100);
-      // });
-      // window.addEventListener('afterprint', () => {
-      //   myChart.resize();
-      // });
-    </script>
-    <script>
-      // $(document).ready(function () {
-      //   $("#clickHere").one("click", function (e) {
-      //     e.preventDefault();
-      //     $(".lazy-img ").remove();
+      },
+    };
+    // render init block
+    const myChart = new Chart(document.getElementById("myChart"), configT);
+    //   window.addEventListener('beforeprint', () => {
+    //   myChart.resize(1200, 100);
+    // });
+    // window.addEventListener('afterprint', () => {
+    //   myChart.resize();
+    // });
+  </script>
+  <script>
+    // $(document).ready(function () {
+    //   $("#clickHere").one("click", function (e) {
+    //     e.preventDefault();
+    //     $(".lazy-img ").remove();
 
-      //     $(".item-shape").append(
-      //       '<img src="./images/section1/element-section1.png" data-src="./images/section1/element-section1.png" class="lazy-img lozad ttesttt shape-modal"/>'
-      //     );
-      //     setTimeout(function () {
-      //       $(".ttesttt").css("opacity", "1");
-      //     }, 1);
-      //   });
-      // });
-      // $(window).scroll(function () {
-      //   if (
-      //     document.documentElement.clientHeight + $(document).scrollTop() >=
-      //     document.body.offsetHeight
-      //   ) {
-      //     // Display alert or whatever you want to do when you're
-      //     //   at the bottom of the page.
-      //     alert("You're at the bottom of the page.");
-      //   }
-      // });
-      /*modal*/
+    //     $(".item-shape").append(
+    //       '<img src="./images/section1/element-section1.png" data-src="./images/section1/element-section1.png" class="lazy-img lozad ttesttt shape-modal"/>'
+    //     );
+    //     setTimeout(function () {
+    //       $(".ttesttt").css("opacity", "1");
+    //     }, 1);
+    //   });
+    // });
+    // $(window).scroll(function () {
+    //   if (
+    //     document.documentElement.clientHeight + $(document).scrollTop() >=
+    //     document.body.offsetHeight
+    //   ) {
+    //     // Display alert or whatever you want to do when you're
+    //     //   at the bottom of the page.
+    //     alert("You're at the bottom of the page.");
+    //   }
+    // });
+    /*modal*/
 
-      // var spanText = function spanText(text) {
-      //   var string = text.innerText;
-      //   var spaned = "";
-      //   for (var i = 0; i < string.length; i++) {
-      //     if (string.substring(i, i + 1) === " ")
-      //       spaned += string.substring(i, i + 1);
-      //     else spaned += "<span>" + string.substring(i, i + 1) + "</span>";
-      //   }
-      //   text.innerHTML = spaned;
-      // };
+    // var spanText = function spanText(text) {
+    //   var string = text.innerText;
+    //   var spaned = "";
+    //   for (var i = 0; i < string.length; i++) {
+    //     if (string.substring(i, i + 1) === " ")
+    //       spaned += string.substring(i, i + 1);
+    //     else spaned += "<span>" + string.substring(i, i + 1) + "</span>";
+    //   }
+    //   text.innerHTML = spaned;
+    // };
 
-      // var headline = document.querySelector("h1");
+    // var headline = document.querySelector("h1");
 
-      // spanText(headline);
+    // spanText(headline);
 
-      // let animations = document.querySelectorAll(".animation");
+    // let animations = document.querySelectorAll(".animation");
 
-      // animations.forEach((animation) => {
-      //   let letters = animation.querySelectorAll("span");
-      //   letters.forEach((letter, i) => {
-      //     letter.style.animationDelay = i * 0.1 + "s";
-      //   });
-      // });
-    </script>
+    // animations.forEach((animation) => {
+    //   let letters = animation.querySelectorAll("span");
+    //   letters.forEach((letter, i) => {
+    //     letter.style.animationDelay = i * 0.1 + "s";
+    //   });
+    // });
+  </script>
 
 
-    <script>
-      let card_div_normal = `<div class="container-cards card_normal entry-cards">
+  <script>
+    let card_div_normal = `<div class="container-cards card_normal entry-cards">
           <h2 class="entry-title">title</h2>
           <div class="entry-content forScrolling">
             <p>
@@ -1935,12 +1507,12 @@
           </div>
         </div>`;
 
-      let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
+    let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
           <h2 class="entry-title">title</h2>
           <div class="entry-content forScrolling">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-              amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+              amet lectus et ligula sagittis blandit a egevt odio. Suspendisse
               auctor sollicitudin justo, accumsan volutpat neque ornare
               molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
               a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
@@ -1955,71 +1527,74 @@
           </div>
         </div>`;
 
-      $(document).ready(function () {
-        $(".insert_cars").append(card_div_normal);
-        $(".insert_cars_double").append(card_div_reverse, card_div_normal);
+    $(document).ready(function () {
+      $(".insert_cars").append(card_div_normal);
+      $(".insert_cars_double").append(card_div_reverse, card_div_normal);
 
-        let closeHeight = "2.2em"; /* Default "closed" height */
-        let moreText = "citeste mai mult"; /* Default "Read More" text */
-        let lessText = "inchide"; /* Default "Read Less" text */
-        let duration = "1000"; /* Animation duration */
-        let easing = "slow"; /* Animation easing option */
-        let fullHeight = $(".entry-content").css("max-height", "15em");
-        // console.log(fullHeight,"fullHeight")
-        // let fullHeight = "1em"
-        // Limit height of .entry-content div
-        $(".container-cards").each(function () {
-          // Set data attribute to record original height
-          let current = $(this).children(".entry-content");
-          console.log($(this), "curent child");
-          current
-            .data("fullHeight", current.height())
-            .css("height", closeHeight);
-          // Insert "Read More" link
-          current.after(
-            '<button class="more-link closed">' + moreText + "</button>"
-          );
-          console.log(current, "sss");
-        });
-        // Link functinoality
-        let openSlider = function () {
-          link = $(this);
-          let openHeight =
-            link.prev(".entry-content").data("fullHeight") / 2 + "px";
-          link
-            .prev(".entry-content")
-            .animate({ height: openHeight }, { duration: duration }, easing);
-          link.text(lessText).addClass("open").removeClass("closed");
-          if ($(".more-link").hasClass("open")) {
-            $(".entry-content").addClass("intro");
-          }
-          link.unbind("click", openSlider);
-          link.bind("click", closeSlider);
-        };
-        let closeSlider = function () {
-          link = $(this);
-          link.prev(".entry-content").animate(
-            {
-              height: closeHeight,
-            },
-            {
-              duration: duration,
-            },
-            easing
-          );
-          link.text(moreText).addClass("closed").removeClass("open");
-          link.unbind("click");
-          link.bind("click", openSlider);
-          if ($(".more-link").hasClass("closed")) {
-            $(".entry-content").removeClass("intro");
-          }
-        };
-
-        // Attach link click functionality
-        $(".more-link").bind("click", openSlider);
+      let closeHeight = "2.2em"; /* Default "closed" height */
+      let moreText = "citeste mai mult"; /* Default "Read More" text */
+      let lessText = "inchide"; /* Default "Read Less" text */
+      let duration = "1000"; /* Animation duration */
+      let easing = "slow"; /* Animation easing option */
+      let fullHeight = $(".entry-content").css("max-height", "15em");
+      // console.log(fullHeight,"fullHeight")
+      // let fullHeight = "1em"
+      // Limit height of .entry-content div
+      $(".container-cards").each(function () {
+        // Set data attribute to record original height
+        let current = $(this).children(".entry-content");
+        console.log($(this), "curent child");
+        current
+          .data("fullHeight", current.height())
+          .css("height", closeHeight);
+        // Insert "Read More" link
+        current.after(
+          '<button class="more-link closed">' + moreText + "</button>"
+        );
+        console.log(current, "sss");
       });
-    </script>
+      // Link functinoality
+      let openSlider = function () {
+        link = $(this);
+        let openHeight =
+          link.prev(".entry-content").data("fullHeight") / 2 + "px";
+        link
+          .prev(".entry-content")
+          .animate({
+            height: openHeight
+          }, {
+            duration: duration
+          }, easing);
+        link.text(lessText).addClass("open").removeClass("closed");
+        if ($(".more-link").hasClass("open")) {
+          $(".entry-content").addClass("intro");
+        }
+        link.unbind("click", openSlider);
+        link.bind("click", closeSlider);
+      };
+      let closeSlider = function () {
+        link = $(this);
+        link.prev(".entry-content").animate({
+            height: closeHeight,
+          }, {
+            duration: duration,
+          },
+          easing
+        );
+        link.text(moreText).addClass("closed").removeClass("open");
+        link.unbind("click");
+        link.bind("click", openSlider);
+        if ($(".more-link").hasClass("closed")) {
+          $(".entry-content").removeClass("intro");
+        }
+      };
 
-    <!-- <script src="./main.js"></script> -->
-  </body>
+      // Attach link click functionality
+      $(".more-link").bind("click", openSlider);
+    });
+  </script>
+
+  <!-- <script src="./main.js"></script> -->
+</body>
+
 </html>
