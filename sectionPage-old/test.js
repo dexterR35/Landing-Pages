@@ -100,7 +100,7 @@ function updateChart() {
     let config = document.getElementById('myChart').getContext('2d');
 
     async function getData() {
-        const url = './json/fixtureweather.json';
+        const url = './json/cmNB.json';
 
         const response = await fetch(url);
         //wait until the request has been completed;
@@ -110,103 +110,186 @@ function updateChart() {
         return datapoints;
     }
 
+
+
+
+
+
+
+
+
+
+
     getData().then(datapoints => {
 
-
-        let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            // console.log(index,"all matches")
-            return index.Stadium;
+        let dataInfo = datapoints.map(function (index, i) {
+            return index;
         });
+        var output = "<div";
+        dataInfo.forEach((value, index, array) => {
+            let content = value.content;
+            let content_two = value.content_two
+            let title = value.title;
+            // console.log(value, "----- dataStadium valu", "+", index + 1);
+            output += "<p>" + "section " + (index + 1) + " <br>" + content + " <br> " + "section " + (index + 1) + " <br>" + content_two + "  <br> " + "</p>";
+         
+            console.log(index + 1, "contentsssss")
 
-        // dataStadium.forEach((value, index, array) => {
-        //     console.log(value, "----- dataStadium");
+          
+       
 
-        // })
+    })
+    for(var key in dataInfo) {
+        let value = dataInfo[key];
+        // console.log(value,"value");
+         let value2 = value.content;
+         let value3 = value2 + key;
+         console.log(value3," value3");
+
+        //  if(value = value2) {
+        //     console.log(value + value2 ,"test")
+        //  }
+    }
+
+  
 
 
-        let dataTemp = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            return index.Temp.slice(0, 2);
-        });
+        function setWeather() {
+            switch (choice) {
+                case 'section_two':
+                    para.textContent = "Its sunney";
+                    break;
+                case 'section_tree':
+                    para.textContent = "Its rainy";
+                    break;
+                case 'snowing':
+                    para.textContent = "Its snowing";
+                    break;
+                case 'overcast':
+                    para.textContent = "Its overcast";
+                    break;
+                default:
+                    para.textContent = "Nothing Special";
+            }
+        }
+        let dataSections = datapoints
+        // for (const [content, value] of Object.entries(dataSections)) {
+        //     console.log(` ${content}`,"test"); // "a 5", "b 7", "c 9"
+        //     output += "<p>" + ` ${value}`+ " " + "</p>";
+        // }
+        // for (const content in dataSections) {
+        //     console.log(`${content}: ${dataSections[content]}`,"fasfas");
+        //   }
+        // console.log(Object.keys(dataSections), "objkey"); // 👉️ ['country', 'city']
+        // console.log(dataSections, "dataS");
+        output += "</div>";
+        $(".placeholder").html(output);
+
+        // function isObject(obj) {
+        //     return obj === Object(obj);
+        // }
+        // let obj = datapoints.find((o, i) => {
+        //   let content = o.content;
+        //   let title  = o.title;
+        // //   console.log(content , "content")
+        //   console.log(content , "content" , + "<br>" + title)
 
 
-        let matchDays = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            return index.Match;
-        });
+        //     if (o.content === o.id) {
+        //         console.log(o.content,"osss");
+        //         // console.log(i,"i");
+        //          // stop searching
+        //     }
+        //     else if (o == o.content) {
+        //         console.log(o.title ,"ssss2")
+        //     }
+
+        // });
+        // console.log(obj, "obj");
+        // console.log(datapoints,"sdasa");
+        // let dataTemp = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
+        //     return index.Temp.slice(0, 2);
+        // });
+
+
+        // let matchDays = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
+        //     return index.Match;
+        // });
 
         //TODO:for 1 item
 
 
-        let Temperature = dataTemp;
-        // console.log(Temperature, "Temperature");
-        let matchDays2 = matchDays;
-        // console.log(matchDays2, "matchDays2");
+        // let Temperature = dataTemp;
+        // // console.log(Temperature, "Temperature");
+        // let matchDays2 = matchDays;
+        // // console.log(matchDays2, "matchDays2");
 
-        // for (const teemp of matchDays2) {
-        //     document.write(teemp + "<br>");
+        // // for (const teemp of matchDays2) {
+        // //     document.write(teemp + "<br>");
+        // // }
+        // // document.write("The value for index '" + Temperature + "' is " + matchDays2 + "<br>");
+        // // let all = Temperature.Match + "+" + matchDays2.Temp;
+        // // array3 = Temperature.concat(matchDays2);
+        // // console.log(array3, "array concat");
+        // // document.write(array3);
+        // // console.log(all, "all");
+
+        // let fullSectionDb = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
+        //     return index;
+        // });
+
+
+        // let searchItem = dataStadium;
+        // let indexSearchOf = searchItem.indexOf("!!Name In Array!!");
+        // let dataInclude = searchItem.includes("!!Name In Array!!");
+
+        // if (indexSearchOf && dataInclude) {
+        //     document.write("✅" + dataInclude + " " + 'Name is contained in Array - index' + " " + indexSearchOf + "<br>");
+        // } else  {
+        //     document.write('⛔️" + " Name is NOT contained in Array');
+
         // }
-        // document.write("The value for index '" + Temperature + "' is " + matchDays2 + "<br>");
-        // let all = Temperature.Match + "+" + matchDays2.Temp;
-        // array3 = Temperature.concat(matchDays2);
-        // console.log(array3, "array concat");
-        // document.write(array3);
-        // console.log(all, "all");
 
-        let fullSectionDb = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            return index;
-        });
+        // let ks;
+        // for (k = 0; k < searchItem.length; k++) {
+        //     document.write(k + "<br>");
 
+        //        matchDays.find((value, index, arr) => {
+        //     // Delete element 5 on first iteration
+        //     if (index !== value) {
+        //         // console.log(delete value, "----- Delete value Boolean"); // value[ index or count arrays]
+        //         // console.log(matchDays[index], "---- ✅ show Match Name");
+        //         // console.log(value.length, "---- ✅ Show Value number of match from array");
+        //        document.write(index, " + " + " ---- ✅ Array length" + " ");
+        //         //    matchDays[matchDays.slice(0, 1)];
+        //         //    console.log(arr, "arr");
+        //     }
 
-        let searchItem = dataStadium;
-        let indexSearchOf = searchItem.indexOf("!!Name In Array!!");
-        let dataInclude = searchItem.includes("!!Name In Array!!");
-      
-        if (indexSearchOf && dataInclude) {
-            document.write("✅" + dataInclude + " " + 'Name is contained in Array - index' + " " + indexSearchOf + "<br>");
-        } else  {
-            document.write('⛔️" + " Name is NOT contained in Array');
-            
-        }
+        // });
 
-        let ks;
-        for (k = 0; k < searchItem.length; k++) {
-            document.write(k + "<br>");
-         
-               matchDays.find((value, index, arr) => {
-            // Delete element 5 on first iteration
-            if (index !== value) {
-                // console.log(delete value, "----- Delete value Boolean"); // value[ index or count arrays]
-                // console.log(matchDays[index], "---- ✅ show Match Name");
-                // console.log(value.length, "---- ✅ Show Value number of match from array");
-               document.write(index, " + " + " ---- ✅ Array length" + " ");
-                //    matchDays[matchDays.slice(0, 1)];
-                //    console.log(arr, "arr");
-            }
+        // }
 
-        });
-        
-        }
+        // console.log(fullSectionDb);
+        // // document.getElementById("demoss").innerHTML = obj.Match;
 
-        console.log(fullSectionDb);
-        // document.getElementById("demoss").innerHTML = obj.Match;
+        // function displayMatches(value, index) {
+        //     let x;
 
-        function displayMatches(value, index) {
-            let x;
+        //     for (i = 0; i < fullSectionDb.length; i++) {
+        //         x = fullSectionDb[i];
 
-            for (i = 0; i < fullSectionDb.length; i++) {
-                x = fullSectionDb[i];
-
-                // document.write(" " + x.Match + " :" + x.Temp + " " + " -stadion- " + x.Stadium + "<br>");
-                // console.log(x.Match, "4");
-                // console.log(x.Stadium, "5");                           
-            }
+        //         // document.write(" " + x.Match + " :" + x.Temp + " " + " -stadion- " + x.Stadium + "<br>");
+        //         // console.log(x.Match, "4");
+        //         // console.log(x.Stadium, "5");                           
+        //     }
 
 
 
-            console.log(x, "x")
-            console.log(index, "index")
-        }
+        //     console.log(x, "x")
+        //     console.log(index, "index")
+        // }
 
-        displayMatches("match", 1);
+        // displayMatches("match", 1);
 
         // for (var i in fullSectionDb) {
         //     // console.log("fullSectionDb--", i);
@@ -241,37 +324,37 @@ function updateChart() {
         //     }
 
         // });
-        console.log(matchDays.splice(20, matchDays.length), "matchDays.length");
-        console.log(dataTemp.splice(0, dataTemp.length), "dataTemp.length splice from 0");
-        // console.log(matchDays.splice(0, 10), "dataTemp.slice(0, 10)");
+        // console.log(matchDays.splice(20, matchDays.length), "matchDays.length");
+        // console.log(dataTemp.splice(0, dataTemp.length), "dataTemp.length splice from 0");
+        // // console.log(matchDays.splice(0, 10), "dataTemp.slice(0, 10)");
 
-        const myChart = new Chart(config, {
-            type: 'line',
-            data: {
-                labels: console.log(Temperature, "Temperature Temperature Chart"),
-                datasets: [{
-                    label: 'temp',
-                    data: console.log(matchDays2, "matchDays2 Chart"),
-                    backgroundColor: 'crimson',
-                }],
-                datasets: [{
-                    label: console.log(matchDays2, "matchDays2 Chart"),
-                    data: console.log(Temperature, "Temperature Temperature Chart"),
-                    backgroundColor: 'crimson',
-                }],
-            },
-            options: {
-                maintainAspectRatio: true,
-                responsive: true,
+        // const myChart = new Chart(config, {
+        //     type: 'line',
+        //     data: {
+        //         labels: console.log(Temperature, "Temperature Temperature Chart"),
+        //         datasets: [{
+        //             label: 'temp',
+        //             data: console.log(matchDays2, "matchDays2 Chart"),
+        //             backgroundColor: 'crimson',
+        //         }],
+        //         datasets: [{
+        //             label: console.log(matchDays2, "matchDays2 Chart"),
+        //             data: console.log(Temperature, "Temperature Temperature Chart"),
+        //             backgroundColor: 'crimson',
+        //         }],
+        //     },
+        //     options: {
+        //         maintainAspectRatio: true,
+        //         responsive: true,
 
 
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                },
-            }
-        });
+        //         scales: {
+        //             y: {
+        //                 beginAtZero: false
+        //             }
+        //         },
+        //     }
+        // });
         // console.log(myChart.config.data.labels = dataStadium);
         // console.log(myChart.config.data.datasets[0].data = dataTemp);
         // console.log(myChart.config.data.labels = dataStadium.slice(0, 10));

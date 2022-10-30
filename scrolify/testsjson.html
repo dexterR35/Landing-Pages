@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>JSON Test</title>
+  </head>
+  <body>
+    <h1>Runners</h1>
+    <ul id="runners"></ul>
+    <div id="myData"></div>
+    <div class="placeholder"></div>
+    <input type="button" id="abc" value="submit" />
+    <div id="info"></div>
+    <script>
+   
+
+      // fetch(url)
+      //   .then((response) => { return response.json(); })
+      //   .then( data => {
+      //     let runners = data;
+      //     console.log(runners,"runners");
+
+      //     return runners.section_stadions.map( runner => {
+      //       let li = createNode('li'),
+      //       span = createNode('p');
+      //       span.innerHTML = `${runner.stadion} `;
+      //       append(li, span);
+      //       append(ul, li);
+      //     });
+      //     console.log(runners.section_nine,"section_nine");
+      //   }).catch( error => { console.log(error); })
+
+      async function fetchData() {
+        const url = "./cmNB.json";
+        const response = await fetch(url);
+        const dataS = await response.json();
+        console.log(dataS, "datapoints");
+        return dataS;
+      }
+
+      const dataLink = new Request("./cmNB.json");
+      fetchData().then((dataS) => {
+            let dataStadium = dataS.section_stadions.map(function (index, i) {
+              
+            let output = "<div";
+            output += "<p>" + index.stadion + " -- " + index.capacitate + "</p>";
+            output += "</div>";
+            $(".placeholder").html(output);
+          });
+
+        }).catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

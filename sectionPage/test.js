@@ -97,61 +97,72 @@ xmlhttp.onreadystatechange = function () {
 
 function updateChart() {
     async function fetchData() {
-        const url = './json/fixtureweather.json';
+        const url = './json/cmNB.json';
         const response = await fetch(url);
         //wait until the request has been completed;
-        const datapoints = await response.json();
-        console.log(datapoints, "datapoints");
-        return datapoints;
+        const dataS = await response.json();
+        console.log(dataS, "datapoints");
+        return dataS;
     }
+
+    let test = fetchData().then(dataS => {
     
+  
+        let dataStadium = dataS.sections[0].map(function (index, i) {
+            //         return index.Stadium;
+            //     });
+            console.log(index, "index");
+            console.log(dataStadium, "dataStadium");
 
-    let test = fetchData().then(datapoints => {
-        let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            return index.Stadium;
-        });
+        })
+        console.log(test,"test")
+    })
+    // let test = fetchData().then(datapoints => {
+    //     let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
+    //         return index.Stadium;
+    //     });
 
-        let dataTemp = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
-            return index.Temp.slice(0, 2);
-        });
-        const config = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(config, {
-            type: 'line',
-            data: {
-                labels: dataStadium.slice(0, 10),
-                datasets: [{
-                    label: 'temp',
-                    data: dataTemp.slice(0, 10),
-                    backgroundColor: 'crimson',
+    //     let dataTemp = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
+    //         return index.Temp.slice(0, 2);
+    //     });
+    //     const config = document.getElementById('myChart').getContext('2d');
+    //     const myChart = new Chart(config, {
+    //         type: 'line',
+    //         data: {
+    //             labels: dataStadium.slice(0, 10),
+    //             datasets: [{
+    //                 label: 'temp',
+    //                 data: dataTemp.slice(0, 10),
+    //                 backgroundColor: 'crimson',
 
-                }]
-            },
-            options: {
-                maintainAspectRatio: true,
-                responsive: true,
+    //             }]
+    //         },
+    //         options: {
+    //             maintainAspectRatio: true,
+    //             responsive: true,
 
 
-                scales: {
-                    y: {
-                        beginAtZero: false
-                    }
-                },
+    //             scales: {
+    //                 y: {
+    //                     beginAtZero: false
+    //                 }
+    //             },
 
-            }
-        });
-        console.log(myChart.config.data.labels = dataStadium);
-        console.log(myChart.config.data.datasets[0].data = dataTemp);
-        console.log(myChart.config.data.labels = dataStadium.slice(0, 10));
-        console.log(myChart.config.data.datasets[0].data = dataTemp.slice(0, 10));
-        // console.log(monthInfo, "Stadium");
-        // console.log(TempInfo, "TempInfo");
-        // myChart.config.data.datasets[0].data = dataStadium.slice(0, 10);
-        // myChart.config.data.labels = dataTemp.slice(0, 10);
-        // myChart.config.data.labels = dataStadium.splice(0, 10);
-        // myChart.config.data.datasets[0].data = dataTemp.splice(0, 10);
-        // myChart.update();
-    });
-    console.log(test)
+    //         }
+    //     });
+    //     console.log(myChart.config.data.labels = dataStadium);
+    //     console.log(myChart.config.data.datasets[0].data = dataTemp);
+    //     console.log(myChart.config.data.labels = dataStadium.slice(0, 10));
+    //     console.log(myChart.config.data.datasets[0].data = dataTemp.slice(0, 10));
+    //     // console.log(monthInfo, "Stadium");
+    //     // console.log(TempInfo, "TempInfo");
+    //     // myChart.config.data.datasets[0].data = dataStadium.slice(0, 10);
+    //     // myChart.config.data.labels = dataTemp.slice(0, 10);
+    //     // myChart.config.data.labels = dataStadium.splice(0, 10);
+    //     // myChart.config.data.datasets[0].data = dataTemp.splice(0, 10);
+    //     // myChart.update();
+    // });
+    // console.log(test)
 }
 
     updateChart();
