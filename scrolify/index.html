@@ -573,17 +573,141 @@
               class="lozad lazy-img"
             />
           </div>
-          <div class="content-box">content-box</div>
+
           <div class="chartjs-section chartJs-section4">chart</div>
-          <div class="carousel carousel-section">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-              voluptatum nihil beatae? Nisi quae aliquid ducimus. Perspiciatis
-              est fugit possimus molestiae illo ut, facere, ipsum distinctio
-              numquam minima maxime nobis.lorem12 Lorem, ipsum dolor sit amet
-              consectetur adipisicing elit. Quia nam odit rerum nesciunt.
-              Incidunt praesentium cum cupiditate vitae fugit suscipit.
-            </p>
+          <div class="carousel carousel-section" id="carousel">
+            <div class="carousel__wrapper">
+              <div>
+                <div class="carousel__content">
+                  <div class="carousel__container">
+                    <div class="carousel__slide">
+                      <div class="card_self">
+                        <div class="card__inner">
+                          <div class="card__image">
+                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                          </div>
+                    
+                          <h4>lusail </h4>
+                          <div class="card__description">
+                         
+                            <span class="fire">locuri: 80.000</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="carousel__slide">
+                      <div class="cards_self">
+                        <div class="card__inner">
+                          <div class="card__image">
+                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                          </div>
+                          <h4>al bayt </h4>
+                          <div class="card__description">
+                    
+                            <span class="psychic">locuri: 60.000</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="carousel__slide">
+                      <div class="card_self">
+                        <div class="card__inner">
+                          <div class="card__image">
+                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                          </div>
+                          <h4>education city </h4>
+                          <div class="card__description">
+                 
+                            <span class="electric">locuri:45.350</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="carousel__slide">
+                      <div class="card_self">
+                        <div class="card__inner">
+                          <div class="card__image">
+                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                          </div>
+                          <h4>khalifa int </h4>
+                          <div class="card__description">
+                     
+                            <span class="rock">locuri: 45.416</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+          
+                    <div class="carousel__slide">
+                      <div class="card_self">
+                        <div class="card__inner">
+                          <div class="card__image">
+                            <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                          </div>
+                          <h4> 974</h4>
+                          <div class="card__description">
+                       
+                            <span class="grass">locuri: 40.000</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel__slide">
+                        <div class="card_self">
+                          <div class="card__inner">
+                            <div class="card__image">
+                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                            </div>
+                            <h4>al janoub </h4>
+                            <div class="card__description">
+                    
+                              <span class="grass">locuri: 40.000</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel__slide">
+                        <div class="card_self">
+                          <div class="card__inner">
+                            <div class="card__image">
+                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                            </div>
+                            <h4>al thumama </h4>
+                            <div class="card__description">
+                      
+                              <span class="grass">locuri: 40.000</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="carousel__slide">
+                        <div class="card_self">
+                          <div class="card__inner">
+                            <div class="card__image">
+                              <img src="./images/section1/bg-section1.jpg" alt="Charmander" />
+                            </div>
+                            <h4>ahmad bin ali </h4>
+                            <div class="card__description">
+           
+                              <span class="grass">locuri: 44.740</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                 
+                  </div>
+                  <div id="prev-slide" class="arrow-card arrow--left">
+                    <i class="bx bx-chevron-left"></i>
+                  </div>
+                  <div id="next-slide" class="arrow-card arrow--right">
+                    <i class="bx bx-chevron-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1438,7 +1562,99 @@
         </div>
       </section>
     </div>
-
+    <script>
+      /*--------------------------------------------------------
+      Set carousel config here
+  
+      @autoload : true / false
+      @itemsToBeVisible: Defines how many items should be visible
+      @speed: Speed at which items will be passed in milliseconds
+      ----------------------------------------------------------*/
+  const config = {
+    autoload: true,
+    itemsToBeVisible: 3,
+    speed: 3000
+  };
+  
+  /*-------------------
+    Entry point 
+    ---------------------*/
+  function start() {
+    window.onload = function () {
+      setSlidersStyle(config);
+  
+      const prevSlideButton = document.getElementById("prev-slide");
+      const nextSlideButton = document.getElementById("next-slide");
+  
+      prevSlideButton.addEventListener("click", () => {
+        navigate("backward", config);
+      });
+  
+      nextSlideButton.addEventListener("click", () => {
+        navigate("forward", config);
+      });
+  
+      if (config.autoload) {
+        playCarousel(nextSlideButton, config);
+      }
+    };
+  }
+  
+  /*--------------------------------------------------------------
+      Sets the style of slides based on the number of visible items.
+    ---------------------------------------------------------------*/
+  function setSlidersStyle(config) {
+    document.querySelector(
+      "style"
+    ).textContent += `@media screen and (min-width:1180px) { .carousel__slide{ min-width: ${
+      100 / config.itemsToBeVisible
+    }% } }`;
+  }
+  
+  /*----------------------------------------
+     Performs the sliding behavior of items.
+    ----------------------------------------*/
+  function navigate(position, config) {
+    const carouselEl = document.getElementById("carousel");
+    const slideContainerEl = carouselEl.querySelector(".carousel__container");
+    const slideEl = carouselEl.querySelector(".carousel__slide");
+    let slideWidth = slideEl.offsetWidth;
+    slideContainerEl.scrollLeft = this.getNewScrollPosition(
+      position,
+      slideContainerEl,
+      slideWidth,
+      config
+    );
+  }
+  
+  /*-------------------------------
+     Get the new scroll position.
+    ---------------------------------*/
+  function getNewScrollPosition(position, slideContainerEl, slideWidth, config) {
+    const maxScrollLeft =
+      slideContainerEl.scrollWidth - slideWidth * config.itemsToBeVisible;
+    if (position === "forward") {
+      const x = slideContainerEl.scrollLeft + slideWidth;
+      return x <= maxScrollLeft ? x : 0;
+    } else {
+      const x = slideContainerEl.scrollLeft - slideWidth;
+      return x >= 0 ? x : maxScrollLeft;
+    }
+  }
+  
+  /*-------------------------------
+    Autoplay
+    ---------------------------------*/
+  function playCarousel(nextButton, config) {
+    const play = () => {
+      nextButton.click();
+      setTimeout(play, config.speed);
+    };
+    play();
+  }
+  start();
+  
+  </script>
     <script>
       $(function () {
         $.scrollify({
@@ -1485,6 +1701,7 @@
             console.log(i, "i-section");
           },
           after: function (i, panels) {
+            
             let ref = panels[i].attr("data-section-name");
             if (ref === "home") {
               $(".inner_section_2")
@@ -1622,7 +1839,7 @@
         ],
       };
       // config
-      const config = {
+      const configT = {
         type: "bar",
         data,
         options: {
@@ -1635,7 +1852,7 @@
         },
       };
       // render init block
-      const myChart = new Chart(document.getElementById("myChart"), config);
+      const myChart = new Chart(document.getElementById("myChart"), configT);
       //   window.addEventListener('beforeprint', () => {
       //   myChart.resize(1200, 100);
       // });
