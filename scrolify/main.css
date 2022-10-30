@@ -1145,7 +1145,6 @@ body {
 .inner_section_8 .gallery0 {
   grid-row: 1 / span 9;
   grid-column: 1 / 6;
-  background-color: crimson;
 }
 .inner_section_8 .gallery0 img {
   width: 100%;
