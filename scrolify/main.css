@@ -644,6 +644,9 @@ body {
 .section_2_container h1 span:nth-child(3) {
   font-size: 1.2em;
 }
+.section_2_container #constent {
+  grid-row: 4;
+}
 
 .section_2_container .gallery0 {
   grid-column: 3;
@@ -695,7 +698,13 @@ body {
   position: relative;
   bottom: 0px; */
 }
-
+.inner_section_3 #constent {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 60%;
+}
 /* 
 .inner_section_3 .content {
     grid-column: 3 /span 3;
@@ -877,6 +886,11 @@ body {
   padding: 0 0.2em;
   margin: auto 0;
 }
+.inner_section_4 #constent {
+  grid-roww: 3;
+  position: relative;
+  top: 3em;
+}
 
 /*TODO:start css carousel */
 .carousel__wrapper {
@@ -966,7 +980,7 @@ body {
   overflow: hidden;
 }
 .card__inner h4 {
-  font-size: 0.82rem;
+  font-size:1rem;
   margin: 0;
   color: #fff;
   z-index: 3;
@@ -981,6 +995,18 @@ body {
   width: 100%;
   height: 100%;
   z-index: 2;
+}
+
+.card__image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+background: #1a1a1aac;
+  z-index: 2;
+  opacity: 0.3;
 }
 .arrow-card {
   display: none;
@@ -1062,7 +1088,13 @@ body {
   position: relative;
   top: 2vh;
 }
-
+.inner_section_5 #constent {
+  grid-roww: 3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 70%;
+}
 /*TODO: START SECTION 6 *************/
 
 .inner_section_6 .gallery0 img {
@@ -1097,6 +1129,9 @@ body {
 .inner_section_6 .gallery-wrapper .gallery2 img {
   width: 70%;
 }
+.inner_section_6 #constent {
+  grid-row: 3;
+}
 
 /*TODO: end SECTION 6 *************/
 
@@ -1130,6 +1165,10 @@ body {
 }
 .inner_section_7 .section-7-bottom.place-bottom {
   height: 16vh;
+}
+.inner_section_7 #constent {
+  grid-row: 3;
+
 }
 
 /*TODO:7 end SECTION 7 *************/
@@ -1173,7 +1212,13 @@ body {
 .inner_section_8 .section-8-bottom .cup-s8 {
   width: 83% !important;
 }
-
+.inner_section_8 #constent {
+  grid-row: 2;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  height: 60%;
+}
 /*TODO:8 end SECTION 8 *************/
 
 /*TODO:9 start SECTION 9 *************/
@@ -1204,6 +1249,9 @@ body {
 .inner_section_9 .gallery0 {
   grid-column: 1 / span 5;
   grid-row: 1 / span 8;
+}
+.inner_section_9 #constent {
+  grid-row: 4;
 }
 
 /*TODO:9 end SECTION 9 *************/
@@ -1252,6 +1300,13 @@ body {
 .inner_section_10 .header-content-text {
   font-size: 3.7vh;
 }
+.inner_section_10 #constent {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 70%;
+}
 
 /*TODO:10 end SECTION 10 *************/
 
@@ -1272,6 +1327,9 @@ body {
 .inner_section_11 .place-bottom {
   grid-column: 2 / span 4;
   background: black;
+}
+.inner_section_11 #constent {
+  grid-row: 4;
 }
 
 /*TODO:11 end SECTION 11 *************/
@@ -1306,6 +1364,10 @@ body {
   grid-row: 8 / span 3;
   background: crimson;
   z-index: 120;
+}
+.inner_section_12 #constent {
+  grid-row: 4;
+
 }
 
 /*TODO:9 end SECTION 12 *************/
@@ -1369,7 +1431,10 @@ body {
     transform: rotate(360deg);
   }
 }
+.inner_section_13 #constent {
+  grid-row: 2;
 
+}
 /*TODO:9 end SECTION 13 *************/
 
 /*TODO:9 start SECTION 14 *************/
@@ -1399,6 +1464,13 @@ body {
   grid-row: 9 / span 2;
   grid-column: 2 / span 6;
   background-color: crimson;
+}
+.inner_section_14 #constent {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 70%;
 }
 /* height: 100%;
 
@@ -1443,6 +1515,13 @@ body {
   grid-row: 8 / span 3;
   grid-column: 1 / span 6;
   background-color: crimson;
+}
+.inner_section_15 #constent {
+  grid-row: 3;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 70%;
 }
 
 /* height: 100%;
@@ -1489,6 +1568,9 @@ body {
   grid-row: 9;
   font-size: 4vh;
 }
+.inner_section_16 #constent {
+  grid-row: 4;
+}
 
 /*TODO:16 end SECTION 16 *************/
 
@@ -1517,6 +1599,11 @@ body {
   grid-row: 7;
   font-size: 4vh;
 }
+
+.inner_section_17 #constent {
+  grid-row: 4;
+}
+
 
 /*TODO:17 end SECTION 17*************/
 
@@ -1554,6 +1641,10 @@ body {
 .inner_section_18 .gallery1 img {
   height: 130%;
   animation: animation_rotate_reverse 40s 0.5s linear alternate-reverse infinite;
+}
+
+.inner_section_18 #constent {
+  grid-row: 4;
 }
 
 /*TODO:18 end SECTION 18*************/
@@ -1643,7 +1734,9 @@ body {
   grid-row: 4 / span 2;
   background-color: blue;
 }
-
+.inner_section_20 #constent {
+  grid-row: 2;
+}
 /*TODO:20 end SECTION 20*************/
 
 /*TODO:21 start SECTION 21 *************/
@@ -2144,12 +2237,10 @@ body {
 
 /*TODO:CARDS**END cards CARDS****/
 
-
-
 /*TODO:start TABLE **************************/
 
 .table_section7 {
-  grid-column: 1 /span 5;
+  grid-column: 1 / span 5;
   grid-row: 8;
 
   width: 90%;
@@ -2168,24 +2259,24 @@ body {
 
 .inner_section_7 table caption {
   font-size: 1.5em;
-  margin: .5em 0 .75em;
+  margin: 0.5em 0 0.75em;
 }
 
 .inner_section_7 table tr {
   background-color: #f8f8f8e6;
   border: 1px solid #ddd;
-  padding: 0 .35em;
+  padding: 0 0.35em;
 }
 
 .inner_section_7 table th,
 .inner_section_7 table td {
-  padding: .625em;
+  padding: 0.625em;
   text-align: center;
 }
 
 .inner_section_7 table th {
-  font-size: .85em;
-  letter-spacing: .1em;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .td-label {
@@ -2212,22 +2303,20 @@ body {
   }
   .td-label {
     font-size: 0.7em;
-    text-align: start !important; 
-
+    text-align: start !important;
   }
   .inner_section_7 table tr {
-border: none;
+    border: none;
     display: block;
-   
   }
-  
+
   .inner_section_7 table td {
     border-bottom: 1px solid #ddd;
     display: block;
-    font-size: .8em;
+    font-size: 0.8em;
     text-align: right;
   }
-  
+
   .inner_section_7 table td::before {
     content: attr(data-label);
     float: left;
@@ -2235,15 +2324,10 @@ border: none;
     font-weight: bold;
     text-transform: uppercase;
   }
-  
+
   .inner_section_7table td:last-child {
     border-bottom: 0;
   }
 }
-
-
-
-
-
 
 /*TODO:end TABLE **************************/
