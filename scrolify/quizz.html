@@ -210,7 +210,6 @@
         let quiz = $(".content-quiz"); //Quiz div object
         let details = 0;
         let correctAnswer = questions[0].correctAnswer;
-        console.log(correctAnswer,"corect")
         let questionCount;
         console.log(correctAnswer);
 
@@ -281,18 +280,16 @@
           let quotes = $("<p>").append(questions[index].details);
           let answers = $("<p>").append(questions[index].correctAnswer);
           qElement.append(question, quotes, answers);
-     
           for (let i of questions) {
             console.log(i, "i of questions");
             console.log(i.correctAnswer, "corect");
           }
-        
+   
           let radioButtons = createRadios(index);
           qElement.append(radioButtons);
           // this is new
           let warningText = $('<p id="warning">');
           qElement.append(warningText);
-
           return qElement;
         }
         console.log(correctAnswer,"corect")
@@ -304,7 +301,6 @@
           let question =
             document.getElementsByClassName("container-mid")[questionCount];
           let options = question.querySelectorAll(".option-div");
-
           console.log(options, "options checker");
           console.log(userSolution, "userSolution checker");
 
