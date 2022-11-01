@@ -97,26 +97,35 @@ xmlhttp.onreadystatechange = function () {
 
 function updateChart() {
     async function fetchData() {
-        const url = './json/cmNB.json';
+        const url = './json/test.json';
         const response = await fetch(url);
         //wait until the request has been completed;
         const dataS = await response.json();
-        console.log(dataS, "datapoints");
+        console.log(dataS, "datas");
         return dataS;
     }
 
     let test = fetchData().then(dataS => {
-    
-  
-        let dataStadium = dataS.sections[0].map(function (index, i) {
+        let dataAll = dataS.map(function (index, i) {
             //         return index.Stadium;
             //     });
-            console.log(index, "index");
-            console.log(dataStadium, "dataStadium");
-
+            console.log(index, "index all obj");
+            console.log(i, "i all obj");
         })
-        console.log(test,"test")
-    })
+        let dataInfo = dataS[1].sections.map(function (index, i) {
+                    return index.content;
+                });
+            // console.log(index, "index");
+            // console.log(i, "index");
+            console.log(dataInfo, "dataInfo");
+        })
+        // console.log(test,"test")
+        // console.log(dataAll, "dataAll");
+      
+    
+}
+
+updateChart();
     // let test = fetchData().then(datapoints => {
     //     let dataStadium = datapoints.SectionTwo[0].infoForSectionTwo.map(function (index, i) {
     //         return index.Stadium;
@@ -163,9 +172,6 @@ function updateChart() {
     //     // myChart.update();
     // });
     // console.log(test)
-}
-
-    updateChart();
 
 /*
         const removeChar = (str, c) => str.replaceAll(new RegExp(`[${c}]`, "gi"), "");

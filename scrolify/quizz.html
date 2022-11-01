@@ -210,6 +210,7 @@
         let quiz = $(".content-quiz"); //Quiz div object
         let details = 0;
         let correctAnswer = questions[0].correctAnswer;
+        console.log(correctAnswer,"corect")
         let questionCount;
         console.log(correctAnswer);
 
@@ -250,7 +251,7 @@
         //
 
     
-        
+        console.log(correctAnswer,"corect")
         // Click handler for the 'start-quiz Over' button
         $("#start-quiz").on("click", function (e) {
           e.preventDefault();
@@ -294,7 +295,7 @@
 
           return qElement;
         }
-    
+        console.log(correctAnswer,"corect")
 
 
         //Checker Function to check if option is correct or not
