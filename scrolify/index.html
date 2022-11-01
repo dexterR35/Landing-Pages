@@ -36,8 +36,9 @@
     />
     <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
   <!-- <link rel="preload" href="./main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /> -->
-  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./main.css" />
   <!-- <link rel="stylesheet" href="./main.css"  defer/> -->
+
   <style>
     .header-bar {
       position: fixed;
@@ -118,6 +119,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
+        z-index: 5000;
       ">
     <div id="ball-loading-wrap" style="position: relative">
       <h4 style="position: absolute; left: -0.9em; bottom: -30px">NETBET</h4>
@@ -142,73 +144,97 @@
     </div>
     <div class="Quick-navigation">
       <ul class="pagination">
-        <li>
+        <li data-marker="1">
+          <em>01</em>
           <a href="#home" class="active"><span class="hover-text">Home</span></a>
+          
         </li>
-        <li>
+        <li data-marker="2">
+          <em>02</em>
           <a href="#section_2"><span class="hover-text">section_2</span></a>
         </li>
-        <li>
+        <li data-marker="3">
+          <em>03</em>
           <a href="#section_3"><span class="hover-text">section_3</span></a>
         </li>
-        <li>
+        <li data-marker="4">
+          <em>04</em>
           <a href="#section_4"><span class="hover-text">section_4</span></a>
         </li>
-        <li>
+        <li data-marker="5">
+          <em>05</em>
           <a href="#section_5"><span class="hover-text">section_5</span></a>
-        </li>
+        </li data-marker="6">
         <li>
+          <em>06</em>
           <a href="#section_6"><span class="hover-text">section_6</span></a>
         </li>
-        <li>
+        <li data-marker="7">
+          <em>07</em>
           <a href="#section_7"><span class="hover-text">section_7</span></a>
         </li>
-        <li>
+        <li data-marker="8">
+          <em>08</em>
           <a href="#section_8"><span class="hover-text">section_8</span></a>
         </li>
-        <li>
+        <li data-marker="9">
+          <em>09</em>
           <a href="#section_9"><span class="hover-text">section_9</span></a>
         </li>
-        <li>
+        <li data-marker="10">
+          <em>10</em>
           <a href="#section_10"><span class="hover-text">section_10</span></a>
         </li>
-        <li>
+        <li data-marker="11">
+          <em>11</em>
           <a href="#section_11"><span class="hover-text">section_11</span></a>
         </li>
-        <li>
+        <li data-marker="12">
+          <em>12</em>
           <a href="#section_12"><span class="hover-text">section_12</span></a>
         </li>
-        <li>
+        <li data-marker="13">
+          <em>13</em>
           <a href="#section_13"><span class="hover-text">section_13</span></a>
         </li>
-        <li>
+        <li data-marker="14">
+          <em>14</em>
           <a href="#section_14"><span class="hover-text">section_14</span></a>
         </li>
-        <li>
+        <li data-marker="15">
+          <em>15</em>
           <a href="#section_15"><span class="hover-text">section_15</span></a>
         </li>
-        <li>
+        <li data-marker="16">
+          <em>16</em>
           <a href="#section_16"><span class="hover-text">section_16</span></a>
         </li>
-        <li>
+        <li data-marker="17">
+          <em>17</em>
           <a href="#section_17"><span class="hover-text">section_17</span></a>
         </li>
-        <li>
+        <li data-marker="18">
+          <em>18</em>
           <a href="#section_18"><span class="hover-text">section_18</span></a>
         </li>
-        <li>
+        <li data-marker="19">
+          <em>19</em>
           <a href="#section_19"><span class="hover-text">section_19</span></a>
         </li>
-        <li>
+        <li data-marker="20">
+          <em>20</em>
           <a href="#section_20"><span class="hover-text">section_20</span></a>
         </li>
-        <li>
+        <li data-marker="21">
+          <em>21</em>
           <a href="#section_21"><span class="hover-text">section_21</span></a>
         </li>
-        <li>
+        <li data-marker="22">
+          <em>22</em>
           <a href="#section_22"><span class="hover-text">section_22</span></a>
         </li>
-        <li>
+        <li data-marker="23">
+          <em>23</em>
           <a href="#section_23"><span class="hover-text">section_23</span></a>
         </li>
       </ul>
@@ -223,9 +249,11 @@
           </h1>
         </div>
 
-        <div class="modal_home_container modEmbl" style="z-index: 2000">
-          <button id="window" class="btn_Emblem btn-home btn-open custom-btn btn-11">
-            +
+        <div class="modal_home_container modEmbl" style="z-index: 4000">
+          <div class="bg-pulse"></div>
+      
+          <button id="window" class="btn_Emblem btn-home btn-open custom-btn btn-11 button-pulse">
+           
           </button>
 
           <div id="modal_info" class="modal_Emblem">
@@ -453,9 +481,7 @@
           </h1>
         </div>
 
-
         <div id="constent" class="container-parent-cars insert_cars" data-id="test"></div>
-
 
         <div class="gallery-wrap">
           <div class="gallery0">
@@ -499,9 +525,8 @@
                           <img src="./images/general/lusail.webp" alt="Charmander" />
                         </div>
 
-                        <h4>lusail </h4>
+                        <h4>lusail</h4>
                         <div class="card__description">
-
                           <span class="fire">locuri: 80.000</span>
                         </div>
                       </div>
@@ -514,9 +539,8 @@
                         <div class="card__image">
                           <img src="./images/general/albayt.webp" alt="Charmander" />
                         </div>
-                        <h4>al bayt </h4>
+                        <h4>al bayt</h4>
                         <div class="card__description">
-
                           <span class="psychic">locuri: 60.000</span>
                         </div>
                       </div>
@@ -529,9 +553,8 @@
                         <div class="card__image">
                           <img src="./images/general/educationcity.webp" alt="Charmander" />
                         </div>
-                        <h4>education city </h4>
+                        <h4>education city</h4>
                         <div class="card__description">
-
                           <span class="electric">locuri:45.350</span>
                         </div>
                       </div>
@@ -544,9 +567,8 @@
                         <div class="card__image">
                           <img src="./images/general/khalifa.webp" alt="Charmander" />
                         </div>
-                        <h4>khalifa int </h4>
+                        <h4>khalifa int</h4>
                         <div class="card__description">
-
                           <span class="rock">locuri: 45.416</span>
                         </div>
                       </div>
@@ -559,9 +581,8 @@
                         <div class="card__image">
                           <img src="./images/general/974.webp" alt="Charmander" />
                         </div>
-                        <h4> 974</h4>
+                        <h4>974</h4>
                         <div class="card__description">
-
                           <span class="grass">locuri: 40.000</span>
                         </div>
                       </div>
@@ -573,9 +594,8 @@
                         <div class="card__image">
                           <img src="./images/general/aljanoub.webp" alt="Charmander" />
                         </div>
-                        <h4>al janoub </h4>
+                        <h4>al janoub</h4>
                         <div class="card__description">
-
                           <span class="grass">locuri: 40.000</span>
                         </div>
                       </div>
@@ -587,9 +607,8 @@
                         <div class="card__image">
                           <img src="./images/general/althumama.webp" alt="Charmander" />
                         </div>
-                        <h4>al thumama </h4>
+                        <h4>al thumama</h4>
                         <div class="card__description">
-
                           <span class="grass">locuri: 40.000</span>
                         </div>
                       </div>
@@ -601,15 +620,13 @@
                         <div class="card__image">
                           <img src="./images/general/ahmadbinali.webp" alt="Charmander" />
                         </div>
-                        <h4>ahmad bin ali </h4>
+                        <h4>ahmad bin ali</h4>
                         <div class="card__description">
-
                           <span class="grass">locuri: 44.740</span>
                         </div>
                       </div>
                     </div>
                   </div>
-
                 </div>
                 <div id="prev-slide" class="arrow-card arrow--left">
                   <i class="bx bx-chevron-left"></i>
@@ -727,17 +744,14 @@
                 <td data-label="germania,italia">4 titluri</td>
                 <td data-label="argentina,franta,uruguay">2 titluri</td>
                 <td data-label="anglia,spani">1 titlu</td>
-              
-            
-              
-            </tr>
-            <td class="td-label" data-label="" colspan="4">Germania ar putea egala numărul de trofee in Qatar. Italia are tot 4 titluri ca nemții dar nu sa calificat pentru CM 2022</td>
-           
+              </tr>
+              <td class="td-label" data-label="" colspan="4">
+                Germania ar putea egala numărul de trofee in Qatar. Italia are
+                tot 4 titluri ca nemții dar nu sa calificat pentru CM 2022
+              </td>
             </tbody>
-            
           </table>
         </div>
-       
       </div>
     </section>
 
@@ -1141,23 +1155,27 @@
       </div>
     </section>
   </div>
+
+
+
+
+</div>
+
+
+
+
+
   <script>
-    /*--------------------------------------------------------
-      Set carousel config here
-  
-      @autoload : true / false
-      @itemsToBeVisible: Defines how many items should be visible
-      @speed: Speed at which items will be passed in milliseconds
-      ----------------------------------------------------------*/
+
+
+
     const config = {
       autoload: true,
       itemsToBeVisible: 3,
-      speed: 3000
+      speed: 3000,
     };
 
-    /*-------------------
-      Entry point 
-      ---------------------*/
+   
     function start() {
       window.onload = function () {
         setSlidersStyle(config);
@@ -1180,22 +1198,24 @@
     }
 
     /*--------------------------------------------------------------
-        Sets the style of slides based on the number of visible items.
-      ---------------------------------------------------------------*/
+      Sets the style of slides based on the number of visible items.
+    ---------------------------------------------------------------*/
     function setSlidersStyle(config) {
       document.querySelector(
         "style"
       ).textContent += `@media screen and (min-width:1180px) { .carousel__slide{ min-width: ${
-      100 / config.itemsToBeVisible
-    }% } }`;
+          100 / config.itemsToBeVisible
+        }% } }`;
     }
 
     /*----------------------------------------
-       Performs the sliding behavior of items.
-      ----------------------------------------*/
+     Performs the sliding behavior of items.
+    ----------------------------------------*/
     function navigate(position, config) {
       const carouselEl = document.getElementById("carousel");
-      const slideContainerEl = carouselEl.querySelector(".carousel__container");
+      const slideContainerEl = carouselEl.querySelector(
+        ".carousel__container"
+      );
       const slideEl = carouselEl.querySelector(".carousel__slide");
       let slideWidth = slideEl.offsetWidth;
       slideContainerEl.scrollLeft = this.getNewScrollPosition(
@@ -1207,9 +1227,14 @@
     }
 
     /*-------------------------------
-       Get the new scroll position.
-      ---------------------------------*/
-    function getNewScrollPosition(position, slideContainerEl, slideWidth, config) {
+     Get the new scroll position.
+    ---------------------------------*/
+    function getNewScrollPosition(
+      position,
+      slideContainerEl,
+      slideWidth,
+      config
+    ) {
       const maxScrollLeft =
         slideContainerEl.scrollWidth - slideWidth * config.itemsToBeVisible;
       if (position === "forward") {
@@ -1222,8 +1247,8 @@
     }
 
     /*-------------------------------
-      Autoplay
-      ---------------------------------*/
+    Autoplay
+    ---------------------------------*/
     function playCarousel(nextButton, config) {
       const play = () => {
         nextButton.click();
@@ -1279,7 +1304,6 @@
           console.log(i, "i-section");
         },
         after: function (i, panels) {
-
           let ref = panels[i].attr("data-section-name");
           if (ref === "home") {
             $(".inner_section_2")
@@ -1487,7 +1511,6 @@
     // });
   </script>
 
-
   <script>
     let card_div_normal = `<div class="container-cards card_normal entry-cards">
           <h2 class="entry-title">title</h2>
@@ -1515,31 +1538,25 @@
           <h2 class="entry-title">title</h2>
           <div class="entry-content forScrolling">
             <p>
-            {$data}
+        
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error, quo quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error, quo quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error, quo quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
             </p>
           </div>
         </div>`;
-
-
-
-
-
-
-
-
-        
+    
     $(document).ready(function () {
+  
       $(".insert_cars").append(card_div_normal);
       $(".insert_cars_double").append(card_div_reverse, card_div_normal);
 
-      let closeHeight = "2.2em"; /* Default "closed" height */
-      let moreText = "citeste mai mult"; /* Default "Read More" text */
-      let lessText = "inchide"; /* Default "Read Less" text */
-      let duration = "1000"; /* Animation duration */
-      let easing = "slow"; /* Animation easing option */
+      let closeHeight = "2.2em"; 
+      let moreText = "citeste mai mult"; 
+      let lessText = "inchide";
+      let duration = "1000"; 
+      let easing = "slow";
       let fullHeight = $(".entry-content").css("max-height", "15em");
-      // console.log(fullHeight,"fullHeight")
-      // let fullHeight = "1em"
       // Limit height of .entry-content div
       $(".container-cards").each(function () {
         // Set data attribute to record original height
@@ -1552,46 +1569,44 @@
         current.after(
           '<button class="more-link closed">' + moreText + "</button>"
         );
-        console.log(current, "sss");
+      
       });
       // Link functinoality
-      let openSlider = function () {
+      let openSlider = function (e) {
+        e.preventDefault()
         link = $(this);
-        let openHeight =
-          link.prev(".entry-content").data("fullHeight") / 2 + "px";
-        link
-          .prev(".entry-content")
-          .animate({
-            height: openHeight
-          }, {
-            duration: duration
-          }, easing);
+        let openHeight = link.prev(".entry-content").data("fullHeight") / 1.5 + "px";
+        link.prev(".entry-content").animate({height: openHeight,}, {duration: duration,},easing);
         link.text(lessText).addClass("open").removeClass("closed");
         if ($(".more-link").hasClass("open")) {
           $(".entry-content").addClass("intro");
+          $(".entry-cards").addClass("expand-cards");
         }
         link.unbind("click", openSlider);
-        link.bind("click", closeSlider);
+        link.on("click", closeSlider);
       };
-      let closeSlider = function () {
+      let closeSlider = function (e) {
+        e.preventDefault()
         link = $(this);
-        link.prev(".entry-content").animate({
-            height: closeHeight,
-          }, {
-            duration: duration,
-          },
-          easing
-        );
+        link.prev(".entry-content").animate({ height: closeHeight,}, {duration: duration,}, easing);
         link.text(moreText).addClass("closed").removeClass("open");
         link.unbind("click");
-        link.bind("click", openSlider);
+        link.on("click", openSlider);
         if ($(".more-link").hasClass("closed")) {
           $(".entry-content").removeClass("intro");
+          $(".entry-cards").removeClass("expand-cards");
         }
       };
-
-      // Attach link click functionality
-      $(".more-link").bind("click", openSlider);
+      $(".more-link").on("click", function(e) {
+          e.preventDefault();
+          more = $(this);
+          console.log(more,"more");
+          more.addClass('tessst');
+        
+        
+        },  openSlider);
+   
+      // $(".more-link").bind("click", openSlider);
     });
   </script>
 
