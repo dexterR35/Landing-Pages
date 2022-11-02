@@ -1145,10 +1145,124 @@
           <img src="" data-src="./images/section5/Quatar-logo.png" alt="quatar-logo"
             class="quatarLogo lazy-img lozad" />
         </div>
+
         <div class="header-content-text">
           <h1 class="vertical-title section_23-title" data-fill="o">
             <span class="line-1s23">chestionar</span> <br />
           </h1>
+        </div>
+        <div class="quizArea">
+          <div class="multipleChoiceQues">
+            <h2 class="mc_quiz">Câstigă bonusul</h2>
+            <div class="my-progress">
+              <progress
+                class="my-progress-bar"
+                min="0"
+                max="100"
+                value="0"
+                step="9"
+                aria-labelledby="my-progress-completion"
+              ></progress>
+              <p
+                id="my-progress-completion"
+                class="js-my-progress-completion sr-only"
+                aria-live="polite"
+              >
+                0% complete
+              </p>
+            </div>
+            <div class="quizBox">
+              <div class="question"></div>
+              <div class="answerOptions"></div>
+              <div class="buttonArea">
+                <button id="next" class="hidden btn_quiz">Next</button>
+                <button id="submit" class="hidden btn_quiz">Submit</button>
+              </div>
+            </div>
+          </div>
+          <div class="resultArea">
+            <div class="resultPage1">
+              <div class="resultBox">
+                <h2>Rezultat</h2>
+              </div>
+              <div class="briefchart">
+                <svg height="250" width="300" id="_cir_progress">
+                  <g>
+                    <rect x="0" y="1" width="30" height="15" fill="#ab4e6b" />
+                    <text x="32" y="14" font-size="14" class="_text_incor">
+                      Incorrect : 12
+                    </text>
+                  </g>
+                  <g>
+                    <rect x="178" y="1" width="30" height="15" fill="#968089" />
+                    <text x="210" y="14" font-size="14" class="_text_cor">
+                      Correct : 12
+                    </text>
+                  </g>
+                  <circle
+                    class="_cir_P_x"
+                    cx="140"
+                    cy="140"
+                    r="70"
+                    stroke="#ab4e6b"
+                    stroke-width="20"
+                    fill="none"
+                    onmouseover="evt.target.setAttribute('stroke', 'rgba(171, 78, 107,0.7)');"
+                    onmouseout="evt.target.setAttribute('stroke','crimson');"
+                  ></circle>
+    
+                  <circle
+                    class="_cir_P_y"
+                    cx="140"
+                    cy="140"
+                    r="70"
+                    stroke="#968089"
+                    stroke-width="20"
+                    stroke-dasharray="0,1000"
+                    fill="none"
+                    onmouseover="evt.target.setAttribute('stroke', 'rgba(150, 128, 137,0.7)');"
+                    onmouseout="evt.target.setAttribute('stroke','#968089');"
+                  ></circle>
+                  <text
+                    x="50%"
+                    y="45%"
+                    text-anchor="middle"
+                    stroke="none"
+                    stroke-width="1px"
+                    dy=".3em"
+                    class="_cir_Per"
+                  >
+                    0%
+                  </text>
+                </svg>
+              </div>
+              <div class="bonus-quiz">
+                <p>Bonus 5125FAAS</p>
+              </div>
+    
+              <div class="resultBtns">
+                <button class="viewanswer">vezi răspunsurile</button>
+                <!-- <button class="viewchart">View Chart</button> -->
+                <button class="replay">
+                  <i class="fa fa-repeat" style="font-size: 1em"></i> <br />redirect
+                </button>
+              </div>
+            </div>
+    
+            <div class="resultPage2">
+              <h2>rezultatul</h2>
+              <div class="chartBox">
+                <canvas id="myChart" width="400" height="400"></canvas>
+              </div>
+              <button class="backBtn">Înapoi</button>
+            </div>
+    
+            <div class="resultPage3">
+              <h2>răspunsuri</h2>
+              <div class="allAnswerBox forScrolling"></div>
+              <button class="backBtn">Înapoi</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1607,7 +1721,454 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qu
       // $(".more-link").bind("click", openSlider);
     });
   </script>
+<script>
+  let $progressValue = 0;
+  let resultList = [];
 
+  const quizdata = [
+    {
+      question:
+        "Characterized by skill at understanding and profiting by circumstances",
+      options: ["Prescient", "Analyst", "Diminution"],
+      answer: "Shrewd",
+      category: 1,
+    },
+    {
+      question:
+        "To refuse to acknowledge as one's own or as connected with oneself",
+      options: ["Prevalent", "Disown", "Squalid"],
+      answer: "Disown",
+      category: 2,
+    },
+    {
+      question:
+        "Not having the abilities desired or necessary for any purpose",
+      options: ["Incompetent", "Impoverish", "Coxswain"],
+      answer: "Incompetent",
+      category: 3,
+    },
+    {
+      question: "Lizard that changes color in different situations",
+      options: ["Scruple", "Depredation", "Chameleon"],
+      answer: "Chameleon",
+      category: 1,
+    },
+    {
+      question: "Having the title of an office without the obligations",
+      options: ["Reciprocal", "Unsullied", "Titular"],
+      answer: "Titular",
+      category: 2,
+    },
+    {
+      question:
+        "An expression of disapproval or blame personally addressed to one censured",
+      options: ["Pitiful", "Reproof", "Mutation"],
+      answer: "Reproof",
+      category: 3,
+    },
+    {
+      question: "To deliver an elaborate or formal public speech.",
+      options: ["Orate", "Magician", "Access"],
+      answer: "Orate",
+      category: 2,
+    },
+    {
+      question:
+        "A wharf or artificial landing-place on the shore of a harbor or projecting into it",
+      options: ["Intolerable", "Quay", "Fez"],
+      answer: "Quay",
+      category: 3,
+    },
+    {
+      question:
+        "Friendly counsel given by way of warning and implying caution or reproof",
+      options: ["Credence", "Colloquy", "Abyss"],
+      answer: "Monition",
+      category: 1,
+    },
+    {
+      question: "To make a beginning in some occupation or scheme",
+      options: ["Muster", "Embark", "Ocular"],
+      answer: "Ocular",
+      category: 2,
+    },
+    {
+      question: "Able to reinforce sound by sympathetic vibrations",
+      options: ["Resonance", "Clandestine", "Diffusion"],
+      answer: "Resonance",
+      category: 3,
+    },
+    {
+      question:
+        "To send off or consign, as to an obscure position or remote destination",
+      options: ["Monolith", "Endurable", "Efficient"],
+      answer: "Relegate",
+      category: 1,
+    },
+  ];
+  /** Random shuffle questions **/
+  function shuffleArray(question) {
+    let shuffled = question.sort(function () {
+      return 0.5 - Math.random();
+    });
+    return shuffled;
+  }
+
+  function shuffle(a) {
+    for (let i = a.length; i; i--) {
+      let j = Math.floor(Math.random() * i);
+      let _ref = [a[j], a[i - 1]];
+      a[i - 1] = _ref[0];
+      a[j] = _ref[1];
+    }
+  }
+
+  /*** Return shuffled question ***/
+  function generateQuestions() {
+    let questions = shuffleArray(quizdata);
+    return questions;
+  }
+
+  /*** Return list of options ***/
+  function returnOptionList(opts, i) {
+    let optionHtml =
+      '<li class="myoptions">' +
+      '<input value="' +
+      opts +
+      '" name="optRdBtn" type="radio" id="rd_' +
+      i +
+      '">' +
+      '<label for="rd_' +
+      i +
+      '">' +
+      opts +
+      "</label>" +
+      '<div class="bullet">' +
+      '<div class="line zero"></div>' +
+      '<div class="line one"></div>' +
+      '<div class="line two"></div>' +
+      '<div class="line three"></div>' +
+      '<div class="line four"></div>' +
+      '<div class="line five"></div>' +
+      '<div class="line six"></div>' +
+      '<div class="line seven"></div>' +
+      "</div>" +
+      "</li>";
+
+    return optionHtml;
+  }
+
+  /** Render Options **/
+  function renderOptions(optionList) {
+    let ulContainer = $("<ul>").attr("id", "optionList");
+    for (let i = 0, len = optionList.length; i < len; i++) {
+      let optionContainer = returnOptionList(optionList[i], i);
+      ulContainer.append(optionContainer);
+    }
+    $(".answerOptions").html("").append(ulContainer);
+  }
+
+  /** Render question **/
+  function renderQuestion(question) {
+    $(".question").html("<h2>" + question + "</h2>");
+  }
+
+  /** Render quiz :: Question and option **/
+  function renderQuiz(questions, index) {
+    let currentQuest = questions[index];
+    renderQuestion(currentQuest.question);
+    renderOptions(currentQuest.options);
+    console.log("Question");
+    console.log(questions[index]);
+  }
+
+  /** Return correct answer of a question ***/
+  function getCorrectAnswer(questions, index) {
+    return questions[index].answer;
+  }
+
+  /** pushanswers in array **/
+  function correctAnswerArray(resultByCat) {
+    let arrayForChart = [];
+    for (let i = 0; i < resultByCat.length; i++) {
+      arrayForChart.push(resultByCat[i].correctanswer);
+    }
+
+    return arrayForChart;
+  }
+  /** Generate array for percentage calculation **/
+  function genResultArray(results, wrong) {
+    let resultByCat = resultByCategory(results);
+    let arrayForChart = correctAnswerArray(resultByCat);
+    arrayForChart.push(wrong);
+    return arrayForChart;
+  }
+
+  /** percentage Calculation **/
+  function percentCalculation(array, total) {
+    let percent = array.map(function (d, i) {
+      return ((100 * d) / total).toFixed(2);
+    });
+    return percent;
+  }
+
+  /*** Get percentage for chart **/
+  function getPercentage(resultByCat, wrong) {
+    let totalNumber = resultList.length;
+    let wrongAnwer = wrong;
+    //let arrayForChart=genResultArray(resultByCat, wrong);
+    //return percentCalculation(arrayForChart, totalNumber);
+  }
+
+  /** count right and wrong answer number **/
+  function countAnswers(results) {
+    let countCorrect = 0,
+      countWrong = 0;
+
+    for (let i = 0; i < results.length; i++) {
+      if (results[i].iscorrect == true) countCorrect++;
+      else countWrong++;
+    }
+
+    return [countCorrect, countWrong];
+  }
+
+  /**** Categorize result *****/
+  function resultByCategory(results) {
+    let categoryCount = [];
+    let ctArray = results.reduce(function (res, value) {
+      if (!res[value.category]) {
+        res[value.category] = {
+          category: value.category,
+          correctanswer: 0,
+        };
+        categoryCount.push(res[value.category]);
+      }
+      let val = value.iscorrect == true ? 1 : 0;
+      console.log(val, "valoare");
+      res[value.category].correctanswer += val;
+      return res;
+    }, {});
+
+    categoryCount.sort(function (a, b) {
+      return a.category - b.category;
+    });
+
+    return categoryCount;
+  }
+
+  /** Total score pie chart**/
+  function totalPieChart(_upto, _cir_progress_id, _correct, _incorrect) {
+    $("#" + _cir_progress_id)
+      .find("._text_incor")
+      .html("Incorrect : " + _incorrect);
+    $("#" + _cir_progress_id)
+      .find("._text_cor")
+      .html("Correct : " + _correct);
+
+    let unchnagedPer = _upto;
+
+    _upto = _upto > 100 ? 100 : _upto < 0 ? 0 : _upto;
+
+    let _progress = 0;
+
+    let _cir_progress = $("#" + _cir_progress_id).find("._cir_P_y");
+    let _text_percentage = $("#" + _cir_progress_id).find("._cir_Per");
+
+    let _input_percentage;
+    let _percentage;
+
+    let _sleep = setInterval(_animateCircle, 25);
+
+    function _animateCircle() {
+      //2*pi*r == 753.6 +xxx=764
+      _input_percentage = (_upto / 100) * 764;
+      _percentage = (_progress / 100) * 764;
+
+      _text_percentage.html(_progress + "%");
+
+      if (_percentage >= _input_percentage) {
+        _text_percentage.html(
+          '<tspan x="47%" dy="0em">' +
+            unchnagedPer +
+            '% </tspan><tspan  x="45%" dy="1em">Your Score</tspan>'
+        );
+        clearInterval(_sleep);
+      } else {
+        _progress++;
+
+        _cir_progress.attr("stroke-dasharray", _percentage + ",764");
+      }
+    }
+  }
+
+  function renderBriefChart(correct, total, incorrect) {
+    let percent = (100 * correct) / total;
+    if (Math.round(percent) !== percent) {
+      percent = percent.toFixed(2);
+    }
+
+    totalPieChart(percent, "_cir_progress", correct, incorrect);
+  }
+
+  /** List question and your answer and correct answer  ****/
+  function getAllAnswer(results) {
+    let innerhtmlS = "";
+    for (let i = 0; i < results.length; i++) {
+      let _class = results[i].iscorrect ? "item-correct" : "item-incorrect";
+      let _classH = results[i].iscorrect ? "h-correct" : "h-incorrect";
+
+      let _html =
+        '<div class="_resultboard ' +
+        _class +
+        '">' +
+        '<div class="_header">' +
+        results[i].question +
+        "</div>" +
+        '<div class="_yourans ' +
+        _classH +
+        '">' +
+        results[i].clicked +
+        "</div>";
+
+      let html = "";
+      if (!results[i].iscorrect)
+        html = '<div class="_correct">' + results[i].answer + "</div>";
+      _html = _html + html + "</div>";
+      innerhtmlS += _html;
+    }
+
+    $(".allAnswerBox").html("").append(innerhtmlS);
+  }
+  /** render  Brief Result **/
+  function renderResult(resultList) {
+    let results = resultList;
+    console.log(results);
+    let countCorrect = countAnswers(results)[0],
+      countWrong = countAnswers(results)[1];
+
+    renderBriefChart(countCorrect, resultList.length, countWrong);
+  }
+
+  function renderChartResult() {
+    let results = resultList;
+    let countCorrect = countAnswers(results)[0],
+      countWrong = countAnswers(results)[1];
+    let dataForChart = genResultArray(resultList, countWrong);
+    renderChart(dataForChart);
+  }
+
+  /** Insert progress bar in html **/
+  function getProgressindicator(length) {
+    let progressbarhtml = " ";
+    for (let i = 0; i < length; i++) {
+      progressbarhtml +=
+        '<div class="my-progress-indicator progress_' +
+        (i + 1) +
+        " " +
+        (i == 0 ? "active" : "") +
+        '"></div>';
+    }
+    $(progressbarhtml).insertAfter(".my-progress-bar");
+  }
+
+  /*** change progress bar when next button is clicked ***/
+  function changeProgressValue() {
+    $progressValue += 9;
+    if ($progressValue >= 100) {
+    } else {
+      if ($progressValue == 99) $progressValue = 100;
+      $(".my-progress")
+        .find(".my-progress-indicator.active")
+        .next(".my-progress-indicator")
+        .addClass("active");
+      $("progress").val($progressValue);
+    }
+    $(".js-my-progress-completion").html(
+      $("progress").val() + "% complete"
+    );
+  }
+
+  function addClickedAnswerToResult(questions, presentIndex, clicked) {
+    let correct = getCorrectAnswer(questions, presentIndex);
+    let result = {
+      index: presentIndex,
+      question: questions[presentIndex].question,
+      clicked: clicked,
+      iscorrect: clicked == correct ? true : false,
+      answer: correct,
+      category: questions[presentIndex].category,
+    };
+    resultList.push(result);
+
+    console.log("result");
+    console.log(result);
+  }
+
+  $(document).ready(function () {
+    let presentIndex = 0;
+    let clicked = 0;
+
+    let questions = generateQuestions();
+    renderQuiz(questions, presentIndex);
+    getProgressindicator(questions.length);
+
+    $(".answerOptions ").on("click", ".myoptions>input", function (e) {
+      clicked = $(this).val();
+
+      if (questions.length == presentIndex + 1) {
+        $("#submit").removeClass("hidden");
+        $("#next").addClass("hidden");
+      } else {
+        $("#next").removeClass("hidden");
+      }
+    });
+
+    $("#next").on("click", function (e) {
+      e.preventDefault();
+      addClickedAnswerToResult(questions, presentIndex, clicked);
+
+      $(this).addClass("hidden");
+
+      presentIndex++;
+      renderQuiz(questions, presentIndex);
+      changeProgressValue();
+    });
+
+    $("#submit").on("click", function (e) {
+      addClickedAnswerToResult(questions, presentIndex, clicked);
+      $(".multipleChoiceQues").hide();
+      $(".resultArea").show();
+      renderResult(resultList);
+    });
+
+    // $(".resultArea").on("click", ".viewchart", function () {
+    //   $(".resultPage2").show();
+    //   $(".resultPage1").hide();
+    //   $(".resultPage3").hide();
+    //   renderChartResult();
+    // });
+
+    $(".resultArea").on("click", ".backBtn", function () {
+      $(".resultPage1").show();
+      $(".resultPage2").hide();
+      $(".resultPage3").hide();
+      renderResult(resultList);
+    });
+
+    $(".resultArea").on("click", ".viewanswer", function () {
+      $(".resultPage3").show();
+      $(".resultPage2").hide();
+      $(".resultPage1").hide();
+      getAllAnswer(resultList);
+    });
+
+    $(".resultArea").on("click", ".replay", function () {
+//    window.location.reload(true);   
+window.location.href='https://go.netbet.ro/sport/?lp=sport2022';
+    });
+  });
+</script>
   <!-- <script src="./main.js"></script> -->
 </body>
 
