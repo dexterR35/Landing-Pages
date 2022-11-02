@@ -110,7 +110,21 @@
         width: 100%;
         margin: auto;
       }
+.bonus-quiz{
+    border: 1px solid black;
+    padding: 1em;
+    width: 60%;
+    height: 7vh;
+    text-align: center;
+    margin: auto;
+    background: #11333a;
+    color: white;
+    border: 2px solid white;
+    border-radius: 1em;
+    font-size: 1.3em;
 
+    text-transform: uppercase;
+}
       .chartBox {
         width: 60%;
         margin: auto;
@@ -832,7 +846,7 @@
       <div class="resultArea">
         <div class="resultPage1">
           <div class="resultBox">
-            <h2>Resultat</h2>
+            <h2>Rezultat</h2>
           </div>
           <div class="briefchart">
             <svg height="300" width="300" id="_cir_progress">
@@ -885,6 +899,9 @@
               </text>
             </svg>
           </div>
+          <div class="bonus-quiz">
+            <p>Bonus 5125FAAS</p>
+          </div>
 
           <div class="resultBtns">
             <button class="viewanswer">vezi răspunsurile</button>
@@ -904,7 +921,7 @@
         </div>
 
         <div class="resultPage3">
-          <h2>Your Answers</h2>
+          <h2>răspunsuri</h2>
           <div class="allAnswerBox"></div>
           <button class="backBtn">Înapoi</button>
         </div>
@@ -1134,6 +1151,7 @@
             categoryCount.push(res[value.category]);
           }
           let val = value.iscorrect == true ? 1 : 0;
+          console.log(val, "valoare");
           res[value.category].correctanswer += val;
           return res;
         }, {});
@@ -1352,7 +1370,8 @@
         });
 
         $(".resultArea").on("click", ".replay", function () {
-          window.location.reload(true);
+    //    window.location.reload(true);   
+    window.location.href='https://go.netbet.ro/sport/?lp=sport2022';
         });
       });
     </script>
