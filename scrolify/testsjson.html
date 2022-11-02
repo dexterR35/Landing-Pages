@@ -16,12 +16,12 @@
     <h1>Runners</h1>
     <ul id="runners"></ul>
     <div id="myData"></div>
+    <p id="demo"></p>.
+    <p id="demo2"></p>
     <div class="placeholder"></div>
     <input type="button" id="abc" value="submit" />
     <div id="info"></div>
     <script>
-   
-
       // fetch(url)
       //   .then((response) => { return response.json(); })
       //   .then( data => {
@@ -39,24 +39,60 @@
       //   }).catch( error => { console.log(error); })
 
       async function fetchData() {
-        const url = "./cmNB.json";
+        const url = "./csvjson.json";
         const response = await fetch(url);
         const dataS = await response.json();
         console.log(dataS, "datapoints");
+        const { sections } = dataS[1];
+        // console.log({ sections });
+        sections.forEach(function(element)
+        {
+          console.log(element.id);
+        
+           let ssssss = document.getElementById("demo").innerHTML += element.id;
+           let ssss = document.getElementById("demo2").innerHTML += element.content;
+     
+          });
+
+
+          console.log("ssssss",ssssss)
+            let output = "<div";
+            output +=
+              "<p>" + ssssss + " -- " + ssss + "</p>";
+            output += "</div>";
+            $("#demo").html(output);
         return dataS;
       }
 
       const dataLink = new Request("./cmNB.json");
-      fetchData().then((dataS) => {
-            let dataStadium = dataS.section_stadions.map(function (index, i) {
-              
+      fetchData()
+        .then((dataS) => {
+          let dataStadium = dataS[1].sections.map(function ( item, i, arr ) {
+            key = { item };
+            arr[i] = item;
+            // console.log(arr,"arr")
+            let id_test = arr[i].id;
+            let content_test = item.content;
+            // console.log(content_test, "content_test");
+            // console.log(arr[i].id,"arr2")
+            // console.log(arr[i].content,"arr2")
+            if (arr[i].id == arr[i].content) {
+              alert("test");
+            }
+            // document.getElementById("demo").innerHTML = item;
+
             let output = "<div";
-            output += "<p>" + index.stadion + " -- " + index.capacitate + "</p>";
+            output +=
+              "<p>" + `${id_test}` + " -- " + `${content_test}` + "</p>";
             output += "</div>";
             $(".placeholder").html(output);
           });
 
-        }).catch((error) => {
+          // numbers.forEach(myFunction)
+
+          console.log(dataStadium, "datastadium");
+        })
+        .catch((error) => {
           console.log(error);
         });
     </script>
