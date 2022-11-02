@@ -2155,10 +2155,11 @@ let displayContainer = document.getElementById("display-container");
     // });
 
     $(".resultArea").on("click", ".backBtn", function () {
-      $(".resultPage1").show();
+      $(".resultPage1").hide();
       $(".resultPage2").hide();
       $(".resultPage3").hide();
       renderResult(resultList);
+      location.reload();
     });
 
     $(".resultArea").on("click", ".viewanswer", function () {
@@ -2182,7 +2183,8 @@ startButton.addEventListener("click", () => {
 });
     $(".resultArea").on("click", ".replay", function () {
 //    window.location.reload(true);   
-window.location.href='https://go.netbet.ro/sport/?lp=sport2022';
+
+window.location.href='https://go.netbet.ro/sport/?lp=sport2022 target="_blank"';
     });
   });
 </script>
