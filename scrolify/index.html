@@ -1151,7 +1151,10 @@
             <span class="line-1s23">chestionar</span> <br />
           </h1>
         </div>
-        <div class="quizArea">
+        <div class="start-screen">
+          <button id="start-button">Start</button>
+        </div>
+        <div class="quizArea " id="display-container">
           <div class="multipleChoiceQues">
             <h2 class="mc_quiz">Câstigă bonusul</h2>
             <div class="my-progress">
@@ -2104,7 +2107,9 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qu
     console.log("result");
     console.log(result);
   }
-
+  let startScreen = document.querySelector(".start-screen");
+let startButton = document.getElementById("start-button");
+let displayContainer = document.getElementById("display-container");
   $(document).ready(function () {
     let presentIndex = 0;
     let clicked = 0;
@@ -2123,7 +2128,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qu
         $("#next").removeClass("hidden");
       }
     });
-
+   
     $("#next").on("click", function (e) {
       e.preventDefault();
       addClickedAnswerToResult(questions, presentIndex, clicked);
@@ -2163,6 +2168,18 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qu
       getAllAnswer(resultList);
     });
 
+
+//hide quiz and display start screen
+window.onload = () => {
+    startScreen.classList.remove("hide");
+    displayContainer.classList.add("hide");
+};
+//when user click on start button
+startButton.addEventListener("click", () => {
+    startScreen.classList.add("hide");
+    displayContainer.classList.remove("hide");
+    $.scrollify.disable();
+});
     $(".resultArea").on("click", ".replay", function () {
 //    window.location.reload(true);   
 window.location.href='https://go.netbet.ro/sport/?lp=sport2022';
