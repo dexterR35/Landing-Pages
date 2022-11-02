@@ -9,7 +9,7 @@
   --scrollSectionsColumns: 25%;
   --scrollSectionsRows: 20%;
   /*Bg-img*/
-
+  --panelBg-D: #333;
   /*colors all*/
   --background-nav-gradient: rgb(106, 106, 106);
   --light-bg: white;
@@ -200,6 +200,7 @@ body {
   background-color: #f0f2f4;
   border-bottom: 1px solid #ddd;
 }
+
 /*TODO:pagination ***/
 
 /* .pagination {
@@ -560,8 +561,6 @@ body {
 
 /******EMBLEM BUTTON*********/
 
-
-
 .btn-home:focus {
   outline: none;
 }
@@ -587,7 +586,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-
 }
 
 .close_emblem {
@@ -888,7 +886,7 @@ body {
   margin: auto 0;
 }
 .inner_section_4 #constent {
-  grid-roww: 3;
+  grid-row: 3;
   position: relative;
   top: 3em;
 }
@@ -1090,7 +1088,7 @@ body {
   top: 2vh;
 }
 .inner_section_5 #constent {
-  grid-roww: 3;
+  grid-row: 3;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -1881,7 +1879,7 @@ body {
   /* width: 10em !important; */
 }
 .item-2 {
-  grid-column: 1 /span 3;
+  grid-column: 1 / span 3;
   grid-row: 4;
   margin-top: -7vh;
   width: 150px !important;
@@ -1905,10 +1903,8 @@ body {
 .item-4 p {
   font-size: 0.75vh;
   text-align: end;
-  margin-left: 3.2em;;
+  margin-left: 3.2em;
 }
-
-
 
 .item-5 {
   grid-column: 5 / span 4;
@@ -2374,8 +2370,8 @@ body {
 .button-pulse::before {
   content: "\26BD";
   position: absolute;
-left: 0;
-top:0 ;
+  left: 0;
+  top: 0;
   font-size: 4.3vh;
   /* display: flex;
   align-items: center;
@@ -2521,4 +2517,218 @@ top:0 ;
   background: #e0d20d;
 }
 
+@media screen and (min-width: 500px) {
+
+
+  
+  .panel {
+    /* background: var(--panelBg-D); */
+    z-index: 1;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://go.netbet.ro/lp-asset/netbetro/sport/sport2022/bg-desktop.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+  }
+  .header-content-text {
+    width: fit-content;
+  }
+
+  .gallery0 {
+    width: fit-content;
+  }
+
+  .logo-top img {
+    width: 60%;
+  }
+  .header-content-text {
+    font-size: 4vh;
+  }
+  .inner.grid-template {
+    overflow: hidden;
+  }
+  .grid-template {
+    display: grid;
+    grid-template-columns: repeat(10, minmax(5vw, 1fr));
+    grid-template-rows: repeat(10, minmax(7vh, 1fr));
+    place-content: flex-start;
+    padding: 0.5em 0.6em;
+    height: 100%;
+    border: 2px solid white;
+    background: rgb(230, 46, 86);
+  }
+  .container-cards {
+    width: 80%;
+    max-width: 50vh;
+    min-width: 28vh;
+  }
+
+  .home .gallery0 img {
+    height: 60vh;
+    top: 5vh;
+    left: 6vw;
+  }
+  .logo-top {
+    grid-column: 1 / span 10;
+    grid-row: 1;
+  }
+  .place-bottom {
+    grid-row: 9 / span 2;
+    grid-column: 1 /span 10;
+    z-index: 30;
+    color: white;
+    place-self: center;
+  }
+  .carousel {
+    grid-column: 1 / span 10;
+    grid-row: 8 / span 3;
+}
+  .place-bottom img {
+    height: 100% !important;
+  }
+  .left-grid-template {
+    grid-column: 1 / 6;
+    grid-row: 1 / 9;
+    z-index: 0;
+  }
+  .section_2_container #constent {
+    grid-row: 5;
+    grid-column: 5 / span 3;
+    left: unset;
+}
+  .section_2_container .gallery0 {
+    grid-column: 8;
+    grid-row: 2 / span 7;
+  }
+  .section_2_container .gallery0 img {
+    height: 78vh;
+    top: 0;
+    left: 0;
+    position: relative;
+  }
+
+  .inner_section_3 .gallery-wrapper .gallery0 img {
+    width: 100%;
+  }
+  .inner_section_3 .gallery-wrapper {
+    position: initial;
+  }
+  .inner_section_3 .gallery-wrapper {
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 4;
+  }
+  .inner_section_3 .gallery2 {
+    grid-column: 1 / span 4;
+    grid-row: 5;
+  }
+  .inner_section_4 .content-place-items {
+    grid-column: 6 / span 5;
+  }
+  .inner_section_5 .gallery-wrapper {
+    grid-column: 4 / span 7;
+    /* position: relative; */
+    grid-row: 2 / span 4;
+}
+  .inner_section_5 #constent {
+    grid-column: 3 / span 2;
+    grid-row: 3;
+    left: unset;
+    justify-content: space-evenly;
+    height: 50%;
+}
+.inner_section_5 .place-bottom {
+  top: unset;
+}
+.inner_section_6 .gallery-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: unset;
+  left: unset;
+  background: #b31b4791;
+  grid-column: 7 / span 3;
+  border-radius: 26px;
+  grid-row: 3 / span 7;
+}
+.inner_section_6 .gallery0 img {
+  width: 60vh;
+  position: absolute;
+  top: -43px;
+  left: unset;
+}
+
+
+ 
+.inner_section_6 .gallery-wrapper .gallery2 img {
+  width: 20vh;
+}
+.inner_section_6 .gallery-wrapper .gallery1 img {
+  width: 30vh;
+}
+
+.inner_section_6 .place-bottom {
+  width: 100%;
+  height: 100%;
+  grid-row: 3 / span 5;
+  grid-column: 2 / span 4;
+  margin-left: 9vh;
+  max-height: 100%;
+}
+
+.inner_section_6 #constent {
+  grid-row: 5;
+  grid-column: 8 / span 3;
+  left: -6em;
+}
+
+.table_section7 {
+  width: 100%;
+  grid-column: 2 / span 5;
+  grid-row: 7;
+}
+.inner_section_7 table {
+  width: 75vh;
+}
+
+}
+
+
+
+@media screen and (min-width: 991px) {
+  .inner_section_4 .chartJs-section4 {
+    grid-column: 2 / span 4;
+    grid-row: 3 / span 6;
+    width: 100%;
+    max-width: 60vh;
+    max-height: 48vh;
+  }
+  .inner_section_4 #constent {
+    grid-row: 3;
+    grid-column: 7 / span 4;
+    position: unset;
+  }
+  .inner_section_5 #constent {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    left: unset;
+    justify-content: space-evenly;
+    height: 50%;
+}
+}
+
+@media screen and (min-width: 1200px) {
+  .grid-template {
+    max-width: 1200px;
+  }
+}
 /*********************END NAV LINKS LEFT*****************************/
