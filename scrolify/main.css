@@ -3958,6 +3958,10 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     grid-row: 4;
     grid-column: 2;
   }
+  .inner_section_15 .header-content-text {
+    grid-row: 8;
+    font-size: 4vh;
+}
 
   .inner_section_15 .place-bottom {
     grid-row: 7 / span 3;
