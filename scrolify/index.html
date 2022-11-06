@@ -133,6 +133,7 @@
         });
       }
     </script>
+
     <div
       id="load"
       style="
@@ -2083,32 +2084,23 @@
     </script>
 
     <script>
+          
+          $(document).ready(function () {
+        const api_url = './test.json';
+        async function getJson() {
+          const response = await fetch(api_url);
+      const jsondata = await response.json();
+      const { section, subtitle, subtitle_two, content, content_two } = jsondata;
+
+
+      console.log(jsondata.sections)
       let card_div_normal = `<div class="container-cards card_normal entry-cards ">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
-            amet lectus et ligula sagittis blandit a eget odio. Suspendisse
-            auctor sollicitudin justo, accumsan volutpat neque ornare
-            molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
-            a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
-            sem interdum congue. Aenean sodales tellus non augue condimentum,
-            sit amet porta sapien hendrerit. Etiam gravida turpis at elit
-            placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
-            Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
-            convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
-            Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
-            hendrerit risus, elementum egestas est pretium
-            etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+   
           </p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores,
-             consectetur obcaecati consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil.
-             Cum explicabo error tempore, ab sunt similique voluptate doloremque quibusdam nisi,
-             nemo ex nam, dolore repudiandae inventore aliquid quisquam obcaecati iste nobis! 
-             Rem sed veniam, quam sequi ut cum esse maiores officia nisi aliquid unde,
-              corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto? Voluptas quae illum,
-              libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa dignissimos voluptates ex?
-              Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci dolore odit illo?</p>
+          <p></p>
         </div>
       </div>`;
 
@@ -2116,29 +2108,43 @@
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
           <p>  
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem 
-            delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error, quo 
-            quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem 
-            delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error, quo 
-            quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit saepe mollitia qui hic a iure asperiores error. Animi, ut maxime vel repellat iure incidunt veniam eius reprehenderit, reiciendis sapiente dicta, autem temporibus rem exercitationem
-            delectus consequuntur quaerat dolor quos earum cum ducimus! Neque tempora animi, sint est aperiam quas sit perferendis vitae quisquam exercitationem distinctio eum aliquid culpa porro sunt asperiores nemo aspernatur adipisci in? Magni cupiditate iure error,
-              quo quam odio eius. Consectetur odit tempore nam nobis qui sit! Dicta fugiat commodi consectetur eveniet quasi molestiae, esse ex eum, maiores minus facere modi officia. Laboriosam modi tempore temporibus quasi.
+
           </p>
         </div>
       </div>`;
+  
 
-      $(document).ready(function () {
-        $(".insert_cars").append(card_div_normal);
+      $(".insert_cars").append(card_div_normal);
         $(".insert_cars_double").append(card_div_reverse, card_div_normal);
 
-        let closeHeight = "2.2em";
+      const x = document.getElementsByTagName("section");
+          const y = x[14].getElementsByClassName('entry-title');
+          const z = x[14].getElementsByClassName('entry-content');
+
+          
+          for (i=0; i<22; i++) {
+            if (x[i].getElementsByClassName('entry-title')[0] != null) {
+              x[i].getElementsByClassName('entry-title')[0].innerHTML = `<h2 class="entry-title">` + jsondata.sections[i-1].subtitle + `</h2>`
+            }
+            if (x[i].getElementsByClassName('entry-content')[0] != null) {
+              x[i].getElementsByClassName('entry-content')[0].innerHTML = `<p>` + jsondata.sections[i-1].content + `</p>`
+            }
+            if (x[i].getElementsByClassName('entry-title')[1] != null) {
+              x[i].getElementsByClassName('entry-title')[1].innerHTML = `<h2 class="entry-title">` + jsondata.sections[i-1].subtitle_two + `</h2>`
+            }
+            if (x[i].getElementsByClassName('entry-content')[1] != null) {
+              x[i].getElementsByClassName('entry-content')[1].innerHTML = `<p>` + jsondata.sections[i-1].content_two + `</p>`
+            }
+          }
+    
+     
+  
+        let closeHeight = "1em";
         let moreText = "citeste mai mult";
         let lessText = "inchide";
         let duration = "1000";
         let easing = "slow";
-        let fullHeight = $(".entry-content").css("max-height", "15em");
+        let fullHeight = $(".entry-content").css("height", "12em");
         // Limit height of .entry-content div
         $(".container-cards").each(function () {
           // Set data attribute to record original height
@@ -2205,9 +2211,12 @@
           },
           openSlider
         );
-
+       } 
+       getJson();
         // $(".more-link").bind("click", openSlider);
       });
+ 
+ 
     </script>
     <script>
       let $progressValue = 0;
@@ -2703,6 +2712,7 @@
           window.location.href = "https://go.netbet.ro/sport/?lp=sport2022";
         });
       });
+   
     </script>
     <!-- <script src="./main.js"></script> -->
   </body>

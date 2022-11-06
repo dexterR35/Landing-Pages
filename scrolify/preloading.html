@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+  </head>
+  <style>
+    .container-pred {
+      border: 1px solid black;
+      height: 300px;
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      position: absolute;
+    }
+    .c-preLoading {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      transform: rotate(-45deg);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      justify-content: center;
+
+      /* position: relative;
+    top:calc(50%-30px);
+    left:calc(50%-30px); */
+
+      animation: scale-x 1s ease forwards;
+      animation-delay: 2.3s;
+    }
+
+    .c-preLoading span {
+      flex-basis: 50%;
+      aspect-ratio: 1/1;
+      display: block;
+      transition: opacity 0.7s ease;
+    }
+
+    .tile-1-c {
+      background-color: crimson;
+      transform-origin: 100% 100%;
+      animation: flip-1 0.5s linear forwards;
+      border: none;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+    .tile-2-c {
+      background-color: crimson;
+      transform-origin: 50% 100%;
+      animation: flip-2 0.5s linear forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+    .tile-3-c {
+      background-color: crimson;
+      transform-origin: 50% 0%;
+      animation: flip-4 0.5s linear forwards;
+      animation-delay: 1.5s;
+      opacity: 0;
+    }
+    .tile-4-c {
+      background-color: crimson;
+      transform-origin: 0% 50%;
+      animation: flip-3 0.5s linear forwards;
+      animation-delay: 1s;
+      opacity: 0;
+    }
+
+    @keyframes flip-1 {
+      to {
+        transform: rotateY(180deg);
+        opacity: 1;
+      }
+    }
+    @keyframes flip-2 {
+      to {
+        transform: rotateX(180deg);
+        opacity: 1;
+      }
+    }
+    @keyframes flip-3 {
+      to {
+        transform: rotateY(-180deg);
+        opacity: 1;
+      }
+    }
+    @keyframes flip-4 {
+      to {
+        transform: rotateX(-180deg);
+        opacity: 1;
+      }
+    }
+    @keyframes scale-x {
+      to {
+        transform: scale(50);
+        opacity: 0;
+      }
+    }
+  </style>
+  <body>
+    <button id="test">apasa</button>
+    <div class="container-pred">
+      <div class="cccss">
+        <span class="tile-1-c titles-c"></span>
+        <span class="tile-2-c titles-c"></span>
+        <span class="tile-3-c titles-c"></span>
+        <span class="tile-4-c titles-c"></span>
+      </div>
+    </div>
+
+    <script>
+      $("#test").on("click", function (e) {
+        e.preventDefault();
+        $(".cccss").addClass("c-preLoading");
+        setTimeout(function () {
+          $(".cccss").removeClass("c-preLoading");
+        }, 7000);
+      });
+    </script>
+  </body>
+</html>

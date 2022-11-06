@@ -61,6 +61,11 @@ body {
 li {
   list-style: none;
 }
+canvas {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
 /* @media (min-width: 450px) {
     body {
         font-size: 90%;
@@ -2232,8 +2237,8 @@ body {
   line-height: 1;
 }
 .entry-content p {
-  font-size: 0.76em;
-  word-break: break-all;
+  font-size: 1em;
+  /* word-break: break-all; */
 }
 .entry-content.intro {
   overflow-y: scroll;
