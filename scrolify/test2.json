@@ -731,7 +731,6 @@
       ]
     },
     {
-  
       "players":  [
         {
           "name": "Kylian Mbappé",
@@ -859,8 +858,42 @@
           "price": 70
         }
       ]
-  
-  
+    },
+    {
+      "stadium": [
+        {
+          "name": "Lusail",
+          "size": "80000"
+        },
+        {
+          "name": "Al Bayt",
+          "size": "60000"
+        },
+        {
+          "name": "Education City",
+          "size": "40000"
+        },
+        {
+          "name": "Khalifa Int",
+          "size": "40000"
+        },
+        {
+          "name": "974",
+          "size": "40000"
+        },
+        {
+          "name": "Al Janoub",
+          "size": "40000"
+        },
+        {
+          "name": "Ahmad Bin Ali",
+          "size": "40000"
+        },
+        {
+          "name": "Al Thumama",
+          "size": "40000"
+        }
+      ]
     }
   ]
 }

@@ -70,69 +70,80 @@
             }
           );
 
-          const data_chart = {
-            labels: players_name.slice(0, 10),
+        
+
+          const data_chart_s3 = {
+            labels: ["2002", "2006", "2010", "2014", "2018"],
             datasets: [
               {
-                label: "MILIOANELE DE EURO",
-                data: players_price.slice(0, 10),
-                borderColor: "black",
-                borderWidth: 0,
-                fill: true,
-                // pointBackgroundColor: "crimson",
+                label: "BILIONS",
+                data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
                 backgroundColor: [
                   "rgba(250,174,50,1)",
                   "grey",
                   "rgb(255, 205, 86)",
                 ],
-                stack: "combined",
-                hoverOffset: 10,
               },
             ],
           };
-
-          // config
-          const config = {
-            type: "bar",
-            data: data_chart,
-            options: {
-              indexAxis: "y",
-              plugins: {
-                datalabels: {
-                  anchor: "end",
-                  align: "top",
+          var options_s3 = {
+            maintainAspectRatio: true,
+            scales: {
+              y: {
+                stacked: true,
+                grid: {
+                  display: true,
+                  color: "rgba(255,99,132,0.2)",
                 },
+              },
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+            },
+          };
+          // config
+          const config_s3 = {
+            type: "bar",
+            data: data_chart_s3,
+            options: {
+              indexAxis: "x",
+              plugins: {
                 legend: {
                   display: false,
-                  position: "left",
-                  font: "24",
                 },
                 title: {
                   display: true,
-                  text: "fotbalul si milioanele",
+                  text: "Venituri din drepturi media în miliarde de dolari ",
                 },
               },
-              radius: 4,
               responsive: true,
               maintainAspectRatio: false,
               scales: {
-                x: {
+                y: {
                   grid: {
                     borderColor: "black",
-                    lineWidth: 2,
-                    stacked: true,
+                    borderWidth:0.5,
+                    lineWidth: 1,
+                    beginAtZero: true,
                   },
                   min: 0,
-                  max: 200,
-                  stacked: true,
+                  max: 3,
                   ticks: {
-                    callback: function (price) {
-                      return "$" + price + "m";
+                    callback: function (m) {
+                      return "$" + m + "b";
                     },
                   },
                 },
+                x: {
+                    grid:{
+                        borderColor:"black",
+                        borderWidth:0.5,
+                        lineWidth: 0.7,
+                    },
+                },
               },
-
               layout: {
                 padding: {
                   left: 2,
@@ -143,11 +154,10 @@
               },
             },
           };
-
           //   myChart.update();
           const myChart = new Chart(
             document.getElementById("myChart"),
-            config
+            config_s3
           ).getContext("2d");
         });
       }

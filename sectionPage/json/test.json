@@ -8,7 +8,11 @@
           "Ora de start": "12:00 EET",
           "Temperatură": "23°c",
           "Precipitații": "3.1 mm",
-          "Vânt": "13 kmh"
+          "Vânt": "13 kmh",
+          "value":1,
+          "lastvalue":100,
+          "year":"1920"
+          
         },
         {
           "Ziua meciului": "Luni, 21 noiembrie",
@@ -17,7 +21,10 @@
           "Ora de start": "15:00 EET",
           "Temperatură": "22°c",
           "Precipitații": "0.4 mm",
-          "Vânt": "13 kmh"
+          "Vânt": "13 kmh",
+          "value":10,
+          "lastvalue":1000,
+          "year":"1920"
         },
         {
           "Ziua meciului": "Luni, 21 noiembrie",

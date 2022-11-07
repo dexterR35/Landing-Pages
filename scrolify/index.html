@@ -46,6 +46,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
     <!-- <script>   $(window).bind("load", function () {
   $('#load').fadeOut(1000);
 });</script> -->
@@ -521,16 +522,178 @@
             </div>
           </div>
           <div class="gallery2 chartJs-section place-bottom">
-            <!-- <div class="chartMenu">
-              <p>whatever</p>
+            <!-- <div style="background: white">
+              <canvas
+                id="myChart_s3"
+                class="chart_s3"
+                width="200"
+                height="200"
+              ></canvas>
             </div> -->
-            <div class="chartCard">
-              <div class="chartBox">chart</div>
-            </div>
+            <table id="effect-example-6" class="charts-css column labels-hide">
+              <caption style="display:block;"> miliardele de dolari</caption>
+              <thead>
+                <tr>
+                  <th scope="col"> Year </th>
+                  <th scope="col"> Progress </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="thScope"> 2002 </th>
+                  <td style="--size:0.4;" class="tdStyle"><span class="dataS3 data-font">1.2b</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="thScope"> 2006 </th>
+                  <td style="--size:0.6;" class="tdStyle"><span class="dataS3 data-font">1.4b</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="thScope"> 2010 </th>
+                  <td style="--size:0.8;" class="tdStyle"><span class="dataS3 data-font">2.4b</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="thScope"> 2014 </th>
+                  <td style="--size:0.8;" class="tdStyle"><span class="dataS3 data-font">2.4b</span></td>
+                </tr>
+                <tr>
+                  <th scope="row" class="thScope"> 2018 </th>
+                  <td style="--size:1;" class="tdStyle"><span class="dataS3 data-font">2.8b</span></td>
+                </tr>
+              </tbody>
+            </table>
+            
           </div>
         </div>
       </section>
+      <style>
+        
+#effect-example-6 {
+  height: 200px;
+  max-width: 350px;
+  margin: 0 auto 100px;
+  -webkit-box-reflect:
+    below
+    3px
+    -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from( transparent ),
+      color-stop( 10%, transparent ),
+      to( rgba( 255, 255, 255, 0.25 ) )
+  );
+}
+.tdStyle{
+  border-left: 1px solid white;
+    box-shadow: -3px 11px 20px #59595973;
+}
+.thScope{
+  color: black;
+}
 
+        .charts-css.area:not(.show-labels) tbody tr th, .charts-css.column:not(.show-labels) tbody tr th, .charts-css.line:not(.show-labels) tbody tr th {
+          display: block;
+        }
+       .data-font{
+          font-size: 1.1em;
+          color: rgb(32, 32, 32);
+          position: relative;
+          top: -2.7vh;
+        text-transform: uppercase;
+        }
+      </style>
+      <script>
+        function add_s3Chart() {
+          const data_chart_s3 = {
+            labels: ["2002", "2006", "2010", "2014", "2018"],
+            datasets: [
+              {
+                label: "BILIONS",
+                data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
+                backgroundColor: [
+                  "rgba(250,174,50,1)",
+                  "grey",
+                  "rgb(255, 205, 86)",
+                ],
+              },
+            ],
+          };
+          var options_s3 = {
+            maintainAspectRatio: true,
+            scales: {
+              y: {
+                stacked: true,
+                grid: {
+                  display: true,
+                  color: "rgba(255,99,132,0.2)",
+                },
+              },
+              x: {
+                grid: {
+                  display: false,
+                },
+              },
+            },
+          };
+          // config
+          const config_s3 = {
+            type: "bar",
+            data: data_chart_s3,
+            options: {
+              indexAxis: "x",
+              plugins: {
+                legend: {
+                  display: false,
+                },
+                title: {
+                  display: true,
+                  text: "Venituri din drepturi media în miliarde de dolari ",
+                },
+              },
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                y: {
+                  grid: {
+                    borderColor: "black",
+                    borderWidth: 0.5,
+                    lineWidth: 1,
+                    beginAtZero: true,
+                  },
+                  min: 0,
+                  max: 3,
+                  ticks: {
+                    callback: function (m) {
+                      return "$" + m + "b";
+                    },
+                  },
+                },
+                x: {
+                  grid: {
+                    borderColor: "black",
+                    borderWidth: 0.5,
+                    lineWidth: 0.7,
+                  },
+                },
+              },
+              layout: {
+                padding: {
+                  left: 2,
+                  right: 2,
+                  bottom: 20,
+                  top: 10,
+                },
+              },
+            },
+          };
+          //   myChart.update();
+          const myChart_s3 = new Chart(
+            document.getElementById("myChart_s3"),
+            config_s3
+          ).getContext("2d");
+        }
+        add_s3Chart();
+      </script>
       <!--TODO:SECTIONS---SECTION 4---->
       <section
         class="panel section_4_container"
@@ -567,7 +730,17 @@
             />
           </div>
 
-          <div class="chartjs-section chartJs-section4">chart</div>
+          <div class="chartjs-section chartJs-section4">
+            <div style="background: white">
+              <canvas
+                id=""
+                class="chart_s5"
+                width="200"
+                height="200"
+              ></canvas>
+            </div>
+          </div>
+
           <div class="carousel carousel-section" id="carousel">
             <div class="carousel__wrapper">
               <div>
@@ -719,7 +892,7 @@
           </div>
         </div>
       </section>
-
+    
       <!--TODO:SECTIONS---SECTION 5---->
 
       <section
@@ -1599,7 +1772,11 @@
             </h1>
           </div>
           <div class="text_quiz_section">
-            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam totam unde et repellendus soluta molestiae sit error quidem minima modi!</h2>
+            <h2>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
+              totam unde et repellendus soluta molestiae sit error quidem minima
+              modi!
+            </h2>
           </div>
           <div class="start-screen">
             <button id="start-button">Start</button>
@@ -1719,7 +1896,7 @@
                 <div class="resultPage2">
                   <h2>rezultatul</h2>
                   <div class="chartBox">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
                   </div>
                   <button class="backBtn">Înapoi</button>
                 </div>
@@ -1981,50 +2158,6 @@
       });
     </script>
     <script>
-      // setup
-      const data = {
-        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-        datasets: [
-          {
-            label: "Weekly Sales",
-            data: [18, 12, 6, 9, 12, 3, 9],
-            backgroundColor: [
-              "rgba(255, 26, 104, 0.2)",
-              "rgba(54, 162, 235, 0.2)",
-              "rgba(255, 206, 86, 0.2)",
-              "rgba(75, 192, 192, 0.2)",
-              "rgba(153, 102, 255, 0.2)",
-              "rgba(255, 159, 64, 0.2)",
-              "rgba(0, 0, 0, 0.2)",
-            ],
-            borderColor: [
-              "rgba(255, 26, 104, 1)",
-              "rgba(54, 162, 235, 1)",
-              "rgba(255, 206, 86, 1)",
-              "rgba(75, 192, 192, 1)",
-              "rgba(153, 102, 255, 1)",
-              "rgba(255, 159, 64, 1)",
-              "rgba(0, 0, 0, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      };
-      // config
-      const configT = {
-        type: "bar",
-        data,
-        options: {
-          maintainAspectRatio: true,
-          scales: {
-            y: {
-              beginAtZero: true,
-            },
-          },
-        },
-      };
-      // render init block
-      const myChart = new Chart(document.getElementById("myChart-s3"), configT);
       //   window.addEventListener('beforeprint', () => {
       //   myChart.resize(1200, 100);
       // });
@@ -2084,17 +2217,138 @@
     </script>
 
     <script>
-          
-          $(document).ready(function () {
-        const api_url = './test.json';
+   
+        function updateChart() {
+        const api_url = "./test2.json";
+        const x = document.querySelectorAll(".inner");
+
+        const y = x[14].querySelectorAll(".entry-title");
+
+        const z = x[14].getElementsByClassName("entry-content");
         async function getJson() {
           const response = await fetch(api_url);
-      const jsondata = await response.json();
-      const { section, subtitle, subtitle_two, content, content_two } = jsondata;
+          const jsondata = await response.json();
+          console.log(jsondata);
+          // jsonSection = jsondata.qatar[1];
+          // jsonStadium = jsondata.qatar[3];
+          // const { sections } = jsonSection;
+          // const { stadium } = jsonStadium;
+          return jsondata;
+        }
 
 
-      console.log(jsondata.sections)
-      let card_div_normal = `<div class="container-cards card_normal entry-cards ">
+
+        getJson().then(jsondata => {
+          const jsonSection = jsondata.qatar[1].sections;
+          console.log(jsonSection, "sjson");
+
+          for (i = 0; i < jsonSection.length; i++) {
+            console.log(jsonSection.length);
+            if (x[i].getElementsByClassName("entry-title")[0] != null) {
+              x[i].getElementsByClassName("entry-title")[0].innerHTML =
+                `<h2 class="entry-title">` + jsonSection[i].subtitle + `</h2>`;
+            }
+            if (x[i].getElementsByClassName("entry-content")[0] != null) {
+              x[i].getElementsByClassName("entry-content")[0].innerHTML =
+                `<p>` + jsonSection[i].content + `</p>`;
+            }
+            if (x[i].getElementsByClassName("entry-title")[1] != null) {
+              x[i].getElementsByClassName("entry-title")[1].innerHTML =
+                `<h2 class="entry-title">` +
+                jsonSection[i].subtitle_two +
+                `</h2>`;
+            }
+            if (x[i].getElementsByClassName("entry-content")[1] != null) {
+              x[i].getElementsByClassName("entry-content")[1].innerHTML =
+                `<p>` + jsonSection[i].content_two + `</p>`;
+            }
+          }
+
+          const stadium_name = jsondata.qatar[3].stadium.map(function(index, i){
+            console.log(index.name , "stadium");
+            return index.name
+          });
+          const stadium_size = jsondata.qatar[3].stadium.map(function(index){
+            console.log(index , "stadium");
+            return index.name
+          }) 
+          myChart_s5.config_s5.data_chart_s5.labels = stadium_name;
+          myChart_s5.update();
+        });
+    }
+          const data_chart_s5 = {
+            labels:["Lusail","Al Bayt","Education City","Khalifa Int" , "974" , "Al Janoub","Ahmad Bin Ali","Al Thumama"],
+            datasets: [
+              {
+                label: "BILIONS",
+                data: ["80000", "60000", "70000", "60000", "50000","40000"],
+                backgroundColor: [
+                  "rgb(255, 99, 132)",
+                  "rgb(75, 192, 192)",
+                  "rgb(255, 205, 86)",
+                  "rgb(201, 203, 207)",
+                  "rgb(54, 162, 235)",
+                ],
+              },
+            ],
+          };
+      
+          // config
+          const config_s5 = {
+            type: "polarArea",
+            data:data_chart_s5 ,
+
+            options: {
+              maintainAspectRatio: true,
+     
+              plugins: {
+                legend: {
+                  display: false,
+                  position: "left",
+                },
+                title: {
+                  display: true,
+                  text: "Venituri din ",
+                
+                },
+              },
+              radius: 300,
+              responsive: true,
+              maintainAspectRatio: false,
+            },
+          };
+          //   myChart.update();
+          const myChart_s5 = new Chart(
+            document.querySelector(".chart_s5"),
+            config_s5
+          ).getContext("2d");
+  
+  
+    
+        // stadium.forEach(function(value, f) {
+        //     let stadium_name = value.name;
+        //     let stadium_size = value.size;
+
+        // })
+        // const {
+        //   section,
+        //   subtitle,
+        //   subtitle_two,
+        //   content,
+        //   content_two,
+        //   title,
+        // } = jsonSection;
+        // const {
+        //   name,
+        //   size
+        // } = jsonStadium;
+
+        // console.log(jsonStadium.stadium, "jsonStadium");
+
+        // console.log(jsondata.qatar[1], "dadsa");
+        $(document).ready(function () {
+ 
+        let card_div_normal = `<div class="container-cards card_normal entry-cards ">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
           <p>
@@ -2104,7 +2358,7 @@
         </div>
       </div>`;
 
-      let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
+        let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
           <p>  
@@ -2112,33 +2366,33 @@
           </p>
         </div>
       </div>`;
-  
 
-      $(".insert_cars").append(card_div_normal);
+        $(".insert_cars").append(card_div_normal);
         $(".insert_cars_double").append(card_div_reverse, card_div_normal);
 
-      const x = document.getElementsByTagName("section");
-          const y = x[14].getElementsByClassName('entry-title');
-          const z = x[14].getElementsByClassName('entry-content');
+        // for (i = 0; i < 23; i++) {
+        //   if (x[i].getElementsByClassName("entry-title")[0] != null) {
+        //     x[i].getElementsByClassName("entry-title")[0].innerHTML =
+        //       `<h2 class="entry-title">` +
+        //       jsonSection.sections[i].subtitle +
+        //       `</h2>`;
+        //   }
+        //   if (x[i].getElementsByClassName("entry-content")[0] != null) {
+        //     x[i].getElementsByClassName("entry-content")[0].innerHTML =
+        //       `<p>` + jsonSection.sections[i].content + `</p>`;
+        //   }
+        //   if (x[i].getElementsByClassName("entry-title")[1] != null) {
+        //     x[i].getElementsByClassName("entry-title")[1].innerHTML =
+        //       `<h2 class="entry-title">` +
+        //       jsonSection.sections[i].subtitle_two +
+        //       `</h2>`;
+        //   }
+        //   if (x[i].getElementsByClassName("entry-content")[1] != null) {
+        //     x[i].getElementsByClassName("entry-content")[1].innerHTML =
+        //       `<p>` + jsonSection.sections[i].content_two + `</p>`;
+        //   }
+        // }
 
-          
-          for (i=0; i<22; i++) {
-            if (x[i].getElementsByClassName('entry-title')[0] != null) {
-              x[i].getElementsByClassName('entry-title')[0].innerHTML = `<h2 class="entry-title">` + jsondata.sections[i-1].subtitle + `</h2>`
-            }
-            if (x[i].getElementsByClassName('entry-content')[0] != null) {
-              x[i].getElementsByClassName('entry-content')[0].innerHTML = `<p>` + jsondata.sections[i-1].content + `</p>`
-            }
-            if (x[i].getElementsByClassName('entry-title')[1] != null) {
-              x[i].getElementsByClassName('entry-title')[1].innerHTML = `<h2 class="entry-title">` + jsondata.sections[i-1].subtitle_two + `</h2>`
-            }
-            if (x[i].getElementsByClassName('entry-content')[1] != null) {
-              x[i].getElementsByClassName('entry-content')[1].innerHTML = `<p>` + jsondata.sections[i-1].content_two + `</p>`
-            }
-          }
-    
-     
-  
         let closeHeight = "1em";
         let moreText = "citeste mai mult";
         let lessText = "inchide";
@@ -2211,12 +2465,9 @@
           },
           openSlider
         );
-       } 
-       getJson();
+        updateChart()
         // $(".more-link").bind("click", openSlider);
       });
- 
- 
     </script>
     <script>
       let $progressValue = 0;
@@ -2712,7 +2963,6 @@
           window.location.href = "https://go.netbet.ro/sport/?lp=sport2022";
         });
       });
-   
     </script>
     <!-- <script src="./main.js"></script> -->
   </body>
