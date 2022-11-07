@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800');
+ body {
+	 font-family: 'Open Sans', Arial, Verdana;
+	 background-color: yellow;
+	 padding: 2rem;
+}
+ p, h3 {
+	 margin: 0;
+	 padding: 0;
+}
+ .tables-doctor-content {
+	 margin: 0 0 2rem 0;
+}
+ .tables-doctor-name {
+	 font-weight: bold;
+}
+ .tables-doctor-title {
+	 color: #777;
+}
+ .table {
+	 margin: 1rem 0 1rem 0;
+	 width: 100%;
+	 background: #f1f1f1;
+	 border-collapse: collapse;
+	 display: table;
+}
+ .table thead tr th {
+	 border-bottom: 1px solid #666;
+	 border-top: 1px solid #666;
+	 padding: 0.5rem 1rem 0.5rem 0.5rem;
+	 background: #e4e4e4;
+}
+ .table th {
+	 text-align: left;
+	 padding: 0.5rem 1rem 0.5rem 0.5rem;
+	 border-collapse: collapse;
+}
+ .table th[scope="row"] {
+	 font-weight: bold;
+}
+ .table th[scope="col"] {
+	 text-align: left;
+	 color: #333;
+	 padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+ .table tbody tr:nth-child(even) {
+	 background: #f3f3f3;
+}
+ .table tbody tr:nth-child(odd) {
+	 background: #fff;
+}
+ .btn {
+	 border: 1px solid #666;
+	 padding: 0.5rem 0.95rem;
+	 cursor: pointer;
+	 transition: background-color 0.5s ease;
+}
+ .btn:hover {
+	 background-color: #ccc;
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="tables">
+        <button class="btn btn-primary" id="view-doctors">
+          View Doctor
+        </button>
+        <div>
+          <div id="tables">   
+            <div class="tables-doctor">
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+  
+<script>
+   var api = "./test2.json";
+   console.log( api)
+   async function getJson() {
+          const response = await fetch(api);
+          const jsondata = await response.json();
+          console.log(jsondata);
+          // jsonSection = jsondata.qatar[1];
+          // jsonStadium = jsondata.qatar[3];
+          // const { sections } = jsonSection;
+          // const { stadium } = jsonStadium;
+          return jsondata;
+        }
+$('#view-doctors').on('click',function() {      
+
+    var button = $(this);   
+    getJson().then((jsondata) => { 
+        setTimeout(function(){
+        //  var result = jsondata.qatar[0].game_info;
+         const game_infos = jsondata.qatar[0].game_info.map(function (index,i) {
+         
+            return index+i;
+          });
+
+          for(var i=0;i < game_infos.length; i++) { 
+
+console.log(game_infos[i])
+
+}
+         var html = '<h2>Data Dokter</h2>';
+         html += '<div class="tables-doctor-content">';
+         for(var i=0;i < game_infos.length; i++) {
+            html +='<h3 class="tables-doctor-name">'+game_infos[i].Meci+'</h3>'
+               +'<p class="tables-doctor-title">'+game_infos[i].Specialist+'</p>';
+               console.log(game_infos[i], "sjson");
+            if(game_infos[i].Hospitals.length > 0) {  
+               html +='<table class="table">'
+                  +'<thead>'
+                  +'<tr>'
+                  +'<th scope="col">Nama Rumah Sakit</th>'
+                  +'<th scope="col">Alamat</th>'
+                  +'<th scope="col">Jadwal Praktek</th>'
+                  +'</tr>'
+                  +'</thead>'
+                  +'<tbody>';
+
+               for(var j=0;j < game_infos[i].Hospitals.length; j++) {
+                  html +='<tr>'
+                     +'<th scope="row">'+game_infos[i].Hospitals[j].Name+'</th>'
+                     +'<td>'+game_infos[i].Hospitals[j].Address+'</td>'
+                     +'<td>'+game_infos[i].Hospitals[j].Schedule+'</td>'
+                     +'</tr>';
+               }
+               html +='</tbody></table>';
+            }
+         }
+          html +='</div>';
+
+         // Set all content
+         $('.tables-doctor').html(html);
+
+      },1000); 
+
+
+    })
+   
+//    $.ajax({
+//       url:api,
+//       method:'GET',
+//       cache:false,
+//       type:"text/json"
+//    })
+//    .always(function(){
+//       $(button).html('Load game Data...');
+   
+//    })
+//    .done(function(evt) {
+//       // Disable button
+//       $(button).prop('disabled',true);
+//       // Set timeout for lazy loading
+//       setTimeout(function(){
+//         //  var result = JSON.parse(evt);
+//          var html = '<h2>Data Dokter</h2>';
+//          html += '<div class="tables-doctor-content">';
+//          for(var i=0;i < result.Data.length; i++) {
+//             html +='<h3 class="tables-doctor-name">'+result.Data[i].DoctorName+'</h3>'
+//                +'<p class="tables-doctor-title">'+result.Data[i].Specialist+'</p>';
+
+//             if(result.Data[i].Hospitals.length > 0) {  
+//                html +='<table class="table">'
+//                   +'<thead>'
+//                   +'<tr>'
+//                   +'<th scope="col">Nama Rumah Sakit</th>'
+//                   +'<th scope="col">Alamat</th>'
+//                   +'<th scope="col">Jadwal Praktek</th>'
+//                   +'</tr>'
+//                   +'</thead>'
+//                   +'<tbody>';
+
+//                for(var j=0;j < result.Data[i].Hospitals.length; j++) {
+//                   html +='<tr>'
+//                      +'<th scope="row">'+result.Data[i].Hospitals[j].Name+'</th>'
+//                      +'<td>'+result.Data[i].Hospitals[j].Address+'</td>'
+//                      +'<td>'+result.Data[i].Hospitals[j].Schedule+'</td>'
+//                      +'</tr>';
+//                }
+//                html +='</tbody></table>';
+//             }
+//          }
+//           html +='</div>';
+
+//          // Set all content
+//          $('.tables-doctor').html(html);
+
+//       },1000); 
+//    })
+//    .fail(function() {
+//       alert('Error : Failed to reach API Url or check your connection');
+//       $(button).prop('disabled',false);
+//    })
+//    .then(function(evt){
+//       setTimeout(function(){        
+//          $(button).css({'background-color':'#ccc'}).hide();          
+//       },1000);
+//    });
+});
+ 
+</script>
+</body>
+</html>

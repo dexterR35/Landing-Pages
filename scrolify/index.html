@@ -46,7 +46,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css"
+    />
     <!-- <script>   $(window).bind("load", function () {
   $('#load').fadeOut(1000);
 });</script> -->
@@ -170,7 +173,7 @@
           <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
-      <div class="Quick-navigation">
+      <div class="Quick-navigation" style="display: block">
         <ul class="pagination">
           <li data-marker="1">
             <em>01</em>
@@ -468,7 +471,7 @@
               <span>pe timp de iarnă</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
 
           <div class="gallery0">
             <img
@@ -531,78 +534,139 @@
               ></canvas>
             </div> -->
             <table id="effect-example-6" class="charts-css column labels-hide">
-              <caption style="display:block;"> miliardele de dolari</caption>
+              <caption style="display: block">
+                Venituri din drepturi media
+                în miliarde de dolari 
+              </caption>
               <thead>
                 <tr>
-                  <th scope="col"> Year </th>
-                  <th scope="col"> Progress </th>
+                  <th scope="col">Year</th>
+                  <th scope="col">Progress</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row" class="thScope"> 2002 </th>
-                  <td style="--size:0.4;" class="tdStyle"><span class="dataS3 data-font">1.2b</span></td>
+                  <th scope="row" class="thScope">2002</th>
+                  <td style="--size: 0.4" class="tdStyle">
+                    <span class="dataS3 data-font">1.2b</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="thScope"> 2006 </th>
-                  <td style="--size:0.6;" class="tdStyle"><span class="dataS3 data-font">1.4b</span></td>
+                  <th scope="row" class="thScope">2006</th>
+                  <td style="--size: 0.6" class="tdStyle">
+                    <span class="dataS3 data-font">1.4b</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="thScope"> 2010 </th>
-                  <td style="--size:0.8;" class="tdStyle"><span class="dataS3 data-font">2.4b</span></td>
+                  <th scope="row" class="thScope">2010</th>
+                  <td style="--size: 0.8" class="tdStyle">
+                    <span class="dataS3 data-font">2.4b</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="thScope"> 2014 </th>
-                  <td style="--size:0.8;" class="tdStyle"><span class="dataS3 data-font">2.4b</span></td>
+                  <th scope="row" class="thScope">2014</th>
+                  <td style="--size: 0.8" class="tdStyle">
+                    <span class="dataS3 data-font">2.4b</span>
+                  </td>
                 </tr>
                 <tr>
-                  <th scope="row" class="thScope"> 2018 </th>
-                  <td style="--size:1;" class="tdStyle"><span class="dataS3 data-font">2.8b</span></td>
+                  <th scope="row" class="thScope">2018</th>
+                  <td style="--size: 1" class="tdStyle">
+                    <span class="dataS3 data-font">2.8b</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
-            
           </div>
         </div>
       </section>
       <style>
-        
-#effect-example-6 {
-  height: 200px;
-  max-width: 350px;
-  margin: 0 auto 100px;
-  -webkit-box-reflect:
-    below
-    3px
-    -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from( transparent ),
-      color-stop( 10%, transparent ),
-      to( rgba( 255, 255, 255, 0.25 ) )
-  );
-}
-.tdStyle{
-  border-left: 1px solid white;
-    box-shadow: -3px 11px 20px #59595973;
-}
-.thScope{
-  color: black;
-}
+        #effect-example-6 {
+          height: 200px;
+          max-width: 350px;
+          margin: 0 auto 100px;
+          -webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left
+                bottom, from(transparent), color-stop(10%, transparent), to(rgba(255, 255, 255, 0.25)));
+        }
+        .tdStyle {
+          border-left: 1px solid white;
+          box-shadow: -3px 11px 20px #59595973;
+        }
+        .thScope {
+          color: black;
+        }
 
-        .charts-css.area:not(.show-labels) tbody tr th, .charts-css.column:not(.show-labels) tbody tr th, .charts-css.line:not(.show-labels) tbody tr th {
+        .charts-css.area:not(.show-labels) tbody tr th,
+        .charts-css.column:not(.show-labels) tbody tr th,
+        .charts-css.line:not(.show-labels) tbody tr th {
           display: block;
         }
-       .data-font{
+        .data-font {
           font-size: 1.1em;
           color: rgb(32, 32, 32);
           position: relative;
           top: -2.7vh;
-        text-transform: uppercase;
+          text-transform: uppercase;
         }
+        
       </style>
       <script>
+            const data_chart_s5 = {
+          labels: [
+            "Lusail",
+            "Al Bayt",
+            "Education City",
+            "Khalifa Int",
+            "974",
+            "Al Janoub",
+            "Ahmad Bin Ali",
+            "Al Thumama",
+          ],
+          datasets: [
+            {
+              label: "BILIONS",
+              data: ["80000", "60000", "70000", "60000", "50000", "40000"],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(75, 192, 192)",
+                "rgb(255, 205, 86)",
+                "rgb(201, 203, 207)",
+                "rgb(54, 162, 235)",
+              ],
+            },
+          ],
+        };
+
+        // config
+        const config_s5 = {
+          type: "polarArea",
+          data: data_chart_s5,
+
+          options: {
+            maintainAspectRatio: true,
+
+            plugins: {
+              legend: {
+                display: false,
+                position: "left",
+              },
+              title: {
+                display: true,
+                text: "Venituri din ",
+              },
+            },
+            radius: 300,
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        };
+        //   myChart.update();
+        const myChart_s5 = new Chart(
+          document.querySelector(".chart_s5"),
+          config_s5
+        ).getContext("2d");
+      </script>
+      <!-- <script>
         function add_s3Chart() {
           const data_chart_s3 = {
             labels: ["2002", "2006", "2010", "2014", "2018"],
@@ -693,7 +757,7 @@
           ).getContext("2d");
         }
         add_s3Chart();
-      </script>
+      </script> -->
       <!--TODO:SECTIONS---SECTION 4---->
       <section
         class="panel section_4_container"
@@ -732,12 +796,7 @@
 
           <div class="chartjs-section chartJs-section4">
             <div style="background: white">
-              <canvas
-                id=""
-                class="chart_s5"
-                width="200"
-                height="200"
-              ></canvas>
+              <canvas id="" class="chart_s5" width="200" height="200"></canvas>
             </div>
           </div>
 
@@ -892,7 +951,7 @@
           </div>
         </div>
       </section>
-    
+
       <!--TODO:SECTIONS---SECTION 5---->
 
       <section
@@ -912,12 +971,26 @@
           <div class="header-content-text">
             <h1 class="vertical-title section_5-title" data-fill="d">
               <span class="line-1-s5">mesaj pentru</span> <br />
-              <span>protectia mediului</span>
+              <span>protecția mediului</span>
             </h1>
           </div>
 
-          <div class="container-parent-cars insert_cars_double constent"></div>
-
+          <div class="container-parent-cars insert_cars constent">
+            <div class="c5List container-cards card_normal entry-cards">
+              <div class="c5List_content">
+                <h4>Un stadion temporar cu o moștenire eternă</h4>
+                <ul>
+                  <li>Construit complet din containere de transport maritim</li>
+                  <li>La final va fi demontat și containerele refolosite</li>
+                  <li>
+                    Au fost folosite 974 de containere la construirea arenei
+                  </li>
+                  <li>974 reprezintă prefixul Qatarului</li>
+                  <li>Proiectat de Fenwick Iribarren Architects</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <div class="gallery-wrapper">
             <div class="gallery0">
               <img
@@ -993,8 +1066,15 @@
               />
             </div>
           </div>
-          <div class="place-bottom">
-            <h3>chartJs</h3>
+          <div class="place-bottom chartjs-section chartJs-section4">
+            <div style="background: white">
+              <canvas
+                class="myChart_s6"
+                id=""
+                style="position: relative; height: 40vh; width: 100%"
+                role="img"
+              ></canvas>
+            </div>
           </div>
         </div>
       </section>
@@ -1046,7 +1126,7 @@
           </div>
           <div class="table_section7">
             <table>
-              <caption></caption>
+              <caption>Topul campioanelor</caption>
               <thead>
                 <tr>
                   <th scope="col">Brazilia</th>
@@ -1149,7 +1229,7 @@
               <span class="line-2s9">ce va dăinui probabil pe vecie</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery1">
             <img
               src=""
@@ -1192,7 +1272,7 @@
           </div>
           <div class="header-content-text">
             <h1 class="vertical-title section_10-title" data-fill="d">
-              <span class="line-1s10">românul parte din</span> <br />
+              <span class="line-1s10">românia parte din</span> <br />
               <span class="line-2s10">meciul cel mai "mic"</span>
             </h1>
           </div>
@@ -1254,7 +1334,7 @@
               <!-- <span class="line-2s11">meciul cel mai "mic"</span> -->
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery-wrapper">
             <img
               src=""
@@ -1289,7 +1369,7 @@
               <span class="line-2s12">pele și restul</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery-wrapper">
             <img
               src=""
@@ -1306,7 +1386,30 @@
               alt="se12"
             />
           </div>
-          <div class="section-12-bottom place-bottom">chart</div>
+          <div class="table_section7">
+            <table>
+              <caption>Trofee CM între pretendenții la titlul „Cel mai bun fotbalist din toate timpurile”:</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Pelé, Brazilia (1958, 1962 și 1970</th>
+                  <th scope="col">Maradona, Argentina</th>
+                  <th scope="col">Messi, Argentina</th>
+                  <th scope="col">C. Ronaldo, Portugalia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Pelé, Brazilia (1958, 1962 și 1970">3 titluri</td>
+                  <td data-label="Maradona, Argentina">1 titlu</td>
+                  <td data-label="Messi, Argentina">0 titluri</td>
+                  <td data-label="C. Ronaldo, Portugalia">0 titluri</td>
+                </tr>
+                <td class="td-label" data-label="" colspan="4">
+                 <span>7 Baloane de Aur</span> <p> Ar fi câștigat Pelé, dacă pe vremea lui s-ar fi aplicat regulile de desemnare existente astăzi. Calculul a fost făcut chiar de France Football, publicația care oferă trofeul.</p>
+                </td>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
       <!--TODO:SECTIONS---SECTION 13---->
@@ -1330,7 +1433,7 @@
               <span class="line-2s13">al nemțiilor</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1346,6 +1449,28 @@
               class="lazy-img lozad rotate-imgS13"
               alt="s13"
             />
+          </div>
+          <div class="table_section7">
+            <table>
+              <caption style="text-transform: uppercase;">Alte istorii lungi</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Brazilia - Suedia</th>
+                  <th scope="col">Germania - Serbia</th>
+      
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Brazilia - Suedia">(5-2-0)</td>
+                  <td data-label="Germania - Serbia">(4-1-2)</td>
+           
+                </tr>
+                <td class="td-label" data-label="" colspan="4">
+              
+                </td>
+              </tbody>
+            </table>
           </div>
           <div class="section-13-bottom place-bottom">
             <div class="gallery2">
@@ -1446,7 +1571,15 @@
               alt="s15"
             />
           </div>
-          <div class="section-15-bottom place-bottom">chart</div>
+          <div class="section-15-bottom place-bottom">
+
+            <img
+            src=""
+            data-src="./images/section15/klose.gif"
+            class="lazy-img lozad"
+            alt="s15"
+          />
+          </div>
         </div>
       </section>
 
@@ -1527,7 +1660,7 @@
               <span class="line-2s17">și de anglia...</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1567,7 +1700,7 @@
               <span class="line-1s18">Disputa continentelor</span> <br />
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1610,6 +1743,7 @@
           </div>
           <div class="chart_s19">chart1</div>
           <div class="chart_two_s19">chart2</div>
+          <div class="container-parent-cars insert_cars constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1650,7 +1784,7 @@
               <span class="line-2s20">video</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars constent"></div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1666,6 +1800,16 @@
               class="lazy-img lozad"
               alt="s20"
             />
+          </div>
+          <div class="chartJs-section place-bottom section_20_bottom">
+
+            <img
+            src=""
+            data-src="./images/section20/maradona.gif"
+            class="lazy-img lozad"
+            alt="s20"
+          />
+
           </div>
         </div>
       </section>
@@ -1731,6 +1875,7 @@
               <span class="line-1s22">Cea mai mică țară gazdă</span> <br />
             </h1>
           </div>
+          <div class="container-parent-cars insert_cars_double constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -2217,9 +2362,8 @@
     </script>
 
     <script>
-   
-        function updateChart() {
-        const api_url = "./test2.json";
+      function updateChart() {
+        const api_url = "test2.json";
         const x = document.querySelectorAll(".inner");
 
         const y = x[14].querySelectorAll(".entry-title");
@@ -2236,9 +2380,7 @@
           return jsondata;
         }
 
-
-
-        getJson().then(jsondata => {
+        getJson().then((jsondata) => {
           const jsonSection = jsondata.qatar[1].sections;
           console.log(jsonSection, "sjson");
 
@@ -2264,96 +2406,111 @@
             }
           }
 
-          const stadium_name = jsondata.qatar[3].stadium.map(function(index, i){
-            console.log(index.name , "stadium");
-            return index.name
+          const stadium_name = jsondata.qatar[3].stadium.map(function (
+            index,
+            i
+          ) {
+            console.log(index.name, "stadium");
+            return index.name;
           });
-          const stadium_size = jsondata.qatar[3].stadium.map(function(index){
-            console.log(index , "stadium");
-            return index.name
-          }) 
-          myChart_s5.config_s5.data_chart_s5.labels = stadium_name;
-          myChart_s5.update();
-        });
-    }
-          const data_chart_s5 = {
-            labels:["Lusail","Al Bayt","Education City","Khalifa Int" , "974" , "Al Janoub","Ahmad Bin Ali","Al Thumama"],
-            datasets: [
-              {
-                label: "BILIONS",
-                data: ["80000", "60000", "70000", "60000", "50000","40000"],
-                backgroundColor: [
-                  "rgb(255, 99, 132)",
-                  "rgb(75, 192, 192)",
-                  "rgb(255, 205, 86)",
-                  "rgb(201, 203, 207)",
-                  "rgb(54, 162, 235)",
-                ],
-              },
-            ],
-          };
-      
-          // config
-          const config_s5 = {
-            type: "polarArea",
-            data:data_chart_s5 ,
+          const stadium_size = jsondata.qatar[3].stadium.map(function (index) {
+            // console.log(index, "stadium");
+            return index.name;
+          });
+          // myChart_s5.config_s5.data_chart_s5.labels = stadium_name;
+          // myChart_s5.update();
+       
 
-            options: {
-              maintainAspectRatio: true,
-     
-              plugins: {
-                legend: {
-                  display: false,
-                  position: "left",
-                },
-                title: {
-                  display: true,
-                  text: "Venituri din ",
-                
-                },
-              },
-              radius: 300,
-              responsive: true,
-              maintainAspectRatio: false,
-            },
-          };
-          //   myChart.update();
-          const myChart_s5 = new Chart(
-            document.querySelector(".chart_s5"),
-            config_s5
-          ).getContext("2d");
-  
-  
     
-        // stadium.forEach(function(value, f) {
-        //     let stadium_name = value.name;
-        //     let stadium_size = value.size;
 
-        // })
-        // const {
-        //   section,
-        //   subtitle,
-        //   subtitle_two,
-        //   content,
-        //   content_two,
-        //   title,
-        // } = jsonSection;
-        // const {
-        //   name,
-        //   size
-        // } = jsonStadium;
+        /*s6*/
+        const players_name = jsondata.qatar[2].players.map(
+          ({ name, price }, index) => {
+            console.log("index", price);
+            return name;
+          }
+        );
+        const players_price = jsondata.qatar[2].players.map(({ price }, index) => {
+          return price;
+        });
 
-        // console.log(jsonStadium.stadium, "jsonStadium");
+        const data_chart6 = {
+          labels: players_name.slice(0, 10),
+          datasets: [
+            {
+              label: "MILIOANELE DE EURO",
+              data: players_price.slice(0, 10),
+              borderColor: "black",
+              borderWidth: 0,
+              // pointBackgroundColor: "crimson",
+              backgroundColor: [
+                "rgba(250,174,50,1)",
+                "rgba(250,174,50,1)",
+                "rgba(250,174,50,1)",
+              ],
+    
+     
+            },
+          ],
+        };
 
-        // console.log(jsondata.qatar[1], "dadsa");
-        $(document).ready(function () {
- 
+        // config
+        const config_chart6 = {
+          type: "bar",
+          data: data_chart6,
+          options: {
+            indexAxis: "y",
+            plugins: {
+              datalabels: {
+                anchor: "end",
+                align: "top",
+              },
+              legend: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: "fotbalul si milioanele",
+              },
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                min: 0,
+                max: 190,
+                ticks: {
+                  callback: function (price) {
+                    return "$" + price + "m";
+                  },
+                },
+              },
+            },
+
+            layout: {
+              padding: {
+                left: 2,
+                right: 2,
+                bottom: 5,
+                top: 5,
+              },
+            },
+          },
+        };
+  
+        //   myChart.update();
+        const myChart_s6 = new Chart(
+          document.querySelector(".myChart_s6"),
+          config_chart6
+        ).getContext("2d");
+      });
+      }
+
+      $(document).ready(function () {
         let card_div_normal = `<div class="container-cards card_normal entry-cards ">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
-          <p>
-   
-          </p>
+          <p></p>
           <p></p>
         </div>
       </div>`;
@@ -2361,9 +2518,7 @@
         let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
-          <p>  
-
-          </p>
+          <p></p>
         </div>
       </div>`;
 
@@ -2393,7 +2548,7 @@
         //   }
         // }
 
-        let closeHeight = "1em";
+        let closeHeight = "2em";
         let moreText = "citeste mai mult";
         let lessText = "inchide";
         let duration = "1000";
@@ -2465,7 +2620,7 @@
           },
           openSlider
         );
-        updateChart()
+        updateChart();
         // $(".more-link").bind("click", openSlider);
       });
     </script>

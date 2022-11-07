@@ -570,7 +570,7 @@
           "section": 5,
           "id": 5,
           "content": "Federația de Fotbal a dezvoltat o strategie amplă pentru a reduce emisiile cu 50% până în 2030 și net-zero până în 2040. Trebuie să protejăm frumoasa noastră planetă și frumosul fotbal, Gianni Infantino, președinte.",
-          "content_two": "Un stadion temporar cu o moștenire eternă.",
+          "content_two": "Un stadion temporar cu o moștenire eternă. ",
           "title": "Mesaj pentru protecția mediului",
           "subtitle": "Legământul lui Infantino",
           "subtitle_two": "Stadionul 974"
@@ -692,10 +692,8 @@
           "id": 19,
           "section": 19,
           "title": "Se înscrie mai rar. Dar mai mult",
-          "content": "Pe măsură ce numărul echipelor a crescut, media de goluri marcate pe meci de la un campionat la altul a avut un trend descendent.",
-          "content_two": "S-a terminat în anii '60, când media de goluri pe meci a scăzut semnificativ. Începând cu Chile 1962 nu a mai fost turneu în care media să treacă de 3 goluri pe meci. CM 1990 desfășurat în Italia a avut cea mai scăzută medie de goluri pe meci de până acum, 2,21 goluri pe meci.",
-          "subtitle": "Doar golurile contează?",
-          "subtitle_two": "Fotbalul romantic"
+          "content": "Pe măsură ce numărul echipelor a crescut, media de goluri marcate pe meci de la un campionat la altul a avut un trend descendent. S-a terminat în anii '60, când media de goluri pe meci a scăzut semnificativ. Începând cu Chile 1962 nu a mai fost turneu în care media să treacă de 3 goluri pe meci. CM 1990 desfășurat în Italia a avut cea mai scăzută medie de goluri pe meci de până acum, 2,21 goluri pe meci.",
+          "subtitle_two": "Doar golurile contează?"
         },
         {
           "id": 20,

@@ -20,7 +20,7 @@
     </div>
     <div class="chartCard">
       <div class="chartBox">
-        <canvas
+        <canvas class="myChart_s6"
           id="myChart"
           style="position: relative; height: 40vh; width: 100%"
           role="img"
@@ -33,7 +33,7 @@
     ></script>
     <script>
       // setup
-      Chart.defaults.font.size = 10;
+      Chart.defaults.font.size = 11;
       //   function beforePrintHandler() {
       //     for (let id in Chart.instances) {
       //       Chart.instances[id].resize();
@@ -70,7 +70,7 @@
             }
           );
 
-          const data_chart = {
+          const data_chart6 = {
             labels: players_name.slice(0, 10),
             datasets: [
               {
@@ -92,9 +92,9 @@
           };
 
           // config
-          const config = {
+          const config_chart6= {
             type: "bar",
-            data: data_chart,
+            data: data_chart6,
             options: {
               indexAxis: "y",
               plugins: {
@@ -145,9 +145,9 @@
           };
 
           //   myChart.update();
-          const myChart = new Chart(
-            document.getElementById("myChart"),
-            config
+          const myChart_s6 = new Chart(
+            document.querySelector(".myChart_s6"),
+            config_chart6
           ).getContext("2d");
         });
       }
