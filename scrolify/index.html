@@ -2390,7 +2390,7 @@
               x[i].getElementsByClassName("entry-title")[0].innerHTML =
                 `<h2 class="entry-title">` + jsonSection[i].subtitle_two + `</h2>`;
             }
-            if (x[i].getElementsByClassName("entry-content")[0] != null) {
+            if (x[i].getElementsByClassName("entry-content")[0] != undefined) {
               x[i].getElementsByClassName("entry-content")[0].innerHTML =
                 `<p>` + jsonSection[i].content + `</p>`;
             }
@@ -2508,7 +2508,7 @@
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
           <p></p>
-          <p></p>
+       
         </div>
       </div>`;
 
