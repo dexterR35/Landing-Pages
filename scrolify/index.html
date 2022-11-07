@@ -2363,12 +2363,10 @@
 
     <script>
       function updateChart() {
-        const api_url = "test2.json";
-        const x = document.querySelectorAll(".inner");
+        const api_url = "./test2.json";
+  
+  
 
-        const y = x[14].querySelectorAll(".entry-title");
-
-        const z = x[14].getElementsByClassName("entry-content");
         async function getJson() {
           const response = await fetch(api_url);
           const jsondata = await response.json();
@@ -2379,7 +2377,9 @@
           // const { stadium } = jsonStadium;
           return jsondata;
         }
-
+        const x = document.querySelectorAll(".inner");
+        const y = x[14].querySelectorAll(".entry-title");
+        const z = x[14].getElementsByClassName("entry-content");
         getJson().then((jsondata) => {
           const jsonSection = jsondata.qatar[1].sections;
           console.log(jsonSection, "sjson");
@@ -2388,16 +2388,16 @@
             console.log(jsonSection.length);
             if (x[i].getElementsByClassName("entry-title")[0] != null) {
               x[i].getElementsByClassName("entry-title")[0].innerHTML =
-                `<h2 class="entry-title">` + jsonSection[i].subtitle + `</h2>`;
+                `<h2 class="entry-title">` + jsonSection[i].subtitle_two + `</h2>`;
             }
             if (x[i].getElementsByClassName("entry-content")[0] != null) {
               x[i].getElementsByClassName("entry-content")[0].innerHTML =
                 `<p>` + jsonSection[i].content + `</p>`;
             }
-            if (x[i].getElementsByClassName("entry-title")[1] != null) {
+            if (x[i].getElementsByClassName("entry-title")[1] != undefined) {
               x[i].getElementsByClassName("entry-title")[1].innerHTML =
                 `<h2 class="entry-title">` +
-                jsonSection[i].subtitle_two +
+                jsonSection[i].subtitle +
                 `</h2>`;
             }
             if (x[i].getElementsByClassName("entry-content")[1] != null) {
@@ -2406,10 +2406,7 @@
             }
           }
 
-          const stadium_name = jsondata.qatar[3].stadium.map(function (
-            index,
-            i
-          ) {
+          const stadium_name = jsondata.qatar[3].stadium.map(function (index,i) {
             console.log(index.name, "stadium");
             return index.name;
           });
@@ -2435,11 +2432,11 @@
         });
 
         const data_chart6 = {
-          labels: players_name.slice(0, 10),
+          labels: players_name.slice(0, 5),
           datasets: [
             {
               label: "MILIOANELE DE EURO",
-              data: players_price.slice(0, 10),
+              data: players_price.slice(0, 5),
               borderColor: "black",
               borderWidth: 0,
               // pointBackgroundColor: "crimson",
