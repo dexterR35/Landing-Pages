@@ -38,7 +38,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -173,7 +173,7 @@
           <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
-      <div class="Quick-navigation" style="display: block">
+      <div class="Quick-navigation" style="display: none">
         <ul class="pagination">
           <li data-marker="1">
             <em>01</em>
@@ -294,7 +294,7 @@
                 <div class="container-shape">
                   <div class="title-shape">
                     <h2>Campionatul Mondial 2022</h2>
-                    <p>Lorem ipsum dolor sit.</p>
+                    <p>7 informații importante despre emblemă</p>
                   </div>
                   <div class="c-item-c vC item-left">
                     <div class="item-1 animate-1 item">
@@ -476,7 +476,7 @@
           <div class="gallery0">
             <img
               src=""
-              data-src="./images/section2/element-section2.png"
+              data-src="./images/section2/element-section2.webp"
               class="lazy-img lozad"
               alt="sm23"
             />
@@ -525,6 +525,7 @@
             </div>
           </div>
           <div class="gallery2 chartJs-section place-bottom">
+            <div id="chartDiv_s3" class="chartDiv_s3" style="max-width: 100%;height: 30vh;margin: 0px auto;"></div>
             <!-- <div style="background: white">
               <canvas
                 id="myChart_s3"
@@ -533,7 +534,7 @@
                 height="200"
               ></canvas>
             </div> -->
-            <table id="effect-example-6" class="charts-css column labels-hide">
+            <!-- <table id="effect-example-6" class="charts-css column labels-hide">
               <caption style="display: block">
                 Venituri din drepturi media
                 în miliarde de dolari 
@@ -576,12 +577,39 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
       </section>
+      
+      <script type="text/javascript">
+        var chart = JSC.chart('chartDiv_s3', {
+          debug: true,
+          type: 'columnSolid',
+          yAxis_label_text: 'Milioanele de dolari',
+          title_label_text: 'venituri din drepturi media',
+          legend_visible: false,
+          defaultPoint_label_visible: true,
+          yAxis_visible: true,
+          series: [
+            {
+              name: 'venituri',
+              hatchPalette: true, 
+      defaultPoint_hatch_color: 'black', 
+              palette: 'midRange',
+              points: [
+                { name: '2002', y: 1.2 },
+                { name: '2006', y: 1.4 },
+                { name: '2010', y: 2.4 },
+                { name: '2014', y: 2.4 },
+                { name: '2018', y: 2.8 }
+              ]
+            }
+          ]
+        });
+      </script>
       <style>
-        #effect-example-6 {
+        /* #effect-example-6 {
           height: 200px;
           max-width: 350px;
           margin: 0 auto 100px;
@@ -607,65 +635,10 @@
           position: relative;
           top: -2.7vh;
           text-transform: uppercase;
-        }
+        } */
         
       </style>
-      <script>
-            const data_chart_s5 = {
-          labels: [
-            "Lusail",
-            "Al Bayt",
-            "Education City",
-            "Khalifa Int",
-            "974",
-            "Al Janoub",
-            "Ahmad Bin Ali",
-            "Al Thumama",
-          ],
-          datasets: [
-            {
-              label: "BILIONS",
-              data: ["80000", "60000", "70000", "60000", "50000", "40000"],
-              backgroundColor: [
-                "rgb(255, 99, 132)",
-                "rgb(75, 192, 192)",
-                "rgb(255, 205, 86)",
-                "rgb(201, 203, 207)",
-                "rgb(54, 162, 235)",
-              ],
-            },
-          ],
-        };
-
-        // config
-        const config_s5 = {
-          type: "polarArea",
-          data: data_chart_s5,
-
-          options: {
-            maintainAspectRatio: true,
-
-            plugins: {
-              legend: {
-                display: false,
-                position: "left",
-              },
-              title: {
-                display: true,
-                text: "Venituri din ",
-              },
-            },
-            radius: 300,
-            responsive: true,
-            maintainAspectRatio: false,
-          },
-        };
-        //   myChart.update();
-        const myChart_s5 = new Chart(
-          document.querySelector(".chart_s5"),
-          config_s5
-        ).getContext("2d");
-      </script>
+   
       <!-- <script>
         function add_s3Chart() {
           const data_chart_s3 = {
@@ -795,9 +768,7 @@
           </div>
 
           <div class="chartjs-section chartJs-section4">
-            <div style="background: white">
-              <canvas id="" class="chart_s5" width="200" height="200"></canvas>
-            </div>
+        
           </div>
 
           <div class="carousel carousel-section" id="carousel">
@@ -1001,9 +972,7 @@
               />
             </div>
 
-            <div class="gallery1">
-              <div class="box-style">element move</div>
-            </div>
+       
           </div>
           <div class="gallery2 chartJs-section place-bottom">
             <img
@@ -1071,7 +1040,7 @@
               <canvas
                 class="myChart_s6"
                 id=""
-                style="position: relative; height: 40vh; width: 100%"
+                style="position: relative; height: 200px; width: 100%"
                 role="img"
               ></canvas>
             </div>
@@ -1097,21 +1066,21 @@
           </div>
           <div class="header-content-text">
             <h1 class="vertical-title section_7-title" data-fill="d">
-              <span>Brazilia cea mare</span> <br />
+              Brazilia cea mare
             </h1>
           </div>
           <div class="container-parent-cars insert_cars constent"></div>
 
           <img
             src=""
-            data-src="./images/section7/pole.png"
+            data-src="./images/section7/pole.webp"
             alt="pole"
             class="pole-section7 lozad lazy-img"
           />
           <div class="flag-container">
             <img
               src=""
-              data-src="./images/section7/flag.png"
+              data-src="./images/section7/flag.webp"
               alt="pole"
               class="flag-section7 lozad lazy-img"
             />
@@ -1119,7 +1088,7 @@
           <div class="gallery0">
             <img
               src=""
-              data-src="./images/section7/emblem-stars.png"
+              data-src="./images/section7/emblem-stars.webp"
               class="lazy-img lozad"
               alt="stars"
             />
@@ -1184,7 +1153,7 @@
           <div class="gallery0">
             <img
               src=""
-              data-src="./images/section8/trofeu.png"
+              data-src="./images/section8/trofeu.webp"
               class="lazy-img lozad"
               alt="trophee"
             />
@@ -1193,13 +1162,13 @@
           <div class="section-8-bottom place-bottom">
             <img
               src=""
-              data-src="./images/section8/photo1.png"
+              data-src="./images/section8/photo1.webp"
               alt="photoS7"
               class="lazy-img lozad"
             />
             <img
               src=""
-              data-src="./images/section8/photo2.png"
+              data-src="./images/section8/photo2.webp"
               alt="photos77"
               class="cup-s8 lazy-img lozad"
             />
@@ -1388,7 +1357,7 @@
           </div>
           <div class="table_section7">
             <table>
-              <caption>Trofee CM între pretendenții la titlul „Cel mai bun fotbalist din toate timpurile”:</caption>
+              <caption style="font-size:1em !important ;">Trofee CM între pretendenții la titlul <br> „Cel mai bun fotbalist din toate timpurile”:</caption>
               <thead>
                 <tr>
                   <th scope="col">Pelé, Brazilia (1958, 1962 și 1970</th>
@@ -1405,7 +1374,7 @@
                   <td data-label="C. Ronaldo, Portugalia">0 titluri</td>
                 </tr>
                 <td class="td-label" data-label="" colspan="4">
-                 <span>7 Baloane de Aur</span> <p> Ar fi câștigat Pelé, dacă pe vremea lui s-ar fi aplicat regulile de desemnare existente astăzi. Calculul a fost făcut chiar de France Football, publicația care oferă trofeul.</p>
+                 <span style="font-weight:bold;">7 Baloane de Aur</span> <p style="font-size: 0.9em; padding: 0.2em 0;"> Ar fi câștigat Pelé, dacă pe vremea lui s-ar fi aplicat regulile de desemnare existente astăzi. Calculul a fost făcut chiar de France Football, publicația care oferă trofeul.</p>
                 </td>
               </tbody>
             </table>
@@ -1805,7 +1774,7 @@
 
             <img
             src=""
-            data-src="./images/section20/maradona.gif"
+            data-src="./images/section20/maradona2.gif"
             class="lazy-img lozad"
             alt="s20"
           />
@@ -1902,29 +1871,21 @@
         data-section-name="section_23"
       >
         <div class="inner inner_section_23 grid-template">
-          <div class="logo-top">
-            <img
-              src=""
-              data-src="./images/section5/Quatar-logo.png"
-              alt="quatar-logo"
-              class="quatarLogo lazy-img lozad"
-            />
-          </div>
+   
 
-          <div class="header-content-text">
-            <h1 class="vertical-title section_23-title" data-fill="o">
+          <div class="header-quiz-text">
+            <h1 class="vertical-quiz section_23-title" data-fill="o">
               <span class="line-1s23">chestionar</span> <br />
             </h1>
           </div>
           <div class="text_quiz_section">
             <h2>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-              totam unde et repellendus soluta molestiae sit error quidem minima
-              modi!
+            
             </h2>
           </div>
           <div class="start-screen">
-            <button id="start-button">Start</button>
+            <button id="start-button">Începe</button>
           </div>
           <div class="quiz-container" id="display-container">
             <div class="quizArea">
@@ -1962,7 +1923,7 @@
                     <h2>Rezultat</h2>
                   </div>
                   <div class="briefchart">
-                    <svg height="250" width="300" id="_cir_progress">
+                    <svg height="100" width="300" id="_cir_progress">
                       <g>
                         <rect
                           x="0"
@@ -1977,43 +1938,20 @@
                       </g>
                       <g>
                         <rect
-                          x="178"
+                          x="200"
                           y="1"
                           width="30"
                           height="15"
                           fill="#968089"
                         />
-                        <text x="210" y="14" font-size="14" class="_text_cor">
+                        <text x="232" y="14" font-size="14" class="_text_cor">
                           Correct : 12
                         </text>
                       </g>
-                      <circle
-                        class="_cir_P_x"
-                        cx="140"
-                        cy="140"
-                        r="70"
-                        stroke="#ab4e6b"
-                        stroke-width="20"
-                        fill="none"
-                        onmouseover="evt.target.setAttribute('stroke', 'rgba(171, 78, 107,0.7)');"
-                        onmouseout="evt.target.setAttribute('stroke','crimson');"
-                      ></circle>
-
-                      <circle
-                        class="_cir_P_y"
-                        cx="140"
-                        cy="140"
-                        r="70"
-                        stroke="#968089"
-                        stroke-width="20"
-                        stroke-dasharray="0,1000"
-                        fill="none"
-                        onmouseover="evt.target.setAttribute('stroke', 'rgba(150, 128, 137,0.7)');"
-                        onmouseout="evt.target.setAttribute('stroke','#968089');"
-                      ></circle>
+           
                       <text
                         x="50%"
-                        y="45%"
+                        y="47%"
                         text-anchor="middle"
                         stroke="none"
                         stroke-width="1px"
@@ -2546,7 +2484,7 @@
         // }
 
         let closeHeight = "2em";
-        let moreText = "citeste mai mult";
+        let moreText = "citește mai mult";
         let lessText = "inchide";
         let duration = "1000";
         let easing = "slow";
@@ -2920,9 +2858,9 @@
 
           if (_percentage >= _input_percentage) {
             _text_percentage.html(
-              '<tspan x="47%" dy="0em">' +
+              '<tspan x="52%" dy="0em">' +
                 unchnagedPer +
-                '% </tspan><tspan  x="45%" dy="1em">Your Score</tspan>'
+                '% </tspan><tspan  x="50%" dy="1em">Scorul tău</tspan>'
             );
             clearInterval(_sleep);
           } else {
