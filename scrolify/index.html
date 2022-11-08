@@ -173,7 +173,7 @@
           <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
-      <div class="Quick-navigation" style="display: block">
+      <div class="Quick-navigation" style="display: none">
         <ul class="pagination">
           <li data-marker="1">
             <em>01</em>
@@ -525,106 +525,104 @@
             </div>
           </div>
           <div class="gallery2 chartJs-section place-bottom">
-            <canvas id="myChart_s3" class="myChart_s3" style="max-width: 100%;height: 30vh;margin: 0px auto;"></canvas>
-         
+            <canvas
+              id="myChart_s3"
+              class="myChart_s3"
+              style="max-width: 100%; height: 30vh; margin: 0px auto"
+            ></canvas>
           </div>
         </div>
       </section>
       <script>
-              const data_chart_s3 = {
-            labels: ["2002", "2006", "2010", "2014", "2018"],
-            datasets: [
-              {
-                label: "BILIONS",
-                data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
-                backgroundColor: [
-                  "rgba(250,174,50,1)",
-                  "grey",
-                  "rgb(255, 205, 86)",
-                ],
+        const data_chart_s3 = {
+          labels: ["2002", "2006", "2010", "2014", "2018"],
+          datasets: [
+            {
+              label: "BILIONS",
+              data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
+              backgroundColor: [
+                "rgba(250,174,50,1)",
+                "grey",
+                "rgb(255, 205, 86)",
+              ],
+            },
+          ],
+        };
+        var options_s3 = {
+          maintainAspectRatio: true,
+          scales: {
+            y: {
+              stacked: true,
+              grid: {
+                display: true,
+                color: "rgba(255,99,132,0.2)",
               },
-            ],
-          };
-          var options_s3 = {
-            maintainAspectRatio: true,
+            },
+            x: {
+              grid: {
+                display: false,
+              },
+            },
+          },
+        };
+        // config
+        const config_s3 = {
+          type: "bar",
+          data: data_chart_s3,
+          options: {
+            indexAxis: "x",
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: true,
+                text: "Venituri din drepturi media în miliarde de dolari ",
+              },
+            },
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
               y: {
-                stacked: true,
                 grid: {
-                  display: true,
-                  color: "rgba(255,99,132,0.2)",
+                  borderColor: "black",
+                  borderWidth: 0.5,
+                  lineWidth: 1,
+                  beginAtZero: true,
+                },
+                min: 0,
+                max: 3,
+                ticks: {
+                  callback: function (m) {
+                    return "$" + m + "b";
+                  },
                 },
               },
               x: {
                 grid: {
-                  display: false,
+                  borderColor: "black",
+                  borderWidth: 0.5,
+                  lineWidth: 0.7,
                 },
               },
             },
-          };
-          // config
-          const config_s3 = {
-            type: "bar",
-            data: data_chart_s3,
-            options: {
-              indexAxis: "x",
-              plugins: {
-                legend: {
-                  display: false,
-                },
-                title: {
-                  display: true,
-                  text: "Venituri din drepturi media în miliarde de dolari ",
-                },
-              },
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                y: {
-                  grid: {
-                    borderColor: "black",
-                    borderWidth: 0.5,
-                    lineWidth: 1,
-                    beginAtZero: true,
-                  },
-                  min: 0,
-                  max: 3,
-                  ticks: {
-                    callback: function (m) {
-                      return "$" + m + "b";
-                    },
-                  },
-                },
-                x: {
-                  grid: {
-                    borderColor: "black",
-                    borderWidth: 0.5,
-                    lineWidth: 0.7,
-                  },
-                },
-              },
-              layout: {
-                padding: {
-                  left: 2,
-                  right: 2,
-                  bottom: 20,
-                  top: 10,
-                },
+            layout: {
+              padding: {
+                left: 2,
+                right: 2,
+                bottom: 20,
+                top: 10,
               },
             },
-          };
-          //   myChart.update();
-          const myChart_s3 = new Chart(
-            document.getElementById("myChart_s3"),
-            config_s3
-          ).getContext("2d");
-        
-    
-   
-        
-  
+          },
+        };
+        //   myChart.update();
+        const myChart_s3 = new Chart(
+          document.getElementById("myChart_s3"),
+          config_s3
+        ).getContext("2d");
       </script>
-      
+
       <style>
         /* #effect-example-6 {
           height: 200px;
@@ -653,10 +651,8 @@
           top: -2.7vh;
           text-transform: uppercase;
         } */
-        
       </style>
-   
-   
+
       <!--TODO:SECTIONS---SECTION 4---->
       <section
         class="panel section_4_container"
@@ -693,8 +689,20 @@
             />
           </div>
 
-          <div class="chartjs-section chartJs-section4">
-        
+          <div
+            class="chartjs-section chartJs-section4 c4List container-cards card_normal entry-cards"
+          >
+            <div class="c5List_content">
+              <h4>Mai puține stadioane</h4>
+
+              <p>
+                Doar opt stadioane au fost pregătite de Qatar pentru a găzdui CM
+                2022, ceea ce reprezintă cel mai mic număr de locații pentru
+                Cupa Mondială din ultimii ani. De fapt, din toate cele opt
+                locații selectate pentru a găzdui turneul, doar una a fost
+                renovată complet, în timp ce șapte sunt construcții noi.
+              </p>
+            </div>
           </div>
 
           <div class="carousel carousel-section" id="carousel">
@@ -897,8 +905,6 @@
                 alt="p5"
               />
             </div>
-
-       
           </div>
           <div class="gallery2 chartJs-section place-bottom">
             <img
@@ -1021,7 +1027,9 @@
           </div>
           <div class="table_section7">
             <table>
-              <caption>Topul campioanelor</caption>
+              <caption>
+                Topul campioanelor
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">Brazilia</th>
@@ -1283,7 +1291,11 @@
           </div>
           <div class="table_section7">
             <table>
-              <caption style="font-size:1em !important ;">Trofee CM între pretendenții la titlul <br> „Cel mai bun fotbalist din toate timpurile”:</caption>
+              <caption style="font-size: 1em !important">
+                Trofee CM între pretendenții la titlul
+                <br />
+                „Cel mai bun fotbalist din toate timpurile”:
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">Pelé, Brazilia (1958, 1962 și 1970</th>
@@ -1294,13 +1306,21 @@
               </thead>
               <tbody>
                 <tr>
-                  <td data-label="Pelé, Brazilia (1958, 1962 și 1970">3 titluri</td>
+                  <td data-label="Pelé, Brazilia (1958, 1962 și 1970">
+                    3 titluri
+                  </td>
                   <td data-label="Maradona, Argentina">1 titlu</td>
                   <td data-label="Messi, Argentina">0 titluri</td>
                   <td data-label="C. Ronaldo, Portugalia">0 titluri</td>
                 </tr>
                 <td class="td-label" data-label="" colspan="4">
-                 <span style="font-weight:bold;">7 Baloane de Aur</span> <p style="font-size: 0.9em; padding: 0.2em 0;"> Ar fi câștigat Pelé, dacă pe vremea lui s-ar fi aplicat regulile de desemnare existente astăzi. Calculul a fost făcut chiar de France Football, publicația care oferă trofeul.</p>
+                  <span style="font-weight: bold">7 Baloane de Aur</span>
+                  <p style="font-size: 0.9em; padding: 0.2em 0">
+                    Ar fi câștigat Pelé, dacă pe vremea lui s-ar fi aplicat
+                    regulile de desemnare existente astăzi. Calculul a fost
+                    făcut chiar de France Football, publicația care oferă
+                    trofeul.
+                  </p>
                 </td>
               </tbody>
             </table>
@@ -1347,23 +1367,21 @@
           </div>
           <div class="table_section7">
             <table>
-              <caption style="text-transform: uppercase;">Alte istorii lungi</caption>
+              <caption style="text-transform: uppercase">
+                Alte istorii lungi
+              </caption>
               <thead>
                 <tr>
                   <th scope="col">Brazilia - Suedia</th>
                   <th scope="col">Germania - Serbia</th>
-      
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td data-label="Brazilia - Suedia">(5-2-0)</td>
                   <td data-label="Germania - Serbia">(4-1-2)</td>
-           
                 </tr>
-                <td class="td-label" data-label="" colspan="4">
-              
-                </td>
+                <td class="td-label" data-label="" colspan="4"></td>
               </tbody>
             </table>
           </div>
@@ -1441,7 +1459,7 @@
               <span class="line-1s15">Și recordul lui Klose</span>
             </h1>
           </div>
-          <div class="container-parent-cars insert_cars_double constent"></div>
+          <div class="container-parent-cars insert_cars constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1467,13 +1485,12 @@
             />
           </div>
           <div class="section-15-bottom place-bottom">
-
             <img
-            src=""
-            data-src="./images/section15/klose.gif"
-            class="lazy-img lozad"
-            alt="s15"
-          />
+              src=""
+              data-src="./images/section15/klose.gif"
+              class="lazy-img lozad"
+              alt="s15"
+            />
           </div>
         </div>
       </section>
@@ -1572,6 +1589,12 @@
               alt="s17"
             />
           </div>
+          <div class="place-bottom">
+            <p>
+              <b>"Anglia campioană"</b> va fi trending pe social media și în
+              2022.. Cu siguranță!
+            </p>
+          </div>
         </div>
       </section>
 
@@ -1611,6 +1634,20 @@
               class="lazy-img lozad"
               alt="s18"
             />
+          </div>
+          <div class="place-bottom part_one">
+            <img
+              src=""
+              data-src="./images/section18/vuvuzela.webp"
+              class="lazy-img lozad"
+              alt="s18"
+            />
+          </div>
+          <div class="place-bottom part_two">
+            <p>
+              Echipele <b>africane</b> nu au trecut niciodată de sferturile
+              competiției.
+            </p>
           </div>
         </div>
       </section>
@@ -1697,14 +1734,12 @@
             />
           </div>
           <div class="chartJs-section place-bottom section_20_bottom">
-
             <img
-            src=""
-            data-src="./images/section20/maradona2.gif"
-            class="lazy-img lozad"
-            alt="s20"
-          />
-
+              src=""
+              data-src="./images/section20/maradona2.gif"
+              class="lazy-img lozad"
+              alt="s20"
+            />
           </div>
         </div>
       </section>
@@ -1731,7 +1766,7 @@
             </h1>
           </div>
           <div class="chart_s21">chart1</div>
-          <div class="container-parent-cars insert_cars_double constent"></div>
+          <div class="container-parent-cars insert_cars constent"></div>
           <div class="gallery0">
             <img
               src=""
@@ -1798,17 +1833,16 @@
         data-section-name="section_23"
       >
         <div class="inner inner_section_23 grid-template">
-   
-
           <div class="header-quiz-text">
             <h1 class="vertical-quiz section_23-title" data-fill="o">
-              <span class="line-1s23">chestionar</span> <br />
+              <span class="line-1s23">Quiz</span> <br />
             </h1>
           </div>
           <div class="text_quiz_section">
             <h2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
-            
+              Îți mulțumim pentru atenție! Completează chestionarul pentru a-ți
+              verifica cunoștiințele și bucură-te de un premiu surpriză la
+              înregistrarea pe NetBet Sport!
             </h2>
           </div>
           <div class="start-screen">
@@ -1839,8 +1873,10 @@
                   <div class="question"></div>
                   <div class="answerOptions"></div>
                   <div class="buttonArea">
-                    <button id="next" class="hidden btn_quiz">Next</button>
-                    <button id="submit" class="hidden btn_quiz">Submit</button>
+                    <button id="next" class="hidden btn_quiz">Înainte</button>
+                    <button id="submit" class="hidden btn_quiz">
+                      Rezultat
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1875,7 +1911,7 @@
                           Correct : 12
                         </text>
                       </g>
-           
+
                       <text
                         x="50%"
                         y="47%"
@@ -1896,18 +1932,134 @@
                   <div class="resultBtns">
                     <button class="viewanswer">vezi răspunsurile</button>
                     <!-- <button class="viewchart">View Chart</button> -->
-                    <button class="replay">
-                      <i class="fa fa-repeat" style="font-size: 1em"></i>
-                      <br />redirect
-                    </button>
+                    <button class="replay">Înregistrează-te</button>
                   </div>
+                  <footer class="footer-quiz">
+                    <div class="tc-quiz terms hidden">
+                      <div class="terms-toggle">termeni și condiții</div>
+                      <div class="terms-content">
+                        <h2>Cine este eligibil?</h2>
+                        <ul>
+                          <li>
+                            Oferta se adresează exclusiv jucătorilor noi din
+                            România, care se înregistrează pe NetBet Sport și
+                            completează procesul de validare a identității în
+                            termenii prevăzuți de lege: încarcă documentul
+                            (buletinul sau actul de identitate) și așteaptă
+                            confirmarea procesării cu succes a acestuia.
+                          </li>
+                          <li>
+                            Este limitată la o singură utilizare per adresă
+                            domiciliu/calculator/adresă IP.
+                          </li>
+                          <li>
+                            Această campanie este disponibilă doar până pe data
+                            de 18 decembrie 2022, ora 23:59 EET.
+                          </li>
+                          <li>
+                            Promoția oferă 20 RON Freebet pentru jucătorii noi
+                            care completează chestionarul Infografic CM22 și
+                            îndeplinesc condițiile de mai sus.
+                          </li>
+                          <li>
+                            Este limitată la o singură utilizare per adresă
+                            domiciliu/calculator/adresă IP.
+                          </li>
+                        </ul>
+                        <h2>Cum funcționează?</h2>
+                        <ul>
+                          <li>
+                            Freebetul poate fi utilizat pentru a paria live și
+                            pre-live pe orice sport la cotă minimă de 2.5 pentru
+                            pariuri simple și cotă minimă de 2.5/selecție pentru
+                            pariuri combi. Nu poate fi utilizat pentru pariurile
+                            sistem.
+                          </li>
+                          <li>
+                            Freebeturile sunt creditate în 72h (3 zile
+                            lucrătoare) de la validarea identitățiii
+                          </li>
+                        </ul>
+                        <h2>
+                          Care sunt condițiile freebetului pe NetBet Sport?
+                        </h2>
+                        <ul>
+                          <li>
+                            Jucătorii trebuie să parieze FREEBETUL o singură
+                            dată pe orice eveniment eligibil cu o cotă minimă de
+                            2.50 sau în sistem combi pe mai multe evenimente
+                            (fiecare selecție în parte trebuie să respecte
+                            criteriul cotelor minime de 2.50) înainte de a
+                            înregistra o cerere de retragere.
+                          </li>
+                          <li>
+                            Dacă pariul plasat cu freebetul primit este
+                            câștigat, jucătorul va primi profitul (câștig total
+                            - valoarea freebetului) în bani reali. Dacă
+                            jucătorul alege să parieze o sumă mai mică decât
+                            FREEBETUL acordat, jucătorului i se va anula suma
+                            rămasă din FREEBET în urma plasării pariului ales..
+                          </li>
+                          <li>
+                            Cerințele de pariere trebuie îndeplinite până în
+                            data de 18 decembrie 2022, ora 23:59 EET. După acest
+                            interval, orice freebet aflat în balanță va fi
+                            anulat.
+                          </li>
+                          <li>
+                            Pariurile din secțiunea NetBet Special - Cote Mărite
+                            nu se califică la promoție.
+                          </li>
+                          <li>
+                            Pariurile în sistem nu sunt eligibile pentru această
+                            promoție.
+                          </li>
+                          <li>Pariurile CASH OUT nu se iau în considerare.</li>
+                        </ul>
+                        <h2>Ce altceva trebuie să știu?</h2>
+                        <ul>
+                          <li>
+                            Clienții care beneficiază de această ofertă nu sunt
+                            eligibili pentru nicio altă ofertă la înregistrare.
+                          </li>
+                          <li>
+                            NetBet își rezervă dreptul, la discreția sa, de a
+                            exclude și/sau de a limita disponibilitatea ofertei
+                            anumitor clienți.
+                          </li>
+                          <li>
+                            NetBet își rezervă dreptul de a anula sau de a
+                            modifica condițiile acestei promoții fără notificare
+                            prealabilă.
+                          </li>
+                          <li>
+                            NetBet își rezervă dreptul de a exclude jucătorii
+                            care participă la promoții cu mai multe conturi
+                          </li>
+                          <li>
+                            NetBet își rezervă dreptul de a descalifica
+                            jucătorii în caz de coluziune, joc incorect sau în
+                            cazul în care consideră că au abuzat de promoție.
+                          </li>
+
+                          <li>
+                            Această Oferta respectă <a
+                              href="https://global.netbet.ro/help/terms-and-conditions/terms-conditions"
+                              style="display: inline-block; color: #64b000"
+                              >Termenii și Condițiile Generale NetBet</a
+                            >.
+                          </li>
+                        </ul>
+                        <br />
+                        <hr />
+                      </div>
+                    </div>
+                  </footer>
                 </div>
 
                 <div class="resultPage2">
                   <h2>rezultatul</h2>
-                  <div class="chartBox">
-                    <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
-                  </div>
+
                   <button class="backBtn">Înapoi</button>
                 </div>
 
@@ -1924,6 +2076,13 @@
     </div>
 
     <script>
+      $(function () {
+        $(".terms-toggle").click(function () {
+          $(".terms").toggleClass("hidden");
+          $(".terms-content").slideToggle();
+        });
+      });
+
       const config = {
         autoload: true,
         itemsToBeVisible: 3,
@@ -2011,6 +2170,7 @@
         };
         play();
       }
+      start();
     </script>
     <script>
       $(function () {
@@ -2229,8 +2389,6 @@
     <script>
       function updateChart() {
         const api_url = "./test2.json";
-  
-  
 
         async function getJson() {
           const response = await fetch(api_url);
@@ -2247,27 +2405,59 @@
         const z = x[14].getElementsByClassName("entry-content");
         getJson().then((jsondata) => {
           const jsonSection = jsondata.qatar[1].sections;
-          console.log(jsonSection, "sjson");
+          // console.log(jsonSection, "sjson");
           for (i = 1; i < jsonSection.length; i++) {
-            console.log("lungimea arrayului e de: ",jsonSection.length);
-            console.log(x[i].getElementsByClassName("entry-title"));
-            let j = i+1;
+            // console.log("lungimea arrayului e de: ", jsonSection.length);
+            // console.log(x[i].getElementsByClassName("entry-title"));
+            let j = i + 1;
             if (j < 22) {
-              console.log("sectiunea: ", jsonSection[j].section, " > subtitle one: ", jsonSection[j].subtitle, " content one: ", jsonSection[j].content, " > subtitle two: ", jsonSection[j].subtitle_two, " content two: ", jsonSection[j].content_two);
-            };
-            console.log("//// in sectiunea", j, " am gasit ", x[i].getElementsByClassName("entry-title").length, " casute de title si ", x[i].getElementsByClassName("entry-content").length, " de content");
-          if (i>1 && x[i].getElementsByClassName("entry-title").length+1 > 0){
-            x[i-1].getElementsByClassName("entry-title")[0].innerHTML = `<h2 class="entry-title">` + jsonSection[i-1].subtitle + `</h2>`;
-            x[i-1].getElementsByClassName("entry-content")[0].innerHTML = `<p>` + jsonSection[i-1].content + `</p>`;
-            if (x[i].getElementsByClassName("entry-title").length == 2) {
-              x[i].getElementsByClassName("entry-title")[1].innerHTML = `<h2 class="entry-title">` + jsonSection[i].subtitle_two + `</h2>`;
-              x[i].getElementsByClassName("entry-content")[1].innerHTML = `<p>` + jsonSection[i].content_two + `</p>`;
+              // console.log(
+              //   "sectiunea: ",
+              //   jsonSection[j].section,
+              //   " > subtitle one: ",
+              //   jsonSection[j].subtitle,
+              //   " content one: ",
+              //   jsonSection[j].content,
+              //   " > subtitle two: ",
+              //   jsonSection[j].subtitle_two,
+              //   " content two: ",
+              //   jsonSection[j].content_two
+              // );
+            }
+            // console.log(
+            //   "//// in sectiunea",
+            //   j,
+            //   " am gasit ",
+            //   x[i].getElementsByClassName("entry-title").length,
+            //   " casute de title si ",
+            //   x[i].getElementsByClassName("entry-content").length,
+            //   " de content"
+            // );
+            if (
+              i > 1 &&
+              x[i].getElementsByClassName("entry-title").length + 1 > 0
+            ) {
+              x[i - 1].getElementsByClassName("entry-title")[0].innerHTML =
+                `<h2 class="entry-title">` +
+                jsonSection[i - 1].subtitle +
+                `</h2>`;
+              x[i - 1].getElementsByClassName("entry-content")[0].innerHTML =
+                `<p>` + jsonSection[i - 1].content + `</p>`;
+              if (x[i].getElementsByClassName("entry-title").length == 2) {
+                x[i].getElementsByClassName("entry-title")[1].innerHTML =
+                  `<h2 class="entry-title">` +
+                  jsonSection[i].subtitle_two +
+                  `</h2>`;
+                x[i].getElementsByClassName("entry-content")[1].innerHTML =
+                  `<p>` + jsonSection[i].content_two + `</p>`;
+              }
             }
           }
 
-        }
-
-          const stadium_name = jsondata.qatar[3].stadium.map(function (index,i) {
+          const stadium_name = jsondata.qatar[3].stadium.map(function (
+            index,
+            i
+          ) {
             console.log(index.name, "stadium");
             return index.name;
           });
@@ -2277,98 +2467,91 @@
           });
           // myChart_s5.config_s5.data_chart_s5.labels = stadium_name;
           // myChart_s5.update();
-       
 
-    
+          /*s6*/
+          const players_name = jsondata.qatar[2].players.map(
+            ({ name, price }, index) => {
+              console.log("index", price);
+              return name;
+            }
+          );
+          const players_price = jsondata.qatar[2].players.map(
+            ({ price }, index) => {
+              return price;
+            }
+          );
 
-        /*s6*/
-        const players_name = jsondata.qatar[2].players.map(
-          ({ name, price }, index) => {
-            console.log("index", price);
-            return name;
-          }
-        );
-        const players_price = jsondata.qatar[2].players.map(({ price }, index) => {
-          return price;
-        });
-
-        const data_chart6 = {
-          labels: players_name.slice(0, 5),
-          datasets: [
-            {
-              label: "MILIOANELE DE EURO",
-              data: players_price.slice(0, 5),
-              borderColor: "black",
-              borderWidth: 0,
-              // pointBackgroundColor: "crimson",
-              backgroundColor: [
-                "rgba(250,174,50,1)",
-                "rgba(250,174,50,1)",
-                "rgba(250,174,50,1)",
-              ],
-    
-     
-            },
-          ],
-        };
-
-        // config
-        const config_chart6 = {
-          type: "bar",
-          data: data_chart6,
-          options: {
-            indexAxis: "y",
-            plugins: {
-              datalabels: {
-                anchor: "end",
-                align: "top",
+          const data_chart6 = {
+            labels: players_name.slice(0, 5),
+            datasets: [
+              {
+                label: "MILIOANELE DE EURO",
+                data: players_price.slice(0, 5),
+                borderColor: "black",
+                borderWidth: 0,
+                // pointBackgroundColor: "crimson",
+                backgroundColor: [
+                  "rgba(250,174,50,1)",
+                  "rgba(250,174,50,1)",
+                  "rgba(250,174,50,1)",
+                ],
               },
-              legend: {
-                display: false,
+            ],
+          };
+
+          // config
+          const config_chart6 = {
+            type: "bar",
+            data: data_chart6,
+            options: {
+              indexAxis: "y",
+              plugins: {
+                datalabels: {
+                  anchor: "end",
+                  align: "top",
+                },
+                legend: {
+                  display: false,
+                },
+                title: {
+                  display: true,
+                  text: "fotbalul si milioanele",
+                },
               },
-              title: {
-                display: true,
-                text: "fotbalul si milioanele",
-              },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: {
-                min: 0,
-                max: 190,
-                ticks: {
-                  callback: function (price) {
-                    return "$" + price + "m";
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  min: 0,
+                  max: 190,
+                  ticks: {
+                    callback: function (price) {
+                      return "$" + price + "m";
+                    },
                   },
                 },
               },
-            },
 
-            layout: {
-              padding: {
-                left: 2,
-                right: 2,
-                bottom: 5,
-                top: 5,
+              layout: {
+                padding: {
+                  left: 2,
+                  right: 2,
+                  bottom: 5,
+                  top: 5,
+                },
               },
             },
-          },
-        };
-  
-        //   myChart.update();
-        const myChart_s6 = new Chart(
-          document.querySelector(".myChart_s6"),
-          config_chart6
-        ).getContext("2d");
+          };
 
-      
-      })
-      
+          //   myChart.update();
+          const myChart_s6 = new Chart(
+            document.querySelector(".myChart_s6"),
+            config_chart6
+          ).getContext("2d");
+        });
       }
 
       $(document).ready(function () {
-
         let card_div_normal = `<div class="container-cards card_normal entry-cards ">
         <h2 class="entry-title">title</h2>
         <div class="entry-content forScrolling">
@@ -2410,7 +2593,7 @@
         //   }
         // }
 
-        let closeHeight = "2em";
+        let closeHeight = "2.1em";
         let moreText = "citește mai mult";
         let lessText = "inchide";
         let duration = "1000";
@@ -2485,7 +2668,6 @@
         updateChart();
         // $(".more-link").bind("click", openSlider);
       });
-
     </script>
     <script>
       let $progressValue = 0;
@@ -2978,7 +3160,7 @@
         $(".resultArea").on("click", ".replay", function () {
           //    window.location.reload(true);
 
-          window.location.href = "https://go.netbet.ro/sport/?lp=sport2022";
+          window.location.href = "https://sport.netbet.ro/?register=1";
         });
       });
     </script>
