@@ -545,8 +545,7 @@
         {
           "section": 2,
           "id": 2,
-          "content": "Va fi pentru prima dată când Campionatul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius.",
-          "content_two": "Pentru a combate temperaturile ridicate, stadioanele pe care se va desfășura CM 2022 sunt prevăzute cu instalații imense de aer condiționat",
+          "content": "Va fi pentru prima dată când Campionatul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius.Pentru a combate temperaturile ridicate, stadioanele pe care se va desfășura CM 2022 sunt prevăzute cu instalații imense de aer condiționat.",
           "title": "Primul turneu pe timp de iarnă",
           "subtitle": "23-30°C"
         },
@@ -598,7 +597,7 @@
           "section": 8,
           "title": "Primul trofeu, câștigat definitv în 1970, apoi dat dispărut",
           "content": "Primul trofeu era o reprezentare a zeiței Nike, zeița victoriei în mitologia greacă. Botezat inițial „Victoria”, trofeul a fost rebotezat „Jules Rimet” în 1946, după numele președintelui federației din 1929, inițiatorul Campionatului de Fotbal Mondial.",
-          "content_two": "Trofeul Jules Rimet urma să fie păstrat definitiv de prima triplă campioană mondială. Asta a fost Brazilia în 1970. Numai că trofeul a dispărut în 1984 și de atunci nimeni nu mai știe unde e statueta. Are actualul trofeu al campionatului, fiind făcut din 6,1 kilograme de aur masiv. 30.875 karate",
+          "content_two": "Trofeul Jules Rimet urma să fie păstrat definitiv de prima triplă campioană mondială. Asta a fost Brazilia în 1970. Numai că trofeul a dispărut în 1984 și de atunci nimeni nu mai știe unde e statueta. 30.875 karate are actualul trofeu al campionatului, fiind făcut din 6,1 kilograme de aur masiv.",
           "subtitle": "Brazilia deține Zeița Victoriei",
           "subtitle_two": "Trofeul dispărut"
         },
@@ -668,7 +667,9 @@
           "section": 16,
           "title": "Golul de 11 secunde",
           "content": "Hakan Şükür este autorul celui mai rapid gol din istoria turneului. Jucătorul turc a avut nevoie de doar 11 secunde pentru a marca împotriva Coreei de Sud în 2002. Cehoslovacul Václav Mašek este al doilea în acest top, cu un gol în 15 secunde împotriva Mexicului în 1962.",
-          "subtitle": "Un record turcesc"
+          "subtitle": "Un record turcesc",
+          "subtitle_two": "La 4 secunde distanță",
+          "content_two":"Cehoslovacul Václav Mašek este al doilea în acest top, cu un gol în 15 secunde împotriva Mexicului în 1962."
         },
         {
           "id": 17,
@@ -693,7 +694,7 @@
           "section": 19,
           "title": "Se înscrie mai rar. Dar mai mult",
           "content": "Pe măsură ce numărul echipelor a crescut, media de goluri marcate pe meci de la un campionat la altul a avut un trend descendent. S-a terminat în anii '60, când media de goluri pe meci a scăzut semnificativ. Începând cu Chile 1962 nu a mai fost turneu în care media să treacă de 3 goluri pe meci. CM 1990 desfășurat în Italia a avut cea mai scăzută medie de goluri pe meci de până acum, 2,21 goluri pe meci.",
-          "subtitle_two": "Doar golurile contează?"
+          "subtitle": "Doar golurile contează?"
         },
         {
           "id": 20,
@@ -708,7 +709,8 @@
           "id": 21,
           "section": 21,
           "title": "Cel mai costisitor turneu final",
-          "content": "Peste 200 de miliarde de euro a cheltuit Qatar pentru a organiza CM 2022."
+          "content": "Peste 200 de miliarde de euro a cheltuit Qatar pentru a organiza CM 2022.",
+          "subtitle": "FMM lipsea asta"
         },
         {
           "id": 22,
