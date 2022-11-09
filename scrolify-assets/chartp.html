@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.5.0"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="myChart_s8"
+      class="myChart_s8"
+      style="max-width: 90%; height: 30vh"
+    ></canvas>
+    <!-- <canvas id="myChart" width="80" height="40"></canvas> -->
+    <script>
+      const data_chart_s8 = {
+        labels: [
+          "SUA (1994)",
+          "Franța (1998)",
+          "Japonia (2002)",
+          "Germania (2006)",
+          "America de Sud",
+          "Brazilia (2014)",
+          "Rusia (2018)",
+          "Qatar (2022)",
+        ],
+        datasets: [
+          {
+            label: "BILIONS",
+            data: [0.5, 2.3, 7, 4.3, 3.6, 15, 11.6, 220],
+            backgroundColor: [
+              "rgba(250,174,50,1)",
+              "blue",
+              "rgb(255, 205, 86)",
+            ],
+            borderColor: "black",
+
+            pointBorderColor: "lightgrey",
+            pointBorderWidth: 4,
+            pointRadius: 4,
+            pointBackgroundColor: "green",
+            pointHoverRadius: 10,
+            pointHoverBorderWidth: 2,
+            pointHoverBorderColor: "yellow",
+            pointHoverBackgroundColor: "blue",
+            pointHitRadius: 30,
+            backgroundColor: "cyan",
+            fill: true,
+          },
+        ],
+      };
+
+      // config
+      //   var options_s8 = {
+      //     maintainAspectRatio: true,
+
+      //   };
+      // config
+      const config_s8 = {
+        type: "line",
+        data: data_chart_s8,
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+            title: {
+              display: true,
+              text: "Venituri din drepturi media în miliarde de dolari ",
+            },
+          },
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              grid: {
+                borderColor: "black",
+                borderWidth: 0.5,
+                lineWidth: 1,
+                beginAtZero: true,
+              },
+              min: -5,
+              max: 250,
+              ticks: {
+                callback: function (m) {
+                  return "$" + m + ".b";
+                },
+              },
+            },
+
+            x: {
+              grid: {
+                borderColor: "red",
+                borderWidth: 1,
+                lineWidth: 1,
+              },
+            },
+          },
+          layout: {
+            padding: {
+              left: 2,
+              right: 2,
+              bottom: 20,
+              top: 10,
+            },
+        
+          },
+        },
+      };
+      const myChart_s8 = new Chart(
+        document.getElementById("myChart_s8"),
+        config_s8
+      ).getContext("2d");
+    </script>
+    <!-- <script>
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: "line",
+
+        // The data for our dataset
+        data: {
+          labels: [
+            "SUA (1994)",
+            "Franța (1998)",
+            "Japonia (2002)",
+            "Germania (2006)",
+            "America de Sud",
+            "Brazilia (2014)",
+            "Rusia (2018)",
+            "Qatar (2022)",
+          ],
+          datasets: [
+            {
+              label: "Sales",
+
+              borderColor: "rgba(215,25,28,0.4)",
+
+              pointBackgroundColor: "rgba(215,25,28,1)",
+              pointBorderColor: "rgba(215,25,28,0.4)",
+              pointBorderWidth: 0,
+              pointRadius: 4,
+
+              pointHoverRadius: 4,
+              pointHoverBorderWidth: 1,
+              pointHoverBorderColor: "rgba(0,0,0,0.2)",
+              pointHoverBackgroundColor: "rgba(253,174,97,0.9)",
+
+              pointHitRadius: 30,
+
+              backgroundColor: "rgba(215,25,28,0.04)",
+              fill: "origin", // A bit pointless if only one measure
+
+              data: [0.5, 2.3, 7, 4.3, 3.6, 15, 11.6, 22],
+            },
+          ],
+        },
+
+        // Configuration options go here
+        options: {
+          title: {
+            display: true,
+            text: "My First Chart Title",
+          },
+
+          plugins: {
+            datalabels: {
+              backgroundColor: function (context) {
+                return context.dataset.backgroundColor;
+              },
+              borderRadius: 20,
+              color: "white",
+              font: {
+                weight: "bold",
+              },
+              formatter: Math.round,
+            },
+          },
+
+          tooltips: {
+            callbacks: {
+              label: function (tooltipItem, data) {
+                // Rounds to two decimal places
+                var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+                if (label) {
+                  label += ": £";
+                }
+                label += Math.round(tooltipItem.yLabel * 100) / 100;
+                return label;
+              },
+            },
+          },
+
+          legend: false,
+    
+
+        },
+      });
+    </script> -->
+  </body>
+</html>
