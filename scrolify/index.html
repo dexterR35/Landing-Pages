@@ -124,7 +124,7 @@
         <div class="progress-bar" id="progressBar"></div>
       </div>
     </div>
-    <div class="Quick-navigation" style="display: none">
+    <div class="Quick-navigation" style="display: block">
       <ul class="pagination">
         <li data-marker="1">
           <em>01</em>
@@ -223,6 +223,8 @@
     <!--TODO:SECTION---HOME---->
     <section class="panel home" data-section-name="home">
       <div class="inner inner_section_1 grid-template">
+      
+   
         <div class="header-content-text forC">
           <h1 class="vertical-title section_1-title" data-fill="d">
             <span>campionatul de fotbal</span> <br />
@@ -231,7 +233,7 @@
         </div>
 
         <div class="modal_home_container modEmbl" style="z-index: 4000">
-          <div class="bg-pulse"></div>
+          <!-- <div class="bg-pulse"></div> -->
 
           <button id="window" class="btn_Emblem btn-home btn-open custom-btn btn-11 button-pulse"></button>
 
@@ -326,7 +328,29 @@
         </div>
       </div>
     </section>
-
+    <style>
+   
+      
+      .flicker-slow{
+        animation: flicker 3s linear infinite;
+      }
+      
+     
+      
+      @keyframes flicker {
+        0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+          /* //text-shadow: none; */
+          opacity: .99;
+          
+        }
+        20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+          opacity: 0.4;
+        }
+      }
+      
+      
+         
+              </style>
     <style>
       .item-left {
         animation: move-items-left 1s ease forwards;
@@ -425,7 +449,7 @@
             <img src="" data-src="./images/section3/element_section3.webp" class="lazy-img lozad" alt="ss3" />
           </div>
         </div>
-        <div class="gallery2 chartJs-section place-bottom bottom_aos" style="max-width: 100%; height: 30vh;">
+        <div class="gallery2 chartJs-section " style="max-width: 100%; height: 30vh;">
           <canvas id="myChart_s3" class="myChart_s3" "></canvas>
         </div>
       </div>
@@ -752,8 +776,8 @@
           </div>
         </div>
         <div class="place-bottom chartjs-section chartJs-section4 bottom_aos">
-          <div style="background: white">
-            <canvas class="myChart_s6" id="" style="position: relative; height: 200px; width: 100%" role="img"></canvas>
+          <div style="background: white" class="container_myChart">
+            <canvas class="myChart_s6" id=""  role="img"></canvas>
           </div>
         </div>
       </div>
