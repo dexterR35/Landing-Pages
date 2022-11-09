@@ -50,6 +50,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css"
     />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <!-- <script>   $(window).bind("load", function () {
   $('#load').fadeOut(1000);
 });</script> -->
@@ -62,6 +69,13 @@
     <noscript><link rel="stylesheet" href="styles.css" /></noscript> -->
     <!-- <link rel="preload" href="./main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" /> -->
     <link rel="stylesheet" href="./main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- <link rel="stylesheet" href="./main.css"  defer/> -->
 
     <style>
@@ -91,19 +105,7 @@
 
   <body>
     <!-- <body oncontextmenu="return false;" onkeydown="return false;" onmousedown="return false;"> -->
-    <script>
-      //       $(document).keydown(function(e){
-      //     if(e.which === 123){
-      //        return false;
-      //     }
-      // });
-      AOS.init({
-        offset: 200,
-        duration: 300,
-        easing: "ease",
-        delay: 100,
-      });
-    </script>
+
     <script>
       document.onreadystatechange = function () {
         let state = document.readyState;
@@ -274,7 +276,7 @@
       <!--TODO:SECTION---HOME---->
       <section class="panel home" data-section-name="home">
         <div class="inner inner_section_1 grid-template">
-          <div class="header-content-text forC" data-aos="slide-right">
+          <div class="header-content-text forC">
             <h1 class="vertical-title section_1-title" data-fill="d">
               <span>campionatul de fotbal</span> <br />
               <span class="span-h1-s1">2022</span>
@@ -324,7 +326,7 @@
                       </p>
                     </div>
                   </div>
-                  <div class="emblem item-shape">
+                  <div class="emblem item-shape ">
                     <img
                       src=""
                       data-src="./images/section1/element-section1.webp"
@@ -373,7 +375,7 @@
                     Închide ->
                   </button>
 
-                  <div class="title-shape-bottom"></div>
+                  <div class="title-shape-bottom "></div>
                 </div>
               </div>
             </div>
@@ -386,7 +388,7 @@
               alt="em2"
             />
           </div>
-          <div class="text-bottom forD">
+          <div class="text-bottom forD bottom_aos">
             <ul>
               <li class="line1">22 de afirmații</li>
               <li class="line2">-- despre --</li>
@@ -481,10 +483,10 @@
               alt="sm23"
             />
           </div>
-          <div class="chartJs-section place-bottom">
+          <div class="chartJs-section place-bottom bottom_aos">
             <img
               src=""
-              data-src="./images/section5/Stadion.png"
+              data-src="./images/section5/stadion.webp"
               class="lazy-img lozad"
               alt="em5"
             />
@@ -705,7 +707,7 @@
             </div>
           </div>
 
-          <div class="carousel carousel-section" id="carousel">
+          <div class="carousel carousel-section bottom_aos" id="carousel">
             <div class="carousel__wrapper">
               <div>
                 <div class="carousel__content">
@@ -925,7 +927,7 @@
         data-cards="single"
       >
         <div class="inner inner_section_6 grid-template">
-          <div class="logo-top">
+          <div class="logo-top" >
             <img
               src=""
               data-src="./images/section5/Quatar-logo.png"
@@ -934,7 +936,7 @@
             />
           </div>
           <div class="header-content-text">
-            <h1 class="vertical-title section_6-title" data-fill="d">
+            <h1 class="vertical-title section_6-title">
               <span>mai multe schimbări</span> <br />
               <span class="line-6-span">mai mulți fotbaliști</span>
             </h1>
@@ -2077,11 +2079,21 @@
 
     <script>
       $(function () {
+        $(".logo-top").attr("data-aos", "fade-down");
+        $(".header-content-text").attr("data-aos", "zoom-out-right");
+
+        $(".constent").attr("data-aos", "fade-right");
+
+        $(".bottom_aos").attr({
+          "data-aos": "fade-up",
+          "data-aos-anchor-placement": "center-bottom",
+        });
+        $(".constent").attr({"data-aos": "zoom-out-left","data-aos-duration":"350"});
         $(".terms-toggle").click(function () {
           $(".terms").toggleClass("hidden");
           $(".terms-content").slideToggle();
         });
-      });
+      })();
 
       const config = {
         autoload: true,
@@ -2179,42 +2191,52 @@
           scrollbars: false,
           standardScrollElements: ".forScrolling",
           before: function (i, panels) {
-            let ref = panels[i].attr("data-section-name");
+                let ref = panels[i].attr("data-section-name");
+            //  console.log(ref);
+            //  console.log(panels);
+            //  console.log(i);
+            //  panels[i].find(".gallery0,.gallery1,.gallery2").addClass("moved");
+            //     if (ref === 'section_6') {
+            //       $(".inner_section_7 .logo-top").addClass("moved");
+            //       console.log( (ref == panels[i]));
+            //     }
+            //     if (ref === "section_3") {
+            //       $(
+            //         ".inner_section_3 .gallery0,.inner_section_3 .gallery1,.inner_section_3 .gallery2"
+            //       ).addClass("moved");
+            //     }
+            //     panels[i].find(".gallery0,.gallery1,.gallery2").addClass("moved");
+            //     console.log("panels i", ref);
+            //     if (ref === "section_2") {
+            //       $(".inner_section_3")
+            //         .find(".gallery0,.gallery1,.gallery2")
+            //         .removeClass("moved");
+            //       $(".inner_section_4 .gallery0").css("top", 0);
+            //     }
+            //     if (ref === "section_4") {
+            //       $(".inner_section_4 .content").removeClass("moved");
+            //       initialPosition();
+            //     }
+            //     if (ref === "section_4") {
+            //       $(".inner_section_5 .content").addClass("moved");
 
-            //  $(".pagination a.active").removeClass("active");
+            //       $(".inner_section_5 .gallery0").css("top", 0);
+            //     }
+            //     if (ref === "section_6_container") {
+            //       $(".inner_section_7")
+            //         .find(".flag-container,.gallery1,.gallery2").addClass("moved")
 
-            // $(".pagination a[href=#" + ref + "]").addClass("active");
+            //       $(".inner_section_7 .flag-container").css("top", 0);
+            //     }
+            //     // for (var j = 0; j < panels.length; j++) {
+            //     //   if (j < i) {
+            //     //     panels[j].find(".moved").removeClass("moved");
+            //     //   }
+            //     //   if (j > i) {
+            //     //     panels[j].find(".moved").removeClass("moved");
+            //     //   }
+            //     // }
 
-            if (ref === "section_3") {
-              $(
-                ".inner_section_3 .gallery0,.inner_section_3 .gallery1,.inner_section_3 .gallery2"
-              ).addClass("moved");
-            }
-            panels[i].find(".gallery0,.gallery1,.gallery2").addClass("moved");
-            console.log("panels i", panels[i]);
-            if (ref === "section_2") {
-              $(".inner_section_3")
-                .find(".gallery0,.gallery1,.gallery2")
-                .removeClass("moved");
-              $(".inner_section_4 .gallery0").css("top", 0);
-            }
-            if (ref === "inner_section_3") {
-              $(".inner_section_4 .content").removeClass("moved");
-              initialPosition();
-            }
-            if (ref === "section_4") {
-              $(".inner_section_5 .content").addClass("moved");
-
-              $(".inner_section_5 .gallery0").css("top", 0);
-            }
-            for (var j = 0; j < panels.length; j++) {
-              if (j < i) {
-                panels[j].find(".moved").removeClass("moved");
-              }
-              if (j > i) {
-                panels[j].find(".moved").removeClass("moved");
-              }
-            }
             console.log(i, "i-section");
           },
           after: function (i, panels) {
@@ -2228,6 +2250,7 @@
             if (ref === "section_3") {
               // alert("continua,")
             }
+
           },
           afterResize: initialPosition,
           afterRender: initialPosition,
@@ -2239,19 +2262,20 @@
 
         function initialPosition() {
           var current = $.scrollify.current();
-          if (current.hasClass("inner_section_4") === false) {
-            var height = parseInt($(".inner_section_4").height());
-            var f = parseInt($(".inner_section_3 .gallery0").height()) - 50;
+          if (current.hasClass("inner_section_7") === false) {
+            var height = parseInt($(".inner_section_7 ").height());
+            var f = parseInt($(".inner_section_7 .gallery0").height()) - 50;
             console.log(f, "f");
             console.log(f, "height");
             var top = 0 - height * 0.3 - (height - f);
-            $(".inner_section_4 .gallery0").css("top", top);
+            $(".inner_section_7 .gallery0").css("top", top);
           } else {
-            $(".inner_section_3")
+            $(".inner_section_7")
               .find(".gallery0,.gallery1,.gallery2")
               .addClass("moved");
           }
         }
+        
         $(".md-trigger").on("click", function () {
           $(".md-modal").addClass("md-show");
         });
@@ -2264,6 +2288,12 @@
 
     <script>
       $(document).ready(function () {
+        AOS.init({
+          offset: 0,
+          duration: 500,
+          easing: "ease-in-sine",
+          delay: 0,
+        });
         $("#window").on("click", function (e) {
           e.preventDefault();
           $(".bg-pulse").css("display", "none");
@@ -3165,5 +3195,12 @@
       });
     </script>
     <!-- <script src="./main.js"></script> -->
+    <script>
+      //       $(document).keydown(function(e){
+      //     if(e.which === 123){
+      //        return false;
+      //     }
+      // });
+    </script>
   </body>
 </html>

@@ -1,6 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
 
 :root {
+
+
+  --animation-floating:	float-obj 7s ease-in-out infinite;
+  --animation-obj-down:move-obj-down 50s linear infinite alternate;
+  --animation-floating-reverse:	float-obj-reverse 7s ease-in-out infinite;
+  --animation-floating-slow:float-obj-slow 12s ease infinite;
   /*responsive*/
   --auto-grid-min-size: 53%;
   /*Logo-img*/
@@ -188,6 +194,75 @@ body {
 
 /*****background general******/
 
+
+@keyframes float-obj {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+	
+		transform: translatey(-20px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
+@keyframes float-obj-slow {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+	
+		transform: translatey(10px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
+
+@keyframes float-obj-reverse {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+	
+		transform: translatey(15px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
+
+@keyframes move-obj-down {
+	0% {
+	
+		transform: translatey(0px);
+	}
+	50% {
+	
+		transform: translatey(300px);
+	}
+	100% {
+
+		transform: translatey(0px);
+	}
+}
+
+/*animation*/
+
+
+
+
+
+
+
+
 .lozad[data-src]:not(.no-fade) {
   transition: opacity 0.8s ease;
   opacity: 0;
@@ -309,7 +384,7 @@ body {
 .grid-template {
   display: grid;
   grid-template-columns: repeat(5, minmax(10vw, 1fr));
-  grid-template-rows: repeat(10, 9vh);
+  grid-template-rows:repeat(11, minmax(9vh, 1fr));
   place-content: flex-start;
   padding: 0.6em 0.4em;
   height: 100%;
@@ -1209,7 +1284,8 @@ body {
 .inner_section_7 .flag-container {
   grid-column: 2;
   grid-row: 2;
-  margin-left: 10px;
+  margin-left: 5px;
+ animation: var(--animation-obj-down);
 }
 .inner_section_7 .flag-section7 {
   width: 230px;
@@ -1327,7 +1403,7 @@ body {
 }
 .inner_section_10 .gallery1 img {
   width: 90%;
-  margin-left: -2em;
+place-items: left;
 }
 .inner_section_10 .gallery3 img {
   width: 100%;
@@ -1336,12 +1412,16 @@ body {
   grid-column: 4 / span 2;
   grid-row: 2 / span 6;
   z-index: 33;
+  animation:var(--animation-floating-reverse);
 }
 .inner_section_10 .gallery1 {
-  grid-column: 1 / span 5;
+  grid-column: 1 /span 5;
   grid-row: 7 / span 3;
   transform: rotate(-35deg);
   -webkit-transform: rotate(-35deg);
+
+background-color: red;
+animation:var(--animation-floating);
 }
 .inner_section_10 .gallery2 {
   grid-column: 4;
@@ -1362,8 +1442,8 @@ body {
   z-index: 2;
 }
 .inner_section_10 .header-content-text {
-  font-size: 3.5vh;
-  grid-row: 8;
+  font-size: 3.3vh;
+  grid-row: 7;
 }
 .inner_section_10 .constent {
   grid-row: 5;
@@ -1378,6 +1458,7 @@ body {
 /*TODO:11 start SECTION 11 *************/
 .inner_section_11 .gallery-wrapper {
   grid-row: 2 / span 6;
+  animation:var(--animation-floating-slow)
 }
 .inner_section_11 .gallery-wrapper img {
   height: 100%;
@@ -1407,6 +1488,7 @@ body {
   grid-column: 3 / span 6;
   grid-row: 2 / span 8;
   z-index: 100;
+  animation:var(--animation-floating-slow)
 }
 .inner_section_12 .gallery-wrapper img {
   height: 100%;
@@ -1691,8 +1773,8 @@ body {
   z-index: 9;
 }
 .inner_section_18 .header-content-text {
-  grid-row: 9;
-  font-size: 3.6vh;
+  grid-row: 8;
+  font-size: 3.1vh;
 }
 .inner_section_18 .gallery0 img {
   opacity: 1;
@@ -2374,7 +2456,7 @@ body {
 
 .table_section7 {
   grid-column: 1 / span 5;
-  grid-row: 8;
+  grid-row: 7;
   width: 100%;
   /* position: relative;
   left: 1em; */
