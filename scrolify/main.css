@@ -168,9 +168,9 @@ body {
   :root {
     --bg-section-one: url(./images/general/blue.jpg);
     --bg-section-two: url(./images/general/green.jpg);
-    --bg-section-three: url(./images/general/crimson.jpg);
+    --bg-section-three: url(./images/general/black.jpg);
     --bg-section-four: url(./images/general/purple.jpg);
-    --bg-section-five: url(./images/general/white-red.jpg);
+    --bg-section-five: url(./images/general/orange.jpg);
   }
   /* .panel[data-section-name] {
     background-position: center;
@@ -178,8 +178,8 @@ body {
     background-size: cover;
     background-size: cover;
   } */
-
-  .home,
+  /*blue*/
+  .inner_section_1,
   .inner_section_6,
   .inner_section_11,
   .inner_section_16,
@@ -187,7 +187,7 @@ body {
     background-image: var(--bg-section-one);
 
   }
-
+  /*green*/
   .inner_section_2,
   .inner_section_7,
   .inner_section_12,
@@ -196,35 +196,30 @@ body {
     background-image: var(--bg-section-two);
 
   }
+/*grey*/
+.inner_section_3,
+.inner_section_8,
+.inner_section_13,
+.inner_section_18,
+.inner_section_23 {
+  background-image: var(--bg-section-three);
+}
+/*pink*/
+.inner_section_4,
+.inner_section_9,
+.inner_section_14,
+.inner_section_19 {
+  background-image: var(--bg-section-four);
+}
 
-  .panel[data-section-name="inner_section_2"],
-  .panel[data-section-name="inner_section_7"],
-  .panel[data-section-name="inner_section_12"],
-  .panel[data-section-name="inner_section_17"],
-  .panel[data-section-name="inner_section_22"] {
-    background-image: var(--bg-section-two);
-  }
-
-  .panel[data-section-name="inner_section_3"],
-  .panel[data-section-name="inner_section_8"],
-  .panel[data-section-name="inner_section_13"],
-  .panel[data-section-name="inner_section_18"],
-  .panel[data-section-name="inner_section_23"] {
-    background-image: var(--bg-section-three);
-  }
-
-  .panel[data-section-name="inner_section_4"],
-  .panel[data-section-name="inner_section_9"],
-  .panel[data-section-name="inner-section_14"],
-  .panel[data-section-name="inner-section_19"] {
-    background-image: var(--bg-section-four);
-  }
-  .panel[data-section-name="inner-section_5"],
-  .panel[data-section-name="inner-section_10"],
-  .panel[data-section-name="inner-section_15"],
-  .panel[data-section-name="inner-section_20"] {
+  .inner_section_5,
+  .inner_section_10,
+  .inner_section_15,
+  .inner_section_20 {
     background-image: var(--bg-section-five);
   }
+
+
 }
 
 .inner.grid-template {
@@ -249,7 +244,7 @@ body {
   bottom: 0;
   margin: -20px;
   box-shadow: inset 0 0 500px rgba(114, 114, 114, 0.4);
-  filter: blur(2px);
+  filter: blur(1px);
   z-index: -1;
 }
 
@@ -365,7 +360,7 @@ body {
   opacity: 1;
 }
 
-.inner.grid-template::after {
+/* .inner.grid-template::after {
   content: "";
   position: absolute;
   top: 0;
@@ -375,7 +370,7 @@ body {
   background-color: #41424177;
   backdrop-filter: blur(6px);
   z-index: -1;
-}
+} */
 /*****background general******/
 
 /****** Main ********/
@@ -397,8 +392,8 @@ body {
 }
 
 .panel.home {
-  background-color: #f0f2f4;
-  border-bottom: 1px solid #ddd;
+  /* background-color: #f0f2f4; */
+  /* border-bottom: 1px solid #ddd; */
 }
 
 /*TODO:pagination ***/
@@ -506,7 +501,7 @@ body {
   grid-column: 1 / span 2;
   grid-row: 2 / span 6;
   text-align: center;
-  font-size: 3vh;
+  font-size: 2.7vh;
   z-index: 20;
   text-align: start;
 }
@@ -535,6 +530,12 @@ body {
   z-index: 2;
 }
 
+.chart_two_s2 {
+  grid-row: 8 /span 3;
+    grid-column: 1 /span 5;
+    background: white;
+    z-index: 20;
+}
 /* .constent {
   grid-column: 2 /span 4;
   grid-row: 4;
@@ -842,7 +843,7 @@ body {
 
 .section_2_container h1 {
   font-size: 1.4em;
-  margin: 10px 20px 0px;
+  /* margin: 10px 20px 0px; */
 }
 .section_2_container h1 span:nth-child(1) {
   font-size: 1.55em;
@@ -1022,13 +1023,14 @@ body {
 }
 .carousel {
   grid-column: 1 / span 5;
-  grid-row: 8 / span 3;
+  grid-row: 8;
   overflow: hidden;
   background-color: rgba(79, 79, 79, 0.241);
   color: white;
   padding: 0 0.2em;
   margin: auto 0;
 }
+
 .inner_section_4 .constent {
   grid-row: 2;
   position: relative;
@@ -1076,24 +1078,24 @@ body {
   color: #fff;
 }
 .card__description span.fire {
-  background-color: rgba(220, 20, 60, 0.824);
+  background-color: #8D72E1;
 }
 .card__description span.psychic {
-  background-color: rgb(146, 100, 108);
+  background-color: #8D72E1;
 }
 .card__description span.electric {
-  background-color: rgb(231, 210, 88);
+  background-color:#8D72E1;
 }
 .card__description span.rock {
-  background-color: rgb(114, 102, 32);
+  background-color: #8D72E1;
 }
 .card__description span.grass {
-  background-color: rgb(32, 114, 69);
+  background-color: #8D72E1;
 }
 .card_self {
   position: relative;
 }
-.card_self::after {
+/* .card_self::after {
   position: absolute;
   left: 0;
   top: 0.2em;
@@ -1105,7 +1107,7 @@ body {
   width: 100%;
   height: 20%;
   z-index: 20;
-}
+} */
 
 .card__inner {
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
@@ -1221,7 +1223,7 @@ body {
   position: relative;
 }
 .inner_section_5 .header-content-text {
-  grid-row: 8;
+  grid-row: 7;
 }
 .inner_section_5 .place-bottom {
   position: relative;
@@ -1229,11 +1231,11 @@ body {
 }
 .inner_section_5 .constent {
   grid-row: 2;
-  display: flex;
+  /* display: flex;
   justify-content: start;
   flex-direction: column-reverse;
   height: 70%;
-  margin-left: 1.2em;
+  margin-left: 1.2em; */
 }
 .inner_section_5 .c5List {
   max-height: 35vh !important;
@@ -1456,7 +1458,7 @@ body {
   z-index: 2;
 }
 .inner_section_10 .header-content-text {
-  font-size: 3.3vh;
+  font-size: 2.5vh;
   grid-row: 7;
 }
 .inner_section_10 .constent {
@@ -1520,7 +1522,7 @@ body {
 }
 .inner_section_12 .header-content-text {
   text-align: start;
-  font-size: 3.4vh;
+  font-size: 3vh;
   grid-row: 7;
 }
 .inner_section_12 .header-content-text .line-2s12 {
@@ -1702,9 +1704,11 @@ body {
   height: 120%;
 }
 .inner_section_16 .gallery1 {
-  grid-column: 2 / span 2;
-  grid-row: 7 / span 3;
+  grid-column: 1 / span 3;
+  grid-row: 8 / span 3;
   z-index: 9;
+  position: relative;
+  left: -9em;
 }
 .inner_section_16 .gallery1 img {
   height: 120%;
@@ -1759,7 +1763,7 @@ body {
 
 .inner_section_17 .header-content-text {
   grid-row: 7;
-  font-size: 4vh;
+  font-size: 3.3vh;
 }
 
 .inner_section_17 .constent {
@@ -1793,7 +1797,7 @@ body {
 }
 .inner_section_18 .header-content-text {
   grid-row: 8;
-  font-size: 3.1vh;
+  font-size: 2.8vh;
 }
 .inner_section_18 .gallery0 img {
   opacity: 1;
@@ -1923,7 +1927,7 @@ body {
 }
 
 .inner_section_20 .header-content-text {
-  font-size: 3vh;
+  font-size: 2.8vh;
   grid-row: 6;
 }
 .inner_section_20 .header-content-text .line-2s20 {
@@ -2007,13 +2011,13 @@ body {
 }
 
 .inner_section_22 .header-content-text {
-  font-size: 3.5vh;
+  font-size: 3vh;
   grid-row: 9;
 }
 
 .text_quiz_section h2 {
-  font-size: 1.4em;
-  padding: 2em 0.5em;
+  font-size: 1.1em;
+  padding: 0.5em 0.2em;
   color: white;
 }
 
@@ -2386,7 +2390,7 @@ body {
 
 .entry-title {
   margin-bottom: 0.3em;
-  font-family: Oswald, sans-serif;
+
   text-decoration: none;
   font-size: 1em;
   text-transform: uppercase;
@@ -2562,7 +2566,7 @@ body {
   .inner_section_7 table caption,
   .inner_section_12 table caption,
   .inner_section_13 table caption {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   .inner_section_7 table thead,
@@ -2678,11 +2682,11 @@ body {
   justify-content: center; */
 }
 .button-pulse::after {
-  width: fit-content;
+  width: 100px;
   height: 50px;
   content: "Apasă aici \279C";
   position: absolute;
-
+  right: 0;
   display: flex;
   align-items: center;
   top: 0;
@@ -2884,19 +2888,26 @@ body {
   text-align: right;
   height: 4.5em;
 }
-
+.btn_quiz {
+  width: 119px !important;
+  height: 3em !important;
+  font-size: 0.7em !important;
+}
 .quizArea button {
-  height: 4em;
-  width: 130px;
-  padding: 0.1em 0.3em;
+
+  height: 3em;
+  width: 140px;
+  padding: 0.3em 0.3em;
   margin: 0.5em auto;
-  background-color: #209329;
+  background-color: #508c00 !important;
   border: none;
-  border-radius: 3px;
-  color: #f7f7f7;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 10px;
+  font-size: 0.8em;
+    color: #f7f7f7;
+    text-transform: uppercase;
+    /* letter-spacing: 0.1em; */
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .viewanswer,
@@ -2964,6 +2975,8 @@ body {
   width: 100%;
   margin: 1em auto;
   text-align: center;
+  display: flex;
+    flex-direction: column;
 }
 
 .resultPage2,
@@ -3041,7 +3054,7 @@ body {
   line-height: 1;
   position: absolute;
   z-index: 499;
-  font-family: "FontAwesome";
+
   content: "\f00c";
   bottom: 0;
   right: 7px;
@@ -3065,7 +3078,7 @@ body {
   line-height: 1;
   position: relative;
   z-index: 499;
-  font-family: "FontAwesome";
+
   content: "\f00d";
   bottom: 0;
   /* right: 7px; */
@@ -3088,7 +3101,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
 }
 .my-progress {
@@ -3773,14 +3786,18 @@ input[type="radio"]:checked ~ .bullet .line.seven {
   display: none;
 }
 #start-button {
-  font-size: 1.3em;
-  padding: 0.5em 1.8em;
+  font-size: 1.1em;
+  padding: 0.5em 1.3em;
   border-radius: 0.2em;
-  background: cyan;
+  background: #64b000;
+  width: 105px;
+  height: 2.5em;
   border: none;
+  color: white;
   box-shadow: 0 10px 10px rgb(0 0 0 / 40%);
   outline: none;
 }
+
 .inner_section_23.grid-template {
   padding: 0;
 }
@@ -3801,8 +3818,10 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgb(9,42,28);
-    background: linear-gradient(9deg, rgba(9,42,28,1) 0%, rgba(2,92,42,1) 100%);
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -3818,7 +3837,25 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     z-index: 20;
     text-align: start;
   }
-
+  .my-progress {
+ 
+    margin: 1.5rem auto 0.8rem;
+    width: 100%;
+    max-width: 490px;
+}
+.quizArea button {
+  height: 3.3em;
+  width: 192px;
+  padding: 0.3em 0.3em;
+  background-color: #508c00 !important;
+  border: none;
+  border-radius: 10px;
+  font-size: 1em;
+  color: #f7f7f7;
+  text-transform: uppercase;
+}
+footer .terms-toggle {
+  font-size: 1.3em;}
   .gallery0 {
     width: fit-content;
   }
@@ -3839,7 +3876,7 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     place-content: flex-start;
     padding: 0.5em 0.6em;
     height: 100%;
-    border: 2px solid white;
+    border: 1px solid rgba(255, 255, 255, 0.774);
     /* background: rgb(230, 46, 86); */
   }
   .container-cards {
@@ -3861,8 +3898,9 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     font-size: 4.3vh;
   }
   .button-pulse::after {
-    width: fit-content;
+    width: 140px;
     height: 25px;
+    right: 0;
     content: "Apasă aici \2192 ";
     position: absolute;
     left: -6.5em;
@@ -3874,6 +3912,12 @@ input[type="radio"]:checked ~ .bullet .line.seven {
     -webkit-animation: bounceRight 2s infinite;
     animation: bounceRight 2s infinite;
   }
+  .chart_two_s2 {
+    grid-row: 7 /span 3;
+    grid-column: 3 /span 5;
+    background: white;
+    z-index: 20;
+}
   .bg-pulse {
     height: 6.2vh;
     width: 5.9vh;
@@ -4083,7 +4127,7 @@ input[type="radio"]:checked ~ .bullet .line.seven {
 
   .inner_section_7 .constent {
     grid-row: 3;
-    grid-column: 7;
+    grid-column: 7 /span 3;
   }
   .inner_section_7 .gallery0 img {
     width: 60vh;
@@ -4100,7 +4144,7 @@ input[type="radio"]:checked ~ .bullet .line.seven {
   }
   .inner_section_8 .constent {
     grid-row: 4;
-    grid-column: 8;
+    grid-column: 7 /span 3;
   }
   .inner_section_8 .place-bottom {
     grid-row: 9;
@@ -4364,7 +4408,7 @@ input[type="radio"]:checked ~ .bullet .line.seven {
 
   .inner_section_15 .constent {
     grid-row: 3;
-    grid-column: 3;
+    grid-column: 2 /span 4;
   }
 
   .inner_section_15 .header-content-text {
