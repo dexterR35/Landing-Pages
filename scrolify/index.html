@@ -125,7 +125,7 @@
       "
     >
       <div id="ball-loading-wrap" style="position: relative">
-        <h4 style="position: absolute; left: -0.9em; bottom: -30px">NETBET</h4>
+        <h4 style="position: absolute; left: -0.9em; bottom: -30px; color: white;">NETBET</h4>
         <div id="ball">
           <svg viewBox="0 0 18.9 19">
             <path
@@ -516,7 +516,7 @@
           <div class="gallery2 chartJs-section" style="z-index: 20">
             <canvas
               id="myChart_s3"
-              class="myChart_s3"
+              class="myChart_s3" width="300" height="250"
             
             ></canvas>
           </div>
@@ -942,8 +942,8 @@
               />
             </div>
           </div>
-          <div class="place-bottom chartjs-section chartJs-section4 bottom_aos">
-            <div style="background: white" class="container_myChart">
+          <div class="place-bottom chartjs-section chartJs-section6" style="height: 12em;">
+            <div style="background: white; height: 100%;" class="container_myChart">
               <canvas class="myChart_s6" id="" role="img"></canvas>
             </div>
           </div>
@@ -1223,7 +1223,7 @@
 
           <div
             class="section-11-bottom place-bottom"
-            style="max-width: 100%; height: 30vh; margin: 0px auto"
+            style="max-width: 100%; height: 12em; background: white; border-radius: 0.5em;"
           >
             <canvas id="myChart_s11" class="myChart_s11"></canvas>
           </div>
@@ -1735,9 +1735,9 @@
           </div>
           <div class="gallery1 player-swirl">
             <img
-              src=""
-              data-src="./images/section16/full_section16D.webp"
-              class="lazy-img lozad"
+             
+              src="./images/section16/full_section16D.webp"
+              class=""
               alt="s16"
             />
           </div>
@@ -2068,21 +2068,21 @@
               data: [0.5, 2.3, 7, 4.3, 3.6, 15, 11.6, 220],
               backgroundColor: [
                 "rgba(250,174,50,1)",
-                "blue",
+                "#497174",
                 "rgb(255, 205, 86)",
               ],
-              borderColor: "black",
+              borderColor: "#497174",
 
               pointBorderColor: "lightgrey",
-              pointBorderWidth: 4,
-              pointRadius: 4,
+              pointBorderWidth: 2,
+              pointRadius: 2,
               pointBackgroundColor: "green",
-              pointHoverRadius: 10,
+              pointHoverRadius: 5,
               pointHoverBorderWidth: 2,
               pointHoverBorderColor: "yellow",
               pointHoverBackgroundColor: "blue",
-              pointHitRadius: 30,
-              backgroundColor: "green",
+              pointHitRadius: 10,
+              backgroundColor: "#59C1BD",
               fill: true,
             },
           ],
@@ -2106,12 +2106,12 @@
             scales: {
               y: {
                 grid: {
-                  borderColor: "black",
+                  borderColor: "#497174",
                   borderWidth: 0.5,
                   lineWidth: 1,
                   beginAtZero: true,
                 },
-                min: -5,
+                min: 5,
                 max: 250,
                 ticks: {
                   callback: function (m) {
@@ -2424,7 +2424,7 @@
                 </div>
 
                 <div class="resultPage3">
-                  <h2>răspunsuri</h2>
+                  <h2>Răspunsuri</h2>
                   <div class="allAnswerBox forScrolling"></div>
                   <button class="backBtn">Înapoi</button>
                 </div>
@@ -2480,8 +2480,9 @@
         $(".header-content-text").attr("data-aos", "zoom-out-right");
         $(".messi").attr("data-aos", "fade-up");
         $(".messi2").attr("data-aos", "fade-right");
-        $(".clock-swirl").attr("data-aos", "fade-down");
-        $(".player-swirl").attr("data-aos", "zoom-out-right");
+
+        $(".clock-swirl").attr("data-aos", "zoom-in-left");
+        $(".player-swirl").attr("data-aos", "fade-right");
         // $(".constent").attr("data-aos", "fade-right");
 
         $(".bottom_aos").attr({
@@ -2490,7 +2491,7 @@
         });
         // $(".constent").attr({"data-aos": "zoom-out-left","data-aos-duration":"350"});
         $(".terms-toggle").click(function () {
-          $(".terms").toggleClass("hidden");
+          $(".terms").toggleClass("hidden-two");
           $(".terms-content").slideToggle();
         });
       });
@@ -2661,7 +2662,7 @@
     <script>
       $(document).ready(function () {
         function updateChart() {
-          const api_url = "./test2.json";
+          const api_url = "./dataDB.json";
 
           async function getJson() {
             const response = await fetch(api_url);
@@ -3320,10 +3321,10 @@
             '<div class="_header">' +
             results[i].question +
             "</div>" +
-            '<div class="_header_c">' +
-            '<div class="_yourans + _classH + ">' +
+            '<div class="_yourans ' +
+            _classH +
+            '">' +
             results[i].clicked +
-            "</div>" +
             "</div>";
 
           let html = "";
