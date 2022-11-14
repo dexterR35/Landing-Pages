@@ -152,7 +152,7 @@
         </div>
       </div>
       <div class="scroll-down"></div>
-      <div class="Quick-navigation" style="display: none">
+      <div class="Quick-navigation" style="display: block">
         <ul class="pagination">
           <li data-marker="1">
             <em>01</em>
@@ -533,7 +533,7 @@
           labels: ["2002", "2006", "2010", "2014", "2018"],
           datasets: [
             {
-              label: "BILIONS",
+              label: "MILIARDE",
               data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
               backgroundColor: ["#2196f3", "#2196f3", "#2196f3"],
             },
@@ -569,7 +569,7 @@
               title: {
                 color: "white",
                 font: {
-                  size: 16,
+                  size: 12,
                   fontFamily: "Play",
                 },
                 display: true,
@@ -591,7 +591,7 @@
                 max: 3,
                 ticks: {
                   callback: function (m) {
-                    return "$" + m + "b";
+                    return "$" + m + "m";
                   },
                   color: "white",
                 },
@@ -868,8 +868,8 @@
             </h1>
           </div>
 
-          <div class="container-parent-cars insert_cars constent">
-            <div class="c5List container-cards card_normal entry-cards">
+          <div class="container-parent-cars insert_cars_double constent">
+            <!-- <div class="c5List container-cards card_normal entry-cards">
               <div class="c5List_content">
                 <h4>Stadionul temporar 974 cu o moștenire eternă.</h4>
                 <ul>
@@ -882,7 +882,7 @@
                   <li>Proiectat de Fenwick Iribarren Architects</li>
                 </ul>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="gallery-wrapper">
             <div class="gallery0">
@@ -1314,6 +1314,17 @@
             ],
           },
           options: {
+            plugins: {
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 18
+                    },
+                    color:"white"
+                }
+            },
+          },
             responsive: true, // Instruct chart js to respond nicely.
             maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
             scales: {
@@ -1411,7 +1422,7 @@
               </caption>
               <thead>
                 <tr>
-                  <th scope="col">Pelé, Brazilia (1958, 1962 și 1970</th>
+                  <th scope="col">Pelé, Brazilia (1958, 1962 și 1970)</th>
                   <th scope="col">Maradona, Argentina</th>
                   <th scope="col">Messi, Argentina</th>
                   <th scope="col">C. Ronaldo, Portugalia</th>
@@ -1689,7 +1700,7 @@
           <div class="place-bottom">
             <p>
               <b>"#ItsComingHome"</b> Anglia campioană - va fi trending pe
-              social media și în 2022.. Cu siguranță!
+              social media și în 2022... Cu siguranță!
             </p>
           </div>
         </div>
@@ -2059,7 +2070,7 @@
                 max: 250,
                 ticks: {
                   callback: function (m) {
-                    return "$" + m + ".b";
+                    return "$" + m + "m";
                   },
                   color: "white",
                 },
@@ -2206,7 +2217,7 @@
                           fill="#ab4e6b"
                         />
                         <text x="32" y="14" font-size="14" class="_text_incor">
-                          Incorrect : 12
+                          Incorect : 12
                         </text>
                       </g>
                       <g>
@@ -2218,7 +2229,7 @@
                           fill="#968089"
                         />
                         <text x="232" y="14" font-size="14" class="_text_cor">
-                          Correct : 12
+                          Corect : 12
                         </text>
                       </g>
 
@@ -2808,6 +2819,7 @@
                 ],
               },
               options: {
+  
                 plugins: {
                 legend: {
                   labels: {
@@ -2819,6 +2831,7 @@
                   
                   },
                 },
+    
               },
                 responsive: true, // Instruct chart js to respond nicely.
                 maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
@@ -2836,15 +2849,19 @@
                     max: 35,
                     ticks: {
                       callback: function (m) {
-                        return m + "" + "C";
+                        return m + " °" + "C";
 
                         // return m + "m";
                       },
+                     
+                     
+                  
                       color: "white",
                     },
                   },
 
                   x: {
+                    
                     grid: {
                       borderColor: "black",
                       borderWidth: 0.5,
@@ -2860,6 +2877,7 @@
                     max: 25,
                   },
                 },
+       
               },
             });
           });
@@ -3233,10 +3251,10 @@
       function totalPieChart(_upto, _cir_progress_id, _correct, _incorrect) {
         $("#" + _cir_progress_id)
           .find("._text_incor")
-          .html("Incorrect : " + _incorrect);
+          .html("Incorect : " + _incorrect);
         $("#" + _cir_progress_id)
           .find("._text_cor")
-          .html("Correct : " + _correct);
+          .html("Corect : " + _correct);
 
         let unchnagedPer = _upto;
 

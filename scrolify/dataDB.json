@@ -545,9 +545,9 @@
         {
           "section": 2,
           "id": 2,
-          "content": "Va fi pentru prima dată când Campionatul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius.Pentru a combate temperaturile ridicate, stadioanele pe care se va desfășura CM 2022 sunt prevăzute cu instalații imense de aer condiționat.",
+          "content": "Va fi pentru prima dată când Campionatul se va desfășura în lunile de iarnă. Va fi iarnă doar în gândurile participanților, deoarece în Doha, în noiembrie-decembrie, temperaturile variază între 23 și 30 de grade Celsius. Pentru a combate temperaturile ridicate, stadioanele pe care se va desfășura CM 2022 sunt prevăzute cu instalații imense de aer condiționat.",
           "title": "Primul turneu pe timp de iarnă",
-          "subtitle": "23-30°c"
+          "subtitle": "23-30 °c"
         },
         {
           "section": 3,
@@ -568,11 +568,11 @@
         {
           "section": 5,
           "id": 5,
-          "content": "Federația de Fotbal a dezvoltat o strategie amplă pentru a reduce emisiile cu 50% până în 2030 și net-zero până în 2040. Trebuie să protejăm frumoasa noastră planetă și frumosul fotbal, Gianni Infantino, președinte.",
-          "content_two": "Stadionul temporar 974 cu o moștenire eternă. ",
+          "content": "<i>&quotFederația de Fotbal a dezvoltat o strategie amplă pentru a reduce emisiile cu 50% până în 2030 și net-zero până în 2040. Trebuie să protejăm frumoasa noastră planetă și frumosul fotbal&quot.</i><br />Gianni Infantino, președinte",
+          "content_two": "&bull; Construit complet din containere de transport maritim <br />&bull; La final va fi demontat și containerele refolosite <br />&bull; au fost folosite 974 de containere la construirea arenei<br />&bull; 974 reprezintă prefixul Qatarului<br />&bull; Proiectat de Fenwick Iribarren Architects ",
           "title": "Mesaj pentru protecția mediului",
-          "subtitle": "Legământul lui Infantino",
-          "subtitle_two": "Stadionul 974"
+          "subtitle": "Legământul lui <br> Infantino",
+          "subtitle_two": "Stadionul temporar 974 cu o moștenire eternă."
         },
         {
           "section": 6,
@@ -684,7 +684,7 @@
           "id": 18,
           "section": 18,
           "title": "Disputa continentelor",
-          "content": "CM este o competiție dominată de America de Sud și de Europa. Până acum, nicio echipă de pe alt continent nu a ajuns în finală.Singurele naționale de pe alte continente care au reușit să ajungă în semifinale sunt SUA (1930) și Coreea de Sud (2002).",
+          "content": "CM este o competiție dominată de America de Sud și de Europa. Până acum, nicio echipă de pe alt continent nu a ajuns în finală. Singurele naționale de pe alte continente care au reușit să ajungă în semifinale sunt SUA (1930) și Coreea de Sud (2002).",
           "content_two": "Este scorul la trofee între Europa și America de Sud. Echipele africane nu au trecut niciodată de sferturile competiției.",
           "subtitle": "Europa. America de Sud. Atât.",
           "subtitle_two": "12-9"

@@ -67,6 +67,20 @@ body {
 
 body {
   font-size: 100%;
+  scrollbar-width: none;
+
+}
+.resultArea {
+  scrollbar-width: none;
+}
+footer .terms-content {
+  scrollbar-width:none;
+}
+::-webkit-scrollbar {
+  scrollbar-width: none;
+}
+.entry-content.intro {
+  scrollbar-width: none;
 }
 li {
   list-style: none;
@@ -238,6 +252,12 @@ body {
   z-index: 1;
 }
 
+.inner_section_17 .container-cards.card_normal.entry-cards .more-link{
+  display: none;
+}
+.inner_section_17 .container-cards.card_normal.entry-cards {
+  height: 100px;
+}
 .inner.grid-template::before {
   content: "";
   position: absolute;
@@ -251,7 +271,11 @@ body {
   filter: blur(1px);
   z-index: -1;
 }
-
+@-moz-document url-prefix() { /* Disable scrollbar Firefox */
+  html{
+    scrollbar-width: none;
+  }
+}
 /* @media screen and (min-width: 480px) {
   :root {
     --bg-section-one: url(./images/section1/bg-section1.jpg);
@@ -399,7 +423,10 @@ body {
   /* background-color: #f0f2f4; */
   /* border-bottom: 1px solid #ddd; */
 }
-
+::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
 /*TODO:pagination ***/
 
 .scroll-down {
@@ -934,11 +961,16 @@ body {
   width: 120%;
 }
 .inner_section_3 .gallery2 {
-  grid-row: 7;
+  grid-row: 8;
   grid-column: 1 / span 6;
   height: fit-content;
   background: #2b2b2bcf !important;
   border: 1px solid white;
+}
+.inner_section_3 .chartJs-section {
+  max-width: 100% !important;
+  /* height: 100%; */
+  height: 30vh !important;
 }
 
 /*TODO: END SECTION 3*************/
@@ -1037,6 +1069,11 @@ body {
   font-size: 0.8em;
 }
 .inner_section_4 .chartJs-section4.c4List .c5List_content h4 {
+  text-indent: 12px;
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+.inner_section_5 .c5List_content h4 {
   text-indent: 12px;
   text-transform: uppercase;
   margin-bottom: 0.3em;
@@ -1256,7 +1293,7 @@ body {
   top: 2vh;
 }
 .inner_section_5 .constent {
-  grid-row: 2;
+  grid-row: 3;
   /* display: flex;
   justify-content: start;
   flex-direction: column-reverse;
@@ -1265,6 +1302,9 @@ body {
 }
 .inner_section_5 .c5List {
   max-height: 35vh !important;
+}
+.inner_section_3 .container-parent-cars.insert_cars_double.constent {
+  margin-top: -1em;
 }
 /* .inner_section_5 .c5List_content {overflow: scroll;} */
 .c5List_content h4 {
@@ -1299,7 +1339,7 @@ body {
 .inner_section_3 .chartJs-section {
   max-width: 100% !important;
   /* height: 100%; */
-  height: 15em !important;
+
   background: #2b2b2bcf !important;
   border: 1px solid white;
   border-radius: 10px;
@@ -1402,7 +1442,7 @@ body {
   line-height: 0.65;
 }
 .inner_section_8 .section-8-bottom img {
-  width: 200% !important;
+  width: 180% !important;
   border: 2px solid white;
   border-radius: 10px;
 }
@@ -2526,6 +2566,7 @@ body {
 }
 .container-cards.card_normal .entry-title {
   text-align: end;
+  text-indent: 23px;
 }
 .container-cards.card_reverse .more-link {
   float: right;
@@ -3012,7 +3053,7 @@ caption {
   width: 100%;
   margin: auto;
   height: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 .bonus-quiz {
 outline: none;
@@ -3232,7 +3273,7 @@ footer .terms-toggle:hover {
   cursor: pointer;
 }
 footer {
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 footer .terms-content {
@@ -4055,6 +4096,14 @@ footer .terms-toggle {
     grid-row: 7;
     writing-mode: unset;
   }
+  .inner_section_13 .container-cards.card_normal.entry-cards .more-link {
+  display: none;
+  height: 250px !important;
+  }
+  .inner_section_13 .container-cards.card_normal.entry-cards {
+
+    height: 100px !important;
+    }
 
   .inner_section_1 .span-h1-s1 {
     float: right;
@@ -4103,13 +4152,13 @@ footer .terms-toggle {
   }
   .inner_section_3 .gallery2 {
     grid-column: 3 / span 6;
-    grid-row: 6;
+    grid-row: 7;
     z-index: 2;
   }
   .inner_section_3 .chartJs-section {
     max-width: 100% !important;
     /* height: 100%; */
-    height: 40vh !important;
+    height: 35vh !important;
   }
   .section-11-bottom.place-bottom {
     grid-row: 8;
@@ -4165,6 +4214,8 @@ footer .terms-toggle {
     height: 50vh;
     /* background-color: red; */
     width: 100%;
+    border-radius: 10px;
+    border: 2px solid white;
   }
 
   .inner_section_6 .gallery-wrapper .gallery2 img {
@@ -4771,12 +4822,13 @@ footer .terms-toggle {
       margin: auto;
       /* position: absolute; */
    
-      overflow: scroll;
+      /* overflow: scroll; */
 
 }
-footer {
+
+/* footer {
   overflow: scroll;
-}
+} */
   .inner_section_23 .text_quiz_section {
     grid-column: 3 / span 6;
     grid-row: 3 /span 2;
