@@ -125,7 +125,11 @@
       "
     >
       <div id="ball-loading-wrap" style="position: relative">
-        <h4 style="position: absolute; left: -0.9em; bottom: -30px; color: white;">NETBET</h4>
+        <h4
+          style="position: absolute; left: -0.9em; bottom: -30px; color: white"
+        >
+          NETBET
+        </h4>
         <div id="ball">
           <svg viewBox="0 0 18.9 19">
             <path
@@ -147,6 +151,7 @@
           <div class="progress-bar" id="progressBar"></div>
         </div>
       </div>
+      <div class="scroll-down"></div>
       <div class="Quick-navigation" style="display: none">
         <ul class="pagination">
           <li data-marker="1">
@@ -358,7 +363,7 @@
               <li class="line1">22 de afirmații</li>
               <li class="line2">-- despre --</li>
               <li class="line3">Turneul Final</li>
-              <li class="line4">Recorduri, date si istoric</li>
+              <li class="line4">Recorduri, date și istoric</li>
             </ul>
           </div>
         </div>
@@ -516,8 +521,9 @@
           <div class="gallery2 chartJs-section" style="z-index: 20">
             <canvas
               id="myChart_s3"
-              class="myChart_s3" width="300" height="250"
-            
+              class="myChart_s3"
+              width="300"
+              height="250"
             ></canvas>
           </div>
         </div>
@@ -529,11 +535,7 @@
             {
               label: "BILIONS",
               data: ["1.2", "1.4", "2.4", "2.4", "2.8"],
-              backgroundColor: [
-                "#4FA095",
-                "#4FA095",
-                "#4FA095",
-              ],
+              backgroundColor: ["#2196f3", "#2196f3", "#2196f3"],
             },
           ],
         };
@@ -565,6 +567,11 @@
                 display: false,
               },
               title: {
+                color: "white",
+                font: {
+                  size: 16,
+                  fontFamily: "Play",
+                },
                 display: true,
                 text: "Venituri din drepturi media în miliarde de dolari ",
               },
@@ -578,6 +585,7 @@
                   borderWidth: 0.5,
                   lineWidth: 1,
                   beginAtZero: true,
+                  fontColor: "white",
                 },
                 min: 0,
                 max: 3,
@@ -585,6 +593,7 @@
                   callback: function (m) {
                     return "$" + m + "b";
                   },
+                  color: "white",
                 },
               },
               x: {
@@ -592,6 +601,9 @@
                   borderColor: "black",
                   borderWidth: 0.5,
                   lineWidth: 0.7,
+                },
+                ticks: {
+                  color: "white",
                 },
               },
             },
@@ -637,20 +649,9 @@
           <div
             class="container-parent-cars insert_cars constent"
             data-id="test"
-          ></div>
-
-          <div class="content-place-items section_4_img">
-            <img
-              src=""
-              data-src="./images/section4/element_section4.webp"
-              alt="stadion"
-              class="lozad lazy-img"
-            />
-          </div>
-
-          <div
-            class="chartjs-section chartJs-section4 c4List container-cards card_normal entry-cards"
           >
+        
+          <div class="chartjs-section chartJs-section4 c4List container-cards card_normal entry-cards">
             <div class="c5List_content">
               <h4>Mai puține stadioane</h4>
 
@@ -663,6 +664,18 @@
               </p>
             </div>
           </div>
+        </div>
+
+          <div class="content-place-items section_4_img">
+            <img
+              src=""
+              data-src="./images/section4/element_section4.webp"
+              alt="stadion"
+              class="lozad lazy-img"
+            />
+          </div>
+
+      
 
           <div class="carousel carousel-section" id="carousel">
             <div class="carousel__wrapper">
@@ -942,8 +955,14 @@
               />
             </div>
           </div>
-          <div class="place-bottom chartjs-section chartJs-section6" style="height: 12em;">
-            <div style="background: white; height: 100%;" class="container_myChart">
+          <div
+            class="place-bottom chartjs-section chartJs-section6"
+            style="height: 14em"
+          >
+            <div
+              style="background: #2b2b2bcf !important"
+              class="container_myChart"
+            >
               <canvas class="myChart_s6" id="" role="img"></canvas>
             </div>
           </div>
@@ -1044,7 +1063,7 @@
           <div class="header-content-text">
             <h1 class="vertical-title section_8-title" data-fill="d">
               <span class="line-1s8"
-                >primul trofeu, câstigat definitiv în 1970</span
+                >primul trofeu, câștigat definitiv în 1970</span
               >
               <br />
               <span class="line-2s8">Trofeul Jules Rimet</span>
@@ -1069,12 +1088,6 @@
               data-src="./images/section8/photo1.webp"
               alt="photoS7"
               class="lazy-img lozad"
-            />
-            <img
-              src=""
-              data-src="./images/section8/photo2.webp"
-              alt="photos77"
-              class="cup-s8 lazy-img lozad"
             />
           </div>
         </div>
@@ -1223,132 +1236,18 @@
 
           <div
             class="section-11-bottom place-bottom"
-            style="max-width: 100%; height: 12em; background: white; border-radius: 0.5em;"
+            style="
+              max-width: 100%;
+              height: 12em;
+              background: #2b2b2bcf;
+              border-radius: 0.5em;
+            "
           >
             <canvas id="myChart_s11" class="myChart_s11"></canvas>
           </div>
         </div>
       </section>
-      <!-- <script>
-        const data_chart_s11 = {
-          labels: [
-            "2018 Rusia",
-            "2014 Brazilia",
-            "2010 Africa de S",
-            "2006 Germania",
-            "2002 Japonia",
-            "1998 Franța",
-            "1994 SUA",
-            "1990 Italia",
-            "1986 Mexic",
-            "1982 Spania",
-            "1978 Argentina",
-            "1974 Germania",
-            "1970 Mexic",
-            "1966 Anglia",
-            "1962 Chile",
-            "1958 Suedia",
-            "1954 Elveția",
-            "1950 Brazilia",
-            "1938 Franța",
-            "1934 Italia",
-            "1930 Uruguay",
-          ],
-          datasets: [
-            {
-              label: "BILIONS",
-              data: [
-                3031768, 3441450, 3167984, 3367000, 2724604, 2859234, 3568567,
-                2527348, 2407431, 1856277, 1610215, 1774022, 1673975, 1614677,
-                776000, 868000, 943000, 1.337, 483000, 395000, 434000,
-              ],
-              backgroundColor: [
-                "rgba(250,174,50,1)",
-                "blue",
-                "rgb(255, 205, 86)",
-              ],
-              borderColor: "black",
 
-              pointBorderColor: "red",
-              pointBorderWidth: 4,
-              pointRadius: 2,
-              pointBackgroundColor: "green",
-              pointHoverRadius: 3,
-              pointHoverBorderWidth: 1,
-              pointHoverBorderColor: "yellow",
-              pointHoverBackgroundColor: "blue",
-              pointHitRadius: 30,
-              backgroundColor: "green",
-              fill: false,
-            },
-          ],
-        };
-
-        // config
-        //   var options_s8 = {
-        //     maintainAspectRatio: true,
-
-        //   };
-        // config
-        const config_s11 = {
-          type: "line",
-          data: data_chart_s11,
-          options: {
-            plugins: {
-              legend: {
-                display: false,
-              },
-              title: {
-                display: true,
-                text: "Prezența totală și prezența medie pe meci",
-              },
-            },
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              y: {
-                grid: {
-                  borderColor: "black",
-                  borderWidth: 0.5,
-                  lineWidth: 1,
-                  beginAtZero: true,
-                },
-                min: 0,
-                max: 4000000,
-                ticks: {
-                  callback: function (m) {
-                    let parts = m.toString().split(".");
-                    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    return parts.join(".") + " " + "m";
-                    console.log(m);
-                    // return m + "m";
-                  },
-                },
-              },
-
-              x: {
-                grid: {
-                  borderColor: "red",
-                  borderWidth: 1,
-                  lineWidth: 1,
-                },
-              },
-            },
-            layout: {
-              padding: {
-                left: 3,
-                right: 3,
-                bottom: 3,
-                top: 3,
-              },
-            },
-          },
-        };
-        const myChart_s11 = new Chart(
-          document.getElementById("myChart_s11"),
-          config_s11
-        ).getContext("2d");
-      </script> -->
       <script>
         var ctx3 = document.getElementById("myChart_s11").getContext("2d");
 
@@ -1387,18 +1286,18 @@
                   776000, 868000, 943000, 1337000, 483000, 395000, 434000,
                 ], // Specify the data values array
                 fill: false,
-                pointBorderColor: "#3A8891",
+                pointBorderColor: "white",
                 pointBorderWidth: 1,
                 pointRadius: 3,
 
                 pointHoverRadius: 3,
                 pointHoverBorderWidth: 3,
                 pointHoverBorderColor: "black",
-                pointHoverBackgroundColor: "blue",
+                pointHoverBackgroundColor: "white",
                 pointHitRadius: 30,
 
                 borderColor: "#2196f3", // Add custom color border (Line)
-                backgroundColor: "#3A8891", // Add custom color background (Points and Fill)
+                backgroundColor: "white", // Add custom color background (Points and Fill)
                 borderWidth: 1, // Specify bar border width
               },
               {
@@ -1409,8 +1308,8 @@
                 ], // Specify the data values array
                 fill: false,
                 borderColor: "#7743DB", // Add custom color border (Line)
-                backgroundColor: "#7743DB", // Add custom color background (Points and Fill)
-                borderWidth: 1, // Specify bar border width
+                backgroundColor: "cyan", // Add custom color background (Points and Fill)
+                borderWidth: 0, // Specify bar border width
               },
             ],
           },
@@ -1420,10 +1319,12 @@
             scales: {
               y: {
                 grid: {
-                  borderColor: "black",
+                  borderColor: "white",
                   borderWidth: 0.5,
                   lineWidth: 1,
                   beginAtZero: true,
+                  lineWidth: 0.5,
+                  color: "#7F8487",
                 },
 
                 min: 0,
@@ -1436,15 +1337,19 @@
                     console.log(m);
                     // return m + "m";
                   },
+                  color: "white",
                 },
               },
 
               x: {
                 grid: {
-                  borderColor: "black",
+                  borderColor: "#6B728E",
                   borderWidth: 1,
                   lineWidth: 1,
+                  lineWidth: 0.5,
+                  color: "#7F8487",
                 },
+
                 ticks: {
                   autoSkip: false,
 
@@ -1452,7 +1357,7 @@
                   //   // Hide every 2nd tick label
                   //   return index % 1 === 0 ? this.getLabelForValue(val) : '';
                   // },
-                  color: "black",
+                  color: "white",
                 },
               },
             },
@@ -1735,7 +1640,6 @@
           </div>
           <div class="gallery1 player-swirl">
             <img
-             
               src="./images/section16/full_section16D.webp"
               class=""
               alt="s16"
@@ -1932,8 +1836,9 @@
                   2.81, 2.54, 2.21, 2.71, 2.67, 2.52, 2.3, 2.23, 2.7, 2.6,
                 ], // Specify the data values array
                 fill: false,
-                borderColor: "#2196f3", // Add custom color border (Line)
-                backgroundColor: "#2196f3", // Add custom color background (Points and Fill)
+                color: "white",
+                borderColor: "crimson", // Add custom color border (Line)
+                backgroundColor: "crimson", // Add custom color background (Points and Fill)
                 borderWidth: 1, // Specify bar border width
               },
               {
@@ -1943,15 +1848,48 @@
                   141, 171, 161, 147, 143, 171, 169,
                 ], // Specify the data values array
                 fill: false,
-                borderColor: "#4CAF50", // Add custom color border (Line)
-                backgroundColor: "#4CAF50", // Add custom color background (Points and Fill)
+                borderColor: "#2196f3", // Add custom color border (Line)
+                backgroundColor: "#2196f3", // Add custom color background (Points and Fill)
                 borderWidth: 1, // Specify bar border width
               },
             ],
           },
           options: {
+            plugins: {
+            legend: {
+                labels: {
+                    // This more specific font property overrides the global property
+                    font: {
+                        size: 18
+                    },
+                    color:"white"
+                }
+            }
+        },
             responsive: true, // Instruct chart js to respond nicely.
             maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
+            scales: {
+              x: {
+                min: 0,
+                max: 190,
+                ticks: {
+                  color: "white",
+                },
+                grid: {
+                  lineWidth: 0.5,
+                  color: "#7F8487",
+                },
+              },
+              y: {
+                ticks: {
+                  color: "white",
+                },
+                grid: {
+                  lineWidth: 0.5,
+                  color: "#7F8487",
+                },
+              },
+            },
           },
         });
       </script>
@@ -2064,14 +2002,13 @@
           ],
           datasets: [
             {
-              label: "BILIONS",
+        
               data: [0.5, 2.3, 7, 4.3, 3.6, 15, 11.6, 220],
               backgroundColor: [
-                "rgba(250,174,50,1)",
-                "#497174",
-                "rgb(255, 205, 86)",
+                "#2196f3",
+            
               ],
-              borderColor: "#497174",
+              borderColor: "#2196f3",
 
               pointBorderColor: "lightgrey",
               pointBorderWidth: 2,
@@ -2082,7 +2019,7 @@
               pointHoverBorderColor: "yellow",
               pointHoverBackgroundColor: "blue",
               pointHitRadius: 10,
-              backgroundColor: "#59C1BD",
+              backgroundColor: "#2196f3",
               fill: true,
             },
           ],
@@ -2099,8 +2036,14 @@
               title: {
                 display: true,
                 text: "Cel mai costisitor turneu final",
-              },
+                font: {
+                        size: 18,
+                      
+                    },
+                    color:"white"
             },
+              },
+             
             responsive: true,
             maintainAspectRatio: false,
             scales: {
@@ -2110,6 +2053,7 @@
                   borderWidth: 0.5,
                   lineWidth: 1,
                   beginAtZero: true,
+                  color: "#7F8487",
                 },
                 min: 5,
                 max: 250,
@@ -2117,14 +2061,20 @@
                   callback: function (m) {
                     return "$" + m + ".b";
                   },
+                  color: "white",
                 },
+
               },
 
               x: {
                 grid: {
-                  borderColor: "red",
+                  borderColor: "white",
                   borderWidth: 1,
                   lineWidth: 1,
+                  color: "#7F8487",
+                },
+                ticks: {
+                  color: "white",
                 },
               },
             },
@@ -2296,7 +2246,7 @@
                   </div>
                   <footer class="footer-quiz">
                     <div class="tc-quiz terms hidden-two">
-                      <div class="terms-toggle">termeni și condiții</div>
+                      <div class="terms-toggle">Termeni și condiții</div>
                       <div class="terms-content">
                         <h2>Cine este eligibil?</h2>
                         <ul>
@@ -2713,7 +2663,6 @@
             ) {
               return index.name;
             });
-      
 
             /*s6*/
             const players_name = jsondata.qatar[2].players.map(
@@ -2733,7 +2682,7 @@
                 return temperature;
               }
             );
-       
+
             const match = jsondata.qatar[0].game_info.map(
               ({ match }, index) => {
                 return match;
@@ -2748,12 +2697,9 @@
                   data: players_price.slice(0, 5),
                   borderColor: "black",
                   borderWidth: 0,
+                  fontColor: "white",
                   // pointBackgroundColor: "crimson",
-                  backgroundColor: [
-                    "rgba(250,174,50,1)",
-                    "rgba(250,174,50,1)",
-                    "rgba(250,174,50,1)",
-                  ],
+                  backgroundColor: ["#2196f3", "#2196f3", "#2196f3"],
                 },
               ],
             };
@@ -2774,7 +2720,8 @@
                   },
                   title: {
                     display: true,
-                    text: "fotbalul si milioanele",
+                    text: "Fotbalul și milioanele",
+                    color: "white",
                   },
                 },
                 responsive: true,
@@ -2787,6 +2734,20 @@
                       callback: function (price) {
                         return "$" + price + "m";
                       },
+                      color: "white",
+                    },
+                    grid: {
+                      lineWidth: 0.5,
+                      color: "#7F8487",
+                    },
+                  },
+                  y: {
+                    ticks: {
+                      color: "white",
+                    },
+                    grid: {
+                      lineWidth: 0.5,
+                      color: "#7F8487",
                     },
                   },
                 },
@@ -2808,19 +2769,16 @@
               config_chart6
             ).getContext("2d");
 
-
-
-
             var ctx4 = document.getElementById("myChart_s2").getContext("2d");
 
             var myChart2 = new Chart(ctx4, {
               type: "line",
               data: {
-                labels: match.slice(0,15),
+                labels: match.slice(0, 15),
                 datasets: [
                   {
                     label: "Temperatura", // Name the series
-                    data:temperature.slice(0,15), // Specify the data values array
+                    data: temperature.slice(0, 15), // Specify the data values array
                     fill: false,
                     pointBorderColor: "#3A8891",
                     pointBorderWidth: 1,
@@ -2850,6 +2808,18 @@
                 ],
               },
               options: {
+                plugins: {
+                legend: {
+                  labels: {
+                    font: {
+                        size: 18
+                    },
+                    color:"white",
+                
+                  
+                  },
+                },
+              },
                 responsive: true, // Instruct chart js to respond nicely.
                 maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height
                 scales: {
@@ -2857,33 +2827,34 @@
                     grid: {
                       borderColor: "black",
                       borderWidth: 0.5,
-                      lineWidth: 1,
+                      lineWidth: 0.5,
                       beginAtZero: true,
+                      color: "#7F8487",
                     },
 
                     min: 0,
                     max: 35,
                     ticks: {
                       callback: function (m) {
-                       
-                        return  m + "" + "C";
-                    
+                        return m + "" + "C";
+
                         // return m + "m";
                       },
+                      color: "white",
                     },
                   },
 
                   x: {
                     grid: {
                       borderColor: "black",
-                      borderWidth: 1,
-                      lineWidth: 1,
+                      borderWidth: 0.5,
+                      lineWidth: 0.5,
+                      color: "#7F8487",
                     },
                     ticks: {
                       autoSkip: true,
 
-                   
-                      color: "black",
+                      color: "white",
                     },
                     min: 0,
                     max: 25,
@@ -2912,7 +2883,7 @@
         $(".insert_cars").append(card_div_normal);
         $(".insert_cars_double").append(card_div_reverse, card_div_normal);
 
-        let closeHeight = "2.1em";
+        let closeHeight = "2.2em";
         let moreText = "citește mai mult";
         let lessText = "inchide";
         let duration = "1000";
