@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.frame-wheel {
+    position: relative;
+z-index: 200;
+  }
+  
+img {
+    height: 50vh;
+}
+  .frame-wheel::after {
+    content: "";
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+    background-image: url(./disc-new.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 80%;
+    height: 80%;
+    transform: rotate(-20deg);
+    animation: disk-rotate 10s infinite ease-in-out 1s alternate;
+    z-index: -1;
+  }
+
+  @keyframes disk-rotate {
+    0%,5% {
+      transform: rotate(-20deg);
+    }
+
+   
+    40%, 60%{
+      transform: rotate(-993deg);
+    }
+   
+    85%, 100% {
+      transform: rotate(195deg);
+    }
+  
+  }
+
+
+
+ 
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="wheel-container">
+        <div class="frame-wheel">
+          <img
+            src="./wheel-frame.png"
+            alt="frame-wheel"
+            srcset=""
+            class="frame-img"
+          />
+        </div>
+      </div>
+</body>
+</html>
