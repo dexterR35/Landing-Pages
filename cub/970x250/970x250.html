@@ -12,6 +12,9 @@
       :root {
         --width: 970px;
         --height: 250px;
+        --bg-one: url(./img/test.jpg);
+        --bg-two: url(./img/test.jpg);
+        --bg-three: url(./img/test.jpg);
       }
       body {
         font-family: sans-serif;
@@ -27,8 +30,8 @@
       }
       .scene {
         position: relative;
-        width: var(--width);
-        height: var(--height);
+        width: 100%;
+        height: 100%;
         perspective: 1000px;
       }
 
@@ -43,8 +46,8 @@
 
       .carousel__cell {
         position: absolute;
-        width: var(--width);
-        height: var(--height);
+        width: 100%;
+        height: 100%;
 
         display: flex;
         align-items: center;
@@ -56,35 +59,29 @@
         transition: transform 1s, opacity 1s;
       }
 
-      .carousel__cell:nth-child(9n + 1) {
-       background-image: url(./img/one.jpg);
+      .cell_one {
+        background-image: var(--bg-one);
+        transform: rotateY(0deg) translateZ(288px);
+        -webkit-transform: rotateY(0deg) translateZ(288px);
+        -moz-transform: rotateY(0deg) translateZ(288px);
       }
-      .carousel__cell:nth-child(9n + 2) {
-        background-image: url(./img/two.jpg);
+      .cell_two {
+        background-image: var(--bg-two);
+        transform: rotateY(40deg) translateZ(288px);
+        -webkit-transform: rotateY(40deg) translateZ(288px);
+        -moz-transform: rotateY(40deg) translateZ(288px);
       }
-      .carousel__cell:nth-child(9n + 3) {
-        background-image: url(./img/three.jpg);
-      }
-      .carousel__cell:nth-child(9n + 4) {
-        background-image: url(./img/four.png);
+      .cell_three {
+        background-image: var(--bg-three);
+        transform: rotateY(80deg) translateZ(288px);
+        -webkit-transform: rotateY(80deg) translateZ(288px);
+        -moz-transform: rotateY(80deg) translateZ(288px);
       }
 
-      .carousel__cell:nth-child(1) {
-        transform: rotateY(0deg) translateZ(288px);
+      .carousel-options {
+        position: relative;
+        top: -10vh;
       }
-      .carousel__cell:nth-child(2) {
-        transform: rotateY(40deg) translateZ(288px);
-      }
-      .carousel__cell:nth-child(3) {
-        transform: rotateY(80deg) translateZ(288px);
-      }
-      .carousel__cell:nth-child(4) {
-        transform: rotateY(120deg) translateZ(288px);
-      }
-.carousel-options {
-    position: relative;
-    top: -10vh;
-}
       /* .carousel-options {
   text-align: center;
   position: relative;
@@ -97,16 +94,23 @@
     <div class="container-all">
       <div class="scene">
         <div class="carousel">
-          <div class="carousel__cell">1</div>
-          <div class="carousel__cell">2</div>
-          <div class="carousel__cell">3</div>
-          <div class="carousel__cell">4</div>
+          <div class="carousel__cell cell_one">
+            <div class="cell_assets"></div>
+            <div class="cell_text"></div>
+          </div>
+          <div class="carousel__cell cell_two">
+            <div class="cell_assets"></div>
+            <div class="cell_text"></div>
+          </div>
+          <div class="carousel__cell cell_three">
+            <div class="cell_assets"></div>
+            <div class="cell_text"></div>
+          </div>
         </div>
       </div>
       <div class="carousel-options">
-        <button class="previous-button">Previous</button>
-        <button class="next-button">Next</button>
-
+        <button class="previous-button">Inapoi</button>
+        <button class="next-button">Inainte</button>
         <label style="display: none">
           <input type="radio" name="orientation" value="vertical" checked />
           vertical
@@ -149,7 +153,7 @@
       // cellsRange.addEventListener( 'input', changeCarousel );
 
       function changeCarousel() {
-        cellCount = 4;
+        cellCount = 3;
         //   cellCount = cellsRange.value;
         theta = 360 / cellCount;
         var cellSize = isHorizontal ? cellWidth : cellHeight;
