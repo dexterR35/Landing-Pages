@@ -4,10 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <title>970x250</title>
     <style>
+        
       * {
         box-sizing: border-box;
+      }
+
+   
+
+      html, body, div{
+        font-family: "Play", sans-serif;
       }
       :root {
         --width: 970px;
@@ -23,10 +31,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      
       }
       .container-all {
         width: var(--width);
         height: var(--height);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
       }
       .scene {
         position: relative;
@@ -43,12 +55,23 @@
         transform-style: preserve-3d;
         transition: transform 1s;
       }
+      .btn {
+        border: none;
+        outline: none;
+        padding: 0.5em 0.9em;
+        font-size: 0.9em;
+        line-height: 0.9;
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+      
+        color: white;
+        text-transform: uppercase;
+        border-radius: 2px;
+      }
 
       .carousel__cell {
         position: absolute;
         width: 100%;
         height: 100%;
-
         display: flex;
         align-items: center;
         justify-content: center;
@@ -58,6 +81,17 @@
         text-align: center;
         transition: transform 1s, opacity 1s;
       }
+      
+      .cell_text,.cell_assets{
+        width: 50%;
+        height: 100%;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+      
+
+      }
+    
 
       .cell_one {
         background-image: var(--bg-one);
@@ -80,8 +114,120 @@
 
       .carousel-options {
         position: relative;
-        top: -10vh;
+    top: -10vh;
+    display: flex;
+    justify-content: space-around;
+    width: 55%;
+    left: 26px;
       }
+
+      .offer-html {
+        font-size: 1.8vh;
+        width: fit-content;
+      }
+  .line-1 {
+    color: black;
+    padding: 0.2em 0.3em;
+    width: fit-content;
+    background-color: #ffc107;
+    font-size: 1.6em;
+    margin-bottom: 0.4em;
+    margin-left: 0.3em;
+    margin-top: 0.2em;
+  }
+
+  .line-2 {
+    font-size: 7.5em;
+    margin-top: -0.3em;
+  }
+
+  .line-3 {
+    font-size: 1.5em;
+    margin-top: -0.9em;
+  }
+
+  .line-4 {
+    font-size: 1.54em;
+    margin-bottom: 0.5em;
+  }
+
+  .plus-line {
+    display: flex;
+    align-items: center;
+    margin-top: -0.3em;
+    margin-left: 0.3em;
+    margin-bottom: 0.5em;
+    width: 12.6em;
+    justify-content: center;
+  }
+
+  .plus-line .line {
+    flex: 1;
+    height: 0.13em;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0.06em;
+  }
+
+  .plus-line .plus {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 1em;
+    height: 1em;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-right: 0.4em;
+    margin-left: 0.4em;
+    border-radius: 50px;
+    background-color: white;
+  }
+
+  .plus-line .plus .plus-inside {
+    color: black;
+
+    margin-top: -0.03em;
+  }
+
+  .line-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.7em;
+  }
+
+  .line-5 .top {
+    font-size: 0.9em;
+    margin-bottom: -0.2em;
+    z-index: 5;
+    color: white;
+  }
+
+  .line-5 .bottom {
+    font-size: 1.4em;
+    font-weight: 900;
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    border-radius: 5px;
+    padding: 0.3em 1em 0.3em 1em;
+    transform: scale(1.2);
+    clip-path: polygon(
+      17% 0%,
+      0% 0%,
+      0% 100%,
+      100% 100%,
+      100% 0%,
+      83% 0%,
+      92% 22%,
+      8% 23%
+    );
+  }
       /* .carousel-options {
   text-align: center;
   position: relative;
@@ -95,22 +241,76 @@
       <div class="scene">
         <div class="carousel">
           <div class="carousel__cell cell_one">
-            <div class="cell_assets"></div>
-            <div class="cell_text"></div>
+            <div class="cell_assets">part1</div>
+            <div class="cell_text">
+              <div class="offer-html">
+                <div class="line-1">PÂNĂ LA</div>
+                <div class="line-2">500</div>
+                <div class="line-3">ROTIRI GRATUITE</div>
+                <div class="line-4">FĂRĂ DEPUNERE</div>
+                <div class="plus-line">
+                  <div class="line"></div>
+                  <div class="plus">
+                    <div class="plus-inside">+</div>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="line-5">
+                  <div class="top">COD BONUS:</div>
+                  <div class="bottom">500ROTIRI</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="carousel__cell cell_two">
-            <div class="cell_assets"></div>
-            <div class="cell_text"></div>
+            <div class="cell_assets">part2</div>
+            <div class="cell_text">
+              <div class="offer-html">
+                <div class="line-1">PÂNĂ LA</div>
+                <div class="line-2">200</div>
+                <div class="line-3">ROTIRI GRATUITE</div>
+                <div class="line-4">FĂRĂ DEPUNERE</div>
+                <div class="plus-line">
+                  <div class="line"></div>
+                  <div class="plus">
+                    <div class="plus-inside">+</div>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="line-5">
+                  <div class="top">COD BONUS:</div>
+                  <div class="bottom">200ROTIRI</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="carousel__cell cell_three">
-            <div class="cell_assets"></div>
-            <div class="cell_text"></div>
+            <div class="cell_assets">part3</div>
+            <div class="cell_text">
+              <div class="offer-html">
+                <div class="line-1">PÂNĂ LA</div>
+                <div class="line-2">100</div>
+                <div class="line-3">ROTIRI GRATUITE</div>
+                <div class="line-4">FĂRĂ DEPUNERE</div>
+                <div class="plus-line">
+                  <div class="line"></div>
+                  <div class="plus">
+                    <div class="plus-inside">+</div>
+                  </div>
+                  <div class="line"></div>
+                </div>
+                <div class="line-5">
+                  <div class="top">COD BONUS:</div>
+                  <div class="bottom">100ROTIRI</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="carousel-options">
-        <button class="previous-button">Inapoi</button>
-        <button class="next-button">Inainte</button>
+        <button class="previous-button btn">Inapoi</button>
+        <button class="next-button btn">Inainte</button>
         <label style="display: none">
           <input type="radio" name="orientation" value="vertical" checked />
           vertical
@@ -136,6 +336,13 @@
           "translateZ(" + -radius + "px) " + rotateFn + "(" + angle + "deg)";
       }
 
+      const config = {
+        autoload: true,
+        itemsToBeVisible: 3,
+        speed: 2000,
+      };
+      function start() {
+        window.onload = function () {
       var prevButton = document.querySelector(".previous-button");
       prevButton.addEventListener("click", function () {
         selectedIndex--;
@@ -148,6 +355,20 @@
         rotateCarousel();
       });
 
+      if (config.autoload) {
+            playCarousel(nextButton, config);
+          }
+    };
+      }
+
+      function playCarousel(nextButton, config) {
+        const play = () => {
+          nextButton.click();
+          setTimeout(play, config.speed);
+        };
+        play();
+      }
+      start();
       // var cellsRange = document.querySelector('.cells-range');
       // cellsRange.addEventListener( 'change', changeCarousel );
       // cellsRange.addEventListener( 'input', changeCarousel );
