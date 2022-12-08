@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>970x250</title>
+    <title>300x250</title>
     <style>
       * {
         box-sizing: border-box;
@@ -29,7 +29,7 @@
       }
       :root {
         --offer-color: #ffc107;
-        --width: 970px;
+        --width: 300px;
         --height: 250px;
         --bg-one: url(./img/bg-1.jpg);
         --bg-two: url(./img/bg-2.jpg);
@@ -51,6 +51,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+
+        overflow: hidden;
       }
       .scene {
         position: relative;
@@ -84,9 +86,11 @@
       .container-text {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        height: 100%;
+        justify-content: space-between;
+        height: 92%;
         align-items: center;
+        width: 100%;
+    margin-left: 0.2em;
       }
 
       .cell_text,
@@ -128,9 +132,16 @@
         width: 55%;
         left: 26px;
       }
-
+.cell_three .offer-html {
+  font-size: 0.6em;
+}
+.cell_two .offer-html {
+position: relative;
+top: -1em;
+font-size: 0.8em;
+}
       .offer-html {
-        font-size: 1.1em;
+        font-size: 0.7em;
     width: fit-content;
     font-weight: bold;
     height: 80%;
@@ -157,22 +168,24 @@
 
       .p2__line-1 {
         color: black;
-        padding: 0.2em 0.3em;
-        width: fit-content;
-        background-color: #ffc107;
-        font-size: 1em;
-        margin-bottom: 0.5em;
-        margin-left: 0.18em;
-        margin-top: 0.5em;
+    padding: 0.2em 0.3em;
+    width: fit-content;
+    background-color: #ffc107;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    margin-left: 0.18em;
+    margin-top: 0.5em;
+
       }
       .p2__line-2 {
-        font-size: 2.5em;
-        margin-top: -0.4em;
+        font-size: 2.2em;
+    margin-top: -0.3em;
       }
       .p2__line-3 {
-        font-size: 3.48em;
-        margin-top: -0.38em;
-        margin-bottom: -0.1em;
+        font-size: 2.48em;
+    margin-top: -0.35em;
+    text-align: end;
+    margin-bottom: -0.1em;
       }
 
       .p3__line-2 {
@@ -194,7 +207,7 @@
       .logo-netbet {
         width: 100%;
         background-image: url(./img/logo-inline.svg);
-        height: 2em;
+        height: 1.2em;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -202,7 +215,7 @@
       }
 
       .button {
-        font-size: 0.8em;
+        font-size: 0.55em;
         background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
         text-transform: uppercase;
         font-weight: bold;
@@ -249,7 +262,7 @@
       .ong {
         background-image: url(./img/ong.png);
         width: 100%;
-        height: 1.5em;
+        height: 1em;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -333,7 +346,7 @@
       let carousel = document.querySelector(".carousel");
       let cells = carousel.querySelectorAll(".carousel__cell");
       let cellCount; // cellCount set from cells-range input value
-      let selectedIndex = 2;
+      let selectedIndex = 1;
       let cellWidth = carousel.offsetWidth;
       let cellHeight = carousel.offsetHeight;
       let isHorizontal = true;
