@@ -19,7 +19,12 @@
         padding: 0;
         box-sizing: border-box;
       }
-   
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+      }
       html,
       body,
       div {
@@ -32,7 +37,7 @@
       }
       :root {
         --offer-color: #ffc107;
-        --width: 120px;
+        --width: 160px;
         --height: 600px;
         --bg-one: url(./img/bg-1.jpg);
         --bg-two: url(./img/bg-2.jpg);
@@ -81,9 +86,10 @@
         display: flex;
         justify-content: space-evenly;
         flex-direction: column;
-        height: 68%;
+        height: 78%;
         align-items: center;
-        margin-bottom: 4em;
+       
+        margin-bottom: 2em;
       }
 
       .cell_text,
@@ -127,10 +133,10 @@
       }
 
       .offer-html {
-        font-size: 22px;
+        font-size: 30px;
         width: fit-content;
         font-weight: bold;
-        height: 80%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -143,12 +149,12 @@
 
       .p1__line-2 {
         font-size: 0.91em;
-    margin-top: -0.2em;
+    margin-top: -0.27em;
       }
 
       .p1__line-3 {
         font-size: 0.94em;
-    margin-top: -0.25em;
+    margin-top: -0.27em;
       }
 
       .p2__line-1 {
@@ -166,7 +172,7 @@
       }
       .p2__line-3 {
         font-size: 1.4em;
-        margin-top: -0.32em;
+        margin-top: -0.3em;
         margin-bottom: -0.1em;
         margin-left: -0.02em;
       }
@@ -177,7 +183,7 @@
       }
       .p3__line-3 {
         font-size: 1em;
-        margin-top: -0.33em;
+        margin-top: -0.25em;
         text-align: end;
       }
 
@@ -196,11 +202,11 @@
       }
 
       .button {
-        font-size: 0.6em;
+        font-size: 0.7em;
         background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
         text-transform: uppercase;
         font-weight: bold;
-        padding: 0.8em 1em;
+        padding: 0.8em 1.5em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -242,7 +248,7 @@
       .ong {
         background-image: url(./img/ong.png);
         width: 100%;
-        height: 1.5em;
+        height: 1.7em;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
@@ -327,7 +333,7 @@
       let cells = carousel.querySelectorAll(".carousel__cell");
       let cellCount;
       let selectedIndex = 2;
-      let cellWidth = 120;
+      let cellWidth = 160;
       let cellHeight = 600;
       let isHorizontal = true;
       let rotateFn = isHorizontal ? "rotateY" : "rotateX";

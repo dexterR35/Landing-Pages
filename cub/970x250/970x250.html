@@ -12,10 +12,20 @@
     />
     <title>970x250</title>
     <style>
-      * {
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
         box-sizing: border-box;
       }
-
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+       
+      }
       html,
       body,
       div {
@@ -25,7 +35,6 @@
         text-decoration: none;
         color: white;
         margin-bottom: 0.6em;
-
       }
       :root {
         --offer-color: #ffc107;
@@ -36,37 +45,32 @@
         --bg-three: url(./img/bg-3.jpg);
       }
 
-      body {
-        font-family: sans-serif;
-        text-align: center;
-        height: 90vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       .container-all {
         width: var(--width);
         height: var(--height);
         display: flex;
         flex-direction: column;
-        overflow: hidden;
         align-items: flex-end;
+      
       }
       .scene {
         position: relative;
         width: 100%;
         height: 100%;
         perspective: 1000px;
+        
+ 
       }
 
       .carousel {
         width: 100%;
         height: 100%;
         position: absolute;
-        transform: translateZ(-288px);
+        /* transform: translateZ(288px);
+        -webkit-transform: translateZ(288px); */
         transform-style: preserve-3d;
         transition: transform 1s;
+        
       }
       .btn {
         display: none;
@@ -81,6 +85,8 @@
         justify-content: center;
         transition: transform 1s, opacity 1s;
         flex-direction: row;
+    
+   
       }
       .container-text {
         display: flex;
@@ -104,21 +110,21 @@
 
       .cell_one {
         background-image: var(--bg-one);
-        transform: rotateY(0deg) translateZ(288px);
-        -webkit-transform: rotateY(0deg) translateZ(288px);
-        -moz-transform: rotateY(0deg) translateZ(288px);
+         /* transform: rotateY(0deg) translateZ(0px); */
+       /* -webkit-transform: rotateY(0deg) translateZ(288px);
+        -moz-transform: rotateY(0deg) translateZ(288px); */
       }
       .cell_two {
         background-image: var(--bg-two);
-        transform: rotateY(40deg) translateZ(288px);
+        /* transform: rotateY(40deg) translateZ(288px);
         -webkit-transform: rotateY(40deg) translateZ(288px);
-        -moz-transform: rotateY(40deg) translateZ(288px);
+        -moz-transform: rotateY(40deg) translateZ(288px); */
       }
       .cell_three {
         background-image: var(--bg-three);
-        transform: rotateY(80deg) translateZ(288px);
+        /* transform: rotateY(80deg) translateZ(288px);
         -webkit-transform: rotateY(80deg) translateZ(288px);
-        -moz-transform: rotateY(80deg) translateZ(288px);
+        -moz-transform: rotateY(80deg) translateZ(288px); */
       }
 
       .carousel-options {
@@ -132,28 +138,27 @@
 
       .offer-html {
         font-size: 1.1em;
-    width: fit-content;
-    font-weight: bold;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    text-transform: uppercase;
+        width: fit-content;
+        font-weight: bold;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        text-transform: uppercase;
       }
       .p1__line-1 {
         font-size: 1.68em;
-    
       }
 
       .p1__line-2 {
         font-size: 2.18em;
-    margin-top: -0.35em;
+        margin-top: -0.35em;
       }
 
       .p1__line-3 {
         font-size: 2.25em;
-    margin-top: -0.33em;
+        margin-top: -0.33em;
       }
 
       .p2__line-1 {
@@ -162,7 +167,7 @@
         width: fit-content;
         background-color: #ffc107;
         font-size: 1em;
-        margin-bottom: 0.5em;
+        margin-bottom: 0.6em;
         margin-left: 0.18em;
         margin-top: 0.5em;
       }
@@ -171,9 +176,10 @@
         margin-top: -0.4em;
       }
       .p2__line-3 {
-        font-size: 3.48em;
-        margin-top: -0.38em;
+        font-size: 3.45em;
+        margin-top: -0.35em;
         margin-bottom: -0.1em;
+        margin-left: -0.02em;
       }
 
       .p3__line-2 {
@@ -181,8 +187,8 @@
         position: relative;
       }
       .p3__line-3 {
-        font-size: 2.61em;
-        margin-top: -0.35em;
+        font-size: 2.58em;
+        margin-top: -0.33em;
         text-align: end;
       }
       .cell_three .offer-html {
@@ -195,11 +201,11 @@
       .logo-netbet {
         width: 100%;
         background-image: url(./img/logo-inline.svg);
-        height: 2em;
+        height: 2.3em;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        margin-top: 0.5em;
+        margin-top: 0.8em;
       }
 
       .button {
@@ -250,11 +256,11 @@
       .ong {
         background-image: url(./img/ong.png);
         width: 100%;
-        height: 1.5em;
+        height: 1.8em;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        margin-bottom: 0.2em;
+        margin-bottom: 0.4em;
       }
       /* .carousel-options {
   text-align: center;
@@ -291,7 +297,7 @@
               <div class="container-text">
                 <div class="logo-netbet"></div>
                 <div class="offer-html">
-                  <div class="p2__line-1">pana la</div>
+                  <div class="p2__line-1">până la</div>
                   <div class="p2__line-2">5000 RON</div>
                   <div class="p2__line-3 text-yellow">bonus</div>
                 </div>
@@ -330,17 +336,17 @@
       </div>
     </div>
 
-     <script>
+    <script>
       let carousel = document.querySelector(".carousel");
       let cells = carousel.querySelectorAll(".carousel__cell");
-      let cellCount; // cellCount set from cells-range input value
+      let cellCount; 
       let selectedIndex = 2;
-      let cellWidth = carousel.offsetWidth;
-      let cellHeight = carousel.offsetHeight;
+      let cellWidth = 970;
+      let cellHeight = 250;
       let isHorizontal = true;
       let rotateFn = isHorizontal ? "rotateY" : "rotateX";
       let radius, theta;
-      // console.log( cellWidth, cellHeight );
+      console.log(cellWidth, cellHeight);
 
       function rotateCarousel() {
         let angle = theta * selectedIndex * -1;
@@ -350,27 +356,24 @@
 
       const config = {
         autoload: true,
-        itemsToBeVisible: 3,
-        speed: 3000,
+        speed: 3500,
       };
       function start() {
-        window.onload = function () {
-          let prevButton = document.querySelector(".previous-button");
-          prevButton.addEventListener("click", function () {
-            selectedIndex--;
-            rotateCarousel();
-          });
+        // let prevButton = document.querySelector(".previous-button");
+        // prevButton.addEventListener("click", function () {
+        //   selectedIndex--;
+        //   rotateCarousel();
+        // });
 
-          let nextButton = document.querySelector(".next-button");
-          nextButton.addEventListener("click", function () {
-            selectedIndex++;
-            rotateCarousel();
-          });
+        let nextButton = document.querySelector(".next-button");
+        nextButton.addEventListener("click", function () {
+          selectedIndex++;
+          rotateCarousel();
+        });
 
-          if (config.autoload) {
-            playCarousel(nextButton, config);
-          }
-        };
+        if (config.autoload) {
+          playCarousel(nextButton, config);
+        }
       }
 
       function playCarousel(nextButton, config) {
@@ -381,13 +384,11 @@
         play();
       }
       start();
-      // let cellsRange = document.querySelector('.cells-range');
-      // cellsRange.addEventListener( 'change', changeCarousel );
-      // cellsRange.addEventListener( 'input', changeCarousel );
+  
 
       function changeCarousel() {
         cellCount = 3;
-        //   cellCount = cellsRange.value;
+      
         theta = 360 / cellCount;
         let cellSize = isHorizontal ? cellWidth : cellHeight;
         radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
@@ -409,13 +410,7 @@
         rotateCarousel();
       }
 
-      // let orientationRadios = document.querySelectorAll('input[name="orientation"]');
-      // ( function() {
-      //   for ( let i=0; i < orientationRadios.length; i++ ) {
-      //     let radio = orientationRadios[i];
-      //     radio.addEventListener( 'change', onOrientationChange );
-      //   }
-      // })();
+ 
 
       function onOrientationChange() {
         var checkedRadio = document.querySelector(
@@ -428,6 +423,6 @@
 
       // set initials
       onOrientationChange();
-    </script> 
+    </script>
   </body>
 </html>
