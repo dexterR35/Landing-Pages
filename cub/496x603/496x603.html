@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ad.size" content="width=496,height=603" />
+    <meta name="robots" content="noindex,follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,12 +21,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90vh;
-      }
+  
       html,
       body,
       div {
@@ -42,7 +39,7 @@
         --bg-one: url(./img/bg-1.jpg);
         --bg-two: url(./img/bg-2.jpg);
         --bg-three: url(./img/bg-3.jpg);
-        --flex-direction-carousel-cell:column-reverse;
+        --flex-direction-carousel-cell: column-reverse;
       }
 
       .container-all {
@@ -51,14 +48,12 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-      
       }
       .scene {
         position: relative;
         width: 100%;
         height: 100%;
         perspective: 1000px;
- 
       }
 
       .carousel {
@@ -69,7 +64,6 @@
         -webkit-transform: translateZ(288px); */
         transform-style: preserve-3d;
         transition: transform 1s;
-        
       }
       .btn {
         display: none;
@@ -84,15 +78,14 @@
         justify-content: center;
         transition: transform 1s, opacity 1s;
         flex-direction: var(--flex-direction-carousel-cell);
-
       }
       .container-text {
         display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 90%;
-    align-items: center;
-    margin-top: -2em;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 85%;
+        align-items: center;
+        margin-top: -2em;
       }
 
       .cell_text,
@@ -144,7 +137,7 @@
         flex-direction: column;
         justify-content: center;
         color: white;
-       
+
         text-transform: uppercase;
       }
       .p1__line-1 {
@@ -339,22 +332,21 @@
     <script>
       let carousel = document.querySelector(".carousel");
       let cells = carousel.querySelectorAll(".carousel__cell");
-      let cellCount; 
-      let selectedIndex = 2;
+      let cellCount;
+      let selectedIndex = 3;
       let cellWidth = 499;
       let cellHeight = 603;
       let isHorizontal = true;
       let rotateFn = isHorizontal ? "rotateY" : "rotateX";
       let radius, theta;
       console.log(cellWidth, cellHeight);
-     
 
       function rotateCarousel() {
         let angle = theta * selectedIndex * -1;
         carousel.style.transform =
           "translateZ(" + -radius + "px) " + rotateFn + "(" + angle + "deg)";
       }
-   
+
       const config = {
         autoload: true,
         speed: 3500,
@@ -374,7 +366,6 @@
 
         if (config.autoload) {
           playCarousel(nextButton, config);
-          
         }
       }
 
@@ -386,11 +377,10 @@
         play();
       }
       start();
-  
 
       function changeCarousel() {
         cellCount = 3;
-      
+
         theta = 360 / cellCount;
         let cellSize = isHorizontal ? cellWidth : cellHeight;
         radius = Math.round(cellSize / 2.02 / Math.tan(Math.PI / cellCount));
@@ -411,8 +401,6 @@
 
         rotateCarousel();
       }
-
- 
 
       function onOrientationChange() {
         var checkedRadio = document.querySelector(

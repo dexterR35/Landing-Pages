@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ad.size" content="width=250,height=250">
+    <meta name="robots" content="noindex,follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
       rel="stylesheet"
@@ -35,14 +38,6 @@
         --bg-three: url(./img/bg-3.jpg);
       }
 
-      body {
-        font-family: sans-serif;
-        text-align: center;
-        height: 90vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 
       .container-all {
         width: var(--width);
@@ -87,7 +82,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 82%;
+        height: 75%;
         align-items: center;
         width: 100%;
         margin-left: 0.2em;
@@ -133,12 +128,12 @@
         left: 26px;
       }
       .cell_three .offer-html {
-        font-size: 0.6em;
+        font-size: 0.5em;
       }
       .cell_two .offer-html {
         position: relative;
         top: -0.5em;
-        font-size: 0.8em;
+        font-size: 0.75em;
       }
       .offer-html {
         font-size: 0.55em;
@@ -150,40 +145,45 @@
         justify-content: center;
         color: white;
         text-transform: uppercase;
+        line-height: 0.7;
+        margin-left: 7px;
       }
       .p1__line-1 {
         font-size: 1.68em;
+        line-height: 1;
+      
       }
 
       .p1__line-2 {
         font-size: 2.18em;
-        margin-top: -0.3em;
+   
       }
 
       .p1__line-3 {
         font-size: 2.25em;
-        margin-top: -0.3em;
+        line-height: 0.9;
       }
 
       .p2__line-1 {
         color: black;
         padding: 0.2em 0.3em;
+        line-height: 1.3;
         width: fit-content;
         background-color: #ffc107;
-        font-size: 1.1em;
-        margin-bottom: 0.32em;
+        font-size: 1em;
         margin-left: 0.1em;
         margin-top: 0.5em;
+        margin-bottom: 3px;
       }
       .p2__line-2 {
         font-size: 1.79em;
-        margin-top: -0.3em;
+        margin-bottom: 3px;
+ 
       }
       .p2__line-3 {
         font-size: 2.48em;
-        margin-top: -0.3em;
-        /* text-align: end; */
-        margin-bottom: -0.1em;
+
+
       }
 
       .p3__line-2 {
@@ -191,12 +191,12 @@
         position: relative;
       }
       .p3__line-3 {
-        font-size: 2.61em;
-        margin-top: -0.3em;
+        font-size: 2.60em;
+        line-height: 0.9;
         text-align: end;
       }
       .cell_three .offer-html {
-        margin-left: -25px;
+        margin-left: -15px;
       }
       .text-yellow {
         color: var(--offer-color);
@@ -205,7 +205,7 @@
       .logo-netbet {
         width: 100%;
         background-image: url(./img/logo-inline.svg);
-        height: 1.5em;
+        height: 1.3em;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -217,7 +217,7 @@
         background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
         text-transform: uppercase;
         font-weight: bold;
-        padding: 0.8em 1.3em;
+        padding: 0.8em 1.1em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -335,7 +335,7 @@
         <button class="previous-button btn">Inapoi</button>
         <button class="next-button btn">Inainte</button>
         <label style="display: none">
-          <input type="radio" name="orientation" value="vertical" checked />
+          <input type="radio" name="orientation" value="horizontal" checked />
           vertical
         </label>
       </div>
@@ -387,12 +387,12 @@
           setTimeout(play, config.speed);
         };
         play();
+     
       }
-      start();
+      start()
 
       function changeCarousel() {
         cellCount = 3;
-
         theta = 360 / cellCount;
         let cellSize = isHorizontal ? cellWidth : cellHeight;
         radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
@@ -410,21 +410,22 @@
             cell.style.transform = "none";
           }
         }
-
         rotateCarousel();
       }
-
+      changeCarousel();
+   
+/*
       function onOrientationChange() {
-        var checkedRadio = document.querySelector(
-          'input[name="orientation"]:checked'
-        );
-        isHorizontal = checkedRadio.value == "horizontal";
-        rotateFn = isHorizontal ? "rotateY" : "rotateX";
-        changeCarousel();
+        // var checkedRadio = document.querySelector(
+        //   'input[name="orientation"]:checked'
+        // );
+        // isHorizontal = checkedRadio.value == "horizontal";
+        // rotateFn = isHorizontal ? "rotateY" : "rotateX";
+        // changeCarousel();
       }
+      */
+      // onOrientationChange();
 
-      // set initials
-      onOrientationChange();
     </script>
   </body>
 </html>

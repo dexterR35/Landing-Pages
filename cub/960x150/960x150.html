@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ad.size" content="width=960,height=150" />
+    <meta name="robots" content="noindex,follow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,12 +21,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90vh;
-      }
+  
       html,
       body,
       div {
@@ -134,7 +131,7 @@
       }
 
       .offer-html {
-        font-size: 1.2em;
+        font-size: 1.3em;
         width: fit-content;
         font-weight: bold;
         height: 100%;
@@ -147,6 +144,7 @@
       }
       .p1__line-1 {
         font-size: 1.68em;
+        margin-bottom: 4px;
       }
 
       .p1__line-2 {
@@ -167,7 +165,7 @@
         font-size: 1em;
         margin-bottom: 0.6em;
         margin-left: 0.18em;
-        margin-top: 0.5em;
+        margin-top: 0.1em;
       }
       .p2__line-2 {
         font-size: 2.5em;
@@ -175,7 +173,7 @@
       }
       .p2__line-3 {
         font-size: 3.45em;
-        margin-top: -0.35em;
+        margin-top: -0.3em;
         margin-bottom: -0.1em;
         margin-left: -0.02em;
       }
@@ -349,7 +347,7 @@
       let carousel = document.querySelector(".carousel");
       let cells = carousel.querySelectorAll(".carousel__cell");
       let cellCount;
-      let selectedIndex = 2;
+      let selectedIndex = 3;
       let cellWidth = 960;
       let cellHeight = 150;
       let isHorizontal = true;
@@ -390,7 +388,7 @@
           nextButton.click();
           setTimeout(play, config.speed);
         };
-        play();
+        // play();
       }
       start();
 
