@@ -10,21 +10,12 @@
       href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>960x150</title>
+    <title>300x250</title>
     <style>
-      *,
-      *::after,
-      *::before {
-        margin: 0;
-        padding: 0;
+      * {
         box-sizing: border-box;
       }
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 90vh;
-      }
+
       html,
       body,
       div {
@@ -37,11 +28,20 @@
       }
       :root {
         --offer-color: #ffc107;
-        --width: 960px;
-        --height: 150px;
+        --width: 300px;
+        --height: 250px;
         --bg-one: url(./img/bg-1.jpg);
         --bg-two: url(./img/bg-2.jpg);
         --bg-three: url(./img/bg-3.jpg);
+      }
+
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .container-all {
@@ -50,6 +50,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+
       }
       .scene {
         position: relative;
@@ -62,10 +63,10 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        /* transform: translateZ(288px);
-        -webkit-transform: translateZ(288px); */
+        /* transform: translateZ(-288px); */
         transform-style: preserve-3d;
         transition: transform 1s;
+        
       }
       .btn {
         display: none;
@@ -80,35 +81,34 @@
         justify-content: center;
         transition: transform 1s, opacity 1s;
         flex-direction: row;
+       
       }
       .container-text {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        height: 100%;
+        justify-content: space-between;
+        height: 82%;
         align-items: center;
+        width: 100%;
+        margin-left: 0.2em;
       }
 
       .cell_text,
       .cell_assets {
+        width: 50%;
         height: 100%;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
       }
-      .cell_assets {
-        flex-direction: column;
-        width: 20%;
-        align-items: flex-start;
-      }
       .cell_text {
-        width: 80%;
+        flex-direction: column;
       }
 
       .cell_one {
         background-image: var(--bg-one);
-        /* transform: rotateY(0deg) translateZ(0px); */
-        /* -webkit-transform: rotateY(0deg) translateZ(288px);
+        /* transform: rotateY(0deg) translateZ(288px);
+        -webkit-transform: rotateY(0deg) translateZ(288px);
         -moz-transform: rotateY(0deg) translateZ(288px); */
       }
       .cell_two {
@@ -132,17 +132,23 @@
         width: 55%;
         left: 26px;
       }
-
+      .cell_three .offer-html {
+        font-size: 0.6em;
+      }
+      .cell_two .offer-html {
+        position: relative;
+        top: -0.5em;
+        font-size: 0.8em;
+      }
       .offer-html {
-        font-size: 1.2em;
+        font-size: 0.7em;
         width: fit-content;
         font-weight: bold;
-        height: 100%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         color: white;
-        margin-right: 64px;
         text-transform: uppercase;
       }
       .p1__line-1 {
@@ -151,12 +157,12 @@
 
       .p1__line-2 {
         font-size: 2.18em;
-        margin-top: -0.32em;
+        margin-top: -0.3em;
       }
 
       .p1__line-3 {
         font-size: 2.25em;
-        margin-top: -0.33em;
+        margin-top: -0.3em;
       }
 
       .p2__line-1 {
@@ -164,20 +170,20 @@
         padding: 0.2em 0.3em;
         width: fit-content;
         background-color: #ffc107;
-        font-size: 1em;
-        margin-bottom: 0.6em;
-        margin-left: 0.18em;
+        font-size: 1.1em;
+        margin-bottom: 0.32em;
+        margin-left: 0.1em;
         margin-top: 0.5em;
       }
       .p2__line-2 {
-        font-size: 2.5em;
-        margin-top: -0.4em;
+        font-size: 1.79em;
+        margin-top: -0.3em;
       }
       .p2__line-3 {
-        font-size: 3.45em;
-        margin-top: -0.35em;
+        font-size: 2.48em;
+        margin-top: -0.3em;
+        /* text-align: end; */
         margin-bottom: -0.1em;
-        margin-left: -0.02em;
       }
 
       .p3__line-2 {
@@ -185,8 +191,8 @@
         position: relative;
       }
       .p3__line-3 {
-        font-size: 2.58em;
-        margin-top: -0.33em;
+        font-size: 2.61em;
+        margin-top: -0.3em;
         text-align: end;
       }
       .cell_three .offer-html {
@@ -199,26 +205,19 @@
       .logo-netbet {
         width: 100%;
         background-image: url(./img/logo-inline.svg);
-        height: 5em;
+        height: 1.7em;
         background-repeat: no-repeat;
-        background-position: left;
+        background-position: center;
         background-size: contain;
         margin-top: 0.5em;
-        margin-bottom: 0.5em;
       }
-      .logo-netbet,
-      .ong {
-        margin-left: 13px;
-      }
+
       .button {
-        margin-left: 9px;
-      }
-      .button {
-        font-size: 0.6em;
+        font-size: 0.55em;
         background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
         text-transform: uppercase;
         font-weight: bold;
-        padding: 0.8em 0.9em;
+        padding: 0.8em 2em;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -261,12 +260,11 @@
       .ong {
         background-image: url(./img/ong.png);
         width: 100%;
-        height: 1.15em;
+        height: 1em;
         background-size: contain;
-        background-position: left;
+        background-position: center;
         background-repeat: no-repeat;
-        margin-bottom: 0.5em;
-        margin-top: -0.2em;
+        margin-bottom: 0.2em;
       }
       /* .carousel-options {
   text-align: center;
@@ -281,55 +279,52 @@
       <div class="scene">
         <div class="carousel">
           <div class="carousel__cell cell_one">
-            <div class="cell_assets">
-              <div class="logo-netbet"></div>
-              <a href="http://">
-                <div class="button btn-custom">Înregistrează-te</div>
-              </a>
-              <div class="ong"></div>
-            </div>
+            <div class="cell_assets"></div>
             <div class="cell_text">
               <div class="container-text">
+                <div class="logo-netbet"></div>
                 <div class="offer-html">
                   <div class="p1__line-1">cel mai mare</div>
                   <div class="p1__line-2">pachet de</div>
                   <div class="p1__line-3 text-yellow">bun venit</div>
                 </div>
+                <a href="http://">
+                  <div class="button btn-custom">Înregistrează-te</div>
+                </a>
+                <div class="ong"></div>
               </div>
             </div>
           </div>
           <div class="carousel__cell cell_two">
-            <div class="cell_assets">
-              <div class="logo-netbet"></div>
-              <a href="http://">
-                <div class="button btn-custom">Înregistrează-te</div>
-              </a>
-              <div class="ong"></div>
-            </div>
+            <div class="cell_assets"></div>
             <div class="cell_text">
               <div class="container-text">
+                <div class="logo-netbet"></div>
                 <div class="offer-html">
                   <div class="p2__line-1">până la</div>
                   <div class="p2__line-2">5000 RON</div>
                   <div class="p2__line-3 text-yellow">bonus</div>
                 </div>
+                <a href="http://">
+                  <div class="button btn-custom">Înregistrează-te</div>
+                </a>
+                <div class="ong"></div>
               </div>
             </div>
           </div>
           <div class="carousel__cell cell_three">
-            <div class="cell_assets">
-              <div class="logo-netbet"></div>
-              <a href="http://">
-                <div class="button btn-custom">Înregistrează-te</div>
-              </a>
-              <div class="ong"></div>
-            </div>
+            <div class="cell_assets"></div>
             <div class="cell_text">
               <div class="container-text">
+                <div class="logo-netbet"></div>
                 <div class="offer-html">
                   <div class="p3__line-2">+ 650 runde</div>
                   <div class="p3__line-3 text-yellow">gratuite</div>
                 </div>
+                <a href="http://">
+                  <div class="button btn-custom">Înregistrează-te</div>
+                </a>
+                <div class="ong"></div>
               </div>
             </div>
           </div>
@@ -350,8 +345,8 @@
       let cells = carousel.querySelectorAll(".carousel__cell");
       let cellCount;
       let selectedIndex = 2;
-      let cellWidth = 960;
-      let cellHeight = 150;
+      let cellWidth = 300;
+      let cellHeight = 250;
       let isHorizontal = true;
       let rotateFn = isHorizontal ? "rotateY" : "rotateX";
       let radius, theta;
