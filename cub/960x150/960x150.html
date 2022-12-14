@@ -347,7 +347,7 @@
       let carousel = document.querySelector(".carousel");
       let cells = carousel.querySelectorAll(".carousel__cell");
       let cellCount;
-      let selectedIndex = 3;
+      let selectedIndex = 2;
       let cellWidth = 960;
       let cellHeight = 150;
       let isHorizontal = true;
@@ -388,7 +388,7 @@
           nextButton.click();
           setTimeout(play, config.speed);
         };
-        // play();
+        play();
       }
       start();
 
