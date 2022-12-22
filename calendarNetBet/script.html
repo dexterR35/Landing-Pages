@@ -1,0 +1,104 @@
+<html>
+      <style>
+        .center-div {
+          width: 25vw;
+          height: 25vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+      
+        .center-div > p {
+          font-size: 24px;
+          text-align: center;
+        }
+      </style>
+    <div id="my-div" class="center-div">
+        <p>My text</p>
+    </div>
+    <p>Secventa random generata este: <span id="secventa"></span></p>
+      
+      
+      </html>
+
+<script>
+    // Get current date
+    var today = new Date();
+    var date = today.getDate();
+    console.log(date);
+    
+      // Create the correct sequence of prizes - index 0 is 9th of January
+      //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
+      const correct = ["A",  "C",  "D",  "B",  "C",  "A",  "D",  "B",  "C",  "A",  "D",  "B",  "C",  "D",  "A",  "C",  "A",  "D",  "B",  "C",  "A",  "D",  "B"];
+    
+      // Create an array of possible values
+      const values = ["A", "B", "C", "D"];
+
+      // An array of four possible background images
+      const backgroundImages = [
+        'image1.jpg',
+        'image2.jpg',
+        'image3.jpg',
+        'image4.jpg'
+      ];  
+
+      // Create the starting time value
+      const timer = 300;
+      
+function createRandomSequence() {
+
+  // Create an empty array to store the random sequence
+  let sequence = [];
+
+  // Add a random value to the sequence, making sure it's not the same as the
+  // previous value and the 9th value is different from the correct (10th value) 
+  let previousValue = null;
+  while (sequence.length < 10) {
+    let randomIndex = Math.floor(Math.random() * values.length);
+    let randomValue = values[randomIndex];
+    if (randomValue !== previousValue && randomValue !== correct[date-9]) {
+      sequence.push(randomValue);
+      previousValue = randomValue;
+    }
+  }
+
+  // Make sure the last value in the sequence is correct
+  sequence[sequence.length - 1] = correct[date-9];
+
+  console.log(sequence);
+  return sequence;
+}
+
+
+function updateDiv(div, sequence) {
+  let index = 0;
+  setInterval(() => {
+    // Stop the interval when we reach the end of the sequence
+    if (index >= sequence.length) {
+      clearInterval(this);
+      return;
+    }
+
+    // Update the div with the next value in the sequence
+    div.innerHTML = sequence[index];
+
+    // Set the background image of the div to the image at the random index
+    div.style.backgroundImage = `url(${backgroundImages[values.indexOf(sequence[index])]})`;
+
+    index++;
+  }, timer); // Update the div 
+}
+
+// Create the random sequence
+let sequence = createRandomSequence();
+
+// Get the div element
+let div = document.getElementById("my-div");
+
+// Start updating the div with the values from the sequence
+updateDiv(div, sequence);
+
+document.getElementById("secventa").innerHTML = sequence;
+
+</script>
