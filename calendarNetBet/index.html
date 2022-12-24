@@ -18,6 +18,7 @@
         padding: 0;
         box-sizing: border-box;
       }
+
       body {
         display: flex;
         justify-content: center;
@@ -25,6 +26,7 @@
         height: 100vh;
         position: relative;
       }
+
       body::before {
         position: fixed;
         content: "";
@@ -35,12 +37,14 @@
         width: 100%;
         height: 100%;
       }
+
       .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
       }
+
       .btn-box {
         border: none;
         outline: none;
@@ -48,22 +52,39 @@
         z-index: 10;
         color: white;
         background: none;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-image: url(./img/cadou-full.png);
+        background-repeat: no-repeat;
+        z-index: 1;
+        background-position: center;
+      }
+      .btn-box2 {
+        border: none;
+        outline: none;
+        position: relative;
+        z-index: 10;
+        color: white;
+        background: none;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+        background-image: url(./img/cadou-partial.png);
+        background-repeat: no-repeat;
+        z-index: 1;
+        background-position: center;
       }
 
-      .btn-box::after {
+      /* .btn-box::after {
         content: "";
         position: absolute;
         left: 0;
         top: 0;
-        background-size: contain;
-        background-image: url(./img/cadou-full.png);
-        background-repeat: no-repeat;
-        z-index: -1;
-        background-position: center;
         width: 100%;
         height: 100%;
-        mix-blend-mode: luminosity;
-      }
+    
+      } */
 
       .btn-box span {
         z-index: 200;
@@ -72,9 +93,10 @@
         justify-content: center;
         align-items: center;
         position: relative;
-        top: 8px;
+        top: 17px;
         font-weight: bold;
-        font-size: 1em;
+        font-size: 2em;
+        height: 100%;
       }
 
       .btn-box:hover {
@@ -91,8 +113,9 @@
       #main-container {
         display: grid;
         grid-gap: 10px;
-        grid-template-columns: repeat(5, minmax(70px, 1fr));
-        grid-template-rows: repeat(5, minmax(70px, 1fr));
+
+        grid-template-columns: repeat(5, minmax(155px, 1fr));
+        grid-template-rows: repeat(5, minmax(150px, 1fr));
         color: #444;
       }
 
@@ -112,47 +135,199 @@
         font-weight: bold;
         margin-top: -20px;
       }
+
       .box-main {
         background-size: contain;
         background-image: url(./img/cadou-partial.png);
         background-repeat: no-repeat;
         background-position: center;
       }
+
       .box-container {
         position: relative;
         height: 200px;
+        display: flex;
+        justify-content: center;
+      }
+
+      /* html.modal-active, body.modal-active {
+	 overflow: hidden;
+} */
+      #modal-container {
+        position: fixed;
+        display: table;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: scale(0);
+        z-index: 1;
+      }
+
+      #modal-container.four {
+        z-index: 50;
+        transform: scale(1);
+      }
+
+      #modal-container.four .modal-background {
+        background: rgba(0, 0, 0, 0.7);
+      }
+
+      #modal-container.four .modal-background .modal {
+        animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+      }
+
+      #modal-container .modal-background {
+        display: table-cell;
+        background: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      #modal-container .modal-background .modal {
+        padding: 50px;
+        font-weight: 300;
+        position: relative;
+        /* background-size: contain;
+        background-image: url(./img/cadou-full.png);
+        background-repeat: no-repeat;
+        background-position: center; */
+      }
+
+      #modal-container.four.out .modal-background .modal {
+        animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
+          forwards;
+      }
+
+      @keyframes blowUpModal {
+        0% {
+          transform: scale(0);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .popup_wrapper,
+      .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .popup_wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        visibility: hidden;
+        transition: opacity 500ms;
+        opacity: 0;
+      }
+
+      .overlay {
+        z-index: 0;
+        background: rgba(0, 0, 0, 0.618);
+      }
+
+      .show {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .popup {
+        position: relative;
+        z-index: 1;
+        width: 320px;
+        height: 160px;
+        flex: 0 1 auto;
+        overflow: hidden;
+        background: #fff;
+        border-radius: 16px;
+        transition: all 0.02s ease-in-out;
+      }
+
+      .popup .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bolder;
+        color: #aaa;
+        text-decoration: none;
+      }
+
+      .close:hover {
+        color: #444;
+      }
+
+      @media screen and (orientation: portrait) {
+      }
+
+      @media screen and (max-width: 600px) {
+        #main-container {
+          grid-gap: 6px;
+          grid-template-columns: repeat(5, minmax(60px, 1fr));
+          grid-template-rows: repeat(5, minmax(65px, 1fr));
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+      }
+
+      @media screen and (min-width: 992px) {
+      }
+
+      @media screen and (min-width: 1200px) {
       }
     </style>
   </head>
+
   <body>
     <div class="wrapper">
-      <div class="box-container">
-        <div class="box-main">
-          <div id="my-div" class="center-div"></div>
+      <div id="modal-container">
+        <div class="modal-background">
+          <div class="modal">
+            <div class="box-container">
+              <!-- <a class="close" href="javascript: void(0);">&times;</a> -->
+              <div class="box-main">
+                <div id="my-div" class="center-div"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
       <p>Secventa random : <span id="secventa"></span></p>
       <div id="main-container"></div>
     </div>
-    <script></script>
+
     <script>
       // Get current date
       let today = new Date();
       let date_today = today.getDate();
-      let startDate = 1;
-      let endDate = 22;
+      // let startDate = 1;
+      // let endDate = 22;
       let prevDay = date_today - 1;
+      isDisabled = false;
       console.log(prevDay);
       console.log(date_today);
 
       function generate_box() {
         for (let k = 1; k <= 23; k++) {
           let boxes = (document.getElementById("main-container").innerHTML +=
-            "<button class='btn-box' data-dir='disabled'>" +
+            "<div class ='content'>" +
+            "<div class='btn-box four ttest' id='four' data-dir='disabled'>" +
             "<span class='span-box'>" +
             k +
             "</span>" +
-            "</button>");
+            "</div>" +
+            "</div>");
         }
 
         // if (date_today) {
@@ -207,7 +382,7 @@
       ];
 
       // Create the starting time value
-      const timer = 100;
+      const timer = 120;
 
       function createRandomSequence() {
         // Create an empty array to store the random sequence
@@ -227,16 +402,13 @@
             previousValue = randomValue;
           }
         }
-
         // Make sure the last value in the sequence is correct
         sequence[sequence.length - 1] = correct[date_today - 9];
-
         console.log(correct[date_today - 9], "correct[date_today - 9]");
         // console.log(
         //   sequence[sequence.length - 1],
         //   "sequence[sequence.length - 1]"
         // );
-
         return sequence;
       }
 
@@ -270,26 +442,45 @@
       function click_box() {
         var allButtons = document.querySelectorAll(".btn-box");
         allButtons.forEach(function (b, i) {
+          //       isDisabled  = !isDisabled;
+          // btn1.disabled = isDisabled;
           b.addEventListener(
             "click",
-            function () {
-              // alert(i + 1);
-              // console.log(b + 1, "click");
+            function (elements) {
+              let tttest = $(this).data("clicked", true);
+              let sdaas = i + 1;
+              // console.log($(window).height());
+              let buttonId = $(this).attr("id");
+              console.log(i + 1);
+              if (tttest.data("clicked")) {
+                $(".btn-box").remove("btn-box");
+                $(".btn-box").addClass("btn-box2");
+              }
+
+              console.log(buttonId, "test");
+              $("#modal-container").addClass(buttonId);
+              $("body").addClass("modal-active");
+
+              $("#modal-container").click(function () {
+                $("#modal-container").removeClass(buttonId);
+                $("body").removeClass("modal-active");
+              });
               let sequence = createRandomSequence();
               console.log(sequence, "seq");
-
               // Get the div element
               let my_div = document.getElementById("my-div");
               console.log(my_div, "div");
               // Start updating the div with the values from the sequence
               updateDiv(my_div, sequence);
-
               document.getElementById("secventa").innerHTML = sequence;
             },
-            { once: true }
+            {
+              once: true,
+            }
           );
         });
       }
+
       click_box();
     </script>
   </body>
