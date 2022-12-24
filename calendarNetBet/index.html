@@ -11,8 +11,81 @@
     ></script>
     <title>Document</title>
     <style>
-      button {
-        border: 1px solid black;
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+      }
+      body::before {
+        position: fixed;
+        content: "";
+        background-image: url(./img/bg-desktop.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+      }
+      .wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-box {
+        border: none;
+        outline: none;
+        position: relative;
+        z-index: 10;
+        color: white;
+        background: none;
+      }
+
+      .btn-box::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-size: contain;
+        background-image: url(./img/cadou-full.png);
+        background-repeat: no-repeat;
+        z-index: -1;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        mix-blend-mode: luminosity;
+      }
+
+      .btn-box span {
+        z-index: 200;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        top: 8px;
+        font-weight: bold;
+        font-size: 1em;
+      }
+
+      .btn-box:hover {
+        transition: ease 0.3s;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+      }
+
+      .btn-box:active {
+        transition: ease 0.1s;
+        transform: scale(1);
       }
 
       #main-container {
@@ -20,78 +93,121 @@
         grid-gap: 10px;
         grid-template-columns: repeat(5, minmax(70px, 1fr));
         grid-template-rows: repeat(5, minmax(70px, 1fr));
-        background-color: #fff;
         color: #444;
-        width: 50%;
+      }
+
+      #my-div {
+        position: relative;
+        height: 220px;
+        width: 220px;
+        position: relative;
+        background-size: 50%;
+        background-repeat: no-repeat;
+        background-position: center 68px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: -20px;
+      }
+      .box-main {
+        background-size: contain;
+        background-image: url(./img/cadou-partial.png);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      .box-container {
+        position: relative;
+        height: 200px;
       }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <div id="my-div" class="center-div">
-        <p>My text</p>
+      <div class="box-container">
+        <div class="box-main">
+          <div id="my-div" class="center-div"></div>
+        </div>
       </div>
-      <p>Secventa random generata este: <span id="secventa"></span></p>
+      <p>Secventa random : <span id="secventa"></span></p>
       <div id="main-container"></div>
     </div>
-    <script>
-      generate_box();
-
-      function generate_box() {
-        for (var k = 1; k <= 23; k++) {
-          document.getElementById("main-container").innerHTML +=
-            "<button>" + k + "</button>";
-        }
-      }
-    </script>
+    <script></script>
     <script>
       // Get current date
-      var today = new Date();
-      var date = today.getDate();
-      console.log(date);
+      let today = new Date();
+      let date_today = today.getDate();
+      let startDate = 1;
+      let endDate = 22;
+      let prevDay = date_today - 1;
+      console.log(prevDay);
+      console.log(date_today);
+
+      function generate_box() {
+        for (let k = 1; k <= 23; k++) {
+          let boxes = (document.getElementById("main-container").innerHTML +=
+            "<button class='btn-box' data-dir='disabled'>" +
+            "<span class='span-box'>" +
+            k +
+            "</span>" +
+            "</button>");
+        }
+
+        // if (date_today) {
+        //     $(".btn-box").attr("disabled", false);
+        //     $(".btn-box").css("mix-blend-mode", "normal");
+        //   } else {
+        //     $(".btn-box").attr("disabled", true);
+        //     $(".btn-box").css("mix-blend-mode", "luminosity");
+        //   }
+      }
+      generate_box();
 
       // Create the correct sequence of prizes - index 0 is 9th of January
       //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
       const correct = [
-        "200rotiri",
-        "100rotiri",
-        "300rotiri",
-        "50rotiri",
-        "40rotiri",
-        "30rotiri",
-        "10rotiri",
-        "150rotiri",
-        "350rotiri",
-        "150rotiri",
-        "200rotiri",
-        "300rotiri",
-        "50rotiri",
-        "40rotiri",
-        "30rotiri",
-        "10rotiri",
-        "150rotiri",
-        "350rotiri",
-        "50rotiri",
-        "40rotiri",
-        "30rotiri",
-        "10rotiri",
-        "150rotiri",
-     
+        "9 ianuarie",
+        "10 ianuarie",
+        "11 ianuarie",
+        "12 ianuarie",
+        "13 ianuarie",
+        "14 ianuarie",
+        "15 ianuarie",
+        "16 ianuarie",
+        "17 ianuarie",
+        "18 ianuarie",
+        "19 ianuarie",
+        "20 ianuarie",
+        "21 ianuarie",
+        "22 ianuarie",
+        "23 ianuarie",
+        "24 ianuarie",
+        "25 ianuarie",
+        "26 ianuarie",
+        "27 ianuarie",
+        "28 ianuarie",
+        "29 ianuarie",
+        "30 ianuarie",
+        "31 ianuarie",
       ];
 
       // Create an array of possible values
       const values = ["A1", "B2", "C3", "D4"];
 
       // An array of four possible background images
+
       const backgroundImages = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
+        "./img/Prize1.png",
+        "./img/Prize2.png",
+        "./img/Prize3.png",
+        "./img/Prize4A.png",
+        "./img/Prize4B.png",
       ];
 
       // Create the starting time value
-      const timer = 300;
+      const timer = 100;
 
       function createRandomSequence() {
         // Create an empty array to store the random sequence
@@ -105,7 +221,7 @@
           let randomValue = values[randomIndex];
           if (
             randomValue !== previousValue &&
-            randomValue !== correct[date - 9]
+            randomValue !== correct[date_today - 9]
           ) {
             sequence.push(randomValue);
             previousValue = randomValue;
@@ -113,9 +229,14 @@
         }
 
         // Make sure the last value in the sequence is correct
-        sequence[sequence.length - 1] = correct[date - 9];
+        sequence[sequence.length - 1] = correct[date_today - 9];
 
-        console.log(sequence);
+        console.log(correct[date_today - 9], "correct[date_today - 9]");
+        // console.log(
+        //   sequence[sequence.length - 1],
+        //   "sequence[sequence.length - 1]"
+        // );
+
         return sequence;
       }
 
@@ -127,40 +248,46 @@
             clearInterval(this);
             return;
           }
-          console.log(sequence[index], "index");
+
           // Update the div with the next value in the sequence
           my_div.innerHTML = sequence[index];
-
+          // let correct_option = (sequence[sequence.length - 1] =
+          //   correct[date_today - 9]);
           // Set the background image of the div to the image at the random index
           my_div.style.backgroundImage = `url(${
             backgroundImages[values.indexOf(sequence[index])]
           })`;
-
+          console.log(sequence[index], "sequence[index]");
+          console.log(
+            values.indexOf(sequence[index]) + 1,
+            "value indexof sequence[index] + 1"
+          );
           index++;
-          console.log(index, "index");
+          // console.log(my_div, "my_div");
         }, timer); // Update the div
       }
 
       function click_box() {
-        var allButtons = document.querySelectorAll("button");
+        var allButtons = document.querySelectorAll(".btn-box");
         allButtons.forEach(function (b, i) {
-          b.addEventListener("click", function () {
-            // alert(i + 1);
-            // console.log(b + 1, "click");
-            let sequence = createRandomSequence();
-            console.log(sequence, "seq");
+          b.addEventListener(
+            "click",
+            function () {
+              // alert(i + 1);
+              // console.log(b + 1, "click");
+              let sequence = createRandomSequence();
+              console.log(sequence, "seq");
 
-            // Create the random sequence
+              // Get the div element
+              let my_div = document.getElementById("my-div");
+              console.log(my_div, "div");
+              // Start updating the div with the values from the sequence
+              updateDiv(my_div, sequence);
 
-            // Get the div element
-            let my_div = document.getElementById("my-div");
-            console.log(my_div, "div");
-
-            // Start updating the div with the values from the sequence
-            updateDiv(my_div, sequence);
-
-            document.getElementById("secventa").innerHTML = sequence;
-          });
+              document.getElementById("secventa").innerHTML = sequence;
+            },
+            { once: true }
+          );
         });
       }
       click_box();
