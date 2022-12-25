@@ -308,18 +308,17 @@
 
       <p>Secventa random : <span id="secventa"></span></p>
       <div id="main-container"></div>
+      <div class="contents" id="contentsss"></div>
     </div>
 
     <script>
       // Get current date
       let today = new Date();
-      let date_today = today.getDate();
-      // let startDate = 1;
-      // let endDate = 22;
-      let prevDay = date_today - 1;
+      let dateToday = today.getDate();
+      let prevDay = dateToday - 1;
       isDisabled = false;
       console.log(prevDay);
-      console.log(date_today);
+      console.log(dateToday);
 
       function generate_box() {
         for (let k = 1; k <= 23; k++) {
@@ -332,14 +331,6 @@
             "</div>" +
             "</div>");
         }
-
-        // if (date_today) {
-        //     $(".btn-box").attr("disabled", false);
-        //     $(".btn-box").css("mix-blend-mode", "normal");
-        //   } else {
-        //     $(".btn-box").attr("disabled", true);
-        //     $(".btn-box").css("mix-blend-mode", "luminosity");
-        //   }
       }
       generate_box();
 
@@ -371,6 +362,21 @@
         "31 ianuarie",
       ];
 
+      function buildImages() {
+    // the container
+    var containers = document.getElementById('my-div');
+    for (var i = 0; i < correct.length; i++) {
+        // create the image element
+        var imageElement = document.createElement('img');
+        imageElement.setAttribute('src', correct[i]);
+      
+        // append the element to the container
+        containers.appendChild(imageElement);
+    }
+}
+
+// run the script here.
+buildImages();
       // Create an array of possible values
       const values = ["A1", "B2", "C3", "D4"];
 
@@ -399,19 +405,20 @@
           let randomValue = values[randomIndex];
           if (
             randomValue !== previousValue &&
-            randomValue !== correct[date_today - 9]
+            randomValue !== correct[dateToday - 9]
           ) {
             sequence.push(randomValue);
             previousValue = randomValue;
           }
         }
         // Make sure the last value in the sequence is correct
-        sequence[sequence.length - 1] = correct[date_today - 9];
-        console.log(correct[date_today - 9], "correct[date_today - 9]");
+        sequence[sequence.length - 1] = correct[dateToday - 9];
+        console.log(correct[dateToday - 9], "correct[dateToday - 9]");
         // console.log(
         //   sequence[sequence.length - 1],
         //   "sequence[sequence.length - 1]"
         // );
+     
         return sequence;
       }
 
@@ -423,28 +430,25 @@
             clearInterval(this);
             return;
           }
-
+          
           // Update the div with the next value in the sequence
           my_div.innerHTML = sequence[index];
-          // let correct_option = (sequence[sequence.length - 1] =
-          //   correct[date_today - 9]);
+      
+          my_div.setAttribute('src', sequence[index]);
+      
           // Set the background image of the div to the image at the random index
           my_div.style.backgroundImage = `url(${
             backgroundImages[values.indexOf(sequence[index])]
           })`;
-          console.log(sequence[index], "sequence[index]");
-          console.log(
-            values.indexOf(sequence[index]) + 1,
-            "value indexof sequence[index] + 1"
-          );
+
           index++;
-          // console.log(my_div, "my_div");
+          console.log(my_div, "my_div");
         }, timer); // Update the div
       }
-      var clicked = false;
+      let clicked = false;
 
       function click_box() {
-        var allButtons = document.querySelectorAll(".btn-box");
+        let allButtons = document.querySelectorAll(".btn-box");
         allButtons.forEach(function (b, i) {
           b.addEventListener(
             "click",
