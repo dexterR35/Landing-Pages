@@ -93,7 +93,6 @@
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
-        
       }
 
       .btn-box {
@@ -145,6 +144,8 @@
         transform: translate(-50%, -40%);
         width: 55%;
         height: 60%;
+      }
+      .content:nth-child(11)::before {
         border-radius: 30px;
         box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753);
       }
@@ -274,6 +275,8 @@
         padding: 20px 10px 10px;
         position: relative;
         border-radius: 10px;
+        box-shadow: 2px 6px 10px #0000007a;
+        mix-blend-mode: multiply;
       }
       .prizes::after {
         content: "poți câștiga";
@@ -294,10 +297,13 @@
         top: 0;
         left: 0;
         box-shadow: inset 0 0 200px rgba(4, 91, 161, 0.26);
-        filter: blur(4px);
+        filter: blur(10px);
         width: 100%;
         height: 100%;
         z-index: -2;
+        mix-blend-mode: normal;
+        opacity: 0.5;
+        background: white;
       }
       .prizesS img {
         width: 80px;
@@ -320,7 +326,6 @@
         border: none;
         width: 38.5%;
       }
-    
 
       @media screen and (orientation: portrait) {
       }
@@ -342,7 +347,9 @@
   <body>
     <div class="wrapper">
       <h1>Luna Reducerilor de iarnă</h1>
-      <h2 data-text="Luna Reducerilor de iarnă.......">Luna Reducerilor de iarnă.......</h2>
+      <h2 data-text="Luna Reducerilor de iarnă.......">
+        Luna Reducerilor de iarnă.......
+      </h2>
       <div id="modal-container">
         <div class="modal-background">
           <div class="modal">
@@ -363,8 +370,11 @@
       <p>Secventa random : <span id="secventa"></span></p> -->
       <div id="main-container">
         <div class="prizes-container">
-          <div class="prizes-text" data-text="dă click pe cadoul zilei
-          și vezi ce ai câștigat">
+          <div
+            class="prizes-text"
+            data-text="dă click pe cadoul zilei
+          și vezi ce ai câștigat"
+          >
             dă click pe cadoul zilei <br />
             și vezi ce ai câștigat
           </div>
