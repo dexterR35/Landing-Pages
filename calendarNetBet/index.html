@@ -53,28 +53,31 @@
         grid-template-columns: repeat(5, minmax(150px, 1fr));
         grid-template-rows: repeat(5, minmax(150px, 1fr));
       }
-      .wrapper h1 {
+      .wrapper h1,.wrapper h1::before , #my-div, .btn-box span , .prizes-text ,.prizes::after  {
+        font-weight: bold;
         text-transform: uppercase;
+        
+      }
+      .wrapper h1 {
         z-index: 2;
         margin-bottom: 20px;
-        font-weight: bold;
         font-size: 4.5em;
         position: relative;
-
       }
-      .wrapper h1::before{
+
+      .wrapper h1::before {
         content: "luna reducerilor de iarna";
         z-index: -2;
-        font-weight: bold;
         left: 0;
         top: 0;
         position: absolute;
         text-shadow: 3px 2px 2px rgba(255, 0, 0, 0.863);
+        -webkit-text-shadow: 3px 2px 2px rgba(255, 0, 0, 0.863);
+        -moz-text-shadow: 3px 2px 2px rgba(255, 0, 0, 0.863);
       }
-      .wrapper h1::after{
+      .wrapper h1::after {
         content: "luna reducerilor de iarna";
         z-index: 2;
-        font-weight: bold;
         left: 0;
         top: 0px;
         position: absolute;
@@ -82,7 +85,7 @@
         background-size: 100%;
         background-repeat: no-repeat;
         -webkit-background-clip: text;
-        /* -webkit-text-fill-color: transparent; */
+        -webkit-text-fill-color: transparent;
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
@@ -121,14 +124,10 @@
       .btn-box span {
         z-index: 200;
         color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         position: absolute;
-        top: 17px;
-        font-weight: bold;
+        top: 71px;
         font-size: 2em;
-        height: 100%;
+        /* height: 100%; */
       }
       .content {
         position: relative;
@@ -177,7 +176,6 @@
         align-items: center;
         color: white;
         font-size: 1.5em;
-        font-weight: bold;
         margin-top: -20px;
       }
 
@@ -235,7 +233,6 @@
 
       #modal-container .modal-background .modal {
         padding: 50px;
-        font-weight: 300;
         position: relative;
         /* background-size: contain;
         background-image: url(./img/cadou-full.png);
@@ -258,13 +255,6 @@
         }
       }
 
-  
-  
-      
-
-   
-
-      
       .prizes-container {
         z-index: 1;
         grid-column: 3 / span 5;
@@ -278,17 +268,19 @@
         border: 1px solid black;
         padding: 20px 10px 10px;
         position: relative;
+        border-radius: 10px;
       }
       .prizes::after {
-        content: "poti castiga";
+        content: "poți câștiga";
         position: absolute;
-        top: -15px;
-        left: 35%;
+        top: -17px;
+        left: 34%;
         z-index: 10;
-        background: lightblue;
-        color: black;
-        font-weight: bold;
-        font-size: 1.5em;
+        padding: 2px 10px;
+        background: rgb(4, 114, 165);
+        color: rgb(255, 255, 255);
+        font-size: 1.2em;
+        border-radius: 5px;
         text-transform: uppercase;
       }
       .prizesS img {
@@ -298,21 +290,19 @@
       }
       .prizes-text {
         font-size: 1.1em;
-        font-weight: bold;
         text-transform: uppercase;
         text-align: center;
       }
       .btn-modal {
         padding: 10px 10px;
-    background-color: orangered;
-    font-size: 0.75em;
-    text-transform: uppercase;
-    color: white;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    width: 38.5%;
-
+        background-color: orangered;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        color: white;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        width: 38.5%;
       }
 
       @media screen and (orientation: portrait) {
@@ -356,8 +346,8 @@
       <div id="main-container">
         <div class="prizes-container">
           <div class="prizes-text">
-            da click pe cadoul zilei <br />
-            si vezi ce ai castigat
+            dă click pe cadoul zilei <br />
+            și vezi ce ai câștigat
           </div>
           <div class="prizes">
             <div class="prizesS">
@@ -531,9 +521,7 @@
               once: true,
             }
           );
-          
         });
-        
       }
 
       click_box();
