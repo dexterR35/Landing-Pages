@@ -106,12 +106,21 @@
         width: 100%;
         height: 100%;
         background-size: 70%;
-        background-image: url(./img/cadou-full.png);
+   
         background-repeat: no-repeat;
         background-position: center;
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .btn-box.disabled-open {
+        background-image: url(./img/cadou-partial.png);
+      }
+      .btn-box.disabled-full {
+        background-image: url(./img/cadou-full-disabled.png);
+      }
+      .btn-box.-normal {
+        background-image: url(./img/cadou-full.png);
       }
       .btn-box2 {
         border: none;
@@ -445,55 +454,35 @@
 
       function generate_box() {
         let boxes = document.getElementById("main-container");
-        $(".content").addClass("mai_mare");
         for (let k = inputDate1; k <= outputDate1; k++) {
-     
-        
-
-      
-  
-          
-          if (k > dateToday - 1) {
-         
+          if (k < dateToday - 1) {
             boxes.innerHTML +=
-            "<div class ='content -greater'>" +
-            "<div class='btn-box four ttest' id='four' >" +
-            "<span class='displayValues'>" +
-            k +
-            "</span>" +
-            "</div>" +
-            "</div>";
-          }
-          else if (k < dateToday - 1) {
-      
+              "<div class ='content -smaller'>" +
+              "<div class='btn-box four disabled-open' id='four' >" +
+              "<span class='displayValues'>" +
+              k +
+              "</span>" +
+              "</div>" +
+              "</div>";
+          } else if (k > dateToday - 1) {
             boxes.innerHTML +=
-            "<div class ='content -smaller'>" +
-            "<div class='btn-box four ttest' id='four' >" +
-            "<span class='displayValues'>" +
-            k +
-            "</span>" +
-            "</div>" +
-            "</div>";
+              "<div class ='content -greater'>" +
+              "<div class='btn-box four disabled-full' id='four' >" +
+              "<span class='displayValues'>" +
+              k +
+              "</span>" +
+              "</div>" +
+              "</div>";
           } else {
             boxes.innerHTML +=
-            "<div class ='content -today'>" +
-            "<div class='btn-box four ttest' id='four' >" +
-            "<span class='displayValues'>" +
-            k +
-            "</span>" +
-            "</div>" +
-            "</div>";
+              "<div class ='content -today '>" +
+              "<div class='btn-box four -normal' id='four' >" +
+              "<span class='displayValues'>" +
+              k +
+              "</span>" +
+              "</div>" +
+              "</div>";
           }
-          //  else {
-          //   boxes.innerHTML +=
-          //     "<div class ='content today'>" +
-          //     "<div class='btn-box four ttest' id='four' >" +
-          //     "<span class='displayValues'>" +
-          //     k +
-          //     "</span>" +
-          //     "</div>" +
-          //     "</div>";
-          //  }
         }
       }
       generate_box();
@@ -502,7 +491,7 @@
       //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 
       // Create an array of possible values
-      const values = ["As1", "B2", "C3", "D4"];
+      const values = ["As1", "B2", "C3", "D4", "Ds"];
 
       // An array of four possible background images
 
@@ -512,14 +501,7 @@
         "./img/Prize3.png",
         "./img/Prize4A.png",
       ];
-      let myImage = new Image();
-      function buildImages() {
-        // the container
-      }
-
-      // run the script here.
-      buildImages();
-
+  
       // Create the starting time value
       const timer = 120;
 
@@ -542,11 +524,13 @@
           }
         }
         // Make sure the last value in the sequence is correct
-        sequence[sequence.length - 1] = correct[dateToday - 9];
+        let ddasta = (sequence[sequence.length - 1] = correct[dateToday - 9]);
+        
+        console.log(ddasta, "dasdas");
         // console.log(myImage.src, "ll");
         return sequence;
       }
-      myImage.src = correct[dateToday - 9];
+
       function updateDiv(my_div, sequence) {
         let index = 0;
         setInterval(() => {
@@ -556,20 +540,13 @@
             return;
           }
           // Update the div with the next value in the sequence
-
-          // my_div.innerHTML = sequence[index];
-
-          myImage.alt = "alt";
-
-          // my_div.setAttribute("src", sequence[index]);
-
+          my_div.innerHTML = sequence[index];
+          my_div.setAttribute("src", sequence[index]);
           // Set the background image of the div to the image at the random index
           my_div.style.backgroundImage = `url(${
             backgroundImages[values.indexOf(sequence[index])]
           })`;
-
           console.log(sequence[index], "sequence");
-
           index++;
         }, timer); // Update the div
       }
@@ -595,14 +572,13 @@
                 $("#modal-container").removeClass(buttonId);
                 $("body").removeClass("modal-active");
               });
-
               let sequence = createRandomSequence();
-              my_div.appendChild(myImage);
               // Get the div element
-              console.log(sequence, "sequence");
-              console.log(my_div, "div");
+
               // Start updating the div with the values from the sequence
               updateDiv(my_div, sequence);
+              // console.log(sequence, "sequence");
+              // console.log(my_div, "div");
 
               // document.getElementById("secventa").innerHTML = sequence;
             },
