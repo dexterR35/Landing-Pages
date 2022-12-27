@@ -53,10 +53,14 @@
         grid-template-columns: repeat(5, minmax(150px, 1fr));
         grid-template-rows: repeat(5, minmax(150px, 1fr));
       }
-      .wrapper h1,.wrapper h1::before , #my-div, .btn-box span , .prizes-text ,.prizes::after  {
+      .wrapper h1,
+      .wrapper h1::before,
+      #my-div,
+      .btn-box span,
+      .prizes-text,
+      .prizes::after {
         font-weight: bold;
         text-transform: uppercase;
-        
       }
       .wrapper h1 {
         z-index: 2;
@@ -89,6 +93,7 @@
         -moz-background-clip: text;
         -moz-text-fill-color: transparent;
         -webkit-text-fill-color: transparent;
+        
       }
 
       .btn-box {
@@ -265,7 +270,7 @@
         color: black;
       }
       .prizes {
-        border: 1px solid black;
+        border: 1px solid #0000007a;
         padding: 20px 10px 10px;
         position: relative;
         border-radius: 10px;
@@ -282,6 +287,17 @@
         font-size: 1.2em;
         border-radius: 5px;
         text-transform: uppercase;
+      }
+      .prizes::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: inset 0 0 200px rgba(4, 91, 161, 0.26);
+        filter: blur(4px);
+        width: 100%;
+        height: 100%;
+        z-index: -2;
       }
       .prizesS img {
         width: 80px;
@@ -304,6 +320,7 @@
         border: none;
         width: 38.5%;
       }
+    
 
       @media screen and (orientation: portrait) {
       }
@@ -325,6 +342,7 @@
   <body>
     <div class="wrapper">
       <h1>Luna Reducerilor de iarnă</h1>
+      <h2 data-text="Luna Reducerilor de iarnă.......">Luna Reducerilor de iarnă.......</h2>
       <div id="modal-container">
         <div class="modal-background">
           <div class="modal">
@@ -345,7 +363,8 @@
       <p>Secventa random : <span id="secventa"></span></p> -->
       <div id="main-container">
         <div class="prizes-container">
-          <div class="prizes-text">
+          <div class="prizes-text" data-text="dă click pe cadoul zilei
+          și vezi ce ai câștigat">
             dă click pe cadoul zilei <br />
             și vezi ce ai câștigat
           </div>
