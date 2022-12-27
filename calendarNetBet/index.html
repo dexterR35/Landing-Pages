@@ -148,7 +148,7 @@
         height: 60%;
         box-shadow: 5px 9px 13px #444141;
       }
-      .content:nth-child(11)::before {
+      .-today::before {
         border-radius: 30px;
         box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753);
       }
@@ -369,8 +369,8 @@
           </div>
         </div>
       </div>
-      <!-- 
-      <p>Secventa random : <span id="secventa"></span></p> -->
+
+      <p>Secventa random : <span id="secventa"></span></p>
       <div id="main-container">
         <div class="prizes-container">
           <div
@@ -400,22 +400,23 @@
       let dateToday = today.getDate();
       let dateFullYear = today.getFullYear();
       let dateMonth = today.getMonth();
-      let inputDate = new Date(2022,12,9);
-      let outputDate = new Date(2022,12,31);
-      var d = new Date();
-      d.setDate(d.getDate() - d.getDay());
-      let diffDate = inputDate- outputDate;
+      let inputDate = new Date("december 9, 2022");
+      let outputDate = new Date("december 31, 2022");
       isDisabled = false;
-      console.log(inputDate,"test");
-      console.log(outputDate,"test");
-      console.log(diffDate,"test2");
-      console.log(dateToday);
-      console.log(d);
-      const birthday = new Date('August 19, 1975 23:15:30');
-const date1 = birthday.getDate();
 
-console.log(date1);
-// expected output: 19
+      let inputDate1 = inputDate.getDate();
+      let outputDate1 = outputDate.getDate();
+      let diffDate2 = outputDate1 - inputDate1;
+      let diffDate3 = outputDate1 - dateToday;
+      let boxes = document.getElementById("main-container");
+      let boxesNumber = document.querySelector(".displayValues");
+      let my_div = document.getElementById("my-div");
+      console.log(inputDate1, "inputDate");
+      console.log(outputDate1, "outputDate");
+      console.log(diffDate2, "diff");
+      console.log(diffDate3, "diff3");
+      console.log(dateToday, "dateToday");
+      // expected output: 19
       const correct = [
         "9 ianuarie",
         "10 ianuarie",
@@ -432,35 +433,76 @@ console.log(date1);
         "21 ianuarie",
         "22 ianuarie",
         "23 ianuarie",
-        "./img/todayPrize.png",
+        "./img/todayPrize1.png",
         "./img/todayPrize.png",
         "26 ianuarie",
-        "./img/todayPrize.png",
-        "28 ianuarie",
+        "./img/Prize1.png",
+        "./img/Prize1.png",
         "29 ianuarie",
         "30 ianuarie",
         "31 ianuarie",
       ];
+
       function generate_box() {
-        for (let k = 9; k <= 31 ; k++) {
-          let boxes = (document.getElementById("main-container").innerHTML +=
-            "<div class ='content'>" +
+        let boxes = document.getElementById("main-container");
+        $(".content").addClass("mai_mare");
+        for (let k = inputDate1; k <= outputDate1; k++) {
+     
+        
+
+      
+  
+          
+          if (k > dateToday - 1) {
+         
+            boxes.innerHTML +=
+            "<div class ='content -greater'>" +
             "<div class='btn-box four ttest' id='four' >" +
             "<span class='displayValues'>" +
             k +
             "</span>" +
             "</div>" +
-            "</div>");
+            "</div>";
+          }
+          else if (k < dateToday - 1) {
+      
+            boxes.innerHTML +=
+            "<div class ='content -smaller'>" +
+            "<div class='btn-box four ttest' id='four' >" +
+            "<span class='displayValues'>" +
+            k +
+            "</span>" +
+            "</div>" +
+            "</div>";
+          } else {
+            boxes.innerHTML +=
+            "<div class ='content -today'>" +
+            "<div class='btn-box four ttest' id='four' >" +
+            "<span class='displayValues'>" +
+            k +
+            "</span>" +
+            "</div>" +
+            "</div>";
+          }
+          //  else {
+          //   boxes.innerHTML +=
+          //     "<div class ='content today'>" +
+          //     "<div class='btn-box four ttest' id='four' >" +
+          //     "<span class='displayValues'>" +
+          //     k +
+          //     "</span>" +
+          //     "</div>" +
+          //     "</div>";
+          //  }
         }
       }
-
       generate_box();
 
       // Create the correct sequence of prizes - index 0 is 9th of January
       //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 
       // Create an array of possible values
-      const values = ["A1", "B2", "C3", "D4"];
+      const values = ["As1", "B2", "C3", "D4"];
 
       // An array of four possible background images
 
@@ -470,7 +512,7 @@ console.log(date1);
         "./img/Prize3.png",
         "./img/Prize4A.png",
       ];
-
+      let myImage = new Image();
       function buildImages() {
         // the container
       }
@@ -481,7 +523,7 @@ console.log(date1);
       // Create the starting time value
       const timer = 120;
 
-      function createRandomSequence(my_div2) {
+      function createRandomSequence() {
         // Create an empty array to store the random sequence
         let sequence = [];
 
@@ -501,11 +543,10 @@ console.log(date1);
         }
         // Make sure the last value in the sequence is correct
         sequence[sequence.length - 1] = correct[dateToday - 9];
-        console.log(correct[dateToday - 9], "correct[dateToday - 9]");
-
+        // console.log(myImage.src, "ll");
         return sequence;
       }
-
+      myImage.src = correct[dateToday - 9];
       function updateDiv(my_div, sequence) {
         let index = 0;
         setInterval(() => {
@@ -514,25 +555,30 @@ console.log(date1);
             clearInterval(this);
             return;
           }
-
           // Update the div with the next value in the sequence
-          my_div.innerHTML = sequence[index];
 
-          my_div.setAttribute("src", sequence[index]);
+          // my_div.innerHTML = sequence[index];
+
+          myImage.alt = "alt";
+
+          // my_div.setAttribute("src", sequence[index]);
 
           // Set the background image of the div to the image at the random index
           my_div.style.backgroundImage = `url(${
             backgroundImages[values.indexOf(sequence[index])]
           })`;
 
+          console.log(sequence[index], "sequence");
+
           index++;
-          console.log(my_div, "my_div");
         }, timer); // Update the div
       }
+
       let clicked = false;
 
       function click_box() {
         let allButtons = document.querySelectorAll(".btn-box");
+
         allButtons.forEach(function (b, i) {
           b.addEventListener(
             "click",
@@ -543,23 +589,22 @@ console.log(date1);
               }
               console.log(clicked);
               let buttonId = $(this).attr("id");
-
               $("#modal-container").addClass(buttonId);
               $("body").addClass("modal-active");
-
               $(".close-btn").click(function () {
                 $("#modal-container").removeClass(buttonId);
                 $("body").removeClass("modal-active");
               });
+
               let sequence = createRandomSequence();
-              console.log(sequence, "seq");
+              my_div.appendChild(myImage);
               // Get the div element
-              let my_div = document.getElementById("my-div");
+              console.log(sequence, "sequence");
               console.log(my_div, "div");
               // Start updating the div with the values from the sequence
               updateDiv(my_div, sequence);
-              console.log(sequence, "sequence");
-              document.getElementById("secventa").innerHTML = sequence;
+
+              // document.getElementById("secventa").innerHTML = sequence;
             },
             {
               once: true,
