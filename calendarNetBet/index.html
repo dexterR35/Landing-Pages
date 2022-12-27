@@ -32,6 +32,7 @@
         height: 100vh;
         position: relative;
         font-family: "Play", sans-serif;
+        overflow: hidden;
       }
 
       body::before {
@@ -386,7 +387,6 @@
               <img src="./img/Prize2.png" alt="2" srcset="" />
               <img src="./img/Prize3.png" alt="43" srcset="" />
               <img src="./img/Prize4A.png" alt="4" srcset="" />
-              <img src="./img/Prize4B.png" alt="4" srcset="" />
             </div>
           </div>
         </div>
@@ -398,10 +398,24 @@
       // Get current date
       let today = new Date();
       let dateToday = today.getDate();
-      let prevDay = dateToday - 1;
+      let dateFullYear = today.getFullYear();
+      let dateMonth = today.getMonth();
+      let inputDate = new Date(2022,12,9);
+      let outputDate = new Date(2022,12,31);
+      var d = new Date();
+      d.setDate(d.getDate() - d.getDay());
+      let diffDate = inputDate- outputDate;
       isDisabled = false;
-      console.log(prevDay);
+      console.log(inputDate,"test");
+      console.log(outputDate,"test");
+      console.log(diffDate,"test2");
       console.log(dateToday);
+      console.log(d);
+      const birthday = new Date('August 19, 1975 23:15:30');
+const date1 = birthday.getDate();
+
+console.log(date1);
+// expected output: 19
       const correct = [
         "9 ianuarie",
         "10 ianuarie",
@@ -428,7 +442,7 @@
         "31 ianuarie",
       ];
       function generate_box() {
-        for (let k = 1; k <= correct.length; k++) {
+        for (let k = 9; k <= 31 ; k++) {
           let boxes = (document.getElementById("main-container").innerHTML +=
             "<div class ='content'>" +
             "<div class='btn-box four ttest' id='four' >" +
@@ -455,7 +469,6 @@
         "./img/Prize2.png",
         "./img/Prize3.png",
         "./img/Prize4A.png",
-        "./img/Prize4B.png",
       ];
 
       function buildImages() {
