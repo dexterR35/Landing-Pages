@@ -170,8 +170,12 @@
         /* box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753); */
         animation: pulse-red 1.5s ease-out infinite;
       }
-      .-normal {
-        -webkit-animation: 1s an-shake infinite alternate 5s;
+      .-normal-shake {
+     
+        animation: an-shake 1s cubic-bezier(.36,.07,.19,.97) both infinite 3s ;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
       }
       /* 
       .btn-box:hover {
@@ -369,21 +373,21 @@
         }
       }
       @-webkit-keyframes an-shake {
-        0%,
-        10% {
-          -webkit-transform: skewX(-2deg);
-          transform: skewX(-2deg);
-        }
-        15%,
-        5% {
-          -webkit-transform: skewX(2deg);
-          transform: skewX(2deg);
-        }
-        100%,
-        20% {
-          -webkit-transform: skewX(0);
-          transform: skewX(0);
-        }
+        10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
       }
 
       @media screen and (orientation: portrait) {
@@ -501,7 +505,7 @@
 
       function generate_box() {
         let boxes = document.getElementById("main-container");
-        dateToday1 = dateToday - 18;
+        dateToday1 = dateToday - 1;
         for (let k = inputDate1; k <= outputDate1; k++) {
           if (k < dateToday1) {
             boxes.innerHTML +=
@@ -524,7 +528,7 @@
           } else {
             boxes.innerHTML +=
               "<div class ='content -today pulse'>" +
-              "<div class='btn-box four -normal ' id='four' >" +
+              "<div class='btn-box four -normal -normal-shake ' id='four' >" +
               "<span class='displayValues'>" +
               k +
               "</span>" +
@@ -604,20 +608,27 @@
       function click_box(e) {
  
         let allButtons = document.querySelectorAll(".btn-box");
-
+  
         allButtons.forEach(function (b, i) {
+     
           b.addEventListener(
             "click",
             function () {
-              if ((clicked = true) && $(".four ").find(".-normal")) {
-                $(this).remove("btn-box");
+              if ($(".four ").find(".-normal")) {
+                // $(this).removeClass("btn-box");
+                // $(this).removeClass("displayValues");
                 $(this).addClass("btn-box2");
+                $(this).removeClass("-normal-shake");
+            
               
               } else {
                 e.stopPropagation();
-                e.preventDefault();
+                  e.preventDefault();
               }
+           
+                
               console.log(clicked);
+              
               let buttonId = $(this).attr("id");
               $("#modal-container").addClass(buttonId);
               $("body").addClass("modal-active");
