@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+    #myDiv {
+    
+        width: 300px;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    }</style>
+</head>
+<body>
+    <div id="myDiv"></div>
+</body>
+
+<script>
+    // First, create an array of possible values and a second array of possible background images
+const values = ['a', 'b', 'c', 'd', 'e', 'f'];
+const backgrounds = [ "./img/Prize1.png",
+        "./img/Prize2.png",
+        "./img/Prize3.png",
+        "./img/Prize4A.png",];
+
+// Select a random value from the values array and a random background from the backgrounds array
+let currentValue = values[Math.floor(Math.random() * values.length)];
+let currentBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+// Set the initial value of the div and the background
+document.getElementById('myDiv').innerHTML = currentValue;
+document.getElementById('myDiv').style.backgroundImage = `url(${currentBackground})`;
+
+// Create a variable to keep track of the previous value
+let previousValue = currentValue;
+
+// Create an interval that will run every 1000 milliseconds (1 second)
+let intervalId = setInterval(function() {
+  // Generate a new random value and background
+  let newValue = values[Math.floor(Math.random() * values.length)];
+  let newBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  
+  // Make sure the new value is different from the previous value and the correct value
+  while (newValue === previousValue || newValue === 'f') {
+    newValue = values[Math.floor(Math.random() * values.length)];
+  }
+  
+  // Update the div with the new value and background
+  document.getElementById('myDiv').innerHTML = newValue;
+  document.getElementById('myDiv').style.backgroundImage = `url(${newBackground})`;
+  
+  // Update the previous value to be the current value
+  previousValue = newValue;
+  
+  // If we reach the 9th value, stop the interval
+  if (newValue === 'e') {
+    clearInterval(intervalId);
+  }
+}, 1000);
+
+// After the interval has stopped, set the final value to be the correct value
+setTimeout(function() {
+  document.getElementById('myDiv').innerHTML = 'f';
+}, 10000);
+</script>
+</html>

@@ -171,11 +171,11 @@
         animation: pulse-red 1.5s ease-out infinite;
       }
       .-normal-shake {
-     
-        animation: an-shake 1s cubic-bezier(.36,.07,.19,.97) both infinite 3s ;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+        animation: an-shake 1s cubic-bezier(0.23, 0.6, 0.7, 0.13) both infinite
+          3s;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
       }
       /* 
       .btn-box:hover {
@@ -372,22 +372,28 @@
           box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.053);
         }
       }
+
       @-webkit-keyframes an-shake {
-        10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
+        10%,
+        90% {
+          transform: translate3d(-1px, 0, 0);
+        }
 
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
+        20%,
+        80% {
+          transform: translate3d(2px, 0, 0);
+        }
 
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
+        30%,
+        50%,
+        70% {
+          transform: translate3d(2px, 0, 0);
+        }
+
+        40%,
+        60% {
+          transform: translate3d(4px, 0, 0);
+        }
       }
 
       @media screen and (orientation: portrait) {
@@ -404,6 +410,20 @@
 
       @media screen and (min-width: 1200px) {
       }
+
+      .shake-box {
+        transform: translate3d(4px, 0, 0);
+      }
+
+      #myDiv3 {
+        z-index: 23;
+        font-size: 2em;
+        width: 200px;
+        font-size: 2em;
+        height: 200px;
+        background: red;
+        color: white;
+      }
     </style>
   </head>
 
@@ -413,6 +433,7 @@
       <h2 data-text="Luna Reducerilor de iarnă.......">
         Luna Reducerilor de iarnă.......
       </h2>
+      <div id="myDiv3" class="center-div"></div>
       <div id="modal-container">
         <div class="modal-background">
           <div class="modal">
@@ -442,15 +463,11 @@
             și vezi ce ai câștigat
           </div>
           <div class="prizes">
-            <div class="prizesS">
-              <img src="./img/Prize1.png" alt="1" srcset="" />
-              <img src="./img/Prize2.png" alt="2" srcset="" />
-              <img src="./img/Prize3.png" alt="43" srcset="" />
-              <img src="./img/Prize4A.png" alt="4" srcset="" />
-            </div>
+            <div class="prizesS" id="prizes"></div>
           </div>
         </div>
       </div>
+      <div id="my-div4"></div>
       <!-- <div class="contents" id="contentsss"></div> -->
     </div>
 
@@ -460,31 +477,23 @@
       let dateToday = today.getDate();
       let dateFullYear = today.getFullYear();
       let dateMonth = today.getMonth();
-      let inputDate = new Date("december 9, 2022");
-      let outputDate = new Date("december 31, 2022");
-      isDisabled = false;
-
+      let inputDate = new Date("january 1, 2023");
+      let outputDate = new Date("january 31, 2023");
       let inputDate1 = inputDate.getDate();
       let outputDate1 = outputDate.getDate();
-      let diffDate2 = outputDate1 - inputDate1;
-      let diffDate3 = outputDate1 - dateToday;
       let boxes = document.getElementById("main-container");
       let boxesNumber = document.querySelector(".displayValues");
       let my_div = document.getElementById("my-div");
-      console.log(inputDate1, "inputDate");
-      console.log(outputDate1, "outputDate");
-      console.log(diffDate2, "diff");
-      console.log(diffDate3, "diff3");
-      console.log(dateToday, "dateToday");
+
       // expected output: 19
       const correct = [
-        "9 ianuarie",
-        "10 ianuarie",
+        "9 ianuarie s",
+        "./img/todayPrize1.png",
         "11 ianuarie",
         "12 ianuarie",
         "13 ianuarie",
         "14 ianuarie",
-        "15 ianuarie",
+        "./img/todayPrize1.png",
         "16 ianuarie",
         "17 ianuarie",
         "18 ianuarie",
@@ -502,12 +511,34 @@
         "30 ianuarie",
         "31 ianuarie",
       ];
+      // Create the correct sequence of prizes - index 0 is 9th of January
+      //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
+
+      // Create an array of possible values
+      const values = ["A1", "B2", "C3", "D4"];
+
+      // An array of four possible background images
+
+      const backgroundImages = [
+        "./img/Prize1.png",
+        "./img/Prize2.png",
+        "./img/Prize3.png",
+        "./img/Prize4A.png",
+      ];
 
       function generate_box() {
         let boxes = document.getElementById("main-container");
-        dateToday1 = dateToday - 1;
+        dateToday1 = dateToday;
+        // for (let j = dateToday1 + 9; j <= correct[dateToday-1]; j++) {
+        console.log(dateToday1 + 14, "j");
+        console.log(correct[dateToday - 1], "j");
+
+        // }
         for (let k = inputDate1; k <= outputDate1; k++) {
-          if (k < dateToday1) {
+          // console.log(k <= outputDate1,"kkkk")
+
+          if (k < dateToday1 + 14) {
+            console.log(k, "k");
             boxes.innerHTML +=
               "<div class ='content -smaller'>" +
               "<div class='btn-box four disabled-open' id='four' >" +
@@ -516,7 +547,9 @@
               "</span>" +
               "</div>" +
               "</div>";
-          } else if (k > dateToday1) {
+
+            // console.log("correct", correct[dateToday]);
+          } else if (k > dateToday1 + 15) {
             boxes.innerHTML +=
               "<div class ='content -greater'>" +
               "<div class='btn-box four disabled-full' id='four' >" +
@@ -537,53 +570,37 @@
           }
         }
       }
-      generate_box();
-
-      // Create the correct sequence of prizes - index 0 is 9th of January
-      //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
-
-      // Create an array of possible values
-      const values = ["As1", "B2", "C3", "D4", "Ds"];
-
-      // An array of four possible background images
-
-      const backgroundImages = [
-        "./img/Prize1.png",
-        "./img/Prize2.png",
-        "./img/Prize3.png",
-        "./img/Prize4A.png",
-      ];
 
       // Create the starting time value
       const timer = 120;
 
       function createRandomSequence() {
-        // Create an empty array to store the random sequence
         let sequence = [];
 
-        // Add a random value to the sequence, making sure it's not the same as the
-        // previous value and the 9th value is different from the correct (10th value)
+        // Add a random value to the sequence, making sure it's not the same as the previous value and the 9th value is different from the correct (10th value)
         let previousValue = null;
         while (sequence.length < 10) {
-          let randomIndex = Math.floor(Math.random() * values.length);
+          let randomIndex = Math.floor(Math.random() * backgroundImages.length);
           let randomValue = values[randomIndex];
           if (
             randomValue !== previousValue &&
-            randomValue !== correct[dateToday - 9]
+            randomValue !== correct[dateToday]
           ) {
             sequence.push(randomValue);
             previousValue = randomValue;
           }
         }
         // Make sure the last value in the sequence is correct
-        let ddasta = (sequence[sequence.length - 1] = correct[dateToday - 9]);
 
-        console.log(ddasta, "dasdas");
-        // console.log(myImage.src, "ll");
+        sequence[sequence.length - 1] = correct[dateToday];
+
+        console.log(correct[dateToday], "cfas");
         return sequence;
       }
 
       function updateDiv(my_div, sequence) {
+        console.log(my_div, "1");
+        console.log(sequence);
         let index = 0;
         setInterval(() => {
           // Stop the interval when we reach the end of the sequence
@@ -591,59 +608,64 @@
             clearInterval(this);
             return;
           }
+
           // Update the div with the next value in the sequence
           my_div.innerHTML = sequence[index];
           my_div.setAttribute("src", sequence[index]);
           // Set the background image of the div to the image at the random index
-          my_div.style.backgroundImage = `url(${
-            backgroundImages[values.indexOf(sequence[index])]
-          })`;
-          console.log(sequence[index], "sequence");
+          // my_div.style.backgroundImage = `url(${
+          //   backgroundImages[values.indexOf(sequence[index])]
+          // })`;
+          console.log(my_div, "3");
           index++;
         }, timer); // Update the div
+
+        // test
+      }
+
+      function appendImg() {
+        let imgBox = document.getElementById("prizes");
+        for (let i = 0; i < backgroundImages.length; i++) {
+          let img = document.createElement("img");
+          img.src = backgroundImages[i];
+          img.setAttribute("alt", [i]);
+          imgBox.innerHTML += img.outerHTML;
+        }
       }
 
       let clicked = false;
 
       function click_box(e) {
- 
         let allButtons = document.querySelectorAll(".btn-box");
-  
+
         allButtons.forEach(function (b, i) {
-     
           b.addEventListener(
             "click",
             function () {
+              let buttonId = $(this).attr("id");
+              console.log(buttonId, "buttonId");
               if ($(".four ").find(".-normal")) {
-                // $(this).removeClass("btn-box");
-                // $(this).removeClass("displayValues");
+                $("#modal-container").addClass(buttonId);
+                $("body").addClass("modal-active");
                 $(this).addClass("btn-box2");
                 $(this).removeClass("-normal-shake");
-            
-              
               } else {
                 e.stopPropagation();
-                  e.preventDefault();
+                e.preventDefault();
               }
-           
-                
-              console.log(clicked);
-              
-              let buttonId = $(this).attr("id");
-              $("#modal-container").addClass(buttonId);
-              $("body").addClass("modal-active");
-              $(".close-btn").click(function () {
-                $("#modal-container").removeClass(buttonId);
-                $("body").removeClass("modal-active");
-              });
+
               let sequence = createRandomSequence();
               // Get the div element
 
               // Start updating the div with the values from the sequence
               updateDiv(my_div, sequence);
-              // console.log(sequence, "sequence");
-              // console.log(my_div, "div");
-            
+
+              console.log(sequence, "sequence");
+
+              $(".close-btn").click(function () {
+                $("#modal-container").removeClass(buttonId);
+                $("body").removeClass("modal-active");
+              });
               // document.getElementById("secventa").innerHTML = sequence;
             },
             {
@@ -653,7 +675,23 @@
         });
       }
 
+      generate_box();
+      appendImg();
       click_box();
+
+      // function shake() {
+      //   $(".-normal").addClass("shake-box");
+      //   if($(".-normal").find("shake-box")) {
+      //     $(".-normal").addClass("shake-box2");
+
+      //   }
+
+      //   setTimeout(() => $(".-normal").removeClass("shake-box"), 500);
+      // }
+
+      // setTimeout(() => {
+      //   setInterval(shake, 2000);
+      // }, 500);
     </script>
   </body>
 </html>
