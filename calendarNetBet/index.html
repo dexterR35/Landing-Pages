@@ -49,11 +49,13 @@
       .wrapper {
         margin-top: 80px;
         display: flex;
+        position: relative;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         grid-template-columns: repeat(5, minmax(150px, 1fr));
         grid-template-rows: repeat(5, minmax(150px, 1fr));
+        overflow: hidden;
       }
       .wrapper h1,
       .wrapper h1::before,
@@ -67,7 +69,7 @@
       .wrapper h1 {
         z-index: 2;
         margin-bottom: 20px;
-        font-size: 4.5em;
+        font-size: 3.5vh;
         position: relative;
       }
 
@@ -177,23 +179,23 @@
         backface-visibility: hidden;
         perspective: 1000px;
       }
-      /* 
-      .btn-box:hover {
-        transition: ease 0.3s;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-      } */
+      /*
+            .btn-box:hover {
+              transition: ease 0.3s;
+              transform: scale(1.1);
+              -webkit-transform: scale(1.1);
+            } */
 
       /* .btn-box:active {
-        transition: ease 0.1s;
-        transform: scale(1);
-      } */
+              transition: ease 0.1s;
+              transform: scale(1);
+            } */
 
       #main-container {
         display: grid;
         /* grid-gap: 15px; */
-        grid-template-columns: repeat(7, minmax(150px, 1fr));
-        grid-template-rows: repeat(4, minmax(150px, 1fr));
+        grid-template-columns: repeat(7, minmax(16vh, 1fr));
+        grid-template-rows: repeat(4, minmax(16vh, 1fr));
         color: #444;
       }
 
@@ -232,8 +234,8 @@
       }
 
       /* html.modal-active, body.modal-active {
-	 overflow: hidden;
-} */
+      	 overflow: hidden;
+      } */
       #modal-container {
         position: fixed;
         display: table;
@@ -269,9 +271,9 @@
         padding: 50px;
         position: relative;
         /* background-size: contain;
-        background-image: url(./img/cadou-full.png);
-        background-repeat: no-repeat;
-        background-position: center; */
+              background-image: url(./img/cadou-full.png);
+              background-repeat: no-repeat;
+              background-position: center; */
       }
 
       #modal-container.four.out .modal-background .modal {
@@ -295,8 +297,14 @@
         grid-row: 4;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
         color: black;
+        position: absolute;
+        bottom: 0;
+        width: 62%;
+        /* background: red; */
+        /* padding: 13px; */
+        left: 23em;
       }
       .prizes {
         border: 1px solid #0000007a;
@@ -336,7 +344,7 @@
       .prizesS img {
         width: 80px;
         /* aspect-ratio: 3/2;
-        object-fit: contain; */
+              object-fit: contain; */
       }
       .prizes-text {
         font-size: 1.1em;
@@ -373,7 +381,7 @@
         }
       }
 
-      @-webkit-keyframes an-shake {
+      @keyframes an-shake {
         10%,
         90% {
           transform: translate3d(-1px, 0, 0);
@@ -399,30 +407,142 @@
       @media screen and (orientation: portrait) {
       }
 
-      @media screen and (max-width: 600px) {
-      }
-
       @media screen and (max-width: 768px) {
       }
 
-      @media screen and (min-width: 992px) {
+      .prizes-container {
+        display: none;
+      }
+
+      @media screen and (orientation: portrait) {
+        .box-main {
+          width: 100%;
+          height: 270px;
+        }
+        #my-div {
+          position: relative;
+          height: 100%;
+          width: 100%;
+          background-size: 75%;
+          background-repeat: no-repeat;
+          background-position: center 58px;
+          margin-top: unset;
+          font-size: unset;
+          display: block;
+        }
+        .buttons-modal {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .btn-modal {
+          background-color: orangered;
+          font-size: 0.75em;
+          text-transform: uppercase;
+          color: white;
+          border-radius: 5px;
+          outline: none;
+          border: none;
+          padding: 1em 3em;
+          margin-bottom: 1.2em;
+          width: 100%;
+        }
+      }
+
+      @media screen and (min-width: 320px) {
+        #main-container {
+          grid-template-columns: repeat(4, minmax(10vh, 1fr));
+          grid-template-rows: repeat(7, minmax(10vh, 1fr));
+        }
+        .wrapper h1 {
+          font-size: 2vh;
+        }
+        .btn-box span {
+          top: 36px;
+          font-size: 1.1em;
+        }
+      }
+
+      @media screen and (min-width: 480px) {
+        #main-container {
+          grid-template-columns: repeat(5, minmax(12vh, 1fr));
+          grid-template-rows: repeat(5, minmax(12vh, 1fr));
+        }
+        .wrapper h1 {
+          font-size: 1.4em;
+        }
+        .btn-box span {
+          top: 45px;
+          font-size: 1.1em;
+        }
+        .prizesS img {
+          width: 6vh;
+        }
+        .prizes-container {
+          left: unset;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          padding: 28px;
+        }
+        .prizes-text {
+          display: none;
+        }
+      }
+      @media screen and (min-width: 600px) {
+        #main-container {
+          grid-template-columns: repeat(6, minmax(13vh, 1fr));
+          grid-template-rows: repeat(4, minmax(13vh, 1fr));
+        }
+        .wrapper h1 {
+          font-size: 1.4em;
+        }
+        .btn-box span {
+          top: 45px;
+          font-size: 1.1em;
+        }
+        .prizesS img {
+          width: 6vh;
+        }
+        .prizes-container {
+          left: unset;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 100%;
+          padding: 28px;
+        }
+        .prizes-text {
+          display: none;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        #main-container {
+          grid-template-columns: repeat(6, minmax(12vh, 1fr));
+          grid-template-rows: repeat(4, minmax(12vh, 1fr));
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        #main-container {
+          grid-template-columns: repeat(6, minmax(14vh, 1fr));
+          grid-template-rows: repeat(4, minmax(14vh, 1fr));
+        }
       }
 
       @media screen and (min-width: 1200px) {
+        #main-container {
+          grid-template-columns: repeat(6, minmax(16vh, 1fr));
+          grid-template-rows: repeat(4, minmax(16vh, 1fr));
+        }
       }
 
       .shake-box {
         transform: translate3d(4px, 0, 0);
-      }
-
-      #myDiv3 {
-        z-index: 23;
-        font-size: 2em;
-        width: 200px;
-        font-size: 2em;
-        height: 200px;
-        background: red;
-        color: white;
       }
     </style>
   </head>
@@ -430,10 +550,7 @@
   <body>
     <div class="wrapper">
       <h1>Luna Reducerilor de iarnă</h1>
-      <h2 data-text="Luna Reducerilor de iarnă.......">
-        Luna Reducerilor de iarnă.......
-      </h2>
-      <div id="myDiv3" class="center-div"></div>
+
       <div id="modal-container">
         <div class="modal-background">
           <div class="modal">
@@ -451,24 +568,20 @@
         </div>
       </div>
 
-      <p>Secventa random : <span id="secventa"></span></p>
-      <div id="main-container">
-        <div class="prizes-container">
-          <div
-            class="prizes-text"
-            data-text="dă click pe cadoul zilei
-          și vezi ce ai câștigat"
-          >
-            dă click pe cadoul zilei <br />
-            și vezi ce ai câștigat
-          </div>
-          <div class="prizes">
-            <div class="prizesS" id="prizes"></div>
-          </div>
+      <div id="main-container"></div>
+      <div class="prizes-container">
+        <div
+          class="prizes-text"
+          data-text="dă click pe cadoul zilei
+        și vezi ce ai câștigat"
+        >
+          dă click pe cadoul zilei <br />
+          și vezi ce ai câștigat
+        </div>
+        <div class="prizes">
+          <div class="prizesS" id="prizes"></div>
         </div>
       </div>
-      <div id="my-div4"></div>
-      <!-- <div class="contents" id="contentsss"></div> -->
     </div>
 
     <script>
@@ -477,7 +590,7 @@
       let dateToday = today.getDate();
       let dateFullYear = today.getFullYear();
       let dateMonth = today.getMonth();
-      let inputDate = new Date("january 1, 2023");
+      let inputDate = new Date("january 9, 2023");
       let outputDate = new Date("january 31, 2023");
       let inputDate1 = inputDate.getDate();
       let outputDate1 = outputDate.getDate();
@@ -487,36 +600,39 @@
 
       // expected output: 19
       const correct = [
-        "9 ianuarie s",
-        "./img/todayPrize1.png",
-        "11 ianuarie",
-        "12 ianuarie",
-        "13 ianuarie",
-        "14 ianuarie",
-        "./img/todayPrize1.png",
-        "16 ianuarie",
-        "17 ianuarie",
-        "18 ianuarie",
-        "19 ianuarie",
-        "20 ianuarie",
-        "21 ianuarie",
-        "22 ianuarie",
-        "23 ianuarie",
-        "./img/todayPrize1.png",
-        "./img/todayPrize.png",
-        "26 ianuarie",
-        "./img/Prize1.png",
-        "./img/Prize1.png",
-        "29 ianuarie",
-        "30 ianuarie",
-        "31 ianuarie",
+        "A1",
+        "A1",
+        "C3",
+        "B2",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "D4",
+        "C3",
+        "C3",
+        "B2",
+        "A1",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
+        "C3",
       ];
       // Create the correct sequence of prizes - index 0 is 9th of January
       //    guide   = ["9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
 
       // Create an array of possible values
       const values = ["A1", "B2", "C3", "D4"];
-
+      console.log(values[0]);
+      console.log(values[1]);
+      console.log(values[2]);
+      console.log(values[3]);
       // An array of four possible background images
 
       const backgroundImages = [
@@ -529,14 +645,7 @@
       function generate_box() {
         let boxes = document.getElementById("main-container");
         dateToday1 = dateToday;
-        // for (let j = dateToday1 + 9; j <= correct[dateToday-1]; j++) {
-        console.log(dateToday1 + 14, "j");
-        console.log(correct[dateToday - 1], "j");
-
-        // }
         for (let k = inputDate1; k <= outputDate1; k++) {
-          // console.log(k <= outputDate1,"kkkk")
-
           if (k < dateToday1 + 14) {
             console.log(k, "k");
             boxes.innerHTML +=
@@ -547,9 +656,7 @@
               "</span>" +
               "</div>" +
               "</div>";
-
-            // console.log("correct", correct[dateToday]);
-          } else if (k > dateToday1 + 15) {
+          } else if (k > dateToday1 + 14) {
             boxes.innerHTML +=
               "<div class ='content -greater'>" +
               "<div class='btn-box four disabled-full' id='four' >" +
@@ -580,7 +687,7 @@
         // Add a random value to the sequence, making sure it's not the same as the previous value and the 9th value is different from the correct (10th value)
         let previousValue = null;
         while (sequence.length < 10) {
-          let randomIndex = Math.floor(Math.random() * backgroundImages.length);
+          let randomIndex = Math.floor(Math.random() * values.length);
           let randomValue = values[randomIndex];
           if (
             randomValue !== previousValue &&
@@ -591,10 +698,7 @@
           }
         }
         // Make sure the last value in the sequence is correct
-
         sequence[sequence.length - 1] = correct[dateToday];
-
-        console.log(correct[dateToday], "cfas");
         return sequence;
       }
 
@@ -613,9 +717,9 @@
           my_div.innerHTML = sequence[index];
           my_div.setAttribute("src", sequence[index]);
           // Set the background image of the div to the image at the random index
-          // my_div.style.backgroundImage = `url(${
-          //   backgroundImages[values.indexOf(sequence[index])]
-          // })`;
+          my_div.style.backgroundImage = `url(${
+            backgroundImages[values.indexOf(sequence[index])]
+          })`;
           console.log(my_div, "3");
           index++;
         }, timer); // Update the div
@@ -633,11 +737,8 @@
         }
       }
 
-      let clicked = false;
-
       function click_box(e) {
         let allButtons = document.querySelectorAll(".btn-box");
-
         allButtons.forEach(function (b, i) {
           b.addEventListener(
             "click",
@@ -653,20 +754,14 @@
                 e.stopPropagation();
                 e.preventDefault();
               }
-
               let sequence = createRandomSequence();
               // Get the div element
-
               // Start updating the div with the values from the sequence
               updateDiv(my_div, sequence);
-
-              console.log(sequence, "sequence");
-
               $(".close-btn").click(function () {
                 $("#modal-container").removeClass(buttonId);
                 $("body").removeClass("modal-active");
               });
-              // document.getElementById("secventa").innerHTML = sequence;
             },
             {
               once: true,
