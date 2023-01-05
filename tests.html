@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            background: red;
+    animation: move-left 12s linear infinite forwards;
+    position: relative;
+  }
+  @keyframes move-left {
+    0% {
+      right: 10%;
+      transform: translateY(0px);
+    }
+
+    25%,70% {
+        transform: translateY(300px);
+     
+    }
+  
+
+    100% {
+        transform: translateY(0px);
+      right: -100%;
+    }
+  }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+
+        
+    </div>
+</body>
+</html>
