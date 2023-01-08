@@ -449,7 +449,29 @@
     background-position: center;
     width: 400px;
     height: 400px;
+
   }
+  .box-main-full::after {
+    content: "dasda";
+    /* height: 400px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-size: 100%;
+    background-image: url(./img/cadou-full.png) ;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width: 400px;
+    height: 400px; */
+  }
+ 
 
   .box-container {
     position: relative;
@@ -475,15 +497,13 @@
   #modal-container.four {
     z-index: 50;
     transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  #modal-container.four .modal-background {
-    /* background: rgba(3, 17, 41, 0.6); */
-  }
 
-  #modal-container.four .modal-background .modal {
+  /* #modal-container.four .modal-background .modal {
     animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  }
+  } */
 .extended-modal.modal-active {
   background: rgba(3, 17, 41, 0.6);
     z-index: 5;
@@ -812,6 +832,113 @@
   cursor: pointer;
 } */
 
+@keyframes spin {
+	from { transform: rotateY(360deg); }/*reverse the 0 and the 360 for opisite rotation*/
+	to   { transform: rotateY(0); }
+}
+@-webkit-keyframes spin {
+	from {-webkit-transform: rotateY(360deg); }
+	to   {-webkit-transform: rotateY(0); }
+}
+@-moz-keyframes spin {
+	from {-moz-transform: rotateY(360deg); }
+	to   {-moz-transform: rotateY(0); }
+}
+
+.wrap-cube {
+	perspective: 1000px;
+	perspective-origin: 5% 100px;
+	-webkit-perspective: 1000px;
+	-webkit-perspective-origin: 5% 100px;
+}
+.cube {
+	position: relative;
+	width: 200px;
+	margin: 10px 0 0 10px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	animation: spin 5s infinite linear;
+	-webkit-animation: spin 5s infinite linear;
+}
+.cube div {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	font:16px sans-serif;
+	text-align:center;
+	line-height:12em;
+	background:rgba(255,255,255,0.8);
+  z-index: 3;
+  box-shadow:inset 0 0 30px rgba(0,0,0,0.2);
+}
+.cube-side{
+position: relative;
+}
+.cube-side::after {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -30px;
+  width: 130%;
+  height: 130%;
+  background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/cadou-full.png");
+	background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index:2;
+}
+.back {
+
+  transform: translateZ(-120px) rotateY(180deg);
+	/* -webkit-transform: translateZ(-120px) rotateY(180deg); */
+	opacity: 1.0;
+}
+.right {
+
+	transform: rotateY(-270deg) translateX(100px) translatez(15px);
+	transform-origin: top right;
+	/* -webkit-transform: rotateY(-270deg) translateX(100px) translatez(15px); */
+	-webkit-transform-origin: top right;
+	opacity: 1.0;
+}
+.left {
+	transform: rotateY(270deg) translateX(-100px) translatez(15px);
+	transform-origin: center left;
+	/* -webkit-transform: rotateY(270deg) translateX(-100px); */
+	-webkit-transform-origin: center left;
+	opacity: 1.0;
+}
+.top {
+	transform: rotateX(-90deg) translateY(-100px)  translatez(-5px);
+	transform-origin: top center;
+	/* -webkit-transform: rotateX(-90deg) translateY(-100px); */
+	-webkit-transform-origin: top center;
+	opacity: 1.0;
+}
+.bottom {
+	/* transform: rotateX(90deg) translateY(100px) translatez(15px); */
+	transform-origin: bottom center;
+	-webkit-transform: rotateX(90deg) translateY(120px) translatez(-10px);
+	-webkit-transform-origin: bottom center;
+	opacity: 1.0;
+}
+.front {
+	transform: translateZ(120px);
+	/* -webkit-transform: translateZ(120px); */
+	opacity: 1.0;
+}
+.container-cube{
+  position: absolute;
+    transform: scale(0.4);
+    left: 220px;
+bottom: -13em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 </style>
       
 
@@ -847,6 +974,18 @@
         </div>
       </div>
       <div id="main-container"></div>
+      <div class="container-cube">
+        <div class="wrap-cube">
+         <div class="cube">
+            <div class="front cube-side">200</div>
+            <div class="back cube-side">300</div>
+            <div class="top cube-side"></div>
+            <div class="bottom cube-side">30</div>
+            <div class="left cube-side">400</div>
+            <div class="right cube-side">500</div>
+         </div>
+        </div>
+        </div>
     </div>
     <script>
       let today = new Date();
@@ -916,7 +1055,7 @@
             // console.log(k, "k mai mic recentDay");
             boxes.innerHTML +=
               "<div class ='content -smaller'>" +
-              "<div class='btn-box open_daybefore four disabled-open" +
+              "<div class='btn-box open_daybefore four2 disabled-open" +
               _correct +
               "' id='four' >" +
               "<span class='displayValues' id='images'>";
@@ -983,7 +1122,7 @@
         let sequence = [];
         // Add a random value to the sequence, making sure it's not the same as the previous value and the 9th value is different from the correct (10th value)
         let previousValue = null;
-        while (sequence.length < 10) {
+        while (sequence.length < 3) {
           let randomIndex = Math.floor(Math.random() * values.length);
           let randomValue = values[randomIndex];
     
@@ -1044,12 +1183,21 @@
             function () {
               let buttonId = $(this).attr("id");
               console.log(buttonId, "buttonId");
-              if ($(".four").find(".-normal")) {
+              if ($(".four2").has(".-normal")) {
+             
                 showDialog()
+              
                 $("#modal-container").addClass(buttonId);
                 $(".extended-modal").addClass("modal-active");
+                $(".box-main").addClass("box-main-full");
+                $(".center-div").addClass("box-explode");
+                $(".center-div").css({"visibility":"hidden"});
                 $(this).addClass("btn-box2");
                 $(this).removeClass("-normal-shake");
+                setTimeout(function() {
+                  $(".box-main").removeClass("box-main-full");
+                  $(".center-div").css({"visibility":"visible"});
+                }, 2000);
               } else {
                 e.stopPropagation();
                 e.preventDefault();
@@ -1062,6 +1210,7 @@
                 $("#modal-container").removeClass(buttonId);
                 $(".extended-modal").removeClass("modal-active");
                 $(".btn-box").removeClass("btn-box2");
+                $(".center-div").removeClass("box-explode");
                 closeDialog();
               });
               // console.log("updateda", my_div);
