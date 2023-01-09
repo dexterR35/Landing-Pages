@@ -51,135 +51,142 @@
         width: 100%;
         height: 100%;
       }
-
       @media (orientation: landscape) and (min-width: 992px) {
-        .char {
-          top: unset;
-          position: unset;
-          left: unset;
-          z-index: unset;
-          height: unset;
-        }
-        .title-calendar br {
-          display: none;
-        }
-      }
-      .offer {
-        display: none;
-      }
-      button {
-        cursor: pointer;
-        font-family: "Play", sans-serif;
-      }
-      header {
-        height: 5.11em !important;
-      }
-      header .bottom {
-        display: none !important;
-      }
-      .container-hero {
-        height: 100%;
-        max-width: 1200px;
-        min-width: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center !important;
-        position: relative;
-        margin: 0 auto;
-      }
-      .cta-button.mobile {
-        display: none;
-      }
+    .char {
+      top: unset;
+      position: unset;
+      left: unset;
+      z-index: unset;
+      height: unset;
+    }
+    .title-calendar br {
+      display: none;
+    }
+  }
+  .offer {
+    display: none;
+  }
+  button
+ {
+    cursor: pointer;
+    font-family: "Play", sans-serif;
+  }
+  header {
+    height: 5.11em !important;
+  }
+  .wrapper-all h1 {
+    width: 100vw;
+  }
+  header .bottom {
+    display: none !important;
+  }
+  .container-hero {
+    height: 86vh;
+    max-width: 1200px;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    margin: 0 auto;
+  }
+  .cta-button.mobile {
+    display: none;
+  }
 
-      .promo-text {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-      }
+  .promo-text {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
 
-      .splash-screen {
-        z-index: 250;
-      }
+  .splash-screen {
+    z-index: 250;
+  }
 
-      .char {
-        z-index: 2;
-      }
+  .char {
+    z-index: 2;
+  }
 
-      .char.onmobile {
-        display: none;
-      }
+  .char.onmobile {
+    display: none;
+  }
 
-      footer {
-        opacity: 1 !important;
-      }
+  footer {
+    opacity: 1 !important;
+  }
 
-      .promo-text > .inner > span {
-        color: #ffd101 !important;
-      }
+  .promo-text > .inner > span {
+    color: #ffd101 !important;
+  }
 
-      .cta-button {
-        font-size: 1.9vh !important;
-        padding: 0 1.5em;
-        margin-top: 0.2em;
-        margin-bottom: 0.5em;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        box-shadow: inset 0px 0px 18px 2px rgb(245 86 60 / 56%),
-          0px 0px 18px 5px rgb(170 39 0 / 35%);
-      }
+  .cta-button {
+    font-size: 1.9vh !important;
+    padding: 0 1.5em;
+    margin-top: 0.2em;
+    margin-bottom: 0.5em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: inset 0px 0px 18px 2px rgb(245 86 60 / 56%),
+      0px 0px 18px 5px rgb(170 39 0 / 35%);
+  }
 
-      header {
-        z-index: 200;
-      }
+  header {
+    z-index: 200;
+  }
 
-      .promo-text {
-        position: relative;
-      }
+  .promo-text {
+    position: relative;
+  }
 
-      .swiper-slide {
-        margin-right: 1px !important;
-      }
+  .swiper-slide {
+    margin-right: 1px !important;
+  }
 
-      .promo-text {
-        text-transform: uppercase;
-      }
+  .promo-text {
+    text-transform: uppercase;
+  }
 
-      .steps {
-        z-index: 199 !important;
-      }
+  .steps {
+    z-index: 199 !important;
+  }
 
-      .steps .separator {
-        margin-right: 15px;
-      }
+  .steps .separator {
+    margin-right: 15px;
+  }
 
-      .promo-text,
-      .below-fold {
-        z-index: 140;
-      }
-      .wrapper-all {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        grid-template-columns: repeat(5, minmax(150px, 1fr));
-        grid-template-rows: repeat(5, minmax(150px, 1fr));
-      }
-      .wrapper-all h1,
-      .wrapper-all h1::before,
-      #my-div,
-      .btn-box span,
-      .prizes-text {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-      .wrapper-all h1 {
-        z-index: 2;
-        margin-bottom: 20px;
-        font-size: 3em;
-        position: relative;
-      }
-      /* 
+  .promo-text,
+  .below-fold {
+    z-index: 140;
+  }
+  .wrapper-all {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(5, minmax(150px, 1fr));
+    grid-template-rows: repeat(5, minmax(150px, 1fr));
+  }
+  .wrapper-all h1,
+  .wrapper-all h1::before,
+  #my-div,
+  .displayValues,
+  .prizes-text {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .wrapper-all h1 {
+    z-index: 2;
+    font-size: 3em;
+    position: relative;
+    background: linear-gradient(to top right, #c50d15 45%, #d70202 100%);
+    -webkit-background-clip: text;
+    text-shadow: -2px -2px 0px rgb(0 3 90 / 88%);
+    -webkit-text-fill-color: transparent;
+    margin: 0 auto;
+  }
+  /* 
   .wrapper-all h1::before {
     content: "luna reducerilor \A de iarnă";
     z-index: -2;
@@ -206,796 +213,855 @@
     -webkit-text-fill-color: transparent;
   } */
 
-      /*TODO:Content animation ***************/
+  /*TODO:Content animation ***************/
 
-      .content::before {
-        content: "";
-        position: absolute;
-        top: 57%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 53%;
-        height: 60%;
-        box-shadow: 10px 10px 10px #444141;
-      }
+  .content::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 63%;
+    height: 68%;
+    box-shadow: 10px 10px 10px #444141;
+  }
 
-      .-today.pulse::before {
-        content: "";
-        position: absolute;
-        top: 23%;
-        left: 23%;
-        border-radius: 30px;
+  .-today.pulse::before {
+    content: "";
+    position: absolute;
+    top: 23%;
+    left: 23%;
+    border-radius: 30px;
 
-        /* box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753); */
-        animation: pulse-red 1.5s ease-out infinite;
-      }
-      .-normal-shake {
-        animation: an-shake 1s cubic-bezier(0.23, 0.6, 0.7, 0.13) both infinite
-          3s;
-        transform: translate3d(0, 0, 0);
-        backface-visibility: hidden;
-        perspective: 1000px;
-      }
+    /* box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753); */
+    animation: pulse-red 1.5s ease-out infinite;
+  }
+  .-normal-shake {
+    animation: an-shake 1s cubic-bezier(0.23, 0.6, 0.7, 0.13) both infinite 3s;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
 
-      .content {
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        position: relative;
-        animation: expand 0.5s ease-in-out forwards;
-      }
+  .content {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: relative;
+    animation: expand 0.5s ease-in-out forwards;
+  }
 
-      @keyframes expand {
-        0% {
-          opacity: 0;
+  @keyframes expand {
+    0% {
+      opacity: 0;
 
-          transform: translate(0%, 0%) scale(0);
-        }
-        100% {
-          opacity: 1;
+      transform: translate(0%, 0%) scale(0);
+    }
+    100% {
+      opacity: 1;
 
-          transform: translate(0%, 0%) scale(1);
-        }
-      }
+      transform: translate(0%, 0%) scale(1);
+    }
+  }
 
-      .content:nth-child(1) {
-        animation-delay: 0.1s;
-      }
+  .content:nth-child(1) {
+    animation-delay: 0.1s;
+  }
 
-      .content:nth-child(2) {
-        animation-delay: 0.2s;
-      }
+  .content:nth-child(2) {
+    animation-delay: 0.2s;
+  }
 
-      .content:nth-child(3) {
-        animation-delay: 0.3s;
-      }
+  .content:nth-child(3) {
+    animation-delay: 0.3s;
+  }
 
-      .content:nth-child(4) {
-        animation-delay: 0.4s;
-      }
+  .content:nth-child(4) {
+    animation-delay: 0.4s;
+  }
 
-      .content:nth-child(5) {
-        animation-delay: 0.6s;
-      }
+  .content:nth-child(5) {
+    animation-delay: 0.6s;
+  }
 
-      .content:nth-child(6) {
-        animation-delay: 0.7s;
-      }
+  .content:nth-child(6) {
+    animation-delay: 0.7s;
+  }
 
-      .content:nth-child(7) {
-        animation-delay: 0.8s;
-      }
+  .content:nth-child(7) {
+    animation-delay: 0.8s;
+  }
 
-      .content:nth-child(8) {
-        animation-delay: 0.9s;
-      }
+  .content:nth-child(8) {
+    animation-delay: 0.9s;
+  }
 
-      .content:nth-child(9) {
-        animation-delay: 1s;
-      }
+  .content:nth-child(9) {
+    animation-delay: 1s;
+  }
 
-      .content:nth-child(10) {
-        animation-delay: 1.1s;
-      }
+  .content:nth-child(10) {
+    animation-delay: 1.1s;
+  }
 
-      .content:nth-child(11) {
-        animation-delay: 1.2s;
-      }
+  .content:nth-child(11) {
+    animation-delay: 1.2s;
+  }
 
-      .content:nth-child(12) {
-        animation-delay: 1.3s;
-      }
-      .content:nth-child(13) {
-        animation-delay: 1.4s;
-      }
+  .content:nth-child(12) {
+    animation-delay: 1.3s;
+  }
+  .content:nth-child(13) {
+    animation-delay: 1.4s;
+  }
 
-      .content:nth-child(14) {
-        animation-delay: 1.5s;
-      }
-      .content:nth-child(15) {
-        animation-delay: 1.6s;
-      }
+  .content:nth-child(14) {
+    animation-delay: 1.5s;
+  }
+  .content:nth-child(15) {
+    animation-delay: 1.6s;
+  }
 
-      .content:nth-child(16) {
-        animation-delay: 1.8s;
-      }
-      .content:nth-child(17) {
-        animation-delay: 1.9s;
-      }
-      .content:nth-child(18) {
-        animation-delay: 2s;
-      }
-      .content:nth-child(19) {
-        animation-delay: 2.1s;
-      }
-      .content:nth-child(20) {
-        animation-delay: 2.2s;
-      }
-      .content:nth-child(21) {
-        animation-delay: 2.3s;
-      }
-      .content:nth-child(22) {
-        animation-delay: 2.4s;
-      }
-      .content:nth-child(23) {
-        animation-delay: 2.5s;
-      }
-      .prizes-text {
-        opacity: 0;
-        transform: scale(0);
-        animation: expand 0.5s ease-in-out forwards 2.8s;     
-      }
-  
-   
+  .content:nth-child(16) {
+    animation-delay: 1.8s;
+  }
+  .content:nth-child(17) {
+    animation-delay: 1.9s;
+  }
+  .content:nth-child(18) {
+    animation-delay: 2s;
+  }
+  .content:nth-child(19) {
+    animation-delay: 2.1s;
+  }
+  .content:nth-child(20) {
+    animation-delay: 2.2s;
+  }
+  .content:nth-child(21) {
+    animation-delay: 2.3s;
+  }
+  .content:nth-child(22) {
+    animation-delay: 2.4s;
+  }
+  .content:nth-child(23) {
+    animation-delay: 2.5s;
+  }
+  .prizes-text {
+    opacity: 0;
+    transform: scale(0);
+    animation: expand 0.5s ease-in-out forwards 2.8s;
+  }
 
-      .btn-box {
-        border: none;
-        outline: none;
-        position: relative;
-        z-index: 10;
-        color: white;
-        width: 100%;
-        height: 100%;
-        background-size: 90%;
-        background-repeat: no-repeat;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .btn-box.disabled-openA1 {
-        background-image: url(./img/Cadoupartial1.png);
-        pointer-events: none;
-      }
-      .btn-box.disabled-openB2 {
-        background-image: url(./img/Cadoupartial2.png);
-        pointer-events: none;
-      }
-      .btn-box.disabled-openC3 {
-        background-image: url(./img/Cadoupartial3.png);
-        pointer-events: none;
-      }
-      .btn-box.disabled-openD4 {
-        background-image: url(./img/Cadoupartial4.png);
-        pointer-events: none;
-      }
+  .btn-box {
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 10;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-box.disabled-openA1 {
+    background-image: url({$asset}/Cadoupartial1.png);
+    pointer-events: none;
+  }
+  .btn-box.disabled-openB2 {
+    background-image: url({$asset}/Cadoupartial2.png);
+    pointer-events: none;
+  }
+  .btn-box.disabled-openC3 {
+    background-image: url({$asset}/Cadoupartial3.png);
+    pointer-events: none;
+  }
+  .btn-box.disabled-openD4 {
+    background-image: url({$asset}/Cadoupartial4.png);
+    pointer-events: none;
+  }
 
-      .btn-box.disabled-full {
-        background-image: url(./img/cadou-full-disabled.png);
-        pointer-events: none;
-      }
-      .btn-box.-normal {
-        background-image: url(./img/cadou-full.png);
-        cursor: pointer;
-      }
-      .btn-box2 {
-        border: none;
-        outline: none;
-        position: relative;
-        z-index: 10;
-        color: black;
-        width: 100%;
-        height: 100%;
-        background-size: 90%;
-        background-image: url(./img/cadou-partial.png) !important;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-      .btn-box2 span {
-        color: black !important;
-      }
-      .btn-box span {
-        z-index: 200;
-        color: white;
-        position: relative;
-        /* top: 71px; */
-        font-size: 2em;
-        /* height: 100%; */
-      }
-      .buttons-modal {
-        z-index: 20;
-      }
-      /*
+  .btn-box.disabled-full {
+    background-image: url({$asset}/cadou-full-disabled.png);
+    pointer-events: none;
+  }
+  .btn-box.-normal {
+    background-image: url({$asset}/cadou-full.png);
+    cursor: pointer;
+  }
+  .btn-box2 {
+    border: none;
+    outline: none;
+    position: relative;
+    z-index: 10;
+    color: black;
+    width: 100%;
+    height: 100%;
+    background-size: 90%;
+    background-image: url({$asset}/cadou-partial.png) !important;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .btn-box2 span {
+    color: black !important;
+  }
+  .displayValues {
+    z-index: 200;
+    color: white;
+    position: relative;
+    /* top: 71px; */
+    font-size: 2em;
+    /* height: 100%; */
+  }
+  .displayValues.addImgVal {
+  z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+ 
+}
+  .buttons-modal {
+    z-index: 20;
+  }
+  /*
             .btn-box:hover {
               transition: ease 0.3s;
               transform: scale(1.1);
               -webkit-transform: scale(1.1);
             } */
 
-      /* .btn-box:active {
+  /* .btn-box:active {
               transition: ease 0.1s;
               transform: scale(1);
             } */
 
-      #main-container {
-        display: grid;
-        /* grid-gap: 15px; */
-        grid-template-columns: repeat(7, minmax(16vh, 1fr));
-        grid-template-rows: repeat(4, minmax(16vh, 1fr));
-        color: #444;
-      }
-      #my-div {
-        position: relative;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        background-size: 50%;
-        background-repeat: no-repeat;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 1.5em;
-        top: 1em;
-      }
+  #main-container {
+    display: grid;
+    /* grid-gap: 15px; */
+    grid-template-columns: repeat(7, minmax(16vh, 1fr));
+    grid-template-rows: repeat(4, minmax(16vh, 1fr));
+    color: #444;
+  }
+  #my-div {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    top: 1em;
+  }
 
-      .box-main {
-        background-size: contain;
-        background-image: url(./img/cadou-partial-test.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 400px;
-        height: 400px;
-        position: relative;
-      }
-      .box-main::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: contain;
-        background-image: url(./img/funda-testl.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        z-index: 2;
-      }
-      .box-main-full::after {
-        content: "";
-        color: white;
-        /* height: 400px; */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 3em;
-        width: 100%;
-        height: 100%;
-        position: relative;
-        top: 0;
-        left: 0;
-        background-size: 85%;
-        background-image: url(./img/cadou-partial-capac.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        /* width: 400px;
-    height: 400px; */
-      }
+  .box-main {
+    background-size: contain;
+    background-image: url({$asset}/cadou-partial-test.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+    position: relative;
+  }
 
-      .box-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: fit-content;
-        margin: auto;
-      }
+  .box-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background-size: contain;
+    background-image: url({$asset}/funda-testl.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 2;
+  }
 
-      #modal-container {
-        /* position: fixed;  */
-        position: absolute;
-        display: table;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        transform: scale(0);
-        z-index: 1;
-      }
+  .box-main-full::before,
+  .box-main-full::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-size: 100%;
+  }
+  .box-main-full::after {
+    background-size: 100%;
+    background-image: url({$asset}/capac-stanga.png);
+    animation: box-left 0.9s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      0.75s;
+  }
 
-      #modal-container.four {
-        z-index: 50;
-        transform: scale(1);
-        transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      }
+  .box-main-full::before {
+    background-size: 100%;
+    background-image: url({$asset}/capac-dreapta.png);
+    animation: box-right 0.9s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      0.75s;
+  }
 
-      /* #modal-container.four .modal-background .modal {
+  .box-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+  }
+
+  @keyframes box-right {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      filter: blur(0.5px);
+      transform: translateX(100px) rotate(5deg);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(2px);
+      transform: translateX(600px) rotate(65deg);
+      opacity: 0;
+    }
+  }
+  @keyframes box-left {
+    0% {
+      transform: translateX(0px) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      filter: blur(0.5px);
+      transform: translateX(-100px) rotate(5deg);
+      opacity: 0;
+    }
+    100% {
+      filter: blur(2px);
+      transform: translateX(-600px) rotate(65deg);
+      opacity: 0;
+    }
+  }
+
+  #modal-container {
+    /* position: fixed;  */
+    position: absolute;
+    display: table;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    z-index: 1;
+  }
+
+  #modal-container.four {
+    z-index: 50;
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  /* #modal-container.four .modal-background .modal {
     animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   } */
-      .extended-modal.modal-active {
-        background: rgba(3, 17, 41, 0.6);
-        z-index: 5;
-        width: 150%;
-        height: 150%;
-        position: fixed;
-      }
-      #modal-container .modal-background {
-        display: table-cell;
-        /* background: rgba(3, 17, 41, 0.6); */
-        text-align: center;
-        vertical-align: middle;
-      }
+  .extended-modal.modal-active {
+    background: rgba(3, 17, 41, 0.6);
+    z-index: 5;
+    width: 150%;
+    height: 150%;
+    position: fixed;
+  }
+  #modal-container .modal-background {
+    display: table-cell;
+    /* background: rgba(3, 17, 41, 0.6); */
+    text-align: center;
+    vertical-align: middle;
+  }
 
-      #modal-container .modal-background .modal {
-        padding: 50px;
-        position: relative;
-        top: -55px;
-      }
+  #modal-container .modal-background .modal {
+    padding: 50px;
+    position: relative;
+    top: -55px;
+  }
 
-      #modal-container.four.out .modal-background .modal {
-        animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1)
-          forwards;
-      }
+  #modal-container.four.out .modal-background .modal {
+    animation: blowUpModalTwo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  }
 
-      @keyframes blowUpModal {
-        0% {
-          transform: scale(0);
-        }
+  @keyframes blowUpModal {
+    0% {
+      transform: scale(0);
+    }
 
-        100% {
-          transform: scale(1);
-        }
-      }
+    100% {
+      transform: scale(1);
+    }
+  }
 
-      .prizes-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
-        position: relative;
-        width: 100%;
-        top: 0;
-        left: 0;
-        padding: 0 13px;
-      }
+  .prizes-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 13px;
+  }
 
-      .prizes-text {
-        font-size: 2.2vh;
-        text-transform: uppercase;
-        text-align: center;
-      }
-      .btn-modal {
-        padding: 10px 10px;
-        background-color: orangered;
-        font-size: 0.75em;
-        text-transform: uppercase;
-        color: white;
-        border-radius: 5px;
-        outline: none;
-        border: none;
-        width: 38.5%;
-      }
+  .prizes-text {
+    font-size: 2.2vh;
+    text-transform: uppercase;
+    text-align: center;
+    color: #090e4a;
+    /* text-shadow: 1px 2px 2px #c91616c9; */
+  }
+  .btn-modal {
+    padding: 10px 10px;
+    background-color: orangered;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 38.5%;
+  }
 
-      @keyframes pulse-red {
-        0% {
-          transform: scale(1);
-          background: rgba(255, 0, 0, 0.853);
-          box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.853);
-        }
+  @keyframes pulse-red {
+    0% {
+      transform: scale(1);
+      background: rgba(255, 0, 0, 0.853);
+      box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.853);
+    }
 
-        70% {
-          transform: scale(1.1);
-          box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.253);
-        }
+    70% {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.253);
+    }
 
-        100% {
-          transform: scale(1);
-          box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.053);
-        }
-      }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.053);
+    }
+  }
 
-      @keyframes an-shake {
-        10%,
-        90% {
-          transform: translate3d(-1px, 0, 0);
-        }
+  @keyframes an-shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
 
-        20%,
-        80% {
-          transform: translate3d(2px, 0, 0);
-        }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
 
-        30%,
-        50%,
-        70% {
-          transform: translate3d(2px, 0, 0);
-        }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(2px, 0, 0);
+    }
 
-        40%,
-        60% {
-          transform: translate3d(4px, 0, 0);
-        }
-      }
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
 
-      @media screen and (orientation: portrait) {
-        .prizes-container {
-          position: relative;
-          top: 0;
-          left: 0;
-        }
-        .box-main {
-          width: 240px;
-          height: 280px;
-        }
-        #my-div {
-          display: block;
-          position: relative;
-          top: 3.5vh;
-          height: 100%;
-          width: 100%;
-          background-size: 50%;
-          background-repeat: no-repeat;
-          background-position: center;
-          margin-top: unset;
-          font-size: unset;
-        }
-        .buttons-modal {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        .btn-modal {
-          background-color: orangered;
-          font-size: 0.9em;
-          text-transform: uppercase;
-          color: white;
-          border-radius: 5px;
-          outline: none;
-          border: none;
-          padding: 1em 3em;
-          margin-bottom: 1.2em;
-          width: 200px;
-        }
-        .btn-box span {
-          top: 1.05vh;
-          font-size: 1em;
-        }
-        .wrapper-all h1 {
-          font-size: 2.7em;
-          text-align: center;
-          margin-bottom: 7px;
-          margin-top: -15px;
-          position: relative;
-        }
-      }
+  @media screen and (orientation: portrait) {
+    .prizes-container {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .prizes-text {
+      opacity: 0;
+      transform: scale(0);
+      animation: expand 0.5s ease-in-out forwards 0.5s;
+    }
+    .box-main {
+      width: 240px;
+      height: 280px;
+    }
+    #my-div {
+      display: block;
+      position: absolute;
+      top: 3vh;
+      height: 100%;
+      width: 100%;
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: unset;
+      font-size: unset;
+    }
+    #modal-container .modal-background .modal {
+      top: 0;
+    }
+    .buttons-modal {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .btn-modal {
+      background-color: orangered;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: white;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      padding: 1em 3em;
+      margin-bottom: 1.2em;
+      width: 200px;
+    }
+    .displayValues {
+      top: 1.05vh;
+      font-size: 1em;
+    }
+    .wrapper-all h1 {
+      font-size: 2.7em;
+      text-align: center;
+      position: relative;
+    }
+    .container-hero {
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 
-      @media screen and (min-width: 320px) {
-        #main-container {
-          grid-template-columns: repeat(5, minmax(9vh, 1fr));
-          grid-template-rows: repeat(5, minmax(10vh, 1fr));
-        }
-        .wrapper-all h1 {
-          font-size: 2em;
-          text-align: center;
-        }
-        .btn-box span {
-          font-size: 2vh;
-          top: 1.2vh;
-        }
-        .prizes-container {
-          padding: 10px 13px;
-        }
-      }
+  @media screen and (min-width: 320px) {
+    #main-container {
+      grid-template-columns: repeat(5, minmax(9vh, 1fr));
+      grid-template-rows: repeat(5, minmax(10vh, 1fr));
+    }
+    .wrapper-all h1 {
+      font-size: 4vh;
+      text-align: center;
+    }
+    .displayValues {
+      font-size: 2vh;
+      top: 1.2vh;
+    }
+    .prizes-container {
+      padding: 10px 13px;
+    }
+  }
 
-      @media screen and (min-width: 480px) {
-        #main-container {
-          grid-template-columns: repeat(5, minmax(12vh, 1fr));
-          grid-template-rows: repeat(5, minmax(12vh, 1fr));
-        }
-        .btn-box span {
-          font-size: 3vh;
-          top: 1.4vh;
-        }
-      }
-      @media screen and (min-width: 600px) {
-        #main-container {
-          grid-template-columns: repeat(5, minmax(13vh, 1fr));
-          grid-template-rows: repeat(5, minmax(13vh, 1fr));
-        }
-        .wrapper-all h1 {
-          font-size: 4em;
-        }
-      }
-      @media screen and (min-width: 768px) {
-        #main-container {
-          grid-template-columns: repeat(5, minmax(12vh, 1fr));
-          grid-template-rows: repeat(5, minmax(12vh, 1fr));
-        }
-      }
+  @media screen and (min-width: 480px) {
+    #main-container {
+      grid-template-columns: repeat(5, minmax(12vh, 1fr));
+      grid-template-rows: repeat(5, minmax(12vh, 1fr));
+    }
+    .displayValues {
+      font-size: 3vh;
+      top: 1.4vh;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    #main-container {
+      grid-template-columns: repeat(5, minmax(13vh, 1fr));
+      grid-template-rows: repeat(5, minmax(13vh, 1fr));
+    }
+    .wrapper-all h1 {
+      font-size: 4em;
+    }
+    .content::before {
+    top: 56%;
+    left: 49%;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    #main-container {
+      grid-template-columns: repeat(5, minmax(12vh, 1fr));
+      grid-template-rows: repeat(5, minmax(12vh, 1fr));
+    }
+  }
 
-      @media screen and (min-width: 992px) {
-        #main-container {
-          grid-template-columns: repeat(7, minmax(13vh, 1fr));
-          grid-template-rows: repeat(4, minmax(13vh, 1fr));
-        }
-        .btn-box span {
-          font-size: 3.5vh;
-          top: 1.5vh;
-        }
-        .wrapper-all h1 {
-          font-size: 5em;
-        }
-        .prizes-container {
-          position: relative;
-          bottom: 9.5vh;
-          left: 100px;
-          top: unset;
-        }
-        .container-cube {
-          left: 20px;
-    bottom: 3vh;
-        }
-      }
+  @media screen and (min-width: 992px) {
+    #main-container {
+      grid-template-columns: repeat(7, minmax(13vh, 1fr));
+      grid-template-rows: repeat(4, minmax(13vh, 1fr));
+    }
+    .displayValues {
+      font-size: 3.5vh;
+      top: 1.5vh;
+    }
+    .wrapper-all h1 {
+      font-size: 7.5vh;
+    }
+    .prizes-container {
+      position: relative;
+      bottom: 9.5vh;
+      left: 100px;
+      top: unset;
+    }
+    .container-cube {
+      left: 20px;
+      bottom: 3vh;
+    }
+    .prizes-container.prizes_forMobile {
+      display: none;
+    }
+  }
 
-      @media screen and (min-width: 1600px) {
-        #main-container {
-          grid-template-columns: repeat(7, minmax(14vh, 1fr));
-          grid-template-rows: repeat(4, minmax(14vh, 1fr));
-        }
-        /* .btn-box span {
+  @media screen and (min-width: 1600px) {
+    #main-container {
+      grid-template-columns: repeat(7, minmax(14vh, 1fr));
+      grid-template-rows: repeat(4, minmax(14vh, 1fr));
+    }
+    /* .displayValues {
           font-size: 1.8em;
           top: 1.8vh;
         } */
-      }
+  }
 
-      .shake-box {
-        transform: translate3d(4px, 0, 0);
-      }
+  .shake-box {
+    transform: translate3d(4px, 0, 0);
+  }
 
-      .open_daybefore {
-        -webkit-filter: grayscale(100%);
-        filter: grayscale(100%);
-      }
+  .open_daybefore {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
 
-      @media (max-width: 450px) {
-        .promo-text {
-          font-size: 18px !important;
-          padding: 0.2em 0.5em;
-        }
-        .above-fold {
-          height: calc(100vh - 65px) !important;
-        }
-        .providers .swiper-slide {
-          width: 28% !important;
-        }
-      }
+  @media (max-width: 450px) {
+    .promo-text {
+      font-size: 18px !important;
+      padding: 0.2em 0.5em;
+    }
+    .above-fold {
+      height: calc(100vh - 65px) !important;
+    }
+    .providers .swiper-slide {
+      width: 28% !important;
+    }
+  }
 
-      @media (orientation: portrait) {
-        .separator-mobile {
-          display: none;
-        }
+  @media (orientation: portrait) {
+    .separator-mobile {
+      display: none;
+    }
 
-        .cta-button.mobile.animation {
-          z-index: 103;
-        }
+    .cta-button.mobile.animation {
+      z-index: 103;
+    }
 
-        footer .terms-toggle {
-          font-size: 1.8em;
-          width: fit-content;
-          padding: 0.3em 1em !important;
-        }
+    footer .terms-toggle {
+      font-size: 1.8em;
+      width: fit-content;
+      padding: 0.3em 1em !important;
+    }
 
-        .below-fold {
-          z-index: 199;
-        }
-      }
+    .below-fold {
+      z-index: 199;
+    }
+  }
 
-      @media (min-width: 1921px) {
-        .above-fold {
-          max-height: unset;
-        }
-      }
+  @media (min-width: 1921px) {
+    .above-fold {
+      max-height: unset;
+    }
+  }
 
-      @media (min-width: 320px) {
-        .text-mobile {
-          display: flex;
-          flex-direction: column-reverse;
-          align-items: center;
-          width: 80%;
-          justify-content: center;
-          text-align: center;
-          margin: 0 auto;
-        }
-      }
+  @media (min-width: 320px) {
+    .text-mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      width: 80%;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
 
-      @media (orientation: portrait) and (min-aspect-ratio: 500 / 736) and (min-width: 500px) {
-        .above-fold {
-          height: 100vh;
-          max-height: 97vh;
-        }
-      }
+  @media (orientation: portrait) and (min-aspect-ratio: 500 / 736) and (min-width: 500px) {
+    .above-fold {
+      height: 100vh;
+      max-height: 97vh;
+    }
+  }
 
-      @media screen and (max-width: 991px) {
-        .text br {
-          display: none;
-        }
-      }
+  @media screen and (max-width: 992px) {
+    .text br {
+      display: none;
+    }
+  }
 
-      #show {
-        position: fixed;
-        top: 30px;
-        left: 10px;
-      }
+  #show {
+    position: fixed;
+    top: 30px;
+    left: 10px;
+  }
 
-      @keyframes spin {
-        from {
-          transform: rotateY(360deg);
-        }
-        to {
-          transform: rotateY(0);
-        }
-      }
-      @-webkit-keyframes spin {
-        from {
-          -webkit-transform: rotateY(360deg);
-        }
-        to {
-          -webkit-transform: rotateY(0);
-        }
-      }
-      @-moz-keyframes spin {
-        from {
-          -moz-transform: rotateY(360deg);
-        }
-        to {
-          -moz-transform: rotateY(0);
-        }
-      }
+  @keyframes spin {
+    from {
+      transform: rotateY(360deg);
+    }
+    to {
+      transform: rotateY(0);
+    }
+  }
+  @-webkit-keyframes spin {
+    from {
+      -webkit-transform: rotateY(360deg);
+    }
+    to {
+      -webkit-transform: rotateY(0);
+    }
+  }
+  @-moz-keyframes spin {
+    from {
+      -moz-transform: rotateY(360deg);
+    }
+    to {
+      -moz-transform: rotateY(0);
+    }
+  }
 
-      .wrap-cube {
-        perspective: 1000px;
-        perspective-origin: 5% 100px;
-        -webkit-perspective: 1000px;
-        -webkit-perspective-origin: 5% 100px;
-      }
-      .cube {
-        position: relative;
-        width: 200px;
-        margin: 10px 0 0 10px;
-        transform-style: preserve-3d;
-        -webkit-transform-style: preserve-3d;
-        animation: spin 5s infinite linear;
-        -webkit-animation: spin 5s infinite linear;
-      }
-      .cube div {
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        font: 16px sans-serif;
-        text-align: center;
-        line-height: 12em;
-        background: rgba(255, 255, 255, 0.8);
-        z-index: 3;
-        box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
-      }
-      .cube-side {
-        position: relative;
-      }
-      .cube-side::after {
-        content: "";
-        position: absolute;
-        top: -50px;
-        left: -30px;
-        width: 130%;
-        height: 130%;
-        background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/cadou-full.png");
-        background-size: 100%;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: 2;
-      }
-      .back {
-        transform: translateZ(-120px) rotateY(180deg);
-        /* -webkit-transform: translateZ(-120px) rotateY(180deg); */
-        opacity: 1;
-      }
-      .right {
-        transform: rotateY(-270deg) translateX(100px) translatez(15px);
-        transform-origin: top right;
-        /* -webkit-transform: rotateY(-270deg) translateX(100px) translatez(15px); */
-        -webkit-transform-origin: top right;
-        opacity: 1;
-      }
-      .left {
-        transform: rotateY(270deg) translateX(-100px) translatez(15px);
-        transform-origin: center left;
-        /* -webkit-transform: rotateY(270deg) translateX(-100px); */
-        -webkit-transform-origin: center left;
-        opacity: 1;
-      }
-      .top {
-        transform: rotateX(-90deg) translateY(-100px) translatez(-5px);
-        transform-origin: top center;
-        /* -webkit-transform: rotateX(-90deg) translateY(-100px); */
-        -webkit-transform-origin: top center;
-        opacity: 1;
-      }
-      .bottom {
-        /* transform: rotateX(90deg) translateY(100px) translatez(15px); */
-        transform-origin: bottom center;
-        -webkit-transform: rotateX(90deg) translateY(120px) translatez(-10px);
-        -webkit-transform-origin: bottom center;
-        opacity: 1;
-      }
-      .front {
-        transform: translateZ(120px);
-        /* -webkit-transform: translateZ(120px); */
-        opacity: 1;
-      }
-      .container-cube {
-        position: relative;
-        transform: scale(0.35);
-        left: 20px;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        
-        animation: expand-2 0.5s ease-in-out forwards 3.1s;
-      }
-      
-      @keyframes expand-2 {
-        0% {
-          transform: scale(0);
-          opacity: 0;
+  .wrap-cube {
+    perspective: 1000px;
+    perspective-origin: 5% 100px;
+    -webkit-perspective: 1000px;
+    -webkit-perspective-origin: 5% 100px;
+  }
+  .cube {
+    position: relative;
+    width: 200px;
+    margin: 10px 0 0 10px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    animation: spin 5s infinite linear;
+    -webkit-animation: spin 5s infinite linear;
+  }
+  .cube div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    font: 16px sans-serif;
+    text-align: center;
+    line-height: 12em;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 3;
+    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+  }
+  .cube-side {
+    position: relative;
+  }
+  .cube-side::after {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -30px;
+    width: 130%;
+    height: 130%;
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/cadou-full.png");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 2;
+  }
+  .back-cube {
+    transform: translateZ(-120px) rotateY(180deg);
+    /* -webkit-transform: translateZ(-120px) rotateY(180deg); */
+    opacity: 1;
+  }
+  .right-cube {
+    transform: rotateY(-270deg) translateX(100px) translatez(15px);
+    transform-origin: top right;
+    /* -webkit-transform: rotateY(-270deg) translateX(100px) translatez(15px); */
+    -webkit-transform-origin: top right;
+    opacity: 1;
+  }
+  .left-cube {
+    transform: rotateY(270deg) translateX(-100px) translatez(15px);
+    transform-origin: center left;
+    /* -webkit-transform: rotateY(270deg) translateX(-100px); */
+    -webkit-transform-origin: center left;
+    opacity: 1;
+  }
+  .top-cube {
+    transform: rotateX(-90deg) translateY(-100px) translatez(-5px);
+    transform-origin: top center;
+    /* -webkit-transform: rotateX(-90deg) translateY(-100px); */
+    -webkit-transform-origin: top center;
+    opacity: 1;
+  }
+  .bottom-cube {
+    /* transform: rotateX(90deg) translateY(100px) translatez(15px); */
+    transform-origin: bottom center;
+    -webkit-transform: rotateX(90deg) translateY(120px) translatez(-10px);
+    -webkit-transform-origin: bottom center;
+    opacity: 1;
+  }
+  .front-cube {
+    transform: translateZ(120px);
+    /* -webkit-transform: translateZ(120px); */
+    opacity: 1;
+  }
+  .container-cube {
+    position: relative;
+    transform: scale(0.35);
+    left: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
 
-      
-        }
-        100% {
-          opacity: 1;
-          transform: scale(0.35);
-        }
-      }
-      .box-main-full::after {
-        transform: scale(1);
-        -moz-transform: scale(1);
-        -webkit-transform: scale(1);
-        opacity: 1;
-        /* -moz-animation:box-explode 1s 1s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-animation:box-explode 1s 1s forwards cubic-bezier(0.075, 0.82, 0.165, 1); */
-        animation: box-explode 1s forwards
-          cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-      }
-      @keyframes box-explodes {
-        0% {
-          transform: translateX(0px) rotate(0deg);
-          opacity: 1;
-        }
-        50% {
-          filter: blur(0.5px);
-          transform: translateX(100px) rotate(5deg);
-          opacity: 0;
-        }
-        100% {
-          filter: blur(2px);
-          transform: translateX(600px) rotate(65deg);
-          opacity: 0;
-        }
-      }
+    animation: expand-2 0.5s ease-in-out forwards 3.1s;
+  }
+
+  @keyframes expand-2 {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+      transform: scale(0.35);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .container-cube {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .prizes-container.prizes_forDesktop {
+      display: none;
+    }
+    .h2ForDesktop {
+      display: none;
+    }
+  }
     </style>
   </head>
 
@@ -1009,7 +1075,14 @@
           data-rotate='[ " de iarnă.", "de iarnă.", "de iarnă.", "de iarnă.", "de iarnă." ]'
         ></span>
       </h1>
-    
+      <h2 style="visibility: hidden; margin: 0; padding: 0" class="h2ForDesktop">
+        TEST
+      </h2>
+      <div class="prizes-container prizes_forMobile">
+        <div class="prizes-text">
+          dă click pe cadoul zilei <br />și vezi ce ai câștigat
+        </div>
+      </div>
       <div class="extended-modal">
         <div id="modal-container" class="modal-container">
           <div class="modal-background">
@@ -1029,19 +1102,19 @@
         </div>
       </div>
       <div id="main-container"></div>
-      <div class="prizes-container">
+      <div class="prizes-container prizes_forDesktop">
         <div class="prizes-text">
           dă click pe cadoul zilei <br />și vezi ce ai câștigat
         </div>
-        <div class="container-cube">
+        <div class="container-cube tesB">
           <div class="wrap-cube">
             <div class="cube">
-              <div class="front cube-side">200</div>
-              <div class="back cube-side">300</div>
-              <div class="top cube-side"></div>
-              <div class="bottom cube-side">30</div>
-              <div class="left cube-side">400</div>
-              <div class="right cube-side">500</div>
+              <div class="front-cube cube-side">200</div>
+              <div class="back-cube cube-side">300</div>
+              <div class="top-cube cube-side"></div>
+              <div class="bottom-cube cube-side">30</div>
+              <div class="left-cube cube-side">400</div>
+              <div class="right-cube cube-side">500</div>
             </div>
           </div>
         </div>
@@ -1052,19 +1125,19 @@
       let dateToday = today.getDate();
       let dateFullYear = today.getFullYear();
       let dateMonth = today.getMonth();
-      let inputDate = new Date("january 7, 2023");
-      let outputDate = new Date("january 29, 2023");
+      let inputDate = new Date("january 9, 2023");
+      let outputDate = new Date("january 31, 2023");
       let dateStart = inputDate.getDate();
       let dateEnd = outputDate.getDate();
       let boxes = document.getElementById("main-container");
       let boxesNumber = document.querySelector(".displayValues");
       let my_div = document.getElementById("my-div");
-
+    
       /*A1 = prize 1*/
       /*B2 = prize 2*/
       /*C3 = prize 3*/
       /*D4 = prize 4a*/
-
+    
       const correct = [
         "B2",
         "A1",
@@ -1075,10 +1148,10 @@
         "C3",
         "A1",
         "C3",
-        "D3",
+        "D4",
         "C3",
         "A1",
-        "D3",
+        "D4",
         "B2",
         "D4",
         "C3",
@@ -1090,10 +1163,10 @@
         "D4",
         "A1",
       ];
-
+    
       const codes = ["300DEAD", "350BASS", "250MADNESS", "150DOG"];
       const values = ["A1", "B2", "C3", "D4"];
-
+    
       const backgroundImages = [
         "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize1.png",
         "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize2.png",
@@ -1109,7 +1182,7 @@
         let boxes = document.getElementById("main-container");
         recentDay = dateToday;
         for (let k = dateStart; k <= dateEnd; k++) {
-          let _correct = correct[k - 2];
+          let _correct = correct[k-9];
           if (k < recentDay) {
             // console.log(k, "k mai mic recentDay");
             boxes.innerHTML +=
@@ -1162,19 +1235,21 @@
                 `<a href='https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8&${link_code}'> <button class='btn-modal register'>inregistreaza-te</button></a>`
               );
             }
-
+    
             boxes.innerHTML +=
               "<div class ='content -today pulse'>" +
               "<div class='btn-box four -normal -normal-shake ' id='four' >" +
-              "<span class='displayValues'>" +
-              k +
+              "<span class='displayValues addImgVal todayVal'>" +
+                "<span class='hide_span'>"+ k +
+             
+              "</span>" +
               "</span>" +
               "</div>" +
               "</div>";
           }
         }
       }
-
+    
       // Create the starting time value
       const timer = 150;
       function createRandomSequence() {
@@ -1184,7 +1259,7 @@
         while (sequence.length < 3) {
           let randomIndex = Math.floor(Math.random() * values.length);
           let randomValue = values[randomIndex];
-
+    
           if (
             randomValue !== previousValue &&
             randomValue !== correct[dateToday]
@@ -1194,11 +1269,11 @@
           }
         }
         // Make sure the last value in the sequence is correct
-        sequence[sequence.length - 1] = correct[dateToday];
+        sequence[sequence.length - 1] = correct[dateToday-9];
         console.log("dateToday", dateToday);
         return sequence;
       }
-
+    
       function updateDiv(my_div, sequence) {
         let index = 0;
         setInterval(() => {
@@ -1214,11 +1289,11 @@
           my_div.style.backgroundImage = `url(${
             backgroundImages[values.indexOf(sequence[index])]
           })`;
-
+    
           index++;
         }, timer);
       }
-
+    
       function showDialog() {
         const scrollY =
           document.documentElement.style.getPropertyValue("--scroll-y");
@@ -1240,33 +1315,55 @@
           `${window.scrollY}px`
         );
       });
-
+    
       function click_box(e) {
         let allButtons = document.querySelectorAll(".btn-box");
+        // let boxesNumber2 = document.querySelector(".displayValues");
         allButtons.forEach(function (b, i) {
+     
           b.addEventListener(
             "click",
             function () {
+ 
+          
               let buttonId = $(this).attr("id");
+              let sequence = createRandomSequence();
               console.log(buttonId, "buttonId");
-              if ($(".four2").has(".-normal")) {
+              if ($(".four2").find(".-normal")) {
+            
                 showDialog();
                 $("#modal-container").addClass(buttonId);
                 $(".extended-modal").addClass("modal-active");
                 $(".box-main").addClass("box-main-full");
+            
                 $(".center-div").addClass("box-explode");
                 $(".center-div").css({ visibility: "hidden" });
                 $(this).addClass("btn-box2");
                 $(this).removeClass("-normal-shake");
+         
+          
+          //       boxesNumber2.style.backgroundImage = `url(${
+          //   backgroundImages[values.indexOf(sequence[i])]
+          // })`;
                 setTimeout(function () {
                   $(".box-main").removeClass("box-main-full");
                   $(".center-div").css({ visibility: "visible" });
-                }, 1100);
+                  $(".todayVal").addClass("addImgVal");
+                  $(".addImgVal").css({"backgroundImage":`url(${
+            backgroundImages[values.indexOf(correct[i])]
+          })`});
+     
+                }, 900)
+     
+           
+       
               } else {
                 e.stopPropagation();
                 e.preventDefault();
+               
               }
-              let sequence = createRandomSequence();
+              
+  
               // Get the div element
               // Start updating the div with the values from the sequence
               let updateDiv1 = updateDiv(my_div, sequence);
@@ -1275,6 +1372,8 @@
                 $(".extended-modal").removeClass("modal-active");
                 $(".btn-box").removeClass("btn-box2");
                 $(".center-div").removeClass("box-explode");
+                $(".displayValues").removeClass("addImgVal");
+                $(".addImgVal").css({"font-size":"normal"});
                 closeDialog();
               });
               // console.log("updateda", my_div);
@@ -1285,6 +1384,7 @@
             }
           );
         });
+    
       }
     </script>
      <!-- <script language="JavaScript">
