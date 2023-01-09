@@ -63,8 +63,20 @@
       display: none;
     }
   }
+  .game-box, .steps {
+    pointer-events: none !important;
+  }
   .offer {
     display: none;
+  }
+  .bannerOld {
+    display: none !important;
+  }
+  .container-cube {
+    display: none !important;
+  }
+  .cta-button {
+    display: none !important;
   }
   button
  {
@@ -74,9 +86,9 @@
   header {
     height: 5.11em !important;
   }
-  .wrapper-all h1 {
+  /* .wrapper-all h1 {
     width: 100vw;
-  }
+  } */
   header .bottom {
     display: none !important;
   }
@@ -183,11 +195,12 @@
     background: linear-gradient(to top right, #c50d15 45%, #d70202 100%);
     -webkit-background-clip: text;
     text-shadow: -2px -2px 0px rgb(0 3 90 / 88%);
+    /* text-shadow: -2px -2px 0px rgba(1, 1, 21, 0.88); */
     -webkit-text-fill-color: transparent;
     margin: 0 auto;
   }
-  /* 
-  .wrapper-all h1::before {
+  
+  /* .wrapper-all h1::before {
     content: "luna reducerilor \A de iarnă";
     z-index: -2;
     left: 0;
@@ -203,7 +216,7 @@
     left: 0;
     top: 0px;
     position: absolute;
-    background-image: linear-gradient(180deg, #0b2f71 40%, #080317);
+    background-image: linear-gradient(180deg, #0b2f71 40%, #041b46);
     background-size: 100%;
     background-repeat: no-repeat;
     -webkit-background-clip: text;
@@ -230,9 +243,8 @@
     content: "";
     position: absolute;
     top: 23%;
-    left: 23%;
+    left: 20%;
     border-radius: 30px;
-
     /* box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.753); */
     animation: pulse-red 1.5s ease-out infinite;
   }
@@ -456,7 +468,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    background-size: 50%;
+    background-size: 60%;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
@@ -464,12 +476,12 @@
     align-items: center;
     color: white;
     font-size: 1.5em;
-    top: 1em;
+    top: 1.5em;
   }
 
   .box-main {
     background-size: contain;
-    background-image: url({$asset}/cadou-partial-test.png);
+    background-image: url({$asset}/cadou-partial.png);
     background-repeat: no-repeat;
     background-position: center;
     width: 400px;
@@ -477,7 +489,7 @@
     position: relative;
   }
 
-  .box-container::before {
+  /* .box-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -489,7 +501,7 @@
     background-repeat: no-repeat;
     background-position: center;
     z-index: 2;
-  }
+  } */
 
   .box-main-full::before,
   .box-main-full::after {
@@ -508,19 +520,19 @@
     opacity: 1;
     background-size: 100%;
   }
-  .box-main-full::after {
+  /* .box-main-full::after {
     background-size: 100%;
     background-image: url({$asset}/capac-stanga.png);
     animation: box-left 0.9s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
       0.75s;
-  }
+  } */
 
-  .box-main-full::before {
+  /* .box-main-full::before {
     background-size: 100%;
     background-image: url({$asset}/capac-dreapta.png);
     animation: box-right 0.9s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275)
       0.75s;
-  }
+  } */
 
   .box-container {
     position: relative;
@@ -632,7 +644,7 @@
   }
 
   .prizes-text {
-    font-size: 2.2vh;
+    font-size: 2.6vh;
     text-transform: uppercase;
     text-align: center;
     color: #090e4a;
@@ -761,7 +773,7 @@
       grid-template-rows: repeat(5, minmax(10vh, 1fr));
     }
     .wrapper-all h1 {
-      font-size: 4vh;
+      font-size: 3.8vh;
       text-align: center;
     }
     .displayValues {
@@ -981,7 +993,7 @@
     left: -30px;
     width: 130%;
     height: 130%;
-    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/cadou-full.png");
+    background-image: url("https://go.netbet.ro/lp-asset/netbetro/casino/lunareducerilor/cadou-full.png");
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -1049,18 +1061,72 @@
     }
   }
 
-  @media screen and (max-width: 480px) {
-    .container-cube {
-      display: none;
+    @media screen and (max-width: 480px) {
+      .container-cube {
+        display: none;
+      }
     }
-  }
+
   @media screen and (max-width: 991px) {
     .prizes-container.prizes_forDesktop {
-      display: none;
+      display: none !important;
     }
     .h2ForDesktop {
-      display: none;
+      display: none !important;
     }
+    .prizes-text {
+    font-size: 2.2vh;
+  }
+    .steps .separator {
+      height: 3.5em !important;
+      padding-left: unset;
+      padding-right: unset;
+      margin-right: 10px;
+      
+    }
+    .steps .step {
+      width: 31%;
+    }
+    
+  }
+
+  
+  @media only screen
+      and (min-device-width: 1024px)
+      and (max-device-width: 1332px)
+      and (orientation: portrait)
+      and (-webkit-min-device-pixel-ratio: 1.5) {
+      .wrapper-all h1 {
+        font-size: 5.5vh;
+    }
+        #main-container {
+        grid-template-columns: repeat(5, minmax(12vh, 1fr));
+        grid-template-rows: repeat(5, minmax(12vh, 1fr));
+    }
+    .prizes-text {
+    font-size: 1.7vh;
+    }
+    .prizes-container {
+    bottom: 8vh;
+    left: 230px;
+    }
+    .displayValues {
+    font-size: 2.8vh;
+    top: 1.3vh;
+}
+.separator-mobile {
+    display: block;
+}
+.steps .text {
+    flex: 1;
+    /* width: 100%; */
+    font-size: 0.8em;
+    padding-left: 0.5em;
+    text-align: center;
+}
+.steps .separator {
+    margin-right: 5px;
+}
   }
     </style>
   </head>
@@ -1068,12 +1134,12 @@
   <body>
     <div class="wrapper-all">
       <h1 class="title-calendar">
-        Luna Reducerilor <br />
-        <span
+        Luna Reducerilor de iarnă <br />
+        <!-- <span
           class="txt-rotate"
           data-period="2000"
           data-rotate='[ " de iarnă.", "de iarnă.", "de iarnă.", "de iarnă.", "de iarnă." ]'
-        ></span>
+        ></span> -->
       </h1>
       <h2 style="visibility: hidden; margin: 0; padding: 0" class="h2ForDesktop">
         TEST
@@ -1106,7 +1172,7 @@
         <div class="prizes-text">
           dă click pe cadoul zilei <br />și vezi ce ai câștigat
         </div>
-        <div class="container-cube tesB">
+        <!-- <div class="container-cube tesB">
           <div class="wrap-cube">
             <div class="cube">
               <div class="front-cube cube-side">200</div>
@@ -1117,7 +1183,7 @@
               <div class="right-cube cube-side">500</div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <script>
@@ -1168,15 +1234,19 @@
       const values = ["A1", "B2", "C3", "D4"];
     
       const backgroundImages = [
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize1.png",
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize2.png",
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize3.png",
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/calendarNetBet/Prize4A.png",
+        "https://go.netbet.ro/lp-asset/netbetro/casino/lunareducerilor/Prize1.png",
+        "https://go.netbet.ro/lp-asset/netbetro/casino/lunareducerilor/Prize2.png",
+        "https://go.netbet.ro/lp-asset/netbetro/casino/lunareducerilor/Prize3.png",
+        "https://go.netbet.ro/lp-asset/netbetro/casino/lunareducerilor/Prize4A.png",
       ];
       $(document).ready(function () {
         console.log("ready!");
         generate_box();
         click_box();
+    
+        $('.game-box').click(function(){return false;});
+       
+        $('.steps').click(function(){return false;});
       });
       function generate_box() {
         let boxes = document.getElementById("main-container");
@@ -1213,37 +1283,35 @@
             if (_correct == "A1") {
               link_code = codes[0];
               $(".buttons-modal").prepend(
-                `<a href='https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8&${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
+                `<a href='{/literal}{$link}{literal}&bonuscode=${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
               );
               // console.log(link_code[_correct], "codes[0]");
             } else if (_correct == "B2") {
               link_code = codes[1];
               $(".buttons-modal").prepend(
-                `<a href='https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8&${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
+                `<a href='{/literal}{$link}{literal}&bonuscode=${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
               );
               // console.log(link_code, "codes[1]");
             } else if (_correct == "C3") {
               link_code = codes[2];
               // console.log(link_code, "codes[2]");
               $(".buttons-modal").prepend(
-                `<a href='https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8&${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
+                `<a href='{/literal}{$link}{literal}&bonuscode=${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
               );
             } else {
               link_code = codes[3];
-              // console.log(link_code, "codes[3]");
+              console.log(link_code, "codes[3]");
               $(".buttons-modal").prepend(
-                `<a href='https://netbet.livepartners.com/click.php?l=ro&p=120&t=register&bid2land=8&${link_code}'> <button class='btn-modal register'>inregistreaza-te</button></a>`
+                `<a href='{/literal}{$link}{literal}&bonuscode=${link_code}'> <button class='btn-modal register'>Înregistrează-te</button></a>`
               );
             }
     
             boxes.innerHTML +=
               "<div class ='content -today pulse'>" +
               "<div class='btn-box four -normal -normal-shake ' id='four' >" +
-              "<span class='displayValues addImgVal todayVal'>" +
-                "<span class='hide_span'>"+ k +
-             
-              "</span>" +
-              "</span>" +
+                "<span class='displayValues addImgVal todayVal'>" +
+                      k +
+                  "</span>" +
               "</div>" +
               "</div>";
           }
@@ -1254,16 +1322,11 @@
       const timer = 150;
       function createRandomSequence() {
         let sequence = [];
-        // Add a random value to the sequence, making sure it's not the same as the previous value and the 9th value is different from the correct (10th value)
         let previousValue = null;
-        while (sequence.length < 3) {
+        while (sequence.length < 10) {
           let randomIndex = Math.floor(Math.random() * values.length);
           let randomValue = values[randomIndex];
-    
-          if (
-            randomValue !== previousValue &&
-            randomValue !== correct[dateToday]
-          ) {
+          if (randomValue !== previousValue && randomValue !== correct[dateToday]) {
             sequence.push(randomValue);
             previousValue = randomValue;
           }
@@ -1318,65 +1381,48 @@
     
       function click_box(e) {
         let allButtons = document.querySelectorAll(".btn-box");
-        // let boxesNumber2 = document.querySelector(".displayValues");
         allButtons.forEach(function (b, i) {
-     
           b.addEventListener(
             "click",
             function () {
- 
-          
               let buttonId = $(this).attr("id");
               let sequence = createRandomSequence();
               console.log(buttonId, "buttonId");
               if ($(".four2").find(".-normal")) {
-            
                 showDialog();
+                $(this).addClass("btn-box2");
+                $(this).removeClass("-normal-shake");
                 $("#modal-container").addClass(buttonId);
                 $(".extended-modal").addClass("modal-active");
                 $(".box-main").addClass("box-main-full");
-            
                 $(".center-div").addClass("box-explode");
-                $(".center-div").css({ visibility: "hidden" });
-                $(this).addClass("btn-box2");
-                $(this).removeClass("-normal-shake");
-         
-          
-          //       boxesNumber2.style.backgroundImage = `url(${
-          //   backgroundImages[values.indexOf(sequence[i])]
-          // })`;
-                setTimeout(function () {
-                  $(".box-main").removeClass("box-main-full");
-                  $(".center-div").css({ visibility: "visible" });
-                  $(".todayVal").addClass("addImgVal");
-                  $(".addImgVal").css({"backgroundImage":`url(${
-            backgroundImages[values.indexOf(correct[i])]
-          })`});
-     
-                }, 900)
-     
-           
-       
+                // $(".center-div").css({ visibility: "hidden" });
+                $(".box-main").removeClass("box-main-full");
+                // setTimeout(function () {
+                  // $(".center-div").css({ visibility: "visible" });
+              //     $(".todayVal").addClass("addImgVal");
+              //     $(".addImgVal").css({"backgroundImage":`url(${
+              //   backgroundImages[values.indexOf(correct[i])]
+              // })`});
+                // }, 900);
               } else {
                 e.stopPropagation();
                 e.preventDefault();
-               
               }
-              
-  
-              // Get the div element
+             
               // Start updating the div with the values from the sequence
+    
               let updateDiv1 = updateDiv(my_div, sequence);
+    
               $(".close-btn").click(function () {
                 $("#modal-container").removeClass(buttonId);
                 $(".extended-modal").removeClass("modal-active");
                 $(".btn-box").removeClass("btn-box2");
                 $(".center-div").removeClass("box-explode");
-                $(".displayValues").removeClass("addImgVal");
-                $(".addImgVal").css({"font-size":"normal"});
+                // $(".displayValues").removeClass("addImgVal");
+                // $(".addImgVal").css({"font-size":"normal"});
                 closeDialog();
               });
-              // console.log("updateda", my_div);
               $("#my-div").css(buttonId);
             },
             {
@@ -1384,7 +1430,6 @@
             }
           );
         });
-    
       }
     </script>
      <!-- <script language="JavaScript">
