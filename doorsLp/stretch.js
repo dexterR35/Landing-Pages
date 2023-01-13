@@ -31,6 +31,9 @@ function startOver() {
     playAgain.hide();
     outcomeP.html("");
     state = "PICK";
+    revealedDoor.show();
+    revealedDoor.style('display', 'flex');
+    // revealedDoor.attribute("align", "center");
 }
 
 
@@ -81,6 +84,7 @@ function setup() {
     playAgain.class("playAgain");
     playAgain.parent(buttonsDiv)
     playAgain.hide();
+ 
 
     resultsP = createDiv("");
     resultsP.parent(resultDiv);
@@ -91,6 +95,8 @@ function setup() {
     console.log("outcomeP", outcomeP);
 
     startOver();
+    
+   
 }
 
 
@@ -101,10 +107,8 @@ function pickDoor() {
         this.style("background-color:blue; color:white");
         this.html("ai dat click pe aceasta usa");
         this.attribute("align", "center")
-
         pickedDoor = this;
         reveal();
-      
         // winReveal();
     }
 
@@ -118,22 +122,22 @@ function reveal() {
 
         if (i !== pickedDoor.index && door.prize !== "1000$") {
             options.push(door);
-            console.log(door.prize, "test door.prize");
-            console.log(pickedDoor, "test pickedDoor");
+            // console.log(door.prize, "test door.prize");
+            // console.log(pickedDoor, "test pickedDoor");
         }
     }
 
     revealedDoor = random(options);
     revealedDoor.html(revealedDoor.prize);
     revealedDoor.style("background:green;");
-    revealedDoor.attribute("align", "center")
+    revealedDoor.attribute("align", "center");
     revealedDoor.html("eu iti ofer aceasta usa");
     switchButton.show();
     stayButton.show();
 
     setTimeout(() => {
         revealedDoor.hide();
-    }, 2000);
+    }, 1000);
 
 
 }
