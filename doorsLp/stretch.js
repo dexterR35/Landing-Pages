@@ -20,10 +20,10 @@ let wrapper;
 function startOver() {
     for (let door of doors) {
         door.prize = "100$";
-        door.html("doors");
+        door.html("Deschide usa");
         door.style("background-color", "lightgrey");
-        console.log(door, "door");
-        console.log(doors, "doors");
+        // console.log(door, "door");
+        // console.log(doors, "doors");
     }
 
     const winner = random(doors);
@@ -45,36 +45,38 @@ function setup() {
         doors[i].index = i;
         doors[i].mousePressed(pickDoor);
     }
-   
+    doors[0].class("door door_one");
+    doors[1].class("door door_two");
+    doors[2].class("door door_tree");
 
     buttonsDiv = createDiv("");
-    buttonsDiv.parent("#test2");
+    buttonsDiv.parent("#wrapping_doors");
     buttonsDiv.class("buttonDiv");
 
 
     resultDiv = createDiv("");
-    resultDiv.parent("#test2");
+    resultDiv.parent("#wrapping_doors");
     resultDiv.class("resultDiv");
 
     statusDiv = createDiv("");
-    statusDiv.parent("#test2");
+    statusDiv.parent("#wrapping_doors");
     statusDiv.class("statusDiv");
 
 
-    switchButton = createButton("switch");
+    switchButton = createButton("Schimba usa");
     switchButton.class("switchButton");
     switchButton.style("background-color", "orange");
     switchButton.mousePressed(playerSwitch);
     switchButton.parent(buttonsDiv)
     switchButton.hide();
 
-    stayButton = createButton("stay");
+    stayButton = createButton("Ramai la aceasta usa");
     stayButton.class("buttonStay");
     stayButton.mousePressed(playerStay);
     stayButton.parent(buttonsDiv)
     stayButton.hide();
 
-    playAgain = createButton("play again");
+    playAgain = createButton("Incepe din nou");
     playAgain.mousePressed(startOver);
     playAgain.class("playAgain");
     playAgain.parent(buttonsDiv)
@@ -97,7 +99,8 @@ function pickDoor() {
         state = "REVEAL";
         console.log(state, "state")
         this.style("background-color:blue; color:white");
-        this.html("click usa");
+        this.html("ai dat click pe aceasta usa");
+        this.attribute("align", "center")
         pickedDoor = this;
         reveal();
         // winReveal();
@@ -122,7 +125,7 @@ function reveal() {
     revealedDoor.html(revealedDoor.prize);
     revealedDoor.style("background:green;");
     revealedDoor.attribute("align", "center")
-    revealedDoor.html("usa deschisa");
+    revealedDoor.html("eu iti ofer aceasta usa");
     switchButton.show();
     stayButton.show();
 
@@ -158,12 +161,8 @@ function playerSwitch() {
         }
         if (door == pickedDoor && door !== revealedDoor) {
             console.log(pickedDoor, "pickedDoor after switch ");
-
         }
-
     }
-
-
     console.log(totalSwitchPlays, "total Switch Plays");
     pickedDoor = newPick;
     checkWin(true);
@@ -193,7 +192,6 @@ function checkWin(playerSwitch) {
         } else {
             totalStayWins++;
             console.log(totalStayWins, "totalStayWins");
-
         }
     } else {
         outcomeP.html("You lose!");
