@@ -101,8 +101,10 @@ function pickDoor() {
         this.style("background-color:blue; color:white");
         this.html("ai dat click pe aceasta usa");
         this.attribute("align", "center")
+
         pickedDoor = this;
         reveal();
+      
         // winReveal();
     }
 
@@ -128,6 +130,11 @@ function reveal() {
     revealedDoor.html("eu iti ofer aceasta usa");
     switchButton.show();
     stayButton.show();
+
+    setTimeout(() => {
+        revealedDoor.hide();
+    }, 2000);
+
 
 }
 
