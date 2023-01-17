@@ -5,7 +5,6 @@ let totalDoors = 3;
 let state = 'PICK';
 let pickedDoor;
 
-let autoMode = false;
 let timeoutId;
 
 let stats = {
@@ -15,10 +14,7 @@ let stats = {
   totalStayWins: 0,
 };
 
-function getDelayValue() {
-  const speedSlider = select('#speed-slider');
-  return speedSlider.elt.max - speedSlider.value();
-}
+
 
 function clearStats() {
   stats = {
@@ -28,7 +24,6 @@ function clearStats() {
     totalStayWins: 0,
   };
   clearStorage();
-  updateStats();
 }
 
 function reset() {
@@ -37,6 +32,7 @@ function reset() {
     door.revealed = false;
     select('.door', door).html(door.index + 1);
     door.removeClass('revealed');
+    door.removeClass('revealedNone');
     door.removeClass('picked');
     door.removeClass('won');
   }
@@ -49,24 +45,9 @@ function reset() {
   select('#instruction > .choices').hide();
   select('#instruction > #play-again').hide();
 
-  if (autoMode) {
-    timeoutId = setTimeout(pickDoor, getDelayValue());
-  }
 }
 
-function updateStats() {
-  const switchWinRate =
-    nf((100 * stats.totalSwitchWins) / stats.totalSwitchPlays || 0, 2, 1) + '%';
-  select('#stats #switches .total').html(stats.totalSwitchPlays);
-  select('#stats #switches .bar').style('width', switchWinRate);
-  select('#stats #switches .bar .win-rate').html(switchWinRate);
 
-  const stayWinRate =
-    nf((100 * stats.totalStayWins) / stats.totalStayPlays || 0, 2, 1) + '%';
-  select('#stats #stays .total').html(stats.totalStayPlays);
-  select('#stats #stays .bar').style('width', stayWinRate);
-  select('#stats #stays .bar .win-rate').html(stayWinRate);
-}
 
 function checkWin(hasSwitched) {
   for (const door of doors) {
@@ -86,13 +67,8 @@ function checkWin(hasSwitched) {
     select('#instruction > p').html('You lose!');
   }
 
-  if (autoMode) {
-    timeoutId = setTimeout(reset, getDelayValue());
-  } else {
-    select('#instruction > #play-again').show();
-  }
+  select('#instruction > #play-again').show();
 
-  updateStats();
   storeItem('montey-hall-stats', stats);
 }
 
@@ -111,12 +87,8 @@ function chooseDoor(hasSwitched = false) {
     stats.totalStayPlays++;
   }
 
-  if (autoMode) {
-    select('#instruction > p').html(hasSwitched ? 'Switch!' : 'Stay!');
-    timeoutId = setTimeout(() => checkWin(hasSwitched), getDelayValue());
-  } else {
-    checkWin(hasSwitched);
-  }
+  checkWin(hasSwitched);
+
 }
 
 function revealDoor() {
@@ -141,32 +113,17 @@ function revealDoor() {
   select('#instruction > p').html(
     `Do you want to switch to door #${lastDoor.index + 1}?`
   );
+  select('#instruction > .choices').show();
 
-  if (autoMode) {
-    if (random(1) < 0.5) {
-      timeoutId = setTimeout(() => chooseDoor(true), getDelayValue());
-    } else {
-      timeoutId = setTimeout(() => chooseDoor(false), getDelayValue());
-    }
-  } else {
-    select('#instruction > .choices').show();
-  }
 }
 
 function pickDoor() {
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  if (autoMode) {
-    pickedDoor = random(doors);
-  } else {
-    pickedDoor = this;
-  }
+  // pickedDoor = random(doors);
+  pickedDoor = this;
   pickedDoor.addClass('picked');
-  if (autoMode) {
-    setTimeout(revealDoor, getDelayValue());
-  } else {
-    revealDoor();
-  }
+  revealDoor();
 }
 
 function makeDoors() {
@@ -200,16 +157,9 @@ function makeDoors() {
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
-  updateStats();
+  // updateStats();
   makeDoors();
   reset();
-
-  select('#nb-doors').changed(function () {
-    totalDoors = +this.value();
-    makeDoors();
-    reset();
-    clearStats();
-  });
 
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
@@ -223,19 +173,4 @@ function setup() {
     reset();
   });
 
-  select('button#autorun').mousePressed(function () {
-    autoMode = !autoMode;
-    if (autoMode) {
-      this.addClass('on');
-      reset();
-      pickDoor();
-      select('#speed-slider').show();
-    } else {
-      clearTimeout(timeoutId);
-      this.removeClass('on');
-      select('#speed-slider').hide();
-      reset();
-    }
-  });
-  select('#speed-slider').hide();
 }
