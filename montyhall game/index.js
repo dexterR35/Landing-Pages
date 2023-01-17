@@ -70,11 +70,11 @@ doorImage1.onclick = () => {
   if (openDoor2 === losePath) {
     setTimeout(() => {
       doorImage2.src = openDoor2;
-    }, 2000);
+    }, 1000);
   } else if (openDoor3 === losePath) {
     setTimeout(() => {
       doorImage3.src = openDoor3;
-    }, 2000);
+    }, 1000);
   }
 
   //Event listener if the player opts to switch
@@ -99,11 +99,11 @@ doorImage1.onclick = () => {
       if (openDoor3 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     }
     //If the opened door is door3, forming a suitable dialogue.
@@ -124,11 +124,11 @@ doorImage1.onclick = () => {
       if (openDoor2 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     }
   };
@@ -149,11 +149,11 @@ doorImage1.onclick = () => {
     if (openDoor1 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
-      }, 3500);
+      }, 1500);
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 3500);
+      }, 1500);
     }
   };
 };
@@ -191,11 +191,11 @@ doorImage2.onclick = () => {
   if (openDoor1 === losePath) {
     setTimeout(() => {
       doorImage1.src = openDoor1;
-    }, 2000);
+    }, 1000);
   } else if (openDoor3 === losePath) {
     setTimeout(() => {
       doorImage3.src = openDoor3;
-    }, 2000);
+    }, 1000);
   }
 
   switchChoiceYes.onclick = () => {
@@ -213,11 +213,11 @@ doorImage2.onclick = () => {
       if (openDoor3 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     } else if (
       doorImage3.src === "https://image.flaticon.com/icons/svg/836/836069.svg"
@@ -233,11 +233,11 @@ doorImage2.onclick = () => {
       if (openDoor1 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     }
   };
@@ -253,11 +253,11 @@ doorImage2.onclick = () => {
     if (openDoor2 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
-      }, 3500);
+      }, 1500);
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 3500);
+      }, 1500);
     }
   };
 };
@@ -274,11 +274,11 @@ doorImage3.onclick = () => {
   if (openDoor1 === losePath) {
     setTimeout(() => {
       doorImage1.src = openDoor1;
-    }, 2000);
+    }, 1000);
   } else if (openDoor2 === losePath) {
     setTimeout(() => {
       doorImage2.src = openDoor2;
-    }, 2000);
+    }, 1000);
   }
 
   switchChoiceYes.onclick = () => {
@@ -296,11 +296,11 @@ doorImage3.onclick = () => {
       if (openDoor2 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     } else if (
       doorImage2.src === "https://image.flaticon.com/icons/svg/836/836069.svg"
@@ -316,11 +316,11 @@ doorImage3.onclick = () => {
       if (openDoor1 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 3500);
+        }, 1500);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 3500);
+        }, 1500);
       }
     }
   };
@@ -336,11 +336,11 @@ doorImage3.onclick = () => {
     if (openDoor3 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
-      }, 3500);
+      }, 1500);
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 3500);
+      }, 1500);
     }
   };
 };
