@@ -114,8 +114,8 @@ function pickDoor() {
         state = "REVEAL";
         // this.style("background-color:blue; color:white");
 
-        this.html("ai dat click pe aceasta usa");
-
+        this.html("ai dat click </br> pe aceasta usa");
+// this.style("font-size","1.2em"
         this.attribute("align", "center");
         pickedDoor = this;
         reveal();
@@ -142,7 +142,7 @@ function reveal() {
     revealedDoor.html(revealedDoor.prize);
     revealedDoor.addClass("revealDoor");
     revealedDoor.attribute("align", "center");
-    revealedDoor.html("eu iti ofer aceasta usa");
+    revealedDoor.html("iti ofer aceasta usa");
 
     setTimeout(() => {
         // state = "PICK"

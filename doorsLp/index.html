@@ -38,23 +38,25 @@
 
       .door {
         width: 30vh;
-        /* height: 30vh; */
+        height: 30vh;
         color: white;
         z-index: 2;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: calc(1em + 1vw);
+        font-size: 1.2em;
         margin: 10px;
         /* background: rgb(148, 148, 148); */
         border-radius: 20px;
         position: relative;
         background-image: url(./img/cadou-full.png);
-        background-position: center;
-        background-size: contain;
+        background-position: center -65px;
+        background-size: cover;
         background-repeat: no-repeat;
         border: 1px solid black;
         text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
       }
       /* .door::before {
         content: "";
@@ -75,6 +77,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        color: black;
         /* background: rgb(4, 235, 27) !important; */
       }
       .revealDoor {
@@ -83,6 +86,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        color: black;
+        font-size: 1.3em;
       }
       .loseDoors {
         /* background-color: red !important; */

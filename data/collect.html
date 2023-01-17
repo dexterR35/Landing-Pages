@@ -11,12 +11,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script
+    <!-- <script
       src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-analytics.min.js"
       integrity="sha512-ej+u6hrtLN0ajEfUSkNAt/achTk0n2YAFztybsq++FriLa+os+0hsSLq1DoRDTo0jenrLJI3j+6Ex9SFakGYWw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    ></script>
+    ></script> -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.10.1/firebase-database.min.js"
       integrity="sha512-XDKFSZOhFNmwmx69Xr0j3zmePQ3NoSgpzZPr49P6oV7ME5ZhEXUqu+KUA0vQtof87P6IX+ycg4PmSms/EF8/pw=="
@@ -31,47 +31,48 @@
 
   <script>
     console.log("start Firebase......");
-    // your page initialization code here
-    // the DOM will be available here
     var firebaseConfig = {
-      apiKey: "AIzaSyCJXMEDmElqSHLecUwdbOrsgCwiH9Zdqrs",
-      authDomain: "trackbtn.firebaseapp.com",
-      databaseURL:
-        "https://trackbtn-default-rtdb.europe-west1.firebasedatabase.app",
-      projectId: "trackbtn",
-      storageBucket: "trackbtn.appspot.com",
-      messagingSenderId: "783802189312",
-      appId: "1:783802189312:web:d36c62b0522ecfd714bae5",
-      measurementId: "G-CPT4F38ZMG",
+      apiKey: "AIzaSyAHBp1yp53Dp3q5nm7RLmsk91JRhaJfEs4",
+  authDomain: "netbetrodex.firebaseapp.com",
+  databaseURL: "https://netbetrodex-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "netbetrodex",
+  storageBucket: "netbetrodex.appspot.com",
+  messagingSenderId: "754283602226",
+  appId: "1:754283602226:web:bb52b2d8477a9cdd47372b",
+  measurementId: "G-NB5BE2F51X"
     };
-    // Initialize Firebase
-
-    //var keytext = getElementById("keytext2");
-
-    // display data from db
 
     firebase.initializeApp(firebaseConfig);
-    // firebase.analytics();
+    // var dbRef = firebase.database();
+    // var counter = 1;
+    var buttonRef = firebase.database().ref("button_count");
 
-    var dbRef = firebase.database();
-    var counter = 1;
-
-    console.log("Start: Welcome To FA Motor Repair!");
-    console.log("Middle: saveData");
-    // Reference the button in the HTML
-    var button_one = document.getElementById("myButton");
-    // Add an event listener for the button click
-    button_one.addEventListener("click", saveData);
-
-    function saveData() {
-      var contRef = dbRef.ref("/pages/lp-craciun/clickCount");
-      // console.log(uidKey, "is set...Please continue");
-      // Use a transaction to increment the value and save it back to the database
-      contRef.transaction(function (currentValue) {
-        return (currentValue || 0) + 1;
+    document.querySelector("#myButton").addEventListener("click", function () {
+      buttonRef.transaction(function (currentCount) {
+    
+        return currentCount + 1;
       });
-    }
+    });
+    buttonRef.on("value", function (snapshot) {
+      console.log("Button count: " + snapshot.val());
+    });
 
+    //     var button = document.getElementById("myButton");
+
+    // // Keep track of the number of clicks
+    // var clickCount = 0;
+
+    // // Add an event listener to the button
+    // button.addEventListener("click", function() {
+    //     // Increment the click count
+    //     clickCount++;
+
+    //     // Send the click count data to Firebase
+    //     dbRef.ref("clicks").set({
+    //         count: clickCount
+    //     });
+    // });
+    console.log("start Firebasess......");
     // function saveData() {
     //     var checkBox = document.getElementById("myCheck");
     //     console.log("clicked succesfully on Button");
