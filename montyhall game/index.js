@@ -93,17 +93,17 @@ doorImage1.onclick = () => {
       // Opening the chosen door
       setTimeout(() => {
         doorImage3.src = openDoor3;
-      }, 2500);
+      }, 1000);
 
       //Conditions to display the result page
       if (openDoor3 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 1500);
+        }, 1000);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 1500);
+        }, 1000);
       }
     }
     //If the opened door is door3, forming a suitable dialogue.
@@ -119,16 +119,16 @@ doorImage1.onclick = () => {
       // Opening the chosen door
       setTimeout(() => {
         doorImage2.src = openDoor2;
-      }, 2500);
+      }, 1000);
       //Conditions to display the result page
       if (openDoor2 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 1500);
+        }, 1000);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 1500);
+        }, 1000);
       }
     }
   };
@@ -143,17 +143,17 @@ doorImage1.onclick = () => {
     // Opening the chosen door
     setTimeout(() => {
       doorImage1.src = openDoor1;
-    }, 2500);
+    }, 1000);
 
     // Conditions to display the result page
     if (openDoor1 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
-      }, 1500);
+      }, 1000);
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 1500);
+      }, 1000);
     }
   };
 };
@@ -209,7 +209,7 @@ doorImage2.onclick = () => {
       }, 1000);
       setTimeout(() => {
         doorImage3.src = openDoor3;
-      }, 2500);
+      }, 1000);
       if (openDoor3 === losePath) {
         setTimeout(() => {
           switchAndLose();
@@ -229,11 +229,11 @@ doorImage2.onclick = () => {
       }, 1000);
       setTimeout(() => {
         doorImage1.src = openDoor1;
-      }, 2500);
+      }, 1000);
       if (openDoor1 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 1500);
+        }, 1000);
       } else {
         setTimeout(() => {
           switchAndWin();
@@ -249,7 +249,7 @@ doorImage2.onclick = () => {
     }, 1000);
     setTimeout(() => {
       doorImage2.src = openDoor2;
-    }, 2500);
+    }, 1000);
     if (openDoor2 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
@@ -257,7 +257,7 @@ doorImage2.onclick = () => {
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 1500);
+      }, 1000);
     }
   };
 };
@@ -292,15 +292,15 @@ doorImage3.onclick = () => {
       }, 1000);
       setTimeout(() => {
         doorImage2.src = openDoor2;
-      }, 2500);
+      }, 1000);
       if (openDoor2 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 1500);
+        }, 1000);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 1500);
+        }, 1000);
       }
     } else if (
       doorImage2.src === "https://image.flaticon.com/icons/svg/836/836069.svg"
@@ -312,15 +312,15 @@ doorImage3.onclick = () => {
       }, 1000);
       setTimeout(() => {
         doorImage1.src = openDoor1;
-      }, 2500);
+      }, 1000);
       if (openDoor1 === losePath) {
         setTimeout(() => {
           switchAndLose();
-        }, 1500);
+        }, 1000);
       } else {
         setTimeout(() => {
           switchAndWin();
-        }, 1500);
+        }, 1000);
       }
     }
   };
@@ -332,15 +332,15 @@ doorImage3.onclick = () => {
     }, 1000);
     setTimeout(() => {
       doorImage3.src = openDoor3;
-    }, 2500);
+    }, 1000);
     if (openDoor3 === losePath) {
       setTimeout(() => {
         noSwitchAndLose();
-      }, 1500);
+      }, 1000);
     } else {
       setTimeout(() => {
         noSwitchAndWin();
-      }, 1500);
+      }, 1000);
     }
   };
 };

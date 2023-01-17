@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.4.2/umd/react-dom.production.min.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Muli");
+
+    #root {
+      background: #556275;
+      font-family: "Muli", sans-serif;
+      letter-spacing: 2px;
+      color: #fff;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      box-sizing: border-box;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1100px;
+      min-width: 400px;
+      margin: auto;
+    }
+
+    .title {
+      margin: 0 0 30px;
+      text-shadow: -2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .results {
+      display: flex;
+    }
+
+    .scorecard {
+      border: 1px solid #fff;
+      padding: 10px;
+      margin-right: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+    }
+/* .displayNone {
+    display: none;
+} */
+    button {
+      cursor: pointer;
+      margin-left: 20px;
+      border: 5px solid #f18c3b;
+      background: #f4a261;
+      color: #fff;
+      padding: 7px 20px;
+      font-family: "Muli", sans-serif;
+      box-shadow: -2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .doors {
+      display: flex;
+      justify-content: space-between;
+      margin: 30px 0;
+    }
+
+    .door {
+      border: 6px solid transparent;
+      cursor: pointer;
+      width: 30%;
+      height: 500px;
+      position: relative;
+      box-shadow: -5px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .door::after {
+      content: "";
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: block;
+      background-color: #222;
+      top: 50%;
+      right: 10px;
+      position: absolute;
+      box-shadow: -3px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .door--1 {
+      background: #ff595e;
+      border-color: #ff8286;
+    }
+
+    .door--2 {
+      background: #ffcf59;
+      border-color: #ffdb82;
+    }
+
+    .door--3 {
+      background: #15d8b8;
+      border-color: #2beacb;
+    }
+
+    .door--selected {
+      border-color: #fff;
+    }
+
+    .prize {
+      text-shadow: -2px 2px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .icon {
+      font-size: 28px;
+    }
+
+    .hint {
+      text-shadow: -1px 1px rgba(0, 0, 0, 0.2);
+      font-size: 14px;
+      width: 120px;
+      text-align: center;
+    }
+  </style>
+
+  <body>
+    <div id="root"></div>
+    <script src="./text.jsx"></script>
+    <script>
+
+
+class MontyHall extends React.Component {
+  constructor() {
+    super(...arguments);
+    _defineProperty(this, "state", {
+      doors: [],
+      switch: null,
+      hint: null,
+      selected: null,
+      reveal: false,
+      wins: 0,
+      losses: 0
+    });
+  }
+  getResults() {
+    this.setState((prevState) => {
+      return {
+        switch: null,
+        hint: null,
+        reveal: true,
+        wins: prevState.doors[prevState.selected]
+          ? prevState.wins + 1
+          : prevState.wins,
+        losses: !prevState.doors[prevState.selected]
+          ? prevState.losses + 1
+          : prevState.losses
+      };
+    });
+  }
+  setDoors() {
+    let result = Math.floor(Math.random() * Math.floor(3) + 1);
+    let doors = [false, false, false];
+    doors[result - 1] = true;
+    this.setState({
+      doors,
+      selected: null,
+      reveal: false,
+      hint: null,
+      switch: null
+    });
+  }
+  onChooseDoor(selected) {
+    if (this.state.selected !== null) return;
+    let switchOption;
+    let hintOption;
+    let doors = this.state.doors;
+    console.log(doors)
+    doors.forEach((door, index) => {
+      if (!door && selected !== index) {
+        hintOption = index;
+   
+        // console.log(index,"index");
+    
+      
+      }
+    });
+    doors.forEach((door, index) => {
+      if (selected !== index && hintOption !== index) {
+        switchOption = index;
+        console.log(switchOption,"switchOption");
+        console.log(index,"index");
+        // console.log(reveal,"reveal");
+      }
+    });
+    this.setState({
+      hint: hintOption,
+      switch: switchOption,
+      selected
+     
+    });
+  }
+  switchDoor() {
+    this.setState({
+      selected: this.state.switch
+    });
+    this.getResults();
+  }
+  componentDidMount() {
+    this.setDoors();
+  }
+  render() {
+    return React.createElement(
+      "div",
+      {
+        className: "container"
+      },
+      React.createElement(
+        "h1",
+        {
+          className: "title"
+        },
+        "Click on a door to bet on it!"
+      ),
+      React.createElement(
+        "div",
+        {
+          className: "results"
+        },
+        React.createElement(
+          "div",
+          {
+            className: "scorecard"
+          },
+          React.createElement(
+            "div",
+            null,
+            "Wins: ",
+            this.state.wins
+          ),
+          React.createElement(
+            "div",
+            null,
+            "Losses: ",
+            this.state.losses
+          )
+        ),
+        this.state.switch !== null &&
+          React.createElement(
+            "div",
+            {
+              className: "buttons"
+            },
+            React.createElement(
+              "h3",
+              null,
+              "Switch to door #",
+              this.state.switch + 1,
+              "?"
+            ),
+            React.createElement(
+              "button",
+              {
+                onClick: () => this.switchDoor()
+              },
+              "Yes"
+            ),
+            React.createElement(
+              "button",
+              {
+                onClick: () => this.getResults()
+              },
+              "No"
+            )
+          ),
+        this.state.reveal &&
+          React.createElement(
+            "div",
+            {
+              className: "buttons"
+            },
+            React.createElement(
+              "h3",
+              null,
+              this.state.doors[this.state.selected]
+                ? "You won! 😁"
+                : "You lost! 😭"
+            ),
+            React.createElement(
+              "button",
+              {
+                onClick: () => this.setDoors()
+              },
+              "Play Again?"
+            )
+          )
+      ),
+      React.createElement(
+        "div",
+        {
+          className: "doors"
+        },
+        this.state.doors.map((door, index) => {
+          return React.createElement(
+            "div",
+            {
+              className: `door door--${index + 1} ${
+                this.state.selected === index &&
+                "door--selected animated infinite pulse"
+              }`,
+              onClick: () => this.onChooseDoor(index)
+            },
+            this.state.reveal &&
+              React.createElement(
+                "div",
+                {
+                  className: "prize"
+                },
+                "It's a...",
+                React.createElement(
+                  "div",
+                  {
+                    class: "icon"
+                  },
+                  door ? "Car! 🚘" : "Goat! 🐐"
+                )
+              ),
+            index === this.state.hint &&
+              React.createElement(
+                "div",
+                {
+                  className: "hint displayNone"
+                 
+                },
+           
+                "Hint: This one's a",
+                React.createElement(
+                  "div",
+                  {
+                    className: "icon"
+                  },
+                  "\uD83D\uDC10"
+                )
+              )
+          );
+        })
+      )
+    );
+  }
+}
+ReactDOM.render(
+  React.createElement(MontyHall, null),
+  document.getElementById("root")
+);
+
+    </script>
+  </body>
+</html>
