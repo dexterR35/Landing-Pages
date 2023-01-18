@@ -1,10 +1,8 @@
 const doors = [];
 
 let totalDoors = 3;
-
 let state = 'PICK';
 let pickedDoor;
-
 let timeoutId;
 
 let stats = {
@@ -13,7 +11,6 @@ let stats = {
   totalSwitchWins: 0,
   totalStayWins: 0,
 };
-
 
 
 function clearStats() {
@@ -35,18 +32,16 @@ function reset() {
     door.removeClass('revealedNone');
     door.removeClass('picked');
     door.removeClass('won');
- 
-    
+    door.style("background-color:unset");
+    select('.content', door).html("");
   }
 
   const winner = random(doors);
   winner.prize = '🚂';
-
   state = 'PICK';
   select('#instruction > p').html('Alege o usă!');
   select('#instruction > .choices').hide();
   select('#instruction > #play-again').hide();
-
 }
 
 
@@ -70,8 +65,8 @@ function checkWin(hasSwitched) {
   }
 
   select('#instruction > #play-again').show();
-
   storeItem('montey-hall-stats', stats);
+  
 }
 
 function chooseDoor(hasSwitched = false) {
@@ -115,11 +110,11 @@ function revealDoor() {
   select('#instruction > p').html(
     `Vrei sa schimbi cu usa nr #${lastDoor.index + 1}?`
   );
-  let testr = lastDoor.index+1;
+  let doorIndex = lastDoor.index + 1;
 
-  lastDoor.addClass("switch"+testr);
+  lastDoor.addClass("switch" + doorIndex);
 
-  console.log(testr)
+  console.log(doorIndex)
   // select('#instruction > p').addClass("tests");
   select('#instruction > .choices').show();
 
@@ -128,6 +123,7 @@ function revealDoor() {
 function pickDoor() {
   if (state !== 'PICK') return;
   state = 'REVEAL';
+  this.style("background-color","red");
   // pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked');
