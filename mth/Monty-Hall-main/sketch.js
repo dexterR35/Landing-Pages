@@ -35,13 +35,15 @@ function reset() {
     door.removeClass('revealedNone');
     door.removeClass('picked');
     door.removeClass('won');
+ 
+    
   }
 
   const winner = random(doors);
   winner.prize = '🚂';
 
   state = 'PICK';
-  select('#instruction > p').html('Pick a Door!');
+  select('#instruction > p').html('Alege o usă!');
   select('#instruction > .choices').hide();
   select('#instruction > #play-again').hide();
 
@@ -62,9 +64,9 @@ function checkWin(hasSwitched) {
     } else {
       stats.totalStayWins++;
     }
-    select('#instruction > p').html('You win!');
+    select('#instruction > p').html('Ai câstigat!');
   } else {
-    select('#instruction > p').html('You lose!');
+    select('#instruction > p').html('Ai pierdut!');
   }
 
   select('#instruction > #play-again').show();
@@ -111,8 +113,14 @@ function revealDoor() {
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
   select('#instruction > p').html(
-    `Do you want to switch to door #${lastDoor.index + 1}?`
+    `Vrei sa schimbi cu usa nr #${lastDoor.index + 1}?`
   );
+  let testr = lastDoor.index+1;
+
+  lastDoor.addClass("switch"+testr);
+
+  console.log(testr)
+  // select('#instruction > p').addClass("tests");
   select('#instruction > .choices').show();
 
 }
