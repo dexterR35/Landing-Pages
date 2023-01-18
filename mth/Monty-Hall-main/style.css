@@ -102,20 +102,18 @@ p {
   display: none;
 }
 .door-container {
-  background-position: center bottom;
-  background-size: 65%;
-  background-repeat: no-repeat;
+width: 200px;
   /* border: 1px solid white; */
 }
-.door-container:nth-child(1) {
-  background-image: url(./img/door_open.png);
+/* .door-container:nth-child(1) {
+  background-image: url(./img/door_left.png);
 }
 .door-container:nth-child(2){
-  background-image: url(./img/door_open.png);
+  background-image: url(./img/door_center.png);
 }
 .door-container:nth-child(3){
-  background-image: url(./img/door_open.png);
-}
+  background-image: url(./img/door_right.png);
+} */
 .door-container::after {
   content: "";
   position: absolute;
@@ -127,50 +125,51 @@ p {
   background-size:contain;
   background-position:center;
   z-index: 0;
+  background-image: url(./img/door_open.png);
 }
 
-.door-container:nth-child(1)::after {
-  background-image: url(./img/door_left.png);
+/* .door-container:nth-child(1)::after {
+  background-image: url(./img/door_open.png);
 }
 
 .door-container:nth-child(2)::after {
-  background-image: url(./img/door_center.png);
+  background-image: url(./img/door_open.png);
 
 }
 .door-container:nth-child(3)::after {
-  background-image: url(./img/door_right.png);
+  background-image: url(./img/door_open.png);
 
-}
+} */
 
 .door-container:before {
   content: "";
   position: absolute;
-  width: 70%;
-  height: 75%;
-  bottom: -230px;
+  width: 100%;
+  height: 100%;
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
   z-index: 1;
-  background-color: rgba(44, 36, 36, 0.507);
-  filter: blur(3px);
-
- 
 }
 .door-container:nth-child(1)::before {
-  transform: skew(-50deg) rotateX(70deg);
-  left: -15px;
+  background-image: url(./img/door_left.png);
+  /* transform: skew(-50deg) rotateX(70deg); */
+  /* left: -15px; */
 }
 .door-container:nth-child(2)::before {
-  left: 40px;
+  background-image: url(./img/door_center.png);
+  /* left: 40px;
   transform: skewX(0deg);
-  background-color: unset !important;
+  background-color: unset !important; */
 }
 .door-container:nth-child(3)::before {
-  transform: skew(50deg) rotateX(70deg);
-  left: 115px;
+  background-image: url(./img/door_right.png);
+  /* left: 115px; */
 }
 
-.door-container:hover{
+.door-container:hover::after{
 transition: 0.5s ease;
-  background-position: -200% bottom;
+  background-position: -400% bottom;
 }
 
 
@@ -183,9 +182,6 @@ transition: 0.5s ease;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-
-  /* background-color: var(--orange); */
-  /* border: 0 solid black; */
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
@@ -199,7 +195,8 @@ transition: 0.5s ease;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 4rem;
+  font-size: 1.8rem;
+  z-index: 100;
 }
 
 /* .door::after {
@@ -297,6 +294,152 @@ transition: 0.5s ease;
   top: 50%;
   transform: translate(120%, -50%);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*animation*/
+/*animation*/
+/*animation*/
+
+.door{
+  position: relative;
+}
+.door::after{
+
+  content: "";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  top: 0;
+  left: 20%;
+  width: 20%;
+  height: 5%;
+  background: rgba(255, 189, 47, 0.9);
+  animation: flicker 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite 1s;
+
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+ }
+  3% {
+    opacity: 1;
+ }
+  6% {
+    opacity: 1;
+ }
+  10% {
+    opacity: 1;
+ }
+  13% {
+    opacity: 0.4;
+ }
+  16% {
+    opacity: 0.2;
+ }
+  20% {
+    opacity: 0.2;
+ }
+  23% {
+    opacity: 0.3;
+ }
+  26% {
+    opacity: 0.2;
+ }
+  30% {
+    opacity: 0.2;
+ }
+  33% {
+    opacity: 0.6;
+ }
+  36% {
+    opacity: 0.2;
+ }
+  40% {
+    opacity: 0.2;
+ }
+  43% {
+    opacity: 0.2;
+ }
+  46% {
+    opacity: 0.4;
+ }
+  50% {
+    opacity: 0.2;
+ }
+  53% {
+    opacity: 0.2;
+ }
+  56% {
+    opacity: 0.5;
+ }
+  60% {
+    opacity: 0.2;
+ }
+  63% {
+    opacity: 0.2;
+ }
+  66% {
+    opacity: 0.2;
+ }
+  70% {
+    opacity: 0.7;
+ }
+  73% {
+    opacity: 0.2;
+ }
+  76% {
+    opacity: 0.2;
+ }
+  80% {
+    opacity: 0.2;
+ }
+  83% {
+    opacity: 0.2;
+ }
+  86% {
+    opacity: 0.2;
+ }
+  90% {
+    opacity: 0.2;
+ }
+  93% {
+    opacity: 0.2;
+ }
+  96% {
+    opacity: 0.2;
+ }
+  100% {
+    opacity: 1;
+ }
+}
+
+
+
+
+
+
+
+
+
+
 /*
 #controls {
   position: fixed;

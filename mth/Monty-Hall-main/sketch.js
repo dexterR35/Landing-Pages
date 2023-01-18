@@ -4,6 +4,8 @@ let totalDoors = 3;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
+let smallCode = "250Runde"
+let largeCode = "550Runde"
 
 let stats = {
   totalSwitchPlays: 0,
@@ -25,7 +27,7 @@ function clearStats() {
 
 function reset() {
   for (const door of doors) {
-    door.prize = '🐐';
+    door.prize = smallCode;
     door.revealed = false;
     select('.door', door).html(door.index + 1);
     door.removeClass('revealed');
@@ -37,7 +39,7 @@ function reset() {
   }
 
   const winner = random(doors);
-  winner.prize = '🚂';
+  winner.prize = largeCode;
   state = 'PICK';
   select('#instruction > p').html('Alege o usă!');
   select('#instruction > .choices').hide();
@@ -51,8 +53,8 @@ function checkWin(hasSwitched) {
     door.addClass('revealed');
     select('.content', door).html(door.prize);
   }
-
-  if (pickedDoor.prize === '🚂') {
+  setTimeout(() => {
+  if (pickedDoor.prize === largeCode) {
     pickedDoor.addClass('won');
     if (hasSwitched) {
       stats.totalSwitchWins++;
@@ -66,7 +68,7 @@ function checkWin(hasSwitched) {
 
   select('#instruction > #play-again').show();
   storeItem('montey-hall-stats', stats);
-  
+}, 1000);
 }
 
 function chooseDoor(hasSwitched = false) {
@@ -90,20 +92,23 @@ function chooseDoor(hasSwitched = false) {
 
 function revealDoor() {
   const options = doors.filter(
-    (door, i) => i !== pickedDoor.index && door.prize !== '🚂'
+    (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
-
+  setTimeout(() => {
   // The player got the right door!
   if (options.length === doors.length - 1) {
     // Randomly remove 1
     options.splice(floor(random(options.length)), 1);
   }
 
-  for (const revealedDoor of options) {
-    revealedDoor.addClass('revealed revealedNone');
-    select('.content', revealedDoor).html(revealedDoor.prize);
-  }
 
+    for (const revealedDoor of options) {
+      revealedDoor.addClass('revealed revealedNone');
+      select('.content', revealedDoor).html(revealedDoor.prize);
+    }
+  }, 1000);
+
+  setTimeout(() => {
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
@@ -113,17 +118,16 @@ function revealDoor() {
   let doorIndex = lastDoor.index + 1;
 
   lastDoor.addClass("switch" + doorIndex);
-
   console.log(doorIndex)
   // select('#instruction > p').addClass("tests");
   select('#instruction > .choices').show();
-
+}, 1000);
 }
 
 function pickDoor() {
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  this.style("background-color","red");
+  this.style("background-color","grey");
   // pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked');
@@ -174,7 +178,9 @@ function setup() {
   });
 
   select('button#play-again').mousePressed(function () {
+    setTimeout(() => {
     reset();
+  }, 1000);
   });
 
 }
