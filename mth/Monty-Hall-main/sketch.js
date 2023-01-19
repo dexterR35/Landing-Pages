@@ -1,3 +1,5 @@
+
+
 const doors = [];
 
 let totalDoors = 3;
@@ -13,6 +15,20 @@ let stats = {
   totalSwitchWins: 0,
   totalStayWins: 0,
 };
+function clickDoors() {
+
+  let doorsClick = document.querySelectorAll(".door-container");
+
+doorsClick.forEach(function(doorS) {
+  doorS.addEventListener("click", function(s) {
+    // Code to open the door goes here
+    // The 'this' keyword refers to the button that was clicked
+    console.log("Opening door:", this);
+ 
+  });
+
+});
+}
 
 
 function clearStats() {
@@ -87,7 +103,7 @@ function chooseDoor(hasSwitched = false) {
   }
 
   checkWin(hasSwitched);
-
+  
 }
 
 function revealDoor() {
@@ -125,6 +141,7 @@ function revealDoor() {
 }
 
 function pickDoor() {
+
   if (state !== 'PICK') return;
   state = 'REVEAL';
   this.style("background-color","grey");
@@ -132,6 +149,8 @@ function pickDoor() {
   pickedDoor = this;
   pickedDoor.addClass('picked');
   revealDoor();
+
+  
 }
 
 function makeDoors() {
@@ -149,6 +168,7 @@ function makeDoors() {
     if (totalDoors > 10) {
       doors[i].addClass('small');
     }
+    clickDoors()
     doors[i].index = i;
     doors[i].mousePressed(pickDoor);
 
@@ -184,3 +204,5 @@ function setup() {
   });
 
 }
+
+
