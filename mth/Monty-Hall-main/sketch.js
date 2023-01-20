@@ -1,8 +1,11 @@
-
-
 const doors = [];
-
+const inputs = [];
+let user_email;
+let user_name;
+let user_codeSmart;
+let user_phone
 let totalDoors = 3;
+let totalInputs = 5;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
@@ -17,28 +20,28 @@ let stats = {
 };
 
 
-var xhrObject = new XMLHttpRequest();
-console.log(xhrObject,"test")
-xhrObject.onreadystatechange = function() {
-  if (xhrObject.readyState === 4) {
-    if (xhrObject.status === 200 || xhrObject.status === 304) {
-      // Success! Do stuff with data.
-      // console.log(xhrObject.responseText); 
-      // let dataCode = xhrObject.responseText
-      // console.log(dataCode,"dataCode")
-      let dataCode = xhrObject.responseText
-      console.log(dataCode,"dataCode")
-    }
-  }
+// var xhrObject = new XMLHttpRequest();
+// console.log(xhrObject, "test")
+// xhrObject.onreadystatechange = function () {
+//   if (xhrObject.readyState === 4) {
+//     if (xhrObject.status === 200 || xhrObject.status === 304) {
+//       // Success! Do stuff with data.
+//       // console.log(xhrObject.responseText); 
+//       // let dataCode = xhrObject.responseText
+//       // console.log(dataCode,"dataCode")
+//       let dataCode = xhrObject.responseText
+//       console.log(dataCode, "dataCode")
+//     }
+//   }
 
-};
+// };
 
-xhrObject.open(
-  "GET", 
-  "https://casino-promo.netbet.ro/scripts/api/space/getcode.php", 
-  true
-);
-xhrObject.send();
+// xhrObject.open(
+//   "GET",
+//   "https://casino-promo.netbet.ro/scripts/api/space/getcode.php",
+//   true
+// );
+// xhrObject.send();
 
 
 
@@ -52,7 +55,7 @@ xhrObject.send();
 //     // Code to open the door goes here
 //     // The 'this' keyword refers to the button that was clicked
 //     console.log("Opening door:", this);
- 
+
 //   });
 
 // });
@@ -97,21 +100,21 @@ function checkWin(hasSwitched) {
     select('.content', door).html(door.prize);
   }
   setTimeout(() => {
-  if (pickedDoor.prize === largeCode) {
-    pickedDoor.addClass('won');
-    if (hasSwitched) {
-      stats.totalSwitchWins++;
+    if (pickedDoor.prize === largeCode) {
+      pickedDoor.addClass('won');
+      if (hasSwitched) {
+        stats.totalSwitchWins++;
+      } else {
+        stats.totalStayWins++;
+      }
+      select('#instruction > p').html('Ai câstigat!');
     } else {
-      stats.totalStayWins++;
+      select('#instruction > p').html('Ai pierdutt!');
     }
-    select('#instruction > p').html('Ai câstigat!');
-  } else {
-    select('#instruction > p').html('Ai pierdutt!');
-  }
 
-  select('#instruction > #play-again').show();
-  storeItem('montey-hall-stats', stats);
-}, 1000);
+    select('#instruction > #play-again').show();
+    storeItem('montey-hall-stats', stats);
+  }, 1000);
 }
 
 function chooseDoor(hasSwitched = false) {
@@ -130,7 +133,7 @@ function chooseDoor(hasSwitched = false) {
   }
 
   checkWin(hasSwitched);
-  
+
 }
 
 function revealDoor() {
@@ -138,11 +141,11 @@ function revealDoor() {
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
   setTimeout(() => {
-  // The player got the right door!
-  if (options.length === doors.length - 1) {
-    // Randomly remove 1
-    options.splice(floor(random(options.length)), 1);
-  }
+    // The player got the right door!
+    if (options.length === doors.length - 1) {
+      // Randomly remove 1
+      options.splice(floor(random(options.length)), 1);
+    }
 
 
     for (const revealedDoor of options) {
@@ -152,32 +155,32 @@ function revealDoor() {
   }, 1000);
 
   setTimeout(() => {
-  const lastDoor = doors.find(
-    (door) => !door.hasClass('revealed') && !door.hasClass('picked')
-  );
-  select('#instruction > p').html(
-    `Vrei sa schimbi cu usa nr #${lastDoor.index + 1}?`
-  );
-  let doorIndex = lastDoor.index + 1;
+    const lastDoor = doors.find(
+      (door) => !door.hasClass('revealed') && !door.hasClass('picked')
+    );
+    select('#instruction > p').html(
+      `Vrei sa schimbi cu usa nr #${lastDoor.index + 1}?`
+    );
+    let doorIndex = lastDoor.index + 1;
 
-  lastDoor.addClass("switch" + doorIndex);
-  console.log(doorIndex)
-  // select('#instruction > p').addClass("tests");
-  select('#instruction > .choices').show();
-}, 1000);
+    lastDoor.addClass("switch" + doorIndex);
+    console.log(doorIndex)
+    // select('#instruction > p').addClass("tests");
+    select('#instruction > .choices').show();
+  }, 1000);
 }
 
 function pickDoor() {
 
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  this.style("background-color","grey");
+  this.style("background-color", "grey");
   // pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked');
   revealDoor();
 
-  
+
 }
 
 function makeDoors() {
@@ -189,6 +192,7 @@ function makeDoors() {
   console.log(doors);
 
   for (let i = 0; i < totalDoors; i++) {
+    // let div1 = createDiv('this is the child');
     doors[i] = createDiv();
     doors[i].parent('#doors');
     doors[i].class('door-container');
@@ -203,17 +207,51 @@ function makeDoors() {
     door.class('door');
     door.parent(doors[i]);
 
+
+
+    const light = createDiv();
+    light.class('light_door' + " " + 'light_n_door' + doors[i].index);
+    light.parent(doors[i]);
+
+
+    const bar_light = createDiv();
+    bar_light.class('bar_light' + " " + 'bar_n_light' + doors[i].index);
+    bar_light.parent(doors[i]);
+
     const content = createDiv();
     content.class('content');
     content.parent(doors[i]);
   }
 }
 
+function makeInput() {
+
+  for (let j = 0; j < totalInputs; j++) {
+  inputs[j] = createDiv();
+  inputs[j].parent("#inputForm");
+  inputs[j].class("input-box");
+  inputs[j].index = j;
+  console.log(j);
+  // createSpan("What's your name? ");
+  let make_input = createInput();
+  make_input.class('input-label');
+  make_input.parent(inputs[j]);
+
+}
+// in.addClass("class", "democlass");
+
+  // const createInput = createInput("type");
+  // createInput.class("input-label");
+  // createInput.parent("input-label");
+
+  }
+
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
   // updateStats();
   makeDoors();
+  makeInput();
   reset();
 
   select('button#yes').mousePressed(function () {
@@ -226,10 +264,9 @@ function setup() {
 
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {
-    reset();
-  }, 1000);
+      reset();
+    }, 1000);
   });
 
 }
-
 
