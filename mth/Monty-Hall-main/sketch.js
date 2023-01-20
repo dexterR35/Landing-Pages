@@ -6,8 +6,8 @@ let totalDoors = 3;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
-let smallCode = "250Runde"
-let largeCode = "550Runde"
+let smallCode = "250 runde"
+let largeCode = "350 runde"
 
 let stats = {
   totalSwitchPlays: 0,
@@ -15,21 +15,49 @@ let stats = {
   totalSwitchWins: 0,
   totalStayWins: 0,
 };
-function clickDoors() {
 
-  let doorsClick = document.querySelectorAll(".door-container");
 
-doorsClick.forEach(function(doorS) {
-  doorS.addEventListener("click", function(s) {
-    // Code to open the door goes here
-    // The 'this' keyword refers to the button that was clicked
-    console.log("Opening door:", this);
+var xhrObject = new XMLHttpRequest();
+console.log(xhrObject,"test")
+xhrObject.onreadystatechange = function() {
+  if (xhrObject.readyState === 4) {
+    if (xhrObject.status === 200 || xhrObject.status === 304) {
+      
+      // Success! Do stuff with data.
+      // console.log(xhrObject.responseText); 
+      // let dataCode = xhrObject.responseText
+      // console.log(dataCode,"dataCode")
+      let dataCode = xhrObject.responseText
+      console.log(dataCode,"dataCode")
+    }
+  }
+
+};
+
+xhrObject.open(
+  "GET", 
+  "https://casino-promo.netbet.ro/scripts/api/space/getcode.php", 
+  true
+);
+xhrObject.send();
+
+
+
+
+// function clickDoors() {
+
+//   let doorsClick = document.querySelectorAll(".door-container");
+
+// doorsClick.forEach(function(doorS) {
+//   doorS.addEventListener("click", function(s) {
+//     // Code to open the door goes here
+//     // The 'this' keyword refers to the button that was clicked
+//     console.log("Opening door:", this);
  
-  });
+//   });
 
-});
-}
-
+// });
+// }
 
 function clearStats() {
   stats = {
@@ -168,7 +196,7 @@ function makeDoors() {
     if (totalDoors > 10) {
       doors[i].addClass('small');
     }
-    clickDoors()
+    // clickDoors();
     doors[i].index = i;
     doors[i].mousePressed(pickDoor);
 
