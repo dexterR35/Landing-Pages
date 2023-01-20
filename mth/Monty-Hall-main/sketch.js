@@ -106,7 +106,7 @@ function checkWin(hasSwitched) {
     }
     select('#instruction > p').html('Ai câstigat!');
   } else {
-    select('#instruction > p').html('Ai pierdut!');
+    select('#instruction > p').html('Ai pierdutt!');
   }
 
   select('#instruction > #play-again').show();
