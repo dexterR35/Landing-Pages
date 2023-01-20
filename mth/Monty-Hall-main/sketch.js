@@ -22,7 +22,6 @@ console.log(xhrObject,"test")
 xhrObject.onreadystatechange = function() {
   if (xhrObject.readyState === 4) {
     if (xhrObject.status === 200 || xhrObject.status === 304) {
-      
       // Success! Do stuff with data.
       // console.log(xhrObject.responseText); 
       // let dataCode = xhrObject.responseText
@@ -193,9 +192,9 @@ function makeDoors() {
     doors[i] = createDiv();
     doors[i].parent('#doors');
     doors[i].class('door-container');
-    if (totalDoors > 10) {
-      doors[i].addClass('small');
-    }
+    // if (totalDoors > 10) {
+    //   doors[i].addClass('small');
+    // }
     // clickDoors();
     doors[i].index = i;
     doors[i].mousePressed(pickDoor);

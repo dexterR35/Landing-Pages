@@ -3,6 +3,8 @@
 	<head>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		
 		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css"></i> -->
 	
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -19,7 +21,64 @@
 				</div>
 				<button id="play-again">Joaca din Nou</button>
 			</div>
+			<div class="container-input">
+				<form id="form">
+					<div class="input-box">
+					  <label class="input-label">Email</label>
+					  <input type="text" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" required />
+					</div>
+					<div class="input-box">
+					  <label class="input-label">Nume</label>
+					  <input type="password" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" required />
+					</div>
+					<div class="input-box">
+						<label class="input-label">Prenume</label>
+						<input type="password" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)"  required/>
+					  </div>
+					<div class="input-box">
+					  <label class="input-label">Mobil</label>
+					  <input type="text" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" placeholder="" required/>
+					</div>
+			   
+			  
+					<div class="input-box error">
+					  <label class="input-label">Bonus Code</label>
+					  <input type="text" class="input-1" onfocus="setFocus(true)" onblur="setFocus(false)" placeholder="350Runde" disabled />
+					</div>
+					<div>
+						<input type="checkbox" id="privacy-check" name="privacy-check">
+						<label for="privacy-check" class="privacy-text">Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.</label>
+					</div>
+					<div>
+						<input type="checkbox" id="marketing-check" name="marketing-check">
+						<label for="marketing-check" class="privacy-text">Sunt de acord să primesc comunicări de marketing din partea NetBet.</label>
+					</div>
+					<button type="button" class="btn btn-primary pull-right">trimite</button>
+					<div class="clear"></div>
+				  </form>
+			   
+			</div>
 		</main>
+	<script>
+		
+    function setFocus(on) {
+  var element = document.activeElement;
+  if (on) {
+    setTimeout(function () {
+      element.parentNode.classList.add("focus");
+    });
+  } else {
+    let box = document.querySelector(".input-box");
+    box.classList.remove("focus");
+    $("input").each(function () {
+      var $input = $(this);
+      var $parent = $input.closest(".input-box");
+      if ($input.val()) $parent.addClass("focus");
+      else $parent.removeClass("focus");
+    });
+  }
+}
+	</script>
 		<script src="sketch.js"></script>
 	</body>
 </html>

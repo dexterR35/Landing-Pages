@@ -34,7 +34,8 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 80vh;
+  overflow: hidden;
 
 }
 body::after {
@@ -131,7 +132,7 @@ p {
   background-size:60%;
   background-position:center bottom;
   z-index: 0;
-  background-image: url(./img/door_open.png);
+  background-image: url(./img/door_open2.png);
 }
 
 /* .door-container:nth-child(1)::after {
@@ -194,7 +195,7 @@ transition: 0.5s ease;
   transform-origin: left;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
-  font-family: 'Goldman', cursive;
+  /* font-family: 'Goldman', cursive; */
   z-index: 42;
   font-size: 3rem;
   /* text-shadow: 0 0 0 transparent, 0 0 10px #0099ff, 0 0 20px rgba(0, 195, 255, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c; */
@@ -482,7 +483,7 @@ transition: 0.5s ease;
   color: #303030;
   font-size: 5rem;
   display: inline-block;
-  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Varela Round', sans-serif; */
 }
 
 
@@ -622,8 +623,163 @@ transition: 0.5s ease;
 
 
 
+input {
+  background: #FFF;
+}
+.container-input {
+  width: 60%;
+}
+#form {
+  width: 40wv;
+  margin: 0 auto;
+  margin-top:50px;
+}
+.input-box.active-grey .input-1 {
+ border: 1px solid #dadce0;
+}
+.input-box.active-grey .input-label {
+ color: #80868b;
+ top: -8px;
+ background: #fff;
+ font-size: 11px;
+ transition: 250ms;
+}
+.input-box.active-grey .input-label svg {
+ position: relative;
+ width: 11px;
+ height: 11px;
+ top: 2px;
+ transition: 250ms;
+}
+.input-box {
+ position: relative;
+ margin: 10px 0;
+}
+.input-box .input-label {
+ position: absolute;
+ color: #80868b;
+ font-size: 16px;
+ font-weight: 400;
+ max-width: calc(100% - (2 * 8px));
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ left: 8px;
+ top: 13px;
+ padding: 0 8px;
+ transition: 250ms;
+ user-select: none;
+ pointer-events: none;
+}
+.input-box .input-label svg {
+ position: relative;
+ width: 15px;
+ height: 15px;
+ top: 2px;
+ transition: 250ms;
+}
+.input-box .input-1 {
+ box-sizing: border-box;
+ height: 50px;
+ width: 100%;
+ border-radius: 4px;
+ color: #202124;
+ border: 1px solid #dadce0;
+ padding: 13px 15px;
+ transition: 250ms;
+}
+.input-box .input-1:focus {
+ outline: none;
+ border: 2px solid #1a73e8;
+ transition: 250ms;
+}
+.input-box.error .input-label {
+ color: #f44336;
+ top: -8px;
+ background: #fff;
+ font-size: 11px;
+ transition: 250ms;
+}
+.input-box.error .input-1 {
+ border: 2px solid #f44336;
+}
+.input-box.focus .input-label, .input-box.active .input-label {
+ color: #1a73e8;
+ top: -8px;
+ background: #fff;
+ font-size: 11px;
+ transition: 250ms;
+}
+.input-box.focus .input-label svg, .input-box.active .input-label svg {
+ position: relative;
+ width: 11px;
+ height: 11px;
+ top: 2px;
+ transition: 250ms;
+}
+.input-box.active .input-1 {
+ border: 2px solid #1a73e8;
+}
+.btn {
+ background: #fff;
+ color: #333;
+ cursor: pointer;
+ border: none;
+ white-space: normal;
+ letter-spacing: 0.25px;
+ font-weight: 400;
+ font-size: 14px;
+ padding: 8px 16px;
+ border-radius: 4px;
+ line-height: 20px;
+ min-width: 88px;
+ transition: 250ms;
+}
+.btn:hover {
+ background: #ddd;
+ transition: 250ms;
+}
+.btn:focus {
+ outline: none;
+}
+.btn-primary {
+ background: #1a73e8;
+ color: #fff;
+ transition: 250ms;
+}
+.btn-primary:hover {
+ background: #287ae6;
+ box-shadow: 0 1px 1px 0 rgba(66, 133, 244, 0.45), 0 1px 3px 1px rgba(66, 133, 244, 0.3);
+ transition: 250ms;
+}
+.pull-right {
+ float: right;
+}
+.clear {
+ clear: both;
+}
 
 
+
+@media screen and (orientation:portrait) {
+  body::after{
+    background-image: url(./img/bg-mobile.png);
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+
+  }
+
+  #app {
+    /* width: 400px; */
+    max-width: 48em;
+    /* background-color: red !important; */
+  }
+  .door-container {
+    width: 14rem !important;
+    height: 20rem !important;
+  }
+}
 /*
 #controls {
   position: fixed;
