@@ -349,12 +349,6 @@ function setStars(){
     comets[k].parent("#comets");
     comets[k].class("cometsFall");
     comets[k].index = k;
-
-  
-    // let make_input = createInput();
-    // make_input.class('input-input' + " " + 'input_n' + inputs[j].index);
-    // make_input.parent(inputs[j]);
-
   }
 
 
