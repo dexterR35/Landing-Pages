@@ -50,8 +50,31 @@ body::after {
   background-repeat: no-repeat;
   background-position: center;
   z-index: -1;
+  animation:f-universe 30s infinite alternate linear 0.5s;
+}
+body::before{
+  content:"";
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/bg-desktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+  z-index: -1; 
+
 }
 
+@keyframes f-universe {
+  0%{
+    transform: translateX(0px) scale(1) rotate(0deg);
+  }
+  100%{
+    transform: translateX(-100px) scale(1.2) rotate(-10deg);
+  }
+}
 /* .container-input {
   display: none;
 } */
@@ -65,6 +88,7 @@ main {
   align-items: center;
   padding: 2rem;
   color: white;
+  z-index: 100;
 }
 
 
@@ -929,4 +953,145 @@ animation-delay:4s;
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+}
+
+
+
+
+
+/*commets*/
+
+
+#comets{
+  position:absolute;
+  top:-150px;
+  width:100vw;
+  text-align: left; 
+  height: 100%; 
+  min-height: 900px;
+  overflow:hidden;
+}
+
+#comets .cometsFall {
+  display: inline-block;
+  width: 250px;
+  height: 150px;position:absolute;
+  border-radius: 5% 40% 70%;
+  box-shadow: inset 0px 0px 1px #294b67;
+  border: 1px solid #333;
+  z-index: 1;
+  background-color: #fff;
+  opacity: .7;
+  -webkit-animation: falling 10s 0s infinite;
+  -webkit-animation-timing-function:ease-in;
+}
+
+
+#comets .cometsFall:nth-child(1){
+  left: 50vw;
+  height:73px; 
+  width:3px;
+  background-color: #fff;
+}
+#comets .cometsFall:nth-child(3){
+  height:11px; 
+  width:3px;
+  -webkit-animation: falling3 8s 3s infinite;
+  left: 10vw;
+background-color: #fff;
+}
+#comets .cometsFall:nth-child(2){
+  -webkit-animation: falling2 6s 1s infinite;
+  left: 30vw;
+  height:70px; 
+  width:4px;
+  background-color: #fff;
+
+}
+
+
+
+
+@-webkit-keyframes falling {
+
+  0% {
+    -webkit-transform: translate3d(100px,0px,0px) rotate(160deg);
+  }
+
+  3% {
+    -webkit-transform:
+    translate3d(450px,900px,0) rotate(160deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform:
+    translate3d(450px,900px,0) rotate(160deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes falling3 {
+ 0% {
+  -webkit-transform: translate3d(0,0,0) rotate(150deg);
+}
+
+10% {
+  -webkit-transform: translate3d(430px,640px,0) rotate(150deg);
+  opacity: 0;
+}
+
+100% {
+  -webkit-transform: translate3d(430px,640px,0) rotate(150deg);
+  opacity: 0;
+}
+}
+
+@-webkit-keyframes falling2 {
+ 0% {
+  -webkit-transform:translate3d(100px,0,0) rotate(130deg);
+}
+
+15% {
+  -webkit-transform:translate3d(800px,580px,0) rotate(130deg);
+  opacity: 0;
+}
+
+100% {
+  -webkit-transform: translate3d(800px,680px,0) rotate(180deg);
+  opacity: 0;
+}
+}
+
+
+
+#satelit {
+  /* background-color: #ff4c4c; */
+/* transform: perspective(0px) rotateX(40deg) rotateY(10deg) rotateZ(-45deg); */
+  /* animation:test 2s ease forwards 4s; */
+  animation-iteration-count:1;
+  animation-fill-mode: forwards;
+  animation-name: test;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  background-image: url(./img/coding-train2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 220px;
+  height: 100px;
+  color: white;
+  position: absolute;
+  opacity: 0;
+  z-index: 0;
+}
+
+@keyframes test {
+  from {
+    transform: perspective(150px) rotateX(40deg) rotateY(0deg) rotateZ(-5deg) scale(8) translateX(-440px);
+    opacity:1;
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1800px) rotateX(20deg) rotateY(20deg) rotateZ(-45deg) scale(0) translateY(40px) ;
+  }
 }

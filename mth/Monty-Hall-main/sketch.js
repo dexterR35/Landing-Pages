@@ -1,17 +1,20 @@
 const doors = [];
 const inputs = [];
+const comets = [];
 
-let user_email;
-let user_name;
-let user_codeSmart;
-let user_phone
+// let user_email;
+// let user_name;
+// let user_codeSmart;
+// let user_phone
 let totalDoors = 3;
 let totalInputs = 5;
+let fallingStars = 3;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
 let smallCode = "250 runde"
 let largeCode = "350 runde"
+
 
 let stats = {
   totalSwitchPlays: 0,
@@ -221,7 +224,6 @@ function makeDoors() {
     door.parent(doors[i]);
 
 
-
     const light = createDiv();
     light.class('light_door' + " " + 'light_n_door' + doors[i].index);
     light.parent(doors[i]);
@@ -257,6 +259,9 @@ function makeInput() {
   input_phone = "telefon";
   input_bonusCode = "cod Bonus"
 
+  privacy_terms = "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate."
+  privacy_marketing = "Sunt de acord să primesc comunicări de marketing din partea NetBet."
+
 
   $(".box_n0").prepend(`<label class="input-label">${input_email}</label>`);
   $(".box_n1").prepend(`<label class="input-label">${input_name}</label>`);
@@ -266,11 +271,11 @@ function makeInput() {
 
   $("#inputForm").append(`<div class="privOne">
         <input type="checkbox" id="privacy-check" name="privacy-check">
-        <label for="privacy-check" class="privacy-text">Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.</label>
+        <label for="privacy-check" class="privacy-text">${privacy_terms}</label>
         </div>
         <div class="privTwo">
         <input type="checkbox" id="marketing-check" name="marketing-check">
-        <label for="marketing-check" class="privacy-text">Sunt de acord să primesc comunicări de marketing din partea NetBet.</label>
+        <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
         </div>
         <button type="button" class="btnNew btn-primary btn_send pull-right">trimite</button>
     <div class="clear"></div>`);
@@ -338,6 +343,23 @@ $(document).keyup(function(e) {
   }
 });
 
+function setStars(){
+  for (let k = 0; k < fallingStars; k++) {
+    comets[k] = createDiv();
+    comets[k].parent("#comets");
+    comets[k].class("cometsFall");
+    comets[k].index = k;
+
+  
+    // let make_input = createInput();
+    // make_input.class('input-input' + " " + 'input_n' + inputs[j].index);
+    // make_input.parent(inputs[j]);
+
+  }
+
+
+}
+
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
@@ -345,6 +367,7 @@ function setup() {
   makeDoors();
   makeInput();
   resetDoor();
+  setStars();
 
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
