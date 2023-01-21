@@ -272,15 +272,25 @@ animation-delay:4s;
 
 .bar_light {
   position: absolute;
+
   top: 15%;
   left: 18%;
   width: 5px;
   height: 240px;
-  background-color: red !important;
+  background-color: #ffebabd9 ;
   z-index: 20;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  transform: rotate(1deg);
+  color: #d4eaff;
+  animation: buzz 0.09s infinite alternate;
+  /* -webkit-box-shadow: inset 0px 0px 18px 2px rgba(255,0,60,0.35), 0px 0px 18px 5px rgba(255,0,60,0.95);  */
+  box-shadow: inset 0px 0px 23px 9px rgba(255, 178, 46, 0.14), 3px 0px 15px 2px rgba(255, 190, 49, 0.6);
 }
-
+@keyframes buzz {
+  70% {
+    opacity: 0.80;
+  }
+}
 .bar_n_light1 {
   left: 16%;
 }
@@ -682,7 +692,7 @@ input {
  position: relative;
  margin: 10px 0;
 }
-.input-box .input-label {
+/* .input-box .input-label {
  position: absolute;
  color: #80868b;
  font-size: 16px;
@@ -697,14 +707,14 @@ input {
  transition: 250ms;
  user-select: none;
  pointer-events: none;
-}
-.input-box .input-label svg {
+} */
+/* .input-box .input-label svg {
  position: relative;
  width: 15px;
  height: 15px;
  top: 2px;
  transition: 250ms;
-}
+} */
 .input-box .input-1 {
  box-sizing: border-box;
  height: 50px;

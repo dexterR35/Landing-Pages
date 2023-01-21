@@ -1,5 +1,6 @@
 const doors = [];
 const inputs = [];
+
 let user_email;
 let user_name;
 let user_codeSmart;
@@ -71,7 +72,7 @@ function clearStats() {
   clearStorage();
 }
 
-function reset() {
+function resetDoor() {
   for (const door of doors) {
     door.prize = smallCode;
     door.revealed = false;
@@ -225,20 +226,39 @@ function makeDoors() {
 }
 
 function makeInput() {
-
+  console.log(inputAttr,"input")
   for (let j = 0; j < totalInputs; j++) {
   inputs[j] = createDiv();
   inputs[j].parent("#inputForm");
   inputs[j].class("input-box");
   inputs[j].index = j;
-  console.log(j);
-  // createSpan("What's your name? ");
+
   let make_input = createInput();
-  make_input.class('input-label');
+  
+  make_input.class('input-label' + " " + 'input_n' + inputs[j].index);
   make_input.parent(inputs[j]);
 
+    // inputFor.remove();
+
+    // inputAttr.setAttribute("onfocus","setFocus(true)");
+    // inputAttr.setAttribute("onBlur","setFocus(false)");
+    // inputAttr.setAttribute('required', ''); 
+
+  // var inputAttr = document.querySelectorAll(".input-label")[0];
+  // console.log("inputAttr",inputAttr)
+  // make_input.setAttribute("style", "background-color: blue;"); 
+ 
 }
 // in.addClass("class", "democlass");
+
+
+var inputAttr = document.querySelectorAll(".input-label");
+
+    // inputAttr.setAttribute("onfocus","setFocus(true)");
+console.log(inputAttr,"input")
+  
+
+
 
   // const createInput = createInput("type");
   // createInput.class("input-label");
@@ -246,13 +266,14 @@ function makeInput() {
 
   }
 
+
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
   // updateStats();
   makeDoors();
   makeInput();
-  reset();
+  resetDoor();
 
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
@@ -264,9 +285,10 @@ function setup() {
 
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {
-      reset();
+      resetDoor();
     }, 1000);
   });
 
 }
 
+console.log(inputs,"inputs")
