@@ -20,6 +20,18 @@ let stats = {
   totalStayWins: 0,
 };
 
+// function changeInputType(oldObject, oType) {
+//   var newObject = document.createElement("input");
+//   newObject.type = oType;
+//   if (oldObject.size) newObject.size = oldObject.size;
+//   if (oldObject.value) newObject.value = oldObject.value;
+//   if (oldObject.name) newObject.name = oldObject.name;
+//   if (oldObject.id) newObject.id = oldObject.id;
+//   if (oldObject.className) newObject.className = oldObject.className;
+//   oldObject.parentNode.replaceChild(newObject, oldObject);
+//   return newObject;
+// }
+
 
 // var xhrObject = new XMLHttpRequest();
 // console.log(xhrObject, "test")
@@ -226,46 +238,105 @@ function makeDoors() {
 }
 
 function makeInput() {
-  console.log(inputAttr,"input")
   for (let j = 0; j < totalInputs; j++) {
-  inputs[j] = createDiv();
-  inputs[j].parent("#inputForm");
-  inputs[j].class("input-box");
-  inputs[j].index = j;
+    inputs[j] = createDiv();
+    inputs[j].parent("#inputForm");
+    inputs[j].class("input-box" + " " + 'box_n' + j);
+    inputs[j].index = j;
 
-  let make_input = createInput();
-  
-  make_input.class('input-label' + " " + 'input_n' + inputs[j].index);
-  make_input.parent(inputs[j]);
-
-    // inputFor.remove();
-
-    // inputAttr.setAttribute("onfocus","setFocus(true)");
-    // inputAttr.setAttribute("onBlur","setFocus(false)");
-    // inputAttr.setAttribute('required', ''); 
-
-  // var inputAttr = document.querySelectorAll(".input-label")[0];
-  // console.log("inputAttr",inputAttr)
-  // make_input.setAttribute("style", "background-color: blue;"); 
- 
-}
-// in.addClass("class", "democlass");
-
-
-var inputAttr = document.querySelectorAll(".input-label");
-
-    // inputAttr.setAttribute("onfocus","setFocus(true)");
-console.log(inputAttr,"input")
-  
-
-
-
-  // const createInput = createInput("type");
-  // createInput.class("input-label");
-  // createInput.parent("input-label");
+    let make_input = createInput();
+    make_input.class('input-input' + " " + 'input_n' + inputs[j].index);
+    make_input.parent(inputs[j]);
 
   }
 
+
+  input_name = "nume";
+  input_email = "email";
+  input_lastName = "prenume"
+  input_phone = "telefon";
+  input_bonusCode = "cod Bonus"
+
+
+  $(".box_n0").prepend(`<label class="input-label">${input_email}</label>`);
+  $(".box_n1").prepend(`<label class="input-label">${input_name}</label>`);
+  $(".box_n2").prepend(`<label class="input-label">${input_lastName}</label>`);
+  $(".box_n3").prepend(`<label class="input-label">${input_phone}</label>`);
+  $(".box_n4").prepend(`<label class="input-label">${input_bonusCode}</label>`);
+
+  $("#inputForm").append(`<div class="privOne">
+        <input type="checkbox" id="privacy-check" name="privacy-check">
+        <label for="privacy-check" class="privacy-text">Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.</label>
+        </div>
+        <div class="privTwo">
+        <input type="checkbox" id="marketing-check" name="marketing-check">
+        <label for="marketing-check" class="privacy-text">Sunt de acord să primesc comunicări de marketing din partea NetBet.</label>
+        </div>
+        <button type="button" class="btnNew btn-primary btn_send pull-right">trimite</button>
+    <div class="clear"></div>`);
+
+  $(".input-input").attr({
+    onfocus: "setFocus(true)",
+    onblur: "setFocus(false)",
+    required: "",
+  });
+
+  $(".input_n0").attr({
+    type: "email"
+  });
+
+  $(".input_n3").attr({
+    type: "number"
+  });
+  $(".box_n4").addClass("error");
+  $(".input_n4").attr({
+    disabled: "",placeholder:"runde"
+  });
+
+}
+
+function setFocus(on) {
+  var element = document.activeElement;
+  if (on) {
+    setTimeout(function () {
+      element.parentNode.classList.add("focus");
+    });
+  } else {
+    let box = document.querySelector(".input-box");
+    box.classList.remove("focus");
+    $("input").each(function () {
+      var $input = $(this);
+      var $parent = $input.closest(".input-box");
+      if ($input.val()) $parent.addClass("focus");
+      else $parent.removeClass("focus");
+    });
+  }
+}
+
+
+// Click function for show the Modal
+
+$(".btn-showModal").on("click", function(){
+  $(".mask").addClass("active");
+});
+
+// Function for close the Modal
+
+function closeModal(){
+  $(".mask").removeClass("active");
+}
+
+// Call the closeModal function on the clicks/keyboard
+
+$(".close-modal, .mask").on("click", function(){
+  closeModal();
+});
+
+$(document).keyup(function(e) {
+  if (e.keyCode == 27) {
+    closeModal();
+  }
+});
 
 function setup() {
   noCanvas();
@@ -291,4 +362,4 @@ function setup() {
 
 }
 
-console.log(inputs,"inputs")
+console.log(inputs, "inputs")

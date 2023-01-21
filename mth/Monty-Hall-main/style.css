@@ -11,7 +11,7 @@
 
 :root {
   --orange: #f89e4f;
-  --purple: #a15bb3;
+  --purple: crimson;
   --red: #f16164;
 }
 
@@ -52,9 +52,9 @@ body::after {
   z-index: -1;
 }
 
-.container-input {
+/* .container-input {
   display: none;
-}
+} */
 
 main {
   width: 100%;
@@ -67,20 +67,7 @@ main {
   color: white;
 }
 
-button {
-  all: unset;
-  height: 40px;
-  padding: 0 25px;
-  color: white;
-  background-color: var(--purple);
-  border-radius: 2rem;
-  cursor: pointer;
-  user-select: none;
-}
 
-button:hover {
-  opacity: 0.8;
-}
 
 p {
   font-size: 1.8rem;
@@ -660,18 +647,29 @@ animation-delay:4s;
 
 
 
-input {
-  background: #FFF;
-}
 .container-input {
-  width: 60%;
+  width: 100%;
+  background-color: #d4eaff;
+  padding: 1em;
 }
-#form {
-  width: 40wv;
+
+#inputForm{
+  width: 50vw;
+  max-width: 600px;
+  padding: 0.5em 1em;
   margin: 0 auto;
-  margin-top:50px;
+  background-color: rgba(241, 23, 23, 0.63);
 }
-.input-box.active-grey .input-1 {
+@media screen and (max-width:650px) {
+  #inputForm {
+  
+    min-width: 30vw;
+
+  }
+  
+}
+
+.input-box.active-grey .input-input {
  border: 1px solid #dadce0;
 }
 .input-box.active-grey .input-label {
@@ -691,8 +689,9 @@ input {
 .input-box {
  position: relative;
  margin: 10px 0;
+ background-color: black;
 }
-/* .input-box .input-label {
+.input-box .input-label {
  position: absolute;
  color: #80868b;
  font-size: 16px;
@@ -707,15 +706,15 @@ input {
  transition: 250ms;
  user-select: none;
  pointer-events: none;
-} */
-/* .input-box .input-label svg {
+}
+.input-box .input-label svg {
  position: relative;
  width: 15px;
  height: 15px;
  top: 2px;
  transition: 250ms;
-} */
-.input-box .input-1 {
+}
+.input-box .input-input {
  box-sizing: border-box;
  height: 50px;
  width: 100%;
@@ -725,7 +724,7 @@ input {
  padding: 13px 15px;
  transition: 250ms;
 }
-.input-box .input-1:focus {
+.input-box .input-input:focus {
  outline: none;
  border: 2px solid #1a73e8;
  transition: 250ms;
@@ -737,7 +736,7 @@ input {
  font-size: 11px;
  transition: 250ms;
 }
-.input-box.error .input-1 {
+.input-box.error .input-input {
  border: 2px solid #f44336;
 }
 .input-box.focus .input-label, .input-box.active .input-label {
@@ -754,40 +753,50 @@ input {
  top: 2px;
  transition: 250ms;
 }
-.input-box.active .input-1 {
+.input_n4{
+  color: white !important;
+}
+.input-box.active .input-input {
  border: 2px solid #1a73e8;
 }
-.btn {
- background: #fff;
- color: #333;
- cursor: pointer;
- border: none;
- white-space: normal;
- letter-spacing: 0.25px;
- font-weight: 400;
- font-size: 14px;
- padding: 8px 16px;
- border-radius: 4px;
- line-height: 20px;
- min-width: 88px;
- transition: 250ms;
+
+
+
+
+.btnNew:active {
+  transform: scale(0.9);
 }
-.btn:hover {
- background: #ddd;
- transition: 250ms;
+
+.btnNew{
+  background: #fff;
+  /* all: unset; */
+  height: 40px;
+  line-height: 20px;
+  min-width: 88px;
+  padding: 8px 16px;
+  font-size: 14px;
+  white-space: normal;
+  letter-spacing: 0.25px;
+  color: white;
+  background-color: var(--purple);
+  border-radius: 0.3em;
+  border: none;
+  outline: none;
+  box-shadow: 3px 5px 3px rgba(10, 10, 10,0.6);
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
 }
-.btn:focus {
+
+.btnNew:focus {
  outline: none;
 }
-.btn-primary {
- background: #1a73e8;
- color: #fff;
- transition: 250ms;
-}
-.btn-primary:hover {
+
+.btnNew:hover {
  background: #287ae6;
  box-shadow: 0 1px 1px 0 rgba(66, 133, 244, 0.45), 0 1px 3px 1px rgba(66, 133, 244, 0.3);
  transition: 250ms;
+ opacity: 0.8;
 }
 .pull-right {
  float: right;
@@ -863,3 +872,61 @@ input {
   width: 24rem;
 }
 */
+
+
+
+
+
+/*  */
+/* show inputs */
+/*  */
+/*  */
+
+
+.close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35px;
+  height: 30px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(52,73,94,0.8);
+  z-index: 50;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.7s;
+}
+.modal-input {
+  position: fixed;
+  /* top: 50%;
+  left: 50%; */
+  width: fit-content;
+  height: fit-content;
+  /* margin-left: -200px;
+  margin-top: -150px; */
+  background: #bdc3c7;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-out;
+  transform: translateY(45px);
+}
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+.active + .modal-input {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
