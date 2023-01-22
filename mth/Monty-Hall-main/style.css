@@ -7,7 +7,17 @@
   font-family: 'GT-Maru';
   src: url('fonts/GT-Maru-Bold.woff2') format('woff2');
   font-weight: bold;
+   url('../webfonts/fontname.ttf') format('truetype');
 } */
+
+
+@font-face
+{
+    font-family: 'CROWDEN';
+    font-weight: normal;
+    font-style: normal;
+    src: url('./fonts/CROWDEN-Regular.ttf') format('truetype');
+}
 
 :root {
   --orange: #f89e4f;
@@ -37,6 +47,9 @@ body{
   height: 80vh;
   overflow: hidden;
 
+}
+.door {
+  font-family: 'CROWDEN';
 }
 body::after {
   content:"";
@@ -283,19 +296,18 @@ animation-delay:4s;
 
 .bar_light {
   position: absolute;
-
   top: 15%;
-  left: 18%;
+  left: 17%;
   width: 5px;
-  height: 240px;
-  background-color: #ffebabd9 ;
+  height: 74%;
+  background-color: #ffc3abd9 ;
   z-index: 20;
   /* border-radius: 10px; */
-  transform: rotate(1deg);
   color: #d4eaff;
   animation: buzz 0.09s infinite alternate;
+  transform: rotate(-0.2deg);
   /* -webkit-box-shadow: inset 0px 0px 18px 2px rgba(255,0,60,0.35), 0px 0px 18px 5px rgba(255,0,60,0.95);  */
-  box-shadow: inset 0px 0px 23px 9px rgba(255, 178, 46, 0.14), 3px 0px 15px 2px rgba(255, 190, 49, 0.6);
+  box-shadow: inset 0px 0px 2px 9px rgba(255, 178, 46, 0.14), 8px 0px 15px 2px rgba(252, 102, 64, 0.8);
 }
 @keyframes buzz {
   70% {

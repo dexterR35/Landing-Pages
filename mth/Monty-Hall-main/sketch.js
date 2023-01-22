@@ -91,7 +91,7 @@ function resetDoor() {
   for (const door of doors) {
     door.prize = smallCode;
     door.revealed = false;
-    select('.door', door).html(door.index + 1);
+    select('.door', door).html("A");
     door.removeClass('revealed');
     door.removeClass('revealedNone');
     door.removeClass('picked');
@@ -236,8 +236,12 @@ function makeDoors() {
     const content = createDiv();
     content.class('content');
     content.parent(doors[i]);
+
   }
+
 }
+
+
 
 function makeInput() {
   for (let j = 0; j < totalInputs; j++) {
@@ -300,6 +304,9 @@ function makeInput() {
 
 }
 
+let number = c ;
+let letter = String.fromCharCode(number);
+console.log(letter); // Output: "A"
 function setFocus(on) {
   var element = document.activeElement;
   if (on) {
