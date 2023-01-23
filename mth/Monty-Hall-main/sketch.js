@@ -56,42 +56,42 @@ let stats = {
 //       console.log(largeCode, "dataCode")
 //     }
 //   }
-  
+
 //   console.log(xhrObject, "test")
 // };
 
-window.onload = function(){
+window.onload = function () {
   // console.log(request,"start")
   function retriveData() {
     var request = new XMLHttpRequest();
 
 
-  // console.log(request,"new requerst status")
-  request.onreadystatechange = function() {
+    // console.log(request,"new requerst status")
+    request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-          // console.log(this.responseText);
-          // select('.content').html(this.responseText);
-          let codeText = this.responseText;
-          console.log(codeText,"codes");
-          if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
-           codeText.match(/C350/gi) ||codeText.match(/D250/gi) || codeText.match(/D250/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi) ){
-            let match_a =  codeText;
-            console.log(match_a,"matched")
-      
-          } else {
-            let match_a =  "no matched";
-            console.log(match_a,"no mached")
-          }
+        // console.log(this.responseText);
+        // select('.content').html(this.responseText);
+        let codeText = this.responseText;
+        console.log(codeText, "codes");
+        if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
+          codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D250/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+          let match_a = codeText;
+          console.log(match_a, "matched")
 
-          // console.log(match,codeText ,"match")
+        } else {
+          let match_a = "no matched";
+          console.log(match_a, "no mached")
+        }
+
+        // console.log(match,codeText ,"match")
       }
 
-  };
-  request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
-  request.send();
+    };
+    request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
+    request.send();
 
-}
-retriveData();
+  }
+  retriveData();
 
 
 }
@@ -270,7 +270,7 @@ function pickDoor() {
 
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  this.style("background-color", "grey");
+  // this.style("background-color", "grey");
   // this.addClass("test");
   pickedDoor = random(doors);
   pickedDoor = this;
