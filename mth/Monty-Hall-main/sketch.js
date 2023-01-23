@@ -63,9 +63,7 @@ let stats = {
 window.onload = function () {
   // console.log(request,"start")
   function retriveData() {
-    var request = new XMLHttpRequest();
-
-
+    let request = new XMLHttpRequest();
     // console.log(request,"new requerst status")
     request.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -86,26 +84,18 @@ window.onload = function () {
             disabled: "",
             placeholder: codeText,
           });
-        
           // console.log(match_b,"small")
           // console.log(match_a, "matched")
-
         } else {
           let match_a = "no matched";
           console.log(match_a, "no mached")
         }
-
-  
       }
-
     };
     request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
     request.send();
-
   }
   retriveData();
-
-
 }
 // function clickDoors() {
 
