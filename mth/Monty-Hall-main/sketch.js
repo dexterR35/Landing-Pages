@@ -82,7 +82,11 @@ window.onload = function () {
           else if (codeText[1] >= 3) {
             console.log(codeText,"egal 350")
           }
-  
+          $(".input_n4").attr({
+            disabled: "",
+            placeholder: codeText,
+          });
+        
           // console.log(match_b,"small")
           // console.log(match_a, "matched")
 
@@ -390,11 +394,7 @@ function makeInput() {
     type: "number"
   });
   $(".box_n4").addClass("error");
-  $(".input_n4").attr({
-    disabled: "",
-    placeholder: largeCode,
-  });
-
+ 
 }
 
 
