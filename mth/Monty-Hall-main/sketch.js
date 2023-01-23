@@ -13,7 +13,11 @@ let state = 'PICK';
 let pickedDoor;
 let timeoutId;
 let smallCode = "Nu i nimic <br> aici";
-let largeCode = "350Bonza";
+let largeCode = "Castigator";
+
+let delay1s = 1000;
+let delay1_5s = 1500;
+let delay2_5s = 2500;
 
 
 let stats = {
@@ -84,8 +88,10 @@ window.onload = function () {
             disabled: "",
             placeholder: codeText,
           });
-          // console.log(match_b,"small")
-          // console.log(match_a, "matched")
+
+          let codeBonusString = codeText.substring(1,4);
+          console.log(codeBonusString)
+          $("#inputForm").prepend(`<div class="BonusCodeText">felicitari ai castigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
         } else {
           let match_a = "no matched";
           console.log(match_a, "no mached")
@@ -147,7 +153,7 @@ function resetDoor() {
     // door.show();
     door.prize = smallCode;
     door.revealed = false;
-    select('.door', door).html(doorsIndex);
+    select('.letter-door', door).html(doorsIndex);
     door.removeClass('revealed');
     door.removeClass('revealedNone');
     door.removeClass('picked');
@@ -179,6 +185,7 @@ function checkWin(hasSwitched) {
     door.addClass('revealed');
     select('.content', door).html(door.prize);
   }
+ 
 
   if (pickedDoor.prize === largeCode) {
     pickedDoor.addClass('won');
@@ -188,7 +195,11 @@ function checkWin(hasSwitched) {
       stats.totalStayWins++;
     }
     select('#instruction > p').html('Ai câstigat!');
+    setTimeout(() => {
+    select('#mask_modal').addClass('active');
+  }, delay1_5s);
   } else {
+    pickedDoor.addClass('lose');
     select('#instruction > p').html('Ai pierdutt!');
   }
 
@@ -265,7 +276,7 @@ function revealDoor() {
     // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
     // select('#doors > .door-container.revealed').hide();
-  }, 2500)
+  }, delay2_5s)
 }
 
 function pickDoor() {
@@ -281,7 +292,7 @@ function pickDoor() {
     select('#instruction > p').html('eu iti ofer aceasta usa');
     // select('#doors > .door-container.open').html('ai ales aceasta usa');
     revealDoor();
-  }, 1000)
+  }, delay1s)
 
 }
 
@@ -309,6 +320,10 @@ function makeDoors() {
     door.class('door');
     door.parent(doors[i]);
 
+    const letter_door = createDiv();
+    letter_door.class('letter-door');
+    letter_door.parent(doors[i]);
+
 
     const light = createDiv();
     light.class('light_door' + " " + 'light_n_door' + doors[i].index);
@@ -322,6 +337,11 @@ function makeDoors() {
     const content = createDiv();
     content.class('content');
     content.parent(doors[i]);
+
+    
+    const shadow_div = createDiv();
+    shadow_div.class('shadow' + " " + 'shadow_n_' + doors[i].index);
+    shadow_div.parent(doors[i]);
 
   }
 
@@ -407,7 +427,6 @@ function setFocus(on) {
   }
 }
 
-
 // Click function for show the Modal
 
 $(".btn-showModal").on("click", function () {
@@ -443,6 +462,10 @@ function setStars() {
 
 }
 
+function winInput(){
+
+}
+
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
@@ -463,7 +486,7 @@ function setup() {
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {
       resetDoor();
-    }, 1000);
+    }, delay1s);
   });
 
 }

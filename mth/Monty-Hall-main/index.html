@@ -28,8 +28,8 @@
   </head>
   <body>
 
-	<div id="comets"></div>
-	<div id="satelit"></div>
+	<div id="comets" style="display: none;"></div>
+	<div id="satelit" style="display: none;"></div>
     <main id="app" class="app-main">
       <div id="doors"></div>
       <div id="instruction">
@@ -40,11 +40,10 @@
         </div>
         <button id="play-again" class="btnNew">Joaca din Nou</button>
       </div>
-      <button class="show btnNew btn-showModal"  aria-haspopup="true">inregistreza te</button>
-      <div class="mask" role="dialog"></div>
+      <!-- <button class="show btnNew btn-showModal"  aria-haspopup="true">inregistreza te</button> -->
+      <div class="mask" role="dialog" id="mask_modal"></div>
       <div class="modal-input" role="alert">
         <div class="container-input">
-      
           <form id="inputForm">
             <h2 class="h2-input">inregistreaza te in universul netbet</h2>
           </form>
