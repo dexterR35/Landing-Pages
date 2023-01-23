@@ -98,8 +98,17 @@ body::before{
     transform: translateX(0px) scale(1) rotate(0deg);
   }
   100%{
-    transform: translateX(-100px) scale(1.2) rotate(-10deg);
+    transform: translateX(-100px) scale(1.2) rotate(0deg);
   }
+}
+
+@keyframes f-universes {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+	}
 }
 /* .container-input {
   display: none;
@@ -140,7 +149,6 @@ body::before{
   /* background: red !important; */
   height: 400px;
   position: relative;
-  clip-path: polygon(91% 1%, 87% 8%, 87% 100%, 14% 100%, 14% 10%, 11% 5%, 10% 1%);
   /* background-color: red !important; */
   /* -webkit-mask-image: url(./img/test2.png);
   mask-image: url(./img/test2.png); */
@@ -151,6 +159,7 @@ body::before{
   background-repeat: no-repeat;
   background-position:center bottom;
   background-size:60%;
+  
   /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -174,16 +183,23 @@ body::before{
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 1;
+  
+  
+
+}
+.door {
+  clip-path: polygon(21% 12%, 80% 12%, 80% 100%, 21% 100%);
 }
 .door-container:nth-child(1)::before {
   background-image: url(./img/door_left.png);
+  
   
   /* transform: skew(-50deg) rotateX(70deg); */
   /* left: -15px; */
 }
 .door-container:nth-child(2)::before {
   background-image: url(./img/door_center.png);
-  clip-path: polygon(91% 1%, 87% 8%, 87% 100%, 14% 100%, 14% 10%, 11% 5%, 10% 1%);
+  /* clip-path: polygon(91% 1%, 87% 8%, 87% 100%, 14% 100%, 14% 10%, 11% 5%, 10% 1%); */
 
   /* left: 40px;
   transform: skewX(0deg);
@@ -194,7 +210,21 @@ body::before{
   /* left: 115px; */
 }
 
+.door-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./img/inside-door2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  clip-path: polygon(21% 12%, 80% 12%, 80% 100%, 21% 100%);
 
+}
 
 .door {
   position: absolute;

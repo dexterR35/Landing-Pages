@@ -74,16 +74,24 @@ window.onload = function () {
         let codeText = this.responseText;
         console.log(codeText, "codes");
         if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
-          codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D250/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
-          let match_a = codeText;
-          console.log(match_a, "matched")
+          codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D350/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+          // console.log(codeText[1] == 2, "codess")
+          if (codeText[1] <= 2) {
+            console.log(codeText, "egal 250")
+          }
+          else if (codeText[1] >= 3) {
+            console.log(codeText,"egal 350")
+          }
+  
+          // console.log(match_b,"small")
+          // console.log(match_a, "matched")
 
         } else {
           let match_a = "no matched";
           console.log(match_a, "no mached")
         }
 
-        // console.log(match,codeText ,"match")
+  
       }
 
     };
