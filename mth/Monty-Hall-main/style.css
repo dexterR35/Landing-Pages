@@ -20,9 +20,22 @@
 }
 
 :root {
-  --orange: #f89e4f;
-  --purple: crimson;
-  --red: #f16164;
+  /* --orange: #f89e4f; */
+  --button_color: crimson;
+  --modal-inputBg:#fff;
+
+  --bg-white:#fff;
+  --color-white:#fff;
+
+
+
+  --border-input:#dadce0;
+  --border-inputFocus:#1a73e8;
+  --border-error:#f44336;
+  /* --red: #f16164; */
+
+
+  --color-focusText:#1a73e8;
 }
 
 * {
@@ -407,7 +420,7 @@ animation-delay:4s;
 #stats .bar {
   width: 0;
   height: 2rem;
-  background-color: var(--purple);
+  background-color: var(--button_color);
   position: relative;
 }
 
@@ -645,7 +658,7 @@ animation-delay:4s;
 
 .container-input {
   width: 100%;
-  background-color: #d4eaff;
+  /* background-color: var(--modal-inputBg); */
   padding: 1em;
 }
 
@@ -654,7 +667,7 @@ animation-delay:4s;
   max-width: 600px;
   padding: 0.5em 1em;
   margin: 0 auto;
-  background-color: rgba(241, 23, 23, 0.63);
+  /* background-color: rgba(241, 23, 23, 0.63); */
 }
 @media screen and (max-width:650px) {
   #inputForm {
@@ -685,7 +698,7 @@ animation-delay:4s;
 .input-box {
  position: relative;
  margin: 10px 0;
- background-color: black;
+ /* background-color: black; */
 }
 .input-box .input-label {
  position: absolute;
@@ -716,29 +729,29 @@ animation-delay:4s;
  width: 100%;
  border-radius: 4px;
  color: #202124;
- border: 1px solid #dadce0;
+ border: 1px solid var(--border-input);
  padding: 13px 15px;
  transition: 250ms;
 }
 .input-box .input-input:focus {
  outline: none;
- border: 2px solid #1a73e8;
+ border: 1px solid var(--border-inputFocus);
  transition: 250ms;
 }
 .input-box.error .input-label {
  color: #f44336;
  top: -8px;
- background: #fff;
+ background: var(--bg-white);
  font-size: 11px;
  transition: 250ms;
 }
 .input-box.error .input-input {
- border: 2px solid #f44336;
+ border: 1px solid var(--border-error);
 }
 .input-box.focus .input-label, .input-box.active .input-label {
- color: #1a73e8;
+ color: var(--color-focusText);
  top: -8px;
- background: #fff;
+ background: var(--bg-white);
  font-size: 11px;
  transition: 250ms;
 }
@@ -750,13 +763,21 @@ animation-delay:4s;
  transition: 250ms;
 }
 .input_n4{
-  color: white !important;
+  color: var(--color-white) !important;
 }
 .input-box.active .input-input {
  border: 2px solid #1a73e8;
 }
 
-
+.privOne, .privTwo {
+  color: grey;
+}
+.privOne{
+  margin: 12px 0 0;
+}
+.privTwo{
+     margin: 0 0 20px;
+}
 
 
 .btnNew:active {
@@ -764,7 +785,7 @@ animation-delay:4s;
 }
 
 .btnNew{
-  background: #fff;
+  background: var(--bg-white);
   /* all: unset; */
   height: 40px;
   line-height: 20px;
@@ -774,11 +795,11 @@ animation-delay:4s;
   white-space: normal;
   letter-spacing: 0.25px;
   color: white;
-  background-color: var(--purple);
+  background-color: var(--button_color);
   border-radius: 0.3em;
   border: none;
   outline: none;
-  box-shadow: 3px 5px 3px rgba(10, 10, 10,0.6);
+    box-shadow: 4px 5px 5px rgb(10 10 10 / 36%);
   cursor: pointer;
   user-select: none;
   font-weight: bold;
@@ -885,8 +906,9 @@ animation-delay:4s;
   right: 0;
   width: 35px;
   height: 30px;
-  background: #000;
-  color: #fff;
+  /* background: #000; */
+  color: black;
+  background: transparent;
   cursor: pointer;
   border: 0;
 }
@@ -904,13 +926,14 @@ animation-delay:4s;
 }
 .modal-input {
   position: fixed;
+  border-radius: 10px;
   /* top: 50%;
   left: 50%; */
   width: fit-content;
   height: fit-content;
   /* margin-left: -200px;
   margin-top: -150px; */
-  background: #bdc3c7;
+  background-color: var(--modal-inputBg);
   z-index: 100;
   visibility: hidden;
   opacity: 0;

@@ -12,8 +12,8 @@ let fallingStars = 6;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
-let smallCode = "Nu i nimic <br> aici"
-let largeCode = "ai castigat <br> 350 runde"
+let smallCode = "Nu i nimic <br> aici";
+let largeCode = "350Bonza";
 
 
 let stats = {
@@ -37,20 +37,7 @@ let stats = {
 
 
 // var xhrObject = new XMLHttpRequest();
-// console.log(xhrObject, "test")
-// xhrObject.onreadystatechange = function () {
-//   if (xhrObject.readyState === 4) {
-//     if (xhrObject.status === 200 || xhrObject.status === 304) {
-//       // Success! Do stuff with data.
-//       // console.log(xhrObject.responseText); 
-//       // let dataCode = xhrObject.responseText
-//       // console.log(dataCode,"dataCode")
-//       let dataCode = xhrObject.responseText
-//       console.log(dataCode, "dataCode")
-//     }
-//   }
-
-// };
+// console.log(xhrObject)
 
 // xhrObject.open(
 //   "GET",
@@ -58,10 +45,56 @@ let stats = {
 //   true
 // );
 // xhrObject.send();
+// xhrObject.onreadystatechange = function (test) {
+//   if (xhrObject.readyState === 4) {
+//     if (xhrObject.status === 200 || xhrObject.status === 304) {
+//       // Success! Do stuff with data.
+//       // console.log(xhrObject.responseText); 
+//       // let dataCode = xhrObject.responseText
+//       // console.log(dataCode,"dataCode")
+//       let largeCode = xhrObject.responseText
+//       console.log(largeCode, "dataCode")
+//     }
+//   }
+  
+//   console.log(xhrObject, "test")
+// };
+
+window.onload = function(){
+  // console.log(request,"start")
+  function retriveData() {
+    var request = new XMLHttpRequest();
 
 
+  // console.log(request,"new requerst status")
+  request.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+          // console.log(this.responseText);
+          // select('.content').html(this.responseText);
+          let codeText = this.responseText;
+          console.log(codeText,"codes");
+          if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
+           codeText.match(/C350/gi) ||codeText.match(/D250/gi) || codeText.match(/D250/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi) ){
+            let match_a =  codeText;
+            console.log(match_a,"matched")
+      
+          } else {
+            let match_a =  "no matched";
+            console.log(match_a,"no mached")
+          }
+
+          // console.log(match,codeText ,"match")
+      }
+
+  };
+  request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
+  request.send();
+
+}
+retriveData();
 
 
+}
 // function clickDoors() {
 
 //   let doorsClick = document.querySelectorAll(".door-container");
@@ -205,7 +238,7 @@ function revealDoor() {
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
-  console.log(lastDoor, "lastDoor for pick")
+  // console.log(lastDoor, "lastDoor for pick");
 
   const recentDoorRev = doors.find(
     (door) => door.hasClass('revealed') && !door.hasClass('picked')
@@ -221,16 +254,12 @@ function revealDoor() {
   }
   setTimeout(() => {
     select('#instruction > p').html(
-      `Vrei sa schimbi cu usa nr #${lastDoorIndex}?`
+      `Vrei sa schimbi cu usa ${lastDoorIndex}?`
     );
-
     // let doorIndex = lastDoor.index + 1;
-
     // lastDoor.addClass("switch" + doorIndex);
-
     // console.log(doorIndex, "door index");
-
-    console.log(recentDoorRev, "door revealed")
+    // console.log(recentDoorRev, "door revealed");
     // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
     // select('#doors > .door-container.revealed').hide();
@@ -241,7 +270,7 @@ function pickDoor() {
 
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  // this.style("background-color", "grey");
+  this.style("background-color", "grey");
   // this.addClass("test");
   pickedDoor = random(doors);
   pickedDoor = this;
@@ -355,7 +384,7 @@ function makeInput() {
   $(".box_n4").addClass("error");
   $(".input_n4").attr({
     disabled: "",
-    placeholder: "runde"
+    placeholder: largeCode,
   });
 
 }
