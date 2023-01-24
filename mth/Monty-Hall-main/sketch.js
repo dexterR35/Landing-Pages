@@ -1,7 +1,8 @@
 const doors = [];
 const inputs = [];
 const comets = [];
-
+const instruction = [];
+// const instruction = []
 // let user_email;
 // let user_name;
 // let user_codeSmart;
@@ -9,13 +10,19 @@ const comets = [];
 
 
 
+let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
+let text_two = "eu pot sa elimin una dintre cele 3 usi"
+let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
+
+
 let totalDoors = 3;
 let totalInputs = 5;
 let fallingStars = 6;
+let totalInstr = 3;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
-let smallCode = 200;
+let smallCode = "GOL";
 let largeCode = [];
 
 
@@ -33,81 +40,43 @@ let stats = {
   totalStayWins: 0,
 };
 
-// function changeInputType(oldObject, oType) {
-//   var newObject = document.createElement("input");
-//   newObject.type = oType;
-//   if (oldObject.size) newObject.size = oldObject.size;
-//   if (oldObject.value) newObject.value = oldObject.value;
-//   if (oldObject.name) newObject.name = oldObject.name;
-//   if (oldObject.id) newObject.id = oldObject.id;
-//   if (oldObject.className) newObject.className = oldObject.className;
-//   oldObject.parentNode.replaceChild(newObject, oldObject);
-//   return newObject;
-// }
 
-
-// var xhrObject = new XMLHttpRequest();
-// console.log(xhrObject)
-
-// xhrObject.open(
-//   "GET",
-//   "https://casino-promo.netbet.ro/scripts/api/space/getcode.php",
-//   true
-// );
-// xhrObject.send();
-// xhrObject.onreadystatechange = function (test) {
-//   if (xhrObject.readyState === 4) {
-//     if (xhrObject.status === 200 || xhrObject.status === 304) {
-//       // Success! Do stuff with data.
-//       // console.log(xhrObject.responseText); 
-//       // let dataCode = xhrObject.responseText
-//       // console.log(dataCode,"dataCode")
-//       let largeCode = xhrObject.responseText
-//       console.log(largeCode, "dataCode")
-//     }
-//   }
-
-//   console.log(xhrObject, "test")
-// };
-
-window.onload = function () {
-  // console.log(request,"start")
-  function retriveData() {
-    let request = new XMLHttpRequest();
-    // console.log(request,"new requerst status")
-    request.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        // console.log(this.responseText);
-        // select('.content').html(this.responseText);
-        let codeText = this.responseText;
-        console.log(codeText, "codes");
-        if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
-          codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D350/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
-          // console.log(codeText[1] == 2, "codess")
-          if (codeText[1] <= 2) {
-            console.log(codeText, "egal 250")
-          } else if (codeText[1] >= 3) {
-            console.log(codeText, "egal 350")
-          }
-          $(".input_n4").attr({
-            disabled: "",
-            placeholder: codeText,
-          });
-
-          let codeBonusString = codeText.substring(1, 4);
-          largeCode = codeText.substring(1, 4) + " " + 'runde <br/> gratuite';
-          console.log(codeBonusString);
-          $("#inputForm").prepend(`<div class="BonusCodeText">felicitări ai câștigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
-        } else {
-          let match_a = "no matched";
-          console.log(match_a, "no mached")
+function retriveData() {
+  let request = new XMLHttpRequest();
+  // console.log(request,"new requerst status")
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // console.log(this.responseText);
+      // select('.content').html(this.responseText);
+      let codeText = this.responseText;
+      console.log(codeText, "codes");
+      if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
+        codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D350/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+        // console.log(codeText[1] == 2, "codess")
+        if (codeText[1] <= 2) {
+          console.log(codeText, "egal 250")
+        } else if (codeText[1] >= 3) {
+          console.log(codeText, "egal 350")
         }
+        $(".input_n4").attr({
+          disabled: "",
+          placeholder: codeText,
+        });
+
+        let codeBonusString = codeText.substring(1, 4);
+        // let codeBonusUpper = codeText;
+        largeCode = codeText.substring(1, 4) + " " + '<br/> runde <br/>';
+        // console.log(codeBonusUpper);
+        $("#inputForm").prepend(`<div class="BonusCodeText">felicitări ai câștigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
+
+      } else {
+        let match_a = "no matched";
+        console.log(match_a, "no mached")
       }
-    };
-    request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
-    request.send();
-  }
-  retriveData();
+    }
+  };
+  request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
+  request.send();
 }
 
 function clearStats() {
@@ -120,20 +89,18 @@ function clearStats() {
   clearStorage();
 }
 
-function getLetter(num) {
-  var letter = String.fromCharCode(num + 64);
-  return letter;
-}
+// function getLetter(num) {
+//   var letter = String.fromCharCode(num + 64);
+//   return letter;
+// }
 
-console.log(getLetter(1));
-console.log(getLetter(2));
-console.log(getLetter(3));
+// console.log(getLetter(1));
+// console.log(getLetter(2));
+// console.log(getLetter(3));
 
 function resetDoor() {
-
   for (const door of doors) {
     let doorsIndex = door.index + 1;
-
     if (doorsIndex === 1) {
       doorsIndex = "A"
     } else if (doorsIndex === 2) {
@@ -141,7 +108,7 @@ function resetDoor() {
     } else if (doorsIndex === 3) {
       doorsIndex = "C"
     }
-    // door.show();
+    door.show();
     door.prize = smallCode;
     door.revealed = false;
     select('.letter-door', door).html(doorsIndex);
@@ -159,33 +126,32 @@ function resetDoor() {
     door.removeClass('switch3');
     // door.style("background-color:unset");
     select('.content', door).html("");
-
+    select('#instr_text').show();
   }
   // $(".door-container").removeClass("open switch1 switch2 switch3");
   // $(".door-container").removeClass("switch);
 
   const winner = random(doors);
   winner.prize = largeCode;
-
   state = 'PICK';
+  // select('#instruction > span').html('Alege o usă...!');
   select('#instruction > p').html('Alege o usă...!');
   select('#instruction > .choices').hide();
   select('#instruction > #play-again').hide();
-
+  // select('#instruction').hide();
 }
-
 
 function checkWin(hasSwitched) {
 
   for (const door of doors) {
     door.addClass('revealed');
-    select('.letter-door',door).addClass("revealed");
+    select('.letter-door', door).addClass("revealed");
     select('.content', door).html(door.prize);
   }
 
-
   if (pickedDoor.prize === largeCode) {
     pickedDoor.addClass('won');
+
     if (hasSwitched) {
       stats.totalSwitchWins++;
     } else {
@@ -204,7 +170,7 @@ function checkWin(hasSwitched) {
     select('#instruction > #play-again').show();
   }, delay1_5s);
   storeItem('montey-hall-stats', stats);
-
+  // retriveData();
 }
 
 function chooseDoor(hasSwitched = false) {
@@ -215,7 +181,7 @@ function chooseDoor(hasSwitched = false) {
     const newPick = doors.find(
       (door) => !door.hasClass('revealed') && !door.hasClass('picked')
     );
-    
+
     newPick.addClass('picked');
     pickedDoor.removeClass('picked');
     pickedDoor = newPick;
@@ -230,7 +196,7 @@ function revealDoor() {
   const options = doors.filter(
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
-console.log(options,"options")
+  console.log(options, "options")
   // The player got the right door!
   if (options.length === doors.length - 1) {
     // Randomly remove 1
@@ -240,29 +206,26 @@ console.log(options,"options")
 
   for (const revealedDoor of options) {
     revealedDoor.addClass('revealed');
-
     select('.content', revealedDoor).html(revealedDoor.prize);
-    select('.letter-door',revealedDoor).addClass("revealed");
- 
+    select('.letter-door', revealedDoor).addClass("revealed");
     // select('.letter-door',recentDoorRev).addClass("revealed");
     console.log(revealedDoor);
-    console.log(revealedDoor.prize,"prize");
-    
+    console.log(revealedDoor.prize, "prize");
   }
- 
+
 
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
   // console.log(lastDoor, "lastDoor for pick");
-
-  const recentDoorRev = doors.find(
-    (door) => door.hasClass('revealed') && !door.hasClass('open') 
-  );
+  // const recentDoorRev = doors.find(
+  //   (door) => door.hasClass('revealed') && !door.hasClass('open')
+  // );
   const stayDoorsRev = doors.find(
-    (door) => !door.hasClass('revealed') && !door.hasClass('open') 
+    (door) => !door.hasClass('revealed') && !door.hasClass('open')
   );
-  select('.letter-door',stayDoorsRev).addClass("pause");
+
+  select('.letter-door', stayDoorsRev).addClass("pause");
   lastDoorIndex = lastDoor.index + 1;
   if (lastDoorIndex === 1) {
     lastDoorIndex = "A"
@@ -271,19 +234,17 @@ console.log(options,"options")
   } else if (lastDoorIndex === 3) {
     lastDoorIndex = "C"
   }
- 
- 
+
   setTimeout(() => {
     select('#instruction > p').html(
       `Vrei sa schimbi cu usă #${lastDoorIndex}?`
     );
     // let doorIndex = lastDoor.index + 1;
     // lastDoor.addClass("switch" + doorIndex);
-    // console.log(doorIndex, "door index");
     // console.log(recentDoorRev, "door revealed");
     // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
-    // select('#doors > .door-container.revealed').hide();
+    select('#doors > .door-container.revealed').hide();
   }, delay2s)
 }
 
@@ -296,14 +257,13 @@ function pickDoor() {
   pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked open');
-  select('.letter-door',pickedDoor).addClass("open");
+  select('.letter-door', pickedDoor).addClass("open");
   setTimeout(() => {
-    
     select('#instruction > p').html('eu iți ofer această usă');
-    // select('#doors > .door-container.open').html('ai ales aceasta usa');
     revealDoor();
-  }, delay1s)
-
+  }, delay1s);
+  
+   select('#instr_text').hide();
 }
 
 function makeDoors() {
@@ -352,18 +312,28 @@ function makeDoors() {
 }
 
 
+function makeInstruction() {
+  for (let g = 0; g < totalInstr; g++) {
+    instruction[g] = createDiv();
+    instruction[g].parent("instr_text");
+    instruction[g].index = g;
+    instruction[g].class("instr-container" + " " + 'instr_n_' + g);
+  }
+  select('#instr_text > .instr_n_0').html(text_one);
+  select('#instr_text > .instr_n_1').html(text_two);
+  select('#instr_text > .instr_n_2').html(text_tree);
+}
 
 function makeInput() {
   for (let j = 0; j < totalInputs; j++) {
     inputs[j] = createDiv();
     inputs[j].parent("#inputForm");
-    inputs[j].class("input-box" + " " + 'box_n' + j);
     inputs[j].index = j;
+    inputs[j].class("input-box" + " " + 'box_n' + j);
 
     let make_input = createInput();
     make_input.class('input-input' + " " + 'input_n' + inputs[j].index);
     make_input.parent(inputs[j]);
-
   }
 
 
@@ -372,6 +342,7 @@ function makeInput() {
   input_lastName = "prenume"
   input_phone = "telefon";
   input_bonusCode = "cod Bonus"
+
 
   privacy_terms = "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate."
   privacy_marketing = "Sunt de acord să primesc comunicări de marketing din partea NetBet."
@@ -384,14 +355,14 @@ function makeInput() {
   $(".box_n4").prepend(`<label class="input-label">${input_bonusCode}</label>`);
 
   $("#inputForm").append(`<div class="privOne">
-        <input type="checkbox" id="privacy-check" name="privacy-check">
+        <input type="checkbox" id="privacy-check" name="privacy-check" class="input_check">
         <label for="privacy-check" class="privacy-text">${privacy_terms}</label>
         </div>
         <div class="privTwo">
-        <input type="checkbox" id="marketing-check" name="marketing-check">
+        <input type="checkbox" id="marketing-check" name="marketing-check" class="input_check">
         <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
         </div>
-        <button type="button" class="btnNew btn-primary btn_send pull-right">Înregistrează-te</button>
+       <button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button>
     <div class="clear"></div>`);
 
   $(".input-input").attr({
@@ -399,7 +370,7 @@ function makeInput() {
     onblur: "setFocus(false)",
     required: "",
   });
-
+  //  <a href="https://marianiordache.ro+${input_bonusCode}"><button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button></a>
   $(".input_n0").attr({
     type: "email"
   });
@@ -407,10 +378,20 @@ function makeInput() {
   $(".input_n3").attr({
     type: "number"
   });
+
   $(".box_n4").addClass("error");
 
+  $(".input_check").click(function () {
+    var len = $(".input_check:checked").length;
+    if (len >= 2) {
+      $(".btn_send").removeAttr("disabled");
+      $(".btn_send").removeClass("disabled");
+    } else {
+      $(".btn_send").addClass("disabled");
+      $(".btn_send").prop("disabled", true);
+    }
+  });
 }
-
 
 
 function setFocus(on) {
@@ -476,7 +457,8 @@ function setup() {
   makeInput();
   resetDoor();
   setStars();
-
+  retriveData();
+  makeInstruction();
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
   });
@@ -490,7 +472,7 @@ function setup() {
       resetDoor();
     }, delay1s);
   });
- 
+
 }
 
-console.log(inputs, "inputs")
+console.log(inputs, "inputs");
