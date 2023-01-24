@@ -5,19 +5,25 @@ const comets = [];
 // let user_email;
 // let user_name;
 // let user_codeSmart;
-// let user_phone
+// let user_phone;
+
+
+
 let totalDoors = 3;
 let totalInputs = 5;
 let fallingStars = 6;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
-let smallCode = "Nu i nimic <br> aici";
-let largeCode = "Castigator";
+let smallCode = 200;
+let largeCode = [];
+
 
 let delay1s = 1000;
 let delay1_5s = 1500;
+let delay2s = 2000;
 let delay2_5s = 2500;
+
 
 
 let stats = {
@@ -80,18 +86,18 @@ window.onload = function () {
           // console.log(codeText[1] == 2, "codess")
           if (codeText[1] <= 2) {
             console.log(codeText, "egal 250")
-          }
-          else if (codeText[1] >= 3) {
-            console.log(codeText,"egal 350")
+          } else if (codeText[1] >= 3) {
+            console.log(codeText, "egal 350")
           }
           $(".input_n4").attr({
             disabled: "",
             placeholder: codeText,
           });
 
-          let codeBonusString = codeText.substring(1,4);
-          console.log(codeBonusString)
-          $("#inputForm").prepend(`<div class="BonusCodeText">felicitari ai castigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
+          let codeBonusString = codeText.substring(1, 4);
+          largeCode = codeText.substring(1, 4) + " " + 'runde <br/> gratuite';
+          console.log(codeBonusString);
+          $("#inputForm").prepend(`<div class="BonusCodeText">felicitări ai câștigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
         } else {
           let match_a = "no matched";
           console.log(match_a, "no mached")
@@ -103,21 +109,6 @@ window.onload = function () {
   }
   retriveData();
 }
-// function clickDoors() {
-
-//   let doorsClick = document.querySelectorAll(".door-container");
-
-// doorsClick.forEach(function(doorS) {
-//   doorS.addEventListener("click", function(s) {
-//     // Code to open the door goes here
-//     // The 'this' keyword refers to the button that was clicked
-//     console.log("Opening door:", this);
-
-//   });
-
-// });
-// }
-
 
 function clearStats() {
   stats = {
@@ -154,10 +145,14 @@ function resetDoor() {
     door.prize = smallCode;
     door.revealed = false;
     select('.letter-door', door).html(doorsIndex);
+    select('.letter-door', door).removeClass("open");
+    select('.letter-door', door).removeClass("pause");
+    select('.letter-door', door).removeClass("revealed");
     door.removeClass('revealed');
     door.removeClass('revealedNone');
     door.removeClass('picked');
     door.removeClass('won');
+    door.removeClass('lose');
     door.removeClass('open');
     door.removeClass('switch1');
     door.removeClass('switch2');
@@ -171,8 +166,9 @@ function resetDoor() {
 
   const winner = random(doors);
   winner.prize = largeCode;
+
   state = 'PICK';
-  select('#instruction > p').html('Alege o usă!');
+  select('#instruction > p').html('Alege o usă...!');
   select('#instruction > .choices').hide();
   select('#instruction > #play-again').hide();
 
@@ -183,9 +179,10 @@ function checkWin(hasSwitched) {
 
   for (const door of doors) {
     door.addClass('revealed');
+    select('.letter-door',door).addClass("revealed");
     select('.content', door).html(door.prize);
   }
- 
+
 
   if (pickedDoor.prize === largeCode) {
     pickedDoor.addClass('won');
@@ -196,21 +193,21 @@ function checkWin(hasSwitched) {
     }
     select('#instruction > p').html('Ai câstigat!');
     setTimeout(() => {
-    select('#mask_modal').addClass('active');
-  }, delay1_5s);
+      select('#mask_modal').addClass('active');
+    }, delay1_5s);
   } else {
     pickedDoor.addClass('lose');
-    select('#instruction > p').html('Ai pierdutt!');
+    select('#instruction > p').html('Ai pierdut!');
+    // select('#doors > .lose > .content').html(largeCode);
   }
-
-  select('#instruction > #play-again').show();
+  setTimeout(() => {
+    select('#instruction > #play-again').show();
+  }, delay1_5s);
   storeItem('montey-hall-stats', stats);
 
 }
 
 function chooseDoor(hasSwitched = false) {
-
-
 
   select('#instruction > .choices').hide();
   if (hasSwitched) {
@@ -218,15 +215,14 @@ function chooseDoor(hasSwitched = false) {
     const newPick = doors.find(
       (door) => !door.hasClass('revealed') && !door.hasClass('picked')
     );
+    
     newPick.addClass('picked');
     pickedDoor.removeClass('picked');
     pickedDoor = newPick;
   } else {
     stats.totalStayPlays++;
   }
-
   checkWin(hasSwitched);
-
 }
 
 function revealDoor() {
@@ -234,7 +230,7 @@ function revealDoor() {
   const options = doors.filter(
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
-
+console.log(options,"options")
   // The player got the right door!
   if (options.length === doors.length - 1) {
     // Randomly remove 1
@@ -244,9 +240,16 @@ function revealDoor() {
 
   for (const revealedDoor of options) {
     revealedDoor.addClass('revealed');
-    select('.content', revealedDoor).html(revealedDoor.prize);
-  }
 
+    select('.content', revealedDoor).html(revealedDoor.prize);
+    select('.letter-door',revealedDoor).addClass("revealed");
+ 
+    // select('.letter-door',recentDoorRev).addClass("revealed");
+    console.log(revealedDoor);
+    console.log(revealedDoor.prize,"prize");
+    
+  }
+ 
 
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
@@ -254,9 +257,12 @@ function revealDoor() {
   // console.log(lastDoor, "lastDoor for pick");
 
   const recentDoorRev = doors.find(
-    (door) => door.hasClass('revealed') && !door.hasClass('picked')
+    (door) => door.hasClass('revealed') && !door.hasClass('open') 
   );
-
+  const stayDoorsRev = doors.find(
+    (door) => !door.hasClass('revealed') && !door.hasClass('open') 
+  );
+  select('.letter-door',stayDoorsRev).addClass("pause");
   lastDoorIndex = lastDoor.index + 1;
   if (lastDoorIndex === 1) {
     lastDoorIndex = "A"
@@ -265,9 +271,11 @@ function revealDoor() {
   } else if (lastDoorIndex === 3) {
     lastDoorIndex = "C"
   }
+ 
+ 
   setTimeout(() => {
     select('#instruction > p').html(
-      `Vrei sa schimbi cu usa ${lastDoorIndex}?`
+      `Vrei sa schimbi cu usă #${lastDoorIndex}?`
     );
     // let doorIndex = lastDoor.index + 1;
     // lastDoor.addClass("switch" + doorIndex);
@@ -276,7 +284,7 @@ function revealDoor() {
     // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
     // select('#doors > .door-container.revealed').hide();
-  }, delay2_5s)
+  }, delay2s)
 }
 
 function pickDoor() {
@@ -288,8 +296,10 @@ function pickDoor() {
   pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked open');
+  select('.letter-door',pickedDoor).addClass("open");
   setTimeout(() => {
-    select('#instruction > p').html('eu iti ofer aceasta usa');
+    
+    select('#instruction > p').html('eu iți ofer această usă');
     // select('#doors > .door-container.open').html('ai ales aceasta usa');
     revealDoor();
   }, delay1s)
@@ -305,14 +315,9 @@ function makeDoors() {
   console.log(doors);
 
   for (let i = 0; i < totalDoors; i++) {
-    // let div1 = createDiv('this is the child');
     doors[i] = createDiv();
     doors[i].parent('#doors');
     doors[i].class('door-container');
-    // if (totalDoors > 10) {
-    //   doors[i].addClass('small');
-    // }
-    // clickDoors();
     doors[i].index = i;
     doors[i].mousePressed(pickDoor);
 
@@ -321,9 +326,8 @@ function makeDoors() {
     door.parent(doors[i]);
 
     const letter_door = createDiv();
-    letter_door.class('letter-door');
+    letter_door.addClass('letter-door');
     letter_door.parent(doors[i]);
-
 
     const light = createDiv();
     light.class('light_door' + " " + 'light_n_door' + doors[i].index);
@@ -338,10 +342,10 @@ function makeDoors() {
     content.class('content');
     content.parent(doors[i]);
 
-    
-    const shadow_div = createDiv();
-    shadow_div.class('shadow' + " " + 'shadow_n_' + doors[i].index);
-    shadow_div.parent(doors[i]);
+
+    // const shadow_div = createDiv();
+    // shadow_div.class('shadow' + " " + 'shadow_n_' + doors[i].index);
+    // shadow_div.parent(doors[i]);
 
   }
 
@@ -387,7 +391,7 @@ function makeInput() {
         <input type="checkbox" id="marketing-check" name="marketing-check">
         <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
         </div>
-        <button type="button" class="btnNew btn-primary btn_send pull-right">trimite</button>
+        <button type="button" class="btnNew btn-primary btn_send pull-right">Înregistrează-te</button>
     <div class="clear"></div>`);
 
   $(".input-input").attr({
@@ -404,7 +408,7 @@ function makeInput() {
     type: "number"
   });
   $(".box_n4").addClass("error");
- 
+
 }
 
 
@@ -462,9 +466,7 @@ function setStars() {
 
 }
 
-function winInput(){
 
-}
 
 function setup() {
   noCanvas();
@@ -488,7 +490,7 @@ function setup() {
       resetDoor();
     }, delay1s);
   });
-
+ 
 }
 
 console.log(inputs, "inputs")

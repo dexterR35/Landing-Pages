@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"
       integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew=="
@@ -22,9 +25,11 @@
     ></script>
 
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css"></i> -->
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta charset="utf-8" />
+
   </head>
   <body>
 
@@ -33,19 +38,19 @@
     <main id="app" class="app-main">
       <div id="doors"></div>
       <div id="instruction">
-        <p>alege o usa!</p>
+        <p></p>
         <div class="choices">
           <button id="yes" class="btnNew btn_choices btn_yes">Da</button>
           <button id="no" class="btnNew btn_choices btn_no">NU</button>
         </div>
-        <button id="play-again" class="btnNew">Joaca din Nou</button>
+        <button id="play-again" class="btnNew">Joacă din Nou</button>
       </div>
       <!-- <button class="show btnNew btn-showModal"  aria-haspopup="true">inregistreza te</button> -->
       <div class="mask" role="dialog" id="mask_modal"></div>
       <div class="modal-input" role="alert">
         <div class="container-input">
           <form id="inputForm">
-            <h2 class="h2-input">inregistreaza te in universul netbet</h2>
+            <h2 class="h2-input">Înregistrează-te in universul netbet</h2>
           </form>
         </div>
         <button class="close-modal" role="button">X</button>
