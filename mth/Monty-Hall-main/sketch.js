@@ -1,52 +1,3 @@
-const doors = [];
-const inputs = [];
-const comets = [];
-const instruction = [];
-// const instruction = []
-// let user_email;
-// let user_name;
-// let user_codeSmart;
-// let user_phone;
-
-// let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
-// let text_two = "eu pot sa elimin una dintre cele 3 usi"
-// let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
-
-
-let totalDoors = 3;
-let totalInputs = 5;
-let fallingStars = 6;
-let totalInstr = 3;
-let state = 'PICK';
-let pickedDoor;
-let timeoutId;
-let smallCode = "GOL";
-
-
-
-
-let delay1s = 1000;
-let delay1_5s = 1500;
-let delay2s = 2000;
-let delay2_5s = 2500;
-
-
-let stats = {
-  totalSwitchPlays: 0,
-  totalStayPlays: 0,
-  totalSwitchWins: 0,
-  totalStayWins: 0,
-};
-
-let _games = ["A", "B", "C", "D", "E"];
-const randomIndex = Math.floor(Math.random() * _games.length);
-const randomElement = _games[randomIndex];
-console.log(randomElement);
-
-
-
-
-
 
 
 function retriveData() {
@@ -84,27 +35,55 @@ function retriveData() {
   request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
   request.send();
 }
+
+
+const doors = [];
+const inputs = [];
+const comets = [];
+const instruction = [];
+// const instruction = []
+// let user_email;
+// let user_name;
+// let user_codeSmart;
+// let user_phone;
+
+// let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
+// let text_two = "eu pot sa elimin una dintre cele 3 usi"
+// let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
+
+let totalDoors = 3;
+let totalInputs = 5;
+let fallingStars = 6;
+let totalInstr = 3;
+let state = 'PICK';
+let pickedDoor;
+let timeoutId;
+let smallCode = "GOL";
 let largeCode = "";
+let delay1s = 1000;
+let delay1_5s = 1500;
+let delay2s = 2000;
+let delay2_5s = 2500;
 
-function clearStats() {
-  stats = {
-    totalSwitchPlays: 0,
-    totalStayPlays: 0,
-    totalSwitchWins: 0,
-    totalStayWins: 0,
-  };
-  clearStorage();
-}
+let stats = {
+  totalSwitchPlays: 0,
+  totalStayPlays: 0,
+  totalSwitchWins: 0,
+  totalStayWins: 0,
+};
+
+let _games = ["A", "B", "C", "D", "E"];
+const randomIndex = Math.floor(Math.random() * _games.length);
+const randomElement = _games[randomIndex];
+console.log(randomElement);
 
 
-// function getLetter(num) {
-//   var letter = String.fromCharCode(num + 64);
-//   return letter;
-// }
 
-// console.log(getLetter(1));
-// console.log(getLetter(2));
-// console.log(getLetter(3));
+
+
+
+
+
 
 function resetDoor() {
   for (const door of doors) {
@@ -139,6 +118,7 @@ function resetDoor() {
   winner.prize = largeCode;
 
   state = 'PICK';
+
   select('#instruction > p').html('Alege o usă...!');
   select('#instruction > .choices').hide();
   select('#instruction > .p_continue').hide();
@@ -161,12 +141,10 @@ function checkWin(hasSwitched) {
     pickedDoor.addClass('won');
 
     select('#instruction > p').html('Ai câstigat!');
-    // retriveData();
     setTimeout(() => {
       select('#mask_modal').addClass('active');
     }, delay1_5s);
   } else {
-    // pickedDoor.addClass('lose');
     select('#instruction > p').html('Ai pierdut!');
     // select('#doors > .lose > .content').html(largeCode);
   }
@@ -178,8 +156,6 @@ function checkWin(hasSwitched) {
   setTimeout(() => {
     select('#instruction > #play-again').show();
   }, delay1_5s);
-  // storeItem('montey-hall-stats', stats);
-  // retriveData();
 }
 
 function chooseDoor(hasSwitched = false) {
@@ -189,22 +165,17 @@ function chooseDoor(hasSwitched = false) {
     const newPick = doors.find(
       (door) => !door.hasClass('revealed') && !door.hasClass('picked')
     );
-
-
     newPick.addClass('picked');
     pickedDoor.removeClass('picked');
     pickedDoor = newPick;
     // stayDoorsRev.addClass("rev_open");
   } else {
-    // stats.totalStayPlays++;
+      // stayDoorsRev.addClass("rev_open");
   }
   const stayDoorsRev = doors.find(
     (door) => door.hasClass('open')
   );
-
   stayDoorsRev.addClass("rev_open");
-
-
   checkWin(hasSwitched);
 }
 
@@ -216,19 +187,17 @@ function revealDoor() {
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
 
-  // The player got the right door!
+  // right door!
   if (options.length === doors.length - 1) {
     console.log(options.length === doors.length - 1, "test")
     // Randomly remove 1
     options.splice(floor(random(options.length)), 1);
   }
 
-
   for (const revealedDoor of options) {
     revealedDoor.addClass('revealed');
     select('.content', revealedDoor).html(revealedDoor.prize);
   }
-
 
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
@@ -249,15 +218,10 @@ function revealDoor() {
 
   retriveData();
   setTimeout(() => {
-    // select('#instruction > p').html('ai deschid o usa');
   select('#doors > .door-container.revealed').hide();
     select('#instruction > p').html(
       `Vrei sa schimbi cu usă #${lastDoorIndex}?`
     );
-    // let doorIndex = lastDoor.index + 1;
-    // lastDoor.addClass("switch" + doorIndex);
-    // console.log(recentDoorRev, "door revealed");
-    // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
   }, delay2s);
 
@@ -266,15 +230,13 @@ function revealDoor() {
 function pickDoor() {
   if (state !== 'PICK') return;
   state = 'REVEAL';
-  // this.style("background-color", "grey");
-  // this.addClass("test");
   pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked open');
   select('.letter-door', pickedDoor).addClass("open");
   select('#instr_text').hide();
 
-    select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre cele <br/> 2 usi ramase');
+    select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre <br/> cele 2 usi ramase');
     setTimeout(() => {
     select('#instruction > .p_continue').show();
   }, delay2_5s);
@@ -353,15 +315,11 @@ function makeInput() {
   }
 
 
-
   input_name = "nume";
   input_email = "email";
   input_lastName = "prenume"
   input_phone = "telefon";
   input_bonusCode = "cod Bonus"
-  // tttest = largeCode;
-  // console.log(tttest,"test")
-
 
   privacy_terms = "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate."
   privacy_marketing = "Sunt de acord să primesc comunicări de marketing din partea NetBet."
@@ -433,19 +391,17 @@ function setFocus(on) {
   }
 }
 
-// Click function for show the Modal
+
 
 $(".btn-showModal").on("click", function () {
   $(".mask").addClass("active");
 });
 
-// Function for close the Modal
 
 function closeModal() {
   $(".mask").removeClass("active");
 }
 
-// Call the closeModal function on the clicks/keyboard
 
 $(".close-modal, .mask").on("click", function () {
   closeModal();
@@ -465,25 +421,20 @@ function setStars() {
     comets[k].index = k;
   }
 
-
 }
 
 
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
-  // updateStats();
   makeDoors();
   setStars();
   makeInput();
   resetDoor();
-
-  // retriveData();
   makeInstruction();
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
   });
-
   select('button#no').mousePressed(function () {
     chooseDoor(false);
   });
@@ -495,7 +446,5 @@ function setup() {
       resetDoor();
     }, delay1s);
   });
-
 }
 
-console.log(inputs, "inputs");
