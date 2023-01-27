@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+  src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"
+  integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+    let door1, door2, door3;
+let userChoice;
+let montyChoice;
+let gameWon = false;
+
+function setup() {
+  createCanvas(400, 400);
+  door1 = createButton("Door 1");
+  door1.position(50, 50);
+  door1.mousePressed(() => {
+    userChoice = 1;
+    montyChoice = getMontyChoice();
+    openDoor(montyChoice);
+    gameWon = checkWin();
+  });
+
+  door2 = createButton("Door 2");
+  door2.position(150, 50);
+  door2.mousePressed(() => {
+    userChoice = 2;
+    montyChoice = getMontyChoice();
+    openDoor(montyChoice);
+    gameWon = checkWin();
+  });
+
+  door3 = createButton("Door 3");
+  door3.position(250, 50);
+  door3.mousePressed(() => {
+    userChoice = 3;
+    montyChoice = getMontyChoice();
+    openDoor(montyChoice);
+    gameWon = checkWin();
+  });
+}
+
+function draw() {
+  background(200);
+  if (gameWon) {
+    text("You win!", width / 2, height / 2);
+  }
+}
+
+function getMontyChoice() {
+  let choices = [1, 2, 3];
+  choices.splice(userChoice - 1, 1);
+  if (choices.indexOf(1) != -1) {
+    choices.splice(choices.indexOf(1), 1);
+  }
+  return choices[0];
+}
+
+function openDoor(door) {
+  if (door === 1) {
+    door1.hide();
+  } else if (door === 2) {
+    door2.hide();
+  } else if (door === 3) {
+    door3.hide();
+  }
+}
+
+function checkWin() {
+  let switchDoor = [1,2,3].filter(x => x != userChoice && x != montyChoice)[0];
+  console.log(switchDoor,"test")
+  let stay = userChoice;
+  // let winningDoor = Math.floor(Math.random() * 3) + 1;
+  let winningDoor = switchDoor;
+  console.log(winningDoor)
+  return switchDoor === winningDoor;
+}
+  </script>
+</body>
+</html>

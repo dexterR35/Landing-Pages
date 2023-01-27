@@ -32,7 +32,9 @@
   --bg-doorInside: url(./img/INSIDE_V8.png);
 }
 
-* {
+*,*::after,*::before {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -120,13 +122,8 @@ body::before {
 
 #doors {
   display: flex;
-
   gap: 0em;
   position: relative;
-}
-#controls,
-#stats {
-  display: none !important;
 }
 
 .door-container {
@@ -142,6 +139,7 @@ body::before {
   background-position: -100% bottom;
   cursor: default;
 }
+
 
 .door-container.revealedNone {
   display: none;
@@ -184,12 +182,16 @@ body::before {
   top: -15vh;
   font-size: 1em;
 }
-
+.door-container.open.revealed.rev_open::before{
+  transition: var(--transition-mask);
+  background-position: center bottom;
+}
 .door-container.open.revealed::before {
   transition: var(--transition-mask);
   background-position: -100% center;
   /* background-color: red; */
 }
+
 .door-container::before {
   content: "";
   position: absolute;
@@ -312,7 +314,7 @@ body::before {
   width: 100%;
   height: 100%;
   font-size: 1.6rem;
-  z-index: 100;
+  z-index: -1;
   color: rgb(3, 3, 3);
   text-transform: uppercase;
   font-weight: bold;
@@ -335,6 +337,9 @@ body::before {
 .shadow_n_1 {
   background-color: rgb(27, 150, 23);
 }
+
+
+
 .letter-door {
   position: absolute;
   bottom: 8px;
@@ -353,6 +358,8 @@ body::before {
     0 0 4px #0082a7, 0 0 41px #12547e;
 }
 
+
+
 .light_door {
   position: absolute;
   top: 0;
@@ -362,6 +369,8 @@ body::before {
   z-index: 10;
   animation: blink 3s infinite alternate linear;
 }
+
+
 .light_door::after {
   content: "MI";
   position: absolute;
@@ -383,6 +392,8 @@ body::before {
   left: -5%;
   animation-delay: 1s;
 }
+
+
 .light_n_door1 {
   animation-delay: 2s;
 }
@@ -572,7 +583,10 @@ body::before {
   font-weight: bold;
   margin: 0 0 16px auto;
   text-align: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
+}
+.h3-input {
+  color: black;
 }
 .BonusCodeText {
   color: black;
@@ -580,7 +594,19 @@ body::before {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
+  font-size: 1.4rem;
+  flex-direction: column;
+  /* font-weight: bold; */
+}
+.BonusCodeText .line-one {
   font-size: 1.4em;
+  padding: 3px 0;
+  margin-top: -10px;
+}
+.BonusCodeText .line-two {
+  padding: 0 0 10px;
+  line-height: 1.3;
+  font-size: 1.2em;
 }
 #inputForm {
   width: 35em;
@@ -760,6 +786,7 @@ body::before {
   background: transparent;
   cursor: pointer;
   border: 0;
+  /* display: none; */
 }
 .mask {
   position: fixed;

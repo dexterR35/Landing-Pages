@@ -8,9 +8,11 @@ const instruction = [];
 // let user_codeSmart;
 // let user_phone;
 
-// let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
-// let text_two = "eu pot sa elimin una dintre cele 3 usi"
-// let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
+
+
+let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
+let text_two = "eu pot sa elimin una dintre cele 3 usi"
+let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
 
 
 let totalDoors = 3;
@@ -21,14 +23,14 @@ let state = 'PICK';
 let pickedDoor;
 let timeoutId;
 let smallCode = "GOL";
-
-
+let largeCode = [];
 
 
 let delay1s = 1000;
 let delay1_5s = 1500;
 let delay2s = 2000;
 let delay2_5s = 2500;
+
 
 
 let stats = {
@@ -38,42 +40,34 @@ let stats = {
   totalStayWins: 0,
 };
 
-let _games = ["A", "B", "C", "D", "E"];
-const randomIndex = Math.floor(Math.random() * _games.length);
-const randomElement = _games[randomIndex];
-console.log(randomElement);
-
-
-
-
-
-
 
 function retriveData() {
   let request = new XMLHttpRequest();
+  // console.log(request,"new requerst status")
   request.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+      // console.log(this.responseText);
+      // select('.content').html(this.responseText);
       let codeText = this.responseText;
-      console.log(codeText, "cod Brut");
+      console.log(codeText, "codes");
       if (codeText.match(/A250/gi) || codeText.match(/A350/gi) || codeText.match(/B250/gi) || codeText.match(/B350/gi) || codeText.match(/C250/gi) ||
         codeText.match(/C350/gi) || codeText.match(/D250/gi) || codeText.match(/D350/gi) || codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
         // console.log(codeText[1] == 2, "codess")
         if (codeText[1] <= 2) {
-          console.log(codeText[0], "egal cu 250")
+          console.log(codeText, "egal 250")
         } else if (codeText[1] >= 3) {
-          console.log(codeText, "egal cu 350")
+          console.log(codeText, "egal 350")
         }
+        $(".input_n4").attr({
+          disabled: "",
+          placeholder: codeText,
+        });
 
-
-        // let codeBonusString = codeText.substring(1, 4);
+        let codeBonusString = codeText.substring(1, 4);
         // let codeBonusUpper = codeText;
-
-        return largeCode = codeText;
-
-        // console.log(gamesS, "games")
-
+        largeCode = codeText.substring(1, 4) + " " + '<br/> runde <br/>';
         // console.log(codeBonusUpper);
-        // 
+        $("#inputForm").prepend(`<div class="BonusCodeText">felicitări ai câștigat <br/> <span style="visibility:hidden"> - </span> <b> ${codeBonusString} runde gratuite</b></div>`);
 
       } else {
         let match_a = "no matched";
@@ -84,7 +78,6 @@ function retriveData() {
   request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
   request.send();
 }
-let largeCode = "";
 
 function clearStats() {
   stats = {
@@ -95,7 +88,6 @@ function clearStats() {
   };
   clearStorage();
 }
-
 
 // function getLetter(num) {
 //   var letter = String.fromCharCode(num + 64);
@@ -116,7 +108,6 @@ function resetDoor() {
     } else if (doorsIndex === 3) {
       doorsIndex = "C"
     }
-
     door.show();
     door.prize = smallCode;
     door.revealed = false;
@@ -130,95 +121,84 @@ function resetDoor() {
     door.removeClass('won');
     door.removeClass('lose');
     door.removeClass('open');
-    door.removeClass("rev_open");
+    door.removeClass('switch1');
+    door.removeClass('switch2');
+    door.removeClass('switch3');
+    // door.style("background-color:unset");
     select('.content', door).html("");
     select('#instr_text').show();
   }
+  // $(".door-container").removeClass("open switch1 switch2 switch3");
+  // $(".door-container").removeClass("switch);
 
   const winner = random(doors);
   winner.prize = largeCode;
-
   state = 'PICK';
+  // select('#instruction > span').html('Alege o usă...!');
   select('#instruction > p').html('Alege o usă...!');
   select('#instruction > .choices').hide();
-  select('#instruction > .p_continue').hide();
   select('#instruction > #play-again').hide();
+  // select('#instruction').hide();
 }
 
 function checkWin(hasSwitched) {
-  for (let door of doors) {
-    codeString = largeCode.substring(0, 4) + " " + 'runde';
-    door.prize = codeString;
+
+  for (const door of doors) {
     door.addClass('revealed');
     select('.letter-door', door).addClass("revealed");
     select('.content', door).html(door.prize);
   }
 
-  select('.span_code_input').html(codeString + " " + 'gratuite');
-  select('.span_game_input').html(randomElement);
-
-  if (pickedDoor.prize === codeString) {
+  if (pickedDoor.prize === largeCode) {
     pickedDoor.addClass('won');
 
+    if (hasSwitched) {
+      stats.totalSwitchWins++;
+    } else {
+      stats.totalStayWins++;
+    }
     select('#instruction > p').html('Ai câstigat!');
-    // retriveData();
     setTimeout(() => {
       select('#mask_modal').addClass('active');
     }, delay1_5s);
   } else {
-    // pickedDoor.addClass('lose');
+    pickedDoor.addClass('lose');
     select('#instruction > p').html('Ai pierdut!');
     // select('#doors > .lose > .content').html(largeCode);
   }
-
-  $(".input_n4").attr({
-    disabled: "",
-    placeholder: largeCode,
-  });
   setTimeout(() => {
     select('#instruction > #play-again').show();
   }, delay1_5s);
-  // storeItem('montey-hall-stats', stats);
+  storeItem('montey-hall-stats', stats);
   // retriveData();
 }
 
 function chooseDoor(hasSwitched = false) {
+
   select('#instruction > .choices').hide();
   if (hasSwitched) {
-    // stats.totalSwitchPlays++;
+    stats.totalSwitchPlays++;
     const newPick = doors.find(
       (door) => !door.hasClass('revealed') && !door.hasClass('picked')
     );
 
-
     newPick.addClass('picked');
     pickedDoor.removeClass('picked');
     pickedDoor = newPick;
-    // stayDoorsRev.addClass("rev_open");
   } else {
-    // stats.totalStayPlays++;
+    stats.totalStayPlays++;
   }
-  const stayDoorsRev = doors.find(
-    (door) => door.hasClass('open')
-  );
-
-  stayDoorsRev.addClass("rev_open");
-
-
   checkWin(hasSwitched);
 }
 
 function revealDoor() {
-  select('#instruction > .p_continue').hide();
-  select('#instruction > p').html('ti am deschis o usa');
 
   const options = doors.filter(
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
   );
-
+  console.log(options, "options")
   // The player got the right door!
   if (options.length === doors.length - 1) {
-    console.log(options.length === doors.length - 1, "test")
     // Randomly remove 1
     options.splice(floor(random(options.length)), 1);
   }
@@ -227,12 +207,20 @@ function revealDoor() {
   for (const revealedDoor of options) {
     revealedDoor.addClass('revealed');
     select('.content', revealedDoor).html(revealedDoor.prize);
+    select('.letter-door', revealedDoor).addClass("revealed");
+    // select('.letter-door',recentDoorRev).addClass("revealed");
+    console.log(revealedDoor);
+    console.log(revealedDoor.prize, "prize");
   }
 
 
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
+  // console.log(lastDoor, "lastDoor for pick");
+  // const recentDoorRev = doors.find(
+  //   (door) => door.hasClass('revealed') && !door.hasClass('open')
+  // );
   const stayDoorsRev = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('open')
   );
@@ -247,10 +235,7 @@ function revealDoor() {
     lastDoorIndex = "C"
   }
 
-  retriveData();
   setTimeout(() => {
-    // select('#instruction > p').html('ai deschid o usa');
-  select('#doors > .door-container.revealed').hide();
     select('#instruction > p').html(
       `Vrei sa schimbi cu usă #${lastDoorIndex}?`
     );
@@ -259,11 +244,12 @@ function revealDoor() {
     // console.log(recentDoorRev, "door revealed");
     // select('#instruction > p').addClass("tests");
     select('#instruction > .choices').show();
-  }, delay2s);
-
+    select('#doors > .door-container.revealed').hide();
+  }, delay2s)
 }
 
 function pickDoor() {
+
   if (state !== 'PICK') return;
   state = 'REVEAL';
   // this.style("background-color", "grey");
@@ -272,13 +258,12 @@ function pickDoor() {
   pickedDoor = this;
   pickedDoor.addClass('picked open');
   select('.letter-door', pickedDoor).addClass("open");
-  select('#instr_text').hide();
-
-    select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre cele <br/> 2 usi ramase');
-    setTimeout(() => {
-    select('#instruction > .p_continue').show();
-  }, delay2_5s);
-
+  setTimeout(() => {
+    select('#instruction > p').html('eu iți ofer această usă');
+    revealDoor();
+  }, delay1s);
+  
+   select('#instr_text').hide();
 }
 
 function makeDoors() {
@@ -326,6 +311,7 @@ function makeDoors() {
 
 }
 
+
 function makeInstruction() {
   for (let g = 0; g < totalInstr; g++) {
     instruction[g] = createDiv();
@@ -333,14 +319,12 @@ function makeInstruction() {
     instruction[g].index = g;
     instruction[g].class("instr-container" + " " + 'instr_n_' + g);
   }
-  // select('#instr_text > .instr_n_0').html(text_one);
-  // select('#instr_text > .instr_n_1').html(text_two);
-  // select('#instr_text > .instr_n_2').html(text_tree);
+  select('#instr_text > .instr_n_0').html(text_one);
+  select('#instr_text > .instr_n_1').html(text_two);
+  select('#instr_text > .instr_n_2').html(text_tree);
 }
 
 function makeInput() {
-
-
   for (let j = 0; j < totalInputs; j++) {
     inputs[j] = createDiv();
     inputs[j].parent("#inputForm");
@@ -353,14 +337,11 @@ function makeInput() {
   }
 
 
-
   input_name = "nume";
   input_email = "email";
   input_lastName = "prenume"
   input_phone = "telefon";
   input_bonusCode = "cod Bonus"
-  // tttest = largeCode;
-  // console.log(tttest,"test")
 
 
   privacy_terms = "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate."
@@ -383,14 +364,13 @@ function makeInput() {
         </div>
        <button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button>
     <div class="clear"></div>`);
-  $("#inputForm").prepend(`<div class="BonusCodeText"> <span class="line-one">felicitări</span> <hr><span class="line-two"> ai câștigat <b><span class="span_code_input"> </span></b> <br/> la jocul <b><span class="span_game_input"></span></b></span></div>`);
 
   $(".input-input").attr({
     onfocus: "setFocus(true)",
     onblur: "setFocus(false)",
     required: "",
   });
-  //  <a href="https://marianiordache.ro+${input_bonusCode}"><button type="button" class="btnNew btn-primary btn_send disabled" disabled>Înregistrează-te</button></a>
+  //  <a href="https://marianiordache.ro+${input_bonusCode}"><button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button></a>
   $(".input_n0").attr({
     type: "email"
   });
@@ -402,11 +382,10 @@ function makeInput() {
   $(".box_n4").addClass("error");
 
   $(".input_check").click(function () {
-    let lenChecked = $(".input_check:checked").length;
-    if (lenChecked >= 2) {
+    var len = $(".input_check:checked").length;
+    if (len >= 2) {
       $(".btn_send").removeAttr("disabled");
       $(".btn_send").removeClass("disabled");
-
     } else {
       $(".btn_send").addClass("disabled");
       $(".btn_send").prop("disabled", true);
@@ -469,16 +448,16 @@ function setStars() {
 }
 
 
+
 function setup() {
   noCanvas();
   stats = getItem('montey-hall-stats') || stats;
   // updateStats();
   makeDoors();
-  setStars();
   makeInput();
   resetDoor();
-
-  // retriveData();
+  setStars();
+  retriveData();
   makeInstruction();
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
@@ -487,9 +466,7 @@ function setup() {
   select('button#no').mousePressed(function () {
     chooseDoor(false);
   });
-  select('button#yes_continue').mousePressed(function () {
-    revealDoor();
-  });
+
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {
       resetDoor();
