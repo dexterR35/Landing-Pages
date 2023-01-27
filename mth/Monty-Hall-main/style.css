@@ -122,7 +122,7 @@ body::before {
 
 #doors {
   display: flex;
-  gap: 0em;
+  gap: 3em;
   position: relative;
 }
 
@@ -131,12 +131,12 @@ body::before {
   position: relative;
   background-size: 61%;
   /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
-  clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%);
+  /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
   z-index: 10;
 }
 .door-container.revealed::before {
   transition: var(--transition-mask);
-  background-position: -100% bottom;
+  background-position: -400% bottom;
   cursor: default;
 }
 
@@ -148,39 +148,48 @@ body::before {
 .door-container,
 .door-container:before,
 .door-container::after {
-  height: 40vh;
-  max-height: 40vh;
+  height: 50vh;
+  max-height: 50vh;
   background-position: center bottom;
   background-repeat: no-repeat;
 }
 .door-container.open::before {
   transition: var(--transition-mask);
-  background-position: 30% bottom;
+  background-position: 0% bottom;
   /* background-color: red; */
 }
 .letter-door.open {
   transition: var(--transition-mask);
-  left: -6.5%;
-  top: -15vh;
-  font-size: 3.6em;
+  left: -11%;
+  top: -19vh;
+  font-size: 4.6em;
   color: var(--letter_door);
 }
 .letter-door.pause {
   transition: var(--transition-mask);
-  left: 0.5%;
-  top: -15vh;
-  font-size: 3.3em;
+  left: 1%;
+  top: -19vh;
+  font-size: 4.6em;
   color: var(--letter_pause);
   /* text-shadow:
   0 0 23px rgba(0, 252, 105, 0.7),
   0 0 53px rgba(10, 226, 255, 0.7),
   0 0 113px rgba(1, 247, 235, 0.7); */
 }
+.letter-door.pause.revealed{
+opacity: 0;
+}
 .letter-door.revealed {
   transition: var(--transition-mask);
   left: -20vh;
   top: -15vh;
-  font-size: 1em;
+ /* opacity: 0; */
+ transition: left 0.5s ease;
+}
+.letter-door.revealed.rev_open{
+  left: 0%;
+  top: -19vh;
+  opacity: 1;
 }
 .door-container.open.revealed.rev_open::before{
   transition: var(--transition-mask);
@@ -199,7 +208,7 @@ body::before {
   left: 0;
   width: 100%;
   background-image: url(./img/door_open2.png);
-  background-size: 61%;
+  background-size: 75.5%;
   background-position: center bottom;
   z-index: 0;
 }
@@ -259,7 +268,7 @@ body::before {
 }
 
 .door-container.picked {
-  transform: scale(1.1);
+  transform: scale(1.04);
   transition: var(--transition-input);
 }
 
@@ -304,8 +313,10 @@ body::before {
 } */
 
 .content {
+ 
   position: absolute;
-  top: 2vh;
+  padding: 2em;
+  top: 1vh;
   left: 0;
   display: flex;
   align-items: center;
@@ -313,11 +324,27 @@ body::before {
   text-align: center;
   width: 100%;
   height: 100%;
-  font-size: 1.6rem;
+  font-size: 2.4em;
   z-index: -1;
-  color: rgb(3, 3, 3);
+color: rgb(0, 0, 0);
   text-transform: uppercase;
   font-weight: bold;
+}
+.content::after {
+  position: absolute;
+  content:"";
+  width: 40%;
+  height: 65%;
+  background-color: red;
+  border-radius: 1em;
+  left: 50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.149);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    box-shadow: rgb(0 0 0 / 20%) 0px 12px 46px, rgb(0 0 0 / 20%) 0px 12px 22px, inset rgb(255 255 255 / 10%) 0px -10px 20px -5px, inset rgb(255 255 255 / 50%) 0px -1px 1px -1px;
 }
 
 .shadow {
@@ -378,7 +405,7 @@ body::before {
   color: #ddc883;
   /* background: radial-gradient(rgb(233, 191, 7) 30%, #f0bc12, #e0af0d) !important; */
   transform: perspective(1.2em) rotateX(40deg) translateY(100%);
-  filter: blur(8px);
+  filter: blur(6px);
   z-index: 11;
   top: -1%;
   left: 35%;
@@ -405,8 +432,8 @@ body::before {
 
 .bar_light {
   position: absolute;
-  top: 15%;
-  left: 17%;
+  top: 15.5%;
+  left: 9%;
   width: 5px;
   height: 74%;
   background-color: #ffffffd9;
@@ -426,14 +453,14 @@ body::before {
   }
 }
 .bar_n_light1 {
-  left: 16%;
+  left: 7%;
 }
 .bar_n_light1::after {
   content: "";
   position: absolute;
   background-color: #ffffffd9;
   color: #d4eaff;
-  left: 17.9vh;
+  left: 22.7vh;
   top: 0.2vh;
   width: 5px;
   height: 99%;
@@ -444,7 +471,7 @@ body::before {
     10px 0px 19px 5px rgba(245, 94, 24, 0.57);
 }
 .bar_n_light2 {
-  right: 17.5%;
+  right: 8.5%;
   left: unset !important;
   transform: rotate(-180.1deg);
 }
@@ -472,7 +499,7 @@ body::before {
   z-index: 10;
   background-image: url(./img/speachBubble.png);
   width: 70vh;
-  height: 41vh;
+  height: 34vh;
   /* background-color: red; */
   background-repeat: no-repeat;
   background-position: center;
@@ -490,13 +517,13 @@ body::before {
   content: "";
   position: absolute;
   top: 2vh;
-  left: -10vh;
+  left: -1vh;
   width: 100%;
   height: 100%;
   background-image: url(./img/astronaut.png);
   background-repeat: no-repeat;
   background-position: left;
-  background-size: 35%;
+  background-size: 30%;
 }
 #instr_text {
   width: 50%;
@@ -507,14 +534,15 @@ body::before {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.8rem;
-  margin: 1rem 0;
-  transform: translateX(30px);
+  font-size: 1.5rem;
+  margin: 2rem 0;
+  /* transform: translateX(30px); */
 }
 #instruction > .choices,
 #instruction > p,
-#instruction > #play-again {
-  transform: translateX(30px);
+#instruction > #play-again,
+.p_continue {
+  transform: translateX(30px) translateY(-30px);
 }
 #instruction > .choices {
   text-align: center;
@@ -528,6 +556,7 @@ body::before {
   margin-left: 1rem;
   z-index: 20;
 }
+
 
 /* #stats {
   width: 90%;

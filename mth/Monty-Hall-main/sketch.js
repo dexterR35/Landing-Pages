@@ -103,6 +103,7 @@ function resetDoor() {
     select('.letter-door', door).removeClass("open");
     select('.letter-door', door).removeClass("pause");
     select('.letter-door', door).removeClass("revealed");
+    select('.letter-door',door).removeClass("rev_open");
     door.removeClass('revealed');
     door.removeClass('revealedNone');
     door.removeClass('picked');
@@ -127,7 +128,7 @@ function resetDoor() {
 
 function checkWin(hasSwitched) {
   for (let door of doors) {
-    codeString = largeCode.substring(0, 4) + " " + 'runde';
+    codeString = largeCode.substring(1, 4) + " " + 'runde';
     door.prize = codeString;
     door.addClass('revealed');
     select('.letter-door', door).addClass("revealed");
@@ -136,7 +137,7 @@ function checkWin(hasSwitched) {
 
   select('.span_code_input').html(codeString + " " + 'gratuite');
   select('.span_game_input').html(randomElement);
-
+  select('.letter-door.open').addClass("rev_open");
   if (pickedDoor.prize === codeString) {
     pickedDoor.addClass('won');
 
@@ -215,7 +216,6 @@ function revealDoor() {
   } else if (lastDoorIndex === 3) {
     lastDoorIndex = "C"
   }
-
   retriveData();
   setTimeout(() => {
   select('#doors > .door-container.revealed').hide();
@@ -237,9 +237,10 @@ function pickDoor() {
   select('#instr_text').hide();
 
     select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre <br/> cele 2 usi ramase');
-    setTimeout(() => {
     select('#instruction > .p_continue').show();
-  }, delay2_5s);
+    setTimeout(() => {
+
+  }, delay1s);
 
 }
 
