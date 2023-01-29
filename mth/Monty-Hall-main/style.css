@@ -342,7 +342,7 @@ body::before {
   position: absolute;
   content: "";
   width: 60%;
-  height: 32%;
+  height:30%;
   background-color: red;
   border-radius: 1em;
   left: 50%;
@@ -352,7 +352,7 @@ body::before {
   background: rgba(255, 255, 255, 0.149);
   border-radius: 25px;
   filter: blur(2px);
-  opacity: 0.7;
+  opacity: 0.9;
   backdrop-filter: blur(1px);
   box-shadow: rgb(0 0 0 / 20%) 0px 12px 46px, rgb(0 0 0 / 20%) 0px 12px 22px,
     inset rgb(255 255 255 / 10%) 0px -10px 20px -5px,
@@ -415,29 +415,32 @@ body::before {
 
 .light_door {
   position: absolute;
-  top: 0;
+  top: 1%;
   left: 3%;
   width: 29vh;
   height: 45vh;
   z-index: 10;
   animation: blink 3s infinite alternate linear;
+  
 }
 
 .light_door::after {
-  content: "MI";
+  content: "MM";
   position: absolute;
-  border-radius: 1em;
-  color: #ddc883;
+  /* border-radius: 1em; */
+  color: #e8d5cba8;
   /* background: radial-gradient(rgb(233, 191, 7) 30%, #f0bc12, #e0af0d) !important; */
-  transform: perspective(1.2em) rotateX(40deg) translateY(100%);
-  filter: blur(6px);
+  transform: perspective(0.9em) rotateX(32deg) translateY(100%);
+  filter: blur(7px);
   z-index: 11;
   top: -1%;
-  left: 35%;
-  width: 20%;
-  height: 5%;
+  left: 28%;
+  width: 30%;
+  height: 4%;
   background: rgba(255, 255, 255, 0.9) !important;
   font-size: 3rem;
+  display: flex;
+  justify-content: center;
 }
 
 .light_n_door0 {
@@ -450,7 +453,7 @@ body::before {
 }
 
 .light_n_door2 {
-  left: 9%;
+  left: 14%;
   animation-delay: 4s;
 }
 
