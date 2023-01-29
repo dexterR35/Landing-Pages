@@ -268,8 +268,8 @@ body::before {
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-size: 76%;
+  background-position: center bottom;
   z-index: -1;
   background-image: var(--bg-doorInside);
 }
@@ -298,24 +298,50 @@ body::before {
 .content {
   position: absolute;
   padding: 2em;
-  top: 1vh;
-  left: 0;
+  top: 3.8vh;
+  left: -0.35vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   font-size: 3.4vh;
+  /* line-height: 0.8; */
   z-index: -1;
-  color: rgb(0, 0, 0);
+  color: rgb(8, 28, 83);
   text-transform: uppercase;
   font-weight: bold;
+  text-shadow:0 0 0 transparent, 0 0 1px #e1dcff, 0 0 20px rgb(133 253 255 / 96%), 0 0 4px #e8fbff, 0 0 4px #ccf1ff, 0 0 10px #5de7f0a3, 0 0 3px #5ee5eca9, 0 0 4px #79e3ff, 0 0 41px #d8e5ea;
+
 }
+.content-l1{
+  font-size: 1.5em;
+  margin-bottom: -0.3em;
+}
+.content-l2{
+  font-size: 0.75em;
+}
+.content-l3{
+  margin-top: -0.3em;
+  font-size: 0.52em; 
+}
+
+.BonusCodeText .line-two .content-l1,
+.BonusCodeText .line-two .content-l2,
+.BonusCodeText .line-two .content-l3
+ {
+  margin-right: 5px;
+  margin-bottom: unset;
+  font-size: unset;
+  /* margin: unset; */
+}
+
 .content::after {
   position: absolute;
   content: "";
-  width: 66%;
+  width: 60%;
   height: 32%;
   background-color: red;
   border-radius: 1em;
@@ -325,10 +351,14 @@ body::before {
   z-index: -1;
   background: rgba(255, 255, 255, 0.149);
   border-radius: 25px;
-  /* backdrop-filter: blur(5px); */
+  filter: blur(2px);
+  opacity: 0.7;
+  backdrop-filter: blur(1px);
   box-shadow: rgb(0 0 0 / 20%) 0px 12px 46px, rgb(0 0 0 / 20%) 0px 12px 22px,
     inset rgb(255 255 255 / 10%) 0px -10px 20px -5px,
     inset rgb(255 255 255 / 50%) 0px -1px 1px -1px;
+  /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
+
 }
 
 .shadow {
@@ -337,25 +367,28 @@ body::before {
   position: relative;
   display: flex;
   border-radius: 2px;
+  z-index: -1;
   /* gap: 26px; */
   justify-content: flex-end;
   background-color: rgba(12, 12, 12, 0.493);
   background: #1b1b1b; /* Old browsers */
   background: linear-gradient(to bottom, #0000009d 0%,#1b1b1b6e 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter:blur(5px);
+  perspective: 1000px;
+  perspective-origin: 3d;
   /* bottom: -20em; */
 }
 .shadow_n_0 {
   /* background-color: red; */
-  transform: skewX(-45deg) translateX(-120px) translateY(-10px);
+  transform: skewX(-45deg) translateX(-14vh) translateY(-1vh);
 }
 
 .shadow_n_1 {
-  transform: skewX(-5deg) translateX(0px) translateY(-10px);
+  transform: skewX(-5deg) translateX(0px) translateY(-1vh);
   /* background-color: rgb(27, 150, 23); */
 }
 .shadow_n_2{
-  transform: skewX(45deg) translateX(140px) translateY(-10px);
+  transform: skewX(45deg) translateX(17vh) translateY(-1vh);
   /* background-color: rgb(0, 20, 87); */
 }
 
@@ -373,9 +406,11 @@ body::before {
   z-index: 2;
   font-size: 3.7vh;
   color: rgb(20, 89, 116);
-  text-shadow: 0 0 0 transparent, 0 0 1px #0099ff, 0 0 20px rgb(0 195 255 / 50%),
-    0 0 4px #c2e3d5, 0 0 4px #61ddab, 0 0 10px #0bd2e07e, 0 0 3px #29d0d9a9,
-    0 0 4px #0082a7, 0 0 41px #12547e;
+  /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
+}
+.letter-door.light {
+  text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e;
+
 }
 
 .light_door {

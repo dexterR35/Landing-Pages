@@ -25,7 +25,6 @@ function retriveData() {
         gamesCode = _games[3];
         console.log(gamesCode);
       } else if (codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
-
         largeCode = codeText;
         gamesCode = _games[4];
         console.log(gamesCode);
@@ -34,17 +33,10 @@ function retriveData() {
         console.log(" Error no mached");
       }
     }
-    // if (codeText[1] <= 2) {
-    //   console.log(codeText, "egal cu 250")
-    // } else if (codeText[1] >= 3) {
-    //   console.log(codeText, "egal cu 350")
-    // }
-
     // let codeBonusString = codeText.substring(1, 4);
     // let codeBonusUpper = codeText;
     //  largeCode = codeText; 
   }
-
   request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
   request.send();
 };
@@ -86,7 +78,17 @@ let clickSound;
 
 function startGame() {
   for (const door of doors) {
+    let doorsIndex = door.index + 1;
+    if (doorsIndex === 1) {
+      doorsIndex = "A"
+    } else if (doorsIndex === 2) {
+      doorsIndex = "B"
+    } else if (doorsIndex === 3) {
+      doorsIndex = "C"
+    }
+    select('.letter-door', door).html(doorsIndex);
     select('.light_door', door).style("visibility", "hidden");
+    select('.letter-door', door).removeClass("light");
   }
 
   state = '!PICK';
@@ -97,7 +99,7 @@ function startGame() {
     resetDoor();
   });
 
-  select('#instruction > p').html('bine ai venit la...');
+  select('#instruction > p').html('Bine ai venit la...');
   select('#instruction > .choices').hide();
   select('#instruction > .p_continue').hide();
   select('#instruction > #play-again').hide();
@@ -118,6 +120,7 @@ function resetDoor() {
     door.prize = smallCode;
     door.revealed = false;
     select('.letter-door', door).html(doorsIndex);
+    select('.letter-door', door).addClass("light");
     select('.letter-door', door).removeClass("open");
     select('.letter-door', door).removeClass("pause");
     select('.letter-door', door).removeClass("revealed");
@@ -148,14 +151,14 @@ function resetDoor() {
 
 function checkWin(hasSwitched) {
   for (let door of doors) {
-    codeString = largeCode.substring(1, 4) + " " + 'runde';
+    codeString = `<span class="content-l1">${largeCode.substring(1, 4)}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
     door.prize = codeString;
     door.addClass('revealed');
     select('.letter-door', door).addClass("revealed");
     select('.content', door).html(door.prize);
   }
 
-  select('.span_code_input').html(codeString + " " + 'gratuite');
+  select('.span_code_input').html(codeString);
   select('.span_game_input').html(gamesCode);
   select('.letter-door.open').addClass("rev_open");
   if (pickedDoor.prize === codeString) {
@@ -210,7 +213,6 @@ function revealDoor() {
 
   // right door!
   if (options.length === doors.length - 1) {
-    console.log(options.length === doors.length - 1, "test")
     // Randomly remove 1
     options.splice(floor(random(options.length)), 1);
   }
@@ -291,11 +293,11 @@ function makeDoors() {
     letter_door.parent(doors[i]);
 
     const light = createDiv();
-    light.class('light_door' + " " + 'light_n_door' + doors[i].index);
+    light.class('light_door' + " " + 'light_n_door' + i);
     light.parent(doors[i]);
 
     const bar_light = createDiv();
-    bar_light.class('bar_light' + " " + 'bar_n_light' + doors[i].index);
+    bar_light.class('bar_light' + " " + 'bar_n_light' + i);
     bar_light.parent(doors[i]);
 
     const content = createDiv();
@@ -303,7 +305,7 @@ function makeDoors() {
     content.parent(doors[i]);
 
     const shadow_div = createDiv();
-    shadow_div.class('shadow' + " " + 'shadow_n_' + doors[i].index);
+    shadow_div.class('shadow' + " " + 'shadow_n_' + i);
     shadow_div.parent(doors[i]);
 
   }
@@ -332,7 +334,7 @@ function makeInput() {
     inputs[j].class("input-box" + " " + 'box_n' + j);
 
     let make_input = createInput();
-    make_input.class('input-input' + " " + 'input_n' + inputs[j].index);
+    make_input.class('input-input' + " " + 'input_n' + j);
     make_input.parent(inputs[j]);
   }
 
