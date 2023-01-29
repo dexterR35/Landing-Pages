@@ -5,22 +5,22 @@ function retriveData() {
       let codeText = this.responseText;
       console.log(codeText, "cod Brut");
       if (codeText.match(/A250/gi) || codeText.match(/A350/gi)) {
-        console.log(codeText, "1");
+        console.log(codeText, "A>");
         console.log(gamesCode);
         largeCode = codeText;
         gamesCode = _games[0];
       } else if (codeText.match(/B250/gi) || codeText.match(/B350/gi)) {
-        console.log(codeText, "1");
+        console.log(codeText, "B>");
         largeCode = codeText;
         gamesCode = _games[1];
         console.log(gamesCode);
       } else if (codeText.match(/C250/gi) || codeText.match(/C350/gi)) {
-        console.log(codeText, "1");
+        console.log(codeText, "C>");
         largeCode = codeText;
         gamesCode = _games[2];
         console.log(gamesCode);
       } else if (codeText.match(/D250/gi) || codeText.match(/D350/gi)) {
-        console.log(codeText, "1");
+        console.log(codeText, "D>");
         largeCode = codeText;
         gamesCode = _games[3];
         console.log(gamesCode);
@@ -28,14 +28,11 @@ function retriveData() {
         largeCode = codeText;
         gamesCode = _games[4];
         console.log(gamesCode);
-        console.log(codeText, "1");
+        console.log(codeText, "E>");
       } else {
-        console.log(" Error no mached");
+        console.log("Error no mached");
       }
     }
-    // let codeBonusString = codeText.substring(1, 4);
-    // let codeBonusUpper = codeText;
-    //  largeCode = codeText; 
   }
   request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
   request.send();
@@ -73,10 +70,10 @@ let clickSound;
 
 // function preload() {
 //   clickSound = loadSound("./test.mp3");
-
 // }
 
 function startGame() {
+
   for (const door of doors) {
     let doorsIndex = door.index + 1;
     if (doorsIndex === 1) {
@@ -106,6 +103,7 @@ function startGame() {
 }
 
 function resetDoor() {
+
   for (const door of doors) {
     let doorsIndex = door.index + 1;
     if (doorsIndex === 1) {
@@ -177,6 +175,7 @@ function checkWin(hasSwitched) {
     disabled: "",
     placeholder: largeCode,
   });
+
   setTimeout(() => {
     select('#instruction > #play-again').show();
   }, delay1_5s);
@@ -230,6 +229,7 @@ function revealDoor() {
   );
 
   select('.letter-door', stayDoorsRev).addClass("pause");
+
   lastDoorIndex = lastDoor.index + 1;
   if (lastDoorIndex === 1) {
     lastDoorIndex = "A"
@@ -238,13 +238,18 @@ function revealDoor() {
   } else if (lastDoorIndex === 3) {
     lastDoorIndex = "C"
   }
+
   retriveData();
+
   setTimeout(() => {
+
     select('#doors > .door-container.revealed').hide();
     select('#instruction > p').html(
       `Vrei sa schimbi cu usă #${lastDoorIndex}?`
     );
+
     select('#instruction > .choices').show();
+
   }, delay2s);
 
 }
@@ -257,12 +262,15 @@ function pickDoor() {
   pickedDoor = random(doors);
   pickedDoor = this;
   pickedDoor.addClass('picked open');
+
   select('.letter-door', pickedDoor).addClass("open");
 
   select('#instr_text').hide();
 
   select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre <br/> cele 2 usi ramase');
+
   select('#instruction > .p_continue').show();
+
   setTimeout(() => {
 
   }, delay1s);
@@ -281,7 +289,7 @@ function makeDoors() {
     doors[i] = createDiv();
     doors[i].parent('#doors');
     doors[i].class('door-container');
-    doors[i].index = i;
+    // doors[i].index = i;
     doors[i].mousePressed(pickDoor);
 
     const door = createDiv();
@@ -316,7 +324,7 @@ function makeInstruction() {
   for (let g = 0; g < totalInstr; g++) {
     instruction[g] = createDiv();
     instruction[g].parent("instr_text");
-    instruction[g].index = g;
+    // instruction[g].index = g;
     instruction[g].class("instr-container" + " " + 'instr_n_' + g);
   }
   // select('#instr_text > .instr_n_0').html(text_one);
@@ -330,7 +338,7 @@ function makeInput() {
   for (let j = 0; j < totalInputs; j++) {
     inputs[j] = createDiv();
     inputs[j].parent("#inputForm");
-    inputs[j].index = j;
+    // inputs[j].index = j;
     inputs[j].class("input-box" + " " + 'box_n' + j);
 
     let make_input = createInput();
@@ -365,6 +373,7 @@ function makeInput() {
         </div>
        <button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button>
     <div class="clear"></div>`);
+
   $("#inputForm").prepend(`<div class="BonusCodeText"> <span class="line-one">felicitări</span> <hr><span class="line-two"> ai câștigat <b><span class="span_code_input"> </span></b> <br/> la jocul <b><span class="span_game_input"></span></b></span></div>`);
 
   $(".input-input").attr({
@@ -441,7 +450,7 @@ function setStars() {
     comets[k] = createDiv();
     comets[k].parent("#comets");
     comets[k].class("cometsFall");
-    comets[k].index = k;
+    // comets[k].index = k;
   }
 }
 
@@ -450,10 +459,10 @@ function setStars() {
 function setup() {
   noCanvas();
   makeDoors();
-  setStars();
-  makeInput();
   startGame();
   makeInstruction();
+  makeInput();
+  setStars();
   select('button#yes').mousePressed(function () {
     chooseDoor(true);
   });

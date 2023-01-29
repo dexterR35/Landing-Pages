@@ -76,7 +76,7 @@ body::after {
   z-index: -1;
   /* animation: f-universe 30s infinite alternate linear 0.5s; */
 }
-body::before {
+/* body::before {
   content: "";
   position: fixed;
   top: 0;
@@ -88,7 +88,7 @@ body::before {
   background-repeat: no-repeat;
   background-position: left;
   z-index: -1;
-}
+} */
 
 @keyframes f-universe {
   0% {
@@ -141,10 +141,10 @@ body::before {
   width: 27vh;
   position: relative;
   background-size: 61%;
-  /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
-  /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
   z-index: 10;
   cursor: pointer;
+
+  /* clip-path: polygon(0 0, 95% 0, 95% 100%, 0% 100%); */
 }
 .door-container.revealed::before {
   transition: var(--transition-mask);
@@ -423,7 +423,6 @@ body::before {
   height: 45vh;
   z-index: 10;
   animation: blink 3s infinite alternate linear;
-  
 }
 
 .light_door::after {
@@ -586,36 +585,7 @@ body::before {
   z-index: 20;
 }
 
-/* #stats {
-  width: 90%;
-  max-width: 32rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
-#stats p {
-  font-size: 1.2rem;
-  margin: 0.25rem 0;
-}
-
-#stats .bar {
-  width: 0;
-  height: 2rem;
-  background-color: var(--button_color);
-  position: relative;
-}
-
-#stats .bar > .win-rate {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(120%, -50%);
-} */
-
-/*animation*/
-/*animation*/
-/*animation*/
 
 .door {
   position: relative;
@@ -640,7 +610,6 @@ body::before {
   font-weight: bold;
   margin: 0 0 16px auto;
   text-align: center;
-  /* font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif; */
 }
 .h3-input {
   color: black;
@@ -670,7 +639,6 @@ body::before {
   max-width: 600px;
   padding: 0.5em 1em;
   margin: 0 auto;
-  /* background-color: rgba(241, 23, 23, 0.63); */
 }
 @media screen and (max-width: 650px) {
   #inputForm {
@@ -820,17 +788,12 @@ body::before {
   float: right;
   background-color: grey;
 }
-/* .btn_send:hover {
-  background: #287ae6;
-} */
+
 .clear {
   clear: both;
 }
 
-/*  */
-/* show inputs */
-/*  */
-/*  */
+
 
 .close-modal {
   position: absolute;
@@ -838,12 +801,10 @@ body::before {
   right: 0;
   width: 35px;
   height: 30px;
-  /* background: #000; */
   color: black;
   background: transparent;
   cursor: pointer;
   border: 0;
-  /* display: none; */
 }
 .mask {
   position: fixed;
@@ -1012,9 +973,6 @@ body::before {
 }
 
 #satelit {
-  /* background-color: #ff4c4c; */
-  /* transform: perspective(0px) rotateX(40deg) rotateY(10deg) rotateZ(-45deg); */
-  /* animation:test 2s ease forwards 4s; */
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   animation-name: test-satelite;
