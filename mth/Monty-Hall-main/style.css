@@ -57,6 +57,7 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: "Play", sans-serif;
+  user-select: none;
 }
 .letter-door {
   font-family: "CROWDEN" !important;
@@ -143,6 +144,7 @@ body::before {
   /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
   /* clip-path: polygon(91% 0%, 86% 8%, 87% 100%, 14% 100%, 15% 0%, 15% 8%, 8% 0%); */
   z-index: 10;
+  cursor: pointer;
 }
 .door-container.revealed::before {
   transition: var(--transition-mask);
