@@ -33,14 +33,15 @@
 	<div id="comets" style="display: none;"></div>
 	<div id="satelit" style="display: none;"></div>
     <main id="app" class="app-main">
-      <!-- <button id="startgame">startGane</button> -->
       <div id="doors"></div>
       <div id="instruction">
         <div id="instr_text"></div>
         <p></p>
+        <div class="start_game" style="z-index: 100;">
+          <button id="start_game" class="btnNew btn_startGame">Incepe jocul</button>
+        </div>
         <div class="p_continue" style="z-index: 100;">
-          <button id="yes_continue" class="btnNew btn_choices btn_yes btn_continue">deschide o usa</button>
-          <!-- <button id="no" class="btnNew btn_choices btn_no">NU</button> -->
+          <button id="yes_continue" class="btnNew btn_continue">deschide o usa</button>
         </div>
         <div class="choices">
           <button id="yes" class="btnNew btn_choices btn_yes">Da</button>
