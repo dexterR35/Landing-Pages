@@ -220,6 +220,8 @@ body::after {
   background-size: 75.5%;
   background-position: center bottom;
   z-index: 0;
+  clip-path: polygon(8% 88%, 9% 10%, 3% 0%, 100% 0%, 97% 0%, 97% 87%, 97% 100%, 100% 100%, 77% 100%, 38% 100%, 6% 100%, 6% 90%);
+
 }
 
 .door-container::after {
@@ -233,13 +235,13 @@ body::after {
 }
 
 .door-container:nth-child(1)::after {
-  background-image: url(./img/door_left.png);
+  background-image: url(./img/door_left2.png);
 }
 .door-container:nth-child(2)::after {
-  background-image: url(./img/door_center.png);
+  background-image: url(./img/door_center3.png);
 }
 .door-container:nth-child(3)::after {
-  background-image: url(./img/door_right.png);
+  background-image: url(./img/door_right2.png);
 }
 
 .door {

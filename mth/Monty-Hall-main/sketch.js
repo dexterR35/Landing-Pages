@@ -250,7 +250,7 @@ function revealDoor() {
 
     select('#instruction > .choices').show();
 
-  }, delay2s);
+  }, delay1_5s);
 
 }
 
