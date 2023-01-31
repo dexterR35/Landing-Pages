@@ -1,0 +1,4876 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/blitzer/jquery-ui.min.css"
+    integrity="sha512-SsJq+mF6SR+NR5GizgVCURD39dLfHZg2MOJE5eoGUj0pm3Mcz0uxo370pC83L7+hnrxhXkcZeOcSOJrj0rULaA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+      font-size: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* anuleaza paddingul de la container-fluid */
+    .container-fluid {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .logo_holder {
+      padding-left: 15px;
+    }
+
+    .left-box {
+      padding-left: 15px !important;
+    }
+
+    .right-box {
+      padding-right: 15px !important;
+    }
+
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    #dialog {
+
+      width: 200px;
+      height: 200px;
+
+
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body,
+    table,
+    button,
+    .ui-widget {
+      font-family: 'Play', sans-serif !important;
+    }
+
+
+
+    /* HEADER POSITION ABSOLUITE*/
+    .mainHeader {
+      position: absolute !important;
+    }
+
+    .below-fold {
+      overflow: hidden;
+    }
+
+    /* HEADER POSITION ABSOLUITE*/
+
+
+
+    /*MODAL POPUP*/
+    .ui-dialog .ui-dialog-buttonpane {
+      margin-top: 0 !important
+    }
+
+    .ui-widget-header {
+      background: #173054 !important;
+    }
+
+    .ui-widget-content {
+      background: none !important;
+
+    }
+
+    /* .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+    background-color: #ece8ec !important;
+  } */
+
+    .ui-widget.ui-widget-content,
+    .ui-widget-header,
+    .ui-widget-content {
+      border: none !important;
+    }
+
+    .ui-dialog {
+      padding: 0 !important;
+
+    }
+
+    .ui-widget-overlay {
+      background: black !important;
+    }
+
+    .ui-dialog-titlebar {
+      padding: 0.5em 1em;
+      border-bottom-left-radius: unset;
+      border-bottom-right-radius: unset;
+    }
+
+    .ui-widget-header {
+      border-top-left-radius: 10px !important;
+      border-bottom-left-radius: unset !important;
+      border-bottom-right-radius: unset !important;
+      border-top-right-radius: 10px !important;
+
+    }
+
+
+    #dialog {
+      position: relative;
+      top: 1.5vh;
+    }
+
+    .ui-dialog {
+      border-top-left-radius: 40px !important;
+      border-top-right-radius: 40px !important;
+
+    }
+
+    .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ece8ec;
+      z-index: -2;
+      opacity: 0.9;
+      border-top-left-radius: 12px !important;
+      border-top-right-radius: 12px !important;
+      border-bottom-left-radius: 10px !important;
+      border-bottom-right-radius: 10px !important;
+    }
+
+
+    .ui-dialog-buttonpane {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+
+
+    /*END MODAL POPup*/
+
+    /****************************************************/
+    /************************Section below****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+    .below-fold {
+      height: 100%;
+      width: 100%;
+      margin: 0 auto 1em auto;
+      position: relative;
+      color: #fff;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#6a718d), color-stop(#6a718d), color-stop(#666666), color-stop(#545454), to(#223466));
+      background-image: -o-linear-gradient(top, #6a718d, #6a718d, #666666, #545454, #223466);
+      background-image: linear-gradient(to bottom, #6a718d, #6a718d, #666666, #545454, #223466);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+
+    .below-fold::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#1b233e), color-stop(#25252e), color-stop(#1e2738), color-stop(#30343e), to(#343434));
+      background-image: -o-linear-gradient(top, #1b233e, #25252e, #1e2738, #30343e, #343434);
+      background-image: linear-gradient(to bottom, #1b233e, #25252e, #1e2738, #30343e, #343434);
+      z-index: -1;
+      opacity: 0.8;
+      -webkit-filter: brightness(50%);
+      filter: brightness(50%);
+      /* border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px; */
+    }
+
+    .section-container {
+      overflow: hidden;
+      margin: auto;
+      -webkit-box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+      box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+    }
+
+    /****************************************************/
+    /************************Section below****************************/
+    /****************************************************/
+    /****************************************************/
+
+    /****************************************************/
+    /****************************************************/
+    /*********************star powerBy*******************************/
+
+    @media (min-width:761px) {
+
+      .offer-text {
+        z-index: 323;
+      }
+
+      .powerBy {
+        width: 220px;
+        max-width: 220px;
+        height: 280px;
+        max-height: 280px;
+        position: fixed;
+        top: 65%;
+        left: 0;
+        border-radius: 20px;
+        border-bottom-left-radius: 0;
+        outline: none;
+        overflow: hidden;
+
+      }
+
+      .powerBy-text {
+        font-size: 1.2em;
+        color: white;
+        text-align: center;
+        padding: 5px 0;
+        line-height: 1.5;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: auto;
+      }
+
+      .powerBy-body {
+        background-color: white;
+        height: 100%;
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        border-top-left-radius: 0;
+      }
+
+
+      .pragmatic,
+      .skywind,
+      .pragmatic2 {
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .skywind {
+        padding: 21px 0;
+      }
+
+      .powerBy-body>div>img {
+        width: 65%;
+      }
+
+      .powerBy-body hr {
+        color: black;
+        width: 80%;
+        margin: auto;
+      }
+
+    }
+
+
+
+
+
+
+
+
+    /****************************************************/
+    /****************************************************/
+    /*********************end powerBy*******************************/
+
+
+    /****************************************************/
+    /************************ABOVE FOLD HERO****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+
+
+    .player-two,
+    .player-One,
+    .player-three {
+      -webkit-transition: ease .5s;
+      -o-transition: ease .5s;
+      transition: ease .5s;
+    }
+
+
+
+
+    /******************************/
+    /******************************/
+    /***********MEDIA QUERRYES*******************/
+    /******************************/
+    /******************************/
+
+
+
+
+
+    .hero {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+
+      -webkit-box-align: center;
+
+      -ms-flex-align: center;
+
+      align-items: center;
+      position: relative;
+      width: 100%;
+    }
+
+    /********************** adaugate tavi **/
+
+    .cta-button-disabled {
+      background: #666666;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1rem;
+      width: 210px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      border-radius: 50px;
+      padding: 1em;
+      white-space: nowrap;
+      color: white;
+      pointer-events: none;
+    }
+
+    .cta-button a:link,
+    a:visited {
+      text-decoration: none;
+      color: white;
+    }
+
+    .table-TC thead tr td {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .table-TC tr p {
+      margin-bottom: 10px;
+    }
+
+    .terms {
+      overflow: hidden;
+      margin-top: 40px;
+    }
+
+    .terms-content h1 {
+      text-align: center;
+      font-size: 2em;
+    }
+
+    .listTC {
+
+      font-size: 0.9em;
+    }
+
+    .termss {
+      font-size: 2.3em;
+      font-weight: bold;
+    }
+
+    .terms h3 {
+      font-size: 1.2em;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .listTC {
+      width: 100%;
+      text-align: left;
+      margin: 20px auto;
+    }
+
+    .terms-toggle {
+      font-size: 2em;
+      display: inline-block;
+      padding: 0.3em 0.5em;
+      margin-bottom: 0.8em;
+      background-color: #888;
+      border-radius: 6px;
+
+    }
+
+    .terms h3 {
+      text-align: left;
+    }
+
+    /****************************************************/
+    /************************start TABLE ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+    .below-fold {
+      text-align: center;
+      padding: 2em 0 0 0;
+      margin: auto;
+    }
+
+    .row-table {
+      margin-left: -5px;
+      margin-right: -5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+    }
+
+    .column-table {
+      float: left;
+      width: 25%;
+      padding: 5px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      gap: 21px;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .column-title {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    /* Clearfix (clear floats) */
+    .row-table::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .table_players {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+      height: 450px;
+      max-height: 450px;
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      overflow: hidden;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .table_players.scroll tbody {
+      height: 400px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .table_players.scroll tbody,
+    .table_players.scroll thead {
+      display: block;
+      font-size: 1.2em;
+      width: 100%;
+    }
+
+    .table_players.scroll {
+
+      /* border-collapse: collapse; */
+      border-spacing: 0;
+    }
+
+
+    .table_players th,
+    .table_players td {
+      text-align: left;
+
+      padding: 15px 10px;
+    }
+
+    .table_players th {
+      position: sticky;
+      top: 0;
+    }
+
+    .table-TC {
+      width: 90%;
+      margin: auto;
+
+    }
+
+    .table_players thead tr {
+      background-color: #73777B;
+    }
+
+    .table_players tbody::-webkit-scrollbar {
+      display: none;
+    }
+
+    .table_players tbody {
+     
+      position: relative;
+      z-index: 3;
+    }
+
+    .table_players tbody::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: auto;
+      background: rgb(54, 6, 60);
+      background: -webkit-gradient(linear, left top, left bottom, from(rgb(27, 16, 53)), color-stop(98%, rgba(0, 6, 36, 1)));
+      background: -o-linear-gradient(top, rgb(27, 16, 53) 0%, rgba(0, 6, 36, 1) 98%);
+      background: linear-gradient(180deg, rgb(27, 16, 53) 0%, rgba(0, 6, 36, 1) 98%);
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 0.4;
+      filter: blur(4px);
+      -webkit-filter: blur(4px);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: red;
+    }
+
+    .table_players td:nth-child(1),
+    .table_players th:nth-child(1) {
+      width: 12%;
+      text-align: center;
+    }
+
+    .table_players td:nth-child(2),
+    .table_players th:nth-child(2) {
+      width: 60%;
+    }
+
+    .table_players td:nth-child(3),
+    .table_players th:nth-child(3) {
+      width: 10%;
+    }
+
+    .counter-players {
+      border: 1px solid white;
+      text-align: center;
+      padding: 2px;
+      font-weight: bold;
+      font-size: 3em;
+      color: #0c2b4d;
+      background: white;
+      width: 100%;
+      margin: 0 auto;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      position: relative;
+    }
+
+    .counter-players::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 90%;
+      bottom: -13px;
+      -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 15px solid white;
+    }
+
+    .below-fold h2 {
+      font-size: 3em;
+    }
+
+    .below-fold span {
+      /* font-size: 1.3em; */
+      width: 90%;
+    }
+
+    .text-belowFold {
+      width: 100%;
+      max-width: 1200px;
+      margin: 10px auto;
+      margin-bottom: 58px;
+      margin-top: 58px;
+    }
+
+    .text-belowFold h2 {
+      font-size: 2.9em;
+      margin-bottom: 8px;
+    }
+
+    .text-belowFold>div:nth-child(3) {
+      font-size: 1.72em;
+
+    }
+
+    .text-belowFold>div:nth-child(4) {
+      font-size: 1.7em;
+
+    }
+
+    .text-belowFold>div {
+      line-height: 1.2;
+    }
+
+    /* .above-fold {
+      overflow: hidden;
+      height: 100vh;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #2a2e38;
+    } */
+    .above-fold {
+      overflow: hidden;
+      height: 95vh;
+      align-items: center;
+      justify-content: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+      background-size: cover;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-color: #2a2e38;
+    }
+
+    .card-cta a {
+      text-decoration: none;
+      color: white;
+      font-size: 1em;
+    }
+
+    /****************************************************/
+    /************************start TABLE ECHIPE****************************/
+    /****************************************************/
+    /****************************************************/
+
+
+
+    @media (orientation: landscape) and (min-width:992px) {
+      .above-fold::before {
+        content: "";
+        overflow: hidden;
+        height: 100vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
+      }
+
+
+
+      .grid-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        margin: 0 auto;
+        left: -3vw;
+
+      }
+
+      .elements-wrapper {
+        position: absolute;
+        top: 2vh;
+      }
+
+      .elements-wrapper {
+        height: 350px;
+      }
+
+      .grid-container-mobile {
+        display: none;
+      }
+
+      .img-BlueShape {
+        height: 450px;
+      }
+
+      .box-blueShape {
+        position: absolute;
+        top: 0;
+      }
+
+      .players {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .offer-content {
+        position: absolute;
+        z-index: 32;
+        -webkit-transform: translateX(2vw);
+        -ms-transform: translateX(2vw);
+        transform: translateX(2vw);
+      }
+
+      .offer-img {
+        height: 320px;
+      }
+
+      .box-rating-desktop {
+        position: absolute;
+        bottom: 2vh;
+      }
+
+      .container-char {
+        z-index: 3;
+      }
+
+
+
+      /*position characters*/
+      .char-person1 {
+        -webkit-transform: translateX(3em) translateY(2em);
+        -ms-transform: translateX(3em) translateY(2em);
+        transform: translateX(3em) translateY(2em);
+      }
+
+      .char-person3 {
+        -webkit-transform: translateX(-2.5em);
+        -ms-transform: translateX(-2.5em);
+        transform: translateX(-2.5em);
+      }
+
+      .jplay,
+      .stero {
+        -webkit-transform: translateX(-15em);
+        -ms-transform: translateX(-15em);
+        transform: translateX(-15em);
+      }
+
+      .stero {
+        top: -12vh;
+      }
+
+      .jpragm,
+      .third {
+        -webkit-transform: translatex(15em);
+        -ms-transform: translatex(15em);
+        transform: translatex(15em);
+      }
+
+      .third {
+        top: -7vh;
+      }
+
+      .pacanele {
+        -webkit-transform: translateY(-18em);
+        -ms-transform: translateY(-18em);
+        transform: translateY(-18em);
+      }
+
+      .jsky {
+        -webkit-transform: translateY(5em);
+        -ms-transform: translateY(5em);
+        transform: translateY(5em);
+        z-index: 33;
+      }
+
+      .girl-picture {
+        -webkit-transform: translateY(4em) scale(1.05);
+        -ms-transform: translateY(4em) scale(1.05);
+        transform: translateY(4em) scale(1.05);
+
+      }
+
+      /****************************************************/
+      /****************************************************/
+      /*********************CARD ECHIPE*******************************/
+
+      .card-container {
+        max-width: 310px;
+        width: 310px;
+        height: 233px;
+        max-height: 233px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+
+      }
+
+      .card-container::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ece8ec;
+        z-index: -2;
+        opacity: 0.9;
+      }
+
+
+      .card-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 5px;
+        padding: 0.9em 1.5em 0em;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-size: 1.2em;
+      }
+
+      .card-header {
+        background-color: #173054;
+        text-align: center;
+        padding: 0.5em;
+      }
+
+      .card-header span {
+        color: white;
+        font-size: 1.7em;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .card-stars {
+        width: 100%;
+        margin-left: 10px;
+      }
+
+      .card-stars>div,
+      .card-info>div {
+        margin-bottom: 0.5em;
+
+      }
+
+      .card-info>div {
+        margin-bottom: 14px;
+      }
+
+      .card-info {
+        text-align: end;
+
+      }
+
+      .card-cta {
+        text-align: center;
+        place-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
+      .cta-button {
+        background: -webkit-gradient(linear, left top, right top, from(#ff6333), to(#ff832b));
+        background: -o-linear-gradient(left, #ff6333 0%, #ff832b 100%);
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1rem;
+        width: 210px;
+        height: 53px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 1em 0;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#ff832b), to(#ff6333));
+        background: -o-linear-gradient(left, #ff832b 0%, #ff6333 100%);
+        background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+        -webkit-transition: .9s ease;
+        -o-transition: .9s ease;
+        transition: .9s ease;
+      }
+
+      .outer {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+      }
+
+      .inner-star {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+        height: 25px;
+        width: 125px;
+        background-size: 25px;
+      }
+
+      .rating {
+
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
+        display: flex;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: start;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+        top: -5px;
+      }
+
+      /****************************************************/
+      /************************END CARD ECHIPE****************************/
+      /****************************************************/
+      /****************************************************/
+    }
+
+
+
+
+    /* tablet media querry*/
+
+    @media (orientation: landscape) and (min-width: 768px) {
+      .grid-container-mobile {
+        display: none;
+      }
+
+      .terms-toggle {
+        font-size: 1.1em;
+        display: inline-block;
+        padding: 0.3em 0.5em;
+        margin-bottom: 0.8em;
+        background-color: unset;
+        border-radius: 6px;
+      }
+
+      .powerBy-mobile {
+        display: none;
+      }
+
+      .terms-content ul li {
+        font-size: 1.2em;
+        text-align: justify;
+      }
+
+      .text-belowFold h2 {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      .text-belowFold>div:nth-child(3) {
+        font-size: 1.6em;
+        text-align: center;
+        line-height: 1;
+      }
+
+      .terms-content {
+        max-width: 1300px;
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .terms-content h1 {
+        text-align: center;
+        font-size: 2em;
+      }
+
+
+      .listTC {
+        width: 100%;
+        text-align: left;
+        margin: 20px auto;
+      }
+
+      .listTC li {
+        list-style: none;
+
+      }
+
+      .terms-content h2 {
+        text-align: left;
+        margin-top: 30px;
+        font-size: 2em;
+      }
+    }
+
+
+    @media (orientation: landscape) and (min-height: 500px) and (max-height:849px) {
+      .grid-container {
+        -webkit-transform: scale(0.7) translateY(0em);
+        -ms-transform: scale(0.7) translateY(0em);
+        transform: scale(0.7) translateY(0em);
+      }
+
+      .powerBy {
+        top: 40%;
+        -webkit-transform: scale(0.6) translateX(-6em);
+        -ms-transform: scale(0.6) translateX(-6em);
+        transform: scale(0.6) translateX(-6em);
+      }
+
+      .terms-content {
+        width: 1000px;
+      }
+
+      .elements-wrapper {
+        top: -7vh;
+        -webkit-transform: translateX(1em);
+        -ms-transform: translateX(1em);
+        transform: translateX(1em);
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(1em);
+        -ms-transform: translateY(1em);
+        transform: translateY(1em);
+        height: 300px;
+      }
+
+      .terms-content h1 {
+
+        font-size: 1.6em;
+      }
+
+      .terms-content h2 {
+
+        font-size: 1.4em;
+      }
+    }
+
+    @media (orientation: landscape) and (min-height: 850px) and (max-height:919px) {
+      .grid-container {
+        -webkit-transform: scale(0.8) translateY(27px);
+        -ms-transform: scale(0.8) translateY(27px);
+        transform: scale(0.8) translateY(27px);
+      }
+
+      .powerBy {
+        top: 60%;
+        -webkit-transform: scale(0.7) translateX(-3em);
+        -ms-transform: scale(0.7) translateX(-3em);
+        transform: scale(0.7) translateX(-3em);
+      }
+
+      .elements-wrapper {
+        top: -4vh;
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(1em);
+        -ms-transform: translateY(1em);
+        transform: translateY(1em);
+        height: 300px;
+      }
+
+      .terms-content {
+        width: 1000px;
+      }
+
+      .terms-content h1 {
+
+        font-size: 1.8em;
+      }
+
+      .terms-content h2 {
+
+        font-size: 1.6em;
+      }
+    }
+
+    @media (orientation: landscape) and (min-height: 920px) and (max-height:950px) {
+
+      .grid-container {
+        -webkit-transform: scale(0.8) translateY(2em);
+        -ms-transform: scale(0.8) translateY(2em);
+        transform: scale(0.8) translateY(2em);
+      }
+      .termss {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+      .powerBy {
+        top: 60%;
+        -webkit-transform: scale(1) translateX(-1.5em);
+        -ms-transform: scale(1) translateX(-1.5em);
+        transform: scale(1) translateX(-1.5em);
+      }
+
+      .elements-wrapper {
+        top: -2vh;
+        -webkit-transform: translateX(1em);
+        -ms-transform: translateX(1em);
+        transform: translateX(1em);
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(1em);
+        -ms-transform: translateY(1em);
+        transform: translateY(1em);
+        height: 290px;
+      }
+
+      .column-table {
+        width: 25%;
+      }
+
+      .above-fold {
+        background-position: 90% 90%;
+      }
+    }
+
+    @media (orientation: landscape) and (min-height: 951px) and (max-height:999px) {
+
+      .grid-container {
+        -webkit-transform: scale(0.8) translateY(2em);
+        -ms-transform: scale(0.8) translateY(2em);
+        transform: scale(0.8) translateY(2em);
+      }
+
+      .powerBy {
+        top: 60%;
+        -webkit-transform: scale(1) translateX(-1.5em);
+        -ms-transform: scale(1) translateX(-1.5em);
+        transform: scale(1) translateX(-1.5em);
+      }
+      .termss {
+      font-size: 2em;
+      font-weight: bold;
+    }
+      .elements-wrapper {
+        top: -7vh;
+        -webkit-transform: translateX(1em);
+        -ms-transform: translateX(1em);
+        transform: translateX(1em);
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(1em);
+        -ms-transform: translateY(1em);
+        transform: translateY(1em);
+        height: 300px;
+      }
+
+      .column-table {
+        width: 25%;
+      }
+    }
+
+    @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
+
+      .grid-container {
+        /* -webkit-transform: translateY(2em);
+            -ms-transform: translateY(2em);
+                transform: translateY(2em); */
+        top: 1vh;
+      }
+      .termss {
+      font-size: 2.3em;
+      font-weight: bold;
+    }
+
+      .powerBy {
+        top: 60%;
+        -webkit-transform: scale(1) translateX(-0.5em);
+        -ms-transform: scale(1) translateX(-0.5em);
+        transform: scale(1) translateX(-0.5em);
+      }
+
+      .elements-wrapper {
+        top: 5vh;
+        -webkit-transform: translateX(1em);
+        -ms-transform: translateX(1em);
+        transform: translateX(1em);
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(0em);
+        -ms-transform: translateY(0em);
+        transform: translateY(0em);
+        height: 340px;
+      }
+
+    }
+
+    @media (orientation: landscape) and (min-height: 1200px) and (max-height:1600px) {
+
+      .grid-container {
+        -webkit-transform: translateY(2em) scale(1);
+        -ms-transform: translateY(2em) scale(1);
+        transform: translateY(2em) scale(1);
+        top: 2vh;
+      }
+
+      .powerBy {
+        top: 46%;
+        -webkit-transform: scale(0.8) translateX(-2.5em);
+        -ms-transform: scale(0.8) translateX(-2.5em);
+        transform: scale(0.8) translateX(-2.5em);
+      }
+
+      .elements-wrapper {
+        top: 6vh;
+        -webkit-transform: translateX(1em);
+        -ms-transform: translateX(1em);
+        transform: translateX(1em);
+      }
+
+      .offer-img {
+        -webkit-transform: translateY(0em);
+        -ms-transform: translateY(0em);
+        transform: translateY(0em);
+        height: 280px;
+      }
+
+    }
+
+
+
+
+
+
+    /* @media (max-width: 475px) {
+      .above-fold {
+        height: 100vh;
+      }
+    }  */
+
+
+
+    /* @media (max-width: 450px) {
+      .below-fold {
+        font-size: 0.7em;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .below-fold {
+        font-size: 0.4em;
+  
+      }
+
+    } */
+
+    /* @media (max-width: 1400px) {
+      .below-fold {
+        font-size: 0.7em;
+      }
+    } */
+
+    /*******************tablet**************************/
+    /*******************tablet**************************/
+    /*******************tablet**************************/
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+
+      .grid-container {
+        display: none;
+      }
+
+    }
+
+
+
+    /*******************tablet**************************/
+    /*******************tablet**************************/
+
+
+
+    /**************************************/
+    /*************************/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /*mobile*/
+    /**************************************/
+    /**************************************/
+    /**************************************/
+    /***** ALL GENERATION IPADS *****/
+    /* iPads in portrait and landscape----------- */
+
+
+
+    @media (orientation:portrait) and (min-width:320px) {
+
+      .char-person1 img,
+      .char-person2 img,
+      .char-person3 img {
+        height: 370px;
+      }
+
+      .container-char {
+        position: relative;
+      }
+    }
+
+    /*Mobile */
+    @media (orientation: portrait) and (min-width:320px) and (max-width:1024px) {
+      .above-fold {
+        overflow: hidden;
+        display: block;
+        position: relative;
+
+      }
+
+      .above-fold::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
+        background-size: cover;
+        background-position: 100%;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
+        top: -1vh;
+      }
+
+      .below-fold {
+        height: auto;
+      }
+
+      .grid-container {
+        display: none;
+      }
+
+      /****************************************************/
+      /************************start TABLE ECHIPE****************************/
+      /****************************************************/
+      /****************************************************/
+      .below-fold {
+        text-align: center;
+        padding: 5em 15px;
+        margin: 0 auto;
+      }
+
+      .row-table {
+        margin-left: -5px;
+        margin-right: -5px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      .column-table {
+        float: left;
+        width: 100%;
+        padding: 5px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 21px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 40px;
+      }
+
+      /* Clearfix (clear floats) */
+      .row-table::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .table_players {
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+        border: 1px solid #ddd;
+        height: 350px;
+        max-height: 350px;
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .table_players.scroll tbody {
+        height: 400px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .table_players.scroll tbody,
+      .table_players.scroll thead {
+        display: block;
+      }
+
+      .table_players.scroll {
+
+        /* border-collapse: collapse; */
+        border-spacing: 0;
+
+      }
+
+      .cta-button-table {
+        width: 190px;
+        height: 3.5em;
+        font-size: 1rem;
+      }
+
+      .table_players th,
+      .table_players td {
+        text-align: left;
+
+        padding: 15px 10px;
+      }
+
+      .table_players th {
+        position: sticky;
+        top: 0;
+      }
+
+      .column-title {
+        font-size: 1.2rem;
+      }
+
+      tbody::-webkit-scrollbar {
+        display: none;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background-color: red;
+      }
+
+      .table_players tr {
+        font-size: 1rem;
+      }
+
+      .table_players td:nth-child(1),
+      .table_players th:nth-child(1) {
+        width: 10%;
+      }
+
+      .table_players td:nth-child(2),
+      .table_players th:nth-child(2) {
+        width: 60%;
+      }
+
+      .table_players td:nth-child(3),
+      .table_players th:nth-child(3) {
+        width: 10%;
+      }
+
+      .powerBy {
+        display: none;
+      }
+
+      .powerBy-text {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+      }
+
+      .powerBy-mobile {
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        border-radius: 20px;
+        outline: none;
+        overflow: hidden;
+        -webkit-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+      }
+
+      .powerBy-body {
+        background-color: white;
+        height: 100%;
+        width: 80%;
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+
+      }
+
+      .powerBy-mobile hr {
+        opacity: 0.2;
+      }
+
+      .powerBy-body>div {
+        padding: 15px 0;
+
+
+      }
+
+      .terms-content ul li {
+        font-size: 0.7em;
+        text-align: justify;
+      }
+
+      .terms-content {
+        max-width: 330px;
+        margin: 5px auto;
+        text-align: center;
+      }
+
+      .terms-content h1 {
+        font-size: 1.1em;
+        text-align: start;
+      }
+
+      .listTC {
+        width: 100%;
+        text-align: left;
+        margin: 5px auto;
+      }
+
+      .listTC li {
+        list-style: none;
+
+      }
+
+      .terms-content h2 {
+        text-align: left;
+        margin-top: 10px;
+        font-size: 1em;
+      }
+
+      .terms-toggle {
+        font-size: 0.9em;
+        display: inline-block;
+        padding: 0.3em 0.5em;
+        margin-bottom: 0.8em;
+        background-color: unset;
+        border-radius: 6px;
+      }
+
+      .row-table>.column-table:nth-child(3) {
+        margin-bottom: 10px;
+      }
+
+
+
+
+      .below-fold {
+        text-align: center;
+        padding: 0.3em 7px;
+      }
+
+
+    }
+
+    /*chacnge character*/
+    @media (min-width:320px) and (max-width:1024px) {
+      .container-carousel>input[type="radio"] {
+        display: none;
+      }
+
+      .grid-container {
+        display: none;
+      }
+
+
+      .above-fold {
+        height: 82vh;
+      }
+
+
+
+      .card-person {
+        position: absolute;
+        width: 300px;
+        height: 500px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        -webkit-transition: -webkit-transform 0.4s ease;
+        transition: -webkit-transform 0.4s ease;
+        -o-transition: transform 0.4s ease;
+        transition: transform 0.4s ease;
+        transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+        cursor: pointer;
+        /* border: 1px solid black; */
+      }
+
+      .container-carousel {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        height: calc(65vh - 10px);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        /* border: 3px solid chartreuse; */
+        -webkit-transform: translateY(25px) scale(1);
+        -ms-transform: translateY(25px) scale(1);
+        transform: translateY(25px) scale(1);
+
+      }
+
+      .cards {
+        position: relative;
+        width: 350px;
+        height: 470px;
+        /* margin-bottom: 20px; */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+        align-items: flex-end;
+        /* border: 2px solid black; */
+      }
+
+      .pacanele,
+      .third,
+      .stero {
+        position: absolute;
+        bottom: 55%;
+      }
+
+      .img-BlueShape {
+        height: 130px;
+      }
+
+      .players {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .box-rating {
+        position: absolute;
+        bottom: 15%;
+
+      }
+
+      .box-rating-pacanele {
+        bottom: 20%;
+      }
+
+      .box-rating-stero {
+        left: calc(0% + 1em);
+      }
+
+      .box-rating-casino {
+        right: calc(0% + 1em);
+      }
+
+      .elements-wrapper img {
+        height: 170px;
+        -webkit-transform: translateX(20px) translateY(5px) rotate(5deg);
+        -ms-transform: translateX(20px) translateY(5px) rotate(5deg);
+        transform: translateX(20px) translateY(5px) rotate(5deg);
+      }
+
+      .elements-wrapper {
+        position: absolute;
+        top: 2vh;
+      }
+
+      .grid-container-mobile {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        /* height: 85vh; */
+        /* -webkit-transform: scale(0.98) translateY(-2px);
+            -ms-transform: scale(0.98) translateY(-2px);
+                transform: scale(0.98) translateY(-2px); */
+      }
+
+      .container-mobile-shapes {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+
+      .shapes-arrow {
+        margin-left: 30%;
+        margin-right: 30%;
+      }
+
+      .shapes-arrow>img {
+        height: 60px;
+      }
+
+      .right-shape img {
+        -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+
+      .offer-text-mobile {
+        position: relative;
+        top: -5vh;
+
+      }
+
+      .offer-text-mobile img {
+        height: 65px;
+        margin: 0 auto;
+
+      }
+
+
+    }
+
+    @media (min-width:320px) and (max-width:1024px) {
+
+      /****************************************************/
+      /****************************************************/
+      /*********************CARD ECHIPE*******************************/
+      .terms {
+        margin-top: 0;
+      }
+      .termss {
+    font-size: 1.4em;
+    font-weight: 10px;
+    font-weight: bold;
+}
+
+      .terms-content h1 {
+        font-size: 1.2em;
+      }
+
+      .table-TC {
+        font-size: 0.7em;
+      }
+
+      .terms h3 {
+        font-size: 0.9em;
+      }
+
+      .table-TC thead tr td {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .card-container {
+        max-width: 180px;
+        width: 180px;
+        height: 130px;
+        max-height: 125px;
+        border-radius: 20px;
+        overflow: hidden;
+        font-size: 0.8rem;
+        position: relative;
+      }
+
+      .card-container::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ece8ec;
+        z-index: -2;
+        opacity: 0.9;
+      }
+
+
+      .card-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        gap: 8px;
+        padding: 0em 0.5em 0.3em;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        font-size: 0.75em;
+      }
+
+      .card-header {
+        background-color: #173054;
+        text-align: center;
+        padding: 0.25em;
+      }
+
+      .card-header span {
+        color: white;
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+
+      .card-stars {
+        width: 100%;
+
+      }
+
+      .card-body {
+
+
+        padding: 6px 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+
+      }
+
+      .card-stars>div,
+      .card-info>div {
+        margin-bottom: 0.5em;
+
+      }
+
+      .card-info>div {
+        margin-bottom: 8px;
+      }
+
+      .card-info>div:nth-child(3) {
+        margin-bottom: 3.5px;
+      }
+
+      .card-info {
+        text-align: end;
+
+      }
+
+      .card-cta {
+        text-align: center;
+        place-content: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-transform: translatey(-0.3em);
+        -ms-transform: translatey(-0.3em);
+        transform: translatey(-0.3em);
+      }
+
+      .cta-button,
+      .cta-button-disabled {
+        background: -webkit-gradient(linear, left top, right top, from(#ff6333), to(#ff832b));
+        background: -o-linear-gradient(left, #ff6333 0%, #ff832b 100%);
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 0.7rem;
+        width: 120px;
+        height: 30px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border-radius: 50px;
+        padding: .5em 0;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background: -webkit-gradient(linear, left top, right top, from(#ff832b), to(#ff6333));
+        background: -o-linear-gradient(left, #ff832b 0%, #ff6333 100%);
+        background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+        -webkit-transition: .9s ease;
+        -o-transition: .9s ease;
+        transition: .9s ease;
+      }
+
+      .cta-button-disabled {
+        background: #666666 !important;
+
+      }
+
+      .column-table .card-cta .cta-button,
+      .column-table .card-cta .cta-button-disabled {
+        width: 160px;
+        height: 45px;
+        font-size: 0.8rem;
+      }
+
+      .cta-button a:link,
+      a:visited {
+        text-decoration: none;
+        color: white;
+      }
+
+      .outer {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+        height: 16px;
+        width: 81px;
+        background-size: 16px;
+      }
+
+      .inner-star {
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+        height: 16px;
+        width: 42px;
+        background-size: 16px;
+      }
+
+      .text-belowFold {
+        width: 100%;
+        padding: 0 15px;
+        margin-bottom: 5px;
+        margin-top: 10px;
+      }
+
+      .text-belowFold h2 {
+        font-size: 1.2em;
+      }
+
+      .text-belowFold>div {
+        line-height: 1.2;
+      }
+
+      .text-belowFold>div:nth-child(3) {
+        font-size: 1em;
+        text-align: justify;
+
+      }
+
+      .table_players th,
+      .table_players td {
+        text-align: left;
+        padding: 8px 10px;
+      }
+
+      /****************************************************/
+      /************************END CARD ECHIPE****************************/
+      /****************************************************/
+      /****************************************************/
+
+    }
+
+    @media (min-width:320px) and (max-width:1024px) {
+
+      /*right box*/
+      #item-1:checked~.cards #person-3,
+      #item-2:checked~.cards #person-1,
+      #item-3:checked~.cards #person-2 {
+        -webkit-transform: translatex(-43%) translateY(3%) scale(0.95);
+        -ms-transform: translatex(-43%) translateY(3%) scale(0.95);
+        transform: translatex(-43%) translateY(3%) scale(0.95);
+        opacity: 1;
+        z-index: 10;
+      }
+
+      /*left box*/
+      #item-1:checked~.cards #person-2,
+      #item-2:checked~.cards #person-3,
+      #item-3:checked~.cards #person-1 {
+        -webkit-transform: translatex(43%) translateY(3%) scale(0.95);
+        -ms-transform: translatex(43%) translateY(3%) scale(0.95);
+        transform: translatex(43%) translateY(3%) scale(0.95);
+        opacity: 1;
+        z-index: 9;
+      }
+
+      /*center box*/
+      #item-1:checked~.cards #person-1,
+      #item-2:checked~.cards #person-2,
+      #item-3:checked~.cards #person-3 {
+        -webkit-transform: translatex(0) scale(1.12) translateY(2em);
+        -ms-transform: translatex(0) scale(1.12) translateY(2em);
+        transform: translatex(0) scale(1.12) translateY(2em);
+        opacity: 1;
+        z-index: 12;
+        /* border: 1px solid white; */
+      }
+
+      /*blue-shape-center box*/
+      #item-1:checked~.cards #person-1 .img-BlueShape,
+      #item-2:checked~.cards #person-2 .img-BlueShape,
+      #item-3:checked~.cards #person-3 .img-BlueShape {
+        -webkit-transform: translatex(0) scale(1.5) translateY(2.5em);
+        -ms-transform: translatex(0) scale(1.5) translateY(2.5em);
+        transform: translatex(0) scale(1.5) translateY(2.5em);
+        opacity: 1;
+        z-index: 1;
+        /* border: 1px solid white; */
+      }
+
+      /* 
+
+      #person-1 {
+
+        border: 2px solid chartreuse;
+      }
+
+      #person-2 {
+
+        border: 2px solid purple;
+      }
+
+      #person-3 {
+
+        border: 2px solid yellow
+      } */
+
+
+
+
+
+
+      #item-1:checked~.cards #person-1 .box-rating {
+        -webkit-transform: translatex(0) scale(1.1) translateY(-2.1em);
+        -ms-transform: translatex(0) scale(1.1) translateY(-2.1em);
+        transform: translatex(0) scale(1.1) translateY(-2.1em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 14;
+
+      }
+
+
+
+      #item-2:checked~.cards #person-2 .box-rating {
+        -webkit-transform: translatex(0) scale(1.1) translateY(-0.3em);
+        -ms-transform: translatex(0) scale(1.1) translateY(-0.3em);
+        transform: translatex(0) scale(1.1) translateY(-0.3em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+
+      }
+
+
+      #item-3:checked~.cards #person-3 .box-rating {
+        -webkit-transform: translatex(0) scale(1.1) translateY(-1.9em);
+        -ms-transform: translatex(0) scale(1.1) translateY(-1.9em);
+        transform: translatex(0) scale(1.1) translateY(-1.9em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        ;
+
+      }
+
+      /*person 1 stanga dreapta daca person 2-3 sunt active*/
+
+      #item-1:checked~.cards #person-2 .box-rating {
+        -webkit-transform: translatex(6em) scale(1) translateY(-2.3em);
+        -ms-transform: translatex(6em) scale(1) translateY(-2.3em);
+        transform: translatex(6em) scale(1) translateY(-2.3em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        /* border: 3px solid yellow; */
+
+      }
+
+      #item-1:checked~.cards #person-3 .box-rating {
+        -webkit-transform: translatex(-6em) scale(1) translateY(-3.55em);
+        -ms-transform: translatex(-6em) scale(1) translateY(-3.55em);
+        transform: translatex(-6em) scale(1) translateY(-3.55em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        /* border: 3px solid yellow; */
+
+      }
+
+      /* #item-1:checked~.cards .card-person,
+    #item-2:checked~.cards .card-person,
+    #item-3:checked~.cards .card-person{
+      transition: ease .5s ;
+    } */
+
+
+
+
+
+      /*person 1-3 stanga dreapta daca person 2 este activ*/
+      #item-2:checked~.cards #person-1 .box-rating {
+        -webkit-transform: translatex(-6em) scale(1) translateY(-3.5em);
+        -ms-transform: translatex(-6em) scale(1) translateY(-3.5em);
+        transform: translatex(-6em) scale(1) translateY(-3.5em);
+
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        /* border: 3px solid cyan; */
+
+      }
+
+      #item-2:checked~.cards #person-3 .box-rating {
+        -webkit-transform: translatex(6em) scale(1) translateY(-3em);
+        -ms-transform: translatex(6em) scale(1) translateY(-3em);
+        transform: translatex(6em) scale(1) translateY(-3em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        /* border: 3px solid cyan; */
+
+      }
+
+
+      /*person 2-1 stanga dreapta daca person 3 este activ*/
+      #item-3:checked~.cards #person-2 .box-rating {
+        -webkit-transform: translatex(-6em) scale(1) translateY(-2em);
+        -ms-transform: translatex(-6em) scale(1) translateY(-2em);
+        transform: translatex(-6em) scale(1) translateY(-2em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 1;
+        /* border: 3px solid yellow; */
+
+      }
+
+      #item-3:checked~.cards #person-1 .box-rating {
+        -webkit-transform: translatex(6em) scale(1) translateY(-3.55em);
+        -ms-transform: translatex(6em) scale(1) translateY(-3.55em);
+        transform: translatex(6em) scale(1) translateY(-3.55em);
+        right: unset;
+        left: unset;
+        opacity: 1;
+        z-index: 0;
+        /* border: 3px solid yellow; */
+
+      }
+
+
+
+      .player-circles {
+        z-index: 2123123;
+        border-radius: 8px;
+        min-width: 320px;
+        padding: 1px 10px;
+        position: relative;
+        width: 100%;
+        top: -1vh;
+
+
+      }
+
+      /* .circle-shape {
+      width: 20px;
+      height: 20px;
+      border: 1px solid white;
+      border-radius: 20px;
+      background-color: yellow;
+    } */
+
+
+      .progress-bar {
+        border-radius: 2px;
+        overflow: hidden;
+        margin: auto;
+        position: relative;
+        top: 0vh;
+        width: 100%;
+        -webkit-transition: -webkit-transform .4s ease-in;
+        transition: -webkit-transform .4s ease-in;
+        -o-transition: transform .4s ease-in;
+        transition: transform .4s ease-in;
+        transition: transform .4s ease-in, -webkit-transform .4s ease-in;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 40px;
+      }
+
+
+
+      .song-info {
+        width: calc(100% - 32px);
+        display: block;
+      }
+
+
+
+
+
+      .circle-shape {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background: #ccc;
+        border-radius: 10px;
+      }
+
+      .circle-shape:nth-child(even) {
+        width: 8px;
+        height: 8px;
+      }
+
+      .circle-shape:nth-child(odd) {
+        width: 6px;
+        height: 6px;
+      }
+
+      .circle-shape.active {
+        background: #333;
+        width: 10px;
+        height: 10px;
+        -webkit-transition: 0.3s all;
+        -o-transition: 0.3s all;
+        transition: 0.3s all;
+      }
+
+
+
+      .shapes-arrow {
+
+        -webkit-transition: opacity 0.2s;
+
+        -o-transition: opacity 0.2s;
+
+        transition: opacity 0.2s;
+      }
+
+
+      .container-carousel {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .container-carousel>input[type="radio"] {
+        display: inline;
+        position: absolute;
+        bottom: 0%;
+        left: 47%;
+        margin: 0 auto;
+        text-align: center;
+        width: 22px;
+        height: 22px;
+        z-index: 3;
+        border: 1px solid rgba(13, 13, 54, 0.808);
+        background: white;
+      }
+
+      .container-carousel>input[type="radio"]:checked {
+        background-color: rgb(23, 23, 73);
+        ;
+
+      }
+
+      .container-carousel>input[type="radio"]::after {
+        display: -webkit-inline-box !important;
+        display: -ms-inline-flexbox !important;
+        display: inline-flex !important;
+        content: "";
+        position: absolute;
+        bottom: 26%;
+        left: 90%;
+        margin: 0 auto;
+        text-align: center;
+        width: 23px;
+        height: 8px;
+        background-color: rgb(253, 253, 253);
+        z-index: 33;
+      }
+
+      /* .line-shape{
+  width: 90px;
+  height: 10px;
+  background: red;
+  transform: translateY(-5.5px);
+  z-index: -22;
+  position: absolute;
+} */
+      .container-carousel>input[type="radio"]:nth-child(3)::after {
+        visibility: hidden;
+      }
+
+      .container-carousel>input[type="radio"]:nth-child(1) {
+        -webkit-transform: translateX(-40px);
+        -ms-transform: translateX(-40px);
+        transform: translateX(-40px);
+        z-index: 3345122;
+
+      }
+
+
+      .container-carousel>input[type="radio"]:nth-child(2) {
+        -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+        transform: translateX(0px);
+        z-index: 4444;
+
+      }
+
+
+      .container-carousel>input[type="radio"]:nth-child(3) {
+        -webkit-transform: translateX(40px);
+        -ms-transform: translateX(40px);
+        transform: translateX(40px);
+        z-index: 313;
+      }
+
+      /* input[type="radio"]:checked {
+      color: purple;
+    } */
+
+
+
+    }
+
+    @media screen and (orientation:portrait) and (min-width:480px) and (max-width:1024px) {
+      .above-fold {
+        height: 100%;
+      }
+
+      .above-fold::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
+        background-size: cover;
+        background-position: 0 75%;
+        background-repeat: no-repeat;
+        background-color: #2a2e38;
+      }
+
+      .powerBy-body>div>img {
+        height: 70px;
+        width: auto;
+
+      }
+
+      .powerBy-body>div>img:nth-child(2) {
+        height: 65px;
+        width: auto;
+      }
+
+      .text-belowFold {
+        width: 80%;
+        margin-bottom: 5px;
+        margin-top: -10px;
+      }
+
+      .column-title {
+        font-size: 2em;
+      }
+
+      .text-belowFold h2 {
+        font-size: 3em;
+        font-weight: bold;
+      }
+
+      .text-belowFold>div:nth-child(3) {
+        font-size: 1.8em;
+        text-align: center;
+        line-height: 1;
+      }
+
+      .powerBy-body .pragmatic img {
+        height: 120px;
+        -webkit-transform: translateY(-1em);
+        -ms-transform: translateY(-1em);
+        transform: translateY(-1em);
+      }
+
+      .powerBy-body {
+        background-color: white;
+        height: 200px;
+        width: 100%;
+        padding: 0.5em 2em;
+        display: block;
+        margin: auto;
+        border-radius: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-orient: horizontal;
+
+        -webkit-box-direction: normal;
+
+        -ms-flex-direction: row;
+
+        flex-direction: row;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+      }
+
+      .grid-container {
+        display: none;
+      }
+
+      .offer-text-mobile {
+        z-index: 33;
+        top: -6vh;
+      }
+
+      .offer-text-mobile img {
+        height: 100px;
+
+      }
+
+      .grid-container-mobile {
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+        height: 95vh;
+        top: -2vh;
+      }
+
+      .player-circles {
+        position: relative;
+        top: 5vh;
+      }
+
+      .shapes-arrow {
+        margin-left: 45%;
+        margin-right: 45%;
+      }
+
+      .container-carousel {
+        height: calc(35vh - 10px);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: scale(1.3) translateY(40px);
+        -ms-transform: scale(1.3) translateY(40px);
+        transform: scale(1.3) translateY(40px);
+      }
+
+      .elements-wrapper {
+        position: absolute;
+        top: 21vh;
+        -webkit-transform: rotate(-359deg);
+        -ms-transform: rotate(-359deg);
+        transform: rotate(-359deg);
+        left: -18vw;
+      }
+
+      .terms-toggle {
+        font-size: 1.2em;
+        margin-bottom: 0;
+
+      }
+
+      .elements-wrapper img {
+        height: 250px;
+      }
+
+      .shapes-arrow>img {
+        height: 70px;
+      }
+
+      .table_players th,
+      .table_players td {
+        text-align: left;
+        padding: 10px 10px;
+      }
+
+      .column-table {
+        width: 90%;
+        padding: 5px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 21px;
+        margin: 0 auto 40px;
+      }
+
+      .table_players tr {
+        font-size: 1.3em;
+      }
+
+      .table_players th:nth-child(3),
+      .table_players td:nth-child(3) {
+        padding: 10px 50px;
+      }
+
+      .table_players td:nth-child(1),
+      .table_players th:nth-child(1) {
+        width: 0%;
+      }
+
+      .table_players td:nth-child(2),
+      .table_players th:nth-child(2) {
+        width: 100%;
+      }
+
+      .box-rating .card-cta>.cta-button,
+      .box-rating .card-cta>.cta-button-disabled {
+        font-size: 0.7rem !important;
+        width: 120px !important;
+        height: 30px !important;
+      }
+
+      .cta-button-table,
+      .cta-buttonTablet-disabled {
+        font-size: 1.3em;
+        width: 265px;
+        height: 70px;
+        border-radius: 50px;
+        white-space: nowrap;
+        color: white;
+        cursor: pointer;
+      }
+
+      .terms-content ul li {
+        font-size: 1.4em;
+        text-align: justify;
+      }
+
+      .terms-content {
+        max-width: 900px;
+        margin: 10px auto;
+        text-align: center;
+      }
+
+      .table-TC td {
+        padding: 5px 5px;
+      }
+
+
+      .terms-content h1 {
+        font-size: 1.8em;
+      }
+
+      .listTC {
+        width: 100%;
+        text-align: left;
+        margin: 20px auto;
+      }
+
+      .listTC li {
+        list-style: none;
+
+      }
+
+      .terms-content h2 {
+        text-align: left;
+        margin-top: 30px;
+        font-size: 2em;
+      }
+
+      .below-fold .column-table .card-cta .cta-button,
+      .below-fold .column-table .card-cta .cta-button-disabled {
+        width: 220px;
+        height: 55px;
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (min-width:320px) and (max-width:468px) {
+      .offer-text-mobile {
+        top: 0vh;
+      }
+
+      .container-carousel {
+        -webkit-transform: translateY(35px) scale(1);
+        -ms-transform: translateY(35px) scale(1);
+        transform: translateY(35px) scale(1);
+      }
+
+      .elements-wrapper img {
+        height: 170px;
+        -webkit-transform: translateX(10px) translateY(30px) rotate(5deg);
+        -ms-transform: translateX(10px) translateY(30px) rotate(5deg);
+        transform: translateX(10px) translateY(30px) rotate(5deg);
+      }
+    }
+
+    .listTC li a {
+      color: white;
+    }
+
+    /* .counter-players::before {
+      content: "pts";
+      font-size: 0.3em;
+      position: absolute;
+      top: 14px;
+      right: 0px;
+    } */
+
+
+
+    @media screen and (min-width:540px) and (max-width:900px) {
+      .container-carousel {
+        height: calc(38vh - 10px);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -webkit-transform: scale(1.15) translateY(40px);
+        -ms-transform: scale(1.15) translateY(40px);
+        transform: scale(1.15) translateY(40px);
+      }
+
+      .offer-text-mobile {
+        top: -8vh;
+      }
+
+      .container-carousel>input[type="radio"] {
+        bottom: -22px;
+      }
+
+      .grid-container-mobile {
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
+      }
+
+      .elements-wrapper {
+        top: 170px;
+        left: -20vw;
+      }
+
+      .terms-content ul li {
+        font-size: 1.2em;
+        text-align: justify;
+      }
+
+      .text-belowFold h2 {
+        font-size: 2em;
+        font-weight: bold;
+      }
+
+      .text-belowFold>div:nth-child(3) {
+        font-size: 1.6em;
+        text-align: center;
+        line-height: 1;
+      }
+
+      .terms-content {
+        max-width: 700px;
+        margin: 20px auto;
+        text-align: center;
+      }
+
+      .terms-content h1 {
+        font-size: 2.3em;
+      }
+
+      .listTC {
+        width: 100%;
+        text-align: left;
+        margin: 20px auto;
+      }
+
+      .listTC li {
+        list-style: none;
+
+      }
+
+      .terms-content h2 {
+        text-align: left;
+        margin-top: 30px;
+        font-size: 2em;
+      }
+
+      .powerBy-body .pragmatic img {
+        height: 95px;
+        -webkit-transform: translateY(-1em);
+        -ms-transform: translateY(-1em);
+        transform: translateY(-1em);
+      }
+
+      .powerBy-body>div>img {
+        height: 60px;
+        width: auto;
+      }
+    }
+    @-moz-document url-prefix() {
+      .below-fold{
+      background-image:linear-gradient(to bottom, #202535, #20272b, #21262f, #222428, #191e22);
+      background-image:-moz-linear-gradient(to bottom, #202535, #20272b, #21262f, #222428, #191e22);
+      background-image:-ms-linear-gradient(to bottom, #202535, #20272b, #21262f, #222428, #191e22);
+      background-image:-o-linear-gradient(to bottom, #202535, #20272b, #21262f, #222428, #191e22);
+      box-shadow: 2px -5px 40px 10px #202535;
+    }
+  }
+  </style>
+  <title>Bătălia Streamerilor</title>
+</head>
+
+<body>
+ 
+  <div class="container_full" style="position:relative;">
+ <!-- <div class="header" style="position: relative;background:red ;height:55px;width: 100%;">header</div> -->
+    <div class="section-container" style="position:relative">
+
+      <div class="above-fold">
+        <div class="hero">
+        
+          <div class="grid-container">
+            <div class="elements-wrapper">
+              <img
+                src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente_desktop2-en.png"
+                alt="s">
+            </div>
+            <div class="player-One players">
+              <div class="stero box-blueShape">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                  alt="stero" class="img-BlueShape">
+              </div>
+              <div class="char-person1 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                  alt="s" class="char-desktop">
+              </div>
+              <div class="jplay box-rating-desktop">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa SKYWIND</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>puncte:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_1">
+                        <div class="rating member_1">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating gain_1">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating active_1">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta">
+                      <div class="cta-button desktop btnShowPplayers click-me">
+                        Vezi Clasament
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-two players">
+              <div class="pacanele box-blueShape">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                  alt="pacanele" class="img-BlueShape">
+              </div>
+              <div class="char-person2 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                  alt="girl-picture" class="char-desktop girl-picture">
+              </div>
+              <div class="jsky box-rating-desktop">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa PLAY'N GO</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>puncte:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_2">
+                        <div class="rating member_2">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating gain_2">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating active_2">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta">
+                      <div class="cta-button desktop btnShowPplayers click-me">
+Vezi Clasament
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-three players">
+              <div class="third box-blueShape">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                  alt="ThirdText" class="img-BlueShape">
+              </div>
+              <div class="char-person3 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                  alt="s" class="char-desktop">
+              </div>
+              <div class="jpragm box-rating-desktop">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa pragmatic</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>puncte:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_3">
+                        <div class="rating member_3">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating gain_3">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating active_3">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta ">
+                      <div class="cta-button desktop btnShowPplayers click-me">
+Vezi Clasament
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="offer-content">
+              <div class="offer-text">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                  alt="title" class="offer-img">
+              </div>
+            </div>
+
+          </div>
+          <div class="grid-container-mobile">
+            <div class="elements-wrapper">
+              <img
+                src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente-en.png"
+                alt="s">
+            </div>
+            <div class="offer-text-mobile">
+              <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                alt="title" class="mobile">
+            </div>
+            <div class="container-carousel">
+
+              <input type="radio" name="next[]" id="item-1" class="input-radio" value="1">
+
+              <input type="radio" name="next[]" id="item-2" class="input-radio" value="2" checked>
+
+              <input type="radio" name="next[]" id="item-3" class="input-radio" value="3">
+
+              <div class="cards">
+
+                <label class="card-person" for="item-1" id="person-1">
+                  <div class="player-One-mobile players item">
+                    <div class="char-person1 container-char">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                        alt="s" class="stero_img">
+                    </div>
+                    <div class="stero">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                        alt="stero" class="img-BlueShape">
+                    </div>
+                    <div class="jplay box-rating box-rating-stero">
+                      <div class="card-container">
+                        <div class="card-header">
+                          <span>echipa Skywind</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="card-content">
+                            <div class="card-info">
+                              <div>membri:</div>
+                              <div>puncte:</div>
+                              <div>activitate:</div>
+                            </div>
+                            <div class="card-stars product_1">
+                              <div class="rating member_1">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating gain_1">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating active_1">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-cta">
+                            <div class="cta-button desktop btnShowPplayers click-me" >
+Vezi Clasament
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+                <label class="card-person" for="item-2" name="test" id="person-2">
+                  <div class="player-two-mobile players item">
+                    <div class="char-person2 container-char">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                        alt="girl-picture" class="pacanele_img">
+                    </div>
+                    <div class="pacanele">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                        alt="pacanele" class="img-BlueShape">
+                    </div>
+                    <div class="jsky box-rating box-rating-pacanele">
+                      <div class="card-container">
+                        <div class="card-header">
+                          <span>echipa PLAY'N GO</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="card-content">
+                            <div class="card-info">
+                              <div>membri:</div>
+                              <div>puncte:</div>
+                              <div>activitate:</div>
+                            </div>
+                            <div class="card-stars product_2">
+                              <div class="rating member_2">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating gain_2">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating active_2">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-cta">
+                            <div class="cta-button desktop btnShowPplayers click-me">
+Vezi Clasament
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+                <label class="card-person" for="item-3" id="person-3">
+                  <div class="player-three-mobile players item">
+                    <div class="char-person3 container-char">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                        alt="boy-third" class="casinoBoy">
+                    </div>
+                    <div class="third">
+                      <img
+                        src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                        alt="ThirdText" class="img-BlueShape">
+                    </div>
+                    <div class="jpragm box-rating box-rating-casino">
+                      <div class="card-container">
+                        <div class="card-header">
+                          <span>echipa pragmatic</span>
+                        </div>
+                        <div class="card-body">
+                          <div class="card-content">
+                            <div class="card-info">
+                              <div>membri:</div>
+                              <div>puncte:</div>
+                              <div>activitate:</div>
+                            </div>
+                            <div class="card-stars product_3">
+                              <div class="rating member_3">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating gain_3">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                              <div class="rating active_3">
+                                <div class="outer">
+                                  <div class="inner-star"></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-cta">
+                            <div class="cta-button desktop btnShowPplayers click-me">
+Vezi Clasament
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+            <div class="player-circles">
+              <div class="container-mobile-shapes">
+                <div class="left-shape left prev slick-sprev shapes-arrow  btn--prev" onclick="dayNavigation('prev');"
+                  data-role="none" class="slick-prev" tabindex="0" role="button">
+                  <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                    alt="nav">
+                </div>
+
+
+                <div class="center-shape">
+                  <div class="line-shape"></div>
+                </div>
+                <div class="right-shape next slick-next shapes-arrow right btn--next" id="item-21"
+                  onclick="dayNavigation('next');" data-role="none" class="slick-next" tabindex="0" role="button">
+                  <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                    alt="nav">
+                </div>
+
+
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="below-fold" id="below-fold">
+      <div class="powerBy-mobile">
+        <div class="powerBy-text">powered by</div>
+        <div class="powerBy-body">
+          <div class="pragmatic">
+            <img
+              src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+              alt="tesst">
+          </div>
+          <hr>
+          <div class="skywind">
+            <img
+              src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-skywind-en.png"
+              alt="tesst">
+          </div>
+          <hr>
+          <div class="pragmatic2">
+            <img
+              src="https://img.netbet.ro/gms/images-marketing/global/marinela/batalia_streamerilor_logo-play-n-go-en.png"
+              alt="Play'n'GO">
+          </div>
+        </div>
+      </div>
+      <div class="text-belowFold">
+        <h2>ALEGE-ȚI ECHIPA ȘI ÎNVÂRTE ROLELE!</h2>
+        <br>
+        <div>77 de premii CASH garantate pentru primii 77 clasați din fiecare echipă, 77 de Runde Gratuite tuturor
+          jucătorilor care acumulează 50 puncte în clasament + alte premii surpriză!
+          <br>
+        </div>
+
+        <br>
+      </div>
+      <div class="row-table">
+        <div class="column-table">
+          <div class="column-title">Echipa SKYWIND</div>
+          <div id="scoresTeam1" class="counter-players"></div>
+          <table class="table_players scroll">
+            <thead>
+              <tr>
+                <th>Loc</th>
+                <th>Nume</th>
+                <th>Puncte</th>
+              </tr>
+            </thead>
+            <tbody id="table1_body">
+            </tbody>
+          </table>
+          <div class="card-cta">
+            <div class="cta-button cta-button-table mobile-btn-table desktop btnShowPplayers click-me-two">
+              Jocul s-a incheiat
+            </div>
+          </div>
+        </div>
+        <div class="column-table">
+          <div class="column-title">Echipa PLAY'N GO</div>
+          <div id="scoresTeam2" class="counter-players"></div>
+          <table class="table_players scroll">
+            <thead>
+              <tr>
+                <th>Loc</th>
+                <th>Nume</th>
+                <th>Puncte</th>
+              </tr>
+            </thead>
+            <tbody id="table2_body">
+            </tbody>
+          </table>
+          <div class="card-cta">
+            <div class="cta-button cta-button-table mobile-btn-table desktop btnShowPplayers click-me-two">
+Jocul s-a incheiat
+            </div>
+          </div>
+        </div>
+        <div class="column-table">
+          <div class="column-title">Echipa PRAGMATIC</div>
+          <div id="scoresTeam3" class="counter-players"></div>
+          <table class="table_players scroll">
+            <thead>
+              <tr>
+                <th>Loc</th>
+                <th>Nume</th>
+                <th>Puncte</th>
+              </tr>
+            </thead>
+            <tbody id="table3_body">
+            </tbody>
+          </table>
+          <div class="card-cta">
+            <div class="cta-button cta-button-table desktop mobile-btn-table btnShowPplayers"
+              value="Show Popup click-me-two">
+              Jocul s-a incheiat
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="terms">
+        <div class="termss">Termeni și Condiții</div>
+        <div class="terms-content" style="display: block;">
+          <ul class="listTC">
+          <li>Bătălia Streamerilor este o campanie NetBet Cazino care se desfășoară între 1 iunie 2022, ora 13:00
+            EEST și 30 iunie 2022, ora 23:59 EEST.</li>
+            </ul>
+          <h2>Cum poți participa?</h2>
+   
+          <ul class="listTC">
+            <li>Pentru a participa, jucătorii trebuie să se înscrie în una dintre cele 3 echipe disponibile:</li>
+            <li>Echipa SterO SlotS powered by Skywind.</li>
+            <li>Echipa Păcănele Sexy powered by Play’n GO.</li>
+            <li>Echipa CasinosRo powered by Pragmatic Play.</li>
+            <br>
+            <li>Și să se joace cu bani reali la sloturile din cazino pentru a urca în clasament.</li>
+            <li>Toate sloturile sunt eligibile pentru a contribui la acumularea punctelor cu excepția: Bugs Party,
+              Vikings Fortune: Hold and Win, Goldfish, Deal Or No Deal International, Brilliant Gems, Aviator, Rome: The
+              Golden Age, The Magic Cauldron - Enchanted Brew, Fortune Finder with Holly, jocurilor videopoker,
+              jocurilor de masă live și virtuale, jocurilor bingo și curselor virtuale.</li>
+            <li>Orice miză plasată va contribui la scorul total al jucătorului, scor care va fi afișat în clasament.
+            </li>
+            <li>Scorul total este calculat prin adunarea punctelor obținute în timpul tuturor rundelor jucate la orice
+              slot din casino, în timpul perioadei promoționale.</li>
+            <li>Punctele turneului se calculează după cum urmează: 1 RON CASH mizat la orice slot din cazino = 1 punct
+              afișat în clasament.</li>
+            <li>Atenție, dacă alegi să îți anulezi participarea (să ieși din echipă), nu te vei mai putea înscrie din
+              nou.</li>
+            <li>Atunci când doi jucători au același punctaj - premiile din turneu nu vor fi împărțite. În caz de
+              egalitate, jucătorul mai bine clasat va fi decis în funcție de suma totală câștigată în timpul jocului
+              eligibil și, de asemenea, de numărul de runde jucate.</li>
+            <li>Doar mizele cash sunt luate în considerare pentru turneu (mizele din bani bonus sunt excluse).</li>
+            <li></li>
+          </ul>
+          <h2>Ce poți câștiga?</h2>
+          <ul class="listTC">
+          <li>La finalul perioadei promoționale, primii 77 clasați din fiecare echipă se vor bucura de un premiu în bani
+            reali conform tabelului de mai jos:</li>
+            </ul>
+          <table class="table-TC">
+            <thead>
+              <tr>
+                <td>
+                  <p>Loc</p>
+                </td>
+                <td>
+                  <p>Premiul 1</p>
+                </td>
+                <td>
+                  <p>Premiul 2</p>
+                </td>
+                <td>
+                  <p>Premiul 3</p>
+                </td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <p>1</p>
+                </td>
+                <td>
+                  <p>777 RON CASH</p>
+                </td>
+                <td>
+                  <p>555 RON CASH</p>
+                </td>
+                <td>
+                  <p>333 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>2</p>
+                </td>
+                <td>
+                  <p>555 RON CASH</p>
+                </td>
+                <td>
+                  <p>333 RON CASH</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>3</p>
+                </td>
+                <td>
+                  <p>444 RON CASH</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>4</p>
+                </td>
+                <td>
+                  <p>333 RON CASH</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+                <td>
+                  <p>99 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>5</p>
+                </td>
+                <td>
+                  <p>333 RON CASH</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+                <td>
+                  <p>99 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>6</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>99 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>7</p>
+                </td>
+                <td>
+                  <p>222 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>99 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>8</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>88 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>9</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>88 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>10</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>111 RON CASH</p>
+                </td>
+                <td>
+                  <p>88 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>11</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>12</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>13</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>14</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>15</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>16</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>17</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>18</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>19</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>20</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>21</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>22</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>23</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>24</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>25</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>26</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>27</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>28</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>29</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>30</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>31</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>32</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>33</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>34</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>35</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>36</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>37</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>38</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>39</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>40</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>41</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>42</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>43</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>44</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>45</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>46</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>47</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>48</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>49</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>50</p>
+                </td>
+                <td>
+                  <p>77 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>51</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>52</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>53</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>54</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>55</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>56</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>57</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>58</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>59</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>60</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>33 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>61</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>62</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>63</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>64</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>65</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>66</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p> 44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>67</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>68</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>69</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>70</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>71</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>72</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>73</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>74</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>75</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>76</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>77</p>
+                </td>
+                <td>
+                  <p>55 RON CASH</p>
+                </td>
+                <td>
+                  <p>44 RON CASH</p>
+                </td>
+                <td>
+                  <p>22 RON CASH</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <ul class="listTC">
+            <li>Premiile în bani reali vor fi acordate jucătorilor pe baza scorului final afișat în clasament la finalul
+              turneului disponibil.</li>
+            <li>Premiile vor fi creditate în conturile NetBet ale câștigătorilor în termen de 72 de ore (3 zile
+              lucrătoare) de la încheierea promoției, ca sume cash. Acestea vor putea fi retrase fără condiții de rulaj.
+            </li>
+            <li>În plus, în termen de 72 de ore de la finalul perioadei promoționale, orice jucător care a acumulat
+              minim 50 puncte în clasament, va primi acces la widget-ul Roata Rundelor Gratuite, unde va câștiga
+              garantat 77 Runde Gratuite la unul din jocurile disponibile.</li>
+            <li>Jucătorii eligibili trebuie să acceseze și să revendice rundele din secțiunea ”Oferte disponibile”
+              accesând butonul ”Joacă acum”, odată ce au îndeplinit toate condițiile.</li>
+            <li>La accesarea butonului ”Joacă acum”, un pop-up cu Roata Rundelor Gratis va apărea pe ecran.</li>
+            <li>Jucătorii pot învârti Roata Rundelor Gratis accesând butonul ”ÎNVÂRTE”.</li>
+            <li>Dacă Roata Rundelor Gratuite nu este folosită imediat, va rămâne activă și poate fi accesată în
+              secțiunea Oferte Speciale din contul de jucător. </li>
+            <li>Roata Rundelor Gratuite va rămâne activă timp de 3 zile de la momentul creditării.</li>
+            <li>Premiul va fi creditat instant în contul jucătorului de cazino, odată ce Roata Rundelor Gratis a fost
+              folosită. </li>
+            <li>Câștigurile obținute în timpul rundelor gratuite vor fi creditate în balanța jucătorilor sub formă de
+              bonus, de îndată ce toate rundele acordate sunt epuizate.</li>
+            <li>Acest Bonus (echivalentul câștigurilor) este valabil timp de 7 zile de la data acordării și are
+              playthrough standard x40 (trebuie mizat de 40 de ori pentru a fi transformat în bani reali). </li>
+            <li>După această perioadă, toate bonusurile neutilizate, bonusurile cu playthrough necompletat sau
+              câștigurile în așteptare derivate din acestea vor fi deduse automat din balanța contului de jucător.</li>
+            <li>Cererile de retragere efectuate înainte de îndeplinirea condițiilor de mizare ale bonusurilor vor avea
+              ca efect anularea automată a tuturor sumelor bonus și a câștigurilor derivate din acestea.</li>
+
+            <li>Vom acorda aleatoriu 200 de premii surpriză, sub formă de Goodie Bags.</li>
+          </ul>
+
+
+
+
+          <h2>Ce altceva trebuie să știi?</h2>
+          <ul class="listTC">
+            <li>Streamerii nu sunt eligibili pentru a beneficia de premii, indiferent dacă vor avea cele mai multe puncte în clasament. </li>
+            <li>Jucătorii care nu au acumulat niciun punct în clasament nu sunt eligibili pentru a beneficia de premii.</li>
+            <li>Ne rezervăm dreptul de a anula scorul cumulat sau de a nu credita premiul în cazul în care scorul
+              cumulat sau parte din acesta a fost obținut în urma unei erori tehnice sau umane (inclusiv câștiguri
+              înregistrate greșit în timpul jocului).</li>
+            <li>Ne rezervăm dreptul de a anula scorul cumulat sau de a nu credita premiul în cazul în care, în opinia
+              noastră, scorul sau parte din acesta a fost înregistrat prin trișare, în urma unei fraude, coluziuni sau a
+              unei înțelegeri între mai mulți jucători.</li>
+            <li>Jucătorii care abuzează de promoțiile NetBet nu vor fi eligibili pentru a participa la această promoție.
+            </li>
+            <li>Ne rezervăm dreptul de a modifica condițiile acestei promoții sau de a o anula în orice moment.</li>
+            <li>Această ofertă respectă&nbsp;<a
+                href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions?lp=trustpilotRO"
+                style="display:inline-block;">Termenii și Condițiile NetBet Cazino</a>.</li>
+          </ul>
+          <br>
+          <hr>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="powerBy">
+    <div class="powerBy-text">powered by</div>
+    <div class="powerBy-body">
+      <div class="pragmatic">
+        <img
+          src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+          alt="tesst">
+      </div>
+      <hr>
+      <div class="skywind">
+        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-skywind-en.png"
+          alt="tesst">
+      </div>
+      <hr>
+      <div class="pragmatic2">
+        <img src="https://img.netbet.ro/gms/images-marketing/global/marinela/batalia_streamerilor_logo-play-n-go-en.png"
+          alt="Play'n'GO">
+      </div>
+    </div>
+  </div>
+
+  <div id="dialog" style="display: none" align="center">
+    Nu vei putea intra în altă echipă ulterior.
+  </div>
+
+  <script defer>
+    $('.terms-toggle').click(function () {
+      $('.terms').toggleClass('hidden');
+      $('.terms-content').slideToggle();
+    });
+    let index = 0;
+    dayNavigation = function (direction) {
+      let allinput = $('input[name="next[]"]');
+      let current = $('input[name="next[]"]:checked');
+
+      // console.log(radioValue,'radioValue')
+      // currentVal = current.val();
+      if (direction == 'next') {
+        current.next().click();
+        current.next().attr("checked", "checked");
+        console.log(current.next().val(), "next prev")
+      } else {
+        console.log(current.prev().val(), "valoare prev")
+        // console.log(allinput[i], "2ccsasas")
+        current.prev().prop("checked", "checked");
+        current.prev().click();
+      }
+    }
+
+    //modificat TAVI
+
+    document.addEventListener('DOMContentLoaded', () => {
+      getDataJson();
+      ratingsData();
+    })
+
+    function ratingsData(m1, m2, m3, s1, s2, s3) {
+      var members = {
+        member_1: m1,
+        member_2: m2,
+        member_3: m3,
+      }
+      console.log("members")
+      for (var member in members) {
+        let ratePercentage = (members[member] / 5) * 100;
+        const inner = document.querySelectorAll(`.${member} .inner-star`)
+        for (let i = 0; i < inner.length; i++) {
+          inner[i].style.width = `${ratePercentage}%`
+        }
+      }
+      var gains = {
+        gain_1: s1,
+        gain_2: s2,
+        gain_3: s3,
+      }
+      for (var gain in gains) {
+        let ratePercentage = (gains[gain] / 5) * 100;
+        const inner = document.querySelectorAll(`.${gain} .inner-star`)
+        for (let j = 0; j < inner.length; j++) {
+          inner[j].style.width = `${ratePercentage}%`
+        }
+      }
+      var actives = {
+        active_1: 5,
+        active_2: 5,
+        active_3: 5,
+      }
+      for (var active in actives) {
+        let ratePercentage = (actives[active] / 5) * 100;
+        const inner = document.querySelectorAll(`.${active} .inner-star`)
+        for (let k = 0; k < inner.length; k++) {
+          inner[k].style.width = `${ratePercentage}%`
+        }
+      }
+    }
+
+    console.log(ratingsData)
+
+    // modificat TAVI
+
+    // adaugat TAVI
+
+    function selectRandomRadioButton(radioButtons) {
+      const index = Math.floor(Math.random() * radioButtons.length);
+      const element = radioButtons[index];
+
+      element.checked = true;
+
+      return `Selected Option ${element.value}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { //selecteaza random un jucator
+      const radioButtons = document.getElementsByClassName('input-radio');
+
+      const message = selectRandomRadioButton(radioButtons);
+      console.log(message);
+    });
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      getDataJson();
+    })
+
+    //  var usernameToCheck = "NicolaeJan";
+    //  var usernameToCheck = "69Fotomodel";
+    //  var usernameToCheck = "mmanta";
+    //  var usernameToCheck = "iTaviB";
+    //  var usernameToCheck = "iTaviB2";
+    //  var usernameToCheck = "logged_out";
+    //  var usernameToCheck = null;
+     var usernameToCheck = getCookie("netbet_login");
+    const dataLink = new Request('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php?user=' +
+      usernameToCheck);
+
+    async function getDataJson() {
+      const response = await fetch(dataLink, {
+          method: 'GET',
+          mode: 'cors',
+          cache: "default",
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network Response is not OK');
+          }
+          return response.json();
+          console.log(response.json(), "response")
+        })
+        .then((objectData) => {
+          let tableData = '';
+          objectData.map((values, index, itemsToRenderInTable) => {
+            let result = values.hasOwnProperty('stream');
+          }).join("");
+
+          // true
+
+          console.log(objectData, "incarcata cu lungimea de ", objectData.length);
+
+          let table1Text = "";
+          let table2Text = "";
+          let table3Text = "";
+
+          let team1scores = 0;
+          let team2scores = 0;
+          let team3scores = 0;
+
+          var totalMembers1 = 0;
+          var totalMembers2 = 0;
+          var totalMembers3 = 0;
+
+          let counter1 = counter2 = counter3 =0; 
+
+          for (var i = 0; i < objectData.length; i += 1) {
+            if (objectData[i].stream == 1) {
+              team1scores += parseInt(objectData[i].points, 10);
+              totalMembers1 += 1;
+              counter1 +=1;
+              if (objectData[i].username == usernameToCheck) {
+                table1Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+              } else if (counter1 <= 78) {
+                table1Text += "<tr><td style='background-color: #ff6333'>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              } else {
+                table1Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            } else if (objectData[i].stream == 2) {
+              team2scores += parseInt(objectData[i].points, 10);
+              totalMembers2 += 1;
+              counter2 += 1;
+              if (objectData[i].username == usernameToCheck) {
+                table2Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+                } else if (counter2 <= 78) {
+                table2Text += "<tr><td style='background-color: #ff6333'>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              } else {
+                table2Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            } else {
+              team3scores += parseInt(objectData[i].points, 10);
+              totalMembers3 += 1;
+              counter3 += 1;
+              if (objectData[i].username == usernameToCheck) {
+                table3Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+                } else if (counter3 <= 78) {
+                table3Text += "<tr><td style='background-color: #ff6333'>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              } else {
+                table3Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            }
+            if (objectData[i].username == usernameToCheck) {
+              console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                .ranking);
+            }
+          };
+
+          table1Text += "</table>";
+          table2Text += "</table>";
+          table3Text += "</table>";
+
+          table1_body.innerHTML = table1Text;
+          table2_body.innerHTML = table2Text;
+          table3_body.innerHTML = table3Text;
+
+          scoresTeam1.innerHTML = team1scores;
+          scoresTeam2.innerHTML = team2scores;
+          scoresTeam3.innerHTML = team3scores;
+
+          scoresStars_1 = Math.round(team1scores / Math.max(team1scores, team2scores, team3scores) * 5);
+          scoresStars_2 = Math.round(team2scores / Math.max(team1scores, team2scores, team3scores) * 5);
+          scoresStars_3 = Math.round(team3scores / Math.max(team1scores, team2scores, team3scores) * 5);
+
+          console.log('Scores stele ar trebui sa fie asa: ', scoresStars_1, ' ', scoresStars_2, ' ', scoresStars_3);
+
+
+          memberStars_1 = Math.round(totalMembers1 / Math.max(totalMembers1, totalMembers2, totalMembers3) * 5);
+          memberStars_2 = Math.round(totalMembers2 / Math.max(totalMembers1, totalMembers2, totalMembers3) * 5);
+          memberStars_3 = Math.round(totalMembers3 / Math.max(totalMembers1, totalMembers2, totalMembers3) * 5);
+
+          console.log('Members stele ar trebui sa fie asa: ', memberStars_1, ' ', memberStars_2, ' ',
+            memberStars_3);
+          console.log('am numarat ', totalMembers1, ' in echipa 1,', totalMembers2, ' in echipa 2 si ',
+            totalMembers3, 'in echipa 3.');
+
+          ratingsData(memberStars_1, memberStars_2, memberStars_3, scoresStars_1, scoresStars_2, scoresStars_3);
+
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+    }
+
+
+
+  
+    $(document).ready(function(){
+  $( ".click-me" ).click(function() {
+    var x = $(window).scrollTop();
+     $('html, body').animate({ scrollTop: x + 1080 }) 
+  });
+ 
+  $('.click-me-two').click(function() {
+    window.location.href = 'https://casino.netbet.ro/';
+    return false;
+});
+});
+
+   
+
+    console.log("end")
+  </script>
+</body>
+
+</html>

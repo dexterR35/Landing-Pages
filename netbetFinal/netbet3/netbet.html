@@ -1,0 +1,3212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"
+    integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/blitzer/jquery-ui.min.css"
+    integrity="sha512-SsJq+mF6SR+NR5GizgVCURD39dLfHZg2MOJE5eoGUj0pm3Mcz0uxo370pC83L7+hnrxhXkcZeOcSOJrj0rULaA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script type="text/javascript">
+    $(function () {
+      $("#dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        title: "Confirmare",
+        width: 320,
+        height: 160,
+        buttons: [{
+            id: "Join",
+            text: "Intra in echipa",
+            click: function () {
+              alert("Join Team is ok.");
+            }
+          },
+          {
+            id: "Cancel",
+            text: "Anulare",
+            click: function () {
+              $(this).dialog('close')
+              alert("anulare is ok.");
+
+            }
+          }
+        ],
+        autoOpen: false,
+        show: {
+          effect: "fade",
+          duration: 300
+        },
+        hide: {
+          effect: "fade",
+          duration: 200
+        }
+      });
+      $(".btnShowPplayers").click(function () {
+        $('#dialog').dialog('open');
+      });
+    });
+  </script>
+
+
+
+  <!-- <link rel="stylesheet" href="netbet.css">
+    <link rel="stylesheet" href="./animation.css"> -->
+  <title>Bătălia Streamerilor</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* anuleaza paddingul de la container-fluid */
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .logo_holder {
+    padding-left: 15px;
+  }
+
+  .left-box {
+    padding-left: 15px !important;
+  }
+
+  .right-box {
+    padding-right: 15px !important;
+  }
+
+  @media (max-width: 1199px) {
+    body {
+      font-size: 90%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    body {
+      font-size: 85%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    body {
+      font-size: 75%;
+    }
+  }
+
+  *,
+  *::after,
+  *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #dialog {
+
+    width: 200px;
+    height: 200px;
+
+
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body,
+  table,
+  button,
+  .ui-widget {
+    font-family: 'Play', sans-serif !important;
+  }
+
+
+  /*MODAL POPUP*/
+  .ui-dialog .ui-dialog-buttonpane {
+    margin-top: 0 !important
+  }
+
+  .ui-widget-header {
+    background: #173054 !important;
+  }
+
+  .ui-widget-content {
+    background: none !important;
+
+  }
+
+  /* .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable {
+    background-color: #ece8ec !important;
+  } */
+
+  .ui-widget.ui-widget-content,
+  .ui-widget-header,
+  .ui-widget-content {
+    border: none !important;
+  }
+
+  .ui-dialog {
+    padding: 0 !important;
+
+  }
+
+  .ui-widget-overlay {
+    background: black !important;
+  }
+
+  .ui-dialog-titlebar {
+    padding: 0.5em 1em;
+    border-bottom-left-radius: unset;
+    border-bottom-right-radius: unset;
+  }
+
+  .ui-widget-header {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: unset !important;
+    border-bottom-right-radius: unset !important;
+    border-top-right-radius: 10px !important;
+
+  }
+
+
+  #dialog {
+    position: relative;
+    top: 1.5vh;
+  }
+
+  .ui-dialog {
+    border-top-left-radius: 40px !important;
+    border-top-right-radius: 40px !important;
+
+  }
+
+  .ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.ui-dialog-buttons.ui-draggable.ui-resizable::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ece8ec;
+    z-index: -2;
+    opacity: 0.9;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    border-bottom-left-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+  }
+
+
+  .ui-dialog-buttonpane {
+    display: flex;
+    justify-content: center;
+  }
+  *,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+
+/* 
+
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 82vh; 
+  margin: 0 auto;
+
+}
+
+.carousel-content {
+  position: relative;
+  overflow: hidden;
+  transition: width .4s;
+  height: 100%;
+}
+
+.slide {
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  transition: left .4s cubic-bezier(.47,.13,.15,.89);
+}
+
+.slide-2 {
+  background-color: green;
+}
+
+.slide-3 {
+  background-color: red;
+}
+
+.slide-4 {
+  background-color: purple;
+}
+
+
+
+.nav {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  background-color: rgba(150,150,150,.3);
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: white;
+  -webkit-user-select: none;
+}
+
+.nav-left {
+  left: -25px;
+}
+
+.nav-right {
+  right: -25px;
+}
+
+.carousel-arrow-icon-left {
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+.carousel-arrow-icon-right {
+  margin-left: 7px;
+  margin-top: 2px;
+} */
+
+  /*END MODAL POPup*/
+
+  /****************************************************/
+  /************************Section below****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+  .below-fold {
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto 1em auto;
+    position: relative;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #6a718d, #6a718d, #666666, #545454, #223466);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+
+  .below-fold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(to bottom, #1b233e, #25252e, #1e2738, #30343e, #343434);
+    z-index: -1;
+    opacity: 0.8;
+    filter: brightness(50%);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  .section-container {
+    overflow: hidden;
+    margin: auto;
+    -webkit-box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+    box-shadow: 4px 4px 22px 11px rgba(0, 0, 0, 0.76);
+  }
+
+  /****************************************************/
+  /************************Section below****************************/
+  /****************************************************/
+  /****************************************************/
+
+  /****************************************************/
+  /****************************************************/
+  /*********************star powerBy*******************************/
+
+  .powerBy {
+    width: 220px;
+    max-width: 220px;
+    height: 300px;
+    max-height: 300px;
+    position: fixed;
+    top: 65%;
+    left: 0;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    outline: none;
+    overflow: hidden;
+
+  }
+
+  .powerBy-text {
+    font-size: 1.2em;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: auto;
+  }
+
+  .powerBy-body {
+    background-color: white;
+    height: 100%;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+    border-top-left-radius: 0;
+  }
+
+
+  .pragmatic,
+  .skywind,
+  .pragmatic2 {
+
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .skywind {
+    padding: 21px 0;
+  }
+
+  .powerBy-body>div>img {
+    width: 65%;
+  }
+
+  .powerBy-body hr {
+    color: black;
+    width: 80%;
+    margin: auto;
+  }
+
+
+
+  /****************************************************/
+  /****************************************************/
+  /*********************end powerBy*******************************/
+
+
+
+
+
+  /****************************************************/
+  /****************************************************/
+  /*********************CARD ECHIPE*******************************/
+
+  .card-container {
+    max-width: 295px;
+    width: 295px;
+    height: 220px;
+    max-height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-container::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ece8ec;
+    z-index: -2;
+    opacity: 0.9;
+  }
+
+
+  .card-content {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    padding: 0.9em 1.5em 0em;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+  }
+
+  .card-header {
+    background-color: #173054;
+    text-align: center;
+    padding: 0.25em;
+  }
+
+  .card-header span {
+    color: white;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .card-stars {
+    width: 100%;
+    margin-left: 10px;
+  }
+
+  .card-stars>div,
+  .card-info>div {
+    margin-bottom: 0.5em;
+
+  }
+
+  .card-info>div {
+    margin-bottom: 14px;
+  }
+
+  .card-info {
+    text-align: end;
+
+  }
+
+  .card-cta {
+    text-align: center;
+    place-content: center;
+    display: flex;
+  }
+
+  .cta-button {
+    background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 1em;
+    white-space: nowrap;
+    color: white;
+    cursor: pointer;
+  }
+
+  .cta-button:hover {
+    background: linear-gradient(90deg, #ff832b 0%, #ff6333 100%);
+    transition: .9s ease;
+  }
+
+  .outer {
+    background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_outer-star3-en.png);
+    height: 25px;
+    width: 125px;
+    background-size: 25px;
+  }
+
+  .inner-star {
+    background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_inner-star-en.png);
+    height: 25px;
+    width: 125px;
+    background-size: 25px;
+  }
+
+  .rating {
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+    top: -5px;
+  }
+
+  /****************************************************/
+  /************************END CARD ECHIPE****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+  /****************************************************/
+  /************************btn scroll top****************************/
+  /****************************************************/
+  /****************************************************/
+
+  .btnScrollTop {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: crimson;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: ease .5s;
+    font-size: 1em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btnScrollTop.active {
+    bottom: 20px;
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 1231;
+
+  }
+
+  .back-to-top_button {
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 9px;
+    transform: rotate(-134deg);
+    -webkit-transform: rotate(-134deg);
+    margin-top: 13px;
+  }
+
+
+  /****************************************************/
+  /************************end ***btn scroll top****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+  /****************************************************/
+  /************************ABOVE FOLD HERO****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+  .stero,
+  .pacanele,
+  .third {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  .stero {
+    /* background-color: rgba(192, 12, 48, 0.452); */
+    top: 25vh;
+    left: -12vw;
+  }
+
+  .pacanele {
+    /* background-color: rgba(12, 111, 192, 0.452); */
+    top: 14vh;
+
+  }
+
+  .third {
+
+    /* background-color: rgba(192, 180, 12, 0.452); */
+    top: 34vh;
+    left: 12vw;
+  }
+
+
+
+  .img-BlueShape {
+    height: 380px;
+    position: relative;
+
+  }
+
+
+  .player-One {
+    left: 7vw;
+
+  }
+
+  .player-two,
+  .player-One,
+  .player-three {
+    transition: ease .5s;
+  }
+
+
+  .player-three {
+    left: -11vw;
+    top: -4vh;
+  }
+
+  .players {
+    position: relative;
+  }
+
+
+
+
+
+  /* .container-char {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  MAX-WIDTH: 1200px;
+  min-width: 300px; 
+    display: grid;
+  place-content: center;
+  grid-template-columns: max-content max-content max-content;
+  align-items: center;
+  position: relative; 
+     width: max-content;
+  } */
+
+  .container-char>img {
+    position: relative;
+    width: 100%;
+
+  }
+
+
+  .char-person3>img {
+    top: -1vh;
+    left: 2vw;
+
+  }
+
+  .char-person2>img {
+
+    z-index: 2;
+    top: 2vh;
+  }
+
+  .char-person1 {
+    top: 0vh;
+    position: relative;
+  }
+
+  .players {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-jsTable {
+    grid-area: jstable;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    top: -177px;
+  }
+
+  .jcontents {
+    position: relative;
+  }
+
+  .jplay {
+    position: relative;
+    top: -25vh;
+    left: -11.5vw;
+  }
+
+  .jsky {
+    position: relative;
+    left: 0vw;
+    top: -20vh;
+    z-index: 20;
+  }
+
+  .jpragm {
+    position: relative;
+    top: -20.6vh;
+    left: 15vw;
+  }
+
+
+  /****************************************************/
+  /************************ABOVE FOLD HERO****************************/
+  /****************************************************/
+  /****************************************************/
+
+  /*offer */
+  .offer-content {
+    position: absolute;
+    top: 45vh;
+    text-align: center;
+    font-family: "PLAY"sans-serif;
+    vertical-align: middle;
+    line-height: 0.75;
+    z-index: 22;
+  }
+
+  .offer-text {
+    width: 100%;
+    font-size: 8em;
+    display: block;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(233, 233, 233);
+    text-shadow: -2px 2px 9px #330a2f;
+  }
+
+  .offer-text>div:nth-child(1) {
+    font-size: 4rem;
+    /* text-shadow: 2px 2px rgba(151, 151, 151, 0.486); */
+  }
+
+  .offer-text>div:nth-child(2) {
+    font-size: 1.6em;
+  }
+
+
+
+  /****************************************************/
+  /************************ABOVE FOLD HERO****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+
+
+  /******************************/
+  /******************************/
+  /***********MEDIA QUERRYES*******************/
+  /******************************/
+  /******************************/
+
+
+
+
+  /* @media (orientation: landscape) {
+  .section-bg-one {
+    min-height: 550px;
+  }
+}
+
+
+
+@media (orientation: landscape) and (min-width: 992px){
+.section-one {
+    top: -8vh;
+    position: relative;
+    left: 0vh;
+    z-index: 2;
+    transform: scale(0.85);
+}
+}
+
+
+
+@media (orientation: landscape) and (min-width: 1920px) and (max-width: 2560px){
+.section-one {
+  transform: scale(0.95);
+  top: 7vh;
+  }
+}
+
+
+@media (orientation: landscape) {
+  .section-one {
+    min-height: 550px;
+  }
+} */
+
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+
+
+
+
+  /****************************************************/
+  /************************start TABLE ECHIPE****************************/
+  /****************************************************/
+  /****************************************************/
+  .below-fold {
+    text-align: center;
+    padding: 5em 15px;
+    margin: auto;
+  }
+
+  .row-table {
+    margin-left: -5px;
+    margin-right: -5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .column-table {
+    float: left;
+    width: 20%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 21px;
+  }
+
+  /* Clearfix (clear floats) */
+  .row-table::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .table_players {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    height: 400px;
+    max-height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .table_players.scroll tbody {
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .table_players.scroll tbody,
+  .table_players.scroll thead {
+    display: block;
+  }
+
+  .table_players.scroll {
+
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+
+  }
+
+  .table_players th,
+  td {
+    text-align: left;
+
+    padding: 15px 10px;
+  }
+
+  th {
+    position: sticky;
+    top: 0;
+  }
+
+  tbody::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: red;
+  }
+
+  td:nth-child(1),
+  th:nth-child(1) {
+    width: 50px;
+  }
+
+  td:nth-child(2),
+  th:nth-child(2) {
+    width: 200px;
+  }
+
+  td:nth-child(3),
+  th:nth-child(3) {
+    width: 100px;
+  }
+
+  .counter-players {
+    border: 1px solid white;
+    text-align: center;
+    padding: 2px;
+    font-weight: bold;
+    font-size: 3em;
+    color: #0c2b4d;
+    background: white;
+  }
+
+  .below-fold h2 {
+    font-size: 3em;
+  }
+
+  .below-fold span {
+    font-size: 1.3em;
+    width: 90%;
+  }
+
+  .text-belowFold {
+
+    object-fit: fill;
+    margin-bottom: 58px;
+  }
+
+  .above-fold {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #2a2e38;
+  }
+
+  /****************************************************/
+  /************************start TABLE ECHIPE****************************/
+  /****************************************************/
+  /****************************************************/
+
+
+
+  @media (orientation: landscape) and (min-width:992px) {
+    .above-fold {
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_sloturilor_bk_desktop-en.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #2a2e38;
+    }
+
+    /* .offer-content {
+    top: 50vh;
+    left: -12vh;
+} */
+  }
+
+
+
+  .grid-container {
+    /* display: grid;
+    grid-template-columns: repeat(5, minmax(350px, 1fr));
+    grid-template-rows: repeat(3, minmax(100px, 250px));
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". stero stero stero ."
+      ". char char char ."
+      ". jstable jstable jstable .";
+    justify-content: center;
+    align-items: center;
+    /* transform: scale(0.85); 
+    position: relative;
+    transform: scale(0.93);
+    margin: 2em auto 1em;
+    place-content: center;
+    align-items: center; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+
+  }
+
+  /* tablet media querry*/
+
+  @media (orientation: landscape) and (min-width: 768px) {
+    .grid-container-mobile {
+      display: none;
+    }
+  }
+
+  @media (orientation: landscape) and (min-width: 992px) {
+    .grid-container {
+      top: -1vh;
+      transform: scale(0.85);
+      -webkit-transform: scale(0.85);
+      -moz-transform: scale(0.85);
+    }
+
+    .grid-container-mobile {
+      display: none;
+    }
+
+  }
+
+  @media (orientation: landscape) and (min-height: 500px) and (max-height:799px) {
+
+    .grid-container {
+      top: -2vh;
+      transform: scale(0.7);
+      -webkit-transform: scale(0.7);
+    }
+
+    .offer-text {
+      font-size: 7em;
+    }
+
+    .elements-wrapper {
+      position: absolute;
+      top: 8vh;
+      left: -25vw;
+      /* background-color: rgba(241, 93, 8, 0.842); */
+    }
+
+
+
+
+    .container-jsTable {
+      top: -32vh;
+    }
+
+    .stero {
+      top: 36vh;
+      left: -17vw;
+    }
+
+    .pacanele {
+      top: 18vh;
+    }
+
+    .third {
+      top: 48vh;
+      left: 17.3vw;
+    }
+
+    .char-wrapper {
+      top: -11vh;
+    }
+
+    .player-three {
+      left: -11vw;
+    }
+
+    .player-One {
+      left: 7vw;
+    }
+
+    .jpragm {
+      position: relative;
+
+      left: 17.5vw;
+    }
+
+    .jplay {
+      position: relative;
+
+      left: -15.5vw;
+    }
+
+    .powerBy {
+      transform: scale(0.6);
+      left: -7vh;
+      top: 55%;
+    }
+  }
+
+  @media (orientation: landscape) and (min-height: 800px) and (max-height:919px) {
+    .powerBy {
+      transform: scale(0.7);
+      left: -4vh;
+      top: 50%;
+    }
+
+    .stero {
+      /* background-color: rgba(192, 12, 48, 0.452); */
+      top: 30vh;
+      left: -17.5vw;
+    }
+
+    .pacanele {
+      top: 16.7vh;
+    }
+
+    .third {
+      top: 40vh;
+      left: 19.5vw;
+    }
+
+    .offer-text {
+      font-size: 6.5em;
+    }
+
+    .offer-content {
+
+      top: 41vh;
+      /* left: 2vh; */
+      z-index: 1200021;
+
+    }
+
+    .container-jsTable {
+      top: -25vh;
+    }
+
+    .player-One {
+      left: 14vh;
+    }
+
+    .player-two {
+      left: 0vh;
+      z-index: 336556;
+    }
+
+    .player-three {
+      left: -20vh;
+
+    }
+
+    .jplay {
+      position: relative;
+      top: -31vh;
+      left: -16.5vw;
+    }
+
+
+    .jsky {
+      position: relative;
+      top: -22vh;
+      left: .5vw;
+    }
+
+    .elements-wrapper {
+      position: absolute;
+      top: 10vh;
+      left: -29vw;
+      transform: scale(0.93);
+    }
+
+
+    .jpragm {
+      position: relative;
+      top: -27vh;
+      left: 19.5vw;
+    }
+  }
+
+
+
+
+  @media (orientation: landscape) and (min-height: 920px) and (max-height:999px) {
+    .grid-container {
+      top: -2vh;
+      transform: scale(0.86);
+      -webkit-transform: scale(0.86);
+      -moz-transform: scale(0.86);
+    }
+
+    .elements-wrapper {
+      position: absolute;
+      top: 7vh;
+      left: -24vw;
+      transform: scale(1);
+    }
+
+    .stero {
+      top: 28vh;
+      left: -14vw;
+    }
+
+    .pacanele {
+      top: 15vh;
+
+    }
+
+    .third {
+      top: 40vh;
+      left: 14vw;
+    }
+
+    .offer-text {
+      font-size: 7em;
+    }
+
+    .offer-content {
+      top: 43vh;
+
+    }
+
+    .container-jsTable {
+      top: -24vh;
+    }
+
+    .above-fold {
+
+      background-position: 100% 100%;
+    }
+
+    .player-three {
+      left: -11vw;
+    }
+
+    .elements-wrapper {
+      position: absolute;
+      top: 15vh;
+      left: -20vw;
+      transform: scale(1.1);
+    }
+  }
+
+  @media (orientation: landscape) and (min-height: 1000px) and (max-height:1200px) {
+    .grid-container {
+      top: -1vh;
+      transform: scale(1);
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+    }
+
+
+
+    .stero {
+      top: 21vh;
+      left: -13vw;
+    }
+
+    .pacanele {
+      top: 10vh;
+    }
+
+    .third {
+      top: 34vh;
+      left: 14vw;
+    }
+
+    .elements-wrapper {
+      position: absolute;
+      top: 14vh;
+      left: -24vw;
+    }
+
+
+  }
+
+
+
+
+
+  @media (max-width: 1400px) {
+    .below-fold {
+
+      max-width: 1000px;
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* 
+@media (min-width:320px) {
+  .container-mobile-players {
+    transform: scale(0.70);
+  }
+  .jsky {
+      top: -13vh;
+    }
+} */
+
+
+
+  /* iphone 6, 6s, 7, 8
+@media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+  .container-mobile-players {
+    transform: scale(0.63);
+    -webkit-transform: scale(0.63);
+  }
+  .grid-container-mobile{
+    top: -4vh;
+  }
+}
+ */
+
+
+
+
+
+
+
+
+  @media (max-width: 450px) {
+    .above-fold {
+      height: calc(100vh - 5px);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .above-fold {
+      height: calc(100vh - 30px);
+    }
+  }
+
+  @media (max-width: 350px) {
+    .above-fold {
+      height: 100vh;
+    }
+  }
+
+
+
+  @media (max-width: 450px) {
+    .below-fold {
+      font-size: 0.7em;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .below-fold {
+      font-size: 0.4em;
+      /* max-width: 850px; */
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .below-fold {
+      font-size: 0.7em;
+
+    }
+  }
+
+  /* 
+  @media (orientation: portrait) and (max-width: 450px) and (max-aspect-ratio: 130 / 250) {
+    .grid-container-mobile {
+      top: -3vh;
+    }
+
+    .jsky {
+      top: -13vh;
+    }
+  }
+
+  @media (orientation: portrait) and (max-aspect-ratio: 380 / 635) {
+    .grid-container-mobile {
+      top: -3vh;
+    }
+  }
+ */
+
+
+  /*Mobile */
+  @media (orientation: portrait) {
+    .above-fold {
+      overflow: hidden;
+      display: flex;
+      background-image: url(https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_bk_mobile-en.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #2a2e38;
+    }
+
+    .below-fold {
+      height: auto;
+    }
+
+    .grid-container {
+      display: none;
+    }
+
+    .third {
+      top: 34vh;
+      left: 40vw;
+    }
+    .jsky {
+      transform: scale(1.2);
+      top: -40vh;
+      position: relative;
+    }
+    .jpragm {
+      position: relative;
+      top: -22.6vh;
+      z-index: 100;
+      left: 45vw;
+
+    }
+
+    .char-person2 {
+      position: relative;
+    }
+
+    .stero {
+      top: 25vh;
+      left: -61vw;
+    }
+
+
+  }
+
+  @media (orientation: portrait) and (max-width:320px) {
+    .grid-container-mobile {
+      position: relative;
+      top: -3vh;
+    }
+
+    .container-char>img {
+      height: 100%;
+    }
+
+    .container-mobile-players {
+      transform: scale(0.65);
+      -webkit-transform: scale(0.65);
+      -moz-transform: scale(0.65);
+      top: -3vh;
+    }
+
+
+  }
+
+  @media (orientation: portrait) and (max-width:480px) {
+
+    .grid-container-mobile {
+      position: relative;
+      top: -3vh;
+    }
+
+    .container-char>img {
+      height: 100%;
+    }
+
+    .container-mobile-players {
+      transform: scale(0.60);
+      -webkit-transform: scale(0.60);
+      -moz-transform: scale(0.60);
+      /* top: 1vh;  */
+    }
+
+    /* .player-One-mobile,
+    .player-three-mobile {
+      transform: scale(0.93);
+
+    }
+
+    .player-One-mobile {
+      margin-right: 20px;
+    }
+
+    .player-three-mobile {
+      margin-left: 20px;
+    } */
+
+  }
+  @media only screen and (-webkit-min-device-pixel-ratio: 4) {
+    .container-mobile-players {
+      transform: scale(0.58);
+      -webkit-transform: scale(0.58);
+      -moz-transform: scale(0.58);
+       top: -3vh; 
+    }
+}
+  /* @media (orientation: portrait) and (min-width:381px) and (max-width:480px) {
+    .container-char>img {
+      width: 85%;
+    }
+
+    .container-mobile-players {
+      transform: scale(0.75);
+      -webkit-transform: scale(0.75);
+      -moz-transform: scale(0.75);
+      top: -3vh;
+    }
+  } */
+
+  /*iphone 6 7 8 */
+  /* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 3) {
+    .container-mobile-players {
+      transform: scale(0.70);
+      top: -2vh;
+    }
+    .grid-container-mobile{
+      top: -5vh;
+    }
+  } */
+
+  @media only screen and (min-device-width: 375px) and (max-device-height: 667px) and (-webkit-device-pixel-ratio: 2) {
+    .container-mobile-players {
+      transform: scale(0.55);
+      top: -2vh;
+    }
+
+    .above-fold {
+      height: 92vh;
+    }
+
+    .grid-container-mobile {
+      top: 0vh;
+    }
+
+    .elements-wrapper {
+      transform: scale(1.1);
+      top: -3vh;
+    }
+  }
+
+  /*iphone 11-11 pro */
+  /* @media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .container-mobile-players {
+      transform: scale(0.70);
+      -webkit-transform: scale(0.70);
+      top: -3vh;
+    }
+
+    .grid-container-mobile {
+      top: 0vh;
+      height: 92vh;
+
+    }
+
+    .jsky {
+      top: -14vh !important;
+    }
+  } */
+
+  /*iphone 13 - pro*/
+  /* @media only screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) {
+    .container-mobile-players {
+      transform: scale(0.75);
+      top: -3vh;
+    }
+
+    .grid-container-mobile {
+      top: -5vh;
+    }
+
+    .elements-wrapper {
+      transform: scale(1.2);
+      top: -1vh;
+    }
+
+    .jsky {
+      top: -14vh !important;
+    }
+  } */
+
+  /*iPhone 13 mini, iPhone 12 mini, iPhone 11 Pro, iPhone Xs, and iPhone X*/
+  /* @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+    .container-mobile-players {
+      transform: scale(0.70);
+      -webkit-transform: scale(0.70);
+      top: -3vh;
+    }
+
+    .grid-container-mobile {
+      top: 0vh;
+      height: 92vh;
+
+    }
+  } */
+  /* iPhone 13 Pro Max and iPhone 12 Pro Max*/
+  /* @media only screen and (device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) {
+    .container-mobile-players {
+      transform: scale(0.8);
+      top: -3vh;
+    }
+    .grid-container-mobile {
+      top: -5vh;
+    }
+    .elements-wrapper {
+      transform: scale(1.2);
+      top: 2vh;
+    }
+    .jsky {
+      top: -10vh !important;
+    }
+  } */
+
+  /*Portrait*/
+  @media (orientation: portrait) and (max-width:480px) {
+    .img-BlueShape {
+      height: 250px;
+      position: relative;
+    }
+
+    .container-mobile-players {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      padding: 10px 0;
+    }
+
+ 
+
+    .ui-dialog {
+      position: absolute;
+      height: auto !important;
+      width: 240px !important;
+      top: 285px !important;
+      left: 122px !important;
+      z-index: 101 !important;
+      position: absolute;
+      height: auto !important;
+      width: 240px !important;
+      top: 285px !important;
+      left: 122px !important;
+      z-index: 101 !important;
+      transform: translate(-50%, -50%);
+      top: 50% important;
+      left: 50% !important;
+    }
+
+    .offer-content-mobile {
+      position: absolute;
+      top: 1vh;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .offer-text-mobile img {
+      width: 280px;
+    }
+
+    .elements-wrapper {
+      position: absolute;
+    }
+
+    .elements-wrapper img {
+      width: 100%;
+      transform: scale(0.6);
+      left: 3vw;
+      position: relative;
+      top: 1vh;
+    }
+
+    .powerBy {
+      display: none;
+    }
+
+
+    .slide {
+      text-align: center;
+    }
+
+    .players {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .player-One-mobile {
+      position: relative;
+      left: 14vw;
+    }
+
+    .player-two-mobile {
+      transform: scale(1);
+      z-index: 12341;
+      top: 2vh;
+    }
+
+    .player-three-mobile {
+      left: -27vw;
+    }
+
+    .char-person3 img {
+      transform: scale(0.8);
+    }
+
+    .char-person2 {
+      top: 2vh;
+      left: 2vw;
+    }
+
+    .powerBy {
+      display: none;
+    }
+
+    .column-table {
+      width: 100%;
+      gap: 11px;
+    }
+
+    .row-table {
+      flex-direction: column;
+    }
+
+    .table_players {
+      height: 160px;
+    }
+
+    .card-container {
+      max-width: 250px;
+      width: 250px;
+      height: 180px;
+      max-height: 180px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    thead tr {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    tbody tr {
+      font-size: 0.8rem;
+    }
+
+    .table_players th,
+    td {
+      text-align: left;
+      padding: 8px 10px;
+    }
+
+    .cta-button {
+      font-size: 0.7rem;
+      width: 150px;
+      cursor: pointer;
+    }
+
+    .container-char>img {
+      /* width: 85%; */
+      top: 10vh;
+    }
+
+    .stero,
+    .pacanele,
+    .third {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .jplay {
+      position: relative;
+      top: -11vh;
+      left: -32.5vw;
+      z-index: 123;
+    }
+
+
+    .pacanele {
+      top: 55vh;
+    transform: scale(1.3);
+    }
+
+    .jsky {
+      position: relative;
+      left: 0vw;
+      top: -14vh;
+      z-index: 2000;
+    }
+
+    .pacanele img {
+      height: 250px;
+    }
+
+    .stero {
+      top: 29.5vh;
+      left: 13vw;
+    }
+
+    .stero img,
+    .third img {
+      height: 180px;
+    }
+
+    .third {
+      top: 40vh;
+      left: 15vw;
+    }
+
+
+    .container-mobile-shapes {
+      width: 100%;
+      padding: 0.48em 0;
+      max-width: 1200px;
+      color: #fff;
+      text-align: center;
+      height: em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      /* gap: 50px; */
+      margin-top: -10%;
+      position: absolute !important;
+    }
+
+
+    .left-shape,
+    .right-shape {
+      margin-right: 10%;
+      margin-left: 10%;
+    }
+
+    .left-shape img,
+    .right-shape img {
+      width: 50px;
+    }
+
+    .right-shape img {
+      transform: rotate(-180deg);
+    }
+
+  }
+
+
+  @media only screen and (min-device-width : 414px) and (max-device-height : 896px) and (-webkit-device-pixel-ratio : 2) {
+
+    .container-mobile-players {
+      transform: scale(0.7);
+      -webkit-transform: scale(0.7);
+      top: 1vh;
+
+    }
+
+    .grid-container-mobile {
+      top: -3vh;
+      height: 92vh;
+    }
+  }
+
+
+  @media (max-width: 1200px) {
+    .container-mobile-shapes {
+      max-width: 850px;
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .container-mobile-shapes {
+      max-width: 1000px;
+    }
+  }
+
+  /* iphone 6+, 6s+, 7+, 8+ */
+
+
+
+  /* 
+  .c1 {
+    transform: translateX(0px) scale(1);
+    z-index: 99;
+  }
+
+  .c2 {
+    transform: translateX(0px) scale(1.05);
+
+    z-index: 999;
+  }
+
+  .c3 {
+    transform: translateX(0px) scale(1);
+  }
+
+  .prev,
+  .next {
+
+    width: 100px;
+ 
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+  
+  } */
+  /* .rev_slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slick-slider {
+    margin-left: -12%;
+    margin-right: -12%;
+  }
+
+  .slick-list {
+    padding-top: 10% !important;
+    padding-bottom: 10% !important;
+    padding-left: 15% !important;
+    padding-right: 15% !important;
+  }
+
+  .slick-dots {
+    list-style-type: none;
+    margin: 25px 0 0;
+    padding: 0;
+    z-index: 241241;
+    width: 100px;
+    height: 100px;
+  }
+
+  .slick-dots li {
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    padding: 0 5px;
+  }
+
+  .slick-dots li button {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    font-size: 12px;
+    color: #666;
+    border: none;
+    background: #8b0b0b;
+  }
+
+  .slick-dots li button:before {
+    content: none;
+  }
+
+  .slick-dots li.slick-active button {
+    background: #ccc;
+  }
+
+  .slick-snext,
+  .slick-sprev {
+    background-color: red;
+  }
+
+  /* .slick-dots {
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		} */
+
+  /* .slick-track {
+    max-width: 100% !important;
+    transform: translate3d(0, 0, 0) !important;
+    perspective: 150px;
+  }
+
+  .slick-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    opacity: 0;
+    width: 100% !important;
+    transform: translate3d(0, 0, 0);
+    transition: transform 1s, opacity 1s;
+  }
+
+  .slick-snext,
+  .slick-sprev {
+    display: block;
+  }
+
+  .slick-current {
+    opacity: 1;
+    position: relative;
+    display: block;
+    transform: translate3d(0, 0, 20px);
+    z-index: 2;
+  }
+
+  .slick-snext {
+    opacity: 1;
+    transform: translate3d(20%, 0, 0px);
+    z-index: 1;
+  }
+
+  .slick-sprev {
+    opacity: 1;
+    transform: translate3d(-20%, 0, 0px);
+  }
+
+
+  .rev_slider {
+
+    text-align: center;
+  } */
+
+  /* .prev:hover, .next:hover {
+	 background: #57d0be;
+} */
+  /* .prev {
+	 left: 20%;
+}
+ .next {
+	 right: 20%;
+} */
+</style>
+
+<body>
+  <div class="container_full" style="position:relative;">
+    <div class="section-container" style="position:relative">
+      <div class="above-fold">
+        <div class="hero">
+          <div class="grid-container">
+            <div class="elements-wrapper">
+              <img
+                src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente_desktop2-en.png"
+                alt="s">
+            </div>
+            <div class="player-One players">
+              <div class="stero">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                  alt="stero" class="img-BlueShape">
+              </div>
+              <div class="char-person1 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                  alt="s">
+              </div>
+              <div class="jplay">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa skywind</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>căstiguri:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_1">
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta">
+                      <div class="cta-button desktop btnShowPplayers">
+                        intră in echipă
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="player-two players">
+
+              <div class="pacanele">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                  alt="pacanele" class="img-BlueShape">
+              </div>
+              <div class="char-person2 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                  alt="girl-picture">
+              </div>
+              <div class="jsky">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa play'n'go</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>câștiguri:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_2">
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta">
+                      <div class="cta-button desktop btnShowPplayers">
+                        intră in echipă
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="player-three players">
+              <div class="third">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                  alt="ThirdText" class="img-BlueShape">
+              </div>
+              <div class="char-person3 container-char">
+                <img
+                  src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                  alt="s">
+              </div>
+              <div class="jpragm">
+                <div class="card-container">
+                  <div class="card-header">
+                    <span>echipa pragmatic</span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-content">
+                      <div class="card-info">
+                        <div>membri:</div>
+                        <div>castiguri:</div>
+                        <div>activitate:</div>
+                      </div>
+                      <div class="card-stars product_3">
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                        <div class="rating">
+                          <div class="outer">
+                            <div class="inner-star"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-cta">
+                      <div class="cta-button desktop btnShowPplayers">
+                        intră in echipă
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="offer-content">
+              <div class="offer-text">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                  alt="title">
+              </div>
+            </div>
+
+          </div>
+          <div class="grid-container-mobile">
+            <div class="elements-wrapper">
+              <img
+                src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_elemente-en.png"
+                alt="s">
+            </div>
+       
+          
+          
+            <div class="container-mobile-players rev_slider carousel-content">
+
+              <div class="slide slide-1 c1 rev_slide">
+                <div class="player-One-mobile players item">
+
+                  <div class="char-person1 container-char">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_stero-desktop-en.png"
+                      alt="s" class="stero_img">
+                  </div>
+                  <div class="stero ">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_steroText-en.png"
+                      alt="stero" class="img-BlueShape">
+                  </div>
+                  <div class="jplay">
+                    <div class="card-container">
+                      <div class="card-header">
+                        <span>echipa skywind</span>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-content">
+                          <div class="card-info">
+                            <div>membri:</div>
+                            <div>căstiguri:</div>
+                            <div>activitate:</div>
+                          </div>
+                          <div class="card-stars product_1">
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-cta">
+                          <div class="cta-button desktop btnShowPplayers" id="btnShow1">
+                            intră in echipă
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slide slide-2 c2 rev_slide">
+                <div class="player-two-mobile players item">
+
+
+                  <div class="char-person2 container-char">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Gagica-desktop-en.png"
+                      alt="girl-picture" class="pacanele_img">
+                  </div>
+                  <div class="pacanele">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_PacaneleText-en.png"
+                      alt="pacanele" class="img-BlueShape">
+                  </div>
+                  <div class="jsky">
+                    <div class="card-container">
+                      <div class="card-header">
+                        <span>echipa play'n'go</span>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-content">
+                          <div class="card-info">
+                            <div>membri:</div>
+                            <div>câștiguri:</div>
+                            <div>activitate:</div>
+                          </div>
+                          <div class="card-stars product_2">
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-cta">
+                          <div class="cta-button desktop btnShowPplayers">
+                            intră in echipă
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="slide slide-3 c3 rev_slide">
+                <div class="player-three-mobile players item">
+
+                  <div class="char-person3 container-char">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_third_player-desktop2-en.png"
+                      alt="boy-third" class="casinoBoy">
+                  </div>
+                  <div class="third">
+                    <img
+                      src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_ThirdText-en.png"
+                      alt="ThirdText" class="img-BlueShape">
+                  </div>
+                  <div class="jpragm">
+                    <div class="card-container">
+                      <div class="card-header">
+                        <span>echipa pragmatic</span>
+                      </div>
+                      <div class="card-body">
+                        <div class="card-content">
+                          <div class="card-info">
+                            <div>membri:</div>
+                            <div>castiguri:</div>
+                            <div>activitate:</div>
+                          </div>
+                          <div class="card-stars product_3">
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                            <div class="rating">
+                              <div class="outer">
+                                <div class="inner-star"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-cta">
+                          <div class="cta-button desktop btnShowPplayers">
+                            intră in echipă
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          
+            <div class="container-mobile-shapes">
+              <div class="left-shape prev slick-sprev">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                  alt="nav">
+              </div>
+              <div class="center-shape">2</div>
+              <div class="right-shape next slick-next">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_nav-en.png"
+                  alt="nav">
+              </div>
+
+            </div>
+            <div class="offer-content-mobile">
+              <div class="offer-text-mobile">
+                <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_Title-en.png"
+                  alt="title" class="mobile">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="below-fold">
+        <div class="text-belowFold">
+          <h2>LOREM IPSUM</h2>
+          <br>
+          <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem reprnemo quaerat <br>
+            spa atque nam incidunt deserunt dignissimos fuga magnam?</span>
+          <br>
+          <br>
+        </div>
+        <div class="row-table">
+          <div class="column-table">
+            <div class="column-title">Echipa 1</div>
+            <div id="scoresTeam1" class="counter-players">136549</div>
+            <table class="table_players scroll">
+              <thead>
+                <tr>
+                  <th>Loc</th>
+                  <th>Nume</th>
+                  <th>Puncte</th>
+                </tr>
+              </thead>
+              <tbody id="table1_body">
+              </tbody>
+            </table>
+            <div class="card-cta">
+              <div class="cta-button desktop btnShowPplayers">
+                intră in echipă
+              </div>
+            </div>
+          </div>
+          <div class="column-table">
+            <div class="column-title">Echipa 2</div>
+            <div id="scoresTeam2" class="counter-players">2655988</div>
+            <table class="table_players scroll">
+              <thead>
+                <tr>
+                  <th>Loc</th>
+                  <th>Nume</th>
+                  <th>Puncte</th>
+                </tr>
+              </thead>
+              <tbody id="table2_body">
+              </tbody>
+            </table>
+            <div class="card-cta">
+              <div class="cta-button desktop btnShowPplayers">
+                intră in echipă
+              </div>
+            </div>
+          </div>
+          <div class="column-table">
+            <div class="column-title">Echipa 3</div>
+            <div id="scoresTeam3" class="counter-players">365985</div>
+            <table class="table_players scroll">
+              <thead>
+                <tr>
+                  <th>Loc</th>
+                  <th>Nume</th>
+                  <th>Puncte</th>
+                </tr>
+              </thead>
+              <tbody id="table3_body">
+              </tbody>
+            </table>
+            <div class="card-cta">
+              <div class="cta-button desktop btnShowPplayers" id="btnShow" value="Show Popup">
+                intră in echipă
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="powerBy">
+    <div class="powerBy-text">powered by</div>
+    <div class="powerBy-body">
+      <div class="pragmatic">
+        <img
+          src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+          alt="tesst">
+      </div>
+      <hr>
+      <div class="skywind">
+        <img src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-skywind-en.png"
+          alt="tesst">
+      </div>
+      <hr>
+      <div class="pragmatic2">
+        <img
+          src="https://img.netbet.com/gms/images-marketing/global/marinela/batalia_streamerilor_logo-pragmatic-en.png"
+          alt="tesst">
+      </div>
+    </div>
+  </div>
+
+  <div id="dialog" style="display: none" align="center">
+    Confirmare Echipa
+  </div>
+
+  <script defer>
+    // var carousel = document.querySelector('.carousel');
+    // var carouselContent = document.querySelector('.carousel-content');
+    // var slides = document.querySelectorAll('.slide');
+    // var arrayOfSlides = Array.prototype.slice.call(slides);
+    // var carouselDisplaying;
+    // var screenSize;
+    // setScreenSize();
+    // var lengthOfSlide;
+
+    // function addClone() {
+    //   var lastSlide = carouselContent.lastElementChild.cloneNode(true);
+    //   lastSlide.style.left = (-lengthOfSlide) + "px";
+    //   carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+    // }
+    // // addClone();
+
+    // function removeClone() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   firstSlide.parentNode.removeChild(firstSlide);
+    // }
+
+    // function moveSlidesRight() {
+    //   var slides = document.querySelectorAll('.slide');
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   var width = 0;
+
+    //   slidesArray.forEach(function (el, i) {
+    //     el.style.left = width + "px";
+    //     width += lengthOfSlide;
+    //   });
+    //   addClone();
+    // }
+    // moveSlidesRight();
+
+    // function moveSlidesLeft() {
+    //   var slides = document.querySelectorAll('.slide');
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   slidesArray = slidesArray.reverse();
+    //   var maxWidth = (slidesArray.length - 1) * lengthOfSlide;
+
+    //   slidesArray.forEach(function (el, i) {
+    //     maxWidth -= lengthOfSlide;
+    //     el.style.left = maxWidth + "px";
+    //   });
+    // }
+
+    // window.addEventListener('resize', setScreenSize);
+
+    // function setScreenSize() {
+    //   if (window.innerWidth >= 500) {
+    //     carouselDisplaying = 3;
+    //   } else if (window.innerWidth >= 300) {
+    //     carouselDisplaying = 3;
+    //   } else {
+    //     carouselDisplaying = 3;
+    //   }
+    //   getScreenSize();
+    // }
+
+    // function getScreenSize() {
+    //   var slides = document.querySelectorAll('.slide');
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   lengthOfSlide = (carousel.offsetWidth / carouselDisplaying);
+    //   var initialWidth = -lengthOfSlide;
+    //   slidesArray.forEach(function (el) {
+    //     el.style.width = lengthOfSlide + "px";
+    //     el.style.left = initialWidth + "px";
+    //     initialWidth += lengthOfSlide;
+    //   });
+    // }
+
+
+    // var rightNav = document.querySelector('.nav-right');
+    // if (rightNav) {
+
+
+    //   rightNav.addEventListener('click', moveLeft);
+    // }
+    // var moving = true;
+
+    // function moveRight() {
+    //   if (moving) {
+    //     moving = false;
+    //     var lastSlide = carouselContent.lastElementChild;
+    //     lastSlide.parentNode.removeChild(lastSlide);
+    //     carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
+    //     removeClone();
+    //     var firstSlide = carouselContent.firstElementChild;
+    //     firstSlide.addEventListener('transitionend', activateAgain);
+    //     moveSlidesRight();
+    //   }
+    // }
+
+    // function activateAgain() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   moving = true;
+    //   firstSlide.removeEventListener('transitionend', activateAgain);
+    // }
+
+    // var leftNav = document.querySelector('.nav-left');
+    // if (leftNav) {
+    //   leftNav.addEventListener('click', moveRight);
+    // }
+
+    // // var moveLeftAgain = true;
+
+    // function moveLeft() {
+    //   if (moving) {
+    //     moving = false;
+    //     removeClone();
+    //     var firstSlide = carouselContent.firstElementChild;
+    //     firstSlide.addEventListener('transitionend', replaceToEnd);
+    //     moveSlidesLeft();
+    //   }
+    // }
+
+    // function replaceToEnd() {
+    //   var firstSlide = carouselContent.firstElementChild;
+    //   firstSlide.parentNode.removeChild(firstSlide);
+    //   carouselContent.appendChild(firstSlide);
+    //   firstSlide.style.left = ((arrayOfSlides.length - 1) * lengthOfSlide) + "px";
+    //   addClone();
+    //   moving = true;
+    //   firstSlide.removeEventListener('transitionend', replaceToEnd);
+    // }
+
+
+
+
+    // carouselContent.addEventListener('mousedown', seeMovement);
+
+    // var initialX;
+    // var initialPos;
+
+    // function seeMovement(e) {
+    //   initialX = e.clientX;
+    //   getInitialPos();
+    //   carouselContent.addEventListener('mousemove', slightMove);
+    //   document.addEventListener('mouseup', moveBasedOnMouse);
+    // }
+
+    // function slightMove(e) {
+    //   if (moving) {
+    //     var movingX = e.clientX;
+    //     var difference = initialX - movingX;
+    //     if (Math.abs(difference) < (lengthOfSlide / 3)) {
+    //       slightMoveSlides(difference);
+    //     }
+    //   }
+    // }
+
+    // function getInitialPos() {
+    //   var slides = document.querySelectorAll('.slide');
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   initialPos = [];
+    //   slidesArray.forEach(function (el) {
+    //     var left = Math.floor(parseInt(el.style.left.slice(0, -2)));
+    //     initialPos.push(left);
+    //   });
+    // }
+
+    // function slightMoveSlides(newX) {
+    //   var slides = document.querySelectorAll('.slide');
+    //   var slidesArray = Array.prototype.slice.call(slides);
+    //   slidesArray.forEach(function (el, i) {
+    //     var oldLeft = initialPos[i];
+    //     el.style.left = (oldLeft + newX) + "px";
+    //   });
+    // }
+
+    // function moveBasedOnMouse(e) {
+    //   var finalX = e.clientX;
+    //   if (initialX - finalX > 0) {
+    //     moveRight();
+    //   } else if (initialX - finalX < 0) {
+    //     moveLeft();
+    //   }
+    //   document.removeEventListener('mouseup', moveBasedOnMouse);
+    //   carouselContent.removeEventListener('mousemove', slightMove);
+    // }
+    // $('.rev_slider').on('init', function (event, slick) {
+    //   let dots = $('.slick-dots li');
+    //   console.log('m iordache');
+    //   dots.each(function (k, v) {
+    //     $(this).find('button').addClass('heading' + k);
+
+
+    //   });
+    //   console.log(dots, 'button');
+    //   let items = slick.$slides;
+    //   items.each(function (k, v) {
+    //     let text = $(this).find('h2').text();
+    //     $('.heading' + k).text(text);
+    //   });
+    // });
+    // let rev = $('.rev_slider');
+    // rev.on('init', function (event, slick, currentSlide) {
+    //   let
+    //     current = $(slick.$slides[slick.currentSlide]),
+    //     next = current.next(),
+    //     prev = current.prev();
+    //   prev.addClass('slick-sprev');
+    //   next.addClass('slick-snext');
+    //   current.removeClass('slick-snext').removeClass('slick-sprev');
+    //   slick.$prev = prev;
+    //   slick.$next = next;
+    // }).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+    //   //console.log('beforeChange');
+    //   let
+    //     current = $(slick.$slides[nextSlide]);
+    //   //console.log(slick.$prev, slick.$next);
+    //   slick.$prev.removeClass('slick-sprev');
+    //   slick.$next.removeClass('slick-snext');
+    //   next = current.next(),
+    //     prev = current.prev();
+    //   prev.prev();
+    //   prev.next();
+    //   prev.addClass('slick-sprev');
+    //   next.addClass('slick-snext');
+    //   slick.$prev = prev;
+    //   slick.$next = next;
+    //   current.removeClass('slick-next').removeClass('slick-sprev');
+    // });
+
+    // rev.slick({
+    //   centerMode: true,
+    //   speed: 1000,
+    //   arrows: true,
+    //   dots: true,
+    //   autoplay: true,
+    //   autoplaySpeed: 1000,
+    //   responsive: [{
+    //       breakpoint: 768,
+    //       settings: {
+    //         arrows: true,
+    //         centerMode: true,
+    //         centerPadding: '40px',
+    //         slidesToShow: 3
+    //       }
+    //     },
+    //     {
+    //       breakpoint: 480,
+    //       settings: {
+    //         arrows: true,
+    //         centerMode: true,
+    //         centerPadding: '40px',
+    //         slidesToShow: 1
+    //       }
+    //     }
+    //   ],
+    //   focusOnSelect: true,
+    //   prevArrow:' <button> prev</button>',
+    //   nextArrow: '<button> next</button>',
+    //   infinite: true,
+    //   slidesPerRow: 1,
+    //   slidesToShow: 1,
+    //   slidesToScroll: 1,
+    //   centerPadding: '100px',
+    //   swipe: true,
+
+    //   customPaging: function (slider, i) {
+    //     return '';
+    //   },
+
+    // });
+
+    //----------JQuery-----------------//
+    $(function () {
+      flag = 0;
+      console.log(flag, "flag  inceput")
+      $('.next').click(function () {
+        if (flag === 0) {
+          console.log(flag, "flag 0")
+          $('.c1').css({
+            'transform': 'translateX(340px) scale(1)',
+            'z-index': '9'
+          });
+          $('.jplay').css({
+            'position': 'relative',
+            'z-index': '9',
+            'left': '43vw'
+          });
+          $('.c2').css({
+            'transform': 'translateX(-165px) translateY(-15px) scale(1)',
+            'z-index': '9'
+          });
+          $('.pacanele').css({
+            'z-index': '9',
+
+            'transform': 'translateX(-15px) translateY(-86px) scale(0.71)'
+          });
+
+          $('.pacanele_img').css({
+            'z-index': '9',
+            'transform': 'scale(0.85)'
+          });
+
+          $('.jsky').css({
+            'z-index': '9',
+            'left': '-36vw',
+            'top': '-19.5vh'
+          });
+
+
+          $('.c3').css({
+            'transform': 'translateX(-160px) scale(1.1)',
+            'z-index': '99'
+
+          });
+
+          $('.casinoBoy').css({
+            'z-index': '9',
+            'transform': 'scale(0.87) translateX(0px) translateY(20px)'
+          });
+          $('.third').css({
+            'z-index': '9',
+            'transform': 'scale(1.28) translateX(-2px) translateY(73px)'
+          });
+          $('.jpragm').css({
+            'z-index': '9',
+            'transform': 'translateX(-146px) translateY(10px) scale(0.91)'
+          });
+
+
+
+          flag = 1;
+        } else if (flag == 1) {
+          console.log(flag, "flag 1")
+          $('.c3').css({
+            'transform': 'translateX(-340px) scale(1)',
+            'z-index': '9'
+          });
+          $('.third').css({
+            'transform': 'translateX(-5px) scale(1) translateY(0px)',
+            'z-index': '9'
+          });
+
+          $('.jpragm').css({
+            'z-index': '9',
+            'transform': 'translateX(-265px) translateY(-10px) scale(0.963)'
+          });
+          $('.casinoBoy').css({
+            'z-index': '9',
+            'transform': 'scale(0.85) translateX(-10px) translateY(30px)'
+          });
+          $('.jplay').css({
+            'z-index': '9',
+            'transform': 'translateX(-150px) translateY(24px) scale(0.95)'
+          });
+
+
+
+
+          $('.c1').css({
+            'transform': 'translateX(170px) scale(1.05)',
+            'z-index': '9'
+          });
+
+
+          $('.stero_img').css({
+            'z-index': '9',
+            'transform': 'scale(1.15) translateX(0px) translateY(20px)'
+          });
+          $('.stero').css({
+            'z-index': '9',
+            'transform': 'scale(1.4) translateX(-5px) translateY(70px)'
+          });
+
+
+          $('.c2').css({
+            'transform': 'translateX(200px) scale(1)',
+            'z-index': '99'
+          });
+
+          $('.jsky').css({
+            'z-index': '9',
+            'transform': 'translateX(230px) translateY(-20px) scale(1)'
+          });
+
+          $('.pacanele').css({
+            'z-index': '9',
+
+            'transform': 'translateX(-15px) translateY(-86px) scale(0.71)'
+          });
+          $('.pacanele_img').css({
+            'z-index': '9',
+            'transform': 'scale(0.85) translateX(-25px)'
+          });
+
+
+          flag = 2;
+        } else if (flag == 2) {
+          console.log(flag, "flag 2")
+          $('.c2').css({
+            'transform': 'translateX(0px) scale(1.05)',
+            'z-index': '9'
+          });
+          $('.c3').css({
+            'transform': 'translateX(20px) scale(1)',
+            'z-index': '8'
+          });
+
+          $('.c1').css({
+            'transform': 'translateX(-20px) scale(1)',
+            'z-index': '9'
+          });
+          $('.stero').css({
+            'z-index': '9',
+            'transform': 'scale(1) translateX(-15px) translateY(0px)'
+          });
+          $('.stero_img').css({
+            'z-index': '9',
+            'transform': 'scale(1)'
+          });
+          $('.jsky').css({
+            'z-index': '9',
+            'transform': 'translateX(-150px) translateY(0px) scale(1)'
+          });
+          flag = 0;
+        }
+      });
+    });
+    // $('.prev').click(function () {
+    //   if (flag == 0) {
+    //     $('.c3').css({
+    //       'transform': 'translateX(-100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c1').css({
+    //       'transform': 'translateX(100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c2').css({
+    //       'transform': 'translateX(0) scale(1.5)',
+    //       'z-index': '99'
+    //     });
+    //     flag = 1;
+    //   } else if (flag == 1) {
+    //     $('.c1').css({
+    //       'transform': 'translateX(-100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c2').css({
+    //       'transform': 'translateX(100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c3').css({
+    //       'transform': 'translateX(0) scale(1.5)',
+    //       'z-index': '99'
+    //     });
+    //     flag = 2;
+    //   } else if (flag == 2) {
+    //     $('.c2').css({
+    //       'transform': 'translateX(-100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c3').css({
+    //       'transform': 'translateX(100px) scale(1)',
+    //       'z-index': '9'
+    //     });
+    //     $('.c1').css({
+    //       'transform': 'translateX(-25px) scale(1)',
+    //       'z-index': '99'
+    //     });
+    //     flag = 0;
+    //   }
+    // });
+    //
+
+    function ratingsData() {
+      const ratings = {
+        product_1: 2,
+        product_2: 3,
+        product_3: 4,
+      }
+      for (const rating in ratings) {
+        let ratePercentage = (ratings[rating] / 5) * 100;
+        const inner = document.querySelector(`.${rating} .inner-star`)
+        inner.style.width = `${ratePercentage}%`
+      }
+      // const btnToScroll = document.querySelector(".btnScrollTop");
+      // window.addEventListener("scroll", () => {
+      //     if (window.pageYOffset > 200) {
+      //         btnToScroll.classList.add("active");
+      //     } else {
+      //         btnToScroll.classList.remove("active");
+      //     }
+      // })
+
+
+
+    }
+
+    console.log(ratingsData)
+    document.addEventListener('DOMContentLoaded', () => {
+      getDataJson();
+      ratingsData();
+    })
+
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+
+
+    //  var usernameToCheck = "NicolaeJan";
+    //  var usernameToCheck = "69Fotomodel";
+    //  var usernameToCheck = "mmanta";
+    var usernameToCheck = "iTaviB";
+    //  var usernameToCheck = getCookie("netbet_login");
+    const dataLink = new Request('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php?user=' +
+      usernameToCheck);
+
+    async function getDataJson() {
+      const response = await fetch(dataLink, {
+          method: 'GET',
+          mode: 'cors',
+          cache: "default",
+        })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network Response is not OK');
+          }
+          return response.json();
+          console.log(response.json(), "response")
+        })
+        .then((objectData) => {
+          let tableData = '';
+          objectData.map((values, index, itemsToRenderInTable) => {
+            let result = values.hasOwnProperty('stream');
+          });
+
+          // true
+
+          console.log(objectData, "incarcata cu lungimea de ", objectData.length);
+
+          let table1Text = ""
+          let table2Text = ""
+          let table3Text = ""
+
+          let team1scores = 0;
+          let team2scores = 0;
+          let team3scores = 0;
+
+          for (var i = 0; i < objectData.length; i++) {
+            if (objectData[i].stream == 1) {
+              team1scores += parseInt(objectData[i].points, 10);
+              if (objectData[i].username == usernameToCheck) {
+                table1Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+              } else {
+                table1Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            } else if (objectData[i].stream == 2) {
+              team2scores += parseInt(objectData[i].points, 10);
+              if (objectData[i].username == usernameToCheck) {
+                table2Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+              } else {
+                table2Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            } else {
+              team3scores += parseInt(objectData[i].points, 10);
+              if (objectData[i].username == usernameToCheck) {
+                table3Text += "<tr style='background-color:#FF0000'><td>" + objectData[i].ranking + "</td><td><b>" +
+                  objectData[i].username + "</b></td><td>" + objectData[i].points + "</td></tr>";
+                console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                  .ranking);
+              } else {
+                table3Text += "<tr><td>" + objectData[i].ranking + "</td><td>" + objectData[i].username +
+                  "</td><td>" + objectData[i].points + "</td></tr>";
+              }
+            }
+            if (objectData[i].username == usernameToCheck) {
+              console.log("am gasit username-ul in echipa: ", objectData[i].stream, " pe pozitia ", objectData[i]
+                .ranking);
+            }
+          };
+
+          table1Text += "</table>";
+          table2Text += "</table>";
+          table3Text += "</table>";
+
+          table1_body.innerHTML = table1Text;
+          table2_body.innerHTML = table2Text;
+          table3_body.innerHTML = table3Text;
+
+          scoresTeam1.innerHTML = team1scores;
+          scoresTeam2.innerHTML = team2scores;
+          scoresTeam3.innerHTML = team3scores;
+        })
+        .catch(error => {
+          console.error('There has been a problem with your fetch operation:', error);
+        });
+    }
+    if (usernameToCheck != null) {
+      async function checkUserAsync(usernameToCheck) {
+        let response = await fetch(
+          `https://casino-promo.netbet.ro/scripts/cursa-streamurilor/getstatus.php?user=${usernameToCheck}`);
+        let data = await response.json()
+        return data;
+      }
+
+      checkUserAsync(usernameToCheck)
+        .then((data) => {
+          console.log(data, "data")
+          if (data.status == 0) {
+            joinTeam1.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=1&stream=1">intra in echipa 1</a>';
+
+            joinTeam2.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=1&stream=2">intra in echipa 2</a>';
+            joinTeam3.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=1&stream=3">intra in echipa 3</a>';
+          } else if (data.status == 1) {
+            joinTeam1.innerHTML = joinTeam2.innerHTML = joinTeam3.innerHTML = "esti deja in echipa";
+            joinTeam1.className = joinTeam2.className = joinTeam3.className = "cta-button-disabled"
+          } else if (data.status == 2) {
+            joinTeam1.innerHTML = joinTeam2.innerHTML = joinTeam3.innerHTML = "nu mai poti intra";
+            joinTeam1.className = joinTeam2.className = joinTeam3.className = "cta-button-disabled";
+          }
+          if (data.stream == 1) {
+            console.log('am gasit in echipa 1');
+            joinTeam1.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=0&stream=1">iesi din echipa 1</a>';
+            joinTeam1.className = "cta-button";
+          } else if (data.stream == 2) {
+            console.log('am gasit in echipa 2');
+            joinTeam2.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=0&stream=2">iesi din echipa 2</a>';
+            joinTeam2.className = "cta-button";
+          } else if (data.stream == 3) {
+            console.log('am gasit in echipa 3');
+            joinTeam3.innerHTML =
+              '<a href="https://casino-promo.netbet.ro/scripts/cursa-streamurilor/setstatus.php?' + data.user +
+              '&optin=0&stream=3">iesi din echipa 3</a>';
+            joinTeam3.className = "cta-button";
+          }
+        });
+    } else {
+      joinTeam1.innerHTML = joinTeam2.innerHTML = joinTeam3.innerHTML =
+        '<a href="#de pus aici linkul de conectare / inregistrare">Conectează-te</a>';
+    }
+  </script>
+</body>
+
+</html>
