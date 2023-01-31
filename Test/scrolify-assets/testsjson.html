@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>JSON Test</title>
+  </head>
+  <body>
+    <h1>Runners</h1>
+    <ul id="runners"></ul>
+    <div id="myData"></div>
+    <p id="demo"></p>.
+    <p id="demo2"></p>
+    <div class="placeholder"></div>
+    <input type="button" id="abc" value="submit" />
+    <div id="info"></div>
+    <script>
+      // fetch(url)
+      //   .then((response) => { return response.json(); })
+      //   .then( data => {
+      //     let runners = data;
+      //     console.log(runners,"runners");
+
+      //     return runners.section_stadions.map( runner => {
+      //       let li = createNode('li'),
+      //       span = createNode('p');
+      //       span.innerHTML = `${runner.stadion} `;
+      //       append(li, span);
+      //       append(ul, li);
+      //     });
+      //     console.log(runners.section_nine,"section_nine");
+      //   }).catch( error => { console.log(error); })
+
+      async function fetchData() {
+        const url = "./csvjson.json";
+        const response = await fetch(url);
+        const dataS = await response.json();
+        console.log(dataS, "datapoints");
+        const { sections } = dataS[1];
+        // console.log({ sections });
+        sections.forEach(function(element)
+        {
+          console.log(element.id);
+        
+           let ssssss = document.getElementById("demo").innerHTML += element.id;
+           let ssss = document.getElementById("demo2").innerHTML += element.content;
+     
+          });
+
+
+          console.log("ssssss",ssssss)
+            let output = "<div";
+            output +=
+              "<p>" + ssssss + " -- " + ssss + "</p>";
+            output += "</div>";
+            $("#demo").html(output);
+        return dataS;
+      }
+
+      const dataLink = new Request("./cmNB.json");
+      fetchData()
+        .then((dataS) => {
+          let dataStadium = dataS[1].sections.map(function ( item, i, arr ) {
+            key = { item };
+            arr[i] = item;
+            // console.log(arr,"arr")
+            let id_test = arr[i].id;
+            let content_test = item.content;
+            // console.log(content_test, "content_test");
+            // console.log(arr[i].id,"arr2")
+            // console.log(arr[i].content,"arr2")
+            if (arr[i].id == arr[i].content) {
+              alert("test");
+            }
+            // document.getElementById("demo").innerHTML = item;
+
+            let output = "<div";
+            output +=
+              "<p>" + `${id_test}` + " -- " + `${content_test}` + "</p>";
+            output += "</div>";
+            $(".placeholder").html(output);
+          });
+
+          // numbers.forEach(myFunction)
+
+          console.log(dataStadium, "datastadium");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+  </body>
+</html>

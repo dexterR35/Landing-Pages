@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      body {
+        background: #efefef;
+        display: flex;
+      }
+
+      p {
+        margin: 0 0 1.5em;
+      }
+
+      .container-cards {
+        max-width: 240px;
+        border-radius: 20px;
+      }
+
+      .entry-cards {
+        position: relative;
+        /* overflow: hidden; */
+        margin: 30px 0;
+        padding: 20px 20px 4em 20px;
+        background: #fff;
+        font-family: "Open Sans", sans-serif;
+        box-shadow: 0 0 15px #999;
+      }
+
+      .entry-title,
+      .entry-title a {
+        margin-top: 0;
+        font-family: Oswald, sans-serif;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .entry-title a:hover {
+        color: #555;
+      }
+
+      .more-link {
+        display: block;
+        width: 140px;
+        height: 25px;
+        vertical-align: middle;
+        line-height: 1;
+        font-size: 0.65em;
+        letter-spacing: -0.5px;
+
+        padding: 8px;
+        background: #811717;
+        color: #fff;
+        border-radius: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+        border: 0;
+        box-shadow: 0 2px 4px #000;
+        outline: none;
+        border: none;
+        margin-top: 1.8em;
+      }
+
+      .more-link:hover {
+        background: #c4d905;
+      }
+
+      .more-link:after {
+        content: "\2193";
+        margin-left: 8px;
+        font-size: 0.8em;
+      }
+
+      .more-link.open:after {
+        content: "\2191";
+      }
+
+      .entry-content.expanded {
+        overflow-y: scroll;
+      }
+
+      .entry-content {
+        overflow: hidden;
+        line-height: 1;
+      }
+
+      .entry-content.intro {
+        overflow-y: scroll;
+        max-height: 350px;
+      }
+      .container-cards.card_normal::after {
+        content: "test";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        background-color: rgb(133, 165, 15);
+        height: 50px;
+      }
+      .container-cards.card_normal::before {
+        content: "test";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50px;
+        background-color: rgb(222, 190, 10);
+        height: 50px;
+      }
+      .container-cards.card_normal .more-link {
+        float: left;
+      }
+      .container-cards.card_reverse .more-link {
+        float: right;
+      }
+      .container-cards.card_reverse::after {
+        content: "test";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        background-color: red;
+        height: 50px;
+      }
+      .container-cards.card_reverse::before {
+        content: "test";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        background-color: red;
+        height: 50px;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="constent" class="container-parent-cars insert_cars"></div>
+    <script>
+      let card_div_normal = `<div class="container-cards card_normal entry-cards">
+          <h2 class="entry-title">title</h2>
+          <div class="entry-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+              amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+              auctor sollicitudin justo, accumsan volutpat neque ornare
+              molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+              a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+              sem interdum congue. Aenean sodales tellus non augue condimentum,
+              sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+              placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+              Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+              convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+              Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+              hendrerit risus, elementum egestas est pretium
+              etssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss.
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere unde dolores, consectetur obcaecati consequuntur debitis sunt deleniti corrupti architecto! Autem totam cumque eum nihil. Cum explicabo error tempore, ab sunt similique voluptate doloremque quibusdam nisi, nemo ex nam, dolore repudiandae inventore aliquid quisquam obcaecati iste nobis! Rem sed veniam, quam sequi ut cum esse maiores officia nisi aliquid unde, corrupti repellat dolorem dolorum tempore nihil id illum soluta nulla architecto? Voluptas quae illum, libero deleniti explicabo aperiam sed iste dolorem dolor autem non beatae culpa dignissimos voluptates ex? Nulla laudantium omnis iste rem beatae exercitationem necessitatibus adipisci dolore odit illo?</p>
+          </div>
+        </div>`;
+
+      let card_div_reverse = `<div class="container-cards card_reverse entry-cards">
+          <h2 class="entry-title">title</h2>
+          <div class="entry-content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit
+              amet lectus et ligula sagittis blandit a eget odio. Suspendisse
+              auctor sollicitudin justo, accumsan volutpat neque ornare
+              molestie. Nulla augue ligula, accumsan vitae aliquam vel, viverra
+              a ante. Phasellus porttitor interdum eleifend. Proin ac lorem eget
+              sem interdum congue. Aenean sodales tellus non augue condimentum,
+              sit amet porta sapien hendrerit. Etiam gravida turpis at elit
+              placerat aliquam. Duis mattis velit vel odio adipiscing sodales.
+              Phasellus ac aliquet enim. Aenean quis posuere libero, sit amet
+              convallis nisl. Vestibulum commodo tincidunt urna eu commodo.
+              Vestibulum eleifend tempus felis, in sollicitudin odio. In lacinia
+              hendrerit risus, elementum egestas est pretium et.
+            </p>
+          </div>
+        </div>`;
+
+      $(document).ready(function () {
+        $(".insert_cars").append(card_div_normal);
+        $(".insert_cars").append(card_div_reverse);
+        let closeHeight = "2em"; /* Default "closed" height */
+        let moreText = "citeste mai mult"; /* Default "Read More" text */
+        let lessText = "inchide"; /* Default "Read Less" text */
+        let duration = "1000"; /* Animation duration */
+        let easing = "slow"; /* Animation easing option */
+        let fullHeight = $(".entry-content").css("max-height", "15em");
+        // console.log(fullHeight,"fullHeight")
+        // let fullHeight = "1em"
+        // Limit height of .entry-content div
+        $(".container-cards").each(function () {
+          // Set data attribute to record original height
+          let current = $(this).children(".entry-content");
+          console.log($(this), "curent child");
+          current
+            .data("fullHeight", current.height())
+            .css("height", closeHeight);
+          // Insert "Read More" link
+          current.after(
+            '<button class="more-link closed">' + moreText + "</button>"
+          );
+          console.log(current, "sss");
+        });
+        // Link functinoality
+        let openSlider = function () {
+          link = $(this);
+          let openHeight =
+            link.prev(".entry-content").data("fullHeight") / 2 + "px";
+          link
+            .prev(".entry-content")
+            .animate({ height: openHeight }, { duration: duration }, easing);
+          link.text(lessText).addClass("open").removeClass("closed");
+          if ($(".more-link").hasClass("open")) {
+            $(".entry-content").addClass("intro");
+          }
+          link.unbind("click", openSlider);
+          link.bind("click", closeSlider);
+        };
+        let closeSlider = function () {
+          link = $(this);
+          link.prev(".entry-content").animate(
+            {
+              height: closeHeight,
+            },
+            {
+              duration: duration,
+            },
+            easing
+          );
+          link.text(moreText).addClass("closed").removeClass("open");
+          link.unbind("click");
+          link.bind("click", openSlider);
+          if ($(".more-link").hasClass("closed")) {
+            $(".entry-content").removeClass("intro");
+          }
+        };
+
+        // Attach link click functionality
+        $(".more-link").bind("click", openSlider);
+      });
+    </script>
+  </body>
+</html>

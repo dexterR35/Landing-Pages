@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Play", sans-serif;
+      }
+
+      #more {
+        display: none;
+      }
+
+      .container-boxes {
+        font-size: 2em;
+        display: flex;
+      }
+
+      .card {
+        border: 1px solid black;
+        max-width: 12rem;
+        max-height: 10vh;
+      }
+
+    
+
+      .card-text {
+        font-size: 0.6em;
+        overflow-wrap: break-word;
+      }
+      /* 
+      .modal {
+  display: block;
+  padding: 0 1em;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 43.75em) {
+.modal {
+  padding: 1em 2em;
+  text-align: right;
+}
+}
+.modal > label {
+  background: #000;
+  border-radius: .2em;
+  color: #FFDE16;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin: 0.5em 1em;
+  padding: 0.75em 1.5em;
+  -webkit-transition: all 0.55s;
+  transition: all 0.55s;
+}
+.modal > label:hover {
+  -webkit-transform: scale(0.97);
+  -ms-transform: scale(0.97);
+  transform: scale(0.97);
+}
+.modal input {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+  z-index: -10;
+}
+.modal__overlay {
+  background: black;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: -800;
+}
+.modal__box {
+  padding: 1em .75em;
+  position: relative;
+  margin: 1em auto;
+  max-width: 500px;
+  width: 90%;
+}
+@media (min-height: 37.5em) {
+.modal__box {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -80%);
+  -ms-transform: translate(-50%, -80%);
+  transform: translate(-50%, -80%);
+}
+}
+@media (min-width: 50em) {
+.modal__box { padding: 1.75em; }
+}
+.modal__box label {
+  background: #FFDE16;
+  border-radius: 50%;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  height: 1.5em;
+  line-height: 1.5em;
+  position: absolute;
+  right: .5em;
+  top: .5em;
+  width: 1.5em;
+}
+.modal__box h2 {
+  color: #FFDE16;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+.modal__box p {
+  color: #FFDE16;
+  text-align: left;
+}
+.modal__overlay {
+  opacity: 0;
+  overflow: hidden;
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
+  -webkit-transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+}
+input:checked ~ .modal__overlay {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 800;
+}
+input:focus + label {
+  -webkit-transform: scale(0.97);
+  -ms-transform: scale(0.97);
+  transform: scale(0.97);
+}
+
+ */
+
+      .btn-home {
+        border: none;
+        border-radius: 50em;
+        padding: 10px 20px;
+        height: 40px;
+        
+      }
+
+      .btn_Emblem {
+        width: 50px;
+        height: 50px;
+        background: #e91e63;
+        color: #fff;
+        position: absolute;
+        /* float: right; */
+        /* margin: 250px 500px; */
+        /* -webkit-transition: 0s width;
+        transition: 0s width; */
+        padding: 10px;
+        font-size: 2em;
+        line-height: 1px;
+      }
+
+      button:focus {
+        outline: none;
+      }
+
+      @keyframes bigandfit {
+        0% {
+          width: 50px;
+          height: 50px;
+          border-radius: 50em;
+        }
+        5% {
+          width: 70px;
+        }
+        12% {
+          width: 100px;
+        }
+        20% {
+          width: 70px;
+        }
+        25% {
+          border-radius: 10em;
+          height: 100px;
+          margin: 10px 0 0 calc(50% - 120px);
+          border-radius: 10%;
+        }
+        100% {
+          border-radius: 5em;
+          width: 200%;
+          height: 200%;
+          margin: calc(12px - 100%) 0 0 calc(50% - 100%);
+        }
+      }
+
+      .ball_animation {
+        animation-name: bigandfit;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      }
+
+      #modal_info {
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: #060606;
+        color: #eee;
+        font-size: 1em;
+        text-align: center;
+        padding: 1em;
+        z-index: 100;
+        display: none;
+      }
+
+  
+      #modal_info.activeTwo {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        background: crimson;
+      }
+      .close_emblem {
+        width: 0px;
+        height: 0px;
+        padding: 0;
+        background: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        transition: 0.4s all;
+        font: 12px Helvetica, sans-serif;
+      }
+
+      /* 
+      .btn_Emblem {
+        -moz-animation: pulse 3s infinite;
+        -o-animation: pulse 3s infinite;
+        -webkit-animation: pulse 3s infinite;
+        animation: pulse 3s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        5% {
+          transform: scale(0.7);
+        }
+        10% {
+          transform: scale(1.5);
+        }
+        15% {
+          transform: scale(1.1);
+        }
+        20% {
+          transform: scale(1.4);
+        }
+        30% {
+          transform: scale(1.1);
+        }
+      } */
+    </style>
+  </head>
+
+  <body>
+    <!-- <div class="container-boxes">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">fifa</div>
+        <div class="card-body">
+          <p class="card-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scramble<span id="dots">...</span
+            ><span id="more">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.</span
+            >
+          </p>
+          <button onclick="myFunction(this)" id="myBtn">Read more</button>
+        </div>
+      </div>
+
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">Test Test TEST</div>
+        <div class="card-body">
+          <p class="card-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scramble<span id="dots">...</span
+            ><span id="more">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.</span
+            >
+          </p>
+          <button onclick="myFunction(this)" id="myBtnTwo">Read more</button>
+        </div>
+      </div>
+
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header">Test Test TEST</div>
+        <div class="card-body">
+          <p class="card-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scramble<span id="dots">...</span
+            ><span id="more">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.</span
+            >
+          </p>
+          <button onclick="myFunction(this)" id="myBtnThree">Read more</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="modal">
+        <input id="modal" type="checkbox" name="modal" tabindex="1">
+        <label for="modal" >Launch Modal</label>
+        <div class="modal__overlay">
+          <div class="modal__box">
+            <label for="modal">&#10006;</label>
+            <h2>Modal Title</h2>
+            <p>Modal Content</p>
+          </div>
+        </div>
+      </div> -->
+
+  
+    <div class="modal_home_container modEmbl">
+        <button id="window" class="btn_Emblem btn-home btn-open">+</button>
+      <div id="modal_info" class="modal_Emblem">
+        <button id="close_info" class="close_emblem btn-home btn-close">X</button>
+        <div class="modal-content">
+       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, excepturi.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      //   function myFunction(btn_id) {
+      //     var btnText = document.getElementById(btn_id.id);
+      //     var parentElem = btn_id.parentElement;
+      //     var childElemP = parentElem.childNodes;
+      //     var spanElem = childElemP[1].childNodes;
+
+      //     if (spanElem[1].style.display === "none") {
+      //       spanElem[1].style.display = "inline";
+      //       btnText.innerHTML = "citeste mai mult";
+      //       spanElem[2].style.display = "none";
+      //     } else {
+      //       spanElem[1].style.display = "none";
+      //       btnText.innerHTML = "inchide";
+      //       spanElem[2].style.display = "inline";
+      //     }
+      //   }
+
+      $("#window").click(function (e) {
+        e.preventDefault();
+        let showInfo = $(this).text();
+        $(this).text("");
+        $(this).addClass("ball_animation");
+        setTimeout(function () {
+          if ($(".modal_home_container").find("modEmbl")) {
+            $(".modal_Emblem").addClass("activeTwo");
+          }
+          $(".close_emblem").css("width", "30px");
+          $(".close_emblem").css("height", "30px");
+          setTimeout(function () {
+            $(".btn_Emblem").removeClass("ball_animation");
+            $(".btn_Emblem").text(showInfo);
+          }, 500);
+        }, 800);
+      });
+
+      $(".close_emblem").click(function () {
+        $(".modal_Emblem").removeClass("activeTwo");
+        $(".close_emblem").css("width", "0px");
+        $(".close_emblem").css("height", "0px");
+      });
+      
+    </script>
+  </body>
+</html>

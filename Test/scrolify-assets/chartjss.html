@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style></style>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="chartMenu">
+      <p></p>
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas class="myChart_s6"
+          id="myChart"
+          style="position: relative; height: 40vh; width: 100%"
+          role="img"
+        ></canvas>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+    <script>
+      // setup
+      Chart.defaults.font.size = 11;
+      //   function beforePrintHandler() {
+      //     for (let id in Chart.instances) {
+      //       Chart.instances[id].resize();
+      //     }
+      //   }
+      //   $(window).resize(function () {
+      //     myChart.resize(600, 600);
+      //   });
+      //   window.addEventListener("beforeprint", () => {
+      //     myChart.resize(600, 600);
+      //   });
+      //   window.addEventListener("afterprint", () => {
+      //     myChart.resize();
+      //   });
+      async function fetchData() {
+        const url = "./test2.json ";
+        const response = await fetch(url);
+        const data_ = await response.json();
+        console.log(data_, "data_");
+        return data_;
+      }
+
+      function updateChart() {
+        fetchData().then((data_) => {
+          const players_name = data_.qatar[2].players.map(
+            ({ name, price }, index) => {
+              console.log("index", price);
+              return name;
+            }
+          );
+          const players_price = data_.qatar[2].players.map(
+            ({ price }, index) => {
+              return price;
+            }
+          );
+
+          const data_chart6 = {
+            labels: players_name.slice(0, 10),
+            datasets: [
+              {
+                label: "MILIOANELE DE EURO",
+                data: players_price.slice(0, 10),
+                borderColor: "black",
+                borderWidth: 0,
+                fill: true,
+                // pointBackgroundColor: "crimson",
+                backgroundColor: [
+                  "rgba(250,174,50,1)",
+                  "grey",
+                  "rgb(255, 205, 86)",
+                ],
+                stack: "combined",
+                hoverOffset: 10,
+              },
+            ],
+          };
+
+          // config
+          const config_chart6= {
+            type: "bar",
+            data: data_chart6,
+            options: {
+              indexAxis: "y",
+              plugins: {
+                datalabels: {
+                  anchor: "end",
+                  align: "top",
+                },
+                legend: {
+                  display: false,
+                  position: "left",
+                  font: "24",
+                },
+                title: {
+                  display: true,
+                  text: "fotbalul si milioanele",
+                },
+              },
+              radius: 4,
+              responsive: true,
+              maintainAspectRatio: false,
+              scales: {
+                x: {
+                  grid: {
+                    borderColor: "black",
+                    lineWidth: 2,
+                    stacked: true,
+                  },
+                  min: 0,
+                  max: 200,
+                  stacked: true,
+                  ticks: {
+                    callback: function (price) {
+                      return "$" + price + "m";
+                    },
+                  },
+                },
+              },
+
+              layout: {
+                padding: {
+                  left: 2,
+                  right: 2,
+                  bottom: 20,
+                  top: 10,
+                },
+              },
+            },
+          };
+
+          //   myChart.update();
+          const myChart_s6 = new Chart(
+            document.querySelector(".myChart_s6"),
+            config_chart6
+          ).getContext("2d");
+        });
+      }
+      updateChart();
+    </script>
+  </body>
+</html>
