@@ -55,19 +55,32 @@ let _games = ["A-Gonzo", "B-Bonza", "C-Shining Crown", "D-loto69", "E-Slots"];
 let totalDoors = 3;
 let totalInputs = 5;
 let fallingStars = 6;
-let totalInstr = 3;
+// let totalInstr = 3;
 let state = 'PICK';
 let pickedDoor;
 let timeoutId;
 let gamesCode;
+
 let smallCode = "GOL";
 let largeCode = "";
+
+let delay0_5s = 500;
 let delay1s = 1000;
 let delay1_5s = 1500;
 let delay2s = 2000;
 let delay2_5s = 2500;
+let delay3s = 3000;
+let delay3_5s = 3500;
+let delay4s = 4000;
+let delay4_5s = 4500;
+let delay5s = 5000;
 let clickSound;
 
+let first_text = '<span class="first_text_t1">Bun venit pe netbet!</span><br/><span class="second_text_t1">Te provoc sa iei sute de runde gratuite</span>'
+let second_text = '<span class="first_text_t2">UȘILE ASCUND RUNDE GRATUITE</span><br/><span class="second_text_t2">UNA DINTRE ELE ASCUNDE PREMIUL CEL MARE</span><br/>'
+let third_text = '<span class="first_text_t3">AI ALES UȘA#</span><br/><span class="second_text_t3">TE AJUT ȘI ELIMIN O UȘĂ <br/> NECÂȘTIGĂTOARE!</span><br/>'
+let four_text = '<span class="first_text_t4">AM ELIMINAT UȘA <br/> NECÂȘTIGĂTOARE</span>'
+let five_text = '<span class="first_text_t5">POȚI SCHIMBA UȘA nr# </span><br/><span class="second_text_t5">cu UȘA nr #</span>'
 // function preload() {
 //   clickSound = loadSound("./test.mp3");
 // }
@@ -96,7 +109,7 @@ function startGame() {
     resetDoor();
   });
 
-  select('#instruction > p').html('Bine ai venit la...');
+  select('#instruction > p').html(first_text);
   select('#instruction > .choices').hide();
   select('#instruction > .p_continue').hide();
   select('#instruction > #play-again').hide();
@@ -141,10 +154,19 @@ function resetDoor() {
   const winner = random(doors);
   winner.prize = largeCode;
 
-  state = 'PICK';
 
-  select('#instruction > p').html('Alege o usă...!');
 
+  select('#instruction > p').html(second_text);
+
+  setTimeout(() => {
+    select('#instruction > p').html("alege o usâ");
+  }, delay2_5s);
+  setTimeout(() => {
+    select('#instruction').hide();
+  }, delay4_5s);
+  setTimeout(() => {
+    state = 'PICK';
+  }, delay5s);
 }
 
 function checkWin(hasSwitched) {
@@ -182,6 +204,7 @@ function checkWin(hasSwitched) {
 }
 
 function chooseDoor(hasSwitched = false) {
+
   select('#instruction > .choices').hide();
 
   if (hasSwitched) {
@@ -202,9 +225,12 @@ function chooseDoor(hasSwitched = false) {
   checkWin(hasSwitched);
 }
 
+
 function revealDoor() {
+
   select('#instruction > .p_continue').hide();
-  select('#instruction > p').html('ti am deschis o usa');
+
+  select('#instruction > p').html(four_text);
 
   const options = doors.filter(
     (door, i) => i !== pickedDoor.index && door.prize !== largeCode
@@ -242,16 +268,18 @@ function revealDoor() {
   retriveData();
 
   setTimeout(() => {
-
     select('#doors > .door-container.revealed').hide();
-    select('#instruction > p').html(
-      `Vrei sa schimbi cu usă #${lastDoorIndex}?`
-    );
+  }, delay2_5s);
 
+  setTimeout(() => {
+    // select('#instruction').style("display","flex");
+    select('#instruction > p').html(five_text + "" + `${lastDoorIndex}` + "<br/>" + "vrei să schimbi?");
     select('#instruction > .choices').show();
+  }, delay3s);
 
-  }, delay1_5s);
-
+  setTimeout(() => {
+    select('#instruction').style("display", "flex");
+  }, delay3_5s);
 }
 
 function pickDoor() {
@@ -265,15 +293,15 @@ function pickDoor() {
 
   select('.letter-door', pickedDoor).addClass("open");
 
-  select('#instr_text').hide();
+  // select('#instr_text').hide();
 
-  select('#instruction > p').html('tu ai ales o usa <br/> eu pot elimina una dintre <br/> cele 2 usi ramase');
+  select('#instruction > p').html(third_text);
 
   select('#instruction > .p_continue').show();
 
   setTimeout(() => {
-
-  }, delay1s);
+    select('#instruction').style("display", "flex");
+  }, delay1_5s);
 
 }
 
@@ -320,20 +348,19 @@ function makeDoors() {
 
 }
 
-function makeInstruction() {
-  for (let g = 0; g < totalInstr; g++) {
-    instruction[g] = createDiv();
-    instruction[g].parent("instr_text");
-    instruction[g].index = g;
-    instruction[g].class("instr-container" + " " + 'instr_n_' + g);
-  }
-  // select('#instr_text > .instr_n_0').html(text_one);
-  // select('#instr_text > .instr_n_1').html(text_two);
-  // select('#instr_text > .instr_n_2').html(text_tree);
-}
+// function makeInstruction() {
+//   for (let g = 0; g < totalInstr; g++) {
+//     instruction[g] = createDiv();
+//     instruction[g].parent("instr_text");
+//     instruction[g].index = g;
+//     instruction[g].class("instr-container" + " " + 'instr_n_' + g);
+//   }
+//   select('#instr_text > .instr_n_0').html(text_one);
+//   select('#instr_text > .instr_n_1').html(text_two);
+//   select('#instr_text > .instr_n_2').html(text_tree);
+// }
 
 function makeInput() {
-
 
   for (let j = 0; j < totalInputs; j++) {
     inputs[j] = createDiv();
@@ -454,23 +481,30 @@ function setStars() {
   }
 }
 
-
-
 function setup() {
   noCanvas();
   makeDoors();
   startGame();
-  makeInstruction();
+  // makeInstruction();
   makeInput();
   setStars();
   select('button#yes').mousePressed(function () {
-    chooseDoor(true);
+    select('#instruction').hide();
+    setTimeout(() => {
+      chooseDoor(true);
+    }, delay2s);
   });
   select('button#no').mousePressed(function () {
-    chooseDoor(false);
+    select('#instruction').hide();
+    setTimeout(() => {
+      chooseDoor(false);
+    }, delay2s);
   });
   select('button#yes_continue').mousePressed(function () {
-    revealDoor();
+    select('#instruction').hide();
+    setTimeout(() => {
+      revealDoor();
+    }, delay1_5s);
   });
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {

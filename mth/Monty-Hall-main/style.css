@@ -132,7 +132,7 @@ body::after {
   transition: opacity 0.5s ease;
 }
 
-#doors.doorNon-Active{
+#doors.doorNon-Active {
   /* visibility: hidden; */
   opacity: 0.9;
 }
@@ -144,6 +144,7 @@ body::after {
   z-index: 10;
   cursor: pointer;
 }
+
 .door-container.revealed::before {
   transition: var(--transition-mask);
   background-position: -400% bottom;
@@ -152,6 +153,21 @@ body::after {
 
 .door-container.revealedNone {
   display: none;
+}
+
+.door-container.revealed {
+  animation: hidden-door 0.6s 1.5s linear forwards;
+}
+.door-container.revealed.won,.door-container.rev_open {
+  animation:unset;
+}
+@keyframes hidden-door {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .door-container,
@@ -220,8 +236,20 @@ body::after {
   background-size: 75.5%;
   background-position: center bottom;
   z-index: 0;
-  clip-path: polygon(8% 88%, 9% 10%, 3% 0%, 100% 0%, 97% 0%, 97% 87%, 97% 100%, 100% 100%, 77% 100%, 38% 100%, 6% 100%, 6% 90%);
-
+  clip-path: polygon(
+    8% 88%,
+    9% 10%,
+    3% 0%,
+    100% 0%,
+    97% 0%,
+    97% 87%,
+    97% 100%,
+    100% 100%,
+    77% 100%,
+    38% 100%,
+    6% 100%,
+    6% 90%
+  );
 }
 
 .door-container::after {
@@ -315,25 +343,25 @@ body::after {
   color: rgb(8, 28, 83);
   text-transform: uppercase;
   font-weight: bold;
-  text-shadow:0 0 0 transparent, 0 0 1px #e1dcff, 0 0 20px rgb(133 253 255 / 96%), 0 0 4px #e8fbff, 0 0 4px #ccf1ff, 0 0 10px #5de7f0a3, 0 0 3px #5ee5eca9, 0 0 4px #79e3ff, 0 0 41px #d8e5ea;
-
+  text-shadow: 0 0 0 transparent, 0 0 1px #e1dcff,
+    0 0 20px rgb(133 253 255 / 96%), 0 0 4px #e8fbff, 0 0 4px #ccf1ff,
+    0 0 10px #5de7f0a3, 0 0 3px #5ee5eca9, 0 0 4px #79e3ff, 0 0 41px #d8e5ea;
 }
-.content-l1{
+.content-l1 {
   font-size: 1.5em;
   margin-bottom: -0.3em;
 }
-.content-l2{
+.content-l2 {
   font-size: 0.75em;
 }
-.content-l3{
+.content-l3 {
   margin-top: -0.3em;
-  font-size: 0.52em; 
+  font-size: 0.52em;
 }
 
 .BonusCodeText .line-two .content-l1,
 .BonusCodeText .line-two .content-l2,
-.BonusCodeText .line-two .content-l3
- {
+.BonusCodeText .line-two .content-l3 {
   margin-right: 5px;
   margin-bottom: unset;
   font-size: unset;
@@ -344,7 +372,7 @@ body::after {
   position: absolute;
   content: "";
   width: 60%;
-  height:30%;
+  height: 30%;
   background-color: red;
   border-radius: 1em;
   left: 50%;
@@ -360,7 +388,6 @@ body::after {
     inset rgb(255 255 255 / 10%) 0px -10px 20px -5px,
     inset rgb(255 255 255 / 50%) 0px -1px 1px -1px;
   /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
-
 }
 
 .shadow {
@@ -374,8 +401,12 @@ body::after {
   justify-content: flex-end;
   background-color: rgba(12, 12, 12, 0.493);
   background: #1b1b1b; /* Old browsers */
-  background: linear-gradient(to bottom, #0000009d 0%,#1b1b1b6e 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter:blur(5px);
+  background: linear-gradient(
+    to bottom,
+    #0000009d 0%,
+    #1b1b1b6e 70%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: blur(5px);
   perspective: 1000px;
   perspective-origin: 3d;
   /* bottom: -20em; */
@@ -389,11 +420,10 @@ body::after {
   transform: skewX(-5deg) translateX(0px) translateY(-1vh);
   /* background-color: rgb(27, 150, 23); */
 }
-.shadow_n_2{
+.shadow_n_2 {
   transform: skewX(45deg) translateX(17vh) translateY(-1vh);
   /* background-color: rgb(0, 20, 87); */
 }
-
 
 .letter-door {
   position: absolute;
@@ -411,8 +441,9 @@ body::after {
   /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
 }
 .letter-door.light {
-  text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e;
-
+  text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%),
+    0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9,
+    0 0 4px #168cad, 0 0 41px #12617e;
 }
 
 .light_door {
@@ -530,7 +561,7 @@ body::after {
   /* background-color: red; */
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
+  position: absolute;
   background-size: contain;
   /* background: red; */
   display: flex;
@@ -561,9 +592,13 @@ body::after {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1em;
   margin: 2rem 0;
   /* transform: translateX(30px); */
+}
+
+#instruction > p > span {
+  /* font-size: 1em; */
 }
 #instruction > .choices,
 #instruction > p,
@@ -584,8 +619,6 @@ body::after {
   margin-left: 1rem;
   z-index: 20;
 }
-
-
 
 .door {
   position: relative;
@@ -634,6 +667,7 @@ body::after {
   line-height: 1.3;
   font-size: 1.2em;
 }
+
 #inputForm {
   width: 35em;
   max-width: 600px;
@@ -792,8 +826,6 @@ body::after {
 .clear {
   clear: both;
 }
-
-
 
 .close-modal {
   position: absolute;
