@@ -158,8 +158,9 @@ body::after {
 .door-container.revealed {
   animation: hidden-door 0.6s 1.5s linear forwards;
 }
-.door-container.revealed.won,.door-container.rev_open {
-  animation:unset;
+.door-container.revealed.won,
+.door-container.rev_open {
+  animation: unset;
 }
 @keyframes hidden-door {
   from {
@@ -568,6 +569,7 @@ body::after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: white;
   /* overflow: hidden; */
 }
 
@@ -1063,14 +1065,21 @@ body::after {
     /* background-repeat: no-repeat; */
     background-size: cover;
   }
-
-  #app {
-    /* width: 400px; */
+  body {
     max-width: 48em;
-    /* background-color: red !important; */
   }
-  /* .door-container {
-    width: 14rem !important;
-    height: 20rem !important;
-  } */
+  #doors {
+    gap: 0.5em;
+  }
+  .door-container {
+    width: 16vh;
+  }
+  .door-container,
+  .door-container:before,
+  .door-container::after {
+    height: 35vh;
+    max-height: 35vh;
+    /* background-position: center bottom;
+  background-repeat: no-repeat; */
+  }
 }

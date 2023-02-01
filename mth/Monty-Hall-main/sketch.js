@@ -85,6 +85,14 @@ let five_text = '<span class="first_text_t5">POȚI SCHIMBA UȘA nr# </span><br/>
 //   clickSound = loadSound("./test.mp3");
 // }
 
+function resizeWin() {
+  if (window.matchMedia('(max-width:450px)').matches){
+    select('#instruction').style("position","absolute");
+  } else {
+    select('#instruction').style("position","relative");
+  }
+}
+
 function startGame() {
 
   for (const door of doors) {
@@ -113,6 +121,8 @@ function startGame() {
   select('#instruction > .choices').hide();
   select('#instruction > .p_continue').hide();
   select('#instruction > #play-again').hide();
+  select('button#yes_select').hide();
+  // select('#instruction > #yes_select').hide();
 }
 
 function resetDoor() {
@@ -150,23 +160,25 @@ function resetDoor() {
   // select('#doors').style("display","flex");
   select('#doors').removeClass("doorNon-Active");
   select('.start_game').hide();
+  select('#instruction > #play-again').hide();
+
   select('button#play-again').hide()
+
   const winner = random(doors);
   winner.prize = largeCode;
 
-
-
+  
   select('#instruction > p').html(second_text);
+  select('#yes_select').show();
+  setTimeout(() => {
 
-  setTimeout(() => {
-    select('#instruction > p').html("alege o usâ");
-  }, delay2_5s);
-  setTimeout(() => {
-    select('#instruction').hide();
-  }, delay4_5s);
-  setTimeout(() => {
-    state = 'PICK';
-  }, delay5s);
+    // select('#instruction > p').html("alege o usâ");
+  
+  }, delay2s);
+  // setTimeout(() => {
+  //   select('#instruction').hide();
+  // }, delay4_5s);
+
 }
 
 function checkWin(hasSwitched) {
@@ -202,6 +214,9 @@ function checkWin(hasSwitched) {
     select('#instruction > #play-again').show();
   }, delay1_5s);
 }
+
+
+
 
 function chooseDoor(hasSwitched = false) {
 
@@ -294,7 +309,7 @@ function pickDoor() {
   select('.letter-door', pickedDoor).addClass("open");
 
   // select('#instr_text').hide();
-
+  select('#yes_select').hide();
   select('#instruction > p').html(third_text);
 
   select('#instruction > .p_continue').show();
@@ -462,15 +477,15 @@ function closeModal() {
 }
 
 
-$(".close-modal, .mask").on("click", function () {
-  closeModal();
-});
+// $(".close-modal, .mask").on("click", function () {
+//   closeModal();
+// });
 
-$(document).keyup(function (e) {
-  if (e.keyCode == 27) {
-    closeModal();
-  }
-});
+// $(document).keyup(function (e) {
+//   if (e.keyCode == 27) {
+//     closeModal();
+//   }
+// });
 
 function setStars() {
   for (let k = 0; k < fallingStars; k++) {
@@ -488,6 +503,7 @@ function setup() {
   // makeInstruction();
   makeInput();
   setStars();
+  resizeWin();
   select('button#yes').mousePressed(function () {
     select('#instruction').hide();
     setTimeout(() => {
@@ -506,6 +522,15 @@ function setup() {
       revealDoor();
     }, delay1_5s);
   });
+
+  select('button#yes_select').mousePressed(function () {
+    select('#instruction').hide();
+    state = 'PICK';
+    setTimeout(() => {
+      // revealDoor();
+    }, delay1_5s);
+  });
+
   select('button#play-again').mousePressed(function () {
     setTimeout(() => {
       resetDoor();
