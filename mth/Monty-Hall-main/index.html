@@ -29,11 +29,7 @@
     <div id="comets" style="display: none"></div>
     <div id="satelit" style="display: none"></div> 
     <div class="wrapper-all">
-      <main id="app" class="app-main">
-        <div id="doors"></div>
-        
-      </main>
-      <div id="instruction" style="z-index: 10">
+      <div id="instruction" style="z-index:120;visibility: hidden;" >
         <!-- <div id="instr_text"></div> -->
         <p></p>
         <div class="start_game" style="z-index: 10">
@@ -59,14 +55,17 @@
           Joacă din Nou
         </button>
       </div>
+      <main id="app" class="app-main">
+        <div id="doors"></div>
+      </main>
       <div class="mask" role="dialog" id="mask_modal"></div>
       <div class="modal-input" role="alert">
           <div class="container-input">
             <form id="inputForm">
-              <h2 class="h2-input">Înregistrează-te în universul netbet</h2>
+              <h2 class="h2-input">ÎNREGISTREAZĂ-TE ȘI REVENDICĂ PREMIUL</h2>
             </form>
           </div>
-          <button class="close-modal" role="button">X</button>
+          <button class="close-modal" role="button" style="display: none;">X</button>
         </div>
     </div>
     <script src="sketch.js"></script>

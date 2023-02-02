@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+let _games = ["Book of Dead", "Big Bass Bonanza", "Rich Wilde and the Tome of Madness", "Legacy of Dead", "Crown of Fire","John Hunter and the Book of Tut"];
+
+function retriveData() {
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let codeText = this.responseText;
+      console.log(codeText, "cod Brut");
+      if (codeText.match(/A250/gi) || codeText.match(/A350/gi)) {
+        console.log(codeText, "A>");
+        console.log(gamesCode);
+        largeCode = codeText;
+        gamesCode = _games[0];
+      } else if (codeText.match(/B250/gi) || codeText.match(/B350/gi)) {
+        console.log(codeText, "B>");
+        largeCode = codeText;
+        gamesCode = _games[1];
+        console.log(gamesCode);
+      } else if (codeText.match(/C250/gi) || codeText.match(/C350/gi)) {
+        console.log(codeText, "C>");
+        largeCode = codeText;
+        gamesCode = _games[2];
+        console.log(gamesCode);
+      } else if (codeText.match(/D250/gi) || codeText.match(/D350/gi)) {
+        console.log(codeText, "D>");
+        largeCode = codeText;
+        gamesCode = _games[3];
+        console.log(gamesCode);
+      } else if (codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+        largeCode = codeText;
+        gamesCode = _games[4];
+        console.log(gamesCode);
+        console.log(codeText, "E>");
+      }  else if (codeText.match(/F250/gi) || codeText.match(/F350/gi)) {
+        largeCode = codeText;
+        gamesCode = _games[5];
+        console.log(gamesCode);
+        console.log(codeText, "F>");
+      } else {
+        console.log("Error no mached");
+      }
+    }
+  }
+  request.open('GET', 'https://casino-promo.netbet.ro/scripts/api/space/getcode.php');
+  request.send();
+};
+
+retriveData();
+    </script>
+</body>
+</html>

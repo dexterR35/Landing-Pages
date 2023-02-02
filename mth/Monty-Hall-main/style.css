@@ -8,7 +8,8 @@
 :root {
   /* --orange: #f89e4f; */
   --button_color: #ff4c16;
-  --modal-inputBg: #fff;
+  --modal-input: #333743;
+  --modal-inputBg: #dbdbdb;
 
   --bg-white: #fff;
   --color-white: #fff;
@@ -17,6 +18,8 @@
   --border-inputFocus: #1a73e8;
   --border-error: #ff4c16;
   /* --red: #f16164; */
+
+  --h1-title: #ff4c16;
 
   --color-focusText: #1a73e8;
 
@@ -45,11 +48,9 @@ body {
   background-color: #fff;
 }
 
-
-.hidden {
+/* .hidden {
   visibility: hidden;
-}
-
+} */
 
 body {
   position: relative;
@@ -82,7 +83,6 @@ body::after {
   /* animation: f-universe 30s infinite alternate linear 0.5s; */
 }
 
-
 /* body::before {
   content: "";
   position: fixed;
@@ -97,7 +97,6 @@ body::after {
   z-index: -1;
 } */
 
-
 .wrapper-all {
   /* display: flex;
   flex-direction: row-reverse; */
@@ -105,13 +104,12 @@ body::after {
   max-width: 1200px;
   height: fit-content;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: 1fr;
   place-content: center;
   place-items: center;
   /* overflow: hidden; */
 }
-
 
 @keyframes f-universe {
   0% {
@@ -135,12 +133,12 @@ body::after {
 } */
 
 .app-main {
-  width: 100%;
-  max-width: 1300px;
-  margin-left:2rem;
+   width: 100%;
+/*  max-width: 1300px; */
+  margin-left: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   padding: 2rem;
   color: white;
   z-index: 100;
@@ -179,7 +177,7 @@ body::after {
 }
 
 .door-container.revealed {
-  animation: hidden-door 0.6s 1.5s linear forwards;
+  animation: hidden-door 0.4s 1s linear forwards;
 }
 .door-container.revealed.won,
 .door-container.rev_open {
@@ -576,14 +574,16 @@ body::after {
 #instruction {
   margin: 2rem 0;
   /* min-height: 120px; */
-  z-index: 10;
+  /* z-index: 120; */
   background-image: url(./img/speachBubble.png);
   width: 55vh;
   height: 100%;
   /* background: black; */
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
+  position: absolute;
+  left: 30em;
+  top: -15em;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -596,14 +596,15 @@ body::after {
 #instruction::after {
   content: "";
   position: absolute;
-  top: 6vh;
-  left: -4vh;
+  top: 29vh;
+  left: -26vh;
+  z-index: -1;
   width: 100%;
   height: 100%;
   background-image: url(./img/astronaut.png);
   background-repeat: no-repeat;
   background-position: left;
-  background-size: 30%;
+  background-size: 60%;
 }
 #instr_text {
   width: 50%;
@@ -628,12 +629,12 @@ body::after {
   /* transform: translateX(30px); */
 }
 
-
 #instruction > .choices,
 #instruction > p,
 #instruction > #play-again,
 #instruction > .start_game,
-.p_continue,.select_door {
+.p_continue,
+.select_door {
   transform: translateX(18px) translateY(-10px);
 }
 #instruction > .choices {
@@ -649,28 +650,29 @@ body::after {
   z-index: 20;
 }
 
-
 /* text instruction */
 /* text instruction */
 /* text instruction */
 /* text instruction */
 /* text instruction */
 
-
-.first_text_t1,.first_text_t3,.first_text_t5,.second_text_t5 {
+.first_text_t1,
+.first_text_t3,
+.first_text_t5,
+.second_text_t5 {
   font-size: 1.8em;
 }
-.second_text_t1,.second_text_t2,.second_text_t3{
+.second_text_t1,
+.second_text_t2,
+.second_text_t3 {
   font-size: 1.4em;
   /* background: yellow; */
 }
 
-.first_text_t2,.third_text_t5 {
+.first_text_t2,
+.third_text_t5 {
   font-size: 1.3em;
 }
-
-
-
 
 .door {
   position: relative;
@@ -690,7 +692,7 @@ body::after {
   padding: 1em;
 }
 .h2-input {
-  color: var(--border-inputFocus);
+  color: var(--h1-title);
   text-transform: uppercase;
   font-weight: bold;
   margin: 0 0 16px auto;
@@ -705,9 +707,12 @@ body::after {
   text-transform: uppercase;
   display: flex;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   flex-direction: column;
-  /* font-weight: bold; */
+  font-weight: bold;
+}
+.span_code_input,.span_game_input {
+  color: var(--button_color);
 }
 .BonusCodeText .line-one {
   font-size: 1.4em;
@@ -749,13 +754,13 @@ body::after {
 }
 .input-box {
   position: relative;
-  margin: 10px 0;
+  margin: 20px 0;
   /* background-color: black; */
 }
 .input-box .input-label {
   position: absolute;
-  color: #80868b;
-  font-size: 0.7em;
+  color: azure;
+  font-size: 0.9em;
   font-weight: 400;
   max-width: calc(100% - (2 * 8px));
   overflow: hidden;
@@ -784,7 +789,7 @@ body::after {
   height: 50px;
   width: 100%;
   border-radius: 4px;
-  color: #202124;
+  color: azure;
   border: 1px solid var(--border-input);
   padding: 13px 15px;
 }
@@ -808,9 +813,19 @@ body::after {
   background: var(--bg-white);
   font-size: 11px;
 }
-
+.input_n3 {
+  position: relative;
+  overflow: hidden;
+  /* background-color: red; */
+}
 .input_n4 {
   color: var(--color-white) !important;
+}
+.input-box.box_n3 .input-label {
+  padding: 0 40px;
+}
+.input-input.input_n3 {
+  padding: 0px 8em;
 }
 .input-box.active .input-input {
   border: 2px solid #1a73e8;
@@ -818,9 +833,80 @@ body::after {
 .input-input::placeholder {
   font-size: 1.1em;
   text-transform: uppercase;
-  color: black;
+  color: azure;
   font-weight: bold;
 }
+
+.phone-group {
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+}
+.phone-prefix {
+  display: flex;
+  width: 6em;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 0.1em; */
+  /* font-size: 0.6em; */
+  height: 3.1em;
+  color: #000000;
+  z-index: 12;
+}
+.phone-prefix::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  /* border-radius: 1.25em; */
+  /* border: 1px solid #ffc107; */
+  width: 150%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #c2c2c2;
+}
+.phone-prefix-content {
+  position: relative;
+  z-index: 1;
+}
+.phone-number {
+  flex: 1;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.flag {
+  width: 1.5em;
+  height: 0.9em;
+  margin-left: 0.5em;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  bottom: -1px;
+  margin-right: 0.5em;
+}
+.flag div {
+  height: 100%;
+  flex: 1;
+}
+.flag .blue {
+  background-color: #002b7f;
+}
+.flag .yellow {
+  background-color: #fcd116;
+}
+.flag .red {
+  background-color: #ce1126;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"] {
+  color: white;
+  background-color: var(--modal-input);
+}
+
 .privOne,
 .privTwo {
   color: grey;
@@ -885,7 +971,7 @@ body::after {
   right: 0;
   width: 35px;
   height: 30px;
-  color: black;
+  color: azure;
   background: transparent;
   cursor: pointer;
   border: 0;
@@ -1088,6 +1174,9 @@ body::after {
 }
 
 @media screen and (orientation: portrait) {
+  .app-main {
+    margin-left: 0;
+  }
   .modal-input {
     width: 22em;
   }
@@ -1106,6 +1195,7 @@ body::after {
   .privTwo label {
     font-size: 0.8em;
   }
+  
 }
 
 @media screen and (orientation: portrait) {
@@ -1119,7 +1209,7 @@ body::after {
     /* max-width: 48em; */
   }
   #instruction {
-    width:41vh;
+    width: 41vh;
   }
   #doors {
     gap: 0em;

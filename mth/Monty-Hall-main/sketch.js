@@ -29,6 +29,11 @@ function retriveData() {
         gamesCode = _games[4];
         console.log(gamesCode);
         console.log(codeText, "E>");
+      }  else if (codeText.match(/F250/gi) || codeText.match(/F350/gi)) {
+        largeCode = codeText;
+        gamesCode = _games[5];
+        console.log(gamesCode);
+        console.log(codeText, "F>");
       } else {
         console.log("Error no mached");
       }
@@ -51,7 +56,8 @@ const instruction = [];
 // let text_one = "Esti sigur ca vrei sa primesti premiul din spatele acestei usi <br/> sau"
 // let text_two = "eu pot sa elimin una dintre cele 3 usi"
 // let text_tree = "si astefel sa faci o alta alegere intre cele 2 usi ramase cu promisiunea ca ambele ascund un premiu"
-let _games = ["A-Gonzo", "B-Bonza", "C-Shining Crown", "D-loto69", "E-Slots"];
+let _games = ["Book of Dead", "Big Bass Bonanza", "Rich Wilde and the Tome of Madness", "Legacy of Dead", "Crown of Fire","John Hunter and the Book of Tut"];
+
 let totalDoors = 3;
 let totalInputs = 5;
 let fallingStars = 6;
@@ -89,8 +95,15 @@ function resizeWin() {
   if (window.matchMedia('(max-width:450px)').matches) {
     select('#instruction').style("position", "absolute");
   } else {
-    select('#instruction').style("position", "relative");
+    select('#instruction').style("position", "absolute");
   }
+}
+
+function startInstruction() {
+  setTimeout(() => {
+    select('#instruction').style("visibility:visible");
+  }, delay0_5s);
+
 }
 
 function startGame() {
@@ -122,7 +135,6 @@ function startGame() {
   select('#instruction > .p_continue').hide();
   select('#instruction > #play-again').hide();
   select('button#yes_select').hide();
-  // select('#instruction > #yes_select').hide();
 }
 
 function resetDoor() {
@@ -193,6 +205,7 @@ function checkWin(hasSwitched) {
   select('.span_code_input').html(codeString);
   select('.span_game_input').html(gamesCode);
   select('.letter-door.open').addClass("rev_open");
+
   if (pickedDoor.prize === codeString) {
     pickedDoor.addClass('won');
 
@@ -243,7 +256,7 @@ function chooseDoor(hasSwitched = true) {
 
 function revealDoor() {
 
-  select('#instruction > .p_continue').hide();
+
 
   select('#instruction > p').html(four_text);
 
@@ -300,23 +313,22 @@ function revealDoor() {
   }
 
 
+
   let five_text = `<div class="first_text_t5">POȚI SCHIMBA UȘA "${switchDoorIndex}"</div><div class="second_text_t5">cu UȘA "${lastDoorIndex}"</div> <br/><div class="third_text_t5">vrei sa schimbi?</div>`
 
   retriveData();
 
-  setTimeout(() => {
-    select('#doors > .door-container.revealed').hide();
-  }, delay2_5s);
 
   setTimeout(() => {
-    // select('#instruction').style("display","flex");
-    select('#instruction > p').html(five_text);
-    select('#instruction > .choices').show();
-  }, delay3s);
+    select('#doors > .door-container.revealed').hide();
+  }, delay2s);
+  select('#instruction > .p_continue').hide();
+  select('#instruction > p').html(five_text);
+  select('#instruction > .choices').show();
 
   setTimeout(() => {
     select('#instruction').style("visibility", "visible");
-  }, delay3_5s);
+  }, delay2_5s);
 }
 
 function pickDoor() {
@@ -346,13 +358,12 @@ function pickDoor() {
   let third_text = `<div class="first_text_t3">AI ALES UȘA "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN O UȘĂ <br/> NECÂȘTIGĂTOARE!</div><br/>`
   // select('#instr_text').hide();
   select('#yes_select').hide();
-  select('#instruction > p').html(third_text);
-
-  select('#instruction > .p_continue').show();
 
   setTimeout(() => {
+    select('#instruction > p').html(third_text);
     select('#instruction').style("visibility", "visible");
-  }, delay1_5s);
+    select('#instruction > .p_continue').show();
+  }, delay0_5s);
 
 }
 
@@ -438,7 +449,18 @@ function makeInput() {
   $(".box_n0").prepend(`<label class="input-label">${input_email}</label>`);
   $(".box_n1").prepend(`<label class="input-label">${input_name}</label>`);
   $(".box_n2").prepend(`<label class="input-label">${input_lastName}</label>`);
-  $(".box_n3").prepend(`<label class="input-label">${input_phone}</label>`);
+  $(".box_n3").prepend(`<label class="input-label">${input_phone}</label>
+  <div class="phone-group">
+    <div class="phone-prefix">
+      <div class="flag">
+      <div class="blue"></div>
+      <div class="yellow"></div>
+      <div class="red"></div>
+    </div>
+  <div class="phone-prefix-content">+40</div>
+</div>
+ 
+  </div>`);
   $(".box_n4").prepend(`<label class="input-label">${input_bonusCode}</label>`);
 
   $("#inputForm").append(`<div class="privOne">
@@ -449,10 +471,10 @@ function makeInput() {
         <input type="checkbox" id="marketing-check" name="marketing-check" class="input_check">
         <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
         </div>
-       <button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button>
+     <a href="https://casino.netbet.ro/"><button type="button" class="btnNew btn-primary btn_send disabled" disabled >Înregistrează-te</button></a>
     <div class="clear"></div>`);
 
-  $("#inputForm").prepend(`<div class="BonusCodeText"> <span class="line-one">felicitări</span> <hr><span class="line-two"> ai câștigat <b><span class="span_code_input"> </span></b> <br/> la jocul <b><span class="span_game_input"></span></b></span></div>`);
+  $("#inputForm").prepend(`<div class="BonusCodeText"> <span class="line-one">felicitări</span> <hr><span class="line-two">UȘA TA ASCUNDEA <b><span class="span_code_input"> </span></b> <br/> la jocul <b><span class="span_game_input"></span></b></span></div>`);
 
   $(".input-input").attr({
     onfocus: "setFocus(true)",
@@ -466,6 +488,14 @@ function makeInput() {
 
   $(".input_n3").attr({
     type: "number"
+  });
+
+  const inputNumber = document.querySelector(".input_n3");
+
+  inputNumber.addEventListener("input", function(event) {
+    if (this.value < "7") {
+      this.value = "";
+    }
   });
 
   $(".box_n4").addClass("error");
@@ -533,6 +563,7 @@ function setStars() {
 }
 
 function setup() {
+  startInstruction();
   noCanvas();
   makeDoors();
   startGame();
@@ -544,27 +575,24 @@ function setup() {
     select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       chooseDoor(true);
-    }, delay2s);
+    }, delay1s);
   });
   select('button#no').mousePressed(function () {
     select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       chooseDoor(false);
-    }, delay2s);
+    }, delay1s);
   });
   select('button#yes_continue').mousePressed(function () {
     select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       revealDoor();
-    }, delay1_5s);
+    }, delay1s);
   });
 
   select('button#yes_select').mousePressed(function () {
     select('#instruction').style("visibility:hidden");
     state = 'PICK';
-    setTimeout(() => {
-      // revealDoor();
-    }, delay1_5s);
   });
 
   select('button#play-again').mousePressed(function () {
