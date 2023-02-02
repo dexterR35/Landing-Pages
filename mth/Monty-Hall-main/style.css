@@ -45,9 +45,12 @@ body {
   background-color: #fff;
 }
 
+
 .hidden {
   visibility: hidden;
 }
+
+
 body {
   position: relative;
   z-index: 2;
@@ -59,9 +62,11 @@ body {
   font-family: "Play", sans-serif;
   user-select: none;
 }
+
 .letter-door {
   font-family: "CROWDEN" !important;
 }
+
 body::after {
   content: "";
   position: fixed;
@@ -76,6 +81,8 @@ body::after {
   z-index: -1;
   /* animation: f-universe 30s infinite alternate linear 0.5s; */
 }
+
+
 /* body::before {
   content: "";
   position: fixed;
@@ -89,6 +96,22 @@ body::after {
   background-position: left;
   z-index: -1;
 } */
+
+
+.wrapper-all {
+  /* display: flex;
+  flex-direction: row-reverse; */
+  width: 100%;
+  max-width: 1200px;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  place-content: center;
+  place-items: center;
+  /* overflow: hidden; */
+}
+
 
 @keyframes f-universe {
   0% {
@@ -114,7 +137,7 @@ body::after {
 .app-main {
   width: 100%;
   max-width: 1300px;
-  margin: 0 auto;
+  margin-left:2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,7 +148,7 @@ body::after {
 
 #doors {
   display: flex;
-  gap: 3em;
+  gap: 2em;
   position: relative;
   opacity: 1;
   visibility: visible;
@@ -182,7 +205,6 @@ body::after {
 .door-container.open::before {
   transition: var(--transition-mask);
   background-position: 0% bottom;
-  /* background-color: red; */
 }
 .letter-door.open {
   transition: var(--transition-mask);
@@ -224,7 +246,6 @@ body::after {
 .door-container.open.revealed::before {
   transition: var(--transition-mask);
   background-position: -100% center;
-  /* background-color: red; */
 }
 
 .door-container::before {
@@ -374,7 +395,7 @@ body::after {
   content: "";
   width: 60%;
   height: 30%;
-  background-color: red;
+  /* background-color: red; */
   border-radius: 1em;
   left: 50%;
   top: 51%;
@@ -557,14 +578,13 @@ body::after {
   /* min-height: 120px; */
   z-index: 10;
   background-image: url(./img/speachBubble.png);
-  width: 70vh;
-  height: 34vh;
-  /* background-color: red; */
+  width: 55vh;
+  height: 100%;
+  /* background: black; */
   background-repeat: no-repeat;
   background-position: center;
-  position: absolute;
+  position: relative;
   background-size: contain;
-  /* background: red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -576,8 +596,8 @@ body::after {
 #instruction::after {
   content: "";
   position: absolute;
-  top: 2vh;
-  left: -1vh;
+  top: 6vh;
+  left: -4vh;
   width: 100%;
   height: 100%;
   background-image: url(./img/astronaut.png);
@@ -594,20 +614,27 @@ body::after {
   font-weight: bold;
   text-align: center;
   text-transform: uppercase;
-  font-size: 1em;
-  margin: 2rem 0;
+  font-size: 1.8vh;
+  margin: 2rem auto;
+  display: grid;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 100px;
+  /* background: grey; */
   /* transform: translateX(30px); */
 }
 
-#instruction > p > span {
-  /* font-size: 1em; */
-}
+
 #instruction > .choices,
 #instruction > p,
 #instruction > #play-again,
 #instruction > .start_game,
-.p_continue {
-  transform: translateX(30px) translateY(-30px);
+.p_continue,.select_door {
+  transform: translateX(18px) translateY(-10px);
 }
 #instruction > .choices {
   text-align: center;
@@ -621,6 +648,29 @@ body::after {
   margin-left: 1rem;
   z-index: 20;
 }
+
+
+/* text instruction */
+/* text instruction */
+/* text instruction */
+/* text instruction */
+/* text instruction */
+
+
+.first_text_t1,.first_text_t3,.first_text_t5,.second_text_t5 {
+  font-size: 1.8em;
+}
+.second_text_t1,.second_text_t2,.second_text_t3{
+  font-size: 1.4em;
+  /* background: yellow; */
+}
+
+.first_text_t2,.third_text_t5 {
+  font-size: 1.3em;
+}
+
+
+
 
 .door {
   position: relative;
@@ -1066,19 +1116,22 @@ body::after {
     background-size: cover;
   }
   body {
-    max-width: 48em;
+    /* max-width: 48em; */
+  }
+  #instruction {
+    width:41vh;
   }
   #doors {
-    gap: 0.5em;
+    gap: 0em;
   }
   .door-container {
-    width: 16vh;
+    width: 120px;
   }
   .door-container,
   .door-container:before,
   .door-container::after {
-    height: 35vh;
-    max-height: 35vh;
+    height: 220px;
+    max-height: 240px;
     /* background-position: center bottom;
   background-repeat: no-repeat; */
   }

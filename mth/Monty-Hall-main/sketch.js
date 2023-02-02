@@ -76,20 +76,20 @@ let delay4_5s = 4500;
 let delay5s = 5000;
 let clickSound;
 
-let first_text = '<span class="first_text_t1">Bun venit pe netbet!</span><br/><span class="second_text_t1">Te provoc sa iei sute de runde gratuite</span>'
-let second_text = '<span class="first_text_t2">UȘILE ASCUND RUNDE GRATUITE</span><br/><span class="second_text_t2">UNA DINTRE ELE ASCUNDE PREMIUL CEL MARE</span><br/>'
-let third_text = '<span class="first_text_t3">AI ALES UȘA#</span><br/><span class="second_text_t3">TE AJUT ȘI ELIMIN O UȘĂ <br/> NECÂȘTIGĂTOARE!</span><br/>'
-let four_text = '<span class="first_text_t4">AM ELIMINAT UȘA <br/> NECÂȘTIGĂTOARE</span>'
-let five_text = '<span class="first_text_t5">POȚI SCHIMBA UȘA nr# </span><br/><span class="second_text_t5">cu UȘA nr #</span>'
+let first_text = '<div class="first_text_t1">Bun venit pe netbet!</div><br/><div class="second_text_t1">Te provoc sa iei sute de <br/> runde gratuite</div>'
+let second_text = '<div class="first_text_t2">UȘILE ASCUND RUNDE GRATUITE</div><br/><div class="second_text_t2">UNA DINTRE ELE ASCUNDE <br/> PREMIUL CEL MARE</div><br/>'
+// let third_text = '<div class="first_text_t3">AI ALES UȘA#</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN O UȘĂ <br/> NECÂȘTIGĂTOARE!</div><br/>'
+let four_text = '<div class="first_text_t4">AM ELIMINAT UȘA <br/> NECÂȘTIGĂTOARE</div>'
+// let five_text = '<div class="first_text_t5">POȚI SCHIMBA UȘA</div><br/><div class="second_text_t5">cu UȘA </div>'
 // function preload() {
 //   clickSound = loadSound("./test.mp3");
 // }
 
 function resizeWin() {
-  if (window.matchMedia('(max-width:450px)').matches){
-    select('#instruction').style("position","absolute");
+  if (window.matchMedia('(max-width:450px)').matches) {
+    select('#instruction').style("position", "absolute");
   } else {
-    select('#instruction').style("position","relative");
+    select('#instruction').style("position", "relative");
   }
 }
 
@@ -155,7 +155,7 @@ function resetDoor() {
     door.removeClass('open');
     door.removeClass("rev_open");
     select('.content', door).html("");
-    select('#instr_text').show();
+    // select('#instr_text').show();
   }
   // select('#doors').style("display","flex");
   select('#doors').removeClass("doorNon-Active");
@@ -167,13 +167,13 @@ function resetDoor() {
   const winner = random(doors);
   winner.prize = largeCode;
 
-  
+
   select('#instruction > p').html(second_text);
   select('#yes_select').show();
   setTimeout(() => {
 
     // select('#instruction > p').html("alege o usâ");
-  
+
   }, delay2s);
   // setTimeout(() => {
   //   select('#instruction').hide();
@@ -218,7 +218,7 @@ function checkWin(hasSwitched) {
 
 
 
-function chooseDoor(hasSwitched = false) {
+function chooseDoor(hasSwitched = true) {
 
   select('#instruction > .choices').hide();
 
@@ -265,20 +265,42 @@ function revealDoor() {
   const lastDoor = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('picked')
   );
+
   const stayDoorsRev = doors.find(
     (door) => !door.hasClass('revealed') && !door.hasClass('open')
   );
 
+
+  const switchDoor = doors.find(
+    (door) => door.hasClass('picked')
+  );
+
   select('.letter-door', stayDoorsRev).addClass("pause");
 
+
   lastDoorIndex = lastDoor.index + 1;
+  switchDoorIndex = switchDoor.index + 1;
+  console.log(switchDoorIndex)
+
+
   if (lastDoorIndex === 1) {
     lastDoorIndex = "A"
   } else if (lastDoorIndex === 2) {
     lastDoorIndex = "B"
   } else if (lastDoorIndex === 3) {
-    lastDoorIndex = "C"
+    lastDoorIndex = "C";
   }
+
+  if (switchDoorIndex === 1) {
+    switchDoorIndex = "A";
+  } else if (switchDoorIndex === 2) {
+    switchDoorIndex = "B";
+  } else if (switchDoorIndex === 3) {
+    switchDoorIndex = "C";
+  }
+
+
+  let five_text = `<div class="first_text_t5">POȚI SCHIMBA UȘA "${switchDoorIndex}"</div><div class="second_text_t5">cu UȘA "${lastDoorIndex}"</div> <br/><div class="third_text_t5">vrei sa schimbi?</div>`
 
   retriveData();
 
@@ -288,12 +310,12 @@ function revealDoor() {
 
   setTimeout(() => {
     // select('#instruction').style("display","flex");
-    select('#instruction > p').html(five_text + "" + `${lastDoorIndex}` + "<br/>" + "vrei să schimbi?");
+    select('#instruction > p').html(five_text);
     select('#instruction > .choices').show();
   }, delay3s);
 
   setTimeout(() => {
-    select('#instruction').style("display", "flex");
+    select('#instruction').style("visibility", "visible");
   }, delay3_5s);
 }
 
@@ -306,8 +328,22 @@ function pickDoor() {
   pickedDoor = this;
   pickedDoor.addClass('picked open');
 
+  const userPickDoor = doors.find(
+    (door) => door.hasClass('picked')
+  );
+
+  userPickDoorIndex = userPickDoor.index + 1;
+  if (userPickDoorIndex === 1) {
+    userPickDoorIndex = "A"
+  } else if (userPickDoorIndex === 2) {
+    userPickDoorIndex = "B"
+  } else if (userPickDoorIndex === 3) {
+    userPickDoorIndex = "C"
+  }
+
   select('.letter-door', pickedDoor).addClass("open");
 
+  let third_text = `<div class="first_text_t3">AI ALES UȘA "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN O UȘĂ <br/> NECÂȘTIGĂTOARE!</div><br/>`
   // select('#instr_text').hide();
   select('#yes_select').hide();
   select('#instruction > p').html(third_text);
@@ -315,7 +351,7 @@ function pickDoor() {
   select('#instruction > .p_continue').show();
 
   setTimeout(() => {
-    select('#instruction').style("display", "flex");
+    select('#instruction').style("visibility", "visible");
   }, delay1_5s);
 
 }
@@ -505,26 +541,26 @@ function setup() {
   setStars();
   resizeWin();
   select('button#yes').mousePressed(function () {
-    select('#instruction').hide();
+    select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       chooseDoor(true);
     }, delay2s);
   });
   select('button#no').mousePressed(function () {
-    select('#instruction').hide();
+    select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       chooseDoor(false);
     }, delay2s);
   });
   select('button#yes_continue').mousePressed(function () {
-    select('#instruction').hide();
+    select('#instruction').style("visibility:hidden");
     setTimeout(() => {
       revealDoor();
     }, delay1_5s);
   });
 
   select('button#yes_select').mousePressed(function () {
-    select('#instruction').hide();
+    select('#instruction').style("visibility:hidden");
     state = 'PICK';
     setTimeout(() => {
       // revealDoor();
