@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+        .container-large {
+          width: 1000px;
+            display: flex;  
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .getcode_div,.setcode_div {
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;
+        }
+     .btn-submit {width: 100px;
+    margin: auto;}
+    </style>
+  </head>
+  <body>
+    <div class="container-large">
+    
+      <div class="getcode_div">
+        <h2>getcode</h2>
+        <h4 class="code"></h4>
+      </div>
+      <div class="setcode_div">
+        <h2>setCode</h2>
+        code:<input type="number">
+        name:<input type="text">
+        <button class="btn-submit">trimite</button>
+      </div>
+      
+    </div>
+
+
+
+
+
+    <script>
+
+let _getCode = document.querySelector(".code");
+console.log("_getCode")
+function retriveData() {
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        let codeText = this.responseText;
+        console.log(codeText, "cod Brut");
+        if (codeText.match(/A250/gi) || codeText.match(/A350/gi)) {
+          console.log(codeText, "A>");
+     
+          largeCode = codeText;
+        
+        } else if (codeText.match(/B250/gi) || codeText.match(/B350/gi)) {
+          console.log(codeText, "B>");
+          largeCode = codeText;
+      
+       
+        } else if (codeText.match(/C250/gi) || codeText.match(/C350/gi)) {
+          console.log(codeText, "C>");
+          largeCode = codeText;
+   
+        } else if (codeText.match(/D250/gi) || codeText.match(/D350/gi)) {
+          console.log(codeText, "D>");
+          largeCode = codeText;
+   
+        } else if (codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+          largeCode = codeText;
+    
+          console.log(codeText, "E>");
+        } else if (codeText.match(/F250/gi) || codeText.match(/F350/gi)) {
+          largeCode = codeText;
+ 
+          console.log(codeText, "F>");
+        } else {
+          console.log("Error no mached");
+        }
+      }
+    };
+    request.open(
+      "GET",
+      "https://casino-promo.netbet.ro/scripts/api/space/getcode.php"
+    );
+    request.send();
+  }
+  retriveData() 
+    </script>
+  </body>
+</html>

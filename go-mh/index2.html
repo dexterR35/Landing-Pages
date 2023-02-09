@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"
+    integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-fireworks@2.7.0/tsparticles.preset.fireworks.bundle.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" type="text/css" href="style2.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-all">
+        
+<div id="comets"></div>
+<div id="satelit" style="display: none"></div>
+
+<div class="wrapper-all">
+  <div id="instruction" style="z-index: 120; visibility: hidden">
+    <!-- <div id="instr_text"></div> -->
+    <p></p>
+    <div class="start_game" style="z-index: 10">
+      <button id="start_game" class="btnNew btn_startGame">Începe jocul</button>
+    </div>
+    <div class="select_door" style="z-index: 10">
+      <button id="yes_select" class="btnNew btn_continue">
+        alege o ușă...
+      </button>
+    </div>
+    <div class="p_continue" style="z-index: 10">
+      <button id="yes_continue" class="btnNew btn_continue">
+        OK! MAI DEPARTE
+      </button>
+    </div>
+    <div class="choices">
+      <button id="yes" class="btnNew btn_choices btn_yes">Da</button>
+      <button id="no" class="btnNew btn_choices btn_no">NU</button>
+    </div>
+    <button id="play-again" class="btnNew" style="display: none">
+      Joacă din Nou
+    </button>
+  </div>
+  <main id="app" class="app-main">
+    <div id="doors"></div>
+  </main>
+</div>
+<div class="mask" role="dialog" id="mask_modal"></div>
+<div class="modal-input" role="alert">
+  <div class="container-input">
+    <form id="inputForm" method="post">
+      <h2 class="h2-input">ÎNREGISTREAZĂ-TE ȘI REVENDICĂ PREMIUL</h2>
+    </form>
+  </div>
+  <button class="close-modal" role="button" style="display: none">X</button>
+</div>
+    </div>
+
+    <script src="./strech2.js"></script>
+</body>
+</html>

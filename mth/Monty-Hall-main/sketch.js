@@ -393,7 +393,9 @@ function revealDoor() {
   select("#instruction > .choices").show();
 
   setTimeout(() => {
+
     select("#instruction").style("display", "flex");
+    
   }, delay3s);
 }
 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+  font-family: Roboto, Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+a, a:hover, a:visited {
+  color: currentColor;
+  text-decoration: none;
+  display: block;
+}
+.container {
+  height: 100vh;
+  background: linear-gradient(45deg, #888, #444);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.email {
+  border: 0;
+  padding: 10px;
+  min-width: 275px;
+  background: rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, 1);
+}
+.email::placeholder {
+  color: rgba(255, 255, 255, .35);
+}
+.update {
+  padding: 10px;
+  width: 20%;
+  min-width: 275px;
+  background: rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, 1);
+  margin-top: 10px;
+  transition: all .2s ease-out;
+}
+.failure {
+  background: rgba(255, 0, 0, .6);
+}
+.success {
+  background: rgba(0, 255, 0, .6);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input class="email" placeholder="email" />
+        <a href="https://bit.ly/2yjlXDt" target="blank">
+          <div class="update"></div>
+        </a>
+      </div>
+      <script>
+
+const email = document.querySelector('.email');
+const update = document.querySelector('.update');
+
+email.addEventListener('input', inputEmail);
+
+function inputEmail(e) {
+  const input = e.target.value;
+  if (input && /(^\w.*@\w+\.\w)/.test(input)) {
+    update.textContent = 'Adresa de email corecta';
+    update.classList.add('success');
+    update.classList.remove('failure');
+  } else {
+    update.textContent = 'introdu adresa de email corecta';
+    update.classList.remove('success');
+    update.classList.add('failure');
+  }
+};
+      </script>
+</body>
+</html>

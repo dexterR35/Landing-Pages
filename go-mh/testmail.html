@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"
+          integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+          integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+   <style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 90vh;
+    }
+    .input-input {
+        width: 100%;
+    }
+   </style>
+      </head>
+  <body>
+    <form>
+      <!-- <input type="text" id="email" onblur="validateEmail()"> -->
+      <p id="emailError" style="display: none; color: red;">Adresa de email nu este valida</p>
+      <!-- <br><br>
+      <input type="text" id="phone"> -->
+    </form>
+    <div class="modal-input" role="alert">
+        <div class="container-input">
+          <form id="inputForm" method="post">
+            <h2 class="h2-input">ÎNREGISTREAZĂ-TE ȘI REVENDICĂ PREMIUL</h2>
+          </form>
+        </div>
+        <button class="close-modal" role="button" style="display: none">X</button>
+      </div>
+    <script>
+   
+    </script>
+
+
+<script>
+      const doors = [];
+  const inputs = [];
+  const comets = [];
+  const instruction = [];
+
+  let totalDoors = 3;
+  let totalInputs = 5;
+  let fallingStars = 3;
+  
+    function makeInput() {
+    for (let j = 0; j < totalInputs; j++) {
+      inputs[j] = createDiv();
+      inputs[j].parent("#inputForm");
+      inputs[j].index = j;
+      inputs[j].class("input-box" + " " + "box_n" + j);
+
+      let make_input = createInput();
+      make_input.class("input-input" + " " + "input_n" + j);
+      make_input.parent(inputs[j]);
+    }
+
+    $(".box_n0").prepend(`<label class="input-label">email</label>`);
+    $(".box_n1").prepend(`<label class="input-label">nume</label>`);
+    $(".box_n2").prepend(`<label class="input-label">prenume</label>`);
+    $(".box_n3").append(`<label class="input-label">telefon</label>
+  <div class="phone-group">
+    <div class="phone-prefix">
+      <div class="flag">
+      <div class="blue"></div>
+      <div class="yellow"></div>
+      <div class="red"></div>
+    </div>
+  <div class="phone-prefix-content">+40</div>
+</div>
+ 
+  </div>`);
+    $(".box_n4").prepend(`<label class="input-label">cod bonus</label>`);
+
+    $("#inputForm").append(`<div class="privOne">
+        <input type="checkbox" id="privacy-check" name="privacy-check" class="input_check">
+        <label for="privacy-check" class="privacy-text">333</label>
+        </div>
+        <div class="privTwo">
+        <input type="checkbox" id="marketing-check" name="marketing-check" class="input_check">
+        <label for="marketing-check" class="privacy-text">333</label>
+        </div>
+     <button type="submit" class="btnNew btn-primary btn_send disabled" disabled id="btn-sendData">Înregistrează-te</button>
+    <div class="clear"></div>`);
+
+    // $("#inputForm").prepend(
+    //   ` <div class="BonusCodeText">
+    //   <div class="line-one">felicitări</div>
+    //   <div class="line-two">UȘA TA ASCUNDEA <span class="span_code_input"></span></div>
+    //   <div class="line-three">la jocul <span class="span_game_input"></span></div>
+    // </div>`
+    // );
+
+    $(".input-input").attr({
+      onfocus: "setFocus(true)",
+      onblur: "setFocus(false)",
+      required: "",
+      maxlength: "40",
+    });
+
+    $(".input_n0").attr({
+      type: "email",
+      id: "email",
+      name: "email",
+      pattern:"[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}$" ,
+      oninvalid:"this.setCustomValidity('Introdu adresa de email')" ,
+      title:"Introdu adresa de email",
+    oninput:"this.setCustomValidity('')",
+    });
+    $(".input_n1").attr({
+      type: "text",
+      id: "lname",
+      name: "lname",
+    });
+    $(".input_n2").attr({
+      type: "text",
+      id: "fname",
+      name: "fname",
+    });
+
+    $(".input_n3").attr({
+      type: "number",
+      name: "phone",
+      id: "phone",
+    });
+
+    $(".box_n4").addClass("error");
+
+    const inputNumber = document.querySelector(".input_n3");
+    inputNumber.addEventListener("input", function (event) {
+      if (this.value.length === 1 && this.value !== "7") {
+        this.value = "";
+      } else if (this.value.length > 1 && this.value[0] !== "7") {
+        this.value = "" + this.value.substring(1);
+      }
+    });
+
+    const input_max = document.querySelector(".input_n3");
+    input_max.addEventListener("input", function (events) {
+      if (this.value.length >= 9) {
+        return (this.value = this.value.slice(0, 9));
+      } else if (isNaN(this.value)) {
+        this.value = "";
+      } else {
+        events.stopPropagation();
+        events.stopImmediatePropagation();
+        return false;
+      }
+    });
+
+    $(".input_check").click(function () {
+      let lenChecked = $(".input_check:checked").length;
+      if (lenChecked >= 2) {
+        $(".btn_send").removeAttr("disabled");
+        $(".btn_send").removeClass("disabled");
+      } else {
+        $(".btn_send").addClass("disabled");
+        $(".btn_send").prop("disabled", true);
+      }
+    });
+
+    const form_q = document.querySelector("#inputForm");
+    const emailInput = document.querySelector(".input_n0");
+
+    form_q.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let emailValue = emailInput.value;
+      let xhr = new XMLHttpRequest();
+      xhr.open(
+        "POST",
+        "https://casino-promo.netbet.ro/scripts/api/space/setcode.php"
+      );
+      xhr.setRequestHeader("Accept", "application/json");
+      xhr.setRequestHeader("Content-Type", "application/json");
+      alert("Succes");
+      let promise = new Promise(function (resolve, reject) {
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            resolve(xhr.responseText);
+          } else if (xhr.readyState === 4) {
+            reject(xhr.status);
+          }
+        };
+      });
+      // alert("2");
+      let details_send =
+        `{"email": "` + emailValue + `","code": "` + largeCode + `"}`;
+      console.log(details_send, "details_send");
+
+    });
+  }
+
+  function setFocus(on) {
+    let element = document.activeElement;
+ 
+    if (on) {
+      setTimeout(function () {
+     
+        element.parentNode.classList.add("focus");
+        
+      });
+        //  alert("test");
+    } else {
+    
+      let box = document.querySelector(".input-box");
+      box.classList.remove("focus");
+      $("input").each(function () {
+    
+        let $input = $(this);
+        let $parent = $input.closest(".input-box");
+        if ($input.val()) $parent.addClass("focus");
+        else $parent.removeClass("focus");
+      });
+      validateEmail()
+    }
+  }
+  // function validateEmail() {
+  //       const email = document.getElementById("email").value;
+  //       const reGx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //       const isValid = reGx.test(String(email).toLowerCase());
+        
+  //       const emailError = document.getElementById("emailError");
+  //       if (isValid) {
+  //           $("#emailError").css("display","none")
+  //       } else {
+  //           $("#emailError").css({"display":"flex","justify-content":"center","font-size":"0.8em","margin-bottom":"-10px","margin=top":"-2px"})
+  //       }
+  //     }
+  function setup() {
+    noCanvas();
+  makeInput() ;
+  }
+
+</script>
+  </body>
+</html>

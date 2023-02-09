@@ -49,19 +49,19 @@ body {
 }
 
 /* .hidden {
-  visibility: hidden;
+visibility: hidden;
 } */
 
 body {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  font-family: "Play", sans-serif;
-  user-select: none;
+position: relative;
+z-index: 2;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+overflow: hidden;
+font-family: "Play", sans-serif;
+user-select: none;
 }
 
 .letter-door {
@@ -84,22 +84,22 @@ body::after {
 }
 
 /* body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(./img/bg-desktop.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: left;
-  z-index: -1;
+content: "";
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url(./img/bg-desktop.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: left;
+z-index: -1;
 } */
 
 .wrapper-all {
   /* display: flex;
-  flex-direction: row-reverse; */
+flex-direction: row-reverse; */
   width: 100%;
   max-width: 1200px;
   height: fit-content;
@@ -129,16 +129,16 @@ body::after {
   }
 }
 /* .container-input {
-  display: none;
+display: none;
 } */
 
 .app-main {
-   width: 100%;
-/*  max-width: 1300px; */
+  width: 100%;
+  /*  max-width: 1300px; */
   margin-left: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   padding: 2rem;
   color: white;
   z-index: 100;
@@ -218,9 +218,9 @@ body::after {
   font-size: 6.6vh;
   color: var(--letter_pause);
   /* text-shadow:
-  0 0 23px rgba(0, 252, 105, 0.7),
-  0 0 53px rgba(10, 226, 255, 0.7),
-  0 0 113px rgba(1, 247, 235, 0.7); */
+0 0 23px rgba(0, 252, 105, 0.7),
+0 0 53px rgba(10, 226, 255, 0.7),
+0 0 113px rgba(1, 247, 235, 0.7); */
 }
 .letter-door.pause.revealed {
   opacity: 0;
@@ -305,9 +305,9 @@ body::after {
   z-index: -2;
   font-size: 2rem;
   color: rgb(20, 89, 116);
-  text-shadow: 0 0 0 transparent, 0 0 1px #0099ff, 0 0 20px rgb(0 195 255 / 50%),
-    0 0 4px #c2e3d5, 0 0 4px #61ddab, 0 0 10px #0bd2e07e, 0 0 3px #29d0d9a9,
-    0 0 4px #0082a7, 0 0 41px #12547e;
+  text-shadow: 0 0 0 transparent, 0 0 1px #0099ff,
+    0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #61ddab,
+    0 0 10px #0bd2e07e, 0 0 3px #29d0d9a9, 0 0 4px #0082a7, 0 0 41px #12547e;
 }
 
 .door::before {
@@ -330,19 +330,19 @@ body::after {
 }
 
 /* .door-container.picked.won > .content::after {
-  content: "win";
-  background: green;
-  z-index: 30;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  transform: translate(50%, 50%);
-  left: 30%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
+content: "win";
+background: green;
+z-index: 30;
+width: 40px;
+height: 40px;
+position: absolute;
+top: 50%;
+transform: translate(50%, 50%);
+left: 30%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
 } */
 
 .content {
@@ -461,9 +461,9 @@ body::after {
   /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
 }
 .letter-door.light {
-  text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%),
-    0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9,
-    0 0 4px #168cad, 0 0 41px #12617e;
+  text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff,
+    0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9,
+    0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e;
 }
 
 .light_door {
@@ -582,8 +582,8 @@ body::after {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  left: 30em;
-  top: -15em;
+  left: 16vh;
+  top: -9em;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -619,9 +619,9 @@ body::after {
   margin: 2rem auto;
   display: grid;
   /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
+justify-content: center;
+align-items: center;
+flex-direction: column; */
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   height: 100px;
@@ -711,7 +711,8 @@ body::after {
   flex-direction: column;
   font-weight: bold;
 }
-.span_code_input,.span_game_input {
+.span_code_input,
+.span_game_input {
   color: var(--button_color);
 }
 .BonusCodeText .line-one {
@@ -768,7 +769,7 @@ body::after {
   white-space: nowrap;
   text-transform: capitalize;
   left: 8px;
-  top: 19px;
+  top: 17px;
   padding: 0 8px;
   user-select: none;
   pointer-events: none;
@@ -860,11 +861,11 @@ body::after {
   left: 0;
   top: 0px;
   /* border-radius: 1.25em; */
-  /* border: 1px solid #ffc107; */
+  border: 1px solid var(--modal-input);
   width: 150%;
-  height: 100%;
+  height: 99%;
   box-sizing: border-box;
-  background-color: #c2c2c2;
+  background-color: var(--modal-inputBg);
 }
 .phone-prefix-content {
   position: relative;
@@ -1007,11 +1008,11 @@ input[type="email"] {
   visibility: visible;
   opacity: 1;
   display: block;
-  z-index: 100;
+  z-index: 240;
   pointer-events: none;
 }
 /* .modal-input.active *:not(#inputForm) {
-  pointer-events: none;
+pointer-events: none;
 } */
 
 .modal-input {
@@ -1023,6 +1024,7 @@ input[type="email"] {
   opacity: 1;
   transform: translateY(0);
   display: block !important;
+  z-index: 255;
 }
 
 /*commets*/
@@ -1143,19 +1145,23 @@ input[type="email"] {
 }
 
 #satelit {
-  animation-iteration-count: 1;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
-  animation-name: test-satelite;
-  animation-duration: 3s;
-  animation-delay: 3s;
+  animation-timing-function: linear;
+animation-direction: normal;
+  animation-name: test-satelite2;
+  animation-duration: 24s;
+  /* animation-delay: 3s; */
   background-image: url(./img/coding-train2.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 220px;
-  height: 100px;
+  width: 20vh;
+  height: 15vh;
   color: white;
   position: absolute;
+  top: 0;
+  left:0 ;
   opacity: 0;
   z-index: 0;
 }
@@ -1168,14 +1174,30 @@ input[type="email"] {
   }
   to {
     opacity: 1;
-    transform: perspective(1800px) rotateX(20deg) rotateY(20deg) rotateZ(-45deg)
-      scale(0) translateY(0px) translateX(10px);
+    transform: perspective(1800px) rotateX(20deg) rotateY(20deg)
+      rotateZ(-45deg) scale(0) translateY(0px) translateX(10px);
+  }
+}
+@keyframes test-satelite2 {
+  from {
+    transform:perspective(1800px) rotateZ(5deg) translateY(260px)  translateX(90em);
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform:perspective(1800px) rotateZ(-5deg) translateY(-50px) translateX(-100em);
   }
 }
 
 @media screen and (orientation: portrait) {
   .app-main {
     margin-left: 0;
+    /* top: -9vh; */
+    position: relative;
+  }
+  .wrapper-all {
+    position: relative;
+    /* top: -4vh; */
   }
   .modal-input {
     width: 22em;
@@ -1195,21 +1217,48 @@ input[type="email"] {
   .privTwo label {
     font-size: 0.8em;
   }
-  
+  #instruction > .choices,
+  #instruction > p,
+  #instruction > #play-again,
+  #instruction > .start_game,
+  .p_continue,
+  .select_door {
+    transform: translateX(34px) translateY(-12px);
+  }
+  #instruction {
+    width: 95%;
+    left: 1vh;
+    top: 7em;
+  }
+  #instruction > p {
+    font-size: 1.2vh;
+    height: 42px;
+  }
+
+  #instruction::after {
+    background-size: 30%;
+    left: 0vh;
+    top: 0vh;
+  }
+
+  .btnNew {
+    height: 33px;
+    line-height: 18px;
+    min-width: 85px;
+    padding: 8px 20px;
+    font-size: 12px;
+  }
 }
 
 @media screen and (orientation: portrait) {
   body::after {
-    background-image: url(./img/bg-mobile.png);
+    /* background-image: url(./bg-mobileM.png); */
     background-position: center;
     /* background-repeat: no-repeat; */
     background-size: cover;
   }
-  body {
-    /* max-width: 48em; */
-  }
-  #instruction {
-    width: 41vh;
+  .separator-mobile {
+    display: none;
   }
   #doors {
     gap: 0em;
@@ -1223,6 +1272,6 @@ input[type="email"] {
     height: 220px;
     max-height: 240px;
     /* background-position: center bottom;
-  background-repeat: no-repeat; */
+background-repeat: no-repeat; */
   }
 }

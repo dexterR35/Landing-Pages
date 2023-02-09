@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+test <input type="number" name="number" id="number" class="input_n3">
+<button type="submit">click</button>
+<script>
+      const inputNumber = document.querySelector(".input_n3");
+    inputNumber.addEventListener("input", function (event) {
+      if (this.value.length === 1 && this.value !== "7") {
+        this.value = "";
+      } else if (this.value.length > 1 && this.value[0] !== "7") {
+        this.value = "" + this.value.substring(1);
+      }
+    });
+
+    const input_max = document.querySelector(".input_n3");
+    input_max.addEventListener("input", function (events) {
+      if (this.value.length >= 9) {
+        return (this.value = this.value.slice(0, 9));
+      } else if (isNaN(this.value)) {
+        this.value = "";
+      } else {
+        events.stopPropagation();
+        events.stopImmediatePropagation();
+        return false;
+      }
+    });
+</script>
+</body>
+</html>

@@ -1,173 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        /* Play on neon text by webdevtrick - https://webdevtrick.com/css-neon-text-effect/ */
+      /* Play on neon text by webdevtrick - https://webdevtrick.com/css-neon-text-effect/ */
 
-@font-face {
-  font-family: 'neontubes';
-  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
-  src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix") format("embedded-opentype"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2") format("woff2"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff") format("woff"), url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+      @font-face {
+        font-family: "neontubes";
+        src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot");
+        src: url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.eot?#iefix")
+            format("embedded-opentype"),
+          url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff2")
+            format("woff2"),
+          url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.woff")
+            format("woff"),
+          url("https://bitbucket.org/kennethjensen/webfonts/raw/fc13c1cb430a0e9462da56fe3f421ff7af72db71/neontubes/neontubes-webfont.ttf")
+            format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin:0;
-}
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 0;
+      }
 
-.main {
-  padding:50px;
-  height:100vh;
-  min-height:500px;
-  width:100%;
-  box-sizing:border-box;
-  background: #030c1c;
-}
+      .main {
+        padding: 50px;
+        height: 100vh;
+        min-height: 500px;
+        width: 100%;
+        box-sizing: border-box;
+        background: #030c1c;
+      }
 
-.wrapper {
-  position:relative;
-    width:300px;
-  margin:0 auto;
-}
+      .wrapper {
+        position: relative;
+        width: 300px;
+        margin: 0 auto;
+      }
 
-.panel {
-  width:300px;
-  margin:0 auto;
-  border:5px solid #d4eaff;
-  animation: buzz 0.01s infinite alternate;
-  border-radius:50%;
-  height:300px;
-  -webkit-box-shadow: inset 0px 0px 22px 3px rgba(38,149,255,0.35), 0px 0px 28px 5px rgba(38,149,255,0.45); 
-   box-shadow: inset 0px 0px 22px 3px rgba(38,149,255,0.35), 0px 0px 28px 5px rgba(38,149,255,0.45);
-  background:rgba(38,149,255,0.1);
-  text-align:center;
-  position:relative;
-  padding:35px;
-  box-sizing:border-box;
-  z-index:1;
-}
+      .panel {
+        width: 300px;
+        margin: 0 auto;
+        border: 5px solid #d4eaff;
+        animation: buzz 0.01s infinite alternate;
+        border-radius: 50%;
+        height: 300px;
+        -webkit-box-shadow: inset 0px 0px 22px 3px rgba(38, 149, 255, 0.35),
+          0px 0px 28px 5px rgba(38, 149, 255, 0.45);
+        box-shadow: inset 0px 0px 22px 3px rgba(38, 149, 255, 0.35),
+          0px 0px 28px 5px rgba(38, 149, 255, 0.45);
+        background: rgba(38, 149, 255, 0.1);
+        text-align: center;
+        position: relative;
+        padding: 35px;
+        box-sizing: border-box;
+        z-index: 1;
+      }
 
-.panel-shadow {
-  position:absolute;
-  z-index:0;
-  width:300px;
-  height:300px;
-  border:8px solid black;
-  content:'';
-  left:3px;
-  top:3px;
-  border-radius:50%;
-  box-sizing:border-box;
-  filter: blur(1px);
-}
+      .panel-shadow {
+        position: absolute;
+        z-index: 0;
+        width: 300px;
+        height: 300px;
+        border: 8px solid black;
+        content: "";
+        left: 3px;
+        top: 3px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        filter: blur(1px);
+      }
 
-.inner-shadow {
-  position:absolute;
-  z-index:0;
-  width:220px;
-  height:220px;
-  border:3px solid black;
-  content:'';
-  left:45px;
-  top:45px;
-  border-radius:50%;
-  box-sizing:border-box;
-  filter: blur(1px);
-}
+      .inner-shadow {
+        position: absolute;
+        z-index: 0;
+        width: 220px;
+        height: 220px;
+        border: 3px solid black;
+        content: "";
+        left: 45px;
+        top: 45px;
+        border-radius: 50%;
+        box-sizing: border-box;
+        filter: blur(1px);
+      }
 
-.inner {
-  box-sizing:border-box;
-  width:220px;
-  height:220px;
-  margin:0 auto;
-  border:5px solid #FFD7F0;
-  -webkit-animation: blink 9s infinite alternate;
-  animation: blink 9s infinite alternate;
-  border-radius:50%;
-  -webkit-box-shadow: inset 0px 0px 18px 2px rgba(255,0,60,0.35), 0px 0px 18px 5px rgba(255,0,60,0.35); 
-   box-shadow: inset 0px 0px 18px 2px rgba(255,0,60,0.35), 0px 0px 18px 5px rgba(255,0,60,0.35);
-}
+      .inner {
+        box-sizing: border-box;
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        border: 5px solid #ffd7f0;
+        -webkit-animation: blink 9s infinite alternate;
+        animation: blink 9s infinite alternate;
+        border-radius: 50%;
+        -webkit-box-shadow: inset 0px 0px 18px 2px rgba(255, 0, 60, 0.35),
+          0px 0px 18px 5px rgba(255, 0, 60, 0.35);
+        box-shadow: inset 0px 0px 18px 2px rgba(255, 0, 60, 0.35),
+          0px 0px 18px 5px rgba(255, 0, 60, 0.35);
+      }
 
-.neon {
-  position:absolute;
-  top:50%;
-  left:0%;
-  transform:translateY(-50%);
-  width:100%;
-  font-size:3.5em;
-  font-family: "neontubes";
-  color: #ffd9e2;
-  text-shadow: 0 0 0 transparent, 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c, 0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c, 0 0 1000px #ff003c;
-  -webkit-animation: blink 4s infinite alternate;
-          animation: blink 4s infinite alternate;
-}
+      .neon {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translateY(-50%);
+        width: 100%;
+        font-size: 3.5em;
+        font-family: "neontubes";
+        color: #ffd9e2;
+        text-shadow: 0 0 0 transparent, 0 0 10px #ff003c,
+          0 0 20px rgba(255, 0, 60, 0.5), 0 0 40px #ff003c, 0 0 100px #ff003c,
+          0 0 200px #ff003c, 0 0 300px #ff003c, 0 0 500px #ff003c,
+          0 0 1000px #ff003c;
+        -webkit-animation: blink 4s infinite alternate;
+        animation: blink 4s infinite alternate;
+      }
 
+      @-webkit-keyframes buzz {
+        70% {
+          opacity: 0.8;
+        }
+      }
 
-@-webkit-keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
-
-@keyframes buzz {
-  70% {
-    opacity: 0.80;
-  }
-}
-@-webkit-keyframes blink {
-  40% {
-    opacity: 1;
-  }
-  42% {
-    opacity: 0.8;
-  }
-  43% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0.2;
-  }
-  46% {
-    opacity: 1;
-  }
-}
-@keyframes blink {
-  40% {
-    opacity: 1;
-  }
-  42% {
-    opacity: 0.8;
-  }
-  43% {
-    opacity: 1;
-  }
-  45% {
-    opacity: 0.2;
-  }
-  46% {
-    opacity: 1;
-  }
-}
+      @keyframes buzz {
+        70% {
+          opacity: 0.8;
+        }
+      }
+      @-webkit-keyframes blink {
+        40% {
+          opacity: 1;
+        }
+        42% {
+          opacity: 0.8;
+        }
+        43% {
+          opacity: 1;
+        }
+        45% {
+          opacity: 0.2;
+        }
+        46% {
+          opacity: 1;
+        }
+      }
+      @keyframes blink {
+        40% {
+          opacity: 1;
+        }
+        42% {
+          opacity: 0.8;
+        }
+        43% {
+          opacity: 1;
+        }
+        45% {
+          opacity: 0.2;
+        }
+        46% {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main">
-        <div class="wrapper">
-          <div class="panel">
-            <div class="inner">
-              <span class="neon">NEON</span>
-            </div>
+      <div class="wrapper">
+        <div class="panel">
+          <div class="inner">
+            <span class="neon">NEON</span>
           </div>
-          <div class="panel-shadow"></div>
-          <div class="inner-shadow"></div>
         </div>
+        <div class="panel-shadow"></div>
+        <div class="inner-shadow"></div>
       </div>
-</body>
+    </div>
+
+    <div class="BonusCodeText">
+      <div class="line-one">felicitări</div>
+      <hr />
+      <div class="line-two">UȘA TA ASCUNDEA 
+        <b> 
+        <div class="span_code_input">
+
+      </div>
+     </b>la jocul
+        <br />
+        <b> 
+          <div class="span_game_input">
+
+          </div>
+         </b>
+      </div>
+    </div>
+  </body>
 </html>
