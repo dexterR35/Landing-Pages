@@ -14,67 +14,6 @@ $(".input-input").attr({
 
 
 
-//   function validateEmail() {
-//     const email = document.getElementById("email").value;
-//     const reGx =
-//       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-//     const isValid = reGx.test(String(email).toLowerCase());
-
-//     const emailError = document.getElementById("emailError");
-//     if (isValid) {
-//       $("#emailError").css("display", "none");
-//     } else {
-//       $("#emailError").css({
-//         display: "flex",
-//         "justify-content": "center",
-//         "font-size": "1em",
-//         "margin-bottom": "-3px",
-//         "margin=top": "0px",
-//       });
-//     }
-//   }
-
-// const emailInput = document.querySelector(".input_n0");
-// const emailError = document.querySelector(".errorDiv_n0");
-
-
-// const numberInput = document.querySelector('.number-input');
-// const numberUpdate = document.querySelector('.errorDiv_n3');
-
-// numberInput.addEventListener('input', inputHandler.bind(null, 'number'));
-// emailInput.addEventListener('input', inputHandler.bind(null, 'email'));
-
-// function inputHandler(type, e) {
-//     let input = e.target.value;
-//     let updateElement;
-
-//     switch (type) {
-//         case 'email':
-//             updateElement = emailUpdate;
-//             if (input && /(^\w.*@\w+.\w)/.test(input)) {
-//                 updateElement.textContent = 'Valid Email!';
-//                 updateElement.classList.add('success');
-//                 updateElement.classList.remove('failure');
-//             } else {
-//                 updateElement.textContent = 'Keep Going...';
-//                 updateElement.classList.remove('success');
-//                 updateElement.classList.add('failure');
-//             }
-//             break;
-//         case 'number':
-//             updateElement = numberUpdate;
-//             if (input && !isNaN(input) && input >= 0 && input <= 100) {
-//                 updateElement.textContent = 'Valid Number!';
-//                 updateElement.classList.add('success');
-//                 updateElement.classList.remove('failure');
-//             } else {
-//                 updateElement.textContent = 'Keep Going...';
-//                 updateElement.classList.remove('success');
-//                 updateElement.classList.add('failure');
-//             }
-//             break;
-//     }
-// };
 
 const inputNumber = document.querySelector(".input_n3");
 const updateNumber = document.querySelector(".errorDiv_n3");
@@ -85,9 +24,17 @@ const checkboxMarketing = document.querySelector(".inp_marketing");
 const emailInput = document.querySelector('.input_n0');
 const updateEmail = document.querySelector('.errorDiv_n0');
 const buttonHandler = document.querySelector(".btn_send");
+
+
+
+
+// console.log(largeCode,"test");
+
 function checKPhoneCheckbox() {
+
     checkboxMarketing.disabled = true;
     checkboxPrivacy.disabled = true;
+
     inputNumber.addEventListener("input", function (event) {
         $(".errorDiv_n3").css("visibility", "visible");
         updateNumber.textContent = 'introdu un telefon valid';
@@ -95,11 +42,13 @@ function checKPhoneCheckbox() {
         updateNumber.classList.add('failure');
         if (this.value.length === 1 && this.value !== "7") {
             this.value = "";
+            console.log(this.value,"test1")
             updateNumber.textContent = 'numarul porneste de la 7';
             updateNumber.classList.remove('success');
             updateNumber.classList.add('failure');
         } else if (this.value.length > 0 && this.value[0] === "7") {
             this.value = "7" + this.value.substring(1);
+            console.log(this.value,"test2")
             updateNumber.textContent = 'maxim 9 cifre';
             updateNumber.classList.remove('succes');
             updateNumber.classList.add('failure');
@@ -107,16 +56,23 @@ function checKPhoneCheckbox() {
             buttonHandler.classList.add("disabled");
         }
         if (this.value.length >= 9) {
+            console.log(this.value,"test3")
             this.value = this.value.slice(0, 9);
+            console.log(this.value,"test4")
             updateNumber.textContent = 'numar de telefon Valid';
             updateNumber.classList.add('success');
             updateNumber.classList.remove('failure');
             checkboxMarketing.disabled = false;
+            setTimeout(() => {
+                select(".errorDiv_n3").style("visibility","hidden");
+            }, 1500);
             // buttonHandler.disabled = false;
             // buttonHandler.classList.remove("disabled");
-            if (this.value[0] === "0" && this.value[0] < "7") {
+            if (this.value[0] == "0" && this.value[0] < "7") {
+                console.log(this.value,"test5")
                 // this.value = "";
-                this.value = this.value.slice(1, 10);
+                this.value = this.value.slice(0, 9);
+                console.log(this.value,"test6")
                 updateNumber.textContent = 'numarul trebuie sa inceapa cu 7';
                 updateNumber.classList.remove('success');
                 updateNumber.classList.add('failure');
@@ -147,9 +103,10 @@ function checKPhoneCheckbox() {
             updateEmail.classList.add('success');
             updateEmail.classList.remove('failure');
             checkboxPrivacy.disabled = false;
-            // setTimeout(() => {
-            //     select(".errorDiv_n0").style("visibility","hidden");
-            // }, 1500);
+         
+            setTimeout(() => {
+                select(".errorDiv_n0").style("visibility","hidden");
+            }, 1500);
         } else {
             $(".errorDiv_n0").css("visibility", "visible");
             updateEmail.textContent = "Introdu un mail valid";
@@ -192,6 +149,18 @@ function checKPhoneCheckbox() {
             }
         });
     }
+
+
+    var nextStep = document.querySelector('.btn_send');
+
+    nextStep.addEventListener('click', function (e) {
+      e.preventDefault();
+      // Hide first view
+      document.getElementById('inputForm').style.display = 'none';
+  
+      // Show thank you message element
+      document.getElementById('thank_you').style.display = 'flex';
+    });
 
 }
 
@@ -263,8 +232,6 @@ function setFocus(on) {
 
 function setup() {
     checKPhoneCheckbox();
-    // makeInput();
-    // validateInputNumberEmail();
-    // checKPhoneCheckbox()
-    // checKPhoneCheckbox()
+ 
+
 }

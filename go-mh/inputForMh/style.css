@@ -52,6 +52,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 90vh;
+    font-family: "Play", sans-serif;
 }
 
 
@@ -91,7 +92,7 @@ body {
 
   .input-box {
     position: relative;
-    margin: 20px 0;
+    margin: 17px 0;
   }
 
   .input-box .input-label {
@@ -422,10 +423,9 @@ body {
     display: flex;
     align-items: center;
     font-weight: 400;
-  /* text-transform: lowercase; */
     font-size: 0.8em;
-    height: 15px;
-    padding: 5px 15px;
+    height: 17px;
+    padding: 0px 15px;
     width: 100%;
     min-width: 275px;
     background:transparent;
@@ -435,11 +435,34 @@ body {
     transition: all .3s ease-out;
   }
   .failure {
-    /* background: rgba(255, 0, 0, .6); */
-    color: red;
+    background: rgb(255 35 0 / 76%);
+    color: white;
+    border-radius: 4px;
   }
   .success {
-    /* background: rgba(6, 135, 227, 0.6); */
-    color: green;
+    background: rgb(11 120 14 / 68%);
+    color: white;
+    border-radius: 4px;
   
+  }
+
+
+
+
+
+  /*thank you message*/
+
+  .thank_you {
+    background: #80868b;
+    width: 100%;
+    height: 20em;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .thank_you p {
+    font-size: 2em;
   }
