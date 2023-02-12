@@ -602,154 +602,155 @@ function makeDoors() {
 
 
 
-function makeInput() {
 
-  for (let j = 0; j < totalInputs; j++) {
-    inputs[j] = createDiv();
-    inputs[j].parent("#inputForm");
-    inputs[j].index = j;
-    inputs[j].class("input-box" + " " + "box_n" + j);
+// function makeInput() {
 
-    let make_input = createInput();
-    make_input.class("input-input" + " " + "input_n" + j);
-    make_input.parent(inputs[j]);
-    // make_input = j;
-    // console.log(inputs, "fassssssfas")
-    // let test = j
-    // if ( test === 3) {
-    //   // test.hide()
-    //   select("#inputForm > .box_n3 > .input_n3").hide();
-    //   console.log(test , "fasfas")
-    // }
+//   for (let j = 0; j < totalInputs; j++) {
+//     inputs[j] = createDiv();
+//     inputs[j].parent("#inputForm");
+//     inputs[j].index = j;
+//     inputs[j].class("input-box" + " " + "box_n" + j);
+
+//     let make_input = createInput();
+//     make_input.class("input-input" + " " + "input_n" + j);
+//     make_input.parent(inputs[j]);
+//     // make_input = j;
+//     // console.log(inputs, "fassssssfas")
+//     // let test = j
+//     // if ( test === 3) {
+//     //   // test.hide()
+//     //   select("#inputForm > .box_n3 > .input_n3").hide();
+//     //   console.log(test , "fasfas")
+//     // }
     
-  }
-//<input value="" type="number" class="input-input input_n3" onfocus="setFocus(true)" onblur="setFocus(false)" required="required"></input>
-  $(".box_n0").prepend(`<label class="input-label">email</label>`);
-  $(".box_n1").prepend(`<label class="input-label">nume</label>`);
-  $(".box_n2").prepend(`<label class="input-label">prenume</label>`);
-  $(".box_n3").append(`<label class="input-label">telefon</label>
-<div class="phone-group">
+//   }
+// //<input value="" type="number" class="input-input input_n3" onfocus="setFocus(true)" onblur="setFocus(false)" required="required"></input>
+//   $(".box_n0").prepend(`<label class="input-label">email</label>`);
+//   $(".box_n1").prepend(`<label class="input-label">nume</label>`);
+//   $(".box_n2").prepend(`<label class="input-label">prenume</label>`);
+//   $(".box_n3").append(`<label class="input-label">telefon</label>
+// <div class="phone-group">
   
-  <div class="phone-prefix">
-    <div class="flag">
-    <div class="blue"></div>
-    <div class="yellow"></div>
-    <div class="red"></div>
-  </div>
-<div class="phone-prefix-content">+40</div>
-</div>
+//   <div class="phone-prefix">
+//     <div class="flag">
+//     <div class="blue"></div>
+//     <div class="yellow"></div>
+//     <div class="red"></div>
+//   </div>
+// <div class="phone-prefix-content">+40</div>
+// </div>
 
-</div>`);
-  $(".box_n4").prepend(`<label class="input-label">cod bonus</label>`);
+// </div>`);
+//   $(".box_n4").prepend(`<label class="input-label">cod bonus</label>`);
 
-  $("#inputForm").append(`<div class="privOne">
-      <input type="checkbox" id="privacy-check" name="privacy-check" class="input_check">
-      <label for="privacy-check" class="privacy-text">${privacy_terms}</label>
-      </div>
-      <div class="privTwo">
-      <input type="checkbox" id="marketing-check" name="marketing-check" class="input_check">
-      <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
-      </div>
-   <a href="#"><button type="button" class="btnNew btn-primary btn_send disabled" disabled id="btn-sendData">Înregistrează-te</button></a>
-  <div class="clear"></div>`);
+//   $("#inputForm").append(`<div class="privOne">
+//       <input type="checkbox" id="privacy-check" name="privacy-check" class="input_check">
+//       <label for="privacy-check" class="privacy-text">${privacy_terms}</label>
+//       </div>
+//       <div class="privTwo">
+//       <input type="checkbox" id="marketing-check" name="marketing-check" class="input_check">
+//       <label for="marketing-check" class="privacy-text">${privacy_marketing}</label>
+//       </div>
+//    <a href="#"><button type="button" class="btnNew btn-primary btn_send disabled" disabled id="btn-sendData">Înregistrează-te</button></a>
+//   <div class="clear"></div>`);
 
-  $("#inputForm").prepend(
-    ` <div class="BonusCodeText">
-    <div class="line-one">felicitări</div>
-    <div class="line-two">UȘA TA ASCUNDEA <span class="span_code_input"></span></div>
-    <div class="line-three">la jocul <span class="span_game_input"></span></div>
-  </div>`
-  );
+//   $("#inputForm").prepend(
+//     ` <div class="BonusCodeText">
+//     <div class="line-one">felicitări</div>
+//     <div class="line-two">UȘA TA ASCUNDEA <span class="span_code_input"></span></div>
+//     <div class="line-three">la jocul <span class="span_game_input"></span></div>
+//   </div>`
+//   );
 
-  $(".input-input").attr({
-    onfocus: "setFocus(true)",
-    onblur: "setFocus(false)",
-    required: "",
-  });
-  //  <a href="https://marianiordache.ro+${input_bonusCode}"><button type="button" class="btnNew btn-primary btn_send disabled" disabled>Înregistrează-te</button></a>
-  $(".input_n0").attr({
-    type: "email",
-  });
+//   $(".input-input").attr({
+//     onfocus: "setFocus(true)",
+//     onblur: "setFocus(false)",
+//     required: "",
+//   });
+//   //  <a href="https://marianiordache.ro+${input_bonusCode}"><button type="button" class="btnNew btn-primary btn_send disabled" disabled>Înregistrează-te</button></a>
+//   $(".input_n0").attr({
+//     type: "email",
+//   });
 
-  $(".input_n3").attr({
-    type: "number",
-  });
+//   $(".input_n3").attr({
+//     type: "number",
+//   });
 
-  const inputNumber = document.querySelector(".input_n3");
-  inputNumber.addEventListener("input", function (event) {
-    if (this.value.length === 1 && this.value !== "7") {
-      this.value = "";
-    } else if (this.value.length > 1 && this.value[0] !== "7") {
-      this.value = "" + this.value.substring(1);
-    }
-  });
+//   const inputNumber = document.querySelector(".input_n3");
+//   inputNumber.addEventListener("input", function (event) {
+//     if (this.value.length === 1 && this.value !== "7") {
+//       this.value = "";
+//     } else if (this.value.length > 1 && this.value[0] !== "7") {
+//       this.value = "" + this.value.substring(1);
+//     }
+//   });
 
-  const input_max = document.querySelector(".input_n3");
-  input_max.addEventListener("input", function (events) {
-    if (this.value.length >= 9) {
-      return (this.value = this.value.slice(0, 9));
-    } else if (isNaN(this.value)) {
-      this.value = "";
-    } else {
-      events.stopPropagation();
-      events.stopImmediatePropagation();
-      return false;
-    }
-  });
+//   const input_max = document.querySelector(".input_n3");
+//   input_max.addEventListener("input", function (events) {
+//     if (this.value.length >= 9) {
+//       return (this.value = this.value.slice(0, 9));
+//     } else if (isNaN(this.value)) {
+//       this.value = "";
+//     } else {
+//       events.stopPropagation();
+//       events.stopImmediatePropagation();
+//       return false;
+//     }
+//   });
 
-  $(".box_n4").addClass("error");
+//   $(".box_n4").addClass("error");
 
-  $(".input_check").click(function () {
-    let lenChecked = $(".input_check:checked").length;
-    if (lenChecked >= 2) {
-      $(".btn_send").removeAttr("disabled");
-      $(".btn_send").removeClass("disabled");
-    } else {
-      $(".btn_send").addClass("disabled");
-      $(".btn_send").prop("disabled", true);
-    }
-  });
+//   $(".input_check").click(function () {
+//     let lenChecked = $(".input_check:checked").length;
+//     if (lenChecked >= 2) {
+//       $(".btn_send").removeAttr("disabled");
+//       $(".btn_send").removeClass("disabled");
+//     } else {
+//       $(".btn_send").addClass("disabled");
+//       $(".btn_send").prop("disabled", true);
+//     }
+//   });
 
-  $("#btn-sendData").one("click", function () {
-    var emailInput = document.querySelector(".input_n0");
-    var email = emailInput.value;
-    console.log(emailInput, "test");
-    console.log(email, "test2");
-    let details_send =
-      `{"email": "` + email + `","code": "` + largeCode + `"}`;
-    console.log(details_send, "test3");
+//   $("#btn-sendData").one("click", function () {
+//     var emailInput = document.querySelector(".input_n0");
+//     var email = emailInput.value;
+//     console.log(emailInput, "test");
+//     console.log(email, "test2");
+//     let details_send =
+//       `{"email": "` + email + `","code": "` + largeCode + `"}`;
+//     console.log(details_send, "test3");
 
-    postData(
-        "https://casino-promo.netbet.ro/scripts/api/space/setcode.php",
-        details_send
-      )
-      .then(function (data) {
-        console.log(data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  });
-}
+//     postData(
+//         "https://casino-promo.netbet.ro/scripts/api/space/setcode.php",
+//         details_send
+//       )
+//       .then(function (data) {
+//         console.log(data);
+//       })
+//       .catch(function (error) {
+//         console.error(error);
+//       });
+//   });
+// }
 
-function postData(url, data) {
-  return new Promise(function (resolve, reject) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
+// function postData(url, data) {
+//   return new Promise(function (resolve, reject) {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("POST", url);
+//     xhr.setRequestHeader("Accept", "application/json");
+//     xhr.setRequestHeader("Content-Type", "application/json");
 
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        resolve(xhr.responseText);
-      } else if (xhr.readyState === 4) {
-        reject(xhr.status);
-      }
-    };
+//     xhr.onreadystatechange = function () {
+//       if (xhr.readyState === 4 && xhr.status === 200) {
+//         resolve(xhr.responseText);
+//       } else if (xhr.readyState === 4) {
+//         reject(xhr.status);
+//       }
+//     };
 
-    xhr.send(data);
-  });
-}
+//     xhr.send(data);
+//   });
+// }
 // console.log(codes_grab, "= code sent");
 
 function setFocus(on) {
