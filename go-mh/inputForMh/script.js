@@ -1,18 +1,8 @@
-let privacy_terms =
-    "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.";
-let privacy_marketing =
-    "Sunt de acord să primesc comunicări de marketing din partea NetBet.";
+const inputName = document.querySelector(".input_n1");
+const updateName = document.querySelector(".errorDiv_n1");
 
-
-$(".input-input").attr({
-    onfocus: "setFocus(true)",
-    onblur: "setFocus(false)",
-    required: "required",
-    maxlength: "40",
-});
-
-
-
+const inputLastName = document.querySelector(".input_n2");
+const updateLastName = document.querySelector(".errorDiv_n2");
 
 
 const inputNumber = document.querySelector(".input_n3");
@@ -23,12 +13,10 @@ const checkboxMarketing = document.querySelector(".inp_marketing");
 
 const emailInput = document.querySelector('.input_n0');
 const updateEmail = document.querySelector('.errorDiv_n0');
+
 const buttonHandler = document.querySelector(".btn_send");
 
 
-
-
-// console.log(largeCode,"test");
 
 function checKPhoneCheckbox() {
 
@@ -42,13 +30,13 @@ function checKPhoneCheckbox() {
         updateNumber.classList.add('failure');
         if (this.value.length === 1 && this.value !== "7") {
             this.value = "";
-            console.log(this.value,"test1")
+
             updateNumber.textContent = 'numarul porneste de la 7';
             updateNumber.classList.remove('success');
             updateNumber.classList.add('failure');
         } else if (this.value.length > 0 && this.value[0] === "7") {
             this.value = "7" + this.value.substring(1);
-            console.log(this.value,"test2")
+
             updateNumber.textContent = 'maxim 9 cifre';
             updateNumber.classList.remove('succes');
             updateNumber.classList.add('failure');
@@ -56,23 +44,19 @@ function checKPhoneCheckbox() {
             buttonHandler.classList.add("disabled");
         }
         if (this.value.length >= 9) {
-            console.log(this.value,"test3")
             this.value = this.value.slice(0, 9);
-            console.log(this.value,"test4")
             updateNumber.textContent = 'numar de telefon Valid';
             updateNumber.classList.add('success');
             updateNumber.classList.remove('failure');
             checkboxMarketing.disabled = false;
             setTimeout(() => {
-                select(".errorDiv_n3").style("visibility","hidden");
+                $(".errorDiv_n3").css("visibility", "hidden");
             }, 1500);
             // buttonHandler.disabled = false;
             // buttonHandler.classList.remove("disabled");
             if (this.value[0] == "0" && this.value[0] < "7") {
-                console.log(this.value,"test5")
                 // this.value = "";
                 this.value = this.value.slice(0, 9);
-                console.log(this.value,"test6")
                 updateNumber.textContent = 'numarul trebuie sa inceapa cu 7';
                 updateNumber.classList.remove('success');
                 updateNumber.classList.add('failure');
@@ -96,16 +80,15 @@ function checKPhoneCheckbox() {
 
 
     emailInput.addEventListener('input', function (e) {
-   
+
         const inputTarget = e.target.value;
         if (inputTarget && /(^\w.*@\w+\.\w)/.test(inputTarget)) {
             updateEmail.textContent = 'format corect, mergi mai departe';
             updateEmail.classList.add('success');
             updateEmail.classList.remove('failure');
             checkboxPrivacy.disabled = false;
-         
             setTimeout(() => {
-                select(".errorDiv_n0").style("visibility","hidden");
+                $(".errorDiv_n0").css("visibility", "hidden");
             }, 1500);
         } else {
             $(".errorDiv_n0").css("visibility", "visible");
@@ -114,13 +97,69 @@ function checKPhoneCheckbox() {
             updateEmail.classList.add('failure');
             checkboxPrivacy.disabled = true;
             checkboxPrivacy.checked = false;
-       
-            
         }
     });
 
 
+    inputName.addEventListener("input", function (event) {
+        $(".errorDiv_n1").css("visibility", "visible");
+        // const inputTarget = event.target.value;
+        if (this.value.length === 0) {
+            updateName.textContent = "Introdu un nume valid";
+            updateName.classList.remove('success');
+            updateName.classList.add('failure');
+            checkboxPrivacy.disabled = true;
+            checkboxPrivacy.checked = false;
 
+        } else if (this.value.length === 1) {
+            // $(".errorDiv_n1").css("visibility", "visible");
+            updateName.textContent = "nume prea scurt";
+            updateName.classList.remove('success');
+            updateName.classList.add('failure');
+            checkboxPrivacy.disabled = true;
+            checkboxPrivacy.checked = false;
+        } else if (this.value.length <= 2) {
+            // $(".errorDiv_n1").css("visibility", "visible");
+            updateName.textContent = "nume valid";
+            updateName.classList.add('success');
+            updateName.classList.remove('failure');
+            // checkboxPrivacy.disabled = false;
+            setTimeout(() => {
+                $(".errorDiv_n1").css("visibility", "hidden");
+            }, 1500);
+
+        }
+        else if (this.value.length >= 3) {
+                $(".errorDiv_n1").css("visibility", "hidden");
+        }
+    });
+
+    inputLastName.addEventListener("input", function (event) {
+        $(".errorDiv_n2").css("visibility", "visible");
+        if (this.value.length === 0) {
+            updateLastName.textContent = "Introdu un Prenume valid";
+            updateLastName.classList.remove('success');
+            updateLastName.classList.add('failure');
+            checkboxPrivacy.disabled = true;
+            checkboxPrivacy.checked = false;
+        } else if (this.value.length === 1) {
+            updateLastName.textContent = "Prenume prea scurt";
+            updateLastName.classList.remove('success');
+            updateLastName.classList.add('failure');
+            checkboxPrivacy.disabled = true;
+            checkboxPrivacy.checked = false;
+        } else if (this.value.length <= 2) {
+            updateLastName.textContent = "Prenume valid";
+            updateLastName.classList.add('success');
+            updateLastName.classList.remove('failure');
+            setTimeout(() => {
+                $(".errorDiv_n2").css("visibility", "hidden");
+            }, 1500);
+
+        }else if (this.value.length >= 3) {
+            $(".errorDiv_n2").css("visibility", "hidden");
+        }
+    });
 
 
 
@@ -141,8 +180,7 @@ function checKPhoneCheckbox() {
             } else if (lenChecked <= 2) {
                 buttonHandler.disabled = true;
                 buttonHandler.classList.add("disabled");
-            }
-             else {
+            } else {
                 buttonHandler.disabled = true;
                 buttonHandler.classList.add("disabled");
                 return
@@ -154,15 +192,50 @@ function checKPhoneCheckbox() {
     var nextStep = document.querySelector('.btn_send');
 
     nextStep.addEventListener('click', function (e) {
-      e.preventDefault();
-      // Hide first view
-      document.getElementById('inputForm').style.display = 'none';
-  
-      // Show thank you message element
-      document.getElementById('thank_you').style.display = 'flex';
+        e.preventDefault();
+        // Hide first view
+        document.getElementById('inputForm').style.display = 'none';
+
+        // Show thank you message element
+        document.getElementById('thank_you').style.display = 'flex';
     });
 
 }
+
+
+function setFocus(on) {
+    let elementFocus = document.activeElement;
+    if (on) {
+        setTimeout(function () {
+            elementFocus.parentNode.classList.add("focus");
+        });
+    } else {
+        let boxR = document.querySelector(".input-box");
+        boxR.classList.remove("focus");
+        $("input").each(function () {
+            let $input = $(this);
+            let $parent = $input.closest(".input-box");
+            if ($input.val()) {
+                $parent.addClass("focus");
+            } else {
+                $(".box_n3").removeClass("focus");
+                $parent.removeClass("focus");
+            }
+        });
+    }
+}
+
+
+
+$(".input-input").attr({
+    onfocus: "setFocus(true)",
+    onblur: "setFocus(false)",
+    required: "required",
+    maxlength: "40",
+});
+
+checKPhoneCheckbox();
+
 
 // function checkboxHandler(inputValue) {
 //     const checkbox = document.querySelector(".input_check");
@@ -201,37 +274,3 @@ function checKPhoneCheckbox() {
 //       $(".btn_send").prop("disabled", true);
 //     }
 //   });
-
-
-function setFocus(on) {
-    let elementFocus = document.activeElement;
-    if (on) {
-        setTimeout(function () {
-            elementFocus.parentNode.classList.add("focus");
-        });
-    } else {
-        let boxR = document.querySelector(".input-box");
-        boxR.classList.remove("focus");
-        $("input").each(function () {
-            let $input = $(this);
-            let $parent = $input.closest(".input-box");
-            if ($input.val()) {
-                $parent.addClass("focus");
-            } else {
-                $(".box_n3").removeClass("focus");
-                $parent.removeClass("focus");
-            }
-        });
-    }
-}
-
-
-
-
-
-
-function setup() {
-    checKPhoneCheckbox();
- 
-
-}

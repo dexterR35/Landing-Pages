@@ -33,16 +33,6 @@
     --letter_door: azure;
     --letter_pause: azure;
 
-    --bg-doorInside: url({$asset}/img/INSIDE_V8.png);
-    --bg-desktop: url({$asset}/bg-desktop.jpg);
-    --bg-openDoor: url({$asset}/img/door_open2.png);
-
-    --iFrame-doorLeft: url({$asset}/img/door_left2.png);
-    --iFrame-doorCenter: url({$asset}/img/door_center3.png);
-    --iFrame-doorRight: url({$asset}/img/door_right2.png);
-
-    --img-speachBubble: url({$asset}/img/speachBubble.png);
-    --img-astronaut: url({$asset}/img/astronaut.png);
   }
 
 body {
