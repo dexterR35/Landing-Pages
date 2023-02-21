@@ -1,6 +1,9 @@
-html, body {
-    margin: 0; padding: 0;
-  }
+*,*::after,*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
   body {
     font-family: sans-serif;
     background-image: url(./assets/felt.png), -webkit-radial-gradient(50% 40%,circle farthest-corner,#527c14,#243a0a);
@@ -10,6 +13,10 @@ html, body {
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
     margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   #app {
