@@ -24,6 +24,13 @@
     contain: layout style;
     overflow: visible;
   }
+  #app h1{
+text-transform: uppercase;
+text-align: center;
+margin-top: 2em;
+margin-bottom: 2em;
+color: white;
+  }
   
   .roulette-wheel {
     float: right;
