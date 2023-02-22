@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   /* background: #333; */
 }
 #theGrid {
@@ -20,7 +20,19 @@ body {
   justify-content: center;
   border: 1px solid white;
 }
-
+.container {
+  position: relative;
+}
+#timer {
+  position: absolute;
+  border: 1px solid black;
+  left: 40%;
+  top: 5%;
+  padding: 1em;
+  background: grey;
+  color: white;
+  font-size: 1.1em;
+}
 /* Style for grid cells */
 .rf-tgrid {
   font-family: Arial;

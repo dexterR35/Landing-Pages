@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+    integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+    <title>add words</title>
+</head>
+<body>
+    <div class="container-add">
+    <div id="wordlist">
+        <h2>Word List</h2>
+        <ul id="words">
+            <li>steaua</li>
+            <li>faru</li>
+            <li>rapid</li>
+            <li>dinamo</li>
+            <li>sepsi</li>
+            <li>paracetamol</li>
+            <li>netbet</li>
+            <li>cluj</li>
+            <li>craiova</li>
+        </ul>
+        <form id="addWordForm">
+            <input type="text" id="newWord" placeholder="Enter new word">
+            <button type="submit">Add</button>
+        </form>
+    </div>
+</div>
+
+<script>
+
+$(document).ready(function () {
+    var words = getWordList();
+    //attach the game to a div
+    $("#theGrid").wordsearchwidget({
+        "wordlist": words,
+        "gridsize": 12,
+        "width": 300
+    });
+
+    var gameCompleted = false; //set initial game completion status to false
+    var timeLimit = 60; //in seconds
+    var timer = setInterval(function () {
+        timeLimit--;
+        $("#timer").text(timeLimit); //update the timer display
+        if (timeLimit === 0 || gameCompleted) { //check if time is up or game is completed
+            clearInterval(timer);
+            if (gameCompleted) {
+                alert("Congratulations! You have completed the game.");
+            } else {
+                alert("Time's up! Your game is over.");
+            }
+            location.reload(); //refresh the page
+        }
+    }, 1000); //update every second
+
+    //listen for word search widget completion event
+    $("#theGrid").on("gameCompleted", function () {
+        gameCompleted = true;
+    });
+
+    //add event listener for addWordForm submission
+    $("#addWordForm").submit(function (event) {
+        event.preventDefault();
+        var newWord = $("#newWord").val();
+        if (newWord !== "") {
+            words.push(newWord);
+            updateWordList(words);
+            $("#newWord").val("");
+            $("#theGrid").wordsearchwidget({"wordlist": words});
+        }
+    });
+
+    //add event listener for word deletion
+    $(document).on("click", "#words li", function () {
+        var wordToDelete = $(this).text();
+        var index = words.indexOf(wordToDelete);
+        if (index !== -1) {
+            words.splice(index, 1);
+            updateWordList(words);
+            $("#theGrid").wordsearchwidget({"wordlist": words});
+        }
+    });
+
+    //function to get the current word list
+    function getWordList() {
+        var wordlist = [];
+        $("#words li").each(function () {
+            wordlist.push($(this).text());
+        });
+        return wordlist;
+    }
+
+    //function to update the word list in the UI
+    function updateWordList(words) {
+        $("#words").empty();
+        $.each(words, function (index, word) {
+            $("<li>").text(word).appendTo("#words");
+        });
+    }
+});
+
+
+</script>
+</body>
+</html>

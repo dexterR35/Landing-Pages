@@ -665,7 +665,7 @@ function HorizontalPopulator(row, col, word, grid) {
 
     //try even harder, check if this word can be placed by overlapping cells with same content
     this.isWordOverlapPossible = function (row, word) {
-        return -1; //TODO: implement
+        return -1; 
     }
 
     //check if word will fit at the chosen location
@@ -787,7 +787,7 @@ function VerticalPopulator(row, col, word, grid) {
 
     //try even harder, check if this word can be placed by overlapping cells with same content
     this.isWordOverlapPossible = function (col, word) {
-        return -1; //TODO: implement
+        return -1;
     }
 
     //check if word will fit at the chosen location
@@ -910,7 +910,7 @@ function LeftDiagonalPopulator(row, col, word, grid) {
 
     //try even harder, check if this word can be placed by overlapping cells with same content
     this.isWordOverlapPossible = function (row, word) {
-        return -1; //TODO: implement
+        return -1; 
     }
 
     //check if word will fit at the chosen location
@@ -1058,7 +1058,7 @@ function RightDiagonalPopulator(row, col, word, grid) {
 
     //try even harder, check if this word can be placed by overlapping cells with same content
     this.isWordOverlapPossible = function (row, word) {
-        return -1; //TODO: implement
+        return -1; 
     }
 
     //check if word will fit at the chosen location
@@ -1191,7 +1191,10 @@ function WordList() {
     
     this.loadWords = function (csvwords) {
         var $n = this.words;
-        $(csvwords.split(",")).each(function () {
+        // $(csvwords.split(",")).each(function () {
+        //     $n.push(new Word(this));
+        // });
+        $(csvwords).each(function () {
             $n.push(new Word(this));
         });
         
@@ -1289,16 +1292,22 @@ var GameWidgetHelper = {
             y=0;
             x++;
         });
-       
+    
         var words = "<div id='rf-wordcontainer'><ul>"
         $(model.wordList.words).each(function () {
+        
+       
             words += '<li class=rf-p'+this.isPlaced+'>'+this.originalValue+'</li>';
         });
         words += "</ul></div>";
 
         $(container).append(words);
+    
+        var inputField = $('<input type="text" id="new-word-input">');
+        // var addButton = $('<button>Add</button>').click(addNewWord);
+        $(".container").append(inputField).append(addButton);
 
-
+     
     },
     
     signalWordFound : function(idx) {
@@ -1312,28 +1321,68 @@ var GameWidgetHelper = {
 })(jQuery);
 
 
-/*
- * jQuery UI Touch Punch 0.2.2
- *
- * Copyright 2011, Dave Furfero
- * Dual licensed under the MIT or GPL Version 2 licenses.
- *
- * Depends:
- *  jquery.ui.widget.js
- *  jquery.ui.mouse.js
- */
 (function(b){b.support.touch="ontouchend" in document;if(!b.support.touch){return;}var c=b.ui.mouse.prototype,e=c._mouseInit,a;function d(g,h){if(g.originalEvent.touches.length>1){return;}g.preventDefault();var i=g.originalEvent.changedTouches[0],f=document.createEvent("MouseEvents");f.initMouseEvent(h,true,true,window,1,i.screenX,i.screenY,i.clientX,i.clientY,false,false,false,false,0,null);g.target.dispatchEvent(f);}c._touchStart=function(g){var f=this;if(a||!f._mouseCapture(g.originalEvent.changedTouches[0])){return;}a=true;f._touchMoved=false;d(g,"mouseover");d(g,"mousemove");d(g,"mousedown");};c._touchMove=function(f){if(!a){return;}this._touchMoved=true;d(f,"mousemove");};c._touchEnd=function(f){if(!a){return;}d(f,"mouseup");d(f,"mouseout");if(!this._touchMoved){d(f,"click");}a=false;};c._mouseInit=function(){var f=this;f.element.bind("touchstart",b.proxy(f,"_touchStart")).bind("touchmove",b.proxy(f,"_touchMove")).bind("touchend",b.proxy(f,"_touchEnd"));e.call(f);};})(jQuery);
 
 
 
 
-$(document).ready( function () {
-    var words = "steaua,faru,rapid,dinamo,sepsi,paracetamol,netbet,cluj,craiova";
+$(document).ready( function () {}); 
+    // var words = "steaua,faru,rapid,dinamo,sepsi,paracetamol,netbet,cluj,craiova";
+    var words = ["steaua", "farul", "rapid", "dinamo", "sepsi", "paracetamol", "netbet", "cluj", "craiova"];
+
         //attach the game to a div
         $("#theGrid").wordsearchwidget({
             "wordlist" : words,
             "gridsize" : 12,
             "width" : 300});
 
-});   
+            var gameCompleted = false; //set initial game completion status to false
+            var timeLimit = 60; //in seconds
+            var timer = setInterval(function () {
+                timeLimit--;
+                $("#timer").text(timeLimit); //update the timer display
+                if (timeLimit === 0 || gameCompleted) { //check if time is up or game is completed
+                    clearInterval(timer);
+                    if (gameCompleted) {
+                        alert("Congratulations! You have completed the game.");
+                        location.reload()
+                    } else {
+                        // alert("Time's up! Your game is over.");
+                        location.reload()
+                    }
+                    location.reload();
+                }
+            }, 1000); //update every second
+             //listen for word search widget completion event
+    $("#theGrid").on("gameCompleted", function () {
+        gameCompleted = true;
+    });
+
+
+
+function addNewWord() {
+    var newWordInput = document.getElementById("new-word-input");
+    var newWord = newWordInput.value;
+  
+    if (newWord !== "") {
+      words.push(newWord);
+      newWordInput.value = "";
+      console.log(words); // prints the updated list of words to the console
+  
+      // Append the new word to the list of words
+      var newWordElement = $('<li class="rf-p0">' + newWord + '</li>');
+      $('#rf-wordcontainer ul').append(newWordElement);
+    }
+  }
+
+// function addNewWord() {
+//   var newWordInput = document.getElementById("new-word-input");
+//   var newWord = newWordInput.value;
+
+//   if (newWord !== "") {
+//     words += "," + newWord;
+//     newWordInput.value = "";
+//     console.log(words); // prints the updated list of words to the console
+//   }
+// }
 
