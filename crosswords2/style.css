@@ -1,0 +1,42 @@
+*,*::after,*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 390px;
+  background: red;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+  
+  ul {
+    display: inline-block;
+    font-size: 7vmin;
+    padding-left: 14vmin;
+  }
+  
+  li.found {
+    text-decoration: line-through;
+  }
+  
+  div#canvasContainer {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+  }
+  
+   @media (min-aspect-ratio: 1/1) {
+     ul {
+      font-size: 4vmin;
+      padding-left: 7vmin;
+     }
+     
+     div#canvasContainer {
+      width: 50%;
+    }
+  }
