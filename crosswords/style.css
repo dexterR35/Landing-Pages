@@ -28,22 +28,27 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
   border-radius: 20px;
   overflow: hidden;
+  border-top-left-radius: unset;
+  border-top-right-radius: unset;
 }
 
 .container {
   position: relative;
 }
+#rf-wordcontainer {
+  /* pointer-events: none; */
+}
 .timer_container {
   position: relative;
   left: 0;
-  top: 10px;
+  top: 0;
   width: 100%;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  padding: 2em 1.5em;
+  padding: 1em 1.5em;
+  font-size: 2vh;
   background: rgb(8, 202, 105);
   z-index: -1;
   display: flex;
@@ -53,18 +58,15 @@ body {
 .timer_container span:nth-child(1) {
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 1.5em;
   color: white;
-  /* text-decoration: underline; */
 }
 #timer {
-  font-size: 1.4em;
   color: white;
   font-weight: bold;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.514);
-  padding: 0.5em;
+  padding: 1vh 4vh;
   background: rgb(68, 68, 68);
-  width: 100px;
+  /* width: 100px; */
   text-align: center;
   border-radius: 4px;
 }
@@ -74,49 +76,42 @@ body {
   text-align: center;
   margin-bottom: 1em;
 }
-/* Style for grid cells */
+
 .rf-tgrid {
   font-weight: bold;
   font-size: 1em;
   padding: 0.6em;
-  /*    border: 1px solid bisque;*/
   vertical-align: middle;
   text-align: center;
 }
 
-/* Style for the grid */
+
 .rf-tablestyle {
-  border: 1px solid white;
-  border-bottom: none;
   background-color: #eee;
   cursor: pointer;
-  padding: 1em;
+  padding: 10px;
 }
-@media (max-width: 768px) and (orientation: portrait) {
-  .rf-tgrid {
-    font-weight: bold;
-    font-size: 1em;
-    padding: 0.32em;
-    /* border: 1px solid bisque; */
-    vertical-align: middle;
-    text-align: center;
-    width: 10px;
-    height: 30px;
-  }
-}
-/* Style for the div containing the grid */
-/* #rf-searchgamecontainer {
-  float: left;
-  padding-right: 50px;
-} */
 
-/* Style for the div containing the word list */
+@media (max-width: 450px)  {
+  .rf-tgrid {
+    text-align: center;
+    font-weight: bold;
+    /* border: 1px solid #e1e1e1; */
+    height: 1em;
+    font-size: 2vh;
+    padding: 4px;
+
+  }
+
+}
+
+
+
 #rf-wordcontainer {
   font-family: Arial, sans-serif;
-  padding: 1em 1.5em;
-  cursor: default;
+  padding: 1.5em;
   width: 100%;
-  border-top: 2px solid grey;
+  border-top: 1px solid grey;
   background-color: #eee;
   cursor: pointer;
 }
@@ -126,14 +121,13 @@ body {
   flex-direction: row;
 }
 #rf-wordcontainer ul li {
-  font-size: 1.4em;
+  font-size: 2vh;
   font-weight: bold;
   list-style: none;
 }
 
 /* Style for the words that have been found */
 .rf-foundword {
-
   text-decoration: line-through;
   color: darkslategray;
 }
