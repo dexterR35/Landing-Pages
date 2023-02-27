@@ -37,9 +37,9 @@ body {
 .container {
   position: relative;
 }
-#rf-wordcontainer {
-  /* pointer-events: none; */
-}
+/* #rf-wordcontainer {
+  pointer-events: none;
+} */
 .timer_container {
   position: relative;
   left: 0;

@@ -483,10 +483,10 @@
                         "opacity": 'show'
                     }, 1000, "linear")
                 });
-                if($(".rf-ptrue").find("rf-foundword")){
-                    console.log("test")
-                    alert("test")
-                   }
+                // if($(".rf-ptrue").find("rf-foundword")){
+                //     console.log("test")
+                //     alert("test")
+                //    }
              
         },
 
