@@ -1,0 +1,126 @@
+@import "./pages/header/header.css";
+@import "./pages/icons/icons.css";
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --containers_MaxWidth: 50%;
+  --containers_MinWidth: 1000px;
+  --containers_width: calc(55em - 10px);
+  --containers_height: 40em;
+  /*finder colors*/
+  /*contact colors*/
+  --aditional-finder-color: #161616;
+  --primaryM-finder-color: #171717e3;
+  --primaryS-finder-color: #1b24308c;
+  --primary-finder-color: #333333;
+  --second-finder-color: rgba(27, 27, 27, 0.2);
+  --third-finder-color: rgb(20, 20, 20);
+  --text-finder-color: #b9b9b9;
+  --text-low-finder-color: #dbdbdb;
+  --text-low-finder-color-hover: #ff87ca;
+  --items-finder-color: grey;
+  --hover-finder-color: #1a91d6ea;
+  --link-finder-color: #d8d8d8;
+  --finder-opacity-color: #171618bf;
+  --finder-opacity-color-left: #1717179e;
+  --finder-opacity-color-back: #3333339c;
+  --btn-contact-simple: brown;
+  --btn-contact-simple-two: #a52a2a4f;
+
+  --btn-contact-simple-hover: #03506f;
+  --btn-contact-simple-focus: #398ab9f1;
+  --btn-contact-simple-active: #1d9ae2;
+  --max-black: #121212;
+  --medium-black: #292c33;
+  --low-black: #282828;
+  --hard-grey: #404040;
+  --medium-grey: #2e333a;
+  --easy-grey: #abb0b8;
+  --soft-grey: #cecdcd;
+  --light-white: #ffffff;
+  --Rorange-color: #346751e8;
+  --Rwhite-color: #f1f1f1;
+  --Rhard-black-color: #313131;
+  --Rlight-blue-color: #14d5dc;
+  --Rcrimson-color: crimson;
+  /*End  Colors*/
+
+  --bg_image: url(./assets/png/macos3.jpg);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 20
+}
+.material-symbols-outlined {
+  font-size: 19px;
+}
+
+
+
+p,
+a,
+label,
+button,
+span .input-style,
+::placeholder,
+.btn,
+h3,
+h1,
+h2 {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none !important;
+  font-size: 12px !important;
+  color: var(--text-low-finder-color);
+}
+
+li {
+  list-style: none;
+}
+
+ul li a {
+  text-decoration: none;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper {
+  background-image: var(--bg_image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  z-index: 221;
+  height: 100vh;
+  background-color: var(--medium-black);
+  overflow: hidden;
+}
+
+#footer-container {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+/* #container-topheader {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  background-color: red;
+} */

@@ -1,0 +1,1473 @@
+.section4_footer {
+  display: grid;
+  place-items: center;
+  align-items: end;
+}
+
+.section4_botIcons {
+  position: relative;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2001;
+  margin-bottom: 3vh;
+}
+
+.section4_botIcons::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: var(--Rwhite-color);
+  opacity: 0.2;
+  z-index: -34;
+  box-shadow: 5px 2px 2px 2px var(--third-finder-color);
+}
+
+.section4_botIcons ul {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+}
+
+.section4_botIcons ul li {
+  margin: -10px;
+  width: 80px;
+  height: 50px;
+  text-align: center;
+}
+
+.square-icon-size {
+  width: 48px;
+  height: 48px;
+}
+.circle-icon-size {
+  width: 50px;
+  height: 50px;
+}
+
+.folder-me2 {
+  transform: scaleY(1.2) scaleX(1.1);
+}
+
+/*-------------start chrome icon------------*/
+
+.icon-chrome {
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 30%);
+  border-radius: 50%;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-chrome-center {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgb(121, 121, 235);
+  z-index: 5;
+}
+
+.icon-chrome-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  z-index: 6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 6;
+}
+
+.icon-chrome-red {
+  width: 50px;
+  height: 22px;
+  background-color: #e93c35;
+  position: absolute;
+  top: -5px;
+  left: 11px;
+  z-index: 5;
+}
+
+.icon-chrome-red::after {
+  content: "";
+  background: #e93c35;
+  position: absolute;
+  top: 11px;
+  left: -13px;
+  width: 27px;
+  height: 17px;
+  transform: rotate(60deg);
+}
+
+.icon-chrome-green {
+  width: 50px;
+  height: 22px;
+  background-color: #5bc15b;
+  position: absolute;
+  top: 13px;
+  left: -24.3px;
+  transform: rotate(-120deg);
+  z-index: 5;
+}
+
+.icon-chrome-green::after {
+  content: "";
+  background: #5bc15b;
+  position: absolute;
+  top: 11px;
+  left: -12px;
+  width: 34px;
+  height: 15px;
+  transform: rotate(60deg);
+}
+
+.icon-chrome-yellow {
+  width: 52px;
+  height: 35px;
+  background-color: #fdd901;
+  position: absolute;
+  top: 17px;
+  left: 4px;
+  transform: rotate(120deg);
+  z-index: 4;
+}
+
+/*-------------end chrome icon------------*/
+
+/*-------------start finder icon------------*/
+
+.finder-icon {
+  background: #52b1ef;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.container-hover-icons {
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+}
+
+.container-hover-icons:hover {
+  transform: scale(1.2) translateY(-10px) translateX(0px);
+  transition: all 0.5s cubic-bezier(0.47, 1.64, 0.41, 0.8);
+  cursor: pointer;
+}
+
+@keyframes bounce-4 {
+  0% {
+    transform: scale(1.2) translateY(-10px);
+  }
+
+  10% {
+    transform: scale(1.2) translateY(0);
+  }
+
+  30% {
+    transform: scale(1.2) translateY(-30px);
+  }
+
+  50% {
+    transform: scale(1.2) translateY(0px);
+  }
+
+  100% {
+    transform: scale(1.2) translateY(0);
+  }
+}
+
+.container-hover-icons:active {
+  transform: scale(1.2) translateY(-10px) translateX(0px);
+  cursor: pointer;
+  animation-name: bounce-4;
+
+  transition: all 250ms ease;
+}
+
+.finder-icon-grey-side {
+  background-color: #e5e7ec;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+  border-radius: 50%;
+  height: 75px;
+  width: 56px;
+  position: absolute;
+  top: -3px;
+  left: 26px;
+  transform: rotate(-11deg);
+}
+
+.finder-icon-grey-side::before {
+  background: #e5e7ec;
+  display: block;
+  content: "";
+  height: 39px;
+  position: absolute;
+  width: 38px;
+  border-top-left-radius: 391px;
+  border-bottom-left-radius: 10px;
+  top: -10px;
+  left: -3px;
+  transform: rotate(11deg);
+}
+
+.finder-icon-eyes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 32%;
+  left: -12px;
+}
+
+.finder-icon-eyes .eye {
+  background: #404a52;
+  border-radius: 10px;
+  height: 6px;
+  width: 3px;
+  z-index: 100;
+  margin-left: 21px;
+}
+
+.finder-icon-smile {
+  border: 2px solid #404a52;
+  border-radius: 100%;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  width: 40px;
+}
+
+/*-------------end finder icon------------*/
+
+/*-------------start adobe cloud icons------------*/
+
+.adobe-icons {
+  border-radius: 0.7em;
+  display: flex;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.adobe-icons > div {
+  margin: auto;
+  font-size: 1.3em;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-weight: 700;
+}
+
+.premiere-icon {
+  background: #240832;
+  border: 1px solid #e373f7;
+}
+
+.premiere-icon > div {
+  color: #e373f7;
+}
+
+.photoshop-icon {
+  background: #001d34;
+  border: 1px solid #1c9cff;
+}
+
+.photoshop-icon > div {
+  color: #1c9cff;
+}
+
+.afterEffect-icon {
+  background: #000058;
+  border: 1px solid #9494f7;
+}
+
+.afterEffect-icon > div {
+  color: #9494f7;
+}
+
+.adobe-xd-icon {
+  background: #450135;
+  border: 1px solid #c215b6;
+}
+
+.adobe-xd-icon > div {
+  color: #f75eee;
+}
+
+/*-------------end adobe cloud icons------------*/
+
+/*-------------start adobe cloud icons------------*/
+
+.calendar-icon {
+  width: 45px !important;
+  height: 44px !important;
+  background: rgb(167 167 167) !important;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transform: skewX(10deg) skewY(-10deg);
+  box-shadow: 0 2px 5px 2px rgba(63, 63, 63, 0.3);
+}
+
+.calendar-icon-bg {
+  position: absolute;
+  top: -2px;
+  /* left: 0; */
+  width: 39px;
+  height: 43px;
+  background: white;
+  z-index: 2;
+  /* margin: auto; */
+  box-shadow: 0px 1.3px 1px 0.1px rgb(66, 66, 66);
+}
+
+.calendar-icon-top {
+  width: 100%;
+  height: 15px;
+  background: #e85750;
+  text-align: center;
+  font-size: 0.62em;
+  color: white;
+  text-transform: uppercase;
+  line-height: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  position: relative;
+}
+
+.calendar-icon-middle {
+  color: black;
+  background: white;
+  line-height: 25px;
+  font-size: 1.4em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  transform: scaleY(1.1);
+  border-top: none;
+  margin: auto;
+}
+
+.icons-dimension {
+  border: 0.5px solid rgb(255, 255, 255);
+  border-radius: 50%;
+  background: lightskyblue;
+}
+
+/*----------end calendar----------*/
+/*----------start app store ----------*/
+.appStore-icons-inside {
+  margin-left: 1px;
+}
+
+.appStore-icon {
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(187, 187, 187, 0), #1671f2);
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.appStore-icon .appStore-icons-inside {
+  width: 6px;
+  height: 35px;
+  border-radius: 50px;
+  border: 0.5px solid rgb(65, 172, 238);
+}
+
+.appstore-icon-line1 {
+  position: absolute;
+  top: 5px;
+  left: 16px;
+  transform: rotate(30deg);
+  background: white;
+  z-index: 204;
+}
+
+.appstore-icon-line1::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 15px;
+  top: -0.4px;
+  left: -0.4px;
+  z-index: 201;
+  border-radius: 50px;
+}
+
+.appstore-icon-line2 {
+  position: absolute;
+  top: 5px;
+  left: 24px;
+  transform: rotate(-30deg);
+  background: white;
+  z-index: 205;
+}
+
+.appstore-icon-line2::after {
+  content: "";
+  width: 6px;
+  height: 20px;
+  position: absolute;
+  top: 14.4px;
+  left: -0.3px;
+  border-radius: 50px;
+}
+
+.appstore-icon-line3 {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  transform: rotate(90deg);
+  background: white;
+  z-index: 204;
+}
+
+.appstore-icon-line3::after {
+  content: "";
+  position: absolute;
+  top: 19.5px;
+  left: -0.3px;
+  z-index: 202;
+  width: 6px;
+  height: 15px;
+  border-radius: 20px;
+}
+
+/*-------------end appstore cloud------------*/
+
+/*-------------start github icons------------*/
+.git-hub-container {
+  background: #333;
+  width: 55px !important;
+  height: 55px !important;
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 10%);
+}
+
+.github-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  position: relative;
+  background: rgb(240, 240, 240);
+  border-bottom: none;
+  overflow: hidden;
+}
+
+.github-icon-face {
+  position: relative;
+  top: 9.5px;
+  width: 26px;
+  height: 17px;
+  background: #333;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.github-icon-ears {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 14.5px;
+  top: 1px;
+  transform: rotate(90deg);
+}
+
+.github-icon-ears-left {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 10px solid #333;
+}
+
+.github-icon-ears-right {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 10px solid #333;
+}
+
+.github-icon-body {
+  width: 13px;
+  height: 19px;
+  background: #333;
+  position: relative;
+  top: 7px;
+  margin: 0px auto;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.github-icon-tails {
+  width: 17px;
+  height: 11px;
+  position: absolute;
+  border: solid 3px #333;
+  border-color: #333 transparent transparent transparent;
+  border-radius: 100px/100px 0px;
+  transform: rotate(30deg);
+  top: 27px;
+  z-index: 231;
+  left: 3.5px;
+}
+
+/*-------------end github icons------------*/
+
+/*-------------start google-maps icons------------*/
+
+.google-maps-icon {
+  background-color: rgb(10, 230, 83);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgb(228, 228, 228);
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.google-maps-circlePart {
+  width: 55px;
+  height: 55px;
+  border: 10px solid white;
+  box-shadow: 0 0 6px rgb(39, 39, 39);
+  border-radius: 50%;
+  position: absolute;
+  left: 23px;
+  top: -26px;
+}
+
+.google-maps-lineStraightPart {
+  width: 9px;
+  height: 50px;
+  background-color: white;
+  position: absolute;
+  left: 10px;
+  box-shadow: 0 0 2px rgb(39, 39, 39);
+  z-index: 4;
+}
+
+.google-maps-lineStraightPart::after {
+  content: "";
+  width: 5px;
+  height: 30px;
+  background-color: rgb(66, 113, 241);
+  position: absolute;
+  top: 0;
+  left: 2px;
+}
+
+.google-maps-lineStraightPart::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: rgb(57, 103, 231);
+  border: 2px solid white;
+  position: absolute;
+  border-radius: 50px;
+  bottom: 15px;
+  left: -2px;
+  z-index: 5;
+}
+
+.google-maps-lineRotateghtPart {
+  background-color: yellow;
+  height: 68px;
+  width: 8px;
+  position: absolute;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 2px rgb(119, 119, 119);
+  left: 13px;
+  z-index: 1;
+  top: -6px;
+}
+
+.google-maps-pinkShape {
+  width: 15px;
+  height: 35px;
+  background-color: rgb(252, 124, 145);
+  position: absolute;
+  bottom: 0;
+}
+
+.google-maps-whiteShape {
+  width: 20px;
+  height: 15px;
+  border-top-right-radius: 50%;
+  background-color: rgb(236, 236, 236);
+  position: absolute;
+  bottom: 0;
+  right: 17px;
+}
+
+.google-maps-white2Shape {
+  width: 15px;
+  height: 15px;
+  border-top-right-radius: 50%;
+  background-color: rgb(236, 236, 236);
+  position: absolute;
+  top: 0;
+  left: 1px;
+}
+
+.google-maps-speed {
+  background-color: rgb(17, 140, 240);
+  width: 15px;
+  height: 12px;
+  position: absolute;
+  z-index: 20;
+  bottom: 4px;
+  right: 5px;
+  border-radius: 6px;
+  font-size: 0.4rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(236, 10, 59);
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.4px;
+}
+
+/*-------------end google-maps icons------------*/
+
+/*-------------start photos icons------------*/
+
+.photos-icons {
+  background-color: rgb(231, 231, 231);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  border: 1px solid rgb(228, 228, 228);
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.photo-icon {
+  position: absolute;
+  width: 10px;
+  height: 18px;
+  background-color: rgb(202, 54, 84);
+  border-radius: 30px;
+}
+
+.photo-icon-shape1 {
+  top: 23px;
+  left: 19px;
+  background-color: #d94b0d;
+  z-index: 35;
+  opacity: 0.8;
+  mix-blend-mode: hard-light;
+}
+
+.photo-icon-shape2 {
+  top: 20px;
+  transform: rotate(10deg);
+  background-color: green;
+  opacity: 0.8;
+}
+
+.photo-icon-shape3 {
+  left: 28px;
+  top: 21px;
+  transform: rotate(-40deg);
+  background-color: brown;
+  z-index: 32;
+  opacity: 0.8;
+  mix-blend-mode: hard-light;
+}
+
+.photo-icon-shape4 {
+  top: 14px;
+  left: 30px;
+  transform: rotate(90deg);
+  background-color: rgb(194, 95, 14);
+  z-index: 35;
+  opacity: 0.8;
+}
+
+.photo-icon-shape5 {
+  top: 5px;
+  left: 28px;
+  transform: rotate(45deg);
+  background-color: palevioletred;
+  z-index: 32;
+  opacity: 0.8;
+}
+
+.photo-icon-shape6 {
+  top: 2px;
+  left: 19px;
+  background-color: #914412;
+  z-index: 34;
+  opacity: 0.8;
+  mix-blend-mode: hard-light;
+}
+
+.photo-icon-shape7 {
+  top: 5px;
+  transform: rotate(-45deg);
+  left: 10px;
+  z-index: 52;
+  opacity: 0.8;
+  mix-blend-mode: darken;
+}
+
+.photo-icon-shape8 {
+  top: 14px;
+  left: 8px;
+  transform: rotate(90deg);
+  background-color: darkgoldenrod;
+  z-index: 36;
+  opacity: 0.8;
+  mix-blend-mode: normal;
+}
+
+.photo-icon-shape9 {
+  left: 10px;
+  top: 21px;
+  transform: rotate(45deg);
+  background-color: darkorchid;
+  z-index: 34;
+  opacity: 0.8;
+  mix-blend-mode: hard-light;
+}
+
+.photos-icons-center {
+  position: relative;
+  top: 1px;
+  left: -1px;
+  width: 100%;
+  height: 100%;
+}
+
+/*-------------end photos icons------------*/
+
+/*-----  start musical icon --------*/
+
+.music-icons {
+  width: 51px !important;
+  height: 51px !important;
+  border-radius: 50px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(247, 19, 19, 0.281) -10px,
+    rgb(223, 16, 16)
+  );
+  border: 1px solid rgb(228, 228, 228);
+  overflow: hidden;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.music-icon-top {
+  height: 8px;
+  width: 17px;
+  background-color: white;
+  transform: skewX(-17deg) rotate(-15deg);
+  border-radius: 2px;
+  z-index: 54;
+  border-bottom: none;
+}
+
+.music-icons-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 11px;
+  left: 0.5px;
+}
+
+.music-bars {
+  width: 3px;
+  height: 22px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(59, 59, 59, 0.849);
+}
+
+.music-icon-bars {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  top: 2.5px;
+  z-index: 53;
+}
+
+.music-bar2 {
+  position: relative;
+  top: -4px;
+}
+
+.music-circle {
+  width: 9px;
+  height: 6px;
+  border-radius: 10px;
+  transform: rotate(-1deg);
+  background-color: white;
+  z-index: 53;
+}
+
+.music-circle1 {
+  position: absolute;
+  left: 9.5px;
+  top: 22.3px;
+}
+
+.music-circle2 {
+  position: absolute;
+  left: 24.5px;
+  top: 18.3px;
+}
+
+/*-----  start linkdin icon --------*/
+
+.linkDin-icon {
+  border-radius: 10px;
+  background: rgba(34, 129, 207, 0.993);
+  display: flex;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.linkDin-icon > div {
+  margin: auto;
+  font-size: 2.5em;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+/*-----  end linkdin icon --------*/
+
+/*-----  start figma icon --------*/
+
+.figma-icon {
+  background: #333;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #240832;
+  border: 1px solid;
+  box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+}
+
+.figma-icons-center {
+  display: flex;
+  flex-wrap: wrap;
+  width: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.figma {
+  width: 12px;
+  height: 12px;
+}
+
+.figma-shape1 {
+  background: rgb(13, 59, 185);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: #ee4e2a;
+}
+
+.figma-shape2 {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background: #fb7266;
+}
+
+.figma-shape3 {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background: #a061fa;
+}
+
+.figma-shape4 {
+  border-radius: 50px;
+  background: #2ebdfa;
+}
+
+.figma-shape5 {
+  background: #00ce84;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.figma-shape6 {
+  background: transparent;
+}
+
+/*-----  end figma icon --------*/
+
+/*-----  test test icon --------*/
+
+.container-aboutMe {
+  background-color: var(--Rcrimson-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.aboutMe-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: white;
+  z-index: 1;
+  width: 100%;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  top: 50%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: white;
+  z-index: 2000;
+  display: none;
+}
+
+.overlay::after {
+  background-color: rgba(24, 24, 24, 1.603);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(50px);
+  opacity: 0.7;
+}
+
+.overlay .close {
+  cursor: help;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s ease;
+  top: 0;
+  height: 100%;
+}
+
+.overlay.active2 {
+  display: none;
+}
+
+.notes-icon {
+  background: rgb(224, 224, 220);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.notes-icon-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 35px;
+}
+.notes-icon-top {
+  background: rgb(248, 214, 62);
+  height: 10px;
+  border-radius: 2px;
+}
+.notes-icon-container hr {
+  background: rgb(131, 131, 131);
+  height: 2px;
+}
+
+/*=================~~~~~~~~~start desktop icons   =======================!!!!!!!!!!!!*/
+
+.desktopFiles {
+  width: 55px;
+  height: 55px;
+  margin: 0 40px;
+}
+
+.desktop-volumeFiles {
+  margin: 0 40px;
+  width: 80px;
+  height: 80px;
+}
+
+.desktop-cmdTerminal {
+  background-color: black;
+  border: 1px solid grey;
+  color: white;
+}
+.container-terminal {
+  height: 55px;
+}
+.terminal-textBottom.volume-text {
+  font-size: 0.85em;
+}
+.desktop-cmdTerminal .container-terminal .terminal-text {
+  margin-top: 2px;
+  margin-left: 3px;
+}
+
+/*=================~~~~~~~~~start  desktop icons   =======================!!!!!!!!!!!!*/
+
+.pdf-container {
+  border: 0 solid transparent;
+  text-align: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  overflow: hidden;
+}
+
+.pdf-top {
+  height: 70%;
+  background-color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pdf-text2 {
+  font-size: 0.5em;
+  margin-top: 3px;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.pdf-arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid #333;
+  border-right: 10px solid transparent;
+  border-bottom: 0 solid transparent;
+  border-left: 10px solid transparent;
+  margin-bottom: 5px;
+}
+
+.pdf-tails {
+  width: 8px;
+  height: 15px;
+  background-color: #333;
+}
+
+.pdf-bottom {
+  background-color: crimson;
+  color: white;
+  height: 30%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/*============ start volume partion ===========================*/
+
+.desktop-volumeFiles {
+  position: relative;
+}
+
+.volume-container {
+  background: rgb(60, 60, 60);
+  background: linear-gradient(
+    316deg,
+    rgb(0 0 0) 0%,
+    rgb(133 133 133) 42%,
+    rgb(255 255 255) 100%
+  );
+  width: 120px;
+  height: 56px;
+  transform: rotatex(326deg);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  clip-path: polygon(77% 19%, 81% 100%, 40% 100%, 46% 19%);
+  position: relative;
+  /* border-bottom: 1px solid #646464; */
+  margin-left: -48px;
+  margin-bottom: -5px;
+  position: relative;
+}
+
+.volume-container::before {
+  content: "";
+  position: absolute;
+  top: 43%;
+  left: 48%;
+  width: 32px;
+  height: 32px;
+  perspective: 400px;
+  border-radius: 50px;
+  background: linear-gradient(
+    323deg,
+    rgb(122 122 122) 0%,
+    rgb(167 164 164) 42%,
+    rgb(255 255 255) 100%
+  );
+  box-shadow: -0.2px 1px 0px #cbcbcb, 0.5px -1px 0.5px #343434;
+  transform: rotateX(33deg);
+}
+
+.volume-container::after {
+  background: linear-gradient(
+    111deg,
+    rgb(72 72 72) 0%,
+    rgb(84 84 84) 42%,
+    rgb(141 141 141) 100%
+  );
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 51%;
+  width: 25px;
+  height: 5px;
+  perspective: 400px;
+  transform: rotateX(33deg);
+  /* border-radius: 50px; */
+  /* background: #404040; */
+  box-shadow: -0.3px 0.3px 0.2px #c3c1c1, 0.8px -1px 0px #404040;
+}
+
+.dotsHdd {
+  position: absolute;
+  border-radius: 100px;
+  background-color: black;
+  width: 3px;
+  height: 3px;
+}
+
+.hdd-dots1::after,
+.hdd-dots2::after,
+.hdd-dots3::after,
+.hdd-dots4::after,
+.hdd-dots5::after,
+.hdd-dots6::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  background: rgb(124, 120, 111);
+  width: 1.5px;
+  height: 1.5px;
+  border-radius: 20px;
+}
+
+.hdd-dots1 {
+  top: 23%;
+  left: 46.5%;
+}
+
+.hdd-dots2 {
+  top: 55%;
+  left: 44.1%;
+}
+
+.hdd-dots3 {
+  top: 90%;
+  left: 42%;
+}
+
+.hdd-dots4 {
+  top: 23%;
+  right: 23.5%;
+}
+
+.hdd-dots5 {
+  top: 55%;
+  right: 22%;
+}
+
+.hdd-dots6 {
+  top: 90%;
+  right: 20.5%;
+}
+
+.volume-face {
+  width: 49px;
+  margin-left: 0.1px;
+  margin-top: -7px;
+  height: 14px;
+  transform: rotatex(50deg) perspective(600px);
+  clip-path: polygon(100% 0%, 98% 500%, 0.5% 100%, 0% 0%);
+  border-bottom: 1px solid #1e1e1e;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  overflow: hidden;
+  background: linear-gradient(
+    40deg,
+    rgb(34 34 34) 0%,
+    rgb(108 106 106) 15%,
+    rgb(255 254 254) 120%
+  );
+}
+
+.leg-left,
+.leg-right {
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    rgb(26 26 26) 0%,
+    rgb(88 88 88) 15%,
+    rgb(183 183 183) 120%
+  );
+}
+
+.volume-face-center {
+  background: linear-gradient(
+    65deg,
+    rgb(24 24 24) 0%,
+    rgb(88 86 86) 25%,
+    rgb(255 254 254) 120%
+  );
+  z-index: 4;
+  width: 37px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.volume-fanGrill {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.1px;
+  margin-left: 1px;
+}
+
+.volume-fan {
+  width: 1.2px;
+  height: 11.4px;
+  background-color: rgb(19, 19, 19);
+}
+
+.volume-light {
+  width: 5.7px;
+  height: 6.7px;
+  border: 1px solid rgb(94, 94, 94);
+  border-radius: 69px;
+  background-color: yellow;
+  margin-top: 3px;
+  margin-right: 1px;
+}
+
+.volume-inside {
+  width: 14px;
+  height: 15px;
+  background-color: rgb(110, 110, 110);
+  border-bottom-left-radius: 20px;
+  background: linear-gradient(
+    80deg,
+    rgb(96 96 96) 0%,
+    rgb(66 65 65) 15%,
+    rgb(183 183 183) 120%
+  );
+}
+.apple-volume {
+  background-image: url(/macOS-Luna-Project/template/assets/img/png/macHdd.png);
+  width: 61px;
+  height: 88px;
+  background-repeat: no-repeat;
+  transform: scale(0.4) rotatex(48deg);
+  position: absolute;
+  top: -4px;
+  left: -5.4px;
+  z-index: 432;
+}
+.container-icons-dekstop {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  justify-content: center;
+  /* align-content: center; */
+}
+.volume-text {
+  color: white;
+  font-size: 0.8em;
+  margin-top: 2px;
+  font-family: product-sans !important;
+}
+
+/* .apple {
+    background: green;
+    background: linear-gradient(#5bc236, #308014, #006400);
+    width: 208px;
+    height: 198px;
+    position: absolute;
+    border-radius: 35% 35% 41% 41% / 42% 42% 75% 75%;
+  }
+  
+  .apple:before {
+    background: #5bc236;
+    content: "";
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    margin: -51px 0 0 100px;
+    border-radius: 100px 0;
+    z-index: 5;
+  }
+  
+  .apple:after {
+    background: #F5FFFA;
+    content: "";
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    margin: 28px 0 0 174px;
+    border-radius: 50%;
+    transform: rotate (-53deg);
+    z-index: 4;
+    box-shadow: -127px -109.5px 0 #f5fffa, -118px -107px 0 #f5fffa, -115.5px -102.5px 0 #f5fffa, -105.5px -109.5px 0 #f5fffa, -105px -109.5px 0 #f5fffa, -129px 166px 0 #F5FFfa, -107.5px 166px 0 #F5FFFA, -119px 161px 0 #F5FFFA;
+  } */
+
+/*=================~~~~~~~~~end desktop icons   =======================!!!!!!!!!!!!*/
+
+.iconDesktop-size {
+  width: 55px;
+  height: 65px;
+  background: white;
+  text-align: center;
+  border-radius: 5px;
+  position: relative;
+}
+.iconDesktop-middle {
+  height: 100%;
+}
+.iconDesktop-card {
+  background-color: #d1d1d2;
+  height: 90px;
+  position: relative;
+  width: 68px;
+  overflow: hidden;
+}
+
+.iconDekstop-document {
+  background-color: #51b888;
+  height: 85px;
+  position: absolute;
+  top: calc(50% - 42px);
+  width: 65px;
+  z-index: 1;
+}
+
+.iconDesktop-triangle-chamfer {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 30px 30px 0;
+  border-color: transparent #d1d1d2 transparent transparent;
+  position: absolute;
+  right: -3px;
+  top: -3px;
+  z-index: 20;
+}
+
+.iconDesktop-triangle-corner {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 24px 0 0 24px;
+  border-color: transparent transparent transparent #3d8a66;
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  -moz-box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 1px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*=================~~~~~~~~~end desktop icons   =======================!!!!!!!!!!!!*/
+
+/* style -animate top header icons*/
+
+.apple_logoM {
+  color: white;
+  animation: rgb-anim 12s infinite;
+  font-size: 15px !important;
+  padding: 0px 5px;
+  text-align: center;
+}
+
+.apple_logo-container {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+@keyframes rgb-anim {
+  0% {
+    color: #ff0000;
+  }
+
+  11% {
+    color: #ff8000;
+  }
+
+  22% {
+    color: #ffff00;
+  }
+
+  33% {
+    color: #00ff80;
+  }
+
+  44% {
+    color: #00ffff;
+  }
+
+  55% {
+    color: #0080ff;
+  }
+
+  66% {
+    color: #0000ff;
+  }
+
+  77% {
+    color: #8000ff;
+  }
+
+  88% {
+    color: #ff00ff;
+  }
+
+  100% {
+    color: #ff0000;
+  }
+}
