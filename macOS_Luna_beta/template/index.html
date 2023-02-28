@@ -11,23 +11,24 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
       rel="stylesheet"
     />
-   
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
-  
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <!-- <link rel="stylesheet" type="text/css" href="./pages/header/header.css"> -->
     <link rel="stylesheet" href="./style.css" />
-    
+
     <title>Luna Page</title>
   </head>
 
   <body>
-
     <div class="wrapper">
       <header id="header-container" class="header-container"></header>
       <div class="container">
@@ -115,7 +116,6 @@
                 </div>
               </div>
             </div>
-        
             <div class="active-popup" id="overlasyP" style="z-index: -2"></div>
           </div>
         </div>
@@ -151,43 +151,29 @@
     </div>
 
     <script>
-    //   var headerRequest = new XMLHttpRequest();
-    //   headerRequest.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       document.getElementById("header-container").innerHTML =
-    //         this.responseText;
-    //     }
-    //   };
-    //   headerRequest.open("GET", "./pages/header/header.html", true);
-    //   headerRequest.send();
+      console.log("fetch Nav-and-Icons");
+      fetch("./pages/header/header.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((data_include) => {
+          document.querySelector("#header-container").innerHTML = data_include;
+        });
 
-    //   var footerRequest = new XMLHttpRequest();
-    //   footerRequest.onreadystatechange = function () {
-    //     if (this.readyState == 4 && this.status == 200) {
-    //       document.getElementById("footer-container").innerHTML =
-    //         this.responseText;
-    //     }
-    //   };
-    //   footerRequest.open("GET", "./pages/icons/icons.html", true);
-    //   footerRequest.send();
-
-    fetch("./pages/header/header.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data_include => {
-    document.querySelector("#header-container").innerHTML = data_include;
-  });
-
-  fetch("./pages/icons/icons.html")
-  .then(response => {
-    return response.text()
-  })
-  .then(data_include => {
-    document.querySelector("#footer-container").innerHTML = data_include;
-  });
+      fetch("./pages/icons/icons.html")
+        .then((response) => {
+          return response.text();
+        })
+        .then((data_include) => {
+          document.querySelector("#footer-container").innerHTML = data_include;
+        });
     </script>
 
-    <script src="./pages/settings.js"></script>
+    <script async type="module" >
+      import { openNavLink } from "./pages/settings.js";
+      openNavLink();
+
+    </script>
+
   </body>
 </html>

@@ -132,36 +132,67 @@
   </div>
   <div class="section4_topheader_right">
     <ul>
-      <li>
-        <a href="#">
+      <li class="dropdown-button drop_icons">
           <span class="material-symbols-outlined"> wifi </span>
+          <div class="dropMenu-list list_icons_container">
+            <div class="wifi_menu menu_icons">  </div>
+              <ul style="display:block " class="menu_icons_ul">
+                <li><a href="#">wi-fi:on</a></li>
+                <li><a href="#">turn wi-fi off</a></li>
+                <hr>
+                <li class="network"><a href="#">wifi name network</a><span class="material-symbols-outlined">volume_up</span></li>
+                <li><a href="#">wifi name</a></li>
+                <li><a href="#">wifi name</a></li>
+                <li><a href="#">wifi name</a></li>
+                <hr>
+                <li><a href="#">join other network</a></li>
+                <li><a href="#">create network...</a></li>
+                <li><a href="#">open network Preference</a></li>
+              
+              </ul>
+           
+          </div>
+      </li>
+      <li class="dropdown-button">
+        <a href="#">
+          <span class="material-symbols-outlined"> volume_up </span>
+          <div class="dropMenu-list">
+            <div class="volume_menu menu_icons">
+              <input type="range" id="rangeInput" min="1" max="10" value="5" class="range_input">
+              <p id="output"></p>
+            </div>
+          </div>
         </a>
       </li>
-      <li>
-        <a href="#"><span class="material-symbols-outlined"> volume_up </span></a>
+      <li class="dropdown-button">
+        <a href="#">
+          <span class="material-symbols-outlined"> bluetooth </span>
+          <div class="dropMenu-list">
+            <div class="bluetooth_menu menu_icons">
+              <span class="material-symbols-outlined"> volume_up </span>
+            </div>
+          </div>
+        </a>
       </li>
+      <script>
+      
+      </script>
       <li>
-        <a href="#"><span class="material-symbols-outlined">
-          bluetooth
-          </span></a>
-      </li>
-    
-      <li>
-        <a href="#"><span class="material-symbols-outlined">
-          battery_horiz_050
-          </span></a>
+        <a href="#"><span class="material-symbols-outlined"> battery_horiz_050 </span></a>
       </li>
       <li><a href="#">43%</a></li>
-      <li id="clock_top"><a href="#">Tue 6:42 AM</a></li>
-      <li>
-        <a href="#" class="fullname-standard fullname-thin fullname-bold">
-          Marian Iordache</a>
-      </li>
+
       <li>
         <a href="#"><span class="material-symbols-outlined"> search </span></a>
       </li>
       <li>
         <a href="#"><span class="material-symbols-outlined"> home </span></a>
+      </li>
+
+      <li id="clock_top"><a href="#">Tue 6:42 AM</a></li>
+      <li>
+        <a href="#" class="fullname-standard fullname-thin fullname-bold">
+          Marian Iordache</a>
       </li>
       <li>
         <a href="#"><span class="material-symbols-outlined"> settings </span></a>
@@ -169,4 +200,3 @@
     </ul>
   </div>
 </div>
-

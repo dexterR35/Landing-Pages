@@ -53,7 +53,9 @@
     padding: 0;
     text-align: center;
   }
-  
+  .drop_icons {
+    color: white;
+  }
   .dropDown-menu ul {
     margin: 0;
     padding: 0;
@@ -114,17 +116,22 @@
   
   .dropMenu-list li a {
     display: block;
-    padding: 7px 12px;
+    padding: 10px 12px;
     color: #fff;
     text-align: start;
     text-decoration: none;
     font-size: 11px !important;
   }
   
-  .dropMenu-list li a:hover {
+  .dropMenu-list li a:hover{
     background: #a0080d;
   }
-  
+  .menu_icons_ul li:hover{  
+    background: #a0080d;
+  }
+  .menu_icons_ul li {
+    width: 200px !important;
+}
   /*end dropdwon meniu====================*/
   
   .section4_topheader_right ul {
@@ -146,4 +153,17 @@
   .container_topheader_left a:hover {
     background-color: var(--medium-grey);
   }
-  
+
+
+  .list_icons_container {
+    width: fit-content;
+  }
+  .menu_icons_ul .network {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .volume_menu {
+    transform: rotate(90deg);
+  }
