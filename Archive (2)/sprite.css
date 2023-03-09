@@ -12,17 +12,17 @@ body {
   justify-content: center;
 }
 .container_test {
-  flex-basis: 1200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 1200px;
-  height: 200px;
+  max-width: 1200px;
+  height: fit-content;
   gap: 10px;
-  border: 2px solid black;
+  border: 1px solid black;
   position: relative;
+  padding: 1em;
 }
 .container_test::after {
   content: "";
@@ -106,4 +106,66 @@ body {
 .test .providersgamingone {
   /* top: -670px; */
   background-position-y: -649px;
+}
+
+.test .providerseurasian {
+  background-position-y: -710px;
+
+}
+
+.test .providersspinberry {
+  background-position-y: -787px;
+}
+
+
+.test .providersmerkur {
+  background-position-y: -858px;
+}
+
+
+.test .providersnolimit {
+  background-position-y: -930px;
+}
+
+
+.test .providers1x2 {
+  background-position-y: -1000px;
+}
+
+
+.test .providersrelax {
+  background-position-y: -1071px;
+}
+
+
+.test .providersamusnet {
+  background-position-y: -1140px;
+}
+
+.test .providersspribe {
+  background-position-y: -1205px;
+}
+
+.test .providersinspired {
+  background-position-y: -1266px;
+}
+
+
+.test .providersgamesglobal {
+  background-position-y: -1324px;
+}
+
+
+.test .providersskywind {
+  background-position-y: -1324px;
+}
+
+
+.test .providerssynot {
+  background-position-y: -1385px;
+}
+
+
+.test .providerswazdan {
+  background-position-y: -1442px;
 }
