@@ -5,13 +5,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* fara body */
 body {
   display: flex;
   height: 100vh;
   align-items: center;
   justify-content: center;
 }
-.container_test {
+.container_parent_img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -24,17 +26,6 @@ body {
   position: relative;
   padding: 1em;
 }
-.container_test::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: azure;
-  z-index: -1;
-  opacity: 0.3;
-}
 
 ._prov {
   width: fit-content;
@@ -43,129 +34,124 @@ body {
   background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
 }
 
-.test {
+._parent_img {
+  max-width: 184px;
   width: 184px;
   border: 1px solid rgb(255, 255, 255);
   overflow: hidden;
-  height: 60px;
-}
-.test img {
+  height: fit-content;
+  /* padding: 5px; */
   background-color: rgb(59, 59, 59);
-  /* height: 3200px; */
-  position: relative;
-  top: 0 !important;
-  left: 0px;
-  width: fit-content;
 }
 
-.test .providersamatic {
+._parent_img .providersamatic {
   /* top: 0px; */
   background-position-y: -9px;
 }
 
-.test .providershacksaw {
+._parent_img .providershacksaw {
   /* top: -57px; */
   background-position-y: -78px;
 }
 
-.test .providersbetsoft {
+._parent_img .providersbetsoft {
   /* top: -114px; */
   background-position-y: -148px;
 }
 
-.test .providersblueprint {
+._parent_img .providersblueprint {
   /* top: -166px; */
   background-position-y: -208px;
 }
 
-.test .providersbooming-games {
+._parent_img .providersbooming-games {
   /* top: -221px; */
   background-position-y: -274px;
 }
-.test .providersevolution {
+._parent_img .providersevolution {
   /* top: -280px; */
   background-position-y: -344px;
 }
-.test .providerseyecon {
+._parent_img .providerseyecon {
   /* top: -334px; */
   background-position-y: -408px;
 }
-.test .providerszitro {
+._parent_img .providerszitro {
   /* top: -386px; */
   background-position-y: -472px;
 }
-.test .providersgameart {
+._parent_img .providersgameart {
   /* top: -427px; */
   background-position-y: -520px;
 }
 
-.test .providersrfranco {
+._parent_img .providersrfranco {
   /* top: -477px; */
   background-position-y: -580px;
 }
-.test .providersgamingone {
+._parent_img .providersgamingone {
   /* top: -670px; */
   background-position-y: -649px;
 }
 
-.test .providerseurasian {
+._parent_img .providerseurasian {
   background-position-y: -710px;
 
 }
 
-.test .providersspinberry {
+._parent_img .providersspinberry {
   background-position-y: -787px;
 }
 
 
-.test .providersmerkur {
+._parent_img .providersmerkur {
   background-position-y: -858px;
 }
 
 
-.test .providersnolimit {
+._parent_img .providersnolimit {
   background-position-y: -930px;
 }
 
 
-.test .providers1x2 {
+._parent_img .providers1x2 {
   background-position-y: -1000px;
 }
 
 
-.test .providersrelax {
+._parent_img .providersrelax {
   background-position-y: -1071px;
 }
 
 
-.test .providersamusnet {
+._parent_img .providersamusnet {
   background-position-y: -1140px;
 }
 
-.test .providersspribe {
+._parent_img .providersspribe {
   background-position-y: -1205px;
 }
 
-.test .providersinspired {
+._parent_img .providersinspired {
   background-position-y: -1266px;
 }
 
 
-.test .providersgamesglobal {
+._parent_img .providersgamesglobal {
   background-position-y: -1324px;
 }
 
 
-.test .providersskywind {
+._parent_img .providersskywind {
   background-position-y: -1324px;
 }
 
 
-.test .providerssynot {
+._parent_img .providerssynot {
   background-position-y: -1385px;
 }
 
 
-.test .providerswazdan {
+._parent_img .providerswazdan {
   background-position-y: -1442px;
 }
