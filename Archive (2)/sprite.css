@@ -33,6 +33,7 @@ body {
   background-size: cover !important;
   position: relative;
   background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
+  
 }
 
 ._parent_img {
@@ -42,6 +43,7 @@ body {
   overflow: hidden;
   height: fit-content;
   background-color: rgb(59, 59, 59);
+  /* aspect-ratio: 92/29;  pentru fit->img in div */
 }
 
 ._parent_img .providersamatic {
