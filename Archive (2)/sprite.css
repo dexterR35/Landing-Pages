@@ -12,7 +12,7 @@ body {
   justify-content: center;
 }
 .container_test {
-  flex-basis: 1000px;
+  flex-basis: 1200px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -36,65 +36,74 @@ body {
   opacity: 0.3;
 }
 
+._prov {
+  width: fit-content;
+  background-size: cover !important;
+  position: relative;
+  background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
+}
+
 .test {
-  /* background: green; */
-  width: 164px;
+  width: 184px;
   border: 1px solid rgb(255, 255, 255);
   overflow: hidden;
-  height: 65px;
+  height: 60px;
 }
 .test img {
   background-color: rgb(59, 59, 59);
-  height: 3200px;
+  /* height: 3200px; */
   position: relative;
+  top: 0 !important;
   left: 0px;
   width: fit-content;
 }
 
 .test .providersamatic {
-  top: 0px;
+  /* top: 0px; */
+  background-position-y: -9px;
 }
 
 .test .providershacksaw {
-  top: -57px;
+  /* top: -57px; */
+  background-position-y: -78px;
 }
 
 .test .providersbetsoft {
-  top: -114px;
+  /* top: -114px; */
+  background-position-y: -148px;
 }
 
 .test .providersblueprint {
-  top: -166px;
+  /* top: -166px; */
+  background-position-y: -208px;
 }
 
 .test .providersbooming-games {
-  top: -221px;
+  /* top: -221px; */
+  background-position-y: -274px;
 }
 .test .providersevolution {
-  top: -280px;
+  /* top: -280px; */
+  background-position-y: -344px;
 }
 .test .providerseyecon {
-  top: -334px;
+  /* top: -334px; */
+  background-position-y: -408px;
 }
 .test .providerszitro {
-  top: -386px;
+  /* top: -386px; */
+  background-position-y: -472px;
 }
 .test .providersgameart {
-  top: -427px;
+  /* top: -427px; */
+  background-position-y: -520px;
 }
 
 .test .providersrfranco {
-  top: -477px;
+  /* top: -477px; */
+  background-position-y: -580px;
 }
 .test .providersgamingone {
-  top: -670px;
-}
-
-._prov {
-  width: fit-content;
-  /* max-width: 100%; */
-  background-size: contain !important;
-  position: relative;
-  /* background: #000; */
-  background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
+  /* top: -670px; */
+  background-position-y: -649px;
 }
