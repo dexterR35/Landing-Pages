@@ -12,6 +12,7 @@ body {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  background-color: #333;
 }
 .container_parent_img {
   display: flex;
@@ -22,7 +23,7 @@ body {
   max-width: 1200px;
   height: fit-content;
   gap: 10px;
-  border: 1px solid black;
+  border: 1px solid red;
   position: relative;
   padding: 1em;
 }
@@ -40,89 +41,71 @@ body {
   border: 1px solid rgb(255, 255, 255);
   overflow: hidden;
   height: fit-content;
-  /* padding: 5px; */
   background-color: rgb(59, 59, 59);
 }
 
 ._parent_img .providersamatic {
-  /* top: 0px; */
   background-position-y: -9px;
 }
 
 ._parent_img .providershacksaw {
-  /* top: -57px; */
   background-position-y: -78px;
 }
 
 ._parent_img .providersbetsoft {
-  /* top: -114px; */
   background-position-y: -148px;
 }
 
 ._parent_img .providersblueprint {
-  /* top: -166px; */
   background-position-y: -208px;
 }
 
 ._parent_img .providersbooming-games {
-  /* top: -221px; */
   background-position-y: -274px;
 }
 ._parent_img .providersevolution {
-  /* top: -280px; */
   background-position-y: -344px;
 }
 ._parent_img .providerseyecon {
-  /* top: -334px; */
   background-position-y: -408px;
 }
 ._parent_img .providerszitro {
-  /* top: -386px; */
   background-position-y: -472px;
 }
 ._parent_img .providersgameart {
-  /* top: -427px; */
   background-position-y: -520px;
 }
 
 ._parent_img .providersrfranco {
-  /* top: -477px; */
   background-position-y: -580px;
 }
 ._parent_img .providersgamingone {
-  /* top: -670px; */
   background-position-y: -649px;
 }
 
 ._parent_img .providerseurasian {
   background-position-y: -710px;
-
 }
 
 ._parent_img .providersspinberry {
   background-position-y: -787px;
 }
 
-
 ._parent_img .providersmerkur {
   background-position-y: -858px;
 }
-
 
 ._parent_img .providersnolimit {
   background-position-y: -930px;
 }
 
-
 ._parent_img .providers1x2 {
   background-position-y: -1000px;
 }
 
-
 ._parent_img .providersrelax {
   background-position-y: -1071px;
 }
-
 
 ._parent_img .providersamusnet {
   background-position-y: -1140px;
@@ -141,16 +124,13 @@ body {
   background-position-y: -1324px;
 }
 
-
 ._parent_img .providersskywind {
   background-position-y: -1324px;
 }
 
-
 ._parent_img .providerssynot {
   background-position-y: -1385px;
 }
-
 
 ._parent_img .providerswazdan {
   background-position-y: -1442px;
