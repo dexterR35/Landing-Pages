@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ad.size" content="width=300,height=50" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>300x50</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      html,
+      body,
+      div {
+        font-family: "Play", sans-serif;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      :root {
+        --offer-color: #ffc107;
+        --width: 300px;
+        --height: 50px;
+        --bg-one: url(./img/bg-1.jpg);
+        --bg-two: url(./img/bg-2.jpg);
+        --bg-three: url(./img/bg-3.jpg);
+      }
+
+      .container-all {
+        width: var(--width);
+        height: var(--height);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .scene {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        perspective: 1000px;
+      }
+
+      .carousel {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* transform: translateZ(288px);
+        -webkit-transform: translateZ(288px); */
+        transform-style: preserve-3d;
+        transition: transform 1s;
+      }
+      .btn {
+        display: none;
+      }
+
+      .carousel__cell {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 1s, opacity 1s;
+        flex-direction: row;
+      }
+      .container-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+        align-items: center;
+      }
+
+      .cell_text,
+      .cell_assets {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .cell_assets {
+        width: 20%;
+      }
+      .cell_text {
+        width: 80%;
+      }
+
+      .cell_one {
+        background-image: var(--bg-one);
+        /* transform: rotateY(0deg) translateZ(0px); */
+        /* -webkit-transform: rotateY(0deg) translateZ(288px);
+        -moz-transform: rotateY(0deg) translateZ(288px); */
+      }
+      .cell_two {
+        background-image: var(--bg-two);
+        /* transform: rotateY(40deg) translateZ(288px);
+        -webkit-transform: rotateY(40deg) translateZ(288px);
+        -moz-transform: rotateY(40deg) translateZ(288px); */
+      }
+      .cell_three {
+        background-image: var(--bg-three);
+        /* transform: rotateY(80deg) translateZ(288px);
+        -webkit-transform: rotateY(80deg) translateZ(288px);
+        -moz-transform: rotateY(80deg) translateZ(288px); */
+      }
+
+      .carousel-options {
+        position: relative;
+        top: -10vh;
+        display: flex;
+        justify-content: space-around;
+        width: 55%;
+        left: 26px;
+      }
+
+      .offer-html {
+        font-size: 6px;
+        width: fit-content;
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        margin-right: 5px;
+        text-transform: uppercase;
+        line-height: 0.82;
+      }
+      .p1__line-1 {
+        font-size: 1.68em;
+        margin-bottom: 0.8px;
+      }
+
+      .p1__line-2 {
+        font-size: 2.18em;
+        margin-top: 1px;
+      }
+
+      .p1__line-3 {
+        font-size: 2.25em;
+      }
+
+      .p2__line-1 {
+        color: black;
+        padding: 0.2em 0.3em;
+        width: fit-content;
+        background-color: #ffc107;
+        font-size: 7.5px;
+        margin-bottom: 2px;
+      }
+      .p2__line-2 {
+        font-size: 2.5em;
+      }
+      .p2__line-3 {
+        font-size: 3.4em;
+        margin-top: -0.7px;
+      }
+
+      .p3__line-2 {
+        font-size: 2.3em;
+        position: relative;
+        margin-bottom: 0.8px;
+      }
+      .p3__line-3 {
+        font-size: 2.58em;
+
+        text-align: end;
+      }
+
+      .text-yellow {
+        color: var(--offer-color);
+      }
+
+      .logo-netbet {
+        width: 100%;
+        background-image: url(./img/logo-inline.svg);
+        height: 1.7em;
+        background-repeat: no-repeat;
+        background-position: left;
+        background-size: contain;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+      }
+      .logo-netbet {
+        margin-left: 5px;
+      }
+      .ong {
+        margin-left: 5px;
+      }
+      .button {
+        margin-right: 5px;
+      }
+      .button {
+        font-size: 0.3em;
+        background: linear-gradient(90deg, #ff6333 0%, #ff832b 100%);
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 0.8em 1.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1.4em;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+        width: 67px;
+      }
+      .btn-custom:before {
+        position: absolute;
+        content: "";
+        display: inline-block;
+        top: -120px;
+        left: 0;
+        width: 30px;
+        height: 100%;
+        background-color: #fff;
+        animation: shiny-btn 1.6s ease-in infinite;
+      }
+
+      @keyframes shiny-btn {
+        0% {
+          -webkit-transform: scale(0) rotate(45deg);
+          opacity: 0;
+        }
+        80% {
+          -webkit-transform: scale(0) rotate(45deg);
+          opacity: 0.5;
+        }
+        81% {
+          -webkit-transform: scale(4) rotate(45deg);
+          opacity: 1;
+        }
+        100% {
+          -webkit-transform: scale(50) rotate(45deg);
+          opacity: 0;
+        }
+      }
+      .ong {
+        background-image: url(./img/ong.png);
+        width: 100%;
+        height: 10px;
+        background-size: contain;
+        background-position: left;
+        background-repeat: no-repeat;
+        margin-bottom: 0.3em;
+        margin-top: 0.1em;
+      }
+      /* .carousel-options {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  background: hsla(0, 0%, 100%, 0.8);
+} */
+    </style>
+  </head>
+  <body>
+    <div class="container-all">
+      <div class="scene">
+        <div class="carousel">
+          <div class="carousel__cell cell_one">
+            <div class="cell_assets">
+              <div class="logo-netbet"></div>
+            </div>
+            <div class="cell_text">
+              <div class="container-text">
+                <div class="offer-html">
+                  <div class="p1__line-1">cel mai mare</div>
+                  <div class="p1__line-2">pachet de</div>
+                  <div class="p1__line-3 text-yellow">bun venit</div>
+                </div>
+              </div>
+              <a href="http://">
+                <div class="button btn-custom">Înregistrează-te</div>
+                <div class="ong"></div>
+              </a>
+            </div>
+          </div>
+          <div class="carousel__cell cell_two">
+            <div class="cell_assets">
+              <div class="logo-netbet"></div>
+            </div>
+            <div class="cell_text">
+              <div class="container-text">
+                <div class="offer-html">
+                  <div class="p2__line-1">până la</div>
+                  <div class="p2__line-2">5000 RON</div>
+                  <div class="p2__line-3 text-yellow">bonus</div>
+                </div>
+              </div>
+              <a href="http://">
+                <div class="button btn-custom">Înregistrează-te</div>
+                <div class="ong"></div>
+              </a>
+            </div>
+          </div>
+          <div class="carousel__cell cell_three">
+            <div class="cell_assets">
+              <div class="logo-netbet"></div>
+            </div>
+            <div class="cell_text">
+              <div class="container-text">
+                <div class="offer-html">
+                  <div class="p3__line-2">+ 650 runde</div>
+                  <div class="p3__line-3 text-yellow">gratuite</div>
+                </div>
+              </div>
+              <a href="http://">
+                <div class="button btn-custom">Înregistrează-te</div>
+                <div class="ong"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-options">
+        <button class="previous-button btn">Inapoi</button>
+        <button class="next-button btn">Inainte</button>
+        <label style="display: none">
+          <input type="radio" name="orientation" value="vertical" checked />
+          vertical
+        </label>
+      </div>
+    </div>
+
+    <script>
+      let carousel = document.querySelector(".carousel");
+      let cells = carousel.querySelectorAll(".carousel__cell");
+      let cellCount;
+      let selectedIndex = 2;
+      let cellWidth = 300;
+      let cellHeight = 50;
+      let isHorizontal = true;
+      let rotateFn = isHorizontal ? "rotateY" : "rotateX";
+      let radius, theta;
+      console.log(cellWidth, cellHeight);
+
+      function rotateCarousel() {
+        let angle = theta * selectedIndex * -1;
+        carousel.style.transform =
+          "translateZ(" + -radius + "px) " + rotateFn + "(" + angle + "deg)";
+      }
+
+      const config = {
+        autoload: true,
+        speed: 3500,
+      };
+      function start() {
+        // let prevButton = document.querySelector(".previous-button");
+        // prevButton.addEventListener("click", function () {
+        //   selectedIndex--;
+        //   rotateCarousel();
+        // });
+
+        let nextButton = document.querySelector(".next-button");
+        nextButton.addEventListener("click", function () {
+          selectedIndex++;
+          rotateCarousel();
+        });
+
+        if (config.autoload) {
+          playCarousel(nextButton, config);
+        }
+      }
+
+      function playCarousel(nextButton, config) {
+        const play = () => {
+          nextButton.click();
+          setTimeout(play, config.speed);
+        };
+        play();
+      }
+      start();
+
+      function changeCarousel() {
+        cellCount = 3;
+
+        theta = 360 / cellCount;
+        let cellSize = isHorizontal ? cellWidth : cellHeight;
+        radius = Math.round(cellSize / 2 / Math.tan(Math.PI / cellCount));
+        for (let i = 0; i < cells.length; i++) {
+          let cell = cells[i];
+          if (i < cellCount) {
+            // visible cell
+            cell.style.opacity = 1;
+            let cellAngle = theta * i;
+            cell.style.transform =
+              rotateFn + "(" + cellAngle + "deg) translateZ(" + radius + "px)";
+          } else {
+            // hidden cell
+            cell.style.opacity = 0;
+            cell.style.transform = "none";
+          }
+        }
+
+        rotateCarousel();
+      }
+
+      function onOrientationChange() {
+        var checkedRadio = document.querySelector(
+          'input[name="orientation"]:checked'
+        );
+        isHorizontal = checkedRadio.value == "horizontal";
+        rotateFn = isHorizontal ? "rotateY" : "rotateX";
+        changeCarousel();
+      }
+
+      // set initials
+      onOrientationChange();
+    </script>
+  </body>
+</html>
