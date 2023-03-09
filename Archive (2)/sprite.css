@@ -5,165 +5,96 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+.container_test {
+  flex-basis: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 1200px;
+  height: 200px;
+  gap: 10px;
+  border: 2px solid black;
+  position: relative;
+}
+.container_test::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: azure;
+  z-index: -1;
+  opacity: 0.3;
+}
 
-/* providers icons */
+.test {
+  /* background: green; */
+  width: 164px;
+  border: 1px solid rgb(255, 255, 255);
+  overflow: hidden;
+  height: 65px;
+}
+.test img {
+  background-color: rgb(59, 59, 59);
+  height: 3200px;
+  position: relative;
+  left: 0px;
+  width: fit-content;
+}
+
+.test .providersamatic {
+  top: 0px;
+}
+
+.test .providershacksaw {
+  top: -57px;
+}
+
+.test .providersbetsoft {
+  top: -114px;
+}
+
+.test .providersblueprint {
+  top: -166px;
+}
+
+.test .providersbooming-games {
+  top: -221px;
+}
+.test .providersevolution {
+  top: -280px;
+}
+.test .providerseyecon {
+  top: -334px;
+}
+.test .providerszitro {
+  top: -386px;
+}
+.test .providersgameart {
+  top: -427px;
+}
+
+.test .providersrfranco {
+  top: -477px;
+}
+.test .providersgamingone {
+  top: -670px;
+}
+
 ._prov {
-  max-width: 184px;
-  background-size: cover !important;
-  --height: 5400; /* enter new pixel width here when adding logos!!! */
-
-  background: #000;
-  background: url("sprite-SPAIN_march2023.png") 0px -2px;
-}
-/* .bg-sprite_SPAIN_march2023 {
-    width: 184px; height: 2400px;
-    background: url('css_sprites.png') -2px -2px;
-} */
-
-.providersamatic {
-  background-position: 0 calc(2400 / (var(--height)) * 0.2%);
-}
-
-.providershacksaw {
-  background-position: 0 calc(2400 / (var(--height)) * 3%);
-}
-
-.providersbetsoft {
-  background-position: 0 calc(2400 / (var(--height)) * 6%);
-}
-
-.providersblueprint {
-  background-position: 0 calc(2400 / (var(--height)) * 8.6%);
-}
-
-.providersbooming-games {
-  background-position: 0 calc(2400 / (var(--height)) * 11.5%);
-}
-
-.providersevolution {
-  background-position: 0 calc(2400 / (var(--height)) * 14.5%);
-}
-
-.providerseyecon {
-  background-position: 0 calc(2400 / (var(--height)) * 17.4%);
-}
-
-.providerszitro {
-  background-position: 0 calc(2400 / (var(--height)) * 20%);
-}
-
-.providersgameart {
-  background-position: 0 calc(2400 / (var(--height)) * 22%);
-}
-
-.providersrfranco {
-  background-position: 0 calc(2400 / (var(--height)) * 24.6%);
-}
-
-.providersgamingone {
-  background-position: 0 calc(2400 / (var(--height)) * 27.5%);
-}
-
-.providerseurasian {
-  background-position: 0 calc(2400 / (var(--height)) * 30.2%);
-}
-
-.providersspinberry {
-  background-position: 0 calc(2400 / (var(--height)) * 33.4%);
-}
-
-.providersmerkur {
-  background-position: 0 calc(2400 / (var(--height)) * 36.5%);
-}
-
-.providersnolimit {
-  background-position: 0 calc(2400 / (var(--height)) * 39.5%);
-}
-
-.providers1x2 {
-  background-position: 0 calc(2400 / (var(--height)) * 42.5%);
-}
-
-.providersrelax {
-  background-position: 0 calc(2400 / (var(--height)) * 45.6%);
-}
-
-.providersamusnet {
-  background-position: 0 calc(2400 / (var(--height)) * 48.5%);
-}
-
-.providersspribe {
-  background-position: 0 calc(2400 / (var(--height)) * 51.3%);
-}
-
-.providersinspired {
-  background-position: 0 calc(2400 / (var(--height)) * 54%);
-}
-
-.providersgamesglobal {
-  background-position: 0 calc(2400 / (var(--height)) * 56.4%);
-}
-
-.providersskywind {
-  background-position: 0 calc(2400 / (var(--height)) * 59%);
-}
-
-.providerssynot {
-  background-position: 0 calc(2400 / (var(--height)) * 61.3%);
-}
-
-.providerswazdan {
-  background-position: 0 calc(2400 / (var(--height)) * 63.5%);
-}
-
-.providersisoftbet {
-  background-position: 0 calc(2400 / (var(--height)) * 65.6%);
-}
-
-.providerspragmaticplay {
-  background-position: 0 calc(2400 / (var(--height)) * 68.3%);
-}
-
-.providersleander {
-  background-position: 0 calc(2400 / (var(--height)) * 71.1%);
-}
-
-.providersmga {
-  background-position: 0 calc(2400 / (var(--height)) * 74%);
-}
-
-.providersnetent {
-  background-position: 0 calc(2400 / (var(--height)) * 77%);
-}
-
-.providersplayngo {
-  background-position: 0 calc(2400 / (var(--height)) * 79.7%);
-}
-
-.providersplayson {
-  background-position: 0 calc(2400 / (var(--height)) * 82.3%);
-}
-
-.providersgreentube {
-  background-position: 0 calc(2400 / (var(--height)) * 84.6%);
-}
-
-.providerspariplay {
-  background-position: 0 calc(2400 / (var(--height)) * 87.1%);
-}
-
-.providersredrake {
-  background-position: 0 calc(2400 / (var(--height)) * 90.1%);
-}
-
-.providersthunderkick {
-  background-position: 0 calc(2400 / (var(--height)) * 93.1%);
-}
-
-.providersyggdrasil {
-  background-position: 0 calc(2400 / (var(--height)) * 95.7%);
-}
-
-.providersoryx {
-  background-position: 0 calc(2400 / (var(--height)) * 98.3%);
+  width: fit-content;
+  /* max-width: 100%; */
+  background-size: contain !important;
+  position: relative;
+  /* background: #000; */
+  background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
 }
