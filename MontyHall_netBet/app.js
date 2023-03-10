@@ -86,7 +86,7 @@ function retriveData() {
     };
     request.open(
         "GET",
-        "https://casino-promo.netbet.ro/scripts/api/space/getcode.php"
+        "############# api link"
     );
     request.send();
 }
@@ -533,7 +533,7 @@ function makeInput() {
         let xhr = new XMLHttpRequest();
         xhr.open(
             "POST",
-            "https://casino-promo.netbet.ro/scripts/api/space/setcode.php"
+            "###api link send data"
         );
         xhr.setRequestHeader("Accept", "application/json");
         xhr.setRequestHeader("Content-Type", "application/json");
@@ -550,7 +550,7 @@ function makeInput() {
 
         let details_send =
             `{"email": "` + emailValue + `","code": "` + largeCode + `"}`;
-        var registrationVersion = "https://api.netbet.ro/auth/";
+        var registrationVersion = "#auth";
         var registrationRedirectionUrl1 = `{/literal}{$link}{literal}&bonuscode=${largeCode}`;
 
         xhr.send(details_send);
@@ -587,7 +587,7 @@ function makeInput() {
     });
 }
 
-var registrationVersion = "https://api.netbet.ro/auth/";
+var registrationVersion = "#auth";
 var registrationRedirectionUrl1 = "{/literal}{$link}{literal}";
 
 
