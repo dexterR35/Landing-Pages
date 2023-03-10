@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* fara body */
+/* remove body*/
 body {
   display: flex;
   height: 100vh;
@@ -35,7 +35,7 @@ body {
   background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
   
 }
-
+/* optional  */
 ._parent_img {
   max-width: 184px;
   width: 184px;
@@ -43,8 +43,11 @@ body {
   overflow: hidden;
   height: fit-content;
   background-color: rgb(59, 59, 59);
-  /* aspect-ratio: 92/29;  pentru fit->img in div */
+  aspect-ratio: 92/29; 
 }
+
+
+
 
 ._parent_img .providersamatic {
   background-position-y: -9px;
