@@ -14,17 +14,17 @@ body {
   justify-content: center;
   background-color: #333;
 }
+/* optional  */
 .container_parent_img {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  max-width: 1200px;
-  height: fit-content;
+  /* max-width: 1200px;
+  height: fit-content; */
   gap: 10px;
   border: 1px solid red;
-  position: relative;
   padding: 1em;
 }
 
@@ -32,7 +32,7 @@ body {
   width: fit-content;
   background-size: cover !important;
   position: relative;
-  background: url("sprite-SPAIN_march2023-V2.png") no-repeat;
+  background: url("sprite-SPAIN_march2023-V3.png") no-repeat;
   
 }
 /* optional  */
