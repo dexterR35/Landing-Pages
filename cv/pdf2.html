@@ -1,328 +1,451 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Rozha+One&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-      *,
-      *::after,
-      *::before {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
 
-      /***  font-family: 'Rozha One', serif;  smoke**/
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/easy-pie-chart/2.1.6/jquery.easypiechart.min.js"></script>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Rozha+One&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Ultra&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-      :root {
-        --fontSize: calc((1vw + 1vh) / 1.8);
+    @font-face {
+      font-family: "oldSchool";
+      src: url("./fonts/norland/NorlandVintage-2OdJv.ttf");
+    }
 
-        --fontSizeH2: calc((1vw + 1vh) / 2);
-      }
+    @font-face {
+      font-family: "70s_vitagne";
+      src: url("./fonts/70sdisco/70s.otf");
+    }
 
-      html,
-      body {
-        background-color: #e0e0e0;
-        /* width: 260mm;
+    @font-face {
+      font-family: "cecha_bold";
+      src: url("./fonts/cacha/cecha.ttf");
+    }
+
+    @font-face {
+      font-family: "sarkowik";
+      src: url("./fonts/sarkowik/Sarkowik-K7v9y.ttf");
+    }
+
+    @font-face {
+      font-family: "texastCrust";
+      src: url("./fonts/texascrust/texastCrust.ttf");
+    }
+
+    @font-face {
+      font-family: "franchise";
+      src: url("./fonts/franchise/FranchiseFilledRegular-4BLZ9.ttf");
+    }
+
+    @font-face {
+      font-family: "FontasticBeast";
+      src: url("./fonts/fontastic/FontasticBeast-O7do.otf");
+    }
+
+    @font-face {
+      font-family: "crossroads";
+      src: url("./fonts/crossroads/CrossroadsPersonalUseRegular-owql0.ttf");
+    }
+
+    @font-face {
+      font-family: "signature";
+      src: url("./fonts/creattion/Creattion\ Demo.otf");
+    }
+
+    @font-face {
+      font-family: "rockit";
+      src: url("./fonts/rockit/Rockit.ttf");
+    }
+
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /***  font-family: 'Rozha One', serif;  smoke**/
+
+    :root {
+      --fontSize: calc((1vw + 1vh) / 1.8);
+
+      --fontSizeH2: calc((1vw + 1vh) / 2);
+    }
+.inline-flex {
+  display: flex;
+}
+.flex_links {
+  display: flex;
+  justify-content: space-between;}
+    .itemBox0 {
+      /* font-weight: bold !important; */
+      font-size: 2.75em !important;
+      font-family: "cecha_bold", sans-serif !important;
+      clear: both;
+    }
+
+    .checa_font {
+      font-family: "cecha_bold", sans-serif !important;
+    }
+
+    .fantasticBeast_font {
+      font-family: "FontasticBeast", sans-serif !important;
+      font-weight: bold;
+    }
+
+    .itemBox0 p:nth-child(1) {
+      /* float: right; */
+      font-size: 0.5em;
+      margin: 0 5px;
+      text-align: center !important;
+    }
+
+    .itemBox-0 h2 {
+      font-family: "70s_vitagne", sans-serif !important;
+      font-size: 2.1em !important;
+    }
+
+    .cv_welcome {
+      font-family: "franchise", sans-serif !important;
+    }
+
+    .cv_aboutMe_text {
+      /* font-family:"crossroads", sans-serif !important  ; */
+    }
+
+    .itemBox_first_line {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+
+    html,
+    body {
+      background-color: #e0e0e0;
+      /* width: 260mm;
         height: 100%; */
-        font-family: "Montserrat", sans-serif;
-        margin: 0 auto;
-      }
-      /* .cv_wrapper {
+      font-family: "Montserrat", sans-serif;
+      margin: 0 auto;
+    }
+
+    /* .cv_wrapper {
         width: 260mm;
         height: 100%;
         background-color: red;
       } */
 
-      .left-grid-container.left-box._box,
-      .center-grid-container.center-box._box {
-        border-right: 1px solid black;
-      }
-      .grid-container-middle,
-      .grid-container-footer {
-        border-bottom: 1px solid black;
-      }
-      /***   smoke**/
-      #smoke {
-        position: absolute;
-        z-index: 3;
-        width: 1px;
-        top: 60%;
-        /* height: 160px; */
-        left: 33%;
-        /* bottom: 30px; */
-        transform: rotate(326deg);
+    .left-grid-container.left-box._box,
+    .center-grid-container.center-box._box {
+      border-right: 1px solid black;
+    }
+
+    .grid-container-middle,
+    .grid-container-footer {
+      border-bottom: 1px solid black;
+    }
+
+    /***   smoke**/
+    #smoke {
+      position: absolute;
+      z-index: 3;
+      width: 1px;
+      top: 60%;
+      /* height: 160px; */
+      left: 33%;
+      /* bottom: 30px; */
+      transform: rotate(326deg);
+    }
+
+    /* smoke balls */
+
+    #smoke span {
+      display: block;
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      margin-left: -20px;
+      height: 0px;
+      width: 0px;
+      border: 35px solid rgba(187, 187, 187, 0.548);
+      border-radius: 35px;
+      left: -14px;
+      opacity: 0;
+      transform: scale(0.2);
+    }
+
+    /* Smoke animation */
+
+    @keyframes smokeL {
+      0% {
+        transform: scale(0.2) translate(0, 0);
       }
 
-      /* smoke balls */
+      10% {
+        opacity: 1;
+        transform: scale(0.2) translate(0, -5px);
+      }
 
-      #smoke span {
-        display: block;
-        position: absolute;
-        bottom: -35px;
-        left: 50%;
-        margin-left: -20px;
-        height: 0px;
-        width: 0px;
-        border: 35px solid rgba(187, 187, 187, 0.548);
-        border-radius: 35px;
-        left: -14px;
+      100% {
         opacity: 0;
-        transform: scale(0.2);
+        transform: scale(1) translate(-20px, -130px);
+      }
+    }
+
+    @keyframes smokeR {
+      0% {
+        transform: scale(0.2) translate(0, 0);
       }
 
-      /* Smoke animation */
-
-      @keyframes smokeL {
-        0% {
-          transform: scale(0.2) translate(0, 0);
-        }
-
-        10% {
-          opacity: 1;
-          transform: scale(0.2) translate(0, -5px);
-        }
-
-        100% {
-          opacity: 0;
-          transform: scale(1) translate(-20px, -130px);
-        }
+      10% {
+        opacity: 1;
+        transform: scale(0.2) translate(0, -5px);
       }
 
-      @keyframes smokeR {
-        0% {
-          transform: scale(0.2) translate(0, 0);
-        }
-
-        10% {
-          opacity: 1;
-          transform: scale(0.2) translate(0, -5px);
-        }
-
-        100% {
-          opacity: 0;
-          transform: scale(1) translate(20px, -130px);
-        }
+      100% {
+        opacity: 0;
+        transform: scale(1) translate(20px, -130px);
       }
+    }
 
-      #smoke .s0 {
-        animation: smokeL 10s 0s infinite;
-      }
+    #smoke .s0 {
+      animation: smokeL 10s 0s infinite;
+    }
 
-      #smoke .s1 {
-        animation: smokeR 10s 1s infinite;
-      }
+    #smoke .s1 {
+      animation: smokeR 10s 1s infinite;
+    }
 
-      #smoke .s2 {
-        animation: smokeL 10s 2s infinite;
-      }
+    #smoke .s2 {
+      animation: smokeL 10s 2s infinite;
+    }
 
-      #smoke .s3 {
-        animation: smokeR 10s 3s infinite;
-      }
+    #smoke .s3 {
+      animation: smokeR 10s 3s infinite;
+    }
 
-      #smoke .s4 {
-        animation: smokeL 10s 4s infinite;
-      }
+    #smoke .s4 {
+      animation: smokeL 10s 4s infinite;
+    }
 
-      #smoke .s5 {
-        animation: smokeR 10s 5s infinite;
-      }
+    #smoke .s5 {
+      animation: smokeR 10s 5s infinite;
+    }
 
-      #smoke .s6 {
-        animation: smokeL 10s 6s infinite;
-      }
+    #smoke .s6 {
+      animation: smokeL 10s 6s infinite;
+    }
 
-      #smoke .s7 {
-        animation: smokeR 10s 7s infinite;
-      }
+    #smoke .s7 {
+      animation: smokeR 10s 7s infinite;
+    }
 
-      #smoke .s8 {
-        animation: smokeL 10s 8s infinite;
-      }
+    #smoke .s8 {
+      animation: smokeL 10s 8s infinite;
+    }
 
-      #smoke .s9 {
-        animation: smokeR 10s 9s infinite;
-      }
+    #smoke .s9 {
+      animation: smokeR 10s 9s infinite;
+    }
 
-      .cv_wrapper {
-        width: 255mm;
-        max-height: 365mm;
-        margin: 0.5mm auto;
-        page-break-after: always;
-        z-index: 1;
-        position: relative;
-        /* overflow: hidden; */
-      }
+    .cv_wrapper {
+      width: 255mm;
+      max-height: 365mm;
+      margin: 0.5mm auto;
+      page-break-after: always;
+      z-index: 1;
+      position: relative;
+      /* overflow: hidden; */
+    }
 
-      .cv_wrapper::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
-        background: #fffef0;
-        opacity: 0.7;
-        z-index: -2;
-      }
+    .cv_wrapper::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: 2px 3px 20px black, 0 0 125px #8f5922 inset;
+      background: #fffef0;
+      opacity: 0.7;
+      z-index: -2;
+    }
 
-      .cv_wrapper::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* transform: scale(1.05); */
-        background-image: url(./assets/papper2.webp);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size:103%;
-        opacity: 0.8;
-        z-index: -1;
-      }
+    .cv_wrapper::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* transform: scale(1.05); */
+      background-image: url(./assets/papper2.webp);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 103%;
+      opacity: 0.8;
+      z-index: -1;
+    }
 
-      .grid-container {
-        padding: 10px;
-        display: block;
-      }
+    .grid-container {
+      padding: 10px;
+      display: block;
+    }
 
-      .cv_line1 {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-      }
+    .cv_line1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
 
-      .itemBox-0 {
-        text-align: center;
-        margin: 0 auto;
-      }
+    .itemBox-0 {
+      text-align: center;
+      margin: 0 auto;
+    }
 
-      .grid-container-middle {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        flex-wrap: nowrap;
-        gap: 5px;
-      }
+    .grid-container-middle {
+  
+      width: 100%;
+ 
+      /* gap: 5px; */
 
-      .left-grid-container {
-        text-align: start;
-        width: 260px;
-        max-width: 260px;
-      }
+      display: grid;
+grid-template-columns: repeat(9, 1fr);
+grid-template-rows: repeat(9, 1fr);
+grid-column-gap: 2px;
+grid-row-gap: 2px;
+    }
 
-      .center-grid-container {
-        max-width: 450px;
-        width: 450px;
-      }
+    .parent {
+display: grid;
+grid-template-columns: repeat(9, 1fr);
+grid-template-rows: repeat(9, 1fr);
+grid-column-gap: 2px;
+grid-row-gap: 2px;
+}
 
-      .right-grid-container {
-        width: 260px;
-        max-width: 260px;
-      }
+.div1 { grid-area: 6 / 3 / 10 / 6; }
+.div2 { grid-area: 3 / 3 / 6 / 8; }
+.div3 { grid-area: 7 / 6 / 10 / 10; }
+.div4 { grid-area: 6 / 6 / 7 / 8; }
+.div5 { grid-area: 1 / 1 / 10 / 3; }
+.div6 { grid-area: 1 / 8 / 7 / 10; }
+.div7 { grid-area: 1 / 3 / 3 / 7; }
+.div8 { grid-area: 1 / 7 / 3 / 8; }
 
-      .itemBox0 {
-        letter-spacing: 0.1px;
-        font-weight: 100;
-        border-top: 3px solid black;
-        border-bottom: 3px solid black;
-        font-size: 2em;
-        padding: 15px 0px;
-        text-transform: uppercase;
-        text-align: center;
-        line-height: 1;
-        font-family: "Rozha One", serif;
-        /* font-family: 'DM Serif Text', serif; */
-      }
+    .left-grid-container {
+      text-align: start;
+      width: 260px;
+      max-width: 260px;
+    }
 
-      ._box {
-        /* background-color: crimson; */
-        padding: 10px;
-        /* margin: 0 auto; */
-      }
+    .center-grid-container {
+      max-width: 450px;
+      width: 450px;
+    }
 
-      .cv_welcome {
-        font-size: 5em;
-        font-weight: 600;
-      }
+    .right-grid-container {
+      width: 260px;
+      max-width: 260px;
+    }
 
-      .cv_line1 {
-        border-top: 1px solid #131313;
-      }
+    .itemBox0 {
+      letter-spacing: 2px;
+      font-weight: 100;
+      border-top: 5px solid black;
+      border-bottom: 5px solid black;
+      padding: 6px 0px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1;
+    }
 
-      .cv_aboutMe_text {
-        font-size: var(--fontSizeSmall);
-        word-break: break-all;
-        text-align: start;
-        padding: 5px 20px;
-      }
+    ._box {
+      /* background-color: crimson; */
+      padding: 10px;
+      /* margin: 0 auto; */
+    }
 
-      .itemBox1 {
-        background-image: url(./assets/selfportrait3.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 200px;
-        z-index: 213;
-        transition: 0.5s ease;
-      }
+    .cv_welcome {
+      font-size: 5em;
+      font-weight: 600;
+    }
 
-      .itemBox1:hover,
-      .itemBox5:hover {
-        background-color: #9b622960;
-        box-shadow: 0 0 5px 0 grey;
-        transition: ease 1s;
-      }
+    .cv_line1 {
+      border-top: 1px solid #131313;
+    }
 
-      .itemBox3 {
-        height: auto;
-      }
+    .cv_aboutMe_text {
+      font-size: var(--fontSizeSmall);
+      word-break: break-all;
+      text-align: start;
+      padding: 5px 20px;
+    }
 
-      .cv_section1_box h2 {
-        text-align: start;
-        text-transform: uppercase;
-        font-size: calc(var(--fontSizeH2) * 1.62);
-        font-weight: 700;
-        padding: 0px !important;
-        margin-top: -5px;
-      }
+    .itemBox1 {
+      background-image: url(./assets/selfportrait3.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 100%;
+      height: 200px;
+      z-index: 213;
+      transition: 0.5s ease;
+    }
 
-      .cv_character {
-        margin-top: 5px;
-        margin-bottom: 5px;
-      }
+    .itemBox1:hover,
+    .itemBox5:hover {
+      background-color: #9b622960;
+      box-shadow: 0 0 5px 0 grey;
+      transition: ease 1s;
+    }
 
-      .cv_character > p,
-      .cv_education div > p,
-      .cv_textBox4 > p {
-        font-weight: 500;
-      }
+    .itemBox3 {
+      height: auto;
+    }
 
-      .cv_education {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        position: relative;
-      }
-      .cv_education div {
-        margin-top: -5px;
-      }
-      .cv_education div > p:first-child {
-        font-size: calc(var(--fontSizeSmall) * 1.07);
-        font-weight: 600;
-      }
+    .cv_section1_box h2 {
+      text-align: start;
+      text-transform: uppercase;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 0px !important;
+      margin-top: -5px;
+    }
 
-      /* 
+    .cv_character {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .cv_character>p,
+    .cv_education div>p,
+    .cv_textBox4>p {
+      font-weight: 500;
+    }
+
+    .cv_education {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+
+    .cv_education div {
+      margin-top: -5px;
+    }
+
+    .cv_education div>p:first-child {
+      font-size: calc(var(--fontSizeSmall) * 1.07);
+      font-weight: 600;
+    }
+
+    /* 
         .cv_education h2::after {
             content: "ROMANIA";
             position: absolute;
@@ -332,87 +455,99 @@
 
         } */
 
-      .itemBox4 {
-        height: auto;
+    .itemBox4 {
+      height: auto;
 
-        margin-bottom: 10px;
-      }
+      margin-bottom: 10px;
+    }
 
-      .cv_textBox4 > p {
-        word-break: break-all;
-        text-align: justify;
-      }
+    .cv_textBox4>p {
+      word-break: break-all;
+      text-align: justify;
+    }
 
-      .cv_textBox4 > p:first-letter {
-        float: left;
-        font-size: 6rem;
-        line-height: 0.55;
-        margin: 8px 8px 8px -8px;
-      }
+    .cv_textBox4>p:first-letter {
+      float: left;
+      font-size: 6rem;
+      line-height: 0.55;
+      margin: 8px 8px 8px -8px;
+    }
 
-      .itemBox5 {
-        padding: 0px 0px 25px 0px;
-        border-bottom: 1px solid rgb(94, 94, 94);
-      }
+    .itemBox5 {
+      padding: 0px 0px 25px 0px;
+      border-bottom: 1px solid rgb(94, 94, 94);
+    }
 
-      .dev_main {
-        width: 100%;
-        margin: 0 auto;
-      }
+    .dev_main {
+      width: 100%;
+      margin: 0 auto;
+    }
 
-      .dev_progress {
-        margin: 1px 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: start;
-      }
+    .dev_progress {
+      /* margin: 1px 0; */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: start;
+      position: relative;
+      gap: 7px;
+    }
 
-      .dev_title {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2px;
-      }
+    .dev_title {
+      display: flex;
+      justify-content: space-between;
+      /* margin-bottom: 2px; */
+    }
 
-      .dev_title h3 {
-        font-size: var(--fontSize);
-        text-transform: capitalize;
-        font-weight: 500;
-      }
+    .dev_title h3 {
+      font-size: 10px;
+      text-transform: capitalize;
+      font-weight: 600;
+      position: absolute;
+      left: -6px;
+      top: 12px;
+      text-align: end;
+      width: 100%;
+      color: white;
+    }
 
-      .dev_barline {
-        width: 100%;
-        background: #999999;
-        border-radius: 2px;
-      }
+    .dev_barline {
+      width: 100%;
+      background: #333;
+      border-radius: 2px;
+    }
 
-      .dev_countbar,
-      .dev_barline {
-        height: 13px;
-        margin-bottom: 10px;
-      }
+    .dev_countbar,
+    .dev_barline {
+      height: 25px;
+      /* margin-bottom: 4px; */
+    }
 
-      .dev_countbar {
-        box-shadow: 0px 0px 3px 0px #333333;
-        background: #cf1616;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        position: relative;
-      }
+    .dev_barline {
+      /* border: 1px solid black; */
+    }
 
-      .dev_countbar h3 {
-        position: absolute;
-        right: 5px;
-        top: -6.5px;
-        font-size: 14px;
-        /* background: #34495e; */
-        padding: 4px 6px;
-        font-weight: 300;
-        border-radius: 2px;
-        color: rgb(230, 230, 230);
-      }
+    .dev_countbar {
+      /* box-shadow: 0px 0px 3px 0px #9999; */
+      background: #131313;
+      position: relative;
+      /* border: 1px solid white; */
+      display: flex;
+      align-items: center;
+    }
 
-      /* .dev_countbar h3::after {
+    .dev_countbar h3 {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      font-size: 14px;
+      /* background: #34495e; */
+      padding: 4px 6px;
+      font-weight: 500;
+      color: azure;
+    }
+
+    /* .dev_countbar h3::after {
             content: "";
             position: absolute;
             bottom: -10px;
@@ -424,589 +559,644 @@
             transform: rotate(45deg) translateX(-60%);
         } */
 
-      /***********dek skills shape**************/
-      .itemBox6 {
-        display: block;
-        padding: 10px 0;
-        border-bottom: 1px solid rgb(94, 94, 94);
-      }
+    /***********dek skills shape**************/
+    .itemBox6 {
+      display: block;
+      padding: 10px 0;
+      border-bottom: 1px solid rgb(94, 94, 94);
+    }
 
-      .itemBox6 p {
-        padding: 10px 0 5px 0;
-      }
-      .itemBox5 h2 {
-        font-size: 37px;
-        font-weight: 800;
-        background: #333;
-        color: azure;
-        padding: 11px;
-        margin-top: 10px;
-        text-transform: uppercase;
-      }
-      .dev_shape_skills {
-        text-align: center;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        height: 100%;
-        position: relative;
-        width: 100%;
-      }
+    .itemBox6 p {
+      padding: 10px 0 5px 0;
+    }
 
-      .skills-shape {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
-      .chart {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .chart::before {
-        content: "" attr(data-percent) "%";
-        position: absolute;
+    .itemBox5 h2 {
+      font-size: 37px;
+      font-weight: 800;
+      background: #333;
+      color: azure;
+      padding: 11px;
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
 
-        text-align: center;
+    .dev_shape_skills {
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      height: 100%;
+      position: relative;
+      width: 100%;
+    }
 
-        animation: percent 1.5s ease forwards;
+    .skills-shape {
+      position: relative;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .chart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chart::before {
+      content: ""attr(data-percent) "%";
+      position: absolute;
+
+      text-align: center;
+
+      animation: percent 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes percent {
+      from {
         opacity: 0;
       }
 
-      @keyframes percent {
-        from {
-          opacity: 0;
-        }
+      to {
+        opacity: 1;
+      }
+    }
 
-        to {
-          opacity: 1;
-        }
-      }
+    /***********end dek skills shape**************/
+    .artisticSkills {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-      /***********end dek skills shape**************/
-      .artisticSkills {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .itemBox7 {
-        border: 1px dotted black;
-        margin-top: 10px;
-        padding: 5px;
-      }
-      .textBlock {
-        margin-bottom: 10px;
-        margin-top: 10px;
-        word-break: break-all;
-      }
-      .textBlock:nth-child(2) {
-        margin-bottom: 10px;
-        margin-top: 0px;
-      }
-      .artisticSkills h2 {
-        font-size: 2.2em;
-        height: -webkit-fill-available;
-      }
-      .blocksSkills {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-        width: 100%;
-        height: 18vh;
-        justify-content: center;
-        border: 1px solid black;
-        overflow: hidden;
-      }
-      .blocksSkills .block {
-        width: 30px;
-        height: 50px;
-        background: black;
-        margin-left: 4px;
-        position: relative;
-      }
-      .blocksSkills .block::before {
-        content: "";
-        position: absolute;
-        top: 10px;
-        left: 0;
-        width: 15px;
-        height: 120px;
-        background-color: rgb(80, 80, 80);
-      }
-      .blocksSkills .block::after {
-        content: "30%";
-        position: absolute;
-        top: -18px;
-        left: 2px;
-        text-align: center;
-        color: black;
-        width: 15px;
-        height: 12px;
-        font-weight: 500;
-        font-size: 14px;
-      }
-      .block0 {
-        height: 10px !important;
-      }
-      .block1 {
-        height: 30px !important;
-      }
-      .block2 {
-        height: 70px !important;
-      }
-      .block3 {
-        height: 40px !important;
-      }
-      .block4 {
-        height: 90px !important;
-      }
-      .block5 {
-        height: 30px !important;
-      }
-      .block6 {
-        height: 20px !important;
-      }
-      .block7 {
-        height: 60px !important;
-      }
-      .block8 {
-        height: 90px !important;
-      }
-      .block9 {
-        height: 120px !important;
-      }
-      /*****box 9*****/
-      .itemBox8 h2 {
-        float: left;
-        margin-right: 20px;
-      }
-      .itemBox8 {
-        height: 50px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 10px 0;
-      }
-      .romana-lang,
-      .engleza-lang {
-        width: 80px;
-        height: 40px;
-        display: flex;
-        flex-direction: row;
-        overflow: hidden;
-      }
+    .itemBox7 {
+      border: 1px dotted black;
+      margin-top: 10px;
+      padding: 5px;
+    }
 
-      .shape-flag {
-        width: 30px;
-        height: 40px;
-      }
+    .textBlock {
+      margin-bottom: 10px;
+      margin-top: 10px;
+      word-break: break-all;
+    }
 
-      .lang-cv {
-        display: flex;
-        gap: 40px;
-        justify-content: center;
-        position: relative;
-      }
+    .textBlock:nth-child(2) {
+      margin-bottom: 10px;
+      margin-top: 0px;
+    }
 
-      .section9 {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
+    .artisticSkills h2 {
+      font-size: 2.2em;
+      height: -webkit-fill-available;
+    }
 
-      /*****end  box 9*****/
+    .blocksSkills {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      width: 100%;
+      height: 18vh;
+      justify-content: center;
+      border: 1px solid black;
+      overflow: hidden;
+    }
 
-      /*******engleza-lang******/
+    .blocksSkills .block {
+      width: 30px;
+      height: 50px;
+      background: black;
+      margin-left: 4px;
+      position: relative;
+    }
 
-      .engleza-lang {
-        background-color: blue;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        z-index: 23;
-      }
+    .blocksSkills .block::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 15px;
+      height: 120px;
+      background-color: rgb(80, 80, 80);
+    }
 
-      .first-line-flag {
-        background-color: red;
-        width: 100%;
-        height: 8px;
-        border: 1.8px solid white;
-        z-index: 4;
-      }
+    .blocksSkills .block::after {
+      content: "30%";
+      position: absolute;
+      top: -18px;
+      left: 2px;
+      text-align: center;
+      color: black;
+      width: 15px;
+      height: 12px;
+      font-weight: 500;
+      font-size: 14px;
+    }
 
-      .second-line-flag {
-        background-color: red;
-        width: 95%;
-        height: 8px;
-        transform: rotate(90deg);
-        position: absolute;
-        border: 1.8px solid white;
-        z-index: 2;
-      }
+    .block0 {
+      height: 10px !important;
+    }
 
-      .third-line-flag {
-        background-color: red;
-        width: 120%;
-        height: 8px;
-        transform: rotate(25deg);
-        position: absolute;
-        border: 1.8px solid white;
-      }
+    .block0::after {
+      content: "ps";
+      position: absolute;
+      left: 0;
+      left: 0;
 
-      .four-line-flag {
-        background-color: red;
-        width: 120%;
-        height: 8px;
-        transform: rotate(-25deg);
-        position: absolute;
-        border: 1.8px solid white;
-      }
+      width: 100%;
+      height: 100%;
+    }
 
-      /*******engleza-lang******/
+    .block1 {
+      height: 30px !important;
+    }
 
-      /*artistic skills*/
+    .block2 {
+      height: 70px !important;
+    }
 
-      .adobe-icons {
-        width: 48px;
-        height: 48px;
-        background: #001d34;
-        border-radius: 0.7em;
-        display: flex;
-        box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
-      }
+    .block3 {
+      height: 40px !important;
+    }
 
-      .adobe-icons > div {
-        margin: auto;
-        font-size: 1.3em;
-        font-family: "Open Sans Condensed", sans-serif;
-        font-weight: 700;
-        color: #1c9cff;
-        transform: scaleY(1.1);
-        background-color: red;
-      }
+    .block4 {
+      height: 90px !important;
+    }
 
-      .premiere-icon {
-        background: #240832;
-      }
+    .block5 {
+      height: 30px !important;
+    }
 
-      .premiere-icon > div {
-        color: #e373f7;
-      }
+    .block6 {
+      height: 20px !important;
+    }
 
-      .afterEffect-icon {
-        background: #000058;
-      }
+    .block7 {
+      height: 60px !important;
+    }
 
-      .afterEffect-icon > div {
-        color: #9494f7;
-      }
+    .block8 {
+      height: 90px !important;
+    }
 
-      .adobe-xd-icon {
-        background: #450135;
-        border: 5px solid white;
-      }
+    .block9 {
+      height: 120px !important;
+    }
 
-      .adobe-xd-icon > div {
-        color: #f75eee;
-      }
+    /*****box 9*****/
+    .itemBox8 h2 {
+      float: left;
+      margin-right: 20px;
+    }
 
-      .right-artistic {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: start;
-        align-items: center;
-        width: 50%;
-        gap: 5px;
-        position: relative;
-      }
+    .itemBox8 {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 10px 0;
+    }
 
-      .artistic-footer {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        align-items: center;
-        height: -webkit-fill-available;
-      }
+    .romana-lang,
+    .engleza-lang {
+      width: 80px;
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+    }
 
-      .interest-cv {
-        padding: 0px 0 10px 0;
-        border-bottom: 5px solid #343434;
-      }
-    </style>
-  </head>
+    .shape-flag {
+      width: 30px;
+      height: 40px;
+    }
 
-  <body>
-    <div class="cv_wrapper">
-      <button style="position: absolute">donwload CV</button>
-      <div class="grid-container">
-        <div class="grid-container-top itemBox-0">
+    .lang-cv {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      position: relative;
+    }
+
+    .section9 {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /*****end  box 9*****/
+
+    /*******engleza-lang******/
+
+    .engleza-lang {
+      background-color: blue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      z-index: 23;
+    }
+
+    .first-line-flag {
+      background-color: red;
+      width: 100%;
+      height: 8px;
+      border: 1.8px solid white;
+      z-index: 4;
+    }
+
+    .second-line-flag {
+      background-color: red;
+      width: 95%;
+      height: 8px;
+      transform: rotate(90deg);
+      position: absolute;
+      border: 1.8px solid white;
+      z-index: 2;
+    }
+
+    .third-line-flag {
+      background-color: red;
+      width: 120%;
+      height: 8px;
+      transform: rotate(25deg);
+      position: absolute;
+      border: 1.8px solid white;
+    }
+
+    .four-line-flag {
+      background-color: red;
+      width: 120%;
+      height: 8px;
+      transform: rotate(-25deg);
+      position: absolute;
+      border: 1.8px solid white;
+    }
+
+    /*******engleza-lang******/
+
+    /*artistic skills*/
+
+    .adobe-icons {
+      width: 48px;
+      height: 48px;
+      background: #001d34;
+      border-radius: 0.7em;
+      display: flex;
+      box-shadow: 0 2px 5px 2px rgb(0 0 0 / 30%);
+    }
+
+    .adobe-icons>div {
+      margin: auto;
+      font-size: 1.3em;
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: 700;
+      color: #1c9cff;
+      transform: scaleY(1.1);
+      background-color: red;
+    }
+
+    .premiere-icon {
+      background: #240832;
+    }
+
+    .premiere-icon>div {
+      color: #e373f7;
+    }
+
+    .afterEffect-icon {
+      background: #000058;
+    }
+
+    .afterEffect-icon>div {
+      color: #9494f7;
+    }
+
+    .adobe-xd-icon {
+      background: #450135;
+      border: 5px solid white;
+    }
+
+    .adobe-xd-icon>div {
+      color: #f75eee;
+    }
+
+    .right-artistic {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: start;
+      align-items: center;
+      width: 50%;
+      gap: 5px;
+      position: relative;
+    }
+
+    .artistic-footer {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      align-items: center;
+      height: -webkit-fill-available;
+    }
+
+    .interest-cv {
+      padding: 0px 0 10px 0;
+      border-bottom: 5px solid #343434;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cv_wrapper">
+    <button style="position: absolute">donwload CV</button>
+    <div class="grid-container">
+      <div class="grid-container-top itemBox-0">
+        <h2>Lorem isues</h2>
+        <div class="itemBox_first_line fantasticBeast_font">
+          <h4>June/21/1987</h4>
+          <h4 class="checa_font">210687210</h4>
+        </div>
+        <div class="cv_line1">
+          <div class="cv_welcome">HELLO!</div>
+          <div class="cv_aboutMe_text">
+            I started learning front-end development and quickly became
+            passionate about this technology. The more I learned, the more
+            fascinated I became with creating beautiful and functional user
+            interfaces. As I continued to develop my skills, I realized that I
+            wanted to expand my knowledge and become a full-stack developer.
+          </div>
+        </div>
+        <div class="itemBox0">
+          <div>
+            Curiculum Vitae Of Marian Iordache
+            <p>**************** Front-End developer ****************</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-container-middle">
+        <div class="left-grid-container left-box _box">
           <h2>Lorem isues</h2>
-          <div class="cv_line1">
-            <div class="cv_welcome">HELLO!</div>
-            <div class="cv_aboutMe_text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis
-              provident iusto cupiditate incidunt similique repellendus amet
-              consequuntur id ea eveniet id ea eveniet id ea eveniet id ea
-              evenietid ea evenietid ea evenietid ea evenietid ea eveniet.
+          <div class="itemBox1" style="position: relative; overflow: hidden">
+            <div class="cv_picture cv_section1_box">
+              <div id="smoke" class="smokeBox">
+                <span class="s0"></span>
+                <span class="s1"></span>
+                <span class="s2"></span>
+                <span class="s3"></span>
+                <span class="s4"></span>
+                <span class="s5"></span>
+                <span class="s6"></span>
+                <span class="s7"></span>
+                <span class="s8"></span>
+                <span class="s9"></span>
+              </div>
             </div>
           </div>
-          <div class="itemBox0">
-            <div>
-              Curiculum Vitae Of Marian Iordache,
-              <span>Front-End developer</span>
+          <div class="itemBox2">
+            <div class="cv_character cv_section1_box">
+              <p>
+                Open minded, calm, clean1, organized, interested, 12345,
+                motivated, intelligent, 12456
+              </p>
+            </div>
+          </div>
+
+          <div class="itemBox4">
+            <div class="cv_textBox4 cv_section1_box">
+              <p>
+                Growing up I've always been drawn to technology and design,
+                but it wasn't until I discovered front-end development that I
+                found my true passion. The power of shaping the user
+                experience through design elements like colors, typography,
+                and interactivity captivated me. During the pandemic, I
+                decided to use my time productively and started learning HTML
+                and CSS. However, as I was studying these technologies, I knew
+                there was more to learn. Soon after, I discovered JavaScript
+                and became fascinated with its power and versatility. I spent
+                hours studying the language, working on personal projects, and
+                even taking on freelance work to improve my skills. As I
+                became more comfortable with JavaScript, I knew I was on the
+                right path. I am excited about the opportunities that lie
+                ahead in the front-end development world.
+              </p>
+            </div>
+          </div>
+          <div class="itemBox3"></div>
+
+          <div class="itemBox4-1">
+            <div class="cv_workExp cv_section1_box">
+              <h2>Work Experience</h2>
+              <fieldset>
+                <legend>Videographer:</legend>
+                <div class="Videographer">
+                  <span>filming <br />
+                    editing video <br />
+                    production</span>
+                </div>
+              </fieldset>
             </div>
           </div>
         </div>
-        <div class="grid-container-middle">
-          <div class="left-grid-container left-box _box">
-            <h2>Lorem isues</h2>
-            <div class="itemBox1" style="position: relative; overflow: hidden">
-              <div class="cv_picture cv_section1_box">
-                <div id="smoke" class="smokeBox">
-                  <span class="s0"></span>
-                  <span class="s1"></span>
-                  <span class="s2"></span>
-                  <span class="s3"></span>
-                  <span class="s4"></span>
-                  <span class="s5"></span>
-                  <span class="s6"></span>
-                  <span class="s7"></span>
-                  <span class="s8"></span>
-                  <span class="s9"></span>
-                </div>
+        <div class="center-grid-container center-box _box">
+          <div class="itemBox6">
+            <h2>Creativity skills</h2>
+            <hr style="width: 100%; height: 4px" />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
+              vero?
+            </p>
+            <div class="dev_shape_skills">
+              <div class="js-skills skills-shape">
+                <div class="chart" data-percent="13"></div>
+                <h3>visual reading</h3>
+              </div>
+              <div class="css-skills skills-shape">
+                <div class="chart" data-percent="23"></div>
+                <h3>problem-solving</h3>
+              </div>
+              <div class="react-skills skills-shape">
+                <div class="chart" data-percent="43"></div>
+                <h3>Imagination</h3>
+              </div>
+              <div class="firebase-skills skills-shape">
+                <div class="chart" data-percent="93"></div>
+                <h3>divergent thinking</h3>
               </div>
             </div>
-            <div class="itemBox2">
-              <div class="cv_character cv_section1_box">
-                <p>
-                  Open minded, organized,interested ,calm, motivated,
-                  intelligent, clean,cleanssss
-                </p>
-              </div>
-            </div>
-
-            <div class="itemBox4">
-              <div class="cv_textBox4 cv_section1_box">
-                <p>
-                  Morem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-                  nulla quae voluptas accusamus, cum voluptate omnis, ab totam
-                  repellat eius, quia aliquam nisi dolor quidem autem veniam
-                  Exercitationem, veniam. Lorem ipsum, dolor sit amet
-                  consectetur adipisicing elit. Beatae sunt suscipit commodi
-                  assumenda architecto consequatur, deleniti tempora eaque nulla
-                  quas? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Pariatur, numquam. Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Nostrum, laborum! Lorem ipsum
-                </p>
-              </div>
-            </div>
-            <div class="itemBox3">
-              <div class="cv_education cv_section1_box">
-                <h2>Education</h2>
-                <div class="first_education">
-                  <p>Colegiul Tehnic Media</p>
-                  <p>2002-2006</p>
-                  <p>Profil: operator tehnic calcul</p>
-                </div>
-                <div class="second_education">
-                  <p>Universitatea Media Pro</p>
-                  <p>2006-2008</p>
-                  <p>Profil: Regie/Film</p>
-                </div>
-                <div class="third_education">
-                  <p>Scoala informala de IT</p>
-                  <p>04-2019 - 08-2019 <span> Front-End Developer</span></p>
-                  <p>05-2021 - 07-2021 <span> React Js</span></p>
-                  <br />
-                </div>
-              </div>
-            </div>
-
-            <div class="itemBox4-1">
-              <div class="cv_workExp cv_section1_box">
-                <h2>Work Experience</h2>
-                <fieldset>
-                  <legend>Videographer:</legend>
-                  <div class="Videographer">
-                    <span
-                      >filming <br />
-                      editing video <br />
-                      production</span
-                    >
+            <p>
+              With the rapid pace of technological innovation, there are
+              always new skills to learn and exciting new projects to work on.
+              I look forward to continuing to explore new technologies and
+              pushing the boundaries of what is possible with front-end
+              development.
+            </p>
+            <p>Lorem ipsum dolor sit amet consecteturfgggggg</p>
+          </div>
+          <div class="itemBox5">
+            <div class="devSkills">
+              <h2>Developer Skills</h2>
+              <div class="dev_main">
+                <div class="dev_progress">
+                  <div class="dev_title">
+                    <h3>HTML</h3>
                   </div>
-                </fieldset>
+                  <div class="dev_barline">
+                    <div class="dev_countbar" data-percentNumber="89" data-scale-color="#ffb400">
+                      13%
+                    </div>
+                  </div>
+                </div>
+                <div class="dev_progress">
+                  <div class="dev_title">
+                    <h3>CSS</h3>
+                  </div>
+                  <div class="dev_barline">
+                    <div class="dev_countbar" data-percentNumber="79"></div>
+                  </div>
+                </div>
+                <div class="dev_progress">
+                  <div class="dev_title">
+                    <h3>javascript</h3>
+                  </div>
+                  <div class="dev_barline">
+                    <div class="dev_countbar" data-percentNumber="52"></div>
+                  </div>
+                </div>
+                <div class="dev_progress">
+                  <div class="dev_title">
+                    <h3>
+                      <span>in progress.... </span> <span> ReactJs</span>
+                    </h3>
+                  </div>
+                  <div class="dev_barline">
+                    <div class="dev_countbar" data-percentNumber="11"></div>
+                  </div>
+                </div>
+                <div class="dev_progress">
+                  <div class="dev_title">
+                    <h3>Git</h3>
+                  </div>
+                  <div class="dev_barline">
+                    <div class="dev_countbar" data-percentNumber="40"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="center-grid-container center-box _box">
-            <div class="itemBox6">
-              <h2>Creativity skills</h2>
-              <hr style="width: 100%; height: 4px" />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-                vero?
-              </p>
-              <div class="dev_shape_skills">
-                <div class="js-skills skills-shape">
-                  <div class="chart" data-percent="13"></div>
-                  <h3>visual reading</h3>
-                </div>
-                <div class="css-skills skills-shape">
-                  <div class="chart" data-percent="23"></div>
-                  <h3>problem-solving</h3>
-                </div>
-                <div class="react-skills skills-shape">
-                  <div class="chart" data-percent="43"></div>
-                  <h3>Imagination</h3>
-                </div>
-                <div class="firebase-skills skills-shape">
-                  <div class="chart" data-percent="93"></div>
-                  <h3>divergent thinking</h3>
+          <div class="itemBox7">
+            <div class="artisticSkills">
+              <h2>some Stuff</h2>
+              <div class="textBlock">
+                I plan to continue expanding my knowledge and expertise in
+                React.js, using it to build complex and dynamic web
+                applications.
+              </div>
+              <div class="blocksSkills">
+                <div class="block block0">0</div>
+                <div class="block block1">1</div>
+                <div class="block block2">2</div>
+                <div class="block block3">3</div>
+                <div class="block block4">4</div>
+                <div class="block block5">5</div>
+                <div class="block block6">6</div>
+                <div class="block block7">7</div>
+                <div class="block block8">8</div>
+                <div class="block block9">9</div>
+              </div>
+              <div class="textBlock">
+                I am confident that with enough practice, I will become an
+                expert in this library, and I look forward to using it to
+                build amazing projects for clients.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right-grid-container right-box _box">
+          <div class="itemBox9">
+            <div class="section9">
+              <h2>Interested</h2>
+              <div class="interest-cv">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+                sed natus quis nam nostrum dolore reiciendis non magnam
+                perspiciatis libero ad accusantium mollitia laboriosam tenetur
+                cum quibusdam, deleniti quae suscipit.
+              </div>
+              <div class="interest-cv">
+                With the rapid pace of technological innovation, there are
+                always new skills to learn and exciting new projects to work
+                on. I look forward to continuing to explore new technologies
+                and pushing the boundaries of what is possible with front-end
+                development.
+              </div>
+              <div class="interest-cv">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+                sed natus quis nam nostrum dolore reiciendis non magnam
+                perspiciatis libero ad accusantium mollitia laboriosam tenetur
+                cum quibusdam, deleniti quae suscipit.
+              </div>
+              <div class="interest-cv">
+                <div class="cv_education cv_section1_box">
+                  <h2>Education</h2>
+                  <div class="first_education">
+                    <p>Colegiul Tehnic Media</p>
+                    <p>2002-2006</p>
+                    <p>Profil: operator tehnic calcul</p>
+                  </div>
+                  <div class="second_education">
+                    <p>Universitatea Media Pro</p>
+                    <p>2006-2008</p>
+                    <p>Profil: Regie/Film</p>
+                  </div>
+                  <div class="third_education">
+                    <p>Scoala informala de IT</p>
+                    <p>04-2019 - 08-2019 <span> Front-End Developer</span></p>
+                    <p>05-2021 - 07-2021 <span> React Js</span></p>
+                  </div>
                 </div>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-                vero?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-                vero?
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo,
-                vero?
-              </p>
-            </div>
-            <div class="itemBox5">
-              <div class="devSkills">
-                <h2>Developer Skills</h2>
-                <div class="dev_main">
-                  <div class="dev_progress">
-                    <div class="dev_title">
-                      <h3>HTML</h3>
-                    </div>
-                    <div class="dev_barline">
-                      <div
-                        class="dev_countbar"
-                        data-percentNumber="10"
-                        data-scale-color="#ffb400"
-                      >
-                        13%
+
+              <div class="follow-cv">
+                <div class="cv_education cv_section1_box">
+                  <h2>Links</h2>
+                  <div class="first_education inline_flex flex_links">
+                      <p>GitHub</p>
+                      <a href="https://github.com/DexTerR33">
+                      <span>
+                        /DexTerR33
+                      </span>
+                    </a>
+                  </div>
+                  <div class="second_education inline_flex flex_links">
+                    <p>CssBattle</p>
+               <a href="https://cssbattle.dev/player/VbqbK0gKScgciHu3kMxYoIko40B2">/Dexter</a>
+                  </div>
+                  <div class="third_education inline_flex flex_links">
+                    <p>Website</p>
+                <a href="https://marianiordache.ro">marianiordache.ro</a>
+                  </div>
+           
+                  <div class="third_education inline_flex flex_links">
+                    <p>phone</p>
+                <a href="#">0765.965.155</a>
+                  </div>
+                  <div class="third_education inline_flex flex_links">
+            
+                    <a href="mailTo:iordache.marian21@gmail.com">iordache.marian21@gmail.com</a>
                       </div>
-                    </div>
-                  </div>
-                  <div class="dev_progress">
-                    <div class="dev_title">
-                      <h3>CSS</h3>
-                    </div>
-                    <div class="dev_barline">
-                      <div class="dev_countbar" data-percentNumber="10"></div>
-                    </div>
-                  </div>
-                  <div class="dev_progress">
-                    <div class="dev_title">
-                      <h3>javascript</h3>
-                    </div>
-                    <div class="dev_barline">
-                      <div class="dev_countbar" data-percentNumber="100"></div>
-                    </div>
-                  </div>
-                  <div class="dev_progress">
-                    <div class="dev_title">
-                      <h3>Dom</h3>
-                    </div>
-                    <div class="dev_barline">
-                      <div class="dev_countbar" data-percentNumber="11"></div>
-                    </div>
-                  </div>
-                  <div class="dev_progress">
-                    <div class="dev_title">
-                      <h3>React Js</h3>
-                    </div>
-                    <div class="dev_barline">
-                      <div class="dev_countbar" data-percentNumber="100"></div>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="itemBox7">
-              <div class="artisticSkills">
-                <h2>Pending</h2>
-                <div class="textBlock">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio cupiditate autem provident aspernatur quisquam
-             
-                </div>
-                <div class="blocksSkills">
-                  <div class="block block0">0</div>
-                  <div class="block block1">1</div>
-                  <div class="block block2">2</div>
-                  <div class="block block3">3</div>
-                  <div class="block block4">4</div>
-                  <div class="block block5">5</div>
-                  <div class="block block6">6</div>
-                  <div class="block block7">7</div>
-                  <div class="block block8">8</div>
-                  <div class="block block9">9</div>
-                </div>
-                <div class="textBlock">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Optio cupiditate autem provident aspernatur quisquam
-              
-                </div>
+
               </div>
             </div>
           </div>
-          <div class="right-grid-container right-box _box">
-            <div class="itemBox9">
-              <div class="section9">
-                <h2>Interested</h2>
-                <div class="interest-cv">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                  sed natus quis nam nostrum dolore reiciendis non magnam
-                  perspiciatis libero ad accusantium mollitia laboriosam tenetur
-                  cum quibusdam, deleniti quae suscipit.
-                </div>
-                <div class="interest-cv">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                  sed natus quis nam nostrum dolore reiciendis non magnam
-                  perspiciatis libero ad accusantium mollitia laboriosam tenetur
-                  cum quibusdam, deleniti quae suscipit.
-                </div>
-                <div class="interest-cv">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                  sed natus quis nam nostrum dolore reiciendis non magnam
-                  perspiciatis libero ad accusantium mollitia laboriosam tenetur
-                  cum quibusdam, deleniti quae suscipit.
-                </div>
-                <div class="interest-cv">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
-                  sed natus quis nam nostrum dolore reiciendis non magnam
-                  perspiciatis libero ad accusantium mollitia laboriosam tenetur
-                  cum quibusdam, deleniti quae suscipit.
-                </div>
-
-                <div class="follow-cv">
-                  <div class="facebook-cv">fb</div>
-                  <div class="insta-cv">insta</div>
-                  <div class="mail-cv">mail</div>
-                  <div class="linkedin-cv">linkedin</div>
-                  <div class="cssBattle-cv">css battle</div>
-                  <div class="phone-cv">0765.965.155</div>
-                </div>
-              </div>
-            </div>
-            <div class="itemBox8" id="items8">
-              <h2>Languages</h2>
-              <div class="lang-cv">
-                <!-- <div class="romana-lang">
+          <div class="itemBox8" id="items8">
+            <h2>Languages</h2>
+            <div class="lang-cv">
+              <!-- <div class="romana-lang">
                   <div
                     class="blue-color shape-flag"
                     style="background-color: blue"
@@ -1020,17 +1210,17 @@
                     style="background-color: red"
                   ></div>
                 </div> -->
-                <!-- <div class="engleza-lang">
+              <!-- <div class="engleza-lang">
                   <div class="first-line-flag"></div>
                   <div class="second-line-flag"></div>
                   <div class="third-line-flag"></div>
                   <div class="four-line-flag"></div>
                 </div> -->
-              </div>
             </div>
           </div>
         </div>
-        <!-- <div class="grid-container-footer">
+      </div>
+      <!-- <div class="grid-container-footer">
           <div class="gitHubLinks">
             <a href="#">31</a>
             <a href="#">31</a>
@@ -1047,41 +1237,42 @@
             <a href="#">31</a>
           </div>
         </div> -->
-      </div>
     </div>
-    <script>
-      $(function () {
-        let numberPercent = document.querySelectorAll(".dev_countbar");
-        let getPercent = Array.from(numberPercent);
+  </div>
+  <script>
+    $(function () {
+      let numberPercent = document.querySelectorAll(".dev_countbar");
+      let getPercent = Array.from(numberPercent);
 
-        console.log(numberPercent);
-        console.log(getPercent);
-        getPercent.map((items) => {
-          let startCount = 0;
-          let progressBar = () => {
-            startCount++;
-            items.innerHTML = `<h3>${startCount}%</h3>`;
-            items.style.width = `${startCount}%`;
-            if (startCount == items.dataset.percentnumber) {
-              clearInterval(stop);
-            }
-            console.log(startCount, "");
-          };
-          let stop = setInterval(() => {
-            progressBar();
-          }, 24);
-        });
-
-        $(".chart").easyPieChart({
-          size: 80,
-          barColor: "crimson",
-          scaleLength: 3,
-          lineWidth: 4,
-          trackColor: "black",
-          lineCap: "circle",
-          animate: 1000,
-        });
+      console.log(numberPercent);
+      console.log(getPercent);
+      getPercent.map((items) => {
+        let startCount = 0;
+        let progressBar = () => {
+          startCount++;
+          items.innerHTML = `<h3>${startCount}%</h3>`;
+          items.style.width = `${startCount}%`;
+          if (startCount == items.dataset.percentnumber) {
+            clearInterval(stop);
+          }
+          console.log(startCount, "");
+        };
+        let stop = setInterval(() => {
+          progressBar();
+        }, 24);
       });
-    </script>
-  </body>
+
+      $(".chart").easyPieChart({
+        size: 80,
+        barColor: "grey",
+        scaleLength: 1,
+        lineWidth: 10,
+        trackColor: "black",
+        lineCap: "circle",
+        animate: 1000,
+      });
+    });
+  </script>
+</body>
+
 </html>
