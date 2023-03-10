@@ -14,6 +14,7 @@ body {
   justify-content: center;
   background-color: #333;
 }
+
 /* optional  */
 .container_parent_img {
   display: flex;
@@ -33,8 +34,8 @@ body {
   background-size: cover !important;
   position: relative;
   background: url("sprite-SPAIN_march2023-V3.png") no-repeat;
-  
 }
+
 /* optional  */
 ._parent_img {
   max-width: 184px;
@@ -128,23 +129,75 @@ body {
 }
 
 ._parent_img .providersskywind {
-  background-position-y: -1324px;
+  background-position-y: -1386px;
 }
 
 ._parent_img .providerssynot {
-  background-position-y: -1385px;
+  background-position-y: -1443px;
 }
 
 ._parent_img .providerswazdan {
-  background-position-y: -1442px;
+  background-position-y: -1494px;
+}
+
+._parent_img .providersisoftbet  {
+  background-position-y: -1542px;
+}
+._parent_img .providerspragmaticplay  {
+  background-position-y: -1606px;
+}
+
+
+._parent_img .providersleander  {
+  background-position-y: -1672px;
+
+}
+
+
+._parent_img .providersmga {
+  background-position-y: -1739px;
 }
 
 
 
+._parent_img .providersnetent {
+  background-position-y: -1809px;
+}
 
 
+._parent_img .providersplayngo  {
+  background-position-y: -1874px;
+}
+
+
+._parent_img .providersplayson  {
+  background-position-y: -1934px;
+}
+
+
+._parent_img .providersgreentube {
+  background-position-y: -1989px;
+}
+._parent_img .providerspariplay {
+  background-position-y: -2045px;
+}
+._parent_img .providersredrake {
+  background-position-y: -2114px;
+}
+._parent_img .providersthunderkick  {
+  background-position-y: -2184px;
+
+}
+._parent_img .providersyggdrasil {
+  background-position-y: -2246px;
+}
+
+
+._parent_img .providersoryx  {
+  background-position-y: -2310px;
+}
 
 /* last */
-._parent_img .providersoryx {
-    background-position-y: -2348px;
+._parent_img .test_logo {
+  background-position-y: -2360px;
 }
