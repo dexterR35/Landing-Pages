@@ -82,7 +82,7 @@ function filterGames() {
     const filteredGames = games.filter((game) =>
         game.toLowerCase().includes(searchValue)
     );
-    console.log(searchValue, "fas");
+    console.log(filteredGames, "filteredGames");
     // Display filtered games
     displayGames(filteredGames);
 
@@ -103,7 +103,10 @@ function filterGames() {
         const isSuggestionFound = allSuggestions.some((suggestion) =>
             suggestion.toLowerCase().startsWith(searchValue)
         );
+
         if (!isSuggestionFound) {
+
+            // console.log(randomSuggestion,"fasfa")
             console.log("not Found");
             parentElement.classList.add("dont_have");
             parentElement.classList.remove("game-suggestions");
@@ -115,6 +118,7 @@ function filterGames() {
     } else {
         clearSuggestions();
     }
+
 }
 
 // Function to display suggestions based on search value and array of suggestions
@@ -135,60 +139,65 @@ function displaySuggestions(
             suggestion.toLowerCase().startsWith(searchValue)
         )
         .slice(0, 20);
-    // Display suggestions
+     
+    // Display suggestions 
     if (suggestions.length > 0) {
         suggestions.forEach((suggestion) => {
-            if (filteredGames.includes(suggestion)) {
-                // Don't suggest a game that is already in the filtered list
-                return;
-            }
+            // console.log(suggestions,"sugestions")
+            // if (filteredGames.includes(suggestion)) {
+            //     // console.log(filteredGames.includes(suggestion),"filteredGames")
+            //     // Don't suggest a game that is already in the filtered list
+            //     return;
+            // }
             const parentElement = document.querySelector(".InsertSuggestion");
             const suggestionElement = document.createElement("div");
             suggestionElement.classList.add("suggestion");
             suggestionElement.textContent = suggestion;
             parentElement.appendChild(suggestionElement);
+
             const isGameSuggestion = gameSuggestions.includes(suggestion);
             const isMovieSuggestion = movieSuggestions.includes(suggestion);
 
             // Add classes to parent element based on suggestion type
             if (isGameSuggestion && isMovieSuggestion) {
                 parentElement.classList.add("game-and-movie-suggestion");
-                suggestionsDisplayed = true;
             } else if (isGameSuggestion) {
                 parentElement.classList.add("game-suggestions");
-                suggestionsDisplayed = true;
             } else if (isMovieSuggestion) {
                 parentElement.classList.add("movie-suggestions");
-
-                suggestionsDisplayed = true;
             }
             parentElement.appendChild(suggestionElement);
             // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
         });
     } else {
-    
-    // Display the random suggestion to the user
-         // Select a random fallback suggestion
-        const randomSuggestion =
-            allSuggestions[Math.floor(Math.random() * allSuggestions.length)];
-        // allSuggestions.push(randomSuggestion);
-        // parentElement.textContent = `Did you mean "${allSuggestions}"?`;
-        console.log(allSuggestions, "s");
+
         displayGames(games);
+
         allSuggestions.forEach((suggestion) => {
             if (filteredGames.includes(suggestion)) {
                 // Don't suggest a game that is already in the filtered list
                 return;
             }
+
             const parentElement = document.querySelector(".InsertSuggestion");
             const suggestionElement = document.createElement("div");
             suggestionElement.classList.add("suggestion");
-            suggestionElement.textContent = `"joc random > ${randomSuggestion}  + // sugestie -> ${suggestion}`;
+            suggestionElement.textContent = `${suggestion}`;
             parentElement.appendChild(suggestionElement);
-            const isGameSuggestion = gameSuggestions.includes(suggestion);
-            const isMovieSuggestion = movieSuggestions.includes(suggestion);
+
         });
+    
+
+
     }
+    // const randomSuggestion =
+    //         allSuggestions[Math.floor(Math.random() * allSuggestions.length)];
+    //     console.log(randomSuggestion, "ss");
+    //     const container_random = document.querySelector(".container_random");
+    //     const _randomSuggestionElement = document.createElement("div");
+    //     _randomSuggestionElement.textContent = `"joc random > ${randomSuggestion}`;
+    //     container_random.appendChild(_randomSuggestionElement);
+
 }
 
 // Function to clear suggestions
