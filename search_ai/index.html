@@ -1,205 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Document</title>
     <style>
+      ul li {
+        padding: 2em;
+        border: 1px solid black;
+        width: 200px;
+        height: fit-content;
+        list-style: none;
+        background-color: blueviolet;
+        color: white;
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        justify-content: center;
+      }
+      .suggestion {
+        padding: 2em;
+        width: 200px;
+        height: fit-content;
+        background-color: crimson;
+        color: white;
+        border: 1px solid black;
+      }
+      .InsertSuggestion.game-suggestions.movie-suggestions.game-and-movie-suggestion {
+        width: 60em;
+        border: 2px solid black;
+        position: relative;
+      }
 
-        ul li {
-            padding: 2em;
-            border: 1px solid black;
-            width: 200px;
-            height: fit-content;
-            list-style: none;
-            background-color: blueviolet;
-            color: white;
-        }
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            justify-content: center;
-        }
-        .suggestion {
-            padding: 2em;
-            width: 200px;
-            height: fit-content;
-            background-color: crimson;
-            color: white;
-            border: 1px solid black;
-        }
+      .InsertSuggestion.game-suggestions::after {
+        content: "game";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .InsertSuggestion.movie-suggestions::after {
+        content: "movie";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .InsertSuggestion.game-suggestions.movie-suggestions::after {
+        content: "game-movie letters";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .InsertSuggestion.game-and-movie-suggestion::after {
+        content: "game-movie in array";
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <input type="text" id="search-input">
-        <ul id="game-list"></ul>
-        <div class="container_suggestion">
-            <div id="InsertSuggestion" class="InsertSuggestion"></div>
-        </div>
+      <input type="text" id="search-input" />
+      <ul id="game-list"></ul>
+      <div class="container_suggestion">
+        <div id="InsertSuggestion" class="InsertSuggestion"></div>
+      </div>
     </div>
 
+    <script>
+      const games = [
+        "Super Mario Bros1.",
+        "The Legend of Zelda1",
+        "Minecraft1",
+        "Tetris",
+        "Fortnite",
+        "Grand Theft Auto V",
+        "Call of Duty: Modern Warfare",
+        "Animal Crossing: New Horizons",
+        "Among Us",
+        "FIFA 21",
+        "test",
+        "test",
+      ];
+      const gameSuggestions = [
+        "Portal2",
+        "Half-Life2",
+        "Team Fortress 2",
+        "Counter-Strike: Global Offensive2",
+        "Left 4 Dead",
+        "DOTA 2",
+        "Teamfight Tactics",
+        "Overwatch",
+        "Rocket League",
+        "PlayerUnknown's Battlegrounds",
+        "Avatar",
+      ];
+      const movieSuggestions = [
+        "The Godfather3",
+        "The Shawshank Redemption3",
+        "The Dark Knight3",
+        "Forrest Gump",
+        "The Matrix",
+        "Star Wars",
+        "Jurassic Park",
+        "Titanic",
+        "Inception",
+        "Avatar",
+      ];
 
-<!-- <script>
-    const games = [  "Super Mario Bros.",  "The Legend of Zelda",  "Minecraft",  "Tetris",  "Fortnite",  "Grand Theft Auto V",  "Call of Duty: Modern Warfare",  "Animal Crossing: New Horizons",  "Among Us",  "FIFA 21"];
+      // Get search input and game list
+      const searchInput = document.getElementById("search-input");
+      const gameList = document.getElementById("game-list");
 
-// Get search input and game list
-const searchInput = document.getElementById("search-input");
-const gameList = document.getElementById("game-list");
+      // Function to display game list
+      function displayGames(gameArray) {
+        // Clear game list
+        gameList.innerHTML = "";
+        // Loop through games and add to list
+        gameArray.forEach((game) => {
+          const li = document.createElement("li");
+          li.textContent = game;
+          gameList.appendChild(li);
+        });
+      }
 
-// Function to display game list
-function displayGames(gameArray) {
-  // Clear game list
-  gameList.innerHTML = "";
-  // Loop through games and add to list
-  gameArray.forEach(game => {
-    const li = document.createElement("li");
-    li.textContent = game;
-    gameList.appendChild(li);
-  });
-}
+      // Display all games initially
+      displayGames(games);
+      // Function to filter games based on search input
+      function filterGames() {
+        // Get search input value and convert to lowercase
+        const searchValue = searchInput.value.toLowerCase();
+        // Filter games based on search input
+        const filteredGames = games.filter((game) =>
+          game.toLowerCase().includes(searchValue)
+        );
+        // Display filtered games
+        displayGames(filteredGames);
+        // Display suggestions if search input is not empty
+        if (searchValue !== "") {
+          displaySuggestions(
+            filteredGames,
+            searchValue,
+            "gamesuggestion",
+            "moviesuggestion",
+            gameSuggestions,
+            movieSuggestions
+          );
+        } else {
+          clearSuggestions();
+        }
+      }
 
-// Display all games initially
-displayGames(games);
+      // Function to display suggestions based on search value and array of suggestions
+      function displaySuggestions(
+        filteredGames,
+        searchValue,
+        suggestionType,
+        ...suggestionArrays
+      ) {
+        // Clear previous suggestions
+        clearSuggestions();
+        // Combine all suggestion arrays into a single array
+        const allSuggestions = suggestionArrays.flat();
+        console.log(allSuggestions, "allSuggestions");
+        // Get suggestions from allSuggestions array based on search value
+        const suggestions = allSuggestions
+          .filter((suggestion) =>
+            suggestion.toLowerCase().startsWith(searchValue)
+          )
+          .slice(0, 7);
+        // Display suggestions
+        if (suggestions.length > 0) {
+        suggestions.forEach((suggestion) => {
+          if (filteredGames.includes(suggestion)) {
+            // Don't suggest a game that is already in the filtered list
+            return;
+          }
+          const parentElement = document.querySelector(".InsertSuggestion");
+          const suggestionElement = document.createElement("div");
+          suggestionElement.classList.add("suggestion");
+          suggestionElement.textContent = suggestion;
+          parentElement.appendChild(suggestionElement);
 
-// Function to filter games based on search input
-function filterGames() {
-  // Get search input value and convert to lowercase
-  const searchValue = searchInput.value.toLowerCase();
-  // Filter games based on search input
-  const filteredGames = games.filter(game => game.toLowerCase().includes(searchValue));
-  // Display filtered games
-  displayGames(filteredGames);
-  // Display suggestions if search input is not empty
-  if (searchValue !== "") {
-    displaySuggestions(filteredGames, searchValue);
-  } else {
-    clearSuggestions();
-  }
-}
+          const isGameSuggestion = gameSuggestions.includes(suggestion);
+          const isMovieSuggestion = movieSuggestions.includes(suggestion);
 
-// Function to display suggestions based on search value
-function displaySuggestions(filteredGames, searchValue) {
-  // Clear previous suggestions
-  clearSuggestions();
-  // Get suggestions based on search value
-  const suggestions = games.filter(game => game.toLowerCase().startsWith(searchValue)).slice(0, 3);
-  // Display suggestions
-  suggestions.forEach(game => {
-    if (filteredGames.includes(game)) {
-      // Don't suggest a game that is already in the filtered list
-      return;
-    }
-    const suggestion = document.createElement("div");
-    suggestion.classList.add("suggestion");
-    suggestion.textContent = game;
-    searchInput.parentNode.insertBefore(suggestion, searchInput.nextSibling);
-  });
-}
+          // Add classes to parent element based on suggestion type
+          if (isGameSuggestion && isMovieSuggestion) {
+            parentElement.classList.add("game-and-movie-suggestion");
+            suggestionsDisplayed = true;
+          } else if (isGameSuggestion) {
+            parentElement.classList.add("game-suggestions");
+            suggestionsDisplayed = true;
+          } else if (isMovieSuggestion) {
+            parentElement.classList.add("movie-suggestions");
+            suggestionsDisplayed = true;
+          }
 
-// Function to clear suggestions
-function clearSuggestions() {
-  // Get all suggestions and remove them
-  const suggestions = document.querySelectorAll(".suggestion");
-  suggestions.forEach(suggestion => suggestion.remove());
-}
+          parentElement.appendChild(suggestionElement);
+        
 
-// Add event listener to search input
-searchInput.addEventListener("input", filterGames);
-</script> -->
-<script>
-    const games = [  "Super Mario Bros1.",  "The Legend of Zelda1",  "Minecraft1",  "Tetris",  "Fortnite",  "Grand Theft Auto V",  "Call of Duty: Modern Warfare",  "Animal Crossing: New Horizons",  "Among Us",  "FIFA 21","test","test"];
-
-const gameSuggestions = [  "Portal2",  "Half-Life2",  "Team Fortress 2",  "Counter-Strike: Global Offensive2",  "Left 4 Dead",  "DOTA 2",  "Teamfight Tactics",  "Overwatch",  "Rocket League",  "PlayerUnknown's Battlegrounds"];
-
-const movieSuggestions = [  "The Godfather3",  "The Shawshank Redemption3",  "The Dark Knight3",  "Forrest Gump",  "The Matrix",  "Star Wars",  "Jurassic Park",  "Titanic",  "Inception",  "Avatar"];
-
-// Get search input and game list
-const searchInput = document.getElementById("search-input");
-const gameList = document.getElementById("game-list");
-
-// Function to display game list
-function displayGames(gameArray) {
-  // Clear game list
-  gameList.innerHTML = "";
-  // Loop through games and add to list
-  gameArray.forEach(game => {
-    const li = document.createElement("li");
-    li.textContent = game;
-    gameList.appendChild(li);
-  });
-}
-
-// Display all games initially
-displayGames(games);
-
-// Function to filter games based on search input
-function filterGames() {
-  // Get search input value and convert to lowercase
-  const searchValue = searchInput.value.toLowerCase();
-  // Filter games based on search input
-  const filteredGames = games.filter(game => game.toLowerCase().includes(searchValue));
-  // Display filtered games
-  displayGames(filteredGames);
-  // Display suggestions if search input is not empty
-  if (searchValue !== "") {
-    displaySuggestions(filteredGames, searchValue, gameSuggestions, movieSuggestions);
-  } else {
-    clearSuggestions();
-  }
-}
-
-const idPushParent = document.getElementById("InsertSuggestion");
-// Function to display suggestions based on search value and array of suggestions
-function displaySuggestions(filteredGames, searchValue, ...suggestionArrays) {
-  // Clear previous suggestions
-  clearSuggestions();
-  // Combine all suggestion arrays into a single array
-  const allSuggestions = suggestionArrays.flat();
-  console.log(allSuggestions,"allSuggestions")
-  // Get suggestions from allSuggestions array based on search value
-  const suggestions = allSuggestions.filter(suggestion => suggestion.toLowerCase().startsWith(searchValue)).slice(0, 7);
-  // Display suggestions
-  suggestions.forEach(suggestion => {
-    // console.log(suggestions,"sugestions")
-    // console.log(suggestion,"suggestion")
-    if (filteredGames.includes(suggestion)) {
-      // Don't suggest a game that is already in the filtered list
-      return;
-    }
- 
-
-
-    const suggestionElement = document.createElement("div");
-    suggestionElement.classList.add("suggestion");
-    suggestionElement.textContent = suggestion;
-    console.log(suggestionElement,"sugelement");
-    console.log(idPushParent,"idPushParent");
-    console.log(suggestion,"suggestion");
-
-    $("#idPushParent").append(suggestionElement);
-
-    searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
-  });
+          // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
+        });
+        // Remove classes from parent element if search value is null or empty
+        } else {
+          allSuggestions.forEach(suggestion => {
+      if (filteredGames.includes(suggestion)) {
+        // Don't suggest a game that is already in the filtered list
+        return;
+      }
+      const parentElement = document.querySelector('.InsertSuggestion');
+      const suggestionElement = document.createElement("div");
+      suggestionElement.classList.add("suggestion");
+      suggestionElement.textContent = suggestion;
+      parentElement.appendChild(suggestionElement);
     
-console.log(idPushParent,"id")
-}
+      const isGameSuggestion = gameSuggestions.includes(suggestion);
+      const isMovieSuggestion = movieSuggestions.includes(suggestion);
+    
+      // Add classes to parent element based on suggestion type
+      if (isGameSuggestion && isMovieSuggestion) {
+        parentElement.classList.add('game-and-movie-suggestion');
+      } else if (isGameSuggestion) {
+        parentElement.classList.add('game-suggestions');
+      } else if (isMovieSuggestion) {
+        parentElement.classList.add('movie-suggestions');
+      }
+    });
+  }
+      }
 
-// Function to clear suggestions
-function clearSuggestions() {
-  // Get all suggestions and remove them
-  const suggestions = document.querySelectorAll(".suggestion");
-  suggestions.forEach(suggestion => suggestion.remove());
-}
-
-// Add event listener to search input
-searchInput.addEventListener("input", filterGames);
-</script>
-</body>
+      // Function to clear suggestions
+      function clearSuggestions() {
+  
+        // Get all suggestions and remove them
+        const searchValue = searchInput.value.toLowerCase();
+        const suggestions = document.querySelectorAll(".suggestion");
+        suggestions.forEach((suggestion) => suggestion.remove());
+        const parentElement2 = document.querySelector(".InsertSuggestion");
+        if (!searchValue) {
+          parentElement2.classList.remove(
+            "game-suggestions",
+            "movie-suggestions",
+            "game-and-movie-suggestion"
+          );
+        }
+        // } else if (!suggestionsDisplayed) {
+        //   parentElement2.classList.add(
+        //     "game-suggestions",
+        //     "movie-suggestions",
+        //     "game-and-movie-suggestion"
+        //   );
+        // }
+      }
+      // Add event listener to search input
+      searchInput.addEventListener("input", filterGames);
+    </script>
+  </body>
 </html>
