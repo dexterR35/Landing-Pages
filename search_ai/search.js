@@ -50,30 +50,30 @@ const gameSuggestions = [
     "avatar in game Suggestions"
 ];
 const movieSuggestions = [
-  
-        "The Godfather",
-        "The Shawshank Redemption",
-        "The Dark Knight",
-        "Pulp Fiction",
-        "The Lord of the Rings: The Fellowship of the Ring",
-        "Fight Club",
-        "Forrest Gump",
-        "Inception",
-        "The Matrix",
-        "Star Wars: Episode V - The Empire Strikes Back",
-        "Schindler's List",
-        "Goodfellas",
-        "The Silence of the Lambs",
-        "The Departed",
-        "The Prestige",
-        "City of God",
-        "Blade Runner",
-        "Alien",
-        "The Terminator",
-        "Indiana Jones and the Raiders of the Lost Ark",
-        "marian in movie Suggestions",
-        "avatar in movie Suggestions"
-  
+
+    "The Godfather",
+    "The Shawshank Redemption",
+    "The Dark Knight",
+    "Pulp Fiction",
+    "The Lord of the Rings: The Fellowship of the Ring",
+    "Fight Club",
+    "Forrest Gump",
+    "Inception",
+    "The Matrix",
+    "Star Wars: Episode V - The Empire Strikes Back",
+    "Schindler's List",
+    "Goodfellas",
+    "The Silence of the Lambs",
+    "The Departed",
+    "The Prestige",
+    "City of God",
+    "Blade Runner",
+    "Alien",
+    "The Terminator",
+    "Indiana Jones and the Raiders of the Lost Ark",
+    "marian in movie Suggestions",
+    "avatar in movie Suggestions"
+
 ];
 
 // Define fallback suggestions
@@ -129,13 +129,25 @@ function filterGames() {
             movieSuggestions
         );
         // Check if search value is not found in suggestion arrays
-        // const allSuggestions = [...gameSuggestions, ...movieSuggestions];
+        const allSuggestions = [...gameSuggestions, ...movieSuggestions];
         const parentElement = document.querySelector(".InsertSuggestion");
         const isSuggestionFound = allSuggestions.some((suggestion) =>
             suggestion.toLowerCase().startsWith(searchValue)
         );
 
         if (!isSuggestionFound) {
+            if (!allSuggestions.includes(searchValue)) {
+                const randomIndex = Math.floor(Math.random() * allSuggestions.length);
+                const randomSuggestion = allSuggestions[randomIndex];
+                console.log(`ce zici de  ${randomSuggestion}?`);
+                // const randomSuggestion =
+
+
+                const container_random = document.querySelector(".container_random");
+                const _randomSuggestionElement = document.createElement("div");
+                _randomSuggestionElement.textContent = `"joc random > ${randomSuggestion}`;
+                container_random.appendChild(_randomSuggestionElement);
+            }
 
             // console.log(randomSuggestion,"fasfa")
             console.log("not Found");
@@ -146,6 +158,7 @@ function filterGames() {
             console.log("Found");
             parentElement.classList.remove("dont_have");
         }
+
     } else {
         clearSuggestions();
     }
@@ -171,7 +184,9 @@ function displaySuggestions(
 
     // Display suggestions 
     if (suggestions.length > 0) {
+
         suggestions.forEach((suggestion) => {
+
             // console.log(suggestions,"sugestions")
             // if (filteredGames.includes(suggestion)) {
             //     // console.log(filteredGames.includes(suggestion),"filteredGames")
@@ -216,16 +231,7 @@ function displaySuggestions(
 
         });
 
-
-
     }
-    // const randomSuggestion =
-    //         allSuggestions[Math.floor(Math.random() * allSuggestions.length)];
-    //     console.log(randomSuggestion, "ss");
-    //     const container_random = document.querySelector(".container_random");
-    //     const _randomSuggestionElement = document.createElement("div");
-    //     _randomSuggestionElement.textContent = `"joc random > ${randomSuggestion}`;
-    //     container_random.appendChild(_randomSuggestionElement);
 
 }
 
@@ -234,6 +240,7 @@ function clearSuggestions() {
     // Get all suggestions and remove them
     const searchValue = searchInput.value.toLowerCase();
     const suggestions = document.querySelectorAll(".suggestion");
+
     suggestions.forEach((suggestion) => suggestion.remove());
     const parentElement2 = document.querySelector(".InsertSuggestion");
     if (!searchValue) {
