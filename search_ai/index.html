@@ -26,42 +26,61 @@
         justify-content: center;
       }
       .suggestion {
-        padding: 2em;
-        width: 200px;
-        height: fit-content;
+        padding: 1em;
+        width: 230px;
+        height: 100px;
         background-color: crimson;
         color: white;
         border: 1px solid black;
       }
+      .container_suggestion {
+        display: flex;
+        justify-content: center;
+
+        /* background-color: grey; */
+        /* border: 2px solid red; */
+      }
       .InsertSuggestion.game-suggestions.movie-suggestions.game-and-movie-suggestion {
+      }
+      .InsertSuggestion {
         width: 60em;
+        height: 30em;
         border: 2px solid black;
         position: relative;
+        background-color: antiquewhite;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: start;
+        overflow: scroll;
+        padding: 2em 0.5em;
+      }
+      .InsertSuggestion::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        font-size: 1em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
       }
 
       .InsertSuggestion.game-suggestions::after {
-        content: "game";
-        position: absolute;
-        left: 0;
-        top: 0;
+        content: "> game";
       }
       .InsertSuggestion.movie-suggestions::after {
-        content: "movie";
-        position: absolute;
-        left: 0;
-        top: 0;
+        content: "> movie";
       }
       .InsertSuggestion.game-suggestions.movie-suggestions::after {
-        content: "game-movie letters";
-        position: absolute;
-        left: 0;
-        top: 0;
+        content: "game si movie > dupa litere";
       }
       .InsertSuggestion.game-and-movie-suggestion::after {
-        content: "game-movie in array";
-        position: absolute;
-        left: 0;
-        top: 0;
+        content: "game si movie > cuvant din array";
+      }
+      .InsertSuggestion.dont_have::after {
+        content: "nu gasesc cuvantul in arrays dar pentru tine iti arat";
       }
     </style>
   </head>
@@ -141,6 +160,7 @@
         const filteredGames = games.filter((game) =>
           game.toLowerCase().includes(searchValue)
         );
+        console.log(searchValue, "fas");
         // Display filtered games
         displayGames(filteredGames);
         // Display suggestions if search input is not empty
@@ -153,6 +173,20 @@
             gameSuggestions,
             movieSuggestions
           );
+          // Check if search value is not found in suggestion arrays
+          const allSuggestions = [...gameSuggestions, ...movieSuggestions];
+          const parentElement = document.querySelector(".InsertSuggestion");
+          const isSuggestionFound = allSuggestions.some((suggestion) =>
+            suggestion.toLowerCase().startsWith(searchValue)
+          );
+          if (!isSuggestionFound) {
+
+            console.log("not Found");
+            parentElement.classList.add("dont_have");
+          } else {
+            console.log("Found");
+            parentElement.classList.remove("dont_have");
+          }
         } else {
           clearSuggestions();
         }
@@ -169,7 +203,7 @@
         clearSuggestions();
         // Combine all suggestion arrays into a single array
         const allSuggestions = suggestionArrays.flat();
-        console.log(allSuggestions, "allSuggestions");
+        console.log(allSuggestions, "allSuggestions_test");
         // Get suggestions from allSuggestions array based on search value
         const suggestions = allSuggestions
           .filter((suggestion) =>
@@ -178,68 +212,61 @@
           .slice(0, 7);
         // Display suggestions
         if (suggestions.length > 0) {
-        suggestions.forEach((suggestion) => {
-          if (filteredGames.includes(suggestion)) {
-            // Don't suggest a game that is already in the filtered list
-            return;
-          }
-          const parentElement = document.querySelector(".InsertSuggestion");
-          const suggestionElement = document.createElement("div");
-          suggestionElement.classList.add("suggestion");
-          suggestionElement.textContent = suggestion;
-          parentElement.appendChild(suggestionElement);
-
-          const isGameSuggestion = gameSuggestions.includes(suggestion);
-          const isMovieSuggestion = movieSuggestions.includes(suggestion);
-
-          // Add classes to parent element based on suggestion type
-          if (isGameSuggestion && isMovieSuggestion) {
-            parentElement.classList.add("game-and-movie-suggestion");
-            suggestionsDisplayed = true;
-          } else if (isGameSuggestion) {
-            parentElement.classList.add("game-suggestions");
-            suggestionsDisplayed = true;
-          } else if (isMovieSuggestion) {
-            parentElement.classList.add("movie-suggestions");
-            suggestionsDisplayed = true;
-          }
-
-          parentElement.appendChild(suggestionElement);
-        
-
-          // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
-        });
-        // Remove classes from parent element if search value is null or empty
+          suggestions.forEach((suggestion) => {
+            if (filteredGames.includes(suggestion)) {
+              // Don't suggest a game that is already in the filtered list
+              return;
+            }
+            const parentElement = document.querySelector(".InsertSuggestion");
+            const suggestionElement = document.createElement("div");
+            suggestionElement.classList.add("suggestion");
+            suggestionElement.textContent = suggestion;
+            parentElement.appendChild(suggestionElement);
+            const isGameSuggestion = gameSuggestions.includes(suggestion);
+            const isMovieSuggestion = movieSuggestions.includes(suggestion);
+            // Add classes to parent element based on suggestion type
+            if (isGameSuggestion && isMovieSuggestion) {
+              parentElement.classList.add("game-and-movie-suggestion");
+              suggestionsDisplayed = true;
+            } else if (isGameSuggestion) {
+              parentElement.classList.add("game-suggestions");
+              suggestionsDisplayed = true;
+            } else if (isMovieSuggestion) {
+              parentElement.classList.add("movie-suggestions");
+              suggestionsDisplayed = true;
+            }
+            parentElement.appendChild(suggestionElement);
+            // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
+          });
         } else {
-          allSuggestions.forEach(suggestion => {
-      if (filteredGames.includes(suggestion)) {
-        // Don't suggest a game that is already in the filtered list
-        return;
-      }
-      const parentElement = document.querySelector('.InsertSuggestion');
-      const suggestionElement = document.createElement("div");
-      suggestionElement.classList.add("suggestion");
-      suggestionElement.textContent = suggestion;
-      parentElement.appendChild(suggestionElement);
-    
-      const isGameSuggestion = gameSuggestions.includes(suggestion);
-      const isMovieSuggestion = movieSuggestions.includes(suggestion);
-    
-      // Add classes to parent element based on suggestion type
-      if (isGameSuggestion && isMovieSuggestion) {
-        parentElement.classList.add('game-and-movie-suggestion');
-      } else if (isGameSuggestion) {
-        parentElement.classList.add('game-suggestions');
-      } else if (isMovieSuggestion) {
-        parentElement.classList.add('movie-suggestions');
-      }
-    });
-  }
+          displayGames(games);
+          allSuggestions.forEach((suggestion) => {
+            if (filteredGames.includes(suggestion)) {
+              // Don't suggest a game that is already in the filtered list
+              return;
+            }
+            const parentElement = document.querySelector(".InsertSuggestion");
+            const suggestionElement = document.createElement("div");
+            suggestionElement.classList.add("suggestion");
+            suggestionElement.textContent = suggestion;
+            parentElement.appendChild(suggestionElement);
+
+            const isGameSuggestion = gameSuggestions.includes(suggestion);
+            const isMovieSuggestion = movieSuggestions.includes(suggestion);
+
+            // // Add classes to parent element based on suggestion type
+            // if (!isGameSuggestion && !isMovieSuggestion) {
+            //   console.log("test1");
+            //   console.log(!isGameSuggestion);
+            //   console.log(!isMovieSuggestion);
+            //   
+            // }
+          });
+        }
       }
 
       // Function to clear suggestions
       function clearSuggestions() {
-  
         // Get all suggestions and remove them
         const searchValue = searchInput.value.toLowerCase();
         const suggestions = document.querySelectorAll(".suggestion");
@@ -249,16 +276,10 @@
           parentElement2.classList.remove(
             "game-suggestions",
             "movie-suggestions",
-            "game-and-movie-suggestion"
+            "game-and-movie-suggestion",
+            "dont_have"
           );
         }
-        // } else if (!suggestionsDisplayed) {
-        //   parentElement2.classList.add(
-        //     "game-suggestions",
-        //     "movie-suggestions",
-        //     "game-and-movie-suggestion"
-        //   );
-        // }
       }
       // Add event listener to search input
       searchInput.addEventListener("input", filterGames);
