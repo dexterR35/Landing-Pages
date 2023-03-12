@@ -85,16 +85,16 @@
       }
 
       .InsertSuggestion.game-suggestions::after {
-        content: "> game";
+        content:"joc cu litera- gasina in array ul > game";
       }
       .InsertSuggestion.movie-suggestions::after {
-        content: "> movie";
+        content: "joc cu litera- gasina in array ul > movie";
       }
       .InsertSuggestion.game-suggestions.movie-suggestions::after {
-        content: "game si movie > dupa litere";
+        content: "joc cu litera - gasina in ambele array uri > game si movie";
       }
       .InsertSuggestion.game-and-movie-suggestion::after {
-        content: "game si movie > cuvant din array care incepe cu litera ";
+        content: "joc cu litera - gasina in ambele array uri > game si movie";
       }
       .InsertSuggestion.dont_have::after {
         content: "nu gasesc cuvantul in arrays dar pentru tine iti arat";
@@ -142,7 +142,9 @@
         "Overwatch",
         "Rocket League",
         "PlayerUnknown's Battlegrounds",
-        "Avatar",
+        "Avatar in game",
+        "lol","tetris",
+        "vikings"
       ];
       const movieSuggestions = [
         "The Godfather3",
@@ -154,7 +156,9 @@
         "Jurassic Park",
         "Titanic",
         "Inception",
-        "Avatar",
+        "Avatar in movie",
+        "dota",
+      
       ];
 
       // Get search input and game list
@@ -203,12 +207,15 @@
             suggestion.toLowerCase().startsWith(searchValue)
           );
           if (!isSuggestionFound) {
-
             console.log("not Found");
             parentElement.classList.add("dont_have");
+            parentElement.classList.remove("game-suggestions");
+            parentElement.classList.remove("movie-suggestions");
           } else {
             console.log("Found");
             parentElement.classList.remove("dont_have");
+     
+            
           }
         } else {
           clearSuggestions();
@@ -249,16 +256,19 @@
             const isMovieSuggestion = movieSuggestions.includes(suggestion);
             // Add classes to parent element based on suggestion type
             if (isGameSuggestion && isMovieSuggestion) {
+
               parentElement.classList.add("game-and-movie-suggestion");
               suggestionsDisplayed = true;
             } else if (isGameSuggestion) {
+
               parentElement.classList.add("game-suggestions");
               suggestionsDisplayed = true;
             } else if (isMovieSuggestion) {
               parentElement.classList.add("movie-suggestions");
+
               suggestionsDisplayed = true;
             }
-            parentElement.appendChild(suggestionElement);
+             parentElement.appendChild(suggestionElement);
             // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
           });
         } else {
