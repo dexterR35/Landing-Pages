@@ -124,7 +124,6 @@ function filterGames() {
             searchValue,
             "gamesuggestion",
             "moviesuggestion",
-
             gameSuggestions,
             movieSuggestions
         );
@@ -145,7 +144,7 @@ function filterGames() {
 
                 const container_random = document.querySelector(".container_random");
                 const _randomSuggestionElement = document.createElement("div");
-                _randomSuggestionElement.textContent = `"joc random > ${randomSuggestion}`;
+                _randomSuggestionElement.textContent = `"afiseaza un joc/movie random > ${randomSuggestion}`;
                 container_random.appendChild(_randomSuggestionElement);
             }
 
