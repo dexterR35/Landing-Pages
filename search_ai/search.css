@@ -1,0 +1,107 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ul li,
+.container, .InsertSuggestion, .suggestion  {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+ul li {
+  padding: 1em 1em;
+  border: 1px solid black;
+  width: 230px;
+  height: 100px;
+  list-style: none;
+  background-color: blueviolet;
+  color: white;
+  text-align: center;
+}
+.suggestion {
+    background:crimson;
+    width: 230px;
+    height: 100px;
+    padding: 1em;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 10px;
+}
+.container {
+  max-width: 1200px;
+  flex-direction: column;
+  background-color: grey;
+}
+.search input {
+    width: 600px;
+    padding: 1em;
+    border: none;
+    outline: none;
+    height: 40px;
+}
+
+.input_container {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  color: white;
+  font-size: 1.2em;
+}
+.container_suggestion,
+.input_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  /* background-color: grey; */
+  /* border: 2px solid red; */
+}
+.InsertSuggestion.game-suggestions.movie-suggestions.game-and-movie-suggestion {
+}
+.InsertSuggestion {
+  width: 65em;
+  height: 30em;
+  border: 2px solid black;
+  position: relative;
+  background-color: antiquewhite;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+  padding: 2em 0.5em;
+  gap: 10px;
+}
+.InsertSuggestion::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+}
+
+.InsertSuggestion.game-suggestions::after {
+  content: "joc cu litera- gasina in array ul > game";
+}
+.InsertSuggestion.movie-suggestions::after {
+  content: "joc cu litera- gasina in array ul > movie";
+}
+.InsertSuggestion.game-suggestions.movie-suggestions::after {
+  content: "joc cu litera - gasina in ambele array uri > game si movie";
+}
+.InsertSuggestion.game-and-movie-suggestion::after {
+  content: "joc cu litera - gasina in ambele array uri > game si movie";
+}
+.InsertSuggestion.dont_have::after {
+  content: "nu gasesc cuvantul in arrays dar pentru tine iti arat";
+}
