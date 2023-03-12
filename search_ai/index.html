@@ -25,6 +25,14 @@
         gap: 10px;
         justify-content: center;
       }
+      .container {
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: grey;
+      }
       .suggestion {
         padding: 1em;
         width: 230px;
@@ -33,9 +41,18 @@
         color: white;
         border: 1px solid black;
       }
-      .container_suggestion {
+      .input_container  {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        color: white;
+        font-size: 1.2em;
+      }
+      .container_suggestion,.input_container {
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
 
         /* background-color: grey; */
         /* border: 2px solid red; */
@@ -77,7 +94,7 @@
         content: "game si movie > dupa litere";
       }
       .InsertSuggestion.game-and-movie-suggestion::after {
-        content: "game si movie > cuvant din array";
+        content: "game si movie > cuvant din array care incepe cu litera ";
       }
       .InsertSuggestion.dont_have::after {
         content: "nu gasesc cuvantul in arrays dar pentru tine iti arat";
@@ -86,10 +103,16 @@
   </head>
   <body>
     <div class="container">
-      <input type="text" id="search-input" />
+      <div class="input_container">
+      <label for="search_text">Cauta Jocul Potrivit</label>
+      <input type="text" id="search-input" name="search_text" />
+    </div>
       <ul id="game-list"></ul>
       <div class="container_suggestion">
-        <div id="InsertSuggestion" class="InsertSuggestion"></div>
+        <h2>sugestii in functie de search</h2>
+        <div id="InsertSuggestion" class="InsertSuggestion">
+     
+        </div>
       </div>
     </div>
 
