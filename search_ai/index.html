@@ -41,13 +41,14 @@
         color: white;
         border: 1px solid black;
       }
-      .input_container  {
+      .input_container {
         justify-content: flex-start !important;
         align-items: flex-start !important;
         color: white;
         font-size: 1.2em;
       }
-      .container_suggestion,.input_container {
+      .container_suggestion,
+      .input_container {
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -85,7 +86,7 @@
       }
 
       .InsertSuggestion.game-suggestions::after {
-        content:"joc cu litera- gasina in array ul > game";
+        content: "joc cu litera- gasina in array ul > game";
       }
       .InsertSuggestion.movie-suggestions::after {
         content: "joc cu litera- gasina in array ul > movie";
@@ -104,15 +105,14 @@
   <body>
     <div class="container">
       <div class="input_container">
-      <label for="search_text">Cauta Jocul Potrivit</label>
-      <input type="text" id="search-input" name="search_text" />
-    </div>
+        <label for="search_text">Cauta Jocul Potrivit</label>
+        <input type="text" id="search-input" name="search_text" />
+        <button id="searchBtn">Search</button>
+      </div>
       <ul id="game-list"></ul>
       <div class="container_suggestion">
         <h2>sugestii in functie de search</h2>
-        <div id="InsertSuggestion" class="InsertSuggestion">
-     
-        </div>
+        <div id="InsertSuggestion" class="InsertSuggestion"></div>
       </div>
     </div>
 
@@ -143,8 +143,9 @@
         "Rocket League",
         "PlayerUnknown's Battlegrounds",
         "Avatar in game",
-        "lol","tetris",
-        "vikings"
+        "lol",
+        "tetris",
+        "vikings",
       ];
       const movieSuggestions = [
         "The Godfather3",
@@ -158,12 +159,21 @@
         "Inception",
         "Avatar in movie",
         "dota",
-      
+      ];
+
+      // Define fallback suggestions
+      const fallbackSuggestions = [
+        "The Matrix",
+        "Minecraft",
+        "Star Wars",
+        "Red Dead Redemption",
+        "Harry Potter",
       ];
 
       // Get search input and game list
       const searchInput = document.getElementById("search-input");
       const gameList = document.getElementById("game-list");
+      const searchBtn = document.getElementById("searchBtn");
 
       // Function to display game list
       function displayGames(gameArray) {
@@ -179,6 +189,7 @@
 
       // Display all games initially
       displayGames(games);
+      searchBtn.addEventListener("click", filterGames);
       // Function to filter games based on search input
       function filterGames() {
         // Get search input value and convert to lowercase
@@ -190,6 +201,7 @@
         console.log(searchValue, "fas");
         // Display filtered games
         displayGames(filteredGames);
+
         // Display suggestions if search input is not empty
         if (searchValue !== "") {
           displaySuggestions(
@@ -197,6 +209,7 @@
             searchValue,
             "gamesuggestion",
             "moviesuggestion",
+
             gameSuggestions,
             movieSuggestions
           );
@@ -214,8 +227,6 @@
           } else {
             console.log("Found");
             parentElement.classList.remove("dont_have");
-     
-            
           }
         } else {
           clearSuggestions();
@@ -254,13 +265,12 @@
             parentElement.appendChild(suggestionElement);
             const isGameSuggestion = gameSuggestions.includes(suggestion);
             const isMovieSuggestion = movieSuggestions.includes(suggestion);
+
             // Add classes to parent element based on suggestion type
             if (isGameSuggestion && isMovieSuggestion) {
-
               parentElement.classList.add("game-and-movie-suggestion");
               suggestionsDisplayed = true;
             } else if (isGameSuggestion) {
-
               parentElement.classList.add("game-suggestions");
               suggestionsDisplayed = true;
             } else if (isMovieSuggestion) {
@@ -268,10 +278,18 @@
 
               suggestionsDisplayed = true;
             }
-             parentElement.appendChild(suggestionElement);
+            parentElement.appendChild(suggestionElement);
             // searchInput.parentNode.insertBefore(suggestionElement, searchInput.nextSibling);
           });
         } else {
+          // Display the random suggestion to the user
+
+          // // Select a random fallback suggestion
+          const randomSuggestion =
+            allSuggestions[Math.floor(Math.random() * allSuggestions.length)];
+          allSuggestions.push(randomSuggestion);
+          // parentElement.textContent = `Did you mean "${allSuggestions}"?`;
+          console.log(allSuggestions, "s");
           displayGames(games);
           allSuggestions.forEach((suggestion) => {
             if (filteredGames.includes(suggestion)) {
@@ -281,19 +299,10 @@
             const parentElement = document.querySelector(".InsertSuggestion");
             const suggestionElement = document.createElement("div");
             suggestionElement.classList.add("suggestion");
-            suggestionElement.textContent = suggestion;
+            suggestionElement.textContent = `cel mai bun joc al momentului "${randomSuggestion}" + ${suggestion}`;
             parentElement.appendChild(suggestionElement);
-
             const isGameSuggestion = gameSuggestions.includes(suggestion);
             const isMovieSuggestion = movieSuggestions.includes(suggestion);
-
-            // // Add classes to parent element based on suggestion type
-            // if (!isGameSuggestion && !isMovieSuggestion) {
-            //   console.log("test1");
-            //   console.log(!isGameSuggestion);
-            //   console.log(!isMovieSuggestion);
-            //   
-            // }
           });
         }
       }
