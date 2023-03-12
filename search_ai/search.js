@@ -9,40 +9,71 @@ const games = [
     "Animal Crossing: ",
     "Among Us",
     "FIFA 21",
-    "test",
-    "test",
-    "the games in games"
+    "the games in games",
+    "Assassin's Creed Valhalla",
+    "Cyberpunk 2077",
+    "Death Stranding",
+    "The Last of Us Part II",
+    "Ghost of Tsushima",
+    "Demon's Souls",
+    "Hades",
+    "Celeste",
+    "Undertale",
+    "Stardew Valley",
+    "Factorio",
+    "Civilization VI",
+    "Age of Empires II",
+    "Starcraft II",
+    "League of Legends",
+    "Dota 2",
+    "marian in game",
+    "avatar in game"
 ];
 const gameSuggestions = [
-    "Portal2",
-    "Half-Life2",
-    "Team Fortress 2",
-    "Counter-Strike:cs",
-    "Left 4 Dead",
-    "DOTA 2",
-    "Teamfight Tactics",
-    "Overwatch",
+    "Borderlands 3",
+    "Destiny 2",
+    "Rainbow Six Siege",
     "Rocket League",
-    "Player's Batt",
-    "Avatar in game",
-    "lol",
-    "tetris",
-    "vikings",
-    "the games in gamesSuggestion"
+    "Apex Legends",
+    "Valorant",
+    "Genshin Impact",
+    "Phasmophobia",
+    "Resident Evil Village",
+    "Hollow Knight",
+    "Portal 2",
+    "Bioshock Infinite",
+    "Mass Effect 2",
+    "Skyrim",
+    "Disco Elysium",
+    "Control",
+    "marian in game Suggestions",
+    "avatar in game Suggestions"
 ];
 const movieSuggestions = [
-    "The Godfather3",
-    "The Shawshank ",
-    "The Dark Knight3",
-    "Forrest Gump",
-    "The Matrix",
-    "Star Wars",
-    "Jurassic Park",
-    "Titanic",
-    "Inception",
-    "Avatar in movie",
-    "dota",
-    "the games in movieSuggestions"
+  
+        "The Godfather",
+        "The Shawshank Redemption",
+        "The Dark Knight",
+        "Pulp Fiction",
+        "The Lord of the Rings: The Fellowship of the Ring",
+        "Fight Club",
+        "Forrest Gump",
+        "Inception",
+        "The Matrix",
+        "Star Wars: Episode V - The Empire Strikes Back",
+        "Schindler's List",
+        "Goodfellas",
+        "The Silence of the Lambs",
+        "The Departed",
+        "The Prestige",
+        "City of God",
+        "Blade Runner",
+        "Alien",
+        "The Terminator",
+        "Indiana Jones and the Raiders of the Lost Ark",
+        "marian in movie Suggestions",
+        "avatar in movie Suggestions"
+  
 ];
 
 // Define fallback suggestions
@@ -72,7 +103,7 @@ function displayGames(gameArray) {
 }
 
 // Display all games initially
-displayGames(games);
+displayGames(games.slice(0, 100));
 searchBtn.addEventListener("click", filterGames);
 // Function to filter games based on search input
 function filterGames() {
@@ -98,7 +129,7 @@ function filterGames() {
             movieSuggestions
         );
         // Check if search value is not found in suggestion arrays
-        const allSuggestions = [...gameSuggestions, ...movieSuggestions];
+        // const allSuggestions = [...gameSuggestions, ...movieSuggestions];
         const parentElement = document.querySelector(".InsertSuggestion");
         const isSuggestionFound = allSuggestions.some((suggestion) =>
             suggestion.toLowerCase().startsWith(searchValue)
@@ -125,21 +156,19 @@ function filterGames() {
 function displaySuggestions(
     filteredGames,
     searchValue,
-    suggestionType,
     ...suggestionArrays
 ) {
     // Clear previous suggestions
     clearSuggestions();
     // Combine all suggestion arrays into a single array
     const allSuggestions = suggestionArrays.flat();
-    console.log(allSuggestions, "allSuggestions_test");
     // Get suggestions from allSuggestions array based on search value
     const suggestions = allSuggestions
         .filter((suggestion) =>
             suggestion.toLowerCase().startsWith(searchValue)
         )
         .slice(0, 20);
-     
+
     // Display suggestions 
     if (suggestions.length > 0) {
         suggestions.forEach((suggestion) => {
@@ -186,7 +215,7 @@ function displaySuggestions(
             parentElement.appendChild(suggestionElement);
 
         });
-    
+
 
 
     }
