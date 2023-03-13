@@ -50,7 +50,6 @@ const gameSuggestions = [
     "avatar in game Suggestions"
 ];
 const movieSuggestions = [
-
     "The Godfather",
     "The Shawshank Redemption",
     "The Dark Knight",
@@ -73,7 +72,6 @@ const movieSuggestions = [
     "Indiana Jones and the Raiders of the Lost Ark",
     "marian in movie Suggestions",
     "avatar in movie Suggestions"
-
 ];
 
 // Define fallback suggestions
