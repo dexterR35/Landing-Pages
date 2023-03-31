@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    let SHEET_ID = '1cszaLg-P5CCysWEjfdw1jdImEdwEBq7k7D1jz0DAT4s'
-    let SHEET_TITLE = 'echipe_puzzle_world';
+    let SHEET_ID = '1Yy9ofhf_D1-6WPH0BUsaOOXTPuUdnluwXRn4LSKefa4'
+    let SHEET_TITLE = 'search_words';
     let SHEET_RANGE = 'A2:B200'
     let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);
 
