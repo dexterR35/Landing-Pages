@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+body {display:flex;
+align-items:center;
+justify-content:center;
+height:50vh}
+images {
+  position: absolute;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+#img1 {
+position:relative;
+  top:200px;
+}
+#img2 {
+position:relative;
+  top:100px;
+  left:40px;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <img id="img1" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/roatanetbet/star.png" alt="Image 5"  class="image">
+        <img id="img2" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/roatanetbet/clover.png" alt="Image 6"  class="image">
+        <img id="img3" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/roatanetbet/star.png" alt="Image 7"  class="image">
+        <img id="img4" src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/roatanetbet/clover.png" alt="Image 8"  class="image">
+            </div>
+
+
+            <script>
+                const images = document.querySelectorAll('.image');
+const center = { x: window.innerWidth / 6, y: window.innerHeight / 6 };
+
+// Initial setup for images
+images.forEach((image) => {
+  const x = parseInt(image.dataset.x) || 0; // Citeste coordonata X din atributul data-x
+  const y = parseInt(image.dataset.y) || 0; // Citeste coordonata Y din atributul data-y
+
+  image.style.opacity = '0';
+  image.style.transformOrigin = `${center.x}px ${center.y}px`;
+  image.style.transform = `translate(${x}px, ${y}px) scale(0)`;
+});
+
+// Animation for image expansion and position
+gsap.to(images, {
+  duration: 1.5,
+  opacity: 1,
+  delay: 0.5,
+  stagger: 0.5,
+  ease: 'power3.out',
+
+  scale: 1,
+  transformOrigin: `${center.x}px ${center.y}px`,
+  x: (i, el) => {
+    const x = parseInt(el.dataset.x) || 0; // Citeste coordonata X din atributul data-x al imaginii curente
+    return x;
+  },
+  y: (i, el) => {
+    const y = parseInt(el.dataset.y) || 0; // Citeste coordonata Y din atributul data-y al imaginii curente
+    return y;
+  }
+});
+            </script>
+</body>
+</html>
