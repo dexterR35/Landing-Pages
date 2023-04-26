@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url(./bg-2.png);
+            /* background-position: center; */
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .line-wrap {
+            /* border-bottom: 1px solid #dcdcdc; */
+            width: fit-content;
+        }
+
+        .account-ring-wrap {
+            /* margin: 5em 7em; */
+            /* width: 100%;
+            height: 100%;  
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            margin: auto;
+            pointer-events: fill; 
+            cursor: pointer; 
+            -webkit-transform: perspective(100px), translate3d(0, 0, 0);
+            transform: perspective(1000px); */
+        }
+
+        .folder-img {
+            position: absolute;
+            width: 90% !important;
+            z-index: 1;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* .account-ring-inner {
+            width: 100%;
+            height: 397px;
+            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 50%;
+            z-index: 2;
+            -webkit-transition: 3s all;
+            transition: 3s all;
+        } */
+        .account-ring-wrap {
+            width: fit-content;
+            padding: 4rem 8rem;
+            /* margin: 5em 7em; */
+            /* background-color: #333; */
+        }
+
+        .account-ring-inner {
+            display: flex;
+            justify-content: center;
+            position: fixed;
+
+            /* width: 100%; */
+
+            /* background: red; */
+            /* height: fit-content; */
+        }
+
+        .account-ring-inner::after {
+            /* content: ""; */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            height: 100%;
+            background-image: url(./Bwheel/particles2.png);
+            /* background-position: 50% 43%; */
+            background-size: 290%;
+            background-repeat: no-repeat;
+            mix-blend-mode: screen;
+            z-index: 0;
+        }
+
+        .account-ring {
+            border: 3px solid #ededed;
+            border-radius: 50%;
+            box-sizing: border-box;
+            position: relative;
+            margin: 25px auto 0;
+            /* top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 25px auto 0; */
+        }
+
+        .big-ring {
+            width: 465px;
+            height: 465px;
+            opacity: 0;
+            position: relative;
+        }
+
+        .middle-ring {
+            width: 335px;
+            height: 335px;
+            margin-top: 85px;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .small-ring {
+            width: 220px;
+            height: 220px;
+            margin-top: 145px;
+            opacity: 0;
+            position: absolute;
+        }
+
+        .animation-account-icon {
+            width: 55px;
+            height: 55px;
+            position: absolute;
+            margin: 0 auto;
+            display: block;
+            box-sizing: border-box;
+            transition: 1s all;
+        }
+
+        .animation-account-icon img {
+            -webkit-transform: rotate(-90deg);
+            display: block;
+        }
+
+        .animation-image-readonly {
+            left: 35px;
+            top: 40px;
+        }
+
+        .animation-image-readonly2 {
+            left: 370px;
+            top: 40px;
+        }
+
+        .animation-image-noaccess {
+            left: 425px;
+            top: 210px;
+        }
+
+        .animation-image-manager {
+            top: -28px;
+            left: 130px;
+        }
+
+        .animation-image-manager2 {
+            top: 65px;
+            left: -15px;
+        }
+
+        .animation-image-manager3 {
+            top: 200px;
+            left: -20px;
+        }
+
+        .animation-image-admin {
+            top: -15px;
+            left: 120px;
+        }
+
+        .animation-image-admin2 {
+            top: 175px;
+            left: 80px;
+        }
+
+        .animation-image-noaccess2 {
+            left: 140px;
+            top: 422px;
+        }
+
+        .animation-image-admin,
+        .animation-image-admin2 {
+            width: 65px;
+            height: 65px;
+        }
+
+        .animation-image-readonly {
+            -webkit-transform-origin: 350% 182px;
+            transform-origin: 350% 182px;
+        }
+
+        .animation-image-readonly2 {
+            -webkit-transform-origin: -135px 185px;
+            transform-origin: -135px 185px;
+        }
+
+        .animation-image-noaccess {
+            -webkit-transform-origin: -355% 12px;
+            transform-origin: -355% 12px;
+        }
+
+        .animation-image-noaccess2 {
+            -webkit-transform-origin: 160% -191px;
+            transform-origin: 160% -191px;
+        }
+
+        /*counter rotate*/
+        .orbit-animation .animation-image-noaccess-img,
+        .orbit-animation .animation-image-noaccess2-img,
+        .orbit-animation .animation-image-readonly2-img,
+        .orbit-animation .animation-image-readonly-img {
+            -webkit-animation: roateCirlce 80s 3.01s infinite linear;
+            animation: roateCirlce 80s 3.01s infinite linear backwards;
+            -webkit-animation-direction: forwards;
+            animation-direction: forwards;
+        }
+
+        .orbit-animation .animation-image-readonly,
+        .orbit-animation .animation-image-readonly2,
+        .orbit-animation .animation-image-noaccess,
+        .orbit-animation .animation-image-noaccess2 {
+            -webkit-animation: roateCirlce 80s 3s infinite linear;
+            animation: roateCirlce 80s 3s infinite linear;
+            -webkit-animation-direction: reverse;
+            animation-direction: reverse;
+        }
+
+        /*counter rotate*/
+        .orbit-animation .animation-image-manager-img,
+        .orbit-animation .animation-image-manager2-img,
+        .orbit-animation .animation-image-manager3-img {
+            -webkit-animation: roateCirlce 90s 1.01s infinite linear;
+            animation: roateCirlce 90s 1.01s infinite linear;
+            -webkit-animation-direction: reverse;
+            animation-direction: reverse;
+        }
+
+        .orbit-animation .animation-image-manager,
+        .orbit-animation .animation-image-manager2,
+        .orbit-animation .animation-image-manager3 {
+            -webkit-animation: roateCirlce 90s 1s infinite linear;
+            animation: roateCirlce 90s 1s infinite linear;
+        }
+
+        .orbit-animation .animation-image-admin,
+        .orbit-animation .animation-image-admin2,
+        .animation-image-admin3 {
+            -webkit-animation: roateCirlce 35s 2s infinite linear;
+            animation: roateCirlce 35s 2s infinite linear;
+            -webkit-animation-direction: reverse;
+            animation-direction: reverse;
+        }
+
+        /*counter rotate*/
+        .orbit-animation .animation-image-admin-img,
+        .orbit-animation .animation-image-admin2-img,
+        .animation-image-admin3-img {
+            -webkit-animation: roateCirlce 35s 2.01s infinite linear;
+            animation: roateCirlce 35s 2.01s infinite linear;
+            -webkit-animation-direction: forwards;
+            animation-direction: forwards;
+        }
+
+        .animation-image-manager {
+            -webkit-transform-origin: 50% 193px;
+            transform-origin: 50% 193px;
+        }
+
+        .animation-image-manager2 {
+            -webkit-transform-origin: 328% 100px;
+            transform-origin: 328% 100px;
+        }
+
+        .animation-image-manager3 {
+            -webkit-transform-origin: 328% -35px;
+            transform-origin: 328% -35px;
+        }
+
+        .animation-image-admin {
+            -webkit-transform-origin: -28% 117px;
+            transform-origin: -28% 117px;
+        }
+
+        .animation-image-admin2 {
+            -webkit-transform-origin: 46% -68px;
+            transform-origin: 46% -68px;
+        }
+
+        .animation-image-admin3 {
+            -webkit-transform-origin: 26% -68px;
+            transform-origin: 26% -68px;
+        }
+
+        @-webkit-keyframes roateCirlce {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+
+            to {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes roateCirlce {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes bounceIn {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(0.3, 0.3, 0.3);
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                -webkit-transform: scale3d(0.3, 0.3, 0.3);
+                -ms-transform: scale3d(0.3, 0.3, 0.3);
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .ring-animation .bounceInLarge,
+        .ring-animation .bounceInMedium,
+        .ring-animation .bounceInSmall {
+            -webkit-animation-name: bounceIn;
+            animation-name: bounceIn;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+        }
+
+        .ring-animation .bounceInLarge {
+            -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+        }
+
+        .ring-animation .bounceInMedium {
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+        }
+
+        .ring-animation .bounceInSmall {
+            -webkit-animation-duration: 1.25s;
+            animation-duration: 1.25s;
+            -webkit-animation-delay: 1.75s;
+            animation-delay: 1.75s;
+        }
+
+        .animation-account-icon {
+            display: none;
+        }
+
+        .account-ring img {
+            width: 100%;
+        }
+    </style>
+    <title>wheel</title>
+</head>
+
+<body>
+    <div class="container line-wrap">
+        <div class="account-ring-wrap ring-animation">
+            <div class="account-ring-inner">
+                <div class="account-ring big-ring bounceInLarge">
+                    <span class="animation-account-icon animation-image-readonly">
+                        <img src="./Bwheel/7_top_right.png" class="animation-image-readonly-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-readonly2">
+                        <img src="./Bwheel/Grapes.png" class="animation-image-readonly2-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-noaccess">
+                        <img src="./Bwheel/Lemon.png" class="animation-image-noaccess-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-noaccess2">
+                        <img src="./Bwheel/Watermelon.png" class="animation-image-noaccess2-img" />
+                    </span>
+                </div>
+
+                <div class="account-ring middle-ring bounceInMedium">
+                    <span class="animation-account-icon animation-image-manager">
+                        <img src="./Bwheel/7_top_right.png" class="animation-image-manager-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-manager2">
+                        <img src="./Bwheel/Dices_left.png" class="animation-image-manager2-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-manager3">
+                        <img src="./Bwheel/Orange.png" class="animation-image-manager3-img" />
+                    </span>
+                </div>
+
+                <div class="account-ring small-ring bounceInSmall">
+                    <span class="animation-account-icon animation-image-admin">
+                        <img src="./Bwheel/7_mid_left.png" class="animation-image-admin-img" />
+                    </span>
+
+                    <span class="animation-account-icon animation-image-admin2">
+                        <img src="./Bwheel/Bell.png" class="animation-image-admin2-img" />
+                    </span>
+                    <span class="animation-account-icon animation-image-admin2">
+                        <img src="./Bwheel/Dices_right.png" class="animation-image-admin2-img" />
+                    </span>
+                    <span><img src="./Bwheel/Star.png" class="folder-img" /></span>
+                </div>
+            </div>
+            <!-- <img src="./Bwheel/Star.png" class="folder-img" /> -->
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            window.setTimeout(function () {
+                $(".account-ring-wrap").addClass("orbit-animation");
+                $(".animation-account-icon").fadeIn();
+            }, 4000);
+        });
+    </script>
+</body>
+
+</html>
