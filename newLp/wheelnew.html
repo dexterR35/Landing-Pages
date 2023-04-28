@@ -38,7 +38,7 @@
 
 		.orbit {
 			/* background: #090c29; */
-			float: left;
+			/* float: left; */
 			width: 100%;
 			min-width: 100vw;
 			min-height: 100vh;
@@ -223,7 +223,7 @@
 			width: 12em;
 			height: 12em;
 			animation: clockwiseRotate 30s linear infinite;
-			
+
 		}
 
 		.ring-3 img {
@@ -232,7 +232,7 @@
 
 		.ring-3>*:nth-of-type(1) {
 			transform: rotate(154deg) translate(6em) rotate(-127deg);
-			
+
 		}
 
 		.ring-3>*:nth-of-type(2) {
@@ -271,10 +271,6 @@
 			margin: -0.8em;
 		}
 
-		ul[class^="ring"] li img,
-		.orbit-center img {
-			/* filter: drop-shadow(0px 0px 6px #474747); */
-		}
 
 		/* center;
  */
@@ -363,35 +359,47 @@
 		.ring-3 img {
 			width: 100%;
 		}
+
+		@keyframes orbit {
+			0% {
+				transform: rotate(0deg);
+				transform-origin: 0%;
+			}
+
+			100% {
+				transform: rotate(360deg);
+				transform-origin: 0% 50%;
+			}
+		}
 	</style>
 	<title>Document</title>
 </head>
 
 <body>
 	<div class="container-all">
-	<div class="orbit">
-		<ul class="orbit-wrap">
-			<li class="orbit-center">
-				<!-- <i class="orbit-center__icon fa fa-code"></i> -->
-				<img src="./Bwheel/Star.png" class="folder-img" />
-			</li>
-			<li>
-				<ul class="ring-0">
-					<li>
-						<img src="./Bwheel/Bell.png" class="" />
-					</li>
-					<li>
-						<img src="./Bwheel/7_top_right.png" class="" />
-					</li>
-					<li>
-						<img src="./Bwheel/7_mid_left.png" class="" />
-					</li>
-					<li>
-						<img src="./Bwheel/7_bottom_right.png" class="" />
-					</li>
-				</ul>
-			</li>
-			<!-- <li>
+		<div class="orbit">
+			<ul class="orbit-wrap">
+				<li class="orbit-center">
+					<!-- <i class="orbit-center__icon fa fa-code"></i> -->
+					<img src="./Bwheel/Star.png" class="folder-img" />
+				</li>
+				<li>
+					<ul class="ring-0">
+						<li>
+							<img src="./Bwheel/Bell.png" class="" />
+						</li>
+						<li>
+							<img src="./Bwheel/7_top_right.png" class="" />
+						</li>
+						<li>
+							<img src="./Bwheel/7_mid_left.png" class="" />
+						</li>
+						<li>
+							<img src="./Bwheel/7_bottom_right.png" class="" />
+						</li>
+					</ul>
+				</li>
+				<!-- <li>
 				<ul class="ring-1">
 					<li>
 						<img src="./Bwheel/Grapes.png" class="" />
@@ -405,28 +413,28 @@
 					<li><img src="./Bwheel/Orange.png" class="" /></li>
 				</ul>
 			</li> -->
-			<li>
-				<ul class="ring-2">
-					<li><img src="./Bwheel/Dices_left.png" class="" /></li>
-					<li><img src="./Bwheel/Orange.png" class="" /></li>
-					<li><img src="./Bwheel/Watermelon.png" class="" /></li>
-					<li><img src="./Bwheel/Dices_right.png" class="" /></li>
-					<li><img src="./Bwheel/Grapes.png" class="" /></li>
-					<li><img src="./Bwheel/Plums.png" class="" /></li>
+				<li>
+					<ul class="ring-2">
+						<li><img src="./Bwheel/Dices_left.png" class="" /></li>
+						<li><img src="./Bwheel/Orange.png" class="" /></li>
+						<li><img src="./Bwheel/Watermelon.png" class="" /></li>
+						<li><img src="./Bwheel/Dices_right.png" class="" /></li>
+						<li><img src="./Bwheel/Grapes.png" class="" /></li>
+						<li><img src="./Bwheel/Plums.png" class="" /></li>
 
-				</ul>
-			</li>
-			<li>
-				<ul class="ring-3">
-					<li><img src="./Bwheel/Plums.png" class="" /></li>
-					<li><img src="./Bwheel/7_mid_left.png" class="" /></li>
-					<li><img src="./Bwheel/Lemon.png" class="" /></li>
-				</ul>
-			</li>
-		</ul>
+					</ul>
+				</li>
+				<li>
+					<ul class="ring-3">
+						<li><img src="./Bwheel/Plums.png" class="" /></li>
+						<li><img src="./Bwheel/7_mid_left.png" class="" /></li>
+						<li><img src="./Bwheel/Lemon.png" class="" /></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="girl">41241</div>
 	</div>
-	<div class="girl">41241</div>
-</div>
 	<script>
 		$(document).ready(function () {
 			var $orbitCenter = $(".orbit-wrap > li.orbit-center");

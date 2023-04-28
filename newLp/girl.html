@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <title>Document</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url(./bg-clean2.png);
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+      }
+      .orbit-center-g {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        font-size: 8em;
+        width: 3em;
+        height: 3em;
+        line-height: 1.8em;
+        text-align: center;
+        background: linear-gradient(74deg, #d4bfc6, #e9d5dc);
+        box-shadow: inset 0px 0px 21px #f9f9f9;
+        /* box-shadow: 0px 0px 33px #f5ecd9; */
+        border-radius: 50%;
+      }
+
+      .ring-0-g {
+        width: 27em;
+        height: 27em;
+        list-style: none;
+        /* background: red; */
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        /* animation: clockwiseRotate 65s linear infinite; */
+      }
+      .orbt {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100px;
+        height: 100px;
+
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="orbit-g">
+      <ul class="orbit-wrap-g">
+        <li class="orbit-center-g">
+          <img src="./girl/girl.png" alt="" />
+        </li>
+        <li>
+          <ul class="ring-0-g">
+            <li class="orbt o-1">
+              <img src="./girl_elem/che-left.png" class="" />
+            </li>
+            <li class="orbt o-2">
+              <img src="./girl_elem/bell.png" class="" />
+            </li>
+            <li class="orbt o-3">
+              <img src="./girl_elem/dices.png" class="" />
+            </li>
+            <li class="orbt o-4">
+              <img src="./girl_elem/che-right.png" class="" />
+            </li>
+            <li class="orbt o-5">
+              <img src="./girl_elem/orange.png" class="" />
+            </li>
+            <li class="orbt o-6">
+              <img src="./girl_elem/star.png" class="" />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      // 	$(document).ready(function () {
+      // 	var $orbitCenter = $(".orbit-wrap > li.orbit-center");
+      // 	var $orbitItems = $orbitCenter.nextAll().find("ul > li");
+      // 	function hoverOrbitItems() {
+      // 		$orbitItems.css("transform", "translate(-10px, -30px)");
+      // 	}
+      // 	function unhoverOrbitItems() {
+      // 		$orbitItems.css("transform", "");
+      // 	}
+      // 	// hover on page load
+      // 	setTimeout(function () {
+      // 		$orbitCenter.trigger("mouseenter");
+      // 	}, 5000);
+
+      // 	// set interval for auto hover
+      // 	setInterval(function () {
+      // 		$orbitCenter.trigger("mouseenter");
+      // 		setTimeout(function () {
+      // 			$orbitCenter.trigger("mouseleave");
+      // 		}, 1000);
+      // 	}, 6000);
+      // 	// bind hover events
+      // 	$orbitCenter.hover(hoverOrbitItems, unhoverOrbitItems);
+      // });
+
+      function orbit() {
+        const orbitItems = document.querySelectorAll(".orbt");
+        const centerX = window.innerWidth / 12;
+        const centerY = window.innerHeight / 5;
+        const radiusX = 200;
+        const radiusY = 30;
+        let angle = 0;
+        let speed = 0.02;
+
+        setInterval(() => {
+          angle += speed;
+
+          orbitItems.forEach((item, index) => {
+            const x =
+              centerX +
+              radiusX *
+                Math.cos(angle + index * ((Math.PI * 2) / orbitItems.length));
+            const y =
+              centerY +
+              radiusY *
+                Math.sin(angle + index * ((Math.PI * 12) / orbitItems.length));
+            item.style.transform = `translate(${x}px, ${y}px)`;
+          });
+        }, 1000 / 60);
+      }
+      orbit();
+    </script>
+  </body>
+</html>

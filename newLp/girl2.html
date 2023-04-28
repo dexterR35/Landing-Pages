@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test2</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 100%;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url(./bg-clean2.png);
+        /* background-position: center; */
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+      }
+
+      #orbit-system {
+        position: relative;
+        width: 18em;
+        height: 18em;
+        margin: 0 auto;
+      }
+
+      .system {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        -webkit-transform: rotateX(75deg) rotateY(-30deg);
+        transform: rotateX(75deg) rotateY(-30deg);
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+
+      .planet,
+      .satellite-orbit,
+      .satellite {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        /* position: absolute; */
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+      }
+
+      .planet {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20em;
+        height: 20em;
+        margin-top: -4.5em;
+        margin-left: -4.5em;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+
+        text-align: center;
+        line-height: 9em;
+
+        -webkit-transform: rotateY(30deg) rotateX(-75deg);
+        transform: rotateY(30deg) rotateX(-75deg);
+      }
+
+      .satellite-orbit {
+        width: 30em;
+        height: 30em;
+        margin-top: -8em;
+        margin-left: -8em;
+
+        border: 5px solid black;
+        border-radius: 50%;
+
+        animation-name: orbit;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      .satellite-orbit::after {
+        content: "";
+        background-image: url(./girl/swirl_t.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+      }
+      .satellite2 {
+        color: white;
+      }
+
+      .planet img {
+        width: 100%;
+      }
+      .satellite {
+        top: 100%;
+        width: 3em;
+        height: 3em;
+        /* margin-top: -1.5em;
+  margin-left: -1.5em; */
+
+        color: black;
+        /* background-color: #999; */
+        /* border-radius: 50%; */
+        /* text-align: center; */
+        /* line-height: 3em; */
+
+        -webkit-animation-name: invert-orbit;
+        animation-name: invert-orbit;
+
+        animation-duration: 5s;
+
+        animation-iteration-count: infinite;
+
+        animation-timing-function: linear;
+      }
+      .satellite {
+        transform: rotateZ(225deg) translateX(0em) rotateZ(-325deg)
+          rotateY(-75deg);
+      }
+      /* .satellite2 {
+transform:rotateZ(125deg) translateX(0em) rotateZ(225deg) rotateX(90deg);
+}
+.satellite4 {
+transform:rotateZ(125deg) translateX(2em) rotateZ(125deg) rotateX(90deg);
+}
+.satellite5 {
+transform:rotateZ(125deg) translateX(2em) rotateZ(225deg);
+}
+.satellite6 {
+transform:rotateZ(125deg) translateX(2em) rotateZ(225deg);
+} */
+      /* @-webkit-keyframes orbit {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    100% {
+        transform: rotateZ(360deg);
+    }
+} */
+      @keyframes orbit {
+        0% {
+          transform: rotateZ(0deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateZ(360deg) rotateY(0deg);
+        }
+      }
+
+      /*
+In order to invert the rotation, do the rotate* transforms in reverse order.
+
+Here, we rotated the system with rotateX(75deg) rotateY(-30deg), and then we are animating the rotation of the orbit with rotateZ(0-360deg). To reverse that, we need to reverse the last transform applied (rotateZ), then rotateY, then rotateX.
+
+The rotateX/Y reversal is easy since it's not animated, so just use its opposite (30deg, -75deg). The rotateZ is trickier since it's animating, but since it's rotating from 0 to 360, we just need to animate the satellite from 360 to 0.
+*/
+      /* @-webkit-keyframes invert-orbit {
+    0% {
+        transform: rotateZ(360deg) rotateY(30deg) rotateX(-75deg);
+    }
+
+    100% {
+        transform: rotateZ(0deg) rotateY(30deg) rotateX(-75deg);
+    }
+} */
+      @keyframes invert-orbit {
+        0% {
+          transform: rotateZ(360deg) rotateY(30deg) rotateX(-75deg);
+        }
+
+        100% {
+          transform: rotateZ(0deg) rotateY(30deg) rotateX(-75deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="orbit-system">
+      <div class="system">
+        <div class="satellite-orbit">
+          <div class="satellite">
+            <img src="./girl_elem/che-left.png" alt="che" />1
+          </div>
+          <!-- <div class="satellite2"><img src="./girl_elem/dices.png" alt="dices">2</div>
+            <div class="satellite3"><img src="./girl_elem/orange.png" alt="dices">3</div>
+            <div class="satellite4"><img src="./girl_elem/star.png" alt="dices">4</div>
+            <div class="satellite5"><img src="./girl_elem/bell.png" alt="dices">5</div>
+            <div class="satellite6"><img src="./girl_elem/che-right.png" alt="dices">6</div> -->
+        </div>
+        <div class="planet">
+          <img src="./girl/girl.png" alt="gonzo" srcset="" class="muheres" />
+          <img src="./girl/swirl_t.png" alt="gonzo" srcset="" class="swirl_top">
+        </div>
+      </div>
+      <!-- <div class="swirl"><img src="./girl/swirl_t.png" alt="gonzo" srcset="" class="swirl_top"></div>
+        <div class="swirl"><img src="./girl/swirl_b.png" alt="gonzo" srcset="" class="swirl_bottom"></div> -->
+    </div>
+  </body>
+</html>
