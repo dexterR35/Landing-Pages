@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17-beta.0/vue.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <title>poker games</title>
+</head>
+<body>
+    <div id="app">
+        <div class="control"><input type="checkbox" v-model="gather" /><input type="checkbox" v-for="card in cards" v-model="card.open" /><button @click="shuffle">Shuffle</button>
+            <h1>{{state}}</h1>
+        </div>
+        <div class="cards" :class="{gather: gather}">
+            <div class="card" v-for="card in cards" :class="{open: card.open}" :data-order="card.id" @click="openCard(card)">
+                <div class="face back"> </div>
+                <div class="face front">{{ getSymbol(card.label) }}</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
