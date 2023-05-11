@@ -74,11 +74,11 @@ body {
     width: 100%;
     height: 100%;
     background-color: #020000;
-    /* border-radius: 14px; */
+    border-radius: 14px;
     position:absolute;
     top: 0;
     left: 0;
-    /* border: 3px solid #ed4747; */
+    border: 3px solid #ed4747;
     background-image: url(./png/card.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -91,22 +91,23 @@ body {
 }
 
 .cards .card[data-order="1"] {
-    left: calc(0%);
-    bottom: 200px;
+    left: calc(20% - 16vw) ;
+    /* bottom: 200px; */
 }
 
 .cards .card[data-order="2"] {
-    left: calc(20%);
+    left: calc(40% - 10vw);
 
 }
 
 .cards .card[data-order="3"] {
-    left: calc(40%);
-
+    left: calc(50% - 10vw);
+    bottom: 200px;
 }
 
 .cards .card[data-order="4"] {
-    left: calc(60%);
+    left: calc(50% - 10vw); 
+     bottom: 200px;
 
 }
 
@@ -121,13 +122,13 @@ body {
 .cards.gather {
     cursor: pointer;
 }
-
+/* 
 .cards.gather .card {
     top: 20%;
     left: calc(50% - 7.5vw);
     transform: rotate(360deg);
-}
-
+} */
+/* 
 .cards.gather:hover .card[data-order="1"] {
     transform: rotate(355deg);
 }
@@ -142,4 +143,4 @@ body {
 
 .cards.gather:hover .card[data-order="4"] {
     transform: rotate(370deg);
-}
+} */
