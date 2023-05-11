@@ -15,10 +15,14 @@
         </div>
         <div class="cards" :class="{gather: gather}">
             <div class="card" v-for="card in cards" :class="{open: card.open}" :data-order="card.id" @click="openCard(card)">
+      
                 <div class="face back"> </div>
                 <div class="face front">{{ getSymbol(card.label) }}</div>
             </div>
+
         </div>
+
+        
     </div>
 
 

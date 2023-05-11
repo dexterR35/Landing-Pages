@@ -7,6 +7,20 @@ body {
     align-items: center;
 }
 
+#app {
+    width: 100vw;
+    height: 640px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+
+}
+
+
+
+
 .cards {
     width: 100%;
     height: 40vh;
@@ -21,7 +35,8 @@ body {
     left: calc(30% - 7.5vw);
     transform: rotateY(0deg);
     transform-style: preserve-3d;
-    border-radius: 5px;
+    border-radius: 15px;
+    /* overflow: hidden; */
     transition: transform 1s, left 0.5s, top 0.5s;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
 }
@@ -58,10 +73,17 @@ body {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #ddd;
-    border: 3px solid #ed4747;
-    background-image: linear-gradient(-60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%), linear-gradient(60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%);
-    background-size: 8px 8px;
+    background-color: #020000;
+    /* border-radius: 14px; */
+    position:absolute;
+    top: 0;
+    left: 0;
+    /* border: 3px solid #ed4747; */
+    background-image: url(./png/card.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-image: linear-gradient(-60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%), linear-gradient(60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%); */
+    /* background-size: 8px 8px; */
 }
 
 .cards .card.open {
@@ -69,19 +91,27 @@ body {
 }
 
 .cards .card[data-order="1"] {
-    left: calc(20% - 7.5vw);
+    left: calc(0%);
+    bottom: 200px;
 }
 
 .cards .card[data-order="2"] {
-    left: calc(40% - 7.5vw);
+    left: calc(20%);
+
 }
 
 .cards .card[data-order="3"] {
-    left: calc(60% - 7.5vw);
+    left: calc(40%);
+
 }
 
 .cards .card[data-order="4"] {
-    left: calc(80% - 7.5vw);
+    left: calc(60%);
+
+}
+
+.card[data-order="3"] .front,.card[data-order="2"] .front {
+    color: crimson;
 }
 
 .cards .card:hover {
@@ -113,4 +143,3 @@ body {
 .cards.gather:hover .card[data-order="4"] {
     transform: rotate(370deg);
 }
-

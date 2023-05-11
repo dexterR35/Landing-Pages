@@ -35,6 +35,7 @@ var vm = new Vue({
     },
     turnAll(state){
       this.cards.forEach(card => card.open=state)
+      console.log(this.cards,"test")
     },
     startGame(){
       this.mode=""
