@@ -28,21 +28,44 @@ $(document).ready(function () {
         });
 
 
+    // async function getSelectedTeams() {
+    //     let selectedTeams = await team_fetch;
+    //     console.log(selectedTeams, "data22");
+    //     $("#theGrid").wordsearchwidget({
+    //         "wordlist": selectedTeams,
+    //         "gridsize": 14,
+    //         "width": 300
+    //     });
+    // }
+    // getSelectedTeams();
+
     async function getSelectedTeams() {
         let selectedTeams = await team_fetch;
         console.log(selectedTeams, "data22");
-        $("#theGrid").wordsearchwidget({
+      
+        // Funcție pentru a actualiza gridsize în funcție de dimensiunea ecranului
+        function updateGridSize() {
+          const gridsize = window.innerWidth < 600 ? 10 : 10;
+          $("#theGrid").wordsearchwidget({
             "wordlist": selectedTeams,
-            "gridsize": 14,
+            "gridsize": gridsize,
             "width": 300
-        });
-    }
-    getSelectedTeams();
+          });
+        }
+      
+        // Ascultați evenimentul de modificare a dimensiunii ferestrei
+        window.addEventListener('resize', updateGridSize);
+      
+        // Inițializați gridsize în funcție de dimensiunea ecranului la încărcarea paginii
+        updateGridSize();
+      }
+      
+      getSelectedTeams();
 
 
     $(".container").css("opacity", "1")
     let gameCompleted = false; //set initial game completion status to false
-    let timeLimit = 60; //in seconds
+    let timeLimit = 3460; //in seconds
     let timer = setInterval(function () {
         timeLimit--;
         $("#timer").text(timeLimit); //update the timer display

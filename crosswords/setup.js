@@ -184,7 +184,7 @@
 
             if (wordIndex != -1) {
                 let isWordPresent = wordIndex != -1;
-                console.log(selectedword, "selectedword");
+      
                 if (isWordPresent === 3) {
                     alert("fffff")
                 }
@@ -1028,8 +1028,6 @@
                     this.col = output[2];
                     this.writeWord();
                 }
-
-
             }
             // if still not, then return false (i.e. not placed. we need to try another direction
             return (word.isPlaced);
@@ -1273,7 +1271,7 @@
             for (let i = 0; i < grid.size(); i++) {
                 puzzleGrid += "<tr>";
                 for (let j = 0; j < grid.size(); j++) {
-                    puzzleGrid += "<td  class='rf-tgrid'>" + cells[i][j].value + "</td>";
+                    puzzleGrid += "<td class='rf-tgrid'>" + cells[i][j].value + "</td>";
                 }
                 puzzleGrid += "</tr>";
             }
@@ -1293,12 +1291,13 @@
             });
 
             let words = "<div id='rf-wordcontainer'><ul>"
+          
             $(model.wordList.words).each(function () {
                 words += '<li class=rf-p' + this.isPlaced + '>' + this.originalValue + '</li>';
             });
             words += "</ul></div>";
             $(container).append(words);
-
+         
         },
 
         signalWordFound: function (idx) {

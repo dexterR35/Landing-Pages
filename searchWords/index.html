@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
       integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
@@ -27,11 +28,14 @@
   </head>
   <body>
     <div class="container">
-      <div class="timer_container"><span>Search Words</span> <span id="timer">60</span> </div>
+      <div class="timer_container"><span>Search words</span> <span id="timer">60</span> </div>
       <div id="theGrid" width="100%"></div>
-
+    
     </div>
-  
+    <div id="modal" style="display: none;">
+      <p id="modal-text"></p>
+      <button id="try-again-button">Try Again</button>
+    </div>
     
     <script src="./setup.js"></script>
     <script src="./app.js"></script>
