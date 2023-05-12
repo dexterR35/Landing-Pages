@@ -29,10 +29,20 @@ var vm = new Vue({
     
   },
   methods: {
-    shuffle(){
-      let newOrder = [1,2,3,4].sort((a,b)=> Math.random()>0.5?1:-1)
-      this.cards.forEach((card,cid)=> card.id=newOrder[cid])
-    },
+   shuffle(){
+  let newOrder = [1,2,3,4].sort((a,b)=> Math.random()>0.5?1:-1)
+  this.cards.forEach((card,cid)=> card.id=newOrder[cid])
+  console.log("Shuffle! " + this.count)
+  if( this.count++ < 6){
+    setTimeout(() => {
+      this.shuffle()
+    },300)
+  }else{
+    this.state="Please pick out "+ this.question.label + this.question.symbol
+    this.mode="Answer"
+    this.count = 0 // Reset the count after the game is finished
+  }
+},
     turnAll(state){
       this.cards.forEach(card => card.open=state)
       console.log(this.cards,"test")
@@ -78,24 +88,30 @@ var vm = new Vue({
     getCard(label){
       return this.cards.find(card=> card.label==label)
     },
-    openCard(card){
-      if(this.mode== "Answer"){
-        card.open =!card.open
-        if(card.label == this.question.label){
-          this.state="You get the "+this.question.label+this.question.symbol+"!!!"
-          
-        }else{
-          this.state="You lose!!!"
+    openCard(card) {
+      if (this.mode == "Answer") {
+        card.open = !card.open;
+        if (card.label == this.question.label) {
+          this.count++;
+          this.state = "You get the " + this.question.label + this.question.symbol + "!!!";
           setTimeout(() => {
-            let card = this.getCard(this.question.label)
-            card.open=true
-          },1000)
+            alert("win");
+          }, 1000);
+        } else {
+          this.state = "You lose!!!";
+          setTimeout(() => {
+            let card = this.getCard(this.question.label);
+            card.open = true;
+            setTimeout(() => {
+              alert("lose");
+            }, 1000);
+          }, 1000);
         }
         setTimeout(() => {
-          this.startGame()
-        },3000)
-      }else{
-        this.startGame()
+          this.startGame();
+        }, 3000);
+      } else {
+        this.startGame();
       }
     }
   },
