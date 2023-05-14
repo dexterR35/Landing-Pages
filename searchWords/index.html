@@ -21,6 +21,7 @@
     href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap"
     rel="stylesheet"
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="./style.css" />
@@ -28,12 +29,34 @@
   </head>
   <body>
     <div class="container">
-      <div class="timer_container"><span>Search words</span> <span id="timer">60</span> </div>
-      <div id="theGrid" width="100%"></div>
+      <div class="info_cross">
+        <!-- <div id="selected-word"></div> -->
+        <!-- <div id="remaining-count" class="remainingWords"></div> -->
+      </div>
+      <span>Search words</span> 
+      <div class="timer_container"><span id="timer"> 60</span>
+        <div id="extra-lives"  class="extra-lives">
+      
+          <div class="life"><i class="fa fa-heart"></i></div>
+          <div class="life"><i class="fa fa-heart"></i></div>
+          <div class="life"><i class="fa fa-heart"></i></div>
+          <div class="life"><i class="fa fa-heart"></i></div>
+      
+        </div>
     
+   
+      <!-- <div class="#extra-time">s</div> -->
+    </div>
+    <div class="container-lives">
+
+  </div>
+    <!-- <div class="life2" id="extra-time-left">3</div> -->
+      <div id="theGrid" width="100%"></div>
+      <div id="remaining-count"  class="remainingWords"></div>
+
     </div>
     <div id="modal" style="display: none;">
-      <p id="modal-text"></p>
+      <p id="modal-text">the end</p>
       <button id="try-again-button">Try Again</button>
     </div>
     

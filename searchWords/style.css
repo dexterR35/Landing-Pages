@@ -10,7 +10,7 @@
   --border-color: rgb(235 28 235);
   --border-container: rgb(247, 177, 72);
   --border-container-second: rgb(87, 0, 87);
-  --btn-color: orange;
+  --btn-color: #ff0070;
   --inside-color: #741a74;
   --text-color-white: white;
   --text-color-black: black;
@@ -62,6 +62,9 @@ body::after{
   color: var(--text-color-white);
   position: relative;
   padding: 0.2em 1em;
+  height: 500px;
+  width: 360px;
+  clear: both;
 }
 .container::after {
   content: "";
@@ -81,14 +84,14 @@ body::after{
   position: relative;
 }
 #rf-wordcontainer {
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 .timer_container {
   position: relative;
   left: 0;
   top: 0;
   width: 100%;
-  padding: 1em 1.5em;
+  padding: 1em 1.1em;
   font-size: 2vh;
   /* background: var(--bg-color); */
   z-index: 1;
@@ -267,4 +270,47 @@ body::after{
   #try-again-button {
     font-size: 14px;
   }
+  #timer {
+    width: 100px;
+  }
+}
+
+
+.remainingWords {
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+
+.extra-lives{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  /* margin: 0 22px; */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.514);
+  width: fit-content;
+  background: black;
+  text-align: center;
+  /* float: right; */
+  padding: 0.5em 0.5em;
+  /* margin-top: 20px; */
+}
+.container-lives{
+
+  padding: 0em 1em;
+}
+.life {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #000; */
+  margin-right: 5px;
+  /* background: red; */
+  border-radius: 50%;
+}
+.fa-heart{
+  color: red;
 }
