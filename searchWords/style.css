@@ -301,8 +301,8 @@ body::after{
   padding: 0em 1em;
 }
 .life {
-  width: 20px;
-  height: 20px;
+  /* width: 20px;
+  height: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -311,6 +311,8 @@ body::after{
   /* background: red; */
   border-radius: 50%;
 }
+
+
 .fa-heart{
   color: red;
 }
