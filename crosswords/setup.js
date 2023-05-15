@@ -181,12 +181,14 @@
             });
 
             let wordIndex = this.model.wordList.isWordPresent(selectedword);
+ console.log('Selected word:', selectedword);
+    console.log('Word index:', wordIndex);
 
             if (wordIndex != -1) {
                 let isWordPresent = wordIndex != -1;
-      
+                console.log(selectedword, "selectedword");
                 if (isWordPresent === 3) {
-                    alert("fffff")
+                    // alert("fffff");
                 }
                 $('.rf-glowing, .rf-highlight', this.element[0]).each(function () {
                     Visualizer.select(this);
@@ -473,7 +475,7 @@
         },
 
         signalWordFound: function (w) {
-
+            // $(".rf-foundword").removeClass("rf-foundword");
             $(w).css("background", 'orange').animate({
                     "opacity": 'hide'
                 }, 1000, "linear",

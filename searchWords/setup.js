@@ -71,7 +71,7 @@
 //
 //
 //==============================================================================
-
+$("#modal-win").hide();
 (function ($, undefined) {
   $.widget("ryanf.wordsearchwidget", $.ui.mouse, {
     options: {
@@ -179,40 +179,40 @@
     },
 
     _mouseStop: function (event) {
+      console.log(_csvwords,"afsa");
       //get word
       let selectedword = "";
+    
       $(".rf-glowing, .rf-highlight", this.element[0]).each(function () {
         let u = $.data(this, "cell");
         selectedword += u.value;
-    });
+      });
 
       let wordIndex = this.model.wordList.isWordPresent(selectedword);
-      
+      console.log(wordIndex,"wordIndex");
       if (wordIndex !== -1) {
-        let selectedWord = this.model.wordList.words[wordIndex];
-        let countWord = this.model.wordList.words.length;
-        // console.log(countWord);
-        if (selectedWord.isFound) {
-          this.model.wordList.words.splice(wordIndex, 1); // remove the selected word from the array
-          countWord = this.model.wordList.words.length; // update countWord after removing the item
-          // alert(`ai gasit cuvantul ${selectedword} si au mai ramas ${countWord} cuvinte de gasit`);
-          // $("#selected-word").text(`Selected word: ${selectedword}`);
-          $("#remaining-count").text(`Remaining words: ${countWord} for the max prize ,can u see it?`);
-          if (countWord === 0) {
-            setTimeout(() => {
-              alert("felicitari ai castigat 250runde");
-            },1000)
-           
-          }
-        } else {
-          console.log("This word is not found");
-        }
-      
+        // let selectedWordObj = this.model.wordList.words[wordIndex];
+        let removedWord = _csvwords.splice(selectedword, 1);
+        let remainingCount = _csvwords.length;
+        
+        console.log("removedWord:", removedWord);
+        console.log("remainingCount:", remainingCount);
+
+        $("#remaining-count").text(`Remaining words: ${remainingCount} for the max prize. Can you see it?`);
         $(".rf-glowing, .rf-highlight", this.element[0]).each(function () {
           Visualizer.select(this);
           $.data(this, "selected", "true");
+          // GameWidgetHelper.signalWordFound(this); // Pass the DOM element instead of wordIndex
         });
         GameWidgetHelper.signalWordFound(wordIndex);
+        if (remainingCount === 0) {
+          setTimeout(() => {
+            $("#modal-win").show();
+          },700)
+         
+        }
+      } else {
+        console.log("nada");
       }
 
       this.hotzone.returnToNormal();
@@ -1203,12 +1203,16 @@
   /*
    * Represents the list of words to display
    */
+  let _csvwords;
+
   function WordList() {
     this.words = new Array();
 
     this.loadWords = function (csvwords) {
       let $n = this.words;
-
+      
+       _csvwords = csvwords;
+    
       // $(csvwords.split(",")).each(function () {
       //     $n.push(new Word(this));
       // });
@@ -1241,6 +1245,7 @@
     // click letter x
     this.isWordPresent = function (word2check) {
       for (let x = 0; x < this.words.length; x++) {
+        // console.log(x, "nada");
         if (this.words[x].checkIfSimilar(word2check)) return x;
       }
       // console.log(word2check,"notword cor");
@@ -1271,10 +1276,14 @@
   let GameWidgetHelper = {
     prepGrid: function (size, words) {
       let grid = new Grid();
+  
       grid.initializeGrid(size);
 
       let wordList = new WordList();
+      // console.log(wordList,"tesst")
       wordList.loadWords(words);
+
+   
 
       let model = new Model();
       model.init(grid, wordList);
@@ -1321,9 +1330,11 @@
 
     signalWordFound: function (idx) {
       let w = $("li").get(idx);
+      console.log(w, "sfasw");
       Visualizer.signalWordFound(w);
     },
   };
+
 })(jQuery);
 
 (function (b) {
