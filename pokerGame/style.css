@@ -1,329 +1,264 @@
-#app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: Arial, sans-serif;
+*,
+*::after,
+*::before {
+  /* margin: 0; */
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.center {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    width: 600px;
-    height: 600px;
-    margin-bottom: 20px;
+:root {
+  --btn-color: crimson;
+  --backBg: #e51e20;
+  --faceBg: blue;
+    --text-black:black;
+    --backcard:url(./png/card.png);
+  --bg-desktop: url(./png/bg-deck.jpg);
+  --bg-mobile: url(./png/bg-mobile.jpg);
 }
-
-/* .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: white;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    position: absolute;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-} */
-
-
-/* .card .front, .card .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-} */
-
-/* .card .front {
-    background-color: white;
-    z-index: 2;
+html,
+body {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-
-.card .back {
-    transform: rotateY(180deg);
-    background-image: url('https://image.flaticon.com/icons/svg/105/105223.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    z-index: 1;
-} */
-
-.question {
-    font-size: 1.2rem;
+#app h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.state {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.mode {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.score {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.buttons {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-button {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #2e8b57;
-}
-
-button:active {
-    box-shadow: none;
-}
-@keyframes shuffle-animation {
-    0% {
-    transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(50%, 0);
-    }
-    
-    100% {
-        transform: translate(0, 0);
-    }
-}
-
-.card {
-    width: 15vw;
-    height: 21vw;
-    /* background-color: white; */
-    border-radius: 5px;
-    border: 1px solid black;
-    position: relative;
-    top: 35%;
-    left: calc(30% - 7.5vw);
-    display: flex;
+    align-content: center;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
-    /* backface-visibility: hidden; */
-    transform: rotateY(0deg);
-    transform-style: preserve-3d;
-    transition: transform 1s, left 0.5s, top 0.5s;
-    }
-    
-.card.match {
-    background-color: #a6e3a6;
-    border: none;
-    box-shadow: none;
-    cursor: default;
+    gap: 15px;
 }
-
-    
-    .card.open {
-    transform: rotateY(180deg);
-    }
-
-    .center .card .front {
-        backface-visibility: hidden;
-        background-color: #444444;
-        color: #000;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        border-radius: 5px;
-    }
-  
-.center .card .face {
-    backface-visibility: hidden;
-    background-color: #c00404;
-    color: #000;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    border-radius: 5px;
+#app h1 img {
+    height: 70px;
 }
-.center .card .face.back:before {
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: #020000;
-    border-radius: 14px;
-    position:absolute;
-    top: 0;
-    left: 0;
-    border: 3px solid #ed4747;
-    background-image: url(./png/card.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* background-image: linear-gradient(-60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%), linear-gradient(60deg, transparent 40%, #ed4747 40%, #ed4747 60%, transparent 60%); */
-    /* background-size: 8px 8px; */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--bg-desktop);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
+  position: fixed;
 }
-.center .card .face.front {
-    background-color: #f00f0f;
-    transform: rotateY(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-}
-    
-    .card .front,
-    .card .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    /* backface-visibility: hidden; */
-    }
-    
-    .card .front {
-    background-color: #2196f3;
-    color: white;
-    }
-    
-    .card .back {
-    background-color: black;
-    color: black;
-    transform: rotateY(-180deg);
-    }
-    
-    .shuffle {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    animation-name: shuffle-animation;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-    }
-    
-    .restart {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px;
-    cursor: pointer;
-    }
-
-    
-.center .card.open {
-    transform: rotate(0deg) rotateY(180deg);
-}
-
-.center .card[data-order="1"] {
-    left: calc(40% - 10vw) ;
-    /* bottom: 200px; */
-}
-
-.center .card[data-order="2"] {
-    left: calc(40% - 10vw);
-
-}
-
-.center .card[data-order="3"] {
-    left: calc(50% - 10vw);
-    bottom: 200px;
-}
-
-.center .card[data-order="4"] {
-    left: calc(50% - 10vw); 
-     bottom: 200px;
-
-}
-
-.hand {
-    position: absolute;
-    left: 50%;
+.container-app {
+  width: 100vw;
+  height: 100vh;
+  max-width: 1400px;
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  overflow: hidden;
+  position: relative;
+  /* left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    animation-name: hand-anim;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
+    transform: translate(-50%,-50%); */
+  text-align: center;
+}
+
+.control-hide {
+  visibility: hidden;
+}
+
+.btn-classic {
+    display: none !important;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8em 2.5em;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  background: var(--btn-color);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.pointer-events-off {
+  pointer-events: none;
+}
+
+.cards {
+  width: 1200px;
+  height: 400px;
+  max-width: 1200px;
+}
+
+.cards .card {
+  width: 14em;
+  height: 20em;
+  position: absolute;
+  transform: rotateY(0deg);
+  /* top: 20%;
+    left: calc(2em - 7.5vw); */
+  /* transform: translate(70%, -20%) rotateZ(0deg); */
+  transform-style: preserve-3d;
+  border-radius: 15px;
+  transition: transform 1s, left 0.5s, top 0.5s;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.cards .card .face {
+  backface-visibility: hidden;
+  color: var(--text-black);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 15px;
+}
+
+.cards .card .face.front {
+  background-color: var(--faceBg);
+  transform: rotateY(180deg) translateX(0em);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  border: 2px solid black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cards .card .face.back {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.cards .card .face.back:before {
+  box-sizing: border-box;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backBg);
+  border: 2px solid whitesmoke;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: var(--backcard);
+  background-repeat: no-repeat;
+  background-size: 102%;
+  background-position: center;
+}
+
+.cards {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.cards .card.open {
+  transform: rotate(0deg) rotateY(180deg);
+}
+
+.cards .card[data-order="1"] {
+  left: calc(13em - 100px);
+  top: calc(4em);
+}
+
+.cards .card[data-order="2"] {
+  left: calc(29em - 100px);
+  top: calc(2em);
+}
+
+.cards .card[data-order="3"] {
+  left: calc(45em - 100px);
+  top: 4em;
+}
+
+.cards .card[data-order="4"] {
+  left: calc(61em - 100px);
+  top: 2em;
+}
+
+.cards.gather {
+  cursor: pointer;
+}
+
+.cards.gather .card {
+  top: 15%;
+  transform: rotate(360deg) translatex(0em);
+}
+
+@media (max-width: 991px) {
+  body::after {
+    background-image: var(--bg-mobile);
   }
-  
-  @keyframes hand-anim {
-    0% {
-      transform: translate(-50%, -60%) rotate(-10deg);
-    }
-    50% {
-      transform: translate(-50%, -40%) rotate(10deg);
-    }
-    100% {
-      transform: translate(-50%, -50%) rotate(0deg);
-    }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 480px) {
+  .cards .card {
+    width: 9.5em;
+    height: 14em;
   }
-  
-  .hand__card {
-    display: inline-block;
-    width: 40px;
-    height: 60px;
-    margin-right: 5px;
-    background-color: #ccc;
-    border-radius: 5px;
+  .cards {
+    width: 360px;
+    height: 410px;
+    top: 30%;
+  }
+  #app h1 img {
+    height: 45px;
+}
+#app h1 {
+    font-size: 1em;
+    gap: 5px;
+}
+
+  .cards .card[data-order="1"] {
+    left: calc(4em - 50px);
+
   }
 
-
-.hand__card {
-
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-  
-
-    animation-name: handCard;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
+  .cards .card[data-order="2"] {
+    left: calc(4em - 50px);
+    top: 330px;
   }
+
+  .cards .card[data-order="3"] {
+    left: calc(15em - 50px);
   
-  @keyframes handCard {
-    /* Move card down and fade it in */
-    from {
-      top: -50%;
-      opacity: 0;
-    }
-    to {
-      top: 0%;
-      opacity: 1;
-    }
   }
+
+  .cards .card[data-order="4"] {
+    left: calc(15em - 50px);
+    top: 330px;
+   
+  }
+
+  .cards.gather .card {
+    top: 100px;
+    left: calc(35% - 7.5vw);
+    transform: rotate(360deg);
+  }
+  .btn-classic {
+    top: 80%;
+  }
+}
+
