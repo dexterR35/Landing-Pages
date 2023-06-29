@@ -15,18 +15,18 @@
   --inside-color: #741a74;
   --text-color-white: white;
   --text-color-black: black;
---hearts:rgb(255 240 57);
-  --bg-desktop:url(./png/bg-desktop.jpg);
-  --bg-mobile:url(./png/bg-mobile.jpg);
+  --hearts: rgb(255 240 57);
+  --bg-desktop: url(./png/bg-desktop.jpg);
+  --bg-mobile: url(./png/bg-mobile.jpg);
 }
 body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   font-family: "Play", sans-serif;
 }
-.btn-classic{
+.btn-classic {
   width: fit-content;
   text-align: center;
   border-radius: 5px;
@@ -34,7 +34,7 @@ body {
   padding: 0.5em 2em;
   border: none;
   outline: none;
-  background:var(--btn-color);
+  background: var(--btn-color);
   color: var(--text-color-white);
   font-weight: bold;
   font-size: 0.6em;
@@ -42,8 +42,8 @@ body {
   cursor: pointer;
 }
 
-body::after{
-  content:"";
+body::after {
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
@@ -52,23 +52,28 @@ body::after{
   background-image: var(--bg-desktop);
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
-
 .container {
-  max-width: 370px;
-  padding: 1em 0;
-  margin-top: 10vh;
+  /* max-width: 370px; */
   max-width: fit-content;
+  padding: 1em 0;
+  margin-top: 2vh;
+  /* max-width: fit-content; */
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.597);
   /* border-radius: 20px; */
   z-index: 1;
   position: relative;
   border-width: 2px;
   border-style: solid;
-  border-image: linear-gradient(to bottom, var(--border-container), var(--border-container-second)) 1;
+  border-image: linear-gradient(
+      to bottom,
+      var(--border-container),
+      var(--border-container-second)
+    )
+    1;
 }
+
 #theGrid {
   display: flex;
   flex-direction: column;
@@ -83,7 +88,6 @@ body::after{
   clear: both;
 }
 .timer_container {
-
   position: relative;
   left: 0;
   top: 0;
@@ -98,30 +102,28 @@ body::after{
   margin-bottom: 1em;
   flex-direction: row;
 }
-@media (min-width:320px){
-  #theGrid{
+@media (min-width: 320px) {
+  #theGrid {
+    max-width: 100%;
     width: 360px;
-    justify-content: space-around;
-    height:100%;
+    /* width: 360px; */
+    /* justify-content: space-around; */
+    height: 100%;
   }
-  .timer_container{
+  .timer_container {
     margin-bottom: unset;
   }
-
 }
-@media (min-width:480px){
-  #theGrid{
+@media (min-width: 480px) {
+  #theGrid {
     width: 480px;
   }
-  
 }
-@media (min-width:720px){
-  #theGrid{
+@media (min-width: 720px) {
+  #theGrid {
     width: 500px;
   }
-  .timer_container{
-  
-
+  .timer_container {
     padding: 1em 2.3em;
   }
 }
@@ -145,21 +147,23 @@ body::after{
 #rf-wordcontainer {
   pointer-events: none;
 }
-.titleW,.titleW_small {
+.titleW,
+.titleW_small {
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
   color: var(--text-color-white);
 }
-.titleW{
+.titleW {
   margin-bottom: 21px;
   font-size: 1.6em;
 }
-.titleW_small{
-font-size: 1em;
-margin-top: -0.5em;
+.titleW_small {
+  font-size: 1em;
+  margin-top: -0.5em;
 }
-#timer, .extra-lives{
+#timer,
+.extra-lives {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.514);
   font-weight: bold;
   background: var(--btn-color);
@@ -173,9 +177,9 @@ margin-top: -0.5em;
   width: 110px;
 }
 #timer {
-line-height: 1;
+  line-height: 1;
 }
-.extra-lives{
+.extra-lives {
   display: none !important;
   flex-direction: row;
   width: fit-content;
@@ -207,27 +211,8 @@ line-height: 1;
 }
 
 
-.rf-tablestyle {
-  /* background-color: #eee; */
-  /* cursor: pointer; */
-  /* padding: 10px; */
-}
-/* .rf-tablestyle tbody {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
 
-.rf-tablestyle tbody tr {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  align-items: center;
-} */
-
-@media (max-width: 450px)  {
+@media (max-width: 450px) {
   .rf-tgrid {
     text-align: center;
     font-weight: bold;
@@ -235,18 +220,16 @@ line-height: 1;
   .rf-tgrid {
     width: 27px;
     height: 32px;
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
   /* #theGrid {
     padding: 0.2em 1em;
   } */
 
-  body::after{
-    background-image:var(--bg-mobile);
+  body::after {
+    background-image: var(--bg-mobile);
   }
 }
-
-
 
 #rf-wordcontainer {
   font-family: Arial, sans-serif;
@@ -267,7 +250,7 @@ line-height: 1;
   text-align: center;
   /* background-color: red; */
 }
-@media (min-width:768px){
+@media (min-width: 768px) {
   #rf-wordcontainer {
     padding: 1.3em 2em;
   }
@@ -280,23 +263,22 @@ line-height: 1;
 
 #rf-tablegrid .rf-armed {
   /* background: lightcyan; */
-
 }
 
 #rf-tablegrid .rf-highlight {
- background: red;
+  background: red;
 }
 
 #rf-tablegrid .rf-glowing {
- background: var(--glowing);
- color: var(--text-color-black);
- border: 2px solid var(--btn-color);
+  background: var(--glowing);
+  color: var(--text-color-black);
+  border: 2px solid var(--btn-color);
 }
 
 #rf-tablegrid .rf-selected {
- background: var(--btn-color);
- color: var(--text-color-black);
- border: 2px solid var(--text-color-white);
+  background: var(--btn-color);
+  color: var(--text-color-black);
+  border: 2px solid var(--text-color-white);
 }
 
 /* style for words that didn't make it on the grid */
@@ -305,9 +287,9 @@ line-height: 1;
   visibility: hidden;
 }
 
-
 /* CSS for modal */
-#modal,#modal-win{
+#modal,
+#modal-win {
   position: fixed;
   top: 0;
   left: 0;
@@ -320,9 +302,8 @@ line-height: 1;
   z-index: 12;
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
-
 
 #modal-text {
   font-size: 24px;
@@ -344,16 +325,7 @@ line-height: 1;
   font-size: 1.6em;
   border-radius: 10px;
 }
-/* #try-again-button {
-  font-size: 18px;
-  padding: 10px 20px;
-  background-color: var(--btn-color);
-  color: var(--text-color-white);
-  border: none;
-  cursor: pointer;
-} */
 
-/* Media query for smaller devices */
 @media (max-width: 768px) {
   #modal-text {
     font-size: 18px;
@@ -368,7 +340,6 @@ line-height: 1;
   }
 }
 
-
 .remainingWords {
   text-align: center;
   font-size: 14px;
@@ -376,8 +347,7 @@ line-height: 1;
   height: 2em;
 }
 
-.container-lives{
-
+.container-lives {
   padding: 0em 1em;
 }
 .life {
@@ -392,7 +362,6 @@ line-height: 1;
   border-radius: 50%;
 }
 
-
-.fa-heart{
-  color:var(--hearts);
+.fa-heart {
+  color: var(--hearts);
 }

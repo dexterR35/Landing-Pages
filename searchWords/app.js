@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let SHEET_ID = "1cszaLg-P5CCysWEjfdw1jdImEdwEBq7k7D1jz0DAT4s";
+  let SHEET_ID = "1_3BnR6F4lUVzq4n-ifOgk8AXe5cqa_vun7SwfDBlyLc";    
   let SHEET_TITLE = "echipe_puzzle_world";
   let SHEET_RANGE = "A2:B200";
 
@@ -69,7 +69,7 @@ $(document).ready(function () {
         });
       });
   }
-  let tryAgainCounter = 0;
+  // let tryAgainCounter = 0;
   function startGame() {
     $(".container").css("opacity", "1");
     let timelimit = 60; // Set the initial time limit to 60 seconds
@@ -84,31 +84,8 @@ $(document).ready(function () {
       }
     }, 1000);
   }
-  // function startGame() {
-  //   $(".container").css("opacity", "1");
-  //   let extraLives = extraLivesAll;
-  //   let timer = setInterval(function () {
-  //     timelimit--;
-  //     $("#timer").text(timelimit);
 
-  //     if (timelimit === 0 && extraLives > 0) {
-  //       // console.log(extraLives + 1,"afasfa1");
-  //       extraLives--;
-  //       $("#extra-lives .life:nth-child(" + (extraLives+1) + ")").css(
-  //         "visibility",
-  //         "hidden"
-  //       );
-  //       timelimit += extraTime[extraLives];
-  //       $("#extra-time-left").text(extraLives);
-  //     }
 
-  //     if (timelimit === 0 && extraLives === 0) {
-  //       clearInterval(timer);
-  //       $(".container").css("opacity", "0.5");
-  //       $("#modal").show();
-  //     }
-  //   }, 1000);
-  // }
   // Attach a click event listener to the "Try Again" button
   $("#try-again-button").on("click", function () {
 
@@ -116,24 +93,6 @@ $(document).ready(function () {
       location.reload();
    
   });
-  // $("#try-again-button").on("click", function () {
-  //   tryAgainCounter++;
-  //   console.log(tryAgainCounter);
-  //   if (tryAgainCounter <= 3) {
-  //     // Reset the timer, extra lives, and extra time
-  //     clearInterval(timer);
-  //     extraLives = extraLivesAll;
-  //     timelimit = timeLimitAll;
-  //     $("#timer").text(timelimit);
-  //     $("#extra-time-left").text(extraLivesAll);
-  //     $("#extra-lives .life").css("visibility", "visible");
-  //     // Hide the modal and start the game again
-  //     $("#modal").hide();
-  //     startGame();
-  //   } else {
-  //     location.reload();
-  //   }
-  // });
 
   function changeTeamsPeriodically() {
     fetchSheet();
@@ -145,8 +104,3 @@ $(document).ready(function () {
 
   
 });
-// $("#try-again-button").click(function () {
-//   $("#theGrid").wordsearchwidget("destroy");
-//   $("#modal").hide();
-//   startGame();
-// });
