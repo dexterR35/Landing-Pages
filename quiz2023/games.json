@@ -1,0 +1,54 @@
+{
+    "games": [
+      {
+        "title": "Red Dead Redemption 2",
+        "genre": "Action-Adventure",
+        "platform": "PlayStation 4, Xbox One, PC"
+      },
+      {
+        "title": "The Legend of Zelda: Breath of the Wild",
+        "genre": "Action-Adventure",
+        "platform": "Nintendo Switch"
+      },
+      {
+        "title": "Grand Theft Auto V",
+        "genre": "Action-Adventure",
+        "platform": "PlayStation 4, Xbox One, PC"
+      },
+      {
+        "title": "FIFA 21",
+        "genre": "Sports",
+        "platform": "PlayStation 4, Xbox One, PC"
+      },
+      {
+        "title": "Minecraft",
+        "genre": "Sandbox",
+        "platform": "Multiplatform"
+      },
+      {
+        "title": "Assassin's Creed Valhalla",
+        "genre": "Action-Adventure",
+        "platform": "PlayStation 4, Xbox One, PC"
+      },
+      {
+        "title": "Animal Crossing: New Horizons",
+        "genre": "Life Simulation",
+        "platform": "Nintendo Switch"
+      },
+      {
+        "title": "Call of Duty: Warzone",
+        "genre": "Battle Royale",
+        "platform": "PlayStation 4, Xbox One, PC"
+      },
+      {
+        "title": "Among Us",
+        "genre": "Social Deduction",
+        "platform": "Multiplatform"
+      },
+      {
+        "title": "The Witcher 3: Wild Hunt",
+        "genre": "Action Role-Playing",
+        "platform": "PlayStation 4, Xbox One, PC"
+      }
+    ]
+  }

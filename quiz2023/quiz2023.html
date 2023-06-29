@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>quiz</title>
+
+    <style>
+      .question {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mb-4">quiz</h1>
+      <div id="quizContainer">
+        <div class="question" id="question1">
+          <h3>Întrebarea 1</h3>
+          <div class="list-group">
+            <label class="list-group-item">
+              <input type="radio" name="answer1" value="option1" class="mr-2" />
+              Opțiune 1
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer1" value="option2" class="mr-2" />
+              Opțiune 2
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer1" value="option3" class="mr-2" />
+              Opțiune 3
+            </label>
+          </div>
+        </div>
+        <div class="question" id="question2">
+          <h3>Întrebarea 2</h3>
+          <div class="list-group">
+            <label class="list-group-item">
+              <input type="radio" name="answer2" value="option1" class="mr-2" />
+              Opțiune 1
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer2" value="option2" class="mr-2" />
+              Opțiune 2
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer2" value="option3" class="mr-2" />
+              Opțiune 3
+            </label>
+          </div>
+        </div>
+        <div class="question" id="question3">
+          <h3>Întrebarea 3</h3>
+          <div class="list-group">
+            <label class="list-group-item">
+              <input type="radio" name="answer3" value="option1" class="mr-2" />
+              Opțiune 1
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer3" value="option2" class="mr-2" />
+              Opțiune 2
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer3" value="option3" class="mr-2" />
+              Opțiune 3
+            </label>
+          </div>
+        </div>
+        <div class="question" id="question4">
+          <h3>Întrebarea 4</h3>
+          <div class="list-group">
+            <label class="list-group-item">
+              <input type="radio" name="answer4" value="option1" class="mr-2" />
+              Opțiune 1
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer4" value="option2" class="mr-2" />
+              Opțiune 2
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer4" value="option3" class="mr-2" />
+              Opțiune 3
+            </label>
+          </div>
+        </div>
+        <div class="question" id="question5">
+          <h3>Întrebarea 5</h3>
+          <div class="list-group">
+            <label class="list-group-item">
+              <input type="radio" name="answer5" value="option1" class="mr-2" />
+              Opțiune 1
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer5" value="option2" class="mr-2" />
+              Opțiune 2
+            </label>
+            <label class="list-group-item">
+              <input type="radio" name="answer5" value="option3" class="mr-2" />
+              Opțiune 3
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4">
+        <button id="prevBtn" class="btn btn-primary mr-2" disabled>
+          Înapoi
+        </button>
+        <button id="nextBtn" class="btn btn-primary">Înainte</button>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        var currentQuestion = 0;
+        var questions = $(".question");
+        var totalQuestions = questions.length;
+
+        // Ascunde toate întrebările
+        questions.hide();
+
+        // Afișează întrebarea curentă
+        $(questions[currentQuestion]).show();
+
+        // Actualizează starea butoanelor
+        function updateButtonState() {
+          $("#prevBtn").prop("disabled", currentQuestion === 0);
+          $("#nextBtn").text(
+            currentQuestion === totalQuestions - 1 ? "Finalizează" : "Înainte"
+          );
+        }
+
+        // Treci la întrebarea următoare
+        function nextQuestion() {
+          $(questions[currentQuestion]).hide();
+          currentQuestion++;
+          $(questions[currentQuestion]).show();
+          updateButtonState();
+        }
+
+        // Treci la întrebarea anterioară
+        function prevQuestion() {
+          $(questions[currentQuestion]).hide();
+          currentQuestion--;
+          $(questions[currentQuestion]).show();
+          updateButtonState();
+        }
+
+        // Verifică răspunsurile și afișează rezultatele
+        function showResults() {
+          var correctAnswers = 0;
+          var incorrectAnswers = 0;
+
+          questions.each(function (index, element) {
+            var selectedOption = $(element)
+              .find("input[name='answer" + (index + 1) + "']:checked")
+              .val();
+
+            if (selectedOption === "option2") {
+              correctAnswers++;
+            } else {
+              incorrectAnswers++;
+            }
+          });
+
+          // Ascunde întrebările
+          questions.hide();
+
+          // Afișează ecranul de încărcare
+          $("#quizContainer").html("<div id='loadingScreen'>Loading...</div>");
+          $("#prevBtn").hide();
+          $("#nextBtn").hide();
+          // Simulează o întârziere de 2 secunde pentru efectul de încărcare
+          setTimeout(function () {
+            // Obține sugestiile de jocuri folosind fetch API
+            fetch("./games.json")
+              .then(function (response) {
+                console.log(response, "response");
+                return response.json();
+              })
+              .then(function (data) {
+                // Alege jocurile random din lista
+                var randomGames = getRandomGames(data.games, 6);
+                console.log(randomGames, "randomgames");
+
+                // Construiește HTML-ul cu sugestiile de jocuri
+                var suggestionsHTML = "<h2>Sugestii de jocuri:</h2><ul>";
+                // randomGames.forEach(function (game) {
+                //   suggestionsHTML += "<li>" + game.title + "</li>";
+                // });
+                // suggestionsHTML += "</ul>";
+                // Iterate through each random game
+                // Ascunde butoanele "Înapoi" și "Finalizează"
+
+                randomGames.forEach(function (game) {
+                  suggestionsHTML += `
+                    <div class='col-md-4'>
+                    <div class='card'>
+                        <div class='card-body'>
+                        <h5 class='card-title'>${game.title}</h5>
+                        <p class='card-text'>${game.platform}</p>
+                        </div>
+                    </div>
+                    </div>
+                 `;
+                });
+
+                suggestionsHTML += "</div>";
+                // Afișează sugestiile de jocuri
+                $("#quizContainer").append(suggestionsHTML);
+
+                $("#loadingScreen").hide();
+
+                // Afișează butonul "Reset the Game"
+                $("#quizContainer").append(
+                  "<button id='resetBtn' class='btn btn-primary'>Reset the Game</button>"
+                );
+
+                // Event pentru butonul "Reset the Game"
+                $("#resetBtn").click(function () {
+                  // Resetează starea jocului și afișează prima întrebare
+                  currentQuestion = 0;
+                  questions.show();
+                  $(questions[currentQuestion]).show();
+                  updateButtonState();
+
+                  // Ascunde butonul "Reset the Game"
+                  $("#resetBtn").hide();
+                });
+              });
+          }, 1000);
+        }
+
+        // Funcție pentru a selecta jocuri random dintr-un array
+        function getRandomGames(games, count) {
+          var randomGames = [];
+          var totalGames = games.length;
+          var index;
+
+          // Selectează jocuri random până când obții numărul dorit
+          while (randomGames.length < count) {
+            index = Math.floor(Math.random() * totalGames);
+            if (!randomGames.includes(games[index])) {
+              randomGames.push(games[index]);
+            }
+          }
+
+          return randomGames;
+        }
+
+        // Eveniment pentru butonul "Înainte"
+        $("#nextBtn").click(function () {
+          var selectedOption = $(questions[currentQuestion]).find(
+            "input[name='answer" + (currentQuestion + 1) + "']:checked"
+          );
+
+          if (selectedOption.length === 0) {
+            alert("Vă rugăm să selectați un răspuns!");
+            return;
+          }
+
+          if (currentQuestion === totalQuestions - 1) {
+            showResults();
+          } else {
+            nextQuestion();
+          }
+        });
+
+        // Eveniment pentru butonul "Înapoi"
+        $("#prevBtn").click(prevQuestion);
+
+        updateButtonState();
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
