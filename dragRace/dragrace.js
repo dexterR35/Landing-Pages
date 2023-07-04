@@ -38,11 +38,15 @@ function draw() {
   image(roadImage, 0, roadPosition - roadImage.height, width, height); // Subtract roadImage.height for reverse movement
 
   // Draw the cars
-  image(car1, width / 3 - carDistance / 3, height / 2, 150, 350);
+  image(car1, width / 3 - carDistance / 3, height / 2.5, 150, 350);
 
   fill(0, 0, 255);
   image(car2,width / 2.5 + carDistance / 3, car2Y, 150, 350);
-  image(car3, width / 2.5, car3Y, 150, 350);
+  image(car3, width / 2 + carDistance / 1, height / 2, 150, 350);
+
+
+
+  
   }
 
 function startRoad() {
