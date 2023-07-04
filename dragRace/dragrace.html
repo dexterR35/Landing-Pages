@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dragrace</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  </head>
+  <style>
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .main {
+      /* background-image: url(https://opengameart.org/sites/default/files/background-1_0.png); */
+      background-size: 100%;
+      background-repeat: none;
+      background-position: center;
+      /* animation: loopingRoad 250s linear infinite; */
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      z-index: 2;
+      /* animation-name: moveRoad; */
+      animation-duration: 10s; /* Initial animation duration */
+      /* animation-timing-function: linear;
+      animation-iteration-count: infinite; */
+    }
+
+    @keyframes moveRoad {
+      from {
+        background-position: 0 0;
+      }
+      to {
+        background-position: 0 10000px;
+      }
+    }
+    .container {
+      z-index: 0;
+    }
+    .btn-container {
+      position: absolute;
+      z-index: 12;
+    }
+    .btn {
+      z-index: 100;
+
+      padding: 20px;
+    }
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="main" id="main"></div>
+      <div class="btn-container">
+        <button id="startButton" class="btn">Start</button>
+        <button id="speedButton" class="btn">Increase Speed</button>
+        <button id="slowButton" class="btn">slow speed</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+    <!-- <script src="app.js"></script> -->
+    <script src="dragrace.js"></script>
+  </body>
+</html>
