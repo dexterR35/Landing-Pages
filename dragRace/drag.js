@@ -32,29 +32,39 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1200, windowHeight);
- const carSpacing = 50; // Distance between the cars
+  const container = document.getElementById("container");
+  const canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent(container);
+  
+  let carSpacing = 50; // Distance between the cars
   const startPosition = maxDistance + (windowHeight - 400);
+
+  let carScale;
+
+  if (windowWidth <= 600) {
+    carSpacing = 20;
+    carScale = 0.3; // Scale for small devices like mobile
+  } else {
+    carScale = 0.7; // Scale for larger screens
+  }
 
   car1 = createSprite(
     width / 2.5 - carSpacing,
     startPosition
   );
   car1.addImage("car1", loadImage("./png/car1.png"));
-  car1.scale = 0.7;
+  car1.scale = carScale;
 
   car2 = createSprite(
     width / 1.65 + carSpacing,
     startPosition
   );
   car2.addImage("car2", loadImage("./png/car2.png"));
-  car2.scale = 0.7;
+  car2.scale = carScale;
 
   carGood = createSprite(width / 2, startPosition);
   carGood.addImage("carGood", loadImage("./png/car.png"));
-  carGood.scale = 0.7;
-
-  startGameModal();
+  carGood.scale = carScale;
 }
 
 
