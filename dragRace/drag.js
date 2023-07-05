@@ -199,7 +199,6 @@
 //   image(backgroundImg, 0, normalizedPosition + height, width, height);
 //     update();
 // }
-
 let backgroundImg;
 let car1, car2, carGood;
 let roadPosition = 0;
@@ -214,7 +213,7 @@ let carDistance = 200; // Distance between the two cars
 let isRoadMoving = false;
 
 let lastSpeedIncreaseTime = 0;
-const speedIncreaseInterval = 700; // Increase speed every 2 seconds
+const speedIncreaseInterval = 2000; // Increase speed every 2 seconds
 const maxBgSpeed = 60; // Maximum background speed
 
 function preload() {
@@ -226,15 +225,6 @@ function setup() {
   const carWidth = 50; // Width of each car
   const carHeight = 30; // Height of each car
   const carSpacing = 50; // Distance between the cars
-
-  // car1 = createSprite(width / 2 - carSpacing - carWidth / 2, height, carWidth, carHeight);
-  // car1.shapeColor = color(255, 0, 0);
-
-  // car2 = createSprite(width / 2 + carSpacing + carWidth / 2, height, carWidth, carHeight);
-  // car2.shapeColor = color(0, 255, 0);
-
-  // carGood = createSprite(width / 2, height, carWidth, carHeight);
-  // carGood.shapeColor = color(0, 0, 255);
 
   car1 = createSprite(
     width / 2.5 - carSpacing - carWidth / 2,
@@ -279,8 +269,7 @@ function startCountdown() {
   countdownText.class("countdown-text");
   countdownText.position(width / 2, height / 2);
 
-  let countdown = 3;
-  let countdownInterval = setInterval(function () {
+  countdownInterval = setInterval(function () {
     countdown--;
 
     if (countdown === 0) {
@@ -298,9 +287,9 @@ function startCountdown() {
 
 function startRace() {
   gameStarted = true;
-  car1Speed = Math.random() * (0.3 - 0.2) + 0.3;
-  car2Speed = Math.random() * (0.3 - 0.2) + 0.4;
-  carGoodSpeed = Math.random() * (0.1 - 0.2) + 0.2;
+  car1Speed = random(0.2, 0.3);
+  car2Speed = random(0.3, 0.4);
+  carGoodSpeed = random(0.1, 0.2);
 }
 
 function update() {
@@ -317,7 +306,7 @@ function update() {
     if (carGood.position.y <= 0) {
       endRace(true);
     } else if (car1.position.y <= height / 2 && car2.position.y <= height / 2) {
-      carGoodSpeed += 0.01; // Adjust the speed increment as per your requirement
+      carGoodSpeed += 0.02; // Adjust the speed increment as per your requirement
     } else if (car1.position.y <= 0 || car2.position.y <= 0) {
       endRace(false);
     }
@@ -348,28 +337,13 @@ function endRace(won) {
     text = createP("Ai pierdut!");
   }
 
-  let restartButton = createButton("Restart Game");
-  restartButton.mousePressed(restartGame);
-
   modal.child(text);
+
+  let restartButton = createButton("Restart Game");
+  restartButton.mousePressed(function () {
+    location.reload(); // Reload the page to restart the game
+  });
   modal.child(restartButton);
-}
-
-function restartGame() {
-  gameStarted = false;
-  countdown = 3;
-  roadPosition = 0;
-  car1Speed = 0;
-  car2Speed = 0;
-  carGoodSpeed = 0;
-  car1.position.y = height;
-  car2.position.y = height;
-  carGood.position.y = height;
-
-  let modal = select("#modal");
-  modal.remove();
-
-  startGameModal();
 }
 
 function mousePressed() {
@@ -389,8 +363,8 @@ function mousePressed() {
   } else {
     bgSpeed = min(bgSpeed + 5, maxBgSpeed);
     carGoodSpeed += 0.1;
-    car2Speed += 0.1 * (Math.random() * (0.8 - 0.6) + 0.6);
-    car1Speed += 0.1 * (Math.random() * (0.8 - 0.6) + 0.6);
+    car2Speed += 0.1 * random(0.6, 0.8);
+    car1Speed += 0.1 * random(0.6, 0.8);
   }
 }
 

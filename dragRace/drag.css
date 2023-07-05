@@ -55,3 +55,34 @@
     
 
   }
+
+
+
+  #popup-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  #popup-modal p {
+    margin-bottom: 10px;
+  }
+  
+  #popup-modal button {
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #popup-modal button:hover {
+    background-color: #45a049;
+  }
