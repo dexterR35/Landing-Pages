@@ -1,0 +1,286 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.header {
+    background: #fdebd7;
+  width: 100%;
+  /* background: crimson; */
+  height: 85px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 2px 2px 50px #e3d4c0;
+}
+
+li a {
+  text-decoration: none;
+  color: black;
+}
+ul li {
+  list-style: none;
+}
+body {
+  background: white;
+}
+.wrapper-all {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  color: rgb(142, 177, 142);
+  gap: 5px;
+  font-weight: bold;
+}
+
+.nav-bar2 {
+  gap: 15px;
+}
+.nav-bar li {
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+.nav-bar li:hover {
+  background-color: aquamarine;
+  transition: ease 0.5s;
+}
+.nav-bar li a {
+  color: black;
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.logo img {
+  width: 40px;
+}
+
+
+.box1 {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  /* border: 2px solid black; */
+  width: 50%;
+}
+.box2 {
+  width: 80%;
+}
+
+.box1 h1 {
+  font-size: 6vh;
+  line-height: 0.9;
+}
+.box1 span {
+  display: flex;
+  justify-content: center;
+  /* width: 300px; */
+  text-align: start;
+  margin-top: 1.3em;
+  width: 90%;
+}
+.box2 img {
+  height: 50vh;
+}
+.container {
+  width: 100%;
+  /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  padding: 2em 10em;
+}
+
+.container2 {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container_sides {
+  display: flex;
+  flex-direction: row;
+}
+.container-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2vh;
+  margin-top: 2em;
+}
+
+.btn-primary {
+  padding: 1em 3em;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background: coral;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.btn-primary:hover {
+  background-color: orangered;
+  transition: all 0.4s ease;
+}
+
+/* SECTIONS*/
+
+.section {
+  height: 100vh;
+}
+
+.section_one {
+  /* background-color: #fdebd7; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  background: #fdebd7;
+}
+.section_two {
+  /* background-color: cyan; */
+  /* border: 2px solid black; */
+  background: white;
+}
+
+/* section 2 */
+.section_two h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+.section_three {
+    background: #fdebd7;
+}
+
+.left_side {
+  /* background-color: red; */
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30pxș;
+}
+
+.img_side {
+  background-image: url(./png/reciclare.png);
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.right_side {
+  /* background-color: blue; */
+  height: 100%;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 30px;
+
+  /* border: 2px solid lightgrey; */
+}
+.right_side p {
+  padding: 2em;
+  font-size: 18px;
+}
+
+.right_side h3 {
+  padding: 1.35em;
+  font-size: 25px;
+  margin-bottom: -50px;
+}
+
+.reciclare2 img {
+  height: 250px;
+}
+
+/* section 3 */
+.container3 {
+  justify-content: space-evenly;
+}
+.container_sides3 {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* section 4 */
+
+.section_four {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  /* background-color: red; */
+  align-items: center;
+}
+.section_four img {
+    height: 30vh;
+
+}
+
+.container-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  width: 50%;
+}
+.container-contact h2 {
+  font-size: 50px;
+}
+
+input {
+  border: 1px solid lightgray;
+  padding: 17px;
+  width: 100%;
+  outline: none;
+  margin-bottom: 30px;
+  border-radius: 7px;
+}
+label {
+  margin-bottom: 7px;
+  text-transform: capitalize;
+}
+
+#textarea {
+  padding: 1.2em;
+  height: 120px;
+  resize: none;
+  outline: none;
+  width: 100%;
+  border-radius: 7px;
+  border: 1px solid lightgray;
+  color: black;
+}
+
+
+
+/* footer */
+
+
+
+.footer {
+    height: 120px;
+    background-color: black;
+    color: white;
+}
