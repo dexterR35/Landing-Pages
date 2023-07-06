@@ -293,14 +293,17 @@ let carDistance = 200;
 
 let bgSpeed = 2;
 let isRoadMoving = false;
-const maxBgSpeed = 60;
+
+let maxBgSpeed = 90;
 
 let lastSpeedIncreaseTime = 0;
-const speedIncreaseInterval = 500; // Increase speed every 500 milisecons 
+const speedIncreaseInterval = 80; // Increase speed every 500 milisecons 
 
 
 const maxDistance = 500; // Maximum racing distance (in meters)
 let halfMaxDistance = maxDistance / 2;
+
+
 
 const raceTime = 30; // Time to reach the finish line (in seconds)
 
@@ -360,9 +363,9 @@ function setup() {
 // Start the race and cars start speed
 function startRace() {
     gameStarted = true;
-    car1Speed = random(0.2, 0.5);
-    car2Speed = random(0.2, 0.4);
-    carGoodSpeed = random(0.1, 0.2);
+    car1Speed = random(0.05, 0.1);
+    car2Speed = random(0.04, 0.2);
+    carGoodSpeed = random(0.02, 0.03);
     startTime = millis(); // Store the current time as the start time
 }
 
@@ -373,8 +376,6 @@ function update() {
         car1.position.y -= car1Speed;
         car2.position.y -= car2Speed;
         carGood.position.y -= carGoodSpeed;
-
-        
 
         if (roadPosition <= -height) {
             roadPosition = 0;
@@ -389,19 +390,35 @@ function update() {
         }
 
         // Check if carGood/car1/car2 reached or crossed the half distance
-        if (carGood.position.y <= startPosition - halfMaxDistance || car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) {
+        if (car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) 
+        {         
             if (!alerted) {
+                 distanceRemaining = 0;
                 alerted = true;
+                maxBgSpeed = 5;
+                car1Speed = 0;
+                car2Speed = 0;
+                carGoodSpeed = 0;
+                // carGoodSpeed += 1;
                 createCustomAlert("One of the cars reached the half distance point!");
+       
             }
+        } else if (carGood.position.y <= 0) {
+            endRace(true);
         }
-
+        else if (car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) {
+            carGoodSpeed += 3; // Adjust the speed increment as per your requirement
+      
+        }
+        console.log("carGoodSpeed",carGoodSpeed);
+        console.log("startPosition",startPosition);
 
         // Check if carGood reached or crossed maxDistance
         if (carGood.position.y <= startPosition - maxDistance) {
             endRace(true); // carGood won the race
         }
-        let carGoodSpeedDisplay = carGoodSpeed * 100; // Convert carGoodSpeed to a displayable value
+
+        // console.log("carGoodSpeedDisplay");
     }
 }
 
@@ -449,9 +466,9 @@ function mousePressed() {
         }
     } else {
         bgSpeed = min(bgSpeed + 5, maxBgSpeed);
-        carGoodSpeed += 0.1;
-        car2Speed += 0.1 * random(0.6, 0.8);
-        car1Speed += 0.1 * random(0.6, 0.8);
+        carGoodSpeed += 0.018;
+        car2Speed += 0.011 * random(0.2, 0.8);
+        car1Speed += 0.015 * random(0.2, 0.9);
     }
 }
 
@@ -493,6 +510,7 @@ function createCustomAlert(message) {
     alertDiv.appendChild(continueButton);
 
     document.body.appendChild(alertDiv);
+    bgSpeed = 5;
 
 }
 // Remove the pop-up element from the document
@@ -550,12 +568,14 @@ function draw() {
     let distanceRemaining = halfMaxDistance - (startPosition - carGood.position.y);
     let distanceRemainingCar1 = halfMaxDistance - (startPosition - car1.position.y);
     let distanceRemainingCar2 = halfMaxDistance - (startPosition - car2.position.y);
+    let distanceRemainingCar1Full = maxDistance - (startPosition - car1.position.y);
+    let distanceRemainingCar2Full = maxDistance - (startPosition - car2.position.y);
 
-  // Calculate the speed of each car
-  let carGoodSpeedDisplay = carGoodSpeed * 100; // Convert carGoodSpeed to a displayable value
-  let car1SpeedDisplay = car1Speed * 100; // Convert car1Speed to a displayable value
-  let car2SpeedDisplay = car2Speed * 100; // Convert car2Speed to a displayable value
-    // Display the maximum distance, half distance, and distance remaining on the canvas
+    // Calculate the speed of each car
+    let carGoodSpeedDisplay = carGoodSpeed * 100; // Convert carGoodSpeed to a displayable value
+    let car1SpeedDisplay = car1Speed * 100; // Convert car1Speed to a displayable value
+    let car2SpeedDisplay = car2Speed * 100; // Convert car2Speed to a displayable value
+        // Display the maximum distance, half distance, and distance remaining on the canvas
     textSize(20);
     fill(255);
     textAlign(CENTER);
@@ -566,9 +586,9 @@ function draw() {
     text("Distance Remaining:car1 " + distanceRemainingCar1.toFixed() + "m", width / 2, 110);
     text("Distance Remaining:car2 " + distanceRemainingCar2.toFixed() + "m", width / 2, 130);
 
-    text(carGoodSpeedDisplay.toFixed() + "km/h", carGood.position.x, carGood.position.y + 170);
-    text(car1SpeedDisplay.toFixed() + "km/h", car1.position.x - 10, car1.position.y + 170);
-    text(car2SpeedDisplay.toFixed() + "km/h", car2.position.x + 10, car2.position.y + 170);
+    text(distanceRemainingFull.toFixed() + "m", carGood.position.x, carGood.position.y + 160);
+    text(distanceRemainingCar1Full.toFixed() + "m", car1.position.x - 10, car1.position.y + 160);
+    text(distanceRemainingCar2Full.toFixed() + "m", car2.position.x + 10, car2.position.y + 160);
 
     update();
 }
