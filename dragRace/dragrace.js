@@ -7,6 +7,8 @@ let car3Y = 0;
 let carDistance = 200; // Distance between the two cars
 let isRoadMoving = false;
 
+
+
 function preload() {
   roadImage = loadImage('./png/road.png');
   car1 = loadImage('./png/car.png');
