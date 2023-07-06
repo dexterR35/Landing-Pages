@@ -90,8 +90,10 @@ function update() {
         if (roadPosition <= -height) {
             roadPosition = 0;
         }
-        let carPosition = maxDistance - (carGood.position.y / height) * maxDistance;
-        console.log("Car position: " + carPosition.toFixed(2) + "m");
+        // let carPosition = (carGood.position.y / maxDistance) ;
+// carPosition = maxDistance - carPosition;
+        // console.log("Car position: " + carPosition.toFixed(2) + "m");
+        // console.log(carPosition = maxDistance - carPosition);
         // Adjust the condition to make the race car be in the middle when it reaches the middle of maxDistance
         if (carGood.position.y <= halfMaxDistance + carGoodSpeed &&
             carGood.position.y >= halfMaxDistance - carGoodSpeed) {
