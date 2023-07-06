@@ -1,11 +1,290 @@
+// let backgroundImg;
+
+// let car1, car2, carGood;
+// let roadPosition = 0;
+
+// let car1Speed = 0;
+// let car2Speed = 0;
+// let carGoodSpeed = 0;
+// let gameStarted = false;
+
+// let countdown = 3;
+// let countdownInterval;
+// let carDistance = 200;
+
+// let bgSpeed = 2;
+// let isRoadMoving = false;
+// const maxBgSpeed = 60;
+
+// let lastSpeedIncreaseTime = 0;
+// const speedIncreaseInterval = 500; // Increase speed every 500 milisecons 
+
+
+// const maxDistance = 1000; // Maximum racing distance (in meters)
+// let halfMaxDistance = maxDistance / 2;
+// const raceTime = 30; // Time to reach the finish line (in seconds)
+// let startTime; // To store the start time
+// let endTime; // To store the end time
+
+// let isGamePaused = false; // Variable to track if the game is paused
+
+// function preload() {
+//     backgroundImg = loadImage("./png/road.jpg");
+// }
+
+// function setup() {
+
+//     const container = document.getElementById("container");
+//     const canvas = createCanvas(windowWidth, windowHeight);
+//     canvas.parent(container);
+
+//     let carSpacing = 50; // Distance between the cars
+//     const startPosition = windowHeight - 200;
+
+//     let carScale;
+
+//     if (windowWidth <= 600) {
+//         carSpacing = 20;
+//         carScale = 0.3; // Scale for small devices like mobile
+//     } else {
+//         carScale = 0.7; // Scale for larger screens
+//     }
+
+//     car1 = createSprite(
+//         width / 2.5 - carSpacing,
+//         startPosition
+//     );
+//     car1.addImage("car1", loadImage("./png/car1.png"));
+//     car1.scale = carScale;
+
+//     car2 = createSprite(
+//         width / 1.65 + carSpacing,
+//         startPosition
+//     );
+//     car2.addImage("car2", loadImage("./png/car2.png"));
+//     car2.scale = carScale;
+
+//     carGood = createSprite(width / 2, startPosition);
+//     carGood.addImage("carGood", loadImage("./png/car.png"));
+//     carGood.scale = carScale;
+
+//     startGameModal()
+// }
+
+
+// function startRace() {
+//     gameStarted = true;
+//     car1Speed = random(0.2, 0.5);
+//     car2Speed = random(0.2, 0.4);
+//     carGoodSpeed = random(0.1, 0.2);
+//     startTime = millis(); // Store the current time as the start time
+// }
+
+
+// function update() {
+//     if (gameStarted) {
+//         roadPosition += bgSpeed;
+//         car1.position.y -= car1Speed ;
+//         car2.position.y -= car2Speed ;
+//         carGood.position.y -= carGoodSpeed ;
+
+//         if (roadPosition <= -height) {
+//             roadPosition = 0;
+//         }
+
+
+
+//         if (
+//             millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
+//             bgSpeed < maxBgSpeed
+//         ) {
+//             bgSpeed += 2;
+//             lastSpeedIncreaseTime = millis();
+//             console.log(lastSpeedIncreaseTime,"lastSpeedIncreaseTime");
+//             console.log(bgSpeed,"lastSpeedIncreaseTime");
+//         }
+
+// }
+// }
+
+
+// function endRace(won) {
+//     gameStarted = false;
+
+//     let modal = createDiv("");
+//     modal.id("modal");
+
+//     let resultText;
+//     if (won) {
+//         resultText = "Felicitări! Ai câștigat!";
+//     } else {
+//         resultText = "Ai pierdut!";
+//     }
+
+//     let distanceText = "Distanta parcursa: " + carGood.position.y.toFixed() + "m";
+//     let timeText = "Timp scurs: " + (millis() - startTime) / 1000 + "s";
+
+//     let text = createP(resultText + "\n" + distanceText + "\n" + timeText);
+//     modal.child(text);
+
+//     let restartButton = createButton("Restart Game");
+//     restartButton.mousePressed(function () {
+//         location.reload(); // Reload the page to restart the game
+//     });
+//     modal.child(restartButton);
+// }
+
+// function mousePressed() {
+//     if (!gameStarted) {
+//         let modal = select("#modal");
+//         if (modal) {
+//             let startButton = modal.child()[1];
+//             if (
+//                 mouseX > startButton.position().x &&
+//                 mouseX < startButton.position().x + startButton.width &&
+//                 mouseY > startButton.position().y &&
+//                 mouseY < startButton.position().y + startButton.height
+//             ) {
+//                 startCountdown();
+//             }
+//         }
+//     } else {
+//         bgSpeed = min(bgSpeed + 5, maxBgSpeed);
+//         carGoodSpeed += 0.1;
+//         car2Speed += 0.1 * random(0.6, 0.8);
+//         car1Speed += 0.1 * random(0.6, 0.8);
+//     }
+// }
+
+// function startGameModal() {
+//     let modal = createDiv("");
+//     modal.id("modal");
+
+//     let text = createP("Apasă butonul pentru a începe jocul!");
+//     let startButton = createButton("Start Game");
+//     startButton.mousePressed(startCountdown);
+//     modal.child(text);
+//     modal.child(startButton);
+// }
+
+// function startCountdown() {
+//     let modal = select("#modal");
+//     modal.style("display", "none");
+
+//     countdownText = createP("3");
+//     countdownText.class("countdown-text");
+//     countdownText.position(width / 2, height / 2);
+
+//     countdownInterval = setInterval(function () {
+//         countdown--;
+
+//         if (countdown === 0) {
+//             clearInterval(countdownInterval);
+//             countdownText.html("Go!");
+//             setTimeout(function () {
+//                 countdownText.remove();
+//                 startRace();
+//             }, 1000);
+//         } else {
+//             countdownText.html(countdown);
+//         }
+//     }, 1000);
+// }
+
+// function draw() {
+//     let normalizedPosition = roadPosition % height;
+//     if (normalizedPosition > 0) {
+//         normalizedPosition -= height;
+//     }
+
+//     image(backgroundImg, 0, normalizedPosition, width, height);
+//     image(backgroundImg, 0, normalizedPosition + height, width, height);
+//  // Check if carGood reached half of maxDistance
+
+//     update();
+// }
+
+
+
+/*The code you provided appears to be a part of a JavaScript p5.js sketch that creates a simple racing game. Here's a breakdown of the main components and functionality of the code:
+
+1. Variables:
+- `backgroundImg`: Stores the reference to the background image.
+- `car1`, `car2`, `carGood`: Sprite objects representing the cars in the game.
+- `roadPosition`: The current position of the road.
+- `car1Speed`, `car2Speed`, `carGoodSpeed`: The speed of each car.
+- `gameStarted`: Boolean flag indicating whether the game has started.
+- `countdown`: The countdown value for the game start.
+- `countdownInterval`: Interval reference for the countdown.
+- `carDistance`: Distance between the cars.
+- `bgSpeed`: Speed of the background scrolling.
+- `isRoadMoving`: Boolean flag indicating whether the road is moving.
+- `maxBgSpeed`: The maximum speed of the background scrolling.
+- `lastSpeedIncreaseTime`: The time when the background speed was last increased.
+- `speedIncreaseInterval`: Interval duration for increasing the background speed.
+- `maxDistance`: Maximum racing distance in meters.
+- `halfMaxDistance`: Half of the maximum racing distance.
+- `raceTime`: Time to reach the finish line in seconds.
+- `startTime`: Stores the start time of the race.
+- `endTime`: Stores the end time of the race.
+- `isGamePaused`: Boolean flag indicating whether the game is paused.
+
+2. `preload()` function:
+- Loads the background image.
+
+3. `setup()` function:
+- Sets up the canvas and initializes car sprites.
+- Calls the `startGameModal()` function.
+
+4. `startRace()` function:
+- Sets the gameStarted flag to true.
+- Assigns random speeds to the cars.
+- Stores the start time of the race.
+
+5. `update()` function:
+- Updates the game state.
+- Moves the road, cars, and checks for race conditions.
+- Increases the background speed at regular intervals.
+- Calculates and displays various race-related information.
+
+6. `endRace(won)` function:
+- Ends the race and displays the race result in a modal.
+- If the player won, shows a victory message; otherwise, shows a loss message.
+- Displays the distance covered by the player and the time taken.
+
+7. `mousePressed()` function:
+- Handles mouse clicks during the game.
+- If the game is not started, checks if the start button is clicked and starts the countdown.
+- If the game is started, increases the speeds of cars and background scrolling.
+
+8. `startGameModal()` function:
+- Creates a modal to start the game.
+- Displays a message and a start button.
+
+9. `startCountdown()` function:
+- Starts the countdown before the game begins.
+- Updates the countdown text and starts the race when the countdown ends.
+
+10. `draw()` function:
+- The main game loop that runs continuously.
+- Displays the background image and updates the game state.
+
+Please note that this code snippet may be incomplete and might require additional code to function properly within a p5.js sketch.*/
+
+
+
+
 let backgroundImg;
 
 let car1, car2, carGood;
+let startPosition;
+let carScale;
 let roadPosition = 0;
 
 let car1Speed = 0;
 let car2Speed = 0;
 let carGoodSpeed = 0;
+
 let gameStarted = false;
 
 let countdown = 3;
@@ -17,20 +296,30 @@ let isRoadMoving = false;
 const maxBgSpeed = 60;
 
 let lastSpeedIncreaseTime = 0;
-const speedIncreaseInterval = 700; // Increase speed every 2 seconds
+const speedIncreaseInterval = 500; // Increase speed every 500 milisecons 
 
 
-const maxDistance = 1000; // Maximum racing distance (in meters)
+const maxDistance = 500; // Maximum racing distance (in meters)
 let halfMaxDistance = maxDistance / 2;
+
 const raceTime = 30; // Time to reach the finish line (in seconds)
+
 let startTime; // To store the start time
+
 let endTime; // To store the end time
 
+
+//Pause
+let alerted = false; // Flag to track if alert has been shown
 let isGamePaused = false; // Variable to track if the game is paused
 
+
+// Preload bg Img
 function preload() {
     backgroundImg = loadImage("./png/road.jpg");
 }
+
+// Setup the canvas and StartPosition For Cars and Preload
 
 function setup() {
     const container = document.getElementById("container");
@@ -38,9 +327,7 @@ function setup() {
     canvas.parent(container);
 
     let carSpacing = 50; // Distance between the cars
-    const startPosition = windowHeight - 200;
-
-    let carScale;
+    startPosition = windowHeight - 200; // Set the start position
 
     if (windowWidth <= 600) {
         carSpacing = 20;
@@ -70,80 +357,55 @@ function setup() {
     startGameModal()
 }
 
-
+// Start the race and cars start speed
 function startRace() {
     gameStarted = true;
-    car1Speed = random(0.2, 0.3);
-    car2Speed = random(0.3, 0.4);
+    car1Speed = random(0.2, 0.5);
+    car2Speed = random(0.2, 0.4);
     carGoodSpeed = random(0.1, 0.2);
     startTime = millis(); // Store the current time as the start time
 }
 
-
+// update the game Real time
 function update() {
     if (gameStarted) {
         roadPosition += bgSpeed;
-        car1.position.y -= car1Speed - random(0.2, 0.3);
-        car2.position.y -= car2Speed - random(0.2, 0.3);
-        carGood.position.y -= carGoodSpeed - random(0.2, 0.3);
+        car1.position.y -= car1Speed;
+        car2.position.y -= car2Speed;
+        carGood.position.y -= carGoodSpeed;
+
+        
 
         if (roadPosition <= -height) {
             roadPosition = 0;
         }
-        // let carPosition = (carGood.position.y / maxDistance) ;
-// carPosition = maxDistance - carPosition;
-        // console.log("Car position: " + carPosition.toFixed(2) + "m");
-        // console.log(carPosition = maxDistance - carPosition);
-        // Adjust the condition to make the race car be in the middle when it reaches the middle of maxDistance
-        if (carGood.position.y <= halfMaxDistance + carGoodSpeed &&
-            carGood.position.y >= halfMaxDistance - carGoodSpeed) {
-            // carGoodSpeed = 0; // Stop the carGood when it reaches the middle
-            alert("Congratulations! You reached the middle of the race.");
-        } else if (carGood.position.y <= 0) {
-            endRace(true);
-        } else if (car1.position.y <= halfMaxDistance && car2.position.y <= halfMaxDistance) {
-            carGoodSpeed += 0.02; // Adjust the speed increment as per your requirement
-        } else if (car1.position.y <= 0 || car2.position.y <= 0) {
-            endRace(false);
-        }
 
-        // Increase background speed every n seconds onclick
         if (
             millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
             bgSpeed < maxBgSpeed
         ) {
             bgSpeed += 2;
             lastSpeedIncreaseTime = millis();
-            console.log(lastSpeedIncreaseTime,"lastSpeedIncreaseTime");
-            console.log(bgSpeed,"lastSpeedIncreaseTime");
+        }
+
+        // Check if carGood/car1/car2 reached or crossed the half distance
+        if (carGood.position.y <= startPosition - halfMaxDistance || car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) {
+            if (!alerted) {
+                alerted = true;
+                createCustomAlert("One of the cars reached the half distance point!");
+            }
         }
 
 
-        // Calculate the maximum distance of the road based on the maxDistance variable
-        let maxRoadDistance = maxDistance;
-        let middleOfRoad = halfMaxDistance;
-
-        // Calculate the distance covered by carGood
-        let carGoodDistance = maxDistance - (carGood.position.y * maxDistance) / height;
-
-        // Calculate the difference between the distance covered by carGood and the maximum distance
-        // let distanceDifference = carGoodDistance - maxDistance;
-
-
-        // Display the maximum road distance, carGood distance, and distance difference on the canvas
-        fill(255);
-        textSize(20);
-        textAlign(LEFT);
-        text("Max Road Distance: " + maxRoadDistance.toFixed() + "m", 20, 30);
-        // text("CarGood Distance: " + carGoodDistance.toFixed(2) + "m", 20, 60);
-        text(" carGood ,position at: " + carGood.position.y.toFixed() + "m", 20, 60);
-        // text("Distance Difference: " + distanceDifference.toFixed(2) + "m", 20, 90);
-        text("middle of road: " + middleOfRoad.toFixed() + "m", 20, 90);
-        // console.log(carGood.position.y, "carGood.position.y.toFixed(2");
+        // Check if carGood reached or crossed maxDistance
+        if (carGood.position.y <= startPosition - maxDistance) {
+            endRace(true); // carGood won the race
+        }
+        let carGoodSpeedDisplay = carGoodSpeed * 100; // Convert carGoodSpeed to a displayable value
     }
 }
 
-
+// End Race win and text
 function endRace(won) {
     gameStarted = false;
 
@@ -152,13 +414,13 @@ function endRace(won) {
 
     let resultText;
     if (won) {
-        resultText = "Felicitări! Ai câștigat!";
+        resultText = "Congratulations! You won!";
     } else {
-        resultText = "Ai pierdut!";
+        resultText = "You lost!";
     }
 
-    let distanceText = "Distanta parcursa: " + carGood.position.y.toFixed() + "m";
-    let timeText = "Timp scurs: " + (millis() - startTime) / 1000 + "s";
+    let distanceText = "Distance traveled: " + (startPosition - carGood.position.y) + "m";
+    let timeText = "Time elapsed: " + (millis() - startTime) / 1000 + "s";
 
     let text = createP(resultText + "\n" + distanceText + "\n" + timeText);
     modal.child(text);
@@ -169,6 +431,7 @@ function endRace(won) {
     });
     modal.child(restartButton);
 }
+// Mouse Pressed for start game and cars speed
 
 function mousePressed() {
     if (!gameStarted) {
@@ -192,6 +455,8 @@ function mousePressed() {
     }
 }
 
+//modal with start game button 
+
 function startGameModal() {
     let modal = createDiv("");
     modal.id("modal");
@@ -203,6 +468,45 @@ function startGameModal() {
     modal.child(startButton);
 }
 
+
+// Create the pop-up  with a text and a continue button
+
+function createCustomAlert(message) {
+    const alertDiv = document.createElement("div");
+    alertDiv.id = "customAlert";
+    alertDiv.style.position = "fixed";
+    alertDiv.style.top = "50%";
+    alertDiv.style.left = "50%";
+    alertDiv.style.transform = "translate(-50%, -50%)";
+    alertDiv.style.backgroundColor = "white";
+    alertDiv.style.padding = "20px";
+    alertDiv.style.border = "1px solid black";
+    alertDiv.style.zIndex = "9999";
+
+    const messageText = document.createElement("p");
+    messageText.textContent = message;
+    alertDiv.appendChild(messageText);
+
+    const continueButton = document.createElement("button");
+    continueButton.textContent = "Continue";
+    continueButton.addEventListener("click", continueRace);
+    alertDiv.appendChild(continueButton);
+
+    document.body.appendChild(alertDiv);
+
+}
+// Remove the pop-up element from the document
+function removeCustomAlert() {
+    const alertDiv = document.getElementById("customAlert");
+    if (alertDiv) {
+        document.body.removeChild(alertDiv);
+    }
+}
+// Rfter pause continue the race
+function continueRace() {
+    removeCustomAlert();
+}
+// Start CountDown
 function startCountdown() {
     let modal = select("#modal");
     modal.style("display", "none");
@@ -214,7 +518,7 @@ function startCountdown() {
     countdownInterval = setInterval(function () {
         countdown--;
 
-        if (countdown === 0) {
+        if (countdown === 2) {
             clearInterval(countdownInterval);
             countdownText.html("Go!");
             setTimeout(function () {
@@ -227,48 +531,44 @@ function startCountdown() {
     }, 1000);
 }
 
+
+
+
+//Draw the things
 function draw() {
     let normalizedPosition = roadPosition % height;
+
     if (normalizedPosition > 0) {
         normalizedPosition -= height;
     }
 
     image(backgroundImg, 0, normalizedPosition, width, height);
     image(backgroundImg, 0, normalizedPosition + height, width, height);
- // Check if carGood reached half of maxDistance
+
+    // Calculate the distance remaining from carGood to the end of the race
+    let distanceRemainingFull = maxDistance - (startPosition - carGood.position.y);
+    let distanceRemaining = halfMaxDistance - (startPosition - carGood.position.y);
+    let distanceRemainingCar1 = halfMaxDistance - (startPosition - car1.position.y);
+    let distanceRemainingCar2 = halfMaxDistance - (startPosition - car2.position.y);
+
+  // Calculate the speed of each car
+  let carGoodSpeedDisplay = carGoodSpeed * 100; // Convert carGoodSpeed to a displayable value
+  let car1SpeedDisplay = car1Speed * 100; // Convert car1Speed to a displayable value
+  let car2SpeedDisplay = car2Speed * 100; // Convert car2Speed to a displayable value
+    // Display the maximum distance, half distance, and distance remaining on the canvas
+    textSize(20);
+    fill(255);
+    textAlign(CENTER);
+    text("Max Distance: " + maxDistance + "m", width / 2, 30);
+    text("Half Distance: " + halfMaxDistance + "m", width / 2, 50);
+    text("Distance Remaining full:car good " + distanceRemainingFull.toFixed() + "m", width / 2, 90);
+    text("Distance Remaining half:car good " + distanceRemaining.toFixed() + "m", width / 2, 70);
+    text("Distance Remaining:car1 " + distanceRemainingCar1.toFixed() + "m", width / 2, 110);
+    text("Distance Remaining:car2 " + distanceRemainingCar2.toFixed() + "m", width / 2, 130);
+
+    text(carGoodSpeedDisplay.toFixed() + "km/h", carGood.position.x, carGood.position.y + 170);
+    text(car1SpeedDisplay.toFixed() + "km/h", car1.position.x - 10, car1.position.y + 170);
+    text(car2SpeedDisplay.toFixed() + "km/h", car2.position.x + 10, car2.position.y + 170);
 
     update();
 }
-
-
-
-
-
-// backgroundImg: Stores the image for the game background.
-// roadPosition: Represents the vertical position of the road background image.
-// car1Speed, car2Speed, carGoodSpeed: Store the speeds of the cars.
-// gameStarted: Indicates whether the game has started or not.
-// countdown: Stores the current countdown value.
-// countdownInterval: Stores the interval ID for the countdown.
-// carDistance: Represents the initial distance between the cars.
-// bgSpeed: Stores the current speed of the background scrolling.
-// isRoadMoving: Indicates whether the road is moving or not.
-// maxBgSpeed: Represents the maximum speed of the background scrolling.
-// lastSpeedIncreaseTime: Stores the timestamp of the last speed increase.
-// speedIncreaseInterval: Specifies the interval for increasing the background speed.
-// maxDistance: Represents the maximum racing distance in meters.
-// halfMaxDistance: Stores half of the maximum racing distance.
-// raceTime: Specifies the time in seconds to reach the finish line.
-// startTime: Stores the start time of the race.
-// endTime: Stores the end time of the race.
-// Functions:
-
-// preload(): Preloads the background image.
-// startRace(): Starts the race by setting the speeds for the cars and storing the start time.
-// update(): Updates the positions of the cars and the background. It also handles conditions for reaching the middle of the race and ending the race.
-// endRace(won): Ends the race by displaying a modal with the result (won or lost), distance traveled, and time taken. Provides a button to restart the game.
-// mousePressed(): Handles mouse press events. If the game hasn't started, it checks if the start button was clicked. If the game has started, it increases the speed of the cars and the background.
-// startGameModal(): Displays a modal at the beginning of the game with a start button.
-// startCountdown(): Starts the countdown before the race begins. After the countdown, the race is started.
-// draw(): The draw() function is a special function in p5.js that is called continuously. It draws the background, updates the game, and handles the scrolling of the road.
-// Please note that there may be some dependencies and code that is not provided, such as CSS styles or HTML structure. This code snippet assumes that the necessary p5.js library is already included in the HTML file.
