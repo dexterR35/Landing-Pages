@@ -294,13 +294,13 @@ let carDistance = 200;
 let bgSpeed = 2;
 let isRoadMoving = false;
 
-let maxBgSpeed = 90;
+let maxBgSpeed = 60;
 
 let lastSpeedIncreaseTime = 0;
 const speedIncreaseInterval = 80; // Increase speed every 500 milisecons 
 
 
-const maxDistance = 500; // Maximum racing distance (in meters)
+const maxDistance = 250; // Maximum racing distance (in meters)
 let halfMaxDistance = maxDistance / 2;
 
 
@@ -363,9 +363,9 @@ function setup() {
 // Start the race and cars start speed
 function startRace() {
     gameStarted = true;
-    car1Speed = random(0.05, 0.1);
-    car2Speed = random(0.04, 0.2);
-    carGoodSpeed = random(0.02, 0.03);
+    car1Speed = random(0.5, 0.9);
+    car2Speed = random(0.4, 0.9);
+    carGoodSpeed = random(0.02, 0.1);
     startTime = millis(); // Store the current time as the start time
 }
 
@@ -518,11 +518,16 @@ function removeCustomAlert() {
     const alertDiv = document.getElementById("customAlert");
     if (alertDiv) {
         document.body.removeChild(alertDiv);
+
     }
 }
 // Rfter pause continue the race
 function continueRace() {
+  
     removeCustomAlert();
+    bgSpeed = min(bgSpeed + 5, maxBgSpeed);
+    draw();
+
 }
 // Start CountDown
 function startCountdown() {
