@@ -300,7 +300,7 @@ let lastSpeedIncreaseTime = 0;
 const speedIncreaseInterval = 80; // Increase speed every 500 milisecons 
 
 
-const maxDistance = 250; // Maximum racing distance (in meters)
+const maxDistance = 500; // Maximum racing distance (in meters)
 let halfMaxDistance = maxDistance / 2;
 
 
@@ -363,9 +363,9 @@ function setup() {
 // Start the race and cars start speed
 function startRace() {
     gameStarted = true;
-    car1Speed = random(0.5, 0.9);
-    car2Speed = random(0.4, 0.9);
-    carGoodSpeed = random(0.02, 0.1);
+    car1Speed = random(1, 2);
+    car2Speed = random(1, 2);
+    carGoodSpeed = random(0.5, 1);
     startTime = millis(); // Store the current time as the start time
 }
 
@@ -373,9 +373,9 @@ function startRace() {
 function update() {
     if (gameStarted) {
         roadPosition += bgSpeed;
-        car1.position.y -= car1Speed;
-        car2.position.y -= car2Speed;
-        carGood.position.y -= carGoodSpeed;
+        car1.position.y -= car1Speed / (maxDistance / 100);
+        car2.position.y -= car2Speed / (maxDistance / 100);
+        carGood.position.y -= carGoodSpeed / (maxDistance / 100);
 
         if (roadPosition <= -height) {
             roadPosition = 0;
@@ -390,7 +390,7 @@ function update() {
         }
 
         // Check if carGood/car1/car2 reached or crossed the half distance
-        if (car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) 
+        if (carGood.position.y <= startPosition - halfMaxDistance || car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) 
         {         
             if (!alerted) {
                  distanceRemaining = 0;
@@ -403,15 +403,16 @@ function update() {
                 createCustomAlert("One of the cars reached the half distance point!");
        
             }
-        } else if (carGood.position.y <= 0) {
-            endRace(true);
         }
-        else if (car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) {
-            carGoodSpeed += 3; // Adjust the speed increment as per your requirement
+        else if (car1.position.y <= halfMaxDistance || car2.position.y <= halfMaxDistance) {
+            carGoodSpeed += 0.25; // Adjust the speed increment as per your requirement
       
         }
-        console.log("carGoodSpeed",carGoodSpeed);
-        console.log("startPosition",startPosition);
+        else if (carGood.position.y <= 0) {
+            endRace(true);
+        }
+        // console.log("carGoodSpeed",carGoodSpeed);
+        // console.log("startPosition",startPosition);
 
         // Check if carGood reached or crossed maxDistance
         if (carGood.position.y <= startPosition - maxDistance) {
@@ -507,7 +508,13 @@ function createCustomAlert(message) {
     const continueButton = document.createElement("button");
     continueButton.textContent = "Continue";
     continueButton.addEventListener("click", continueRace);
-    alertDiv.appendChild(continueButton);
+ 
+
+
+    const startButton = document.createElement("button");
+    startButton.textContent = "Start";
+    startButton.addEventListener("click", startButton);
+    alertDiv.appendChild(continueButton,startButton);
 
     document.body.appendChild(alertDiv);
     bgSpeed = 5;
@@ -525,9 +532,7 @@ function removeCustomAlert() {
 function continueRace() {
   
     removeCustomAlert();
-    bgSpeed = min(bgSpeed + 5, maxBgSpeed);
-    draw();
-
+    
 }
 // Start CountDown
 function startCountdown() {
