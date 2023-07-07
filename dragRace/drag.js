@@ -293,8 +293,8 @@ let carDistance = 200;
 
 let bgSpeed = 2;
 let isRoadMoving = false;
-
 let maxBgSpeed = 60;
+
 
 let lastSpeedIncreaseTime = 0;
 const speedIncreaseInterval = 80; // Increase speed every 500 milisecons 
@@ -305,12 +305,12 @@ let halfMaxDistance = maxDistance / 2;
 
 
 
-const raceTime = 30; // Time to reach the finish line (in seconds)
+const raceTime = 5; // Time to reach the finish line (in seconds)
+
 
 let startTime; // To store the start time
-
 let endTime; // To store the end time
-
+let maxTime; //max time for loop
 
 //Pause
 let alerted = false; // Flag to track if alert has been shown
@@ -381,6 +381,7 @@ function update() {
             roadPosition = 0;
         }
 
+
         if (
             millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
             bgSpeed < maxBgSpeed
@@ -392,9 +393,11 @@ function update() {
         // Check if carGood/car1/car2 reached or crossed the half distance
         if (carGood.position.y <= startPosition - halfMaxDistance || car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) 
         {         
+          
             if (!alerted) {
-                 distanceRemaining = 0;
                 alerted = true;
+                 distanceRemaining = 0;
+              
                 maxBgSpeed = 5;
                 car1Speed = 0;
                 car2Speed = 0;
@@ -402,20 +405,20 @@ function update() {
                 // carGoodSpeed += 1;
                 createCustomAlert("One of the cars reached the half distance point!");
        
-            }
+            } 
+            // alerted = false;
+            // maxBgSpeed = 60;
         }
+         // Check if  reached or crossed the half distance then boost car good
         else if (car1.position.y <= halfMaxDistance || car2.position.y <= halfMaxDistance) {
             carGoodSpeed += 0.25; // Adjust the speed increment as per your requirement
-      
         }
         else if (carGood.position.y <= 0) {
             endRace(true);
-        }
-        // console.log("carGoodSpeed",carGoodSpeed);
-        // console.log("startPosition",startPosition);
-
+        } 
+      
         // Check if carGood reached or crossed maxDistance
-        if (carGood.position.y <= startPosition - maxDistance) {
+         if (carGood.position.y <= startPosition - maxDistance) {
             endRace(true); // carGood won the race
         }
 
@@ -426,31 +429,24 @@ function update() {
 // End Race win and text
 function endRace(won) {
     gameStarted = false;
-
-    let modal = createDiv("");
-    modal.id("modal");
-
     let resultText;
     if (won) {
         resultText = "Congratulations! You won!";
     } else {
         resultText = "You lost!";
     }
-
-    let distanceText = "Distance traveled: " + (startPosition - carGood.position.y) + "m";
+    let distanceText = "Distance traveled: " + (startPosition - carGood.position.y).toFixed() + "m";
     let timeText = "Time elapsed: " + (millis() - startTime) / 1000 + "s";
-
-    let text = createP(resultText + "\n" + distanceText + "\n" + timeText);
-    modal.child(text);
-
-    let restartButton = createButton("Restart Game");
-    restartButton.mousePressed(function () {
-        location.reload(); // Reload the page to restart the game
-    });
-    modal.child(restartButton);
+    let text = resultText + "\n" + distanceText + "\n" + timeText;
+    createCustomAlert(text, restartGame);
 }
-// Mouse Pressed for start game and cars speed
 
+// Restart the game
+function restartGame() {
+    location.reload(); 
+  }
+
+// Mouse Pressed for start game and cars speed
 function mousePressed() {
     if (!gameStarted) {
         let modal = select("#modal");
@@ -467,15 +463,17 @@ function mousePressed() {
         }
     } else {
         bgSpeed = min(bgSpeed + 5, maxBgSpeed);
-        carGoodSpeed += 0.018;
-        car2Speed += 0.011 * random(0.2, 0.8);
-        car1Speed += 0.015 * random(0.2, 0.9);
-    }
+        carGoodSpeed += 0.1;
+        car2Speed += 0.1 * random(0.2, 0.3);
+        car1Speed += 0.1 * random(0.2, 0.4);
+    }    
 }
 
 //modal with start game button 
 
 function startGameModal() {
+    // let text = "Apasă butonul pentru a începe jocul!";
+    // createCustomAlert(text, startCountdown);
     let modal = createDiv("");
     modal.id("modal");
 
@@ -508,17 +506,14 @@ function createCustomAlert(message) {
     const continueButton = document.createElement("button");
     continueButton.textContent = "Continue";
     continueButton.addEventListener("click", continueRace);
- 
-
-
+    
     const startButton = document.createElement("button");
     startButton.textContent = "Start";
     startButton.addEventListener("click", startButton);
     alertDiv.appendChild(continueButton,startButton);
 
     document.body.appendChild(alertDiv);
-    bgSpeed = 5;
-
+        bgSpeed = 5; 
 }
 // Remove the pop-up element from the document
 function removeCustomAlert() {
@@ -533,6 +528,7 @@ function continueRace() {
   
     removeCustomAlert();
     
+  
 }
 // Start CountDown
 function startCountdown() {
