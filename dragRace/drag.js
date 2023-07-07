@@ -300,7 +300,7 @@ let lastSpeedIncreaseTime = 0;
 const speedIncreaseInterval = 80; // Increase speed every 500 milisecons 
 
 
-const maxDistance = 500; // Maximum racing distance (in meters)
+const maxDistance = 600; // Maximum racing distance (in meters)
 let halfMaxDistance = maxDistance / 2;
 
 
@@ -320,6 +320,7 @@ let isGamePaused = false; // Variable to track if the game is paused
 // Preload bg Img
 function preload() {
     backgroundImg = loadImage("./png/road.jpg");
+    backgroundImgMobile = loadImage("./png/roadMobile.jpg");
 }
 
 // Setup the canvas and StartPosition For Cars and Preload
@@ -336,7 +337,8 @@ function setup() {
         carSpacing = 20;
         carScale = 0.3; // Scale for small devices like mobile
     } else {
-        carScale = 0.7; // Scale for larger screens
+        carSpacing = 100;
+        carScale = 1; // Scale for larger screens
     }
 
     car1 = createSprite(
@@ -368,7 +370,7 @@ function startRace() {
     carGoodSpeed = random(0.5, 1);
     startTime = millis(); // Store the current time as the start time
 }
-
+let maxBgSpeedBefore;
 // update the game Real time
 function update() {
     if (gameStarted) {
@@ -393,8 +395,11 @@ function update() {
         // Check if carGood/car1/car2 reached or crossed the half distance
         if (carGood.position.y <= startPosition - halfMaxDistance || car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance) 
         {         
-          
+        
             if (!alerted) {
+                maxBgSpeedBefore = maxBgSpeed;
+                
+                console.log(maxBgSpeed,"max");
                 alerted = true;
                  distanceRemaining = 0;
               
@@ -510,7 +515,7 @@ function createCustomAlert(message) {
     const startButton = document.createElement("button");
     startButton.textContent = "Start";
     startButton.addEventListener("click", startButton);
-    alertDiv.appendChild(continueButton,startButton);
+    alertDiv.appendChild(continueButton, startButton);
 
     document.body.appendChild(alertDiv);
         bgSpeed = 5; 
@@ -527,9 +532,20 @@ function removeCustomAlert() {
 function continueRace() {
   
     removeCustomAlert();
+
+         distanceRemaining = 0;
+      
+        maxBgSpeed = maxBgSpeedBefore;
+        car1Speed = 10;
+        car2Speed = 10;
+        carGoodSpeed = 10;
+        // carGoodSpeed += 1;
+        createCustomAlert("One of the cars reached the half distance point!");
+
+    }
     
   
-}
+
 // Start CountDown
 function startCountdown() {
     let modal = select("#modal");
@@ -566,9 +582,14 @@ function draw() {
         normalizedPosition -= height;
     }
 
-    image(backgroundImg, 0, normalizedPosition, width, height);
-    image(backgroundImg, 0, normalizedPosition + height, width, height);
 
+    if (windowWidth <= 600) {
+    image(backgroundImgMobile, 0, normalizedPosition, width, height);
+    image(backgroundImgMobile, 0, normalizedPosition + height, width, height);
+    } else {
+        image(backgroundImg, 0, normalizedPosition, width, height);
+        image(backgroundImg, 0, normalizedPosition + height, width, height);
+    }
     // Calculate the distance remaining from carGood to the end of the race
     let distanceRemainingFull = maxDistance - (startPosition - carGood.position.y);
     let distanceRemaining = halfMaxDistance - (startPosition - carGood.position.y);
