@@ -75,7 +75,7 @@ function setup() {
     }
     if (windowHeight > windowWidth) {
         linePosition = startPosition - 100;
-        linePositionMiddle = startPosition - (startPosition - height / 102);
+        linePositionMiddle = height;
     } else {
         linePosition = startPosition - 250;
         linePositionMiddle = startPosition - 100;
@@ -132,6 +132,8 @@ function startRace() {
 // update the game Real time
 
 function update() {
+    const canvasWidth = width; // Example value, replace with the actual width of your canvas
+const canvasHeight = height;
     // var maxDistance = height;
     // gameStarted = false; 
     if (gameStarted) {
@@ -146,14 +148,22 @@ function update() {
         if (roadPosition <= -maxDistance) {
             roadPosition = 0;
         }
+        // Check if cars have reached the middle of the canvas
+if (roadPosition <= -canvasWidth / 2) {
+    // Add code to draw a line or perform any desired action
+    // For example:
+    drawLine(canvasWidth / 2, 0, canvasWidth / 2, canvasHeight);
+    console.log("safa")
+    
+}
 
-        if (
-            millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
-            bgSpeed < maxBgSpeed
-        ) {
-            bgSpeed += 2;
-            lastSpeedIncreaseTime = millis();
-        }
+    //   else  if (
+    //         millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
+    //         bgSpeed < maxBgSpeed
+    //     ) {
+    //         bgSpeed += 2;
+    //         lastSpeedIncreaseTime = millis();
+    //     }
         // if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
         //     carGoodSpeed +=  0.1 * random(0.1, 0.15);
         //     console.log("carGoodSpeed mijloc update",carGoodSpeed);
@@ -169,7 +179,7 @@ function update() {
                 car2Speed = 0;
                 carGoodSpeed = 0;
                 createCustomAlert("One of the cars reached the half distance point!");
-            }
+            } 
         } else if (carGood.position.y <= 0) {
             endRace(true);
         }
