@@ -1,5 +1,3 @@
-
-
 let backgroundImg;
 
 let car1, car2, carGood, startLine;
@@ -28,7 +26,7 @@ const speedIncreaseInterval = 80; // Increase speed every 500 milisecons
 
 
 // Maximum racing distance (in meters)
-let maxDistance = 600;
+let maxDistance = 500;
 let halfMaxDistance = maxDistance / 2;
 
 
@@ -53,20 +51,20 @@ let cgSpeedBefore;
 
 // Preload bg Img
 function preload() {
-    backgroundImg = loadImage("./png/road.png");
+    backgroundImg = loadImage("./png/road.jpg");
     backgroundImgMobile = loadImage("./png/roadMobile.jpg");
 }
 
 // Setup the canvas and StartPosition For Cars and Preload
 
 function setup() {
-
+    let middleCanvas = height / 1.5;
     const container = document.getElementById("container");
     const canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent(container);
 
     let carSpacing = 50; // Distance between the cars
-    startPosition = windowHeight - 120; // Set the start position
+    startPosition = height - 120; // Set the start position
 
     if (windowWidth <= 600) {
         carSpacing = 20;
@@ -75,21 +73,29 @@ function setup() {
         carSpacing = 100;
         carScale = 1; // Scale for larger screens
     }
-    if (windowHeight>windowWidth) {
-        linePosition = startPosition-100
+    if (windowHeight > windowWidth) {
+        linePosition = startPosition - 100;
+        linePositionMiddle = startPosition - (startPosition - height / 102);
     } else {
-        linePosition = startPosition-250
+        linePosition = startPosition - 250;
+        linePositionMiddle = startPosition - 100;
     }
 
     startLine = createSprite(
-        (width/2)-(width*0.045),
+        (width / 2) - (width * 0.045),
         linePosition
     );
     startLine.addImage("startLine", loadImage("./png/roadMobile-line-offset.png"));
-    startLine.scale = windowWidth/4000;
-    // startLine.addImage("startLine", loadImage("./png/roadMobile-line.png"));
-    // startLine.scale = windowWidth/4000;
-    
+    startLine.scale = windowWidth / 4000;
+
+
+    middleLine = createSprite(
+        (width / 2) - (width * 0.045),
+        linePositionMiddle
+    );
+    middleLine.addImage("middleLine", loadImage("./png/roadMobile-check.png"));
+    middleLine.scale = windowWidth / 4000;
+
     car1 = createSprite(
         width / 2.5 - carSpacing,
         startPosition
@@ -107,11 +113,6 @@ function setup() {
     carGood = createSprite(width / 2, startPosition);
     carGood.addImage("carGood", loadImage("./png/car.png"));
     carGood.scale = carScale;
-    
-    console.log(car1.position.y, "position.y");
-    console.log(car2.position.y, "position.y");
-    console.log(carGood.position.y, "position.y");
-    console.log(startPosition, "startPosition");
     startGameModal();
     console.log(height, "height");
 }
@@ -137,10 +138,11 @@ function update() {
         let middleCanvas = height / 1.5;
         roadPosition += bgSpeed;
         startLine.position.y += bgSpeed;
+        middleLine.position.y += bgSpeed;
         car1.position.y -= car1Speed;
         car2.position.y -= car2Speed;
         carGood.position.y -= carGoodSpeed;
- 
+
         if (roadPosition <= -maxDistance) {
             roadPosition = 0;
         }
@@ -152,10 +154,10 @@ function update() {
             bgSpeed += 2;
             lastSpeedIncreaseTime = millis();
         }
-        if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
-            carGoodSpeed +=  0.1 * random(0.1, 0.15);
-            console.log("carGoodSpeed mijloc update",carGoodSpeed);
-        }
+        // if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
+        //     carGoodSpeed +=  0.1 * random(0.1, 0.15);
+        //     console.log("carGoodSpeed mijloc update",carGoodSpeed);
+        // }
 
         // Adjust the carGoodSpeed based on the time remaining
         if (car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) {
@@ -166,7 +168,7 @@ function update() {
                 car1Speed = 0;
                 car2Speed = 0;
                 carGoodSpeed = 0;
-                createCustomAlert("One of the cars reached the half distance point!");          
+                createCustomAlert("One of the cars reached the half distance point!");
             }
         } else if (carGood.position.y <= 0) {
             endRace(true);
@@ -175,16 +177,16 @@ function update() {
         if (carGood.position.y <= startPosition - maxDistance) {
             endRace(true); // carGood won the race
         }
-        let car1vsGood = abs(carGood.position.y - car1.position.y);
-        if (car1vsGood > 40) {
-            // carGoodSpeed += 1;
-        }
-        let car2vsGood = abs(carGood.position.y - car2.position.y);
-        if (car2vsGood > 30) {
-            // carGoodSpeed += 2;
-        }
+        // let car1vsGood = abs(carGood.position.y - car1.position.y);
+        // if (car1vsGood > 40) {
+        //     // carGoodSpeed += 1;
+        // }
+        // let car2vsGood = abs(carGood.position.y - car2.position.y);
+        // if (car2vsGood > 30) {
+        //     // carGoodSpeed += 2;
+        // }
 
- 
+
     }
 }
 
@@ -225,36 +227,36 @@ function mousePressed() {
             }
         }
     } else {
-        bgSpeed = min(bgSpeed + 5, maxBgSpeed);
+        // bgSpeed = min(bgSpeed + 5, maxBgSpeed);
         let car1vsGood = abs(carGood.position.y - car2.position.y);
         if (car1vsGood < 50) {
-            carGoodSpeed +=  0.01;
+            carGoodSpeed += 0.01;
             car1Speed += 0.02;
             car2Speed += 0.02;
             // console.log("1",car1Speed);
         } else {
-            carGoodSpeed +=  0.03;
+            carGoodSpeed += 0.03;
             car1Speed += 0.01;
             car2Speed += 0.01;
-            console.log("< 50",carGoodSpeed);
+            console.log("< 50", carGoodSpeed);
             // console.log("carGoodSpeed fata de car1",carGoodSpeed);
-        } 
-        if (car1vsGood > 50) {  
-            carGoodSpeed +=  0.02;
+        }
+        if (car1vsGood > 50) {
+            carGoodSpeed += 0.02;
             car1Speed += 0.01;
             car2Speed += 0.01;
-            console.log("> 50",carGoodSpeed);
+            console.log("> 50", carGoodSpeed);
 
-        }else {
-            carGoodSpeed +=  0.01;
+        } else {
+            carGoodSpeed += 0.01;
             car1Speed += 0.02;
             car2Speed += 0.02;
             // console.log("3",carGoodSpeed);
-        } 
-        if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || car1.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
-            carGoodSpeed +=  0.2 * random(0.2, 0.3);
-            console.log("carGoodSpeed mijloc",carGoodSpeed);
         }
+        // if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || car1.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
+        //     carGoodSpeed +=  0.2 * random(0.2, 0.3);
+        //     console.log("carGoodSpeed mijloc",carGoodSpeed);
+        // }
     }
 }
 
@@ -292,7 +294,7 @@ function createCustomAlert(message) {
 
     const continueButton = document.createElement("button");
     continueButton.textContent = "Continue";
-    continueButton.addEventListener("click", function(){
+    continueButton.addEventListener("click", function () {
         removeCustomAlert();
     });
 
@@ -311,6 +313,7 @@ function removeCustomAlert() {
         document.body.removeChild(alertDiv);
 
     }
+    bgSpeed = 45;
 }
 
 
@@ -356,48 +359,45 @@ function draw() {
         image(backgroundImg, 0, normalizedPosition, width, height);
         image(backgroundImg, 0, normalizedPosition + height, width, height);
     }
-   
+
     renderTextElements();
     update();
 }
 
-function renderTextElements() { 
+function renderTextElements() {
 
- // Calculate the distance remaining from carGood to the end of the race
- let distanceRemainingFull = maxDistance - (startPosition - carGood.position.y);
- let distanceRemainingCar1Full = maxDistance - (startPosition - car1.position.y);
- let distanceRemainingCar2Full = maxDistance - (startPosition - car2.position.y);
- // let carDistance1 = abs(car1.position.y - carGood.position.y);
- // let carDistance2 = abs(car2.position.y - carGood.position.y);
+    // Calculate the distance remaining from carGood to the end of the race
+    let distanceRemainingFull = maxDistance - (startPosition - carGood.position.y);
+    let distanceRemainingCar1Full = maxDistance - (startPosition - car1.position.y);
+    let distanceRemainingCar2Full = maxDistance - (startPosition - car2.position.y);
+    // let carDistance1 = abs(car1.position.y - carGood.position.y);
+    // let carDistance2 = abs(car2.position.y - carGood.position.y);
 
 
- // Display the maximum distance, half distance, and distance remaining on the canvas
+    // Display the maximum distance, half distance, and distance remaining on the canvas
 
- let textAlignM;
- var containerWidth = 180; // Set the width of the container
- var containerHeight = 60; // Set the height of the container
- var containerX = width / 2 - containerWidth / 2; // Calculate the x-coordinate of the container
- var containerY = height / 25; // Set the y-coordinate of the container
- 
- // Draw the container
- textSize(16);
- rect(containerX, containerY, containerWidth, containerHeight);
- textAlign(CENTER);
- fill(0); // Set the fill color to black
- text("Max Distance: " + maxDistance + "m", width / 2, containerY + 20);
- text("Half Distance: " + halfMaxDistance + "m", width / 2, containerY + 35);
- text("dominic in m: " + distanceRemainingFull.toFixed() + "m", width / 2, containerY + 50);
+    let textAlignM;
+    var containerWidth = 180; // Set the width of the container
+    var containerHeight = 60; // Set the height of the container
+    var containerX = width / 2 - containerWidth / 2; // Calculate the x-coordinate of the container
+    var containerY = height / 25; // Set the y-coordinate of the container
 
- if (windowWidth <= 600) {
-     textAlignM = 100;
- } else {
-     textAlignM = 160
- }
- fill(255)
- text(distanceRemainingFull.toFixed() + "m", carGood.position.x, carGood.position.y + textAlignM);
- text(distanceRemainingCar1Full.toFixed() + "m", car1.position.x - 10, car1.position.y + textAlignM);
- text(distanceRemainingCar2Full.toFixed() + "m", car2.position.x + 10, car2.position.y + textAlignM);
+    // Draw the container
+    textSize(16);
+    rect(containerX, containerY, containerWidth, containerHeight);
+    textAlign(CENTER);
+    fill(0); // Set the fill color to black
+    text("Max Distance: " + maxDistance + "m", width / 2, containerY + 20);
+    text("Half Distance: " + halfMaxDistance + "m", width / 2, containerY + 35);
+    text("dominic in m: " + distanceRemainingFull.toFixed() + "m", width / 2, containerY + 50);
+
+    if (windowWidth <= 600) {
+        textAlignM = 100;
+    } else {
+        textAlignM = 160
+    }
+    fill(255)
+    text(distanceRemainingFull.toFixed() + "m", carGood.position.x, carGood.position.y + textAlignM);
+    text(distanceRemainingCar1Full.toFixed() + "m", car1.position.x - 10, car1.position.y + textAlignM);
+    text(distanceRemainingCar2Full.toFixed() + "m", car2.position.x + 10, car2.position.y + textAlignM);
 }
-
-
-
