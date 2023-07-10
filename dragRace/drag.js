@@ -18,7 +18,7 @@ let countdownInterval;
 
 let bgSpeed = 3;
 let isRoadMoving = false;
-let maxBgSpeed = 50;
+let maxBgSpeed = 35;
 
 
 let lastSpeedIncreaseTime = 0;
@@ -26,7 +26,7 @@ const speedIncreaseInterval = 80; // Increase speed every 500 milisecons
 
 
 // Maximum racing distance (in meters)
-let maxDistance = 500;
+let maxDistance = 600;
 let halfMaxDistance = maxDistance / 2;
 
 
@@ -49,10 +49,19 @@ let c2SpeedBefore;
 let cgSpeedBefore;
 
 
+
+let modal;
+let modalText;
+let modalButton;
+
+
+
 // Preload bg Img
 function preload() {
     backgroundImg = loadImage("./png/road.jpg");
     backgroundImgMobile = loadImage("./png/roadMobile.jpg");
+    halfDistanceImg = loadImage("./png/roadMobile-check.png");
+    halfDistanceImgScale = windowWidth / 4000;
 }
 
 // Setup the canvas and StartPosition For Cars and Preload
@@ -64,7 +73,7 @@ function setup() {
     canvas.parent(container);
 
     let carSpacing = 50; // Distance between the cars
-    startPosition = height - 120; // Set the start position
+    startPosition = height - 80; // Set the start position
 
     if (windowWidth <= 600) {
         carSpacing = 20;
@@ -74,11 +83,11 @@ function setup() {
         carScale = 1; // Scale for larger screens
     }
     if (windowHeight > windowWidth) {
-        linePosition = startPosition - 100;
-        linePositionMiddle = height;
+        linePosition = startPosition - 110;
+        linePositionMiddle = startPosition - 200;
     } else {
-        linePosition = startPosition - 250;
-        linePositionMiddle = startPosition - 100;
+        linePosition = startPosition - 150;
+        linePositionMiddle = startPosition - 150;
     }
 
     startLine = createSprite(
@@ -88,11 +97,11 @@ function setup() {
     startLine.addImage("startLine", loadImage("./png/roadMobile-line-offset.png"));
     startLine.scale = windowWidth / 4000;
 
-
     middleLine = createSprite(
         (width / 2) - (width * 0.045),
         linePositionMiddle
     );
+
     middleLine.addImage("middleLine", loadImage("./png/roadMobile-check.png"));
     middleLine.scale = windowWidth / 4000;
 
@@ -113,10 +122,74 @@ function setup() {
     carGood = createSprite(width / 2, startPosition);
     carGood.addImage("carGood", loadImage("./png/car.png"));
     carGood.scale = carScale;
+
+    createModal()
     startGameModal();
+
     console.log(height, "height");
 }
 
+function createModal() {
+    // createCanvas(400, 400);
+    modal = createDiv("");
+    modal.id("modal");
+    modalText = createP("");
+    modalButton = createButton("");
+    modalButton.mousePressed(startCountdown);
+    modal.child(modalText);
+    modal.child(modalButton);
+}
+
+function startGameModal() {
+    const text = "Click the Start Game button to begin!";
+    const buttonStart = "Start Game";
+    openModal(text, buttonStart, startCountdown);
+  }
+  function continueModal() {
+    const text = "Cars have reached the half distance! Click the Continue button to proceed.";
+    const buttonContinue = "Continue";
+    openModal(text, buttonContinue, continueGame);
+  }
+
+  function openModal(text, buttonLabel, buttonAction) {
+    // Set the modal content
+    modalText.html(text);
+    modalButton.html(buttonLabel);
+    modalButton.mousePressed(buttonAction);
+  
+    // Display the modal
+    modal.style("display", "flex");
+  }
+  function continueGame() {
+    
+    // Close the modal
+    modal.style("display", "none");
+  
+    // Implement the logic for what should happen after clicking the Continue button
+    // For example, you can resume the game or perform any other desired action
+  }
+// Start CountDown
+function startCountdown() {
+    let modal = select("#modal");
+    modal.style("display", "none");
+
+    countdownText = createP("3");
+    countdownText.class("countdown-text");
+    countdownText.position(width / 3.35, height / 3);
+    countdownInterval = setInterval(function () {
+        countdown--;
+        if (countdown === 2) {
+            clearInterval(countdownInterval);
+            countdownText.html("Go!");
+            setTimeout(function () {
+                countdownText.remove();
+                startRace();
+            }, 1000);
+        } else {
+            countdownText.html(countdown);
+        }
+    }, 1000);
+}
 // Start the race and cars start speed
 function startRace() {
 
@@ -130,14 +203,12 @@ function startRace() {
 
 
 // update the game Real time
-
+let isImageInMiddle = false;
 function update() {
-    const canvasWidth = width; // Example value, replace with the actual width of your canvas
-const canvasHeight = height;
     // var maxDistance = height;
     // gameStarted = false; 
     if (gameStarted) {
-        let middleCanvas = height / 1.5;
+        // let middleCanvas = height / 1.5;
         roadPosition += bgSpeed;
         startLine.position.y += bgSpeed;
         middleLine.position.y += bgSpeed;
@@ -149,80 +220,85 @@ const canvasHeight = height;
             roadPosition = 0;
         }
         // Check if cars have reached the middle of the canvas
-if (roadPosition <= -canvasWidth / 2) {
-    // Add code to draw a line or perform any desired action
-    // For example:
-    drawLine(canvasWidth / 2, 0, canvasWidth / 2, canvasHeight);
-    console.log("safa")
-    
-}
-
-    //   else  if (
-    //         millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
-    //         bgSpeed < maxBgSpeed
-    //     ) {
-    //         bgSpeed += 2;
-    //         lastSpeedIncreaseTime = millis();
-    //     }
+        // Check if the car has reached 800m
+        else if (
+            millis() - lastSpeedIncreaseTime >= speedIncreaseInterval &&
+            bgSpeed < maxBgSpeed
+        ) {
+            bgSpeed += 1.4;
+            lastSpeedIncreaseTime = millis();
+        }
         // if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
         //     carGoodSpeed +=  0.1 * random(0.1, 0.15);
         //     console.log("carGoodSpeed mijloc update",carGoodSpeed);
         // }
+        // console.log(startPosition - carGood.position.y);
+        if (startPosition - carGood.position.y >= (maxDistance - 100)) {
+            console.log("test");
+            middleLine.visible = true; // Display the middleLine image
+        }
 
+
+ 
         // Adjust the carGoodSpeed based on the time remaining
-        if (car1.position.y <= height / 2 || car2.position.y <= height / 2 || carGood.position.y <= height / 2) {
-            console.log("middle of canvas");
+        if (car1.position.y <= startPosition - halfMaxDistance || car2.position.y <= startPosition - halfMaxDistance || carGood.position.y <= startPosition - halfMaxDistance) {
+            
+           isImageInMiddle = true;
+    bgSpeed = maxBgSpeed; // Setați viteza bgSpeed
             if (!alerted) {
                 alerted = true;
                 maxBgSpeed = 5;
                 car1Speed = 0;
                 car2Speed = 0;
                 carGoodSpeed = 0;
-                createCustomAlert("One of the cars reached the half distance point!");
-            } 
-        } else if (carGood.position.y <= 0) {
-            endRace(true);
+                continueModal();
+            }
+            console.log("middle of canvas");
         }
+        // if (isHalfDistanceReached) {
+        //     // Atribuiți viteza bgSpeed imaginii
+        //     halfDistanceImgSpeed = bgSpeed;
+        //   }
         // Check if carGood reached or crossed maxDistance
         if (carGood.position.y <= startPosition - maxDistance) {
             endRace(true); // carGood won the race
         }
-        // let car1vsGood = abs(carGood.position.y - car1.position.y);
-        // if (car1vsGood > 40) {
-        //     // carGoodSpeed += 1;
-        // }
-        // let car2vsGood = abs(carGood.position.y - car2.position.y);
-        // if (car2vsGood > 30) {
-        //     // carGoodSpeed += 2;
-        // }
-
-
     }
+    // frameRate(60);
 }
 
 // End Race win and text
 function endRace(won) {
     gameStarted = false;
+  
     let resultText;
     if (won) {
-        resultText = "Congratulations! You won!";
+      resultText = "Congratulations! You won!";
     } else {
-        resultText = "You lost!";
+      resultText = "You lost!";
     }
-    let distanceText = "Distance traveled: " + (startPosition - carGood.position.y).toFixed() + "m";
-    let timeText = "Time elapsed: " + (millis() - startTime) / 1000 + "s";
-    let text = resultText + "\n" + distanceText + "\n" + timeText;
-    createCustomAlert(text, restartGame);
+    
+    const distanceTraveled = startPosition - carGood.position.y;
+    const distanceText = "Distance traveled: " + distanceTraveled.toFixed() + "m";
+    
+    const timeElapsed = (millis() - startTime) / 1000;
+    const timeText = "Time elapsed: " + timeElapsed.toFixed(2) + "s";
+    
+    const text = resultText + "\n" + distanceText + "\n" + timeText;
+    const buttonLabel = "Restart";
+    
+    openModal(text, buttonLabel, restartGame);
 }
 
 // Restart the game
 function restartGame() {
-    location.reload();
-}
+    // Reload the page to restart the game
+    window.location.reload();
+  }
 
 // Mouse Pressed for start game and cars speed
 function mousePressed() {
-    if (!gameStarted || !createCustomAlert) {
+    if (!gameStarted) {
         let modal = select("#modal");
         if (modal) {
             let startButton = modal.child()[1];
@@ -238,119 +314,33 @@ function mousePressed() {
         }
     } else {
         // bgSpeed = min(bgSpeed + 5, maxBgSpeed);
-        let car1vsGood = abs(carGood.position.y - car2.position.y);
-        if (car1vsGood < 50) {
-            carGoodSpeed += 0.01;
-            car1Speed += 0.02;
-            car2Speed += 0.02;
-            // console.log("1",car1Speed);
+        let car1vsGood = startPosition - carGood.position.y;
+        let car2vsGood = startPosition - car1.position.y;
+        if (car1vsGood < 150) {
+            console.log(startPosition - carGood.position.y);
+            console.log(car1vsGood, "car");
+            carGoodSpeed += 0.0125;
+            car1Speed += 0.0090;
+            car2Speed += 0.0090;
+            console.log("1", car2vsGood);
         } else {
-            carGoodSpeed += 0.03;
-            car1Speed += 0.01;
-            car2Speed += 0.01;
-            console.log("< 50", carGoodSpeed);
+            carGoodSpeed += 0.0130;
+            car1Speed += 0.0090;
+            car2Speed += 0.0090;
+            console.log("< car1", carGoodSpeed);
             // console.log("carGoodSpeed fata de car1",carGoodSpeed);
-        }
-        if (car1vsGood > 50) {
-            carGoodSpeed += 0.02;
-            car1Speed += 0.01;
-            car2Speed += 0.01;
-            console.log("> 50", carGoodSpeed);
-
-        } else {
-            carGoodSpeed += 0.01;
-            car1Speed += 0.02;
-            car2Speed += 0.02;
-            // console.log("3",carGoodSpeed);
         }
         // if((car1.position.y <= height / 2 || car2.position.y <= height / 2 || car1.position.y <= height / 2) && (carGood.position.y >= (car1.position.y || car2.position.y))) {
         //     carGoodSpeed +=  0.2 * random(0.2, 0.3);
         //     console.log("carGoodSpeed mijloc",carGoodSpeed);
         // }
+        bgSpeedBefore = bgSpeed;
     }
 }
 
 //modal with start game button 
 
-function startGameModal() {
-    let modal = createDiv("");
-    modal.id("modal");
-    let text = createP("Apasă butonul pentru a începe jocul!");
-    let startButton = createButton("Start Game");
-    startButton.mousePressed(startCountdown);
-    modal.child(text);
-    modal.child(startButton);
-}
 
-
-// Create the pop-up  with a text and a continue button
-
-function createCustomAlert(message) {
-    const alertDiv = document.createElement("div");
-    alertDiv.id = "customAlert";
-    alertDiv.classList.add("custom-alert");
-    alertDiv.style.position = "fixed";
-    alertDiv.style.top = "50%";
-    alertDiv.style.left = "50%";
-    alertDiv.style.transform = "translate(-50%, -50%)";
-    alertDiv.style.backgroundColor = "white";
-    alertDiv.style.padding = "20px";
-    alertDiv.style.border = "1px solid black";
-    alertDiv.style.zIndex = "9999";
-
-    const messageText = document.createElement("p");
-    messageText.textContent = message;
-    alertDiv.appendChild(messageText);
-
-    const continueButton = document.createElement("button");
-    continueButton.textContent = "Continue";
-    continueButton.addEventListener("click", function () {
-        removeCustomAlert();
-    });
-
-    const startButton = document.createElement("button");
-    startButton.textContent = "Start";
-    startButton.addEventListener("click", startButton);
-    alertDiv.appendChild(continueButton, startButton);
-
-    document.body.appendChild(alertDiv);
-    bgSpeed = 5;
-}
-
-function removeCustomAlert() {
-    const alertDiv = document.getElementById("customAlert");
-    if (alertDiv) {
-        document.body.removeChild(alertDiv);
-
-    }
-    bgSpeed = 45;
-}
-
-
-// Start CountDown
-function startCountdown() {
-    let modal = select("#modal");
-    modal.style("display", "none");
-
-    countdownText = createP("3");
-    countdownText.class("countdown-text");
-    countdownText.position(width / 3.35, height / 3);
-
-    countdownInterval = setInterval(function () {
-        countdown--;
-
-        if (countdown === 2) {
-            clearInterval(countdownInterval);
-            countdownText.html("Go!");
-            setTimeout(function () {
-                countdownText.remove();
-                startRace();
-            }, 1000);
-        } else {
-            countdownText.html(countdown);
-        }
-    }, 1000);
-}
 
 
 
@@ -369,6 +359,17 @@ function draw() {
         image(backgroundImg, 0, normalizedPosition, width, height);
         image(backgroundImg, 0, normalizedPosition + height, width, height);
     }
+ // Verificați dacă imaginea este în mijloc
+ if (isImageInMiddle) {
+    // Afișați imaginea în mijloc
+    image(
+      halfDistanceImg,
+      width / 2 - halfDistanceImg.width * halfDistanceImgScale / 2,
+      height / 2 - halfDistanceImg.height * halfDistanceImgScale / 2,
+      halfDistanceImg.width * halfDistanceImgScale,
+      halfDistanceImg.height * halfDistanceImgScale
+    );
+  }
 
     renderTextElements();
     update();
