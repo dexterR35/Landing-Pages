@@ -445,14 +445,14 @@ let isImageInMiddle = false;
 function preload() {
     backgroundImg = loadImage("./png/road.jpg");
     backgroundImgMobile = loadImage("./png/roadMobile.jpg");
-    halfDistanceImg = loadImage("./png/roadMobile-check.png");
-    halfDistanceImgScale = windowWidth / 4000;
+    // halfDistanceImg = loadImage("./png/roadMobile-check.png");
+    // halfDistanceImgScale = windowWidth / 4000;
 }
 
 // Setup the canvas and StartPosition For Cars and Preload
 
 function setup() {
-    let middleCanvas = height / 1.5;
+    // let middleCanvas = height / 1.5;
     const container = document.getElementById("container");
     const canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent(container);
@@ -516,48 +516,61 @@ function setup() {
     carGood.addImage("carGood", loadImage("./png/car.png"));
     carGood.scale = carScale;
 
-    createModal()
-    startGameModal();
+    // createModal();
+    // startGameModal();
 
     console.log(height, "height");
+    startBtn();
 }
 
-function createModal() {
-    // createCanvas(400, 400);
-    modal = createDiv("");
-    modal.id("modal");
-    modalText = createP("");
-    modalButton = createButton("");
-    modalButton.mousePressed(startCountdown);
-    modal.child(modalText);
-    modal.child(modalButton);
-}
+// function createModal() {
+//     // createCanvas(400, 400);
+//     select("#container").hide();
+//     modal = createDiv("");
+//     modal.id("modal");
+//     modalText = createP("");
+//     modalButton = createButton("");
+//     // modalButton.mousePressed(startCountdown);
+//     modal.child(modalText);
+//     modal.child(modalButton);
+//     const buttonStart = "Start Game"
+   
+// }
 
-function startGameModal() {
-    const text = "Click the Start Game button to begin!";
-    const buttonStart = "Start Game";
-    openModal(text, buttonStart, startCountdown);
-}
+// function startGameModal() {
 
-function continueModal() {
-    const text = "Cars have reached the half distance! Click the Continue button to proceed.";
-    const buttonContinue = "Continue";
-    openModal(text, buttonContinue, continueGame);
-}
-    // Set the modal content
-function openModal(text, buttonLabel, buttonAction) {
-    modalText.html(text);
-    modalButton.html(buttonLabel);
-    modalButton.mousePressed(buttonAction);
-    modal.style("display", "flex");
-}
+//     select("#container").hide();
+//     // const text = "Click the Start Game button to begin!";
+//     // const buttonStart = "Start Game";
+//     // openModal(text, buttonStart, startCountdown);
+// }
 
+// function continueModal() {
+//     const text = "Cars have reached the half distance! Click the Continue button to proceed.";
+//     const buttonContinue = "Continue";
+//     openModal(text, buttonContinue, continueGame);
+// }
+//     // Set the modal content
+// function openModal(text, buttonLabel, buttonAction) {
+//     modalText.html(text);
+//     modalButton.html(buttonLabel);
+//     modalButton.mousePressed(buttonAction);
+//     modal.style("display", "flex");
+// }
+function startBtn() {
+    select("#container").hide();
+    let ctaRace = select("#cta-race");
+    ctaRace.html("test");
+    ctaRace.mousePressed(startCountdown);
+}
 
 // Start CountDown
 function startCountdown() {
-    let modal = select("#modal");
-    modal.style("display", "none");
+    // let modal = select("#modal");
 
+    // modal.style("display", "none");
+    select("#container").show();
+    setTimeout(function () {
     countdownText = createP("3");
     countdownText.class("countdown-text");
     countdownText.position(width / 3.35, height / 3);
@@ -574,6 +587,8 @@ function startCountdown() {
             countdownText.html(countdown);
         }
     }, 1000);
+
+},700)
 }
 // Start the race and cars start speed
 function startRace() {
@@ -583,7 +598,7 @@ function startRace() {
     car2Speed = random(0.1, 0.2);
     carGoodSpeed = random(0.1, 0.15);
     startTime = millis().toFixed(); // Store the current time as the start time
-    console.log(carGoodSpeed, "carGoodSpeed");
+    // console.log(carGoodSpeed, "carGoodSpeed");
   
 }
 
@@ -638,7 +653,7 @@ function update() {
                 car1Speed = 0;
                 car2Speed = 0;
                 carGoodSpeed = 0;
-                continueModal();
+                // continueModal();
             }
             console.log("middle of canvas");
         }
@@ -684,7 +699,7 @@ function endRace(won) {
     const timeText = "Time elapsed: " + timeElapsed.toFixed(2) + "s";
     const text = resultText + "\n" + distanceText + "\n" + timeText;
     const buttonLabel = "Restart";
-    openModal(text, buttonLabel, restartGame);
+    // openModal(text, buttonLabel, restartGame);
 }
 
 // Restart the game
