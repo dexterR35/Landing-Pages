@@ -5,21 +5,38 @@
 }
 
 #modal {
-    background-color: rgba(0, 0, 0, 0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  text-align: center;
+  /* background: red; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  }
+
+  #modal::after {
+    position:absolute;
+    content: "";
+    width: 90%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-image: linear-gradient(#0e3358, #00000e);
+    z-index: -1;
+    opacity: 0.8;
+    border-radius: 10px;
   }
   
   #modal p {
     color: white;
     font-size: 24px;
+    margin-bottom: 1em;
   }
   
   #modal button {
@@ -27,12 +44,16 @@
     font-size: 18px;
     /* background-color: white; */
     border: none;
+    outline: none;
     cursor: pointer;
+    border-radius: 10px;
+    background: #64b000;
+    color: white;
   }
 
   .countdown-text {
     font-size: 68px;
-    color: rgb(5, 20, 224);
+    color: white;
     text-align: center;
     position: relative;
     width: 150px;
@@ -48,7 +69,8 @@
     position: absolute;
     top:0 ;
     left: 0;
-    background-color: rgb(223, 223, 223);
+    background-image: linear-gradient(#0e3358, #00000e);
+    opacity: 0.7;
     /* opacity: 0.4; */
     border-radius: 10px;
     width: 100%;
