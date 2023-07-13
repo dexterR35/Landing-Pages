@@ -346,31 +346,7 @@ function increaseSpeed(){
     } 
 }
 
-//Draw the things
-function draw() {
-    let normalizedPosition = roadPosition % height;
-    if (normalizedPosition > 0) {
-        normalizedPosition -= height;
-    }
-    if (windowWidth <= 600) {
-        image(backgroundImgMobile, 0, normalizedPosition, width, height);
-        image(backgroundImgMobile, 0, normalizedPosition + height, width, height);
-    } else {
-        image(backgroundImg, 0, normalizedPosition, width, height);
-        image(backgroundImg, 0, normalizedPosition + height, width, height);
-    }
-    if (gameStarted) {
-        roadPosition += bgSpeed;
-        startLine.position.y += bgSpeed;
-        middleLine.position.y += bgSpeed;
-        finishLine.position.y += bgSpeed;
-        car1.position.y -= car1Speed;
-        car2.position.y -= car2Speed;
-        carGood.position.y -= carGoodSpeed;
-    }
-    update();
-    renderTextElements();
-}
+
 
 function renderTextElements() {
     // km/h
@@ -417,4 +393,31 @@ function renderTextElements() {
         car2.position.y + textAlignM
     );
 
+}
+
+//Draw the things
+function draw() {
+    renderTextElements();
+    let normalizedPosition = roadPosition % width;
+    if (normalizedPosition > 0) {
+        normalizedPosition -= height;
+    }
+    if (windowWidth <= 600) {
+        image(backgroundImgMobile, 0, normalizedPosition, width, height);
+        image(backgroundImgMobile, 0, normalizedPosition + height, width, height);
+    } else {
+        image(backgroundImg, 0, normalizedPosition, width, height);
+        image(backgroundImg, 0, normalizedPosition + height, width, height);
+    }
+    if (gameStarted) {
+        roadPosition += bgSpeed;
+        startLine.position.y += bgSpeed;
+        middleLine.position.y += bgSpeed;
+        finishLine.position.y += bgSpeed;
+        car1.position.y -= car1Speed;
+        car2.position.y -= car2Speed;
+        carGood.position.y -= carGoodSpeed;
+    }
+    update();
+    renderTextElements();
 }
