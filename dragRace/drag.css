@@ -22,6 +22,8 @@
   transform: translate(-50%,-50%);
   }
 
+  
+
   #modal::after {
     position:absolute;
     content: "";
@@ -82,7 +84,15 @@
 
   
 
-
+@media screen and (min-width:991px) {
+  #modal {
+    max-width: 44em;
+  }
+  #modal p {
+  padding: 2em;
+  }
+  
+}
 
   #popup-modal {
     position: absolute;
