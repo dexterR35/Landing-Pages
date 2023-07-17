@@ -86,7 +86,8 @@
 
 @media screen and (min-width:991px) {
   #modal {
-    max-width: 44em;
+    max-width: 40em;
+    padding: 4em;
   }
   #modal p {
   padding: 2em;

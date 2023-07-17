@@ -60,6 +60,7 @@ function preload() {
 // Setup the canvas and StartPosition For Cars and Preload
 
 function setup() {
+    
     const container = document.getElementById("container");
     const canvas = createCanvas(windowWidth, windowHeight);
     canvas.parent(container);
@@ -67,22 +68,23 @@ function setup() {
     let carSpacing = 50; // Distance between the cars
 
     switch (true) {
-        case (windowWidth >= 1900):
-            console.log(windowWidth, "windowWidth >= 1500");
-            startPosition = height - 190;
+        case (windowWidth >= 1900 && windowWidth > 1500):
+            console.log(windowWidth, "windowWidth >= 1900");
+            startPosition = height - 220;
             carSpacing = 0;
-            carScale = 0.75;
-            linePosition = startPosition - 310;
+            carScale = 0.85;
+            linePosition = startPosition - 330;
             linePositionFinish = startPosition - 3000;
             break;
         case (windowWidth <= 1500 && windowWidth > 1200):
             console.log(windowWidth, "windowWidth <= 1500");
-            startPosition = height - 160;
+            startPosition = height - 190;
             carSpacing = 0;
             carScale = 0.7;
             linePosition = startPosition - 240;
             linePositionFinish = startPosition - 3000;
             break;
+           
         case (windowWidth <= 1200 && windowWidth > 768):
             console.log(windowWidth, "windowWidth <= 1200");
             startPosition = height - 140;
@@ -148,7 +150,7 @@ function setup() {
     carGood = createSprite(width / 2, startPosition);
     carGood.addImage("carGood", loadImage("./png/car.png"));
     carGood.scale = carScale;
-
+    // renderTextElements();
     createModal();
     startGameModal();
 
@@ -225,6 +227,7 @@ function startCountdown() {
             countdownText.html(countdown);
         }
     }, 1000);
+    
 }
 // Start the race and cars start speed
 function startRace() {
@@ -239,6 +242,7 @@ function startRace() {
 }
 
 function update() {
+   
     if (gameStarted) {
         closestCar = Math.max(
             distanceRemainingFull.toFixed(),
@@ -263,8 +267,8 @@ function update() {
         //     // console.log(middleLine.position.y, "test");
         //     // console.log(middleLine.position.y,"testtt")
         // }
-        if (maxDistance - closestCar >= 0) {
-            finishLine.position.y = height / 2 - (maxDistance - closestCar) * 10;
+        if (maxDistance - closestCar >= 10) {
+            finishLine.position.y = height / 2 - (maxDistance - closestCar) * 6;
         }
 
         if (
@@ -307,17 +311,18 @@ function update() {
 
         if (startPosition - car1.position.y > 170 || startPosition - car2.position.y > 170) {
             carGoodSpeed += 0.0015;
-            console.log("1", carGoodSpeed);
+            // console.log("1", carGoodSpeed);
         }
 
         if (windowWidth >= 1200) {
-            if (carGood.position.y <= startPosition - (maxDistance - 50)) {
+            console.log(windowWidth)
+            if (carGood.position.y <= startPosition - height / 1.5) {
                 endRace(true); // carGood won the race
             }
-        } else {
-            if (carGood.position.y <= startPosition - maxDistance) {
-                endRace(true); // carGood won the race
-            }
+            
+        } 
+        if (carGood.position.y <= startPosition - maxDistance) {
+            endRace(true); // carGood won the race
         }
     }
 
@@ -331,8 +336,6 @@ function continueGame() {
     car1Speed = c1SpeedBefore;
     car2Speed = c2SpeedBefore;
     carGoodSpeed = cgSpeedBefore;
-
-
     modal.style("display", "none");
 }
 // End Race win and text
@@ -347,7 +350,6 @@ function endRace(won) {
         resultText = "You lost!";
     }
     const text = resultText;
-    
     const buttonLabel = "Inregistreaza-te";
     openModal(text, buttonLabel, redirectBtn);
 }
@@ -362,9 +364,11 @@ function redirectBtn() {
     // document.body.appendChild(buttonElement);
     window.location.href = link;
 }
+
 // Mouse Pressed for start game and cars speed
 function mousePressed() {
     if (!gameStarted) {
+      
         let modal = select("#modal");
         if (modal) {
             let startButton = modal.child()[1];
@@ -431,15 +435,47 @@ function renderTextElements() {
 
     // rect(containerX, containerY, containerWidth, containerHeight);
     textAlign(CENTER);
+
+    switch (true) {
+        case (windowWidth >= 1900 && windowWidth > 1500):
+            textSize(22);
+            textAlignM = 195;
+            break;
+        case (windowWidth <= 1500 && windowWidth > 1200):
+
+            textSize(22);
+            textAlignM = 160;
+            break;
+        case (windowWidth <= 1200 && windowWidth > 768):
+  
+            textSize(19);
+            textAlignM = 135;
+            break;
+        case (windowWidth <= 768 && windowWidth >= 480):
+
+            textSize(14);
+            textAlignM = 80;
+            break;
+        case (windowWidth <= 480):
+
+            textSize(14);
+            textAlignM = 80;
+            break;
+        default:
+            textSize(19);
+        textAlignM = 195;
+            break;
+    }
+
     // fill(0); // Set the fill color to black
     // text("Apasa click pentru a creste viteza masinii", width / 2, height - 20);
-    if (windowWidth <= 600) {
-        textSize(14);
-        textAlignM = 80;
-    } else {
-        textSize(19);
-        textAlignM = 195;
-    }
+    // if (windowWidth <= 600) {
+    //     textSize(14);
+    //     textAlignM = 80;
+    // } else {
+    //     textSize(19);
+    //     textAlignM = 195;
+    // }
     //draw km
     fill(255);
     text(
@@ -457,12 +493,13 @@ function renderTextElements() {
         car2.position.x + 10,
         car2.position.y + textAlignM
     );
+    
 
 }
 
 //Draw the things
 function draw() {
-    renderTextElements();
+ 
     let normalizedPosition = roadPosition % height;
     if (normalizedPosition > 0) {
         normalizedPosition -= height;
@@ -483,6 +520,10 @@ function draw() {
         car2.position.y -= car2Speed;
         carGood.position.y -= carGoodSpeed;
     }
-    update();
+
+   
+
     renderTextElements();
+    update();
+
 }
