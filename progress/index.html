@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            background: var(--gray-gray-1000, #0c1116);
+        }
+
+        #wrapper {
+            display: flex;
+            width: 100vw;
+            height: 20em;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-shape {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .barGrey {
+            width: 186px;
+            height: 6px;
+            border-radius: 20px;
+            background: var(--gray-gray-900, #242d35);
+        }
+
+        .barGold {
+            width: 124px;
+            height: 6px;
+            border-radius: 20px;
+            background: linear-gradient(90deg, #ffd700 0%, #756300 100%);
+            position: absolute;
+        }
+
+        .gold {
+            border: 1px solid #ffd700;
+            background: var(--gray-gray-1000, #0c1116);
+            color: #ffd700;
+        
+        }
+
+        .gold,
+        .platinum {
+            border-radius: 11px;
+            position: relative;
+            z-index: 12;
+            text-transform: uppercase;
+            font-family: Poppins;
+            font-size: 7px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 2px 4px;
+        }
+
+        .platinum {
+            border-radius: 11px;
+            border: 1px solid #d9d9d9;
+            background: var(--gray-gray-1000, #0c1116);
+            color: #d9d9d9;
+     
+        }
+
+        .pushButton {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            padding: 0.8em;
+            border-radius: 10px;
+            background-color: crimson;
+            color: white;
+            text-transform: uppercase;
+        }
+
+    
+
+
+    </style>
+</head>
+
+<body>
+    <button id="switchButton" class="pushButton" onclick="swapElements();">Switch</button>
+    <div id="wrapper">
+        <div class="gold" id="gold">GOLD</div>
+        <div class="container-shape">
+        
+            <div class="progress-bar">
+                <div class="barGrey"></div>
+                <div class="barGold"></div>
+            </div>
+            <div class="platinum" id="platinum">platinum</div>
+        </div>
+    </div>
+
+    <script>
+  function swapElements() {
+            const goldElement = document.getElementById("gold");
+            const platinumElement = document.getElementById("platinum");
+            const progressBar = document.querySelector(".progress-bar");
+
+            // Salvează elementele de referință ale părintilor
+            const goldParent = goldElement.parentNode;
+            const platinumParent = platinumElement.parentNode;
+
+            // Salvează elementul de referință pentru următorul element după platinum
+            const nextElementAfterPlatinum = platinumElement.nextElementSibling;
+
+            // Schimbă ordinea elementelor în DOM
+            goldParent.insertBefore(platinumElement, goldElement);
+            platinumParent.insertBefore(goldElement, nextElementAfterPlatinum);
+
+            // Păstrează progress bar-ul la locul său
+            progressBar.style.position = "relative";
+        }
+
+        // Apelăm funcția pentru a face rocada
+    
+    </script>
+
+</body>
+
+</html>
