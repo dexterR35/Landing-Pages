@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 
     <style>
@@ -65,13 +66,11 @@
             border: 1px solid #ffd700;
             background: var(--gray-gray-1000, #0c1116);
             color: #ffd700;
-        
         }
 
         .gold,
         .platinum {
             border-radius: 11px;
-            position: relative;
             z-index: 12;
             text-transform: uppercase;
             font-family: Poppins;
@@ -81,15 +80,20 @@
             line-height: 11px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            padding: 2px 4px;
+            padding: 0.5em 1.3em;
+            position: absolute;
         }
-
+.gold{
+    left: -5em;
+}
+.platinum {
+    right: -5em;
+}
         .platinum {
             border-radius: 11px;
             border: 1px solid #d9d9d9;
             background: var(--gray-gray-1000, #0c1116);
             color: #d9d9d9;
-     
         }
 
         .pushButton {
@@ -105,18 +109,15 @@
             text-transform: uppercase;
         }
 
-    
-
-
     </style>
 </head>
 
 <body>
     <button id="switchButton" class="pushButton" onclick="swapElements();">Switch</button>
     <div id="wrapper">
-        <div class="gold" id="gold">GOLD</div>
+       
         <div class="container-shape">
-        
+            <div class="gold" id="gold">GOLD</div>
             <div class="progress-bar">
                 <div class="barGrey"></div>
                 <div class="barGold"></div>
@@ -127,27 +128,42 @@
 
     <script>
   function swapElements() {
-            const goldElement = document.getElementById("gold");
-            const platinumElement = document.getElementById("platinum");
-            const progressBar = document.querySelector(".progress-bar");
+    const goldElement = $("#gold");
+    const platinumElement = $("#platinum");
+    const progressBar = $(".progress-bar");
+    // Salvează elementele de referință ale părintilor
+    const goldParent = goldElement.parent();
+    const platinumParent = platinumElement.parent();
+    // Salvează elementul de referință pentru următorul element după platinum
+    const nextElementAfterPlatinum = platinumElement.next();
+      // Set the initial clip-path for the platinum element
+    //   platinumElement.animate({ width: "100%" }, 1000, function () {
+    //     // Resetăm poziția platinum-ului
+  
+    //   });
+    platinumElement
+      .css({ position: "absolute", right: "-5em"})
+      .animate({ right: "95%" }, 1000, function () {
+  
+      platinumElement.css({ position: "absolute", right: "95%" });
+    });
 
-            // Salvează elementele de referință ale părintilor
-            const goldParent = goldElement.parentNode;
-            const platinumParent = platinumElement.parentNode;
+    platinumElement.animate({ width: "fit-content" }, 500, function () {
+        // Resetăm poziția platinum-ului
 
-            // Salvează elementul de referință pentru următorul element după platinum
-            const nextElementAfterPlatinum = platinumElement.nextElementSibling;
 
-            // Schimbă ordinea elementelor în DOM
-            goldParent.insertBefore(platinumElement, goldElement);
-            platinumParent.insertBefore(goldElement, nextElementAfterPlatinum);
-
-            // Păstrează progress bar-ul la locul său
-            progressBar.style.position = "relative";
-        }
-
-        // Apelăm funcția pentru a face rocada
-    
+     
+  
+      });
+       // goldParent.prepend(platinumElement);
+        // platinumParent.prepend(goldElement);
+    goldElement
+      .css({ position: "absolute", left: "-5em" })
+      .animate({ left: "95%" }, 1000, function () {
+        goldElement.css({ position: "absolute", left: "95%" });
+      });
+    progressBar.css("position", "relative");
+  } 
     </script>
 
 </body>
