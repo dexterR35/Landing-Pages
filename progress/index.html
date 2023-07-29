@@ -145,6 +145,65 @@
         background: var(--gold_color);
       }
 
+.boxCont::before {
+  content:'';
+  width: 500px;
+  height: 300px;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0.3) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform-origin: center center;
+  position: absolute;
+  z-index: 10;
+  animation-delay: 1s;
+  animation-name: mask-ani;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+.boxCont::after {
+  content: '';
+  width: 500px;
+  height: 50px;
+  opacity: 0;
+  background-color: #fff;
+  transform-origin: center center;
+  position: absolute;
+  z-index: 1;
+  animation-delay: 1s;
+  animation-name: mask-border-ani;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+      @keyframes mask-ani {
+  0% {
+    transform: rotate(-36deg) translate(-40px, -430px);
+  }
+
+  70%,
+  100% {
+    transform: rotate(-36deg) translate(-40px, 378px);
+  }
+}
+@keyframes mask-border-ani {
+  0% {
+    opacity: 0.8;
+    transform: rotate(-36deg) translate(-126px, -190px);
+  }
+
+  70%,
+  100% {
+    opacity: 0.8;
+    transform: rotate(-36deg) translate(-126px, 355px);
+  }
+}
+
+
     </style>
   </head>
 
@@ -158,7 +217,12 @@
             <div id="xp-bar-fill" class="barGold"></div>
           </div>
         </div>
-        <div class="platinum" id="platinum">platinum</div>
+       
+        <div class="platinum" id="platinum">
+            <div class="boxCont"></div> 
+        </div>
+       
+     
       </div>
     </div>
     <script>
