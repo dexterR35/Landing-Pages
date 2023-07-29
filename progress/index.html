@@ -19,7 +19,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
       :root {
         /* --diamond_color:rgb(60 201 255); */
         --diamond_color: linear-gradient(
@@ -33,7 +33,7 @@
           rgb(241, 255, 254) 0%,
           rgb(164, 255, 228) 100%
         );
-        --border_platinum:#d1f2ff;
+        --border_platinum: #d1f2ff;
       }
 
       body {
@@ -44,7 +44,7 @@
         height: 100vh;
         position: relative;
         background: var(--gray-gray-1000, #0c1116);
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
       }
 
       #wrapper {
@@ -67,8 +67,6 @@
         justify-content: flex-start;
         align-items: center;
       }
-
-
 
       .gold {
         border: 1px solid #ffd700;
@@ -93,7 +91,7 @@
         border-radius: 8px;
         z-index: 12;
         text-transform: uppercase;
-        font-family: 'Poppins', sans-serif;
+        font-family: "Poppins", sans-serif;
         font-size: 10px;
         font-style: normal;
         font-weight: 600;
@@ -106,14 +104,11 @@
       .gold,
       .diamond {
         left: -5em;
-        
       }
 
       .platinum {
         right: -5em;
       }
-
-      
 
       .pushButton {
         position: absolute;
@@ -145,65 +140,63 @@
         background: var(--gold_color);
       }
 
-.boxCont::before {
-  content:'';
-  width: 500px;
-  height: 300px;
-  opacity: 1;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.3) 40%,
-    rgba(255, 255, 255, 0.3) 60%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform-origin: center center;
-  position: absolute;
-  z-index: 10;
-  animation-delay: 1s;
-  animation-name: mask-ani;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
-.boxCont::after {
-  content: '';
-  width: 500px;
-  height: 50px;
-  opacity: 0;
-  background-color: #fff;
-  transform-origin: center center;
-  position: absolute;
-  z-index: 1;
-  animation-delay: 1s;
-  animation-name: mask-border-ani;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
+      .boxCont::before {
+        content: "";
+        width: 500px;
+        height: 300px;
+        opacity: 1;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.3) 40%,
+          rgba(255, 255, 255, 0.3) 60%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform-origin: center center;
+        position: absolute;
+        z-index: 10;
+        animation-delay: 1s;
+        animation-name: mask-ani;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+      .boxCont::after {
+        content: "";
+        width: 500px;
+        height: 50px;
+        opacity: 0;
+        background-color: #fff;
+        transform-origin: center center;
+        position: absolute;
+        z-index: 1;
+        animation-delay: 1s;
+        animation-name: mask-border-ani;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
 
       @keyframes mask-ani {
-  0% {
-    transform: rotate(-36deg) translate(-40px, -430px);
-  }
+        0% {
+          transform: rotate(-36deg) translate(-40px, -430px);
+        }
 
-  70%,
-  100% {
-    transform: rotate(-36deg) translate(-40px, 378px);
-  }
-}
-@keyframes mask-border-ani {
-  0% {
-    opacity: 0.8;
-    transform: rotate(-36deg) translate(-126px, -190px);
-  }
+        70%,
+        100% {
+          transform: rotate(-36deg) translate(-40px, 378px);
+        }
+      }
+      @keyframes mask-border-ani {
+        0% {
+          opacity: 0.8;
+          transform: rotate(-36deg) translate(-126px, -190px);
+        }
 
-  70%,
-  100% {
-    opacity: 0.8;
-    transform: rotate(-36deg) translate(-126px, 355px);
-  }
-}
-
-
+        70%,
+        100% {
+          opacity: 0.8;
+          transform: rotate(-36deg) translate(-126px, 355px);
+        }
+      }
     </style>
   </head>
 
@@ -217,12 +210,7 @@
             <div id="xp-bar-fill" class="barGold"></div>
           </div>
         </div>
-       
-        <div class="platinum" id="platinum">
-            <div class="boxCont"></div> 
-        </div>
-       
-     
+        <div class="platinum" id="platinum"></div>
       </div>
     </div>
     <script>
@@ -244,9 +232,9 @@
             position: "absolute",
             right: "-5em",
             "box-shadow": "0px 0px 1px 1px var(--border_platinum)",
-            background:"#fff",
-            color:"black",
-            "font-style":"bold"
+            background: "#fff",
+            color: "black",
+            "font-style": "bold",
           })
           .animate(
             {
@@ -275,8 +263,8 @@
                     position: "absolute",
                     right: "95%",
                     "box-shadow": "",
-                    background:"",
-            color:""
+                    background: "",
+                    color: "",
                   });
                   platinumElement.removeClass("party");
                 }
@@ -327,7 +315,7 @@
               width: "13%",
               background: "var(--platinum_color)",
               "box-shadow": "",
-              "-webkit-transition": "all 0.5s ease-out",
+              "-webkit-transition": "all 0.5s ease",
             });
           }, 2500);
           swapElements();
