@@ -9,9 +9,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <title>Document</title>
+    <title>Progress Bar</title>
 
     <style>
+   
+
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
       *,
       *::before,
       *::after {
@@ -19,7 +23,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
       :root {
         /* --diamond_color:rgb(60 201 255); */
         --diamond_color: linear-gradient(
@@ -75,7 +79,7 @@
       }
 
       .diamond {
-        border: 1px solid #3cffa1;
+        border: 1px solid #25fbff;
         background: var(--gray-gray-1000, #0c1116);
         color: #fff;
       }
@@ -123,10 +127,8 @@
         text-transform: uppercase;
       }
 
-      .party {
-        text-align: center;
-      }
-
+    
+/*fill bar*/
       #xp-bar {
         height: 5px;
         width: 200px;
@@ -139,62 +141,72 @@
         width: 10%;
         background: var(--gold_color);
       }
-
-      .boxCont::before {
+      /*rgb bar*/
+      .party {
+        text-align: center;
+      }
+      .party::before {
         content: "";
-        width: 500px;
-        height: 300px;
-        opacity: 1;
-        background-image: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.3) 40%,
-          rgba(255, 255, 255, 0.3) 60%,
-          rgba(255, 255, 255, 0) 100%
+        background: linear-gradient(
+          45deg,
+          #ff0000,
+          #ff7300,
+          #fffb00,
+          #48ff00,
+          #00ffd5,
+          #002bff,
+          #7a00ff,
+          #ff00c8,
+          #ff0000
         );
-        transform-origin: center center;
         position: absolute;
-        z-index: 10;
-        animation-delay: 1s;
-        animation-name: mask-ani;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
+        top: -2px;
+        left: -2px;
+        background-size: 400%;
+        z-index: -1;
+        filter: blur(5px);
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        animation: glowing 10s linear infinite;
+        opacity: 1; /* Set opacity to 1 to make it always visible */
+        border-radius: 10px;
       }
-      .boxCont::after {
+
+      .party::after {
+        z-index: -1;
         content: "";
-        width: 500px;
-        height: 50px;
-        opacity: 0;
-        background-color: #fff;
-        transform-origin: center center;
         position: absolute;
-        z-index: 1;
-        animation-delay: 1s;
-        animation-name: mask-border-ani;
-        animation-duration: 5s;
-        animation-iteration-count: infinite;
+        width: 100%;
+        height: 100%;
+        background: var(--border_platinum);
+        left: 0;
+        top: 0;
+        border-radius: 10px;
+      }
+      .party {
+        animation: bounceShape 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite
+          alternate;
       }
 
-      @keyframes mask-ani {
+      @keyframes glowing {
         0% {
-          transform: rotate(-36deg) translate(-40px, -430px);
+          background-position: 0 0;
         }
-
-        70%,
+        50% {
+          background-position: 400% 0;
+        }
         100% {
-          transform: rotate(-36deg) translate(-40px, 378px);
+          background-position: 0 0;
         }
       }
-      @keyframes mask-border-ani {
+
+      @keyframes bounceShape {
         0% {
-          opacity: 0.8;
-          transform: rotate(-36deg) translate(-126px, -190px);
+          transform: scale(0.95);
         }
 
-        70%,
         100% {
-          opacity: 0.8;
-          transform: rotate(-36deg) translate(-126px, 355px);
+          transform: scale(1);
         }
       }
     </style>
@@ -213,6 +225,7 @@
         <div class="platinum" id="platinum"></div>
       </div>
     </div>
+
     <script>
       $("#gold").text("gold");
       $("#platinum").text("platinum");
@@ -226,7 +239,7 @@
         const goldParent = goldElement.parent();
         const platinumParent = platinumElement.parent();
         const nextElementAfterPlatinum = platinumElement.next();
-
+        platinumElement.addClass("party");
         platinumElement
           .css({
             position: "absolute",
@@ -235,6 +248,7 @@
             background: "#fff",
             color: "black",
             "font-style": "bold",
+            "-webkit-transition": "background 0.3s ease",
           })
           .animate(
             {
@@ -246,18 +260,19 @@
               goldElement.removeClass("gold");
               goldElement.addClass("diamond");
               goldElement.text("diamond");
-              platinumElement.addClass("party");
               setTimeout(function () {
                 goldElement.css({
                   "box-shadow": "var(--diamond_Color) 0px 0px 7px 0px",
                 });
-              }, 1400);
-              platinumElement.delay(1200).animate(
+              }, 1300);
+              platinumElement.delay(800).animate(
                 {
                   right: "95%",
                   padding: "0.5em 1em 0.5em 1em",
+                  "-webkit-transition":
+                    "padding 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 },
-                1000,
+                800,
                 function () {
                   platinumElement.css({
                     position: "absolute",
@@ -272,7 +287,7 @@
             }
           );
         goldElement
-          .delay(1000)
+          .delay(900)  // box left move to right delay
           .css({
             position: "absolute",
             left: "-5em",
@@ -281,7 +296,7 @@
             {
               left: "80%",
             },
-            500,
+           1190,
             function () {
               goldElement.css({
                 position: "absolute",
@@ -300,9 +315,12 @@
           "box-shadow": "",
         });
         setTimeout(function () {
-          $("#xp-bar-fill").css("-webkit-transition", "all 1.7s ease");
+          $("#xp-bar-fill").css(
+            "-webkit-transition",
+            "all 1.7s cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+          );
           $("#xp-bar-fill").css("width", "100%");
-        }, 100);
+        }, 500); // progressbar expand time
         setTimeout(function () {
           $("#xp-bar-fill").css(
             "box-shadow",
@@ -317,9 +335,9 @@
               "box-shadow": "",
               "-webkit-transition": "all 0.5s ease",
             });
-          }, 2500);
+          },2180); // bar return for new level
           swapElements();
-        }, 1300);
+        }, 900); // box right; time for expanding
       }
     </script>
   </body>
