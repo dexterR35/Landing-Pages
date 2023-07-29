@@ -1,171 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
 
     <style>
-        *,
-        *::before,
-        *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100vh;
-            position: relative;
-            background: var(--gray-gray-1000, #0c1116);
-        }
+      :root {
+        /* --diamond_color:rgb(60 201 255); */
+        --diamond_color: linear-gradient(
+          90deg,
+          rgb(105, 212, 255) 0%,
+          rgb(55, 151, 240) 100%
+        );
+        --gold_color: linear-gradient(90deg, #ffd700 0%, #756300 100%);
+        --platinum_color: linear-gradient(
+          90deg,
+          rgb(241, 255, 254) 0%,
+          rgb(164, 255, 228) 100%
+        );
+      }
 
-        #wrapper {
-            display: flex;
-            width: 100vw;
-            height: 20em;
-            justify-content: center;
-            align-items: center;
-        }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background: var(--gray-gray-1000, #0c1116);
+      }
 
-        .container-shape {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
+      #wrapper {
+        display: flex;
+        width: 100vw;
+        height: 20em;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .progress-bar {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
+      .container-shape {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
 
-        .barGrey {
-            width: 186px;
-            height: 6px;
-            border-radius: 20px;
-            background: var(--gray-gray-900, #242d35);
-        }
+      .progress-bar {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
 
-        .barGold {
-            width: 124px;
-            height: 6px;
-            border-radius: 20px;
-            background: linear-gradient(90deg, #ffd700 0%, #756300 100%);
-            position: absolute;
-        }
+      .barGrey {
+        width: 186px;
+        height: 6px;
+        border-radius: 20px;
+        background: var(--gray-gray-900, #242d35);
+      }
 
-        .gold {
-            border: 1px solid #ffd700;
-            background: var(--gray-gray-1000, #0c1116);
-            color: #ffd700;
-        }
+      .barGold {
+        width: 124px;
+        height: 6px;
+        border-radius: 20px;
+        /* background: linear-gradient(90deg, #ffd700 0%, #756300 100%); */
+        position: absolute;
+      }
 
-        .gold,
-        .platinum {
-            border-radius: 11px;
-            z-index: 12;
-            text-transform: uppercase;
-            font-family: Poppins;
-            font-size: 7px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 0.5em 1.3em;
-            position: absolute;
-        }
-.gold{
-    left: -5em;
-}
-.platinum {
-    right: -5em;
-}
-        .platinum {
-            border-radius: 11px;
-            border: 1px solid #d9d9d9;
-            background: var(--gray-gray-1000, #0c1116);
-            color: #d9d9d9;
-        }
+      .gold {
+        border: 1px solid #ffd700;
+        background: var(--gray-gray-1000, #0c1116);
+        color: #ffd700;
+      }
 
-        .pushButton {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: none;
-            padding: 0.8em;
-            border-radius: 10px;
-            background-color: crimson;
-            color: white;
-            text-transform: uppercase;
-        }
+      .diamond {
+        border: 1px solid #3cffa1;
+        background: var(--gray-gray-1000, #0c1116);
+        color: #fff;
+      }
 
+      .gold,
+      .diamond,
+      .platinum {
+        border-radius: 11px;
+        z-index: 12;
+        text-transform: uppercase;
+        font-family: Poppins;
+        font-size: 7px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 11px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 0.5em 1.3em;
+        position: absolute;
+      }
+
+      .gold,
+      .diamond {
+        left: -5em;
+      }
+
+      .platinum {
+        right: -5em;
+      }
+
+      .platinum {
+        border-radius: 11px;
+        border: 1px solid #d1f2ff;
+        background: var(--gray-gray-1000, #0c1116);
+        color: #d9d9d9;
+      }
+
+      .pushButton {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none;
+        padding: 0.8em;
+        border-radius: 10px;
+        background-color: crimson;
+        color: white;
+        text-transform: uppercase;
+      }
+
+      .party {
+        text-align: center;
+      }
+
+      #xp-bar {
+        height: 5px;
+        width: 200px;
+        display: inline-block;
+        background: var(--gray-gray-900, #242d35);
+      }
+
+      #xp-bar-fill {
+        height: 100%;
+        width: 10%;
+        background: var(--gold_color);
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <button id="switchButton" class="pushButton" onclick="swapElements();">Switch</button>
+  <body>
+    <button id="switchButton" class="pushButton" onclick="doit()"></button>
     <div id="wrapper">
-       
-        <div class="container-shape">
-            <div class="gold" id="gold">GOLD</div>
-            <div class="progress-bar">
-                <div class="barGrey"></div>
-                <div class="barGold"></div>
-            </div>
-            <div class="platinum" id="platinum">platinum</div>
+      <div class="container-shape">
+        <div class="gold" id="gold"></div>
+        <div class="progress-bar">
+          <div id="xp-bar" class="barGrey">
+            <div id="xp-bar-fill" class="barGold"></div>
+          </div>
         </div>
+        <div class="platinum bb" id="platinum">platinum</div>
+      </div>
     </div>
-
     <script>
-  function swapElements() {
-    const goldElement = $("#gold");
-    const platinumElement = $("#platinum");
-    const progressBar = $(".progress-bar");
-    // Salvează elementele de referință ale părintilor
-    const goldParent = goldElement.parent();
-    const platinumParent = platinumElement.parent();
-    // Salvează elementul de referință pentru următorul element după platinum
-    const nextElementAfterPlatinum = platinumElement.next();
-      // Set the initial clip-path for the platinum element
-    //   platinumElement.animate({ width: "100%" }, 1000, function () {
-    //     // Resetăm poziția platinum-ului
-  
-    //   });
-    platinumElement
-      .css({ position: "absolute", right: "-5em"})
-      .animate({ right: "95%" }, 1000, function () {
-  
-      platinumElement.css({ position: "absolute", right: "95%" });
-    });
+      $("#gold").text("gold");
+      $("#platinum").text("platinum");
+      $("#switchButton").text("New Level");
 
-    platinumElement.animate({ width: "fit-content" }, 500, function () {
-        // Resetăm poziția platinum-ului
+      function swapElements() {
+        let btnClick = $(".pushButton");
+        const goldElement = $(".gold");
+        const platinumElement = $(".platinum");
+        const progressBar = $(".progress-bar");
+        const goldParent = goldElement.parent();
+        const platinumParent = platinumElement.parent();
+        const nextElementAfterPlatinum = platinumElement.next();
 
+        platinumElement
+          .css({
+            position: "absolute",
+            right: "-5em",
+            "box-shadow": "0px 0px 15px #06f",
+          })
+          .animate(
+            {
+              right: "-5em",
+              padding: "0.5em 60% 0.5em 60%",
+            },
+            1000,
+            function () {
+              goldElement.removeClass("gold");
+              goldElement.addClass("diamond");
+              goldElement.text("diamond");
+              platinumElement.addClass("party");
+              setTimeout(function () {
+                goldElement.css({
+                  "box-shadow": "var(--diamond_Color) 0px 0px 7px 0px",
+                });
+              }, 1400);
+              platinumElement.delay(1200).animate(
+                {
+                  right: "95%",
+                  padding: "0.5em 1em 0.5em 1em",
+                },
+                1000,
+                function () {
+                  platinumElement.css({
+                    position: "absolute",
+                    right: "95%",
+                    "box-shadow": "",
+                  });
+                  platinumElement.removeClass("party");
+                }
+              );
+            }
+          );
+        goldElement
+          .delay(1000)
+          .css({
+            position: "absolute",
+            left: "-5em",
+          })
+          .animate(
+            {
+              left: "85%",
+            },
+            500,
+            function () {
+              goldElement.css({
+                position: "absolute",
+                left: "85%",
+              });
+            }
+          );
+        progressBar.css("position", "relative");
+        btnClick.attr("disabled", "disabled");
+        btnClick.css("background", "grey");
+      }
 
-     
-  
-      });
-       // goldParent.prepend(platinumElement);
-        // platinumParent.prepend(goldElement);
-    goldElement
-      .css({ position: "absolute", left: "-5em" })
-      .animate({ left: "95%" }, 1000, function () {
-        goldElement.css({ position: "absolute", left: "95%" });
-      });
-    progressBar.css("position", "relative");
-  } 
+      function doit() {
+        $("#xp-bar-fill").css({
+          "-webkit-transition": "all 0.5s ease",
+          "box-shadow": "",
+        });
+        setTimeout(function () {
+          $("#xp-bar-fill").css("-webkit-transition", "all 1.7s ease");
+          $("#xp-bar-fill").css("width", "100%");
+        }, 100);
+        setTimeout(function () {
+          $("#xp-bar-fill").css(
+            "box-shadow",
+            "0px 0px 15px #06f, -5px 0px 10px #fff inset"
+          );
+        }, 500);
+        setTimeout(function () {
+          setTimeout(function () {
+            $("#xp-bar-fill").css({
+              width: "13%",
+              background: "var(--platinum_color)",
+              "box-shadow": "",
+              "-webkit-transition": "all 0.5s ease-out",
+            });
+          }, 2500);
+          swapElements();
+        }, 1300);
+      }
     </script>
-
-</body>
-
+  </body>
 </html>
