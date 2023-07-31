@@ -209,6 +209,24 @@
           transform: scale(1);
         }
       }
+
+
+      .sparkley {
+      /* background: #3e5871;
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-weight: normal;
+      border-radius: 3px; */
+      transition: all 0.25s ease;
+
+ 
+    }
+
+    .sparkley:hover {
+
+    }
+
     </style>
   </head>
 
@@ -222,7 +240,7 @@
             <div id="xp-bar-fill" class="barGold"></div>
           </div>
         </div>
-        <div class="platinum" id="platinum"></div>
+        <div class="platinum sparkley" id="platinum"></div>
       </div>
     </div>
 
@@ -339,6 +357,9 @@
           swapElements();
         }, 900); // box right; time for expanding
       }
+
+      
     </script>
+    <script src="./index.js"></script>
   </body>
 </html>
