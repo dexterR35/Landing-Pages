@@ -44,16 +44,16 @@
         position: relative;
       }
       .parent_seven {
-        position: fixed;
-    top: 64%;
-    left: 55%;
-    transform: translate(-50%,-50%);
+        /* position: relative;
+        top: 64%;
+        left: 35%; */
+        /* transform: translate(-50%, -50%); */
       }
       .wrapper-seven {
         position: relative;
-        /* top: 16vh; */
-        gap: 3em;
-        /* left: -23vh; */
+        top: 16vh;
+        gap: 1em;
+        left: 13vh;
       }
       .wrapper-seven,
       .container-seven {
@@ -151,7 +151,7 @@
       }
       .bubble {
         position: relative;
-        top:-52px;
+        top: -52px;
       }
       .bubble_light {
         position: relative;
@@ -177,7 +177,7 @@
     </style>
   </head>
   <body>
-    <div class="container-all" style="height: 100vh;">
+    <div class="container-all" style="height: 100vh">
       <div class="container-stuff">
         <div class="container-girl">
           <img src="./png/girl.png" alt="girl" />
@@ -209,7 +209,19 @@
         </div>
       </div>
     </div>
-    <div class="section2" style="height: 100vh; background: black; width: 100%; height: 100%; z-index: 2131231231; position: relative;">test</div>
+    <div
+      class="section2"
+      style="
+        height: 100vh;
+        background: black;
+        width: 100%;
+        height: 100%;
+        z-index: 2131231231;
+        position: relative;
+      "
+    >
+      test
+    </div>
     <script>
       function replaceWithText(sevenContainer) {
         // Create a new text container
