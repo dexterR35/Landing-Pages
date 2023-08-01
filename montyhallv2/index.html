@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mhv2</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        /* height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px; */
+        height: 200vh;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(./png/bg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: -1;
+      }
+      .seven {
+        /* width: 30vh;
+        height: 30vh; */
+        background-image: url(./png/seven.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        z-index: 12;
+        position: relative;
+      }
+      .parent_seven {
+        position: fixed;
+    top: 64%;
+    left: 55%;
+    transform: translate(-50%,-50%);
+      }
+      .wrapper-seven {
+        position: relative;
+        /* top: 16vh; */
+        gap: 3em;
+        /* left: -23vh; */
+      }
+      .wrapper-seven,
+      .container-seven {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container-seven {
+        height: fit-content;
+        position: relative;
+        overflow: hidden;
+      }
+      .container-seven:hover {
+        /* transform: scale(1.05);
+        transition: transform 0.5s ease; */
+        cursor: pointer;
+        mix-blend-mode: screen;
+      }
+      .swirl-top,
+      .swirl-bottom {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40vh;
+        height: 100%;
+        mix-blend-mode: screen;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .swirl-top {
+        background-image: url(./png/swirl-top2.png);
+        /* bottom: 55px; */
+      }
+      .swirl-bottom {
+        background-image: url(./png/swirl-bottom2.png);
+        /* top: 14.8vh; */
+        z-index: 1;
+      }
+      .seven,
+      .text-container {
+        width: 38vh;
+        height: 38vh;
+      }
+      .text-container {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #000;
+        position: relative;
+        z-index: 11;
+        transform: translateY(100%);
+        transition: transform 0.5s ease;
+      }
+
+      .move-down {
+        position: absolute;
+        bottom: 0;
+        transform: translateY(100%);
+        transition: transform 0.5s ease;
+      }
+
+      /*bubble and girl*/
+      .container-all {
+        width: 100%;
+        /* background: red; */
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      .container-stuff {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .container-girl {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+      }
+      .container-girl img {
+        height: 90vh;
+      }
+
+      .container-bubble {
+        position: absolute;
+        top: 0;
+        left: 70%;
+        /* mix-blend-mode: screen; */
+      }
+      .bubble {
+        position: relative;
+        top:-52px;
+      }
+      .bubble_light {
+        position: relative;
+        mix-blend-mode: screen;
+        z-index: 2;
+      }
+      .bubble_base {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        /* background-image: url(./png/bubble_base.png);
+        mix-blend-mode: normal; */
+      }
+      .container-bubble .bubble img {
+        height: 36vh;
+      }
+
+      /*end bubble and girl*/
+    </style>
+  </head>
+  <body>
+    <div class="container-all" style="height: 100vh;">
+      <div class="container-stuff">
+        <div class="container-girl">
+          <img src="./png/girl.png" alt="girl" />
+          <div class="container-bubble">
+            <div class="bubble">
+              <img src="./png/bubble_light.png" class="bubble_light" alt="" />
+              <img src="./png/bubble_base.png" class="bubble_base" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="parent_seven">
+          <div class="wrapper-seven">
+            <div class="container-seven">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="replaceWithText(this)"></div>
+              <div class="swirl-bottom"></div>
+            </div>
+            <div class="container-seven">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="replaceWithText(this)"></div>
+              <div class="swirl-bottom"></div>
+            </div>
+            <div class="container-seven">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="replaceWithText(this)"></div>
+              <div class="swirl-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section2" style="height: 100vh; background: black; width: 100%; height: 100%; z-index: 2131231231; position: relative;">test</div>
+    <script>
+      function replaceWithText(sevenContainer) {
+        // Create a new text container
+        const textContainer = document.createElement("div");
+        textContainer.className = "text-container";
+        textContainer.textContent = "Your Text Here"; // Replace "Your Text Here" with your desired text
+
+        // Insert the text container after the "seven" container
+        sevenContainer.insertAdjacentElement("afterend", textContainer);
+
+        // Animate the "seven" container to move down
+        sevenContainer.classList.add("move-down");
+
+        // Animate the text container to move up
+        setTimeout(() => {
+          textContainer.style.transform = "translateY(0)";
+        }, 100); // A small delay for smoother transition
+      }
+    </script>
+  </body>
+</html>
