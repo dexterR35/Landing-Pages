@@ -2,7 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"
+      integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>mhv2</title>
     <style>
       *,
@@ -12,6 +25,47 @@
         padding: 0;
         box-sizing: border-box;
       }
+
+      :root {
+        /* --orange: #f89e4f; */
+        --button_color: #ff4c16;
+        --modal-input: #333743;
+        --modal-inputBg: #dbdbdb;
+
+        --bg-white: #fff;
+        --color-white: #fff;
+
+        --border-input: #dadce0;
+        --border-inputFocus: #1adae8;
+        --border-error: #ff4c16;
+        --border-active: #0abaff;
+        /* --red: #f16164; */
+
+        --h1-title: #ff4c16;
+
+        --color-focusText: #333743;
+
+        --neon-text-color: rgb(234, 238, 20);
+        --neon-border-color: #08f;
+
+        --transition-mask: 0.5s ease-out;
+        --transition-input: ease 250ms;
+
+        --letter_door: azure;
+        --letter_pause: azure;
+
+        /* --bg-doorInside: url({$asset}/img/INSIDE_V8.png);
+    --bg-desktop: url({$asset}/bg-desktop.jpg);
+    --bg-openDoor: url({$asset}/img/door_open2.png);
+
+    --iFrame-doorLeft: url({$asset}/img/door_left2.png);
+    --iFrame-doorCenter: url({$asset}/img/door_center3.png);
+    --iFrame-doorRight: url({$asset}/img/door_right2.png);
+
+    --img-speachBubble: url({$asset}/img/speachBubble.png);
+    --img-astronaut: url({$asset}/img/astronaut2.png); */
+      }
+
       body {
         /* height: 100vh;
         display: flex;
@@ -43,17 +97,12 @@
         z-index: 12;
         position: relative;
       }
-      .parent_seven {
-        /* position: relative;
-        top: 64%;
-        left: 35%; */
-        /* transform: translate(-50%, -50%); */
-      }
+
       .wrapper-seven {
         position: relative;
-        top: 16vh;
+        top: 18vh;
         gap: 1em;
-        left: 13vh;
+        left: -18vh;
       }
       .wrapper-seven,
       .container-seven {
@@ -67,8 +116,8 @@
         overflow: hidden;
       }
       .container-seven:hover {
-        /* transform: scale(1.05);
-        transition: transform 0.5s ease; */
+        transform: scale(1.05);
+        transition: transform 0.5s ease;
         cursor: pointer;
         mix-blend-mode: screen;
       }
@@ -101,6 +150,7 @@
       }
       .text-container {
         background-color: #fff;
+        opacity: 0.5;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -115,11 +165,14 @@
       .move-down {
         position: absolute;
         bottom: 0;
-        transform: translateY(100%);
+        /* transform: translateY(100%); */
         transition: transform 0.5s ease;
       }
 
       /*bubble and girl*/
+      /*bubble and girl*/
+      /*bubble and girl*/
+
       .container-all {
         width: 100%;
         /* background: red; */
@@ -135,44 +188,149 @@
         width: 100%;
       }
       .container-girl {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+        position: relative;
+        left: -7em;
+        top: 18vh;
       }
       .container-girl img {
-        height: 90vh;
+        height: 95vh;
       }
 
       .container-bubble {
         position: absolute;
-        top: 0;
+        top: -13%;
         left: 70%;
+        width: 100%;
+        height: 100%;
         /* mix-blend-mode: screen; */
       }
-      .bubble {
-        position: relative;
-        top: -52px;
+      .bubble_instruction {
+        position: absolute;
+        top: 13vh;
+        left: 39%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        /* background: darkred; */
+        margin-left: 14%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 24;
       }
-      .bubble_light {
-        position: relative;
-        mix-blend-mode: screen;
-        z-index: 2;
+      .bubble_instruction > div button {
+        padding: 0.7em 2em;
+        font-size: 1.7vh;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100%;
+        border-radius: 7px;
+        border: none;
+        outline: none;
+        background-color: crimson;
+        color: var(--color-white);
+        border: 1px solid white;
+        margin-bottom: 10px;
+      }
+      .bubble_instruction > div {
+        /* position: absolute; */
+        width: 75%;
       }
       .bubble_base {
-        content: "";
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
         z-index: 0;
-        /* background-image: url(./png/bubble_base.png);
-        mix-blend-mode: normal; */
+        mix-blend-mode: normal;
+        z-index: 0;
       }
-      .container-bubble .bubble img {
-        height: 36vh;
+      .bubble_light {
+        top: 0;
+        left: 0;
+        position: absolute;
+        mix-blend-mode: screen;
+        z-index: 10;
       }
 
+      .bubble_hidden {
+        visibility: hidden;
+      }
+
+      .bubble {
+        width: 80vh;
+        height: 33vh;
+        background-color: red;
+        position: relative;
+      }
+
+      .bubble::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(./png/bubble_base.png);
+        background-repeat: no-repeat;
+        background-position: 0vh top;
+        background-size: 66vh;
+        z-index: 0;
+      }
+
+      .bubble::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(./png/bubble_light.png);
+        background-repeat: no-repeat;
+        background-position: 0vh top;
+        background-size: 66vh;
+        z-index: 12;
+      }
+      .choices {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      /*end bubble*/
+      /*end bubble*/
+
+      /*letter seven*/
+      /*letter seven*/
+      .letter-seven {
+        position: absolute;
+        bottom: 8vh;
+        left: -1vh;
+        width: 100%;
+        /* transform: translate(0px, -0.5em); */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        /* cursor: pointer; */
+        z-index: 20;
+        font-size: 3.7vh;
+        color: var(--color-white);
+        /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
+      }
+      .letter-seven.light {
+        text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff,
+          0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9,
+          0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad,
+          0 0 41px #12617e;
+      }
+      .letter-door.open {
+        transition: var(--transition-mask);
+        transform: translate(-0.45em, -2.6em);
+        font-size: 6.6vh;
+        color: var(--letter_door);
+      }
+
+      /*END LETTER DOOR*/
+      /*END LETTER DOOR*/
       /*end bubble and girl*/
     </style>
   </head>
@@ -181,30 +339,66 @@
       <div class="container-stuff">
         <div class="container-girl">
           <img src="./png/girl.png" alt="girl" />
-          <div class="container-bubble">
+          <div class="container-bubble bubble_hidden">
+            <!-- <div class="bubble-img">
+                        <img src="./png/bubble_light.png" class="bubble_light" alt="" />
+                           <img src="./png/bubble_base.png" class="bubble_base" alt="" />
+            </div> -->
             <div class="bubble">
-              <img src="./png/bubble_light.png" class="bubble_light" alt="" />
-              <img src="./png/bubble_base.png" class="bubble_base" alt="" />
+              <div class="bubble_instruction" id="instruction">
+                <!-- <div id="instr_text"></div> -->
+                <p></p>
+                <div class="start_game" style="z-index: 10">
+                  <button
+                    id="start_game"
+                    class="btnNew btn_startGame pulse_btn"
+                  >
+                    Începe jocul
+                  </button>
+                </div>
+                <div class="select_door" style="z-index: 10">
+                  <button id="yes_select" class="btnNew btn_continue pulse_btn">
+                    alege un simbol...
+                  </button>
+                </div>
+                <div class="p_continue" style="z-index: 10">
+                  <button
+                    id="yes_continue"
+                    class="btnNew btn_continue pulse_btn"
+                  >
+                    OK! MAI DEPARTE
+                  </button>
+                </div>
+                <div class="choices">
+                  <button id="yes" class="btnNew btn_choices btn_yes pulse_btn">
+                    Da
+                  </button>
+                  <button id="no" class="btnNew btn_choices btn_no pulse_btn">
+                    NU
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="parent_seven">
-          <div class="wrapper-seven">
-            <div class="container-seven">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="replaceWithText(this)"></div>
-              <div class="swirl-bottom"></div>
-            </div>
-            <div class="container-seven">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="replaceWithText(this)"></div>
-              <div class="swirl-bottom"></div>
-            </div>
-            <div class="container-seven">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="replaceWithText(this)"></div>
-              <div class="swirl-bottom"></div>
-            </div>
+        <div class="wrapper-seven">
+          <div class="container-seven open">
+            <div class="swirl-top"></div>
+            <div class="seven" onclick="replaceWithText(this)"></div>
+            <div class="swirl-bottom"></div>
+            <div class="letter-seven">A</div>
+          </div>
+          <div class="container-seven open">
+            <div class="swirl-top"></div>
+            <div class="seven" onclick="replaceWithText(this)"></div>
+            <div class="swirl-bottom"></div>
+            <div class="letter-seven">B</div>
+          </div>
+          <div class="container-seven open">
+            <div class="swirl-top"></div>
+            <div class="seven" onclick="replaceWithText(this)"></div>
+            <div class="swirl-bottom"></div>
+            <div class="letter-seven">C</div>
           </div>
         </div>
       </div>
@@ -223,6 +417,90 @@
       test
     </div>
     <script>
+      const doors = [];
+      const inputs = [];
+      const instruction = [];
+
+      let totalDoors = 3;
+      let state = "PICK";
+      let pickedDoor;
+      let revealedDoor;
+      let timeoutId;
+      let gamesCode;
+
+      let smallCode = "GOL";
+      let largeCode = "";
+
+      let delay0_5s = 500;
+      let delay1s = 1000;
+      let delay1_5s = 1500;
+      let delay2s = 2000;
+      let delay2_5s = 2500;
+      let delay3s = 3000;
+      let delay3_5s = 3500;
+      let delay4s = 4000;
+      let delay4_5s = 4500;
+      let delay5s = 5000;
+
+      let first_text =
+        '<div class="first_text_t1">Bun venit pe netbet!</div><br/><div class="second_text_t1">Te provoc să iei sute de <br/> runde gratuite</div>';
+      let second_text =
+        '<div class="first_text_t2">SIMBOLURILE ASCUND RUNDE GRATUITE</div><br/><div class="second_text_t2">UNUL DINTRE ELE ASCUNDE<br/>PREMIUL CEL MARE</div><br/>';
+      let four_text =
+        '<div class="first_text_t4">AM ELIMINAT UȘA <br/> NECÂȘTIGĂTOARE</div>';
+      let privacy_terms =
+        "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.";
+      let privacy_marketing =
+        "Sunt de acord să primesc comunicări de marketing din partea NetBet.";
+
+      function startInstruction() {
+        setTimeout(() => {
+          $(".bubble_hidden").css("visibility", "visible");
+        }, 0);
+      }
+
+      // makeDoors();
+      // startGame();
+      // makeInput();
+      // resizeWin();
+      $(document).ready(function () {
+        $("#yes").on("click", function () {
+          $("#instruction").hide();
+          setTimeout(() => {
+            chooseDoor(true);
+          }, delay1s);
+          setTimeout(() => {
+            winConfetti();
+          }, delay1_5s);
+        });
+
+        $("#no").on("click", function () {
+          $("#instruction").hide();
+          setTimeout(() => {
+            chooseDoor(false);
+          }, delay1s);
+          setTimeout(() => {
+            winConfetti();
+          }, delay1_5s);
+        });
+
+        $("#yes_continue").on("click", function () {
+          $("#instruction").hide();
+          setTimeout(() => {
+            revealDoor();
+          }, delay1s);
+        });
+
+        $("#yes_select").on("click", function () {
+          for (const door of doors) {
+            $(door).css("cursor", "pointer");
+          }
+          $("#instruction").hide();
+          state = "PICK";
+        });
+        startInstruction();
+      });
+
       function replaceWithText(sevenContainer) {
         // Create a new text container
         const textContainer = document.createElement("div");
@@ -240,6 +518,26 @@
           textContainer.style.transform = "translateY(0)";
         }, 100); // A small delay for smoother transition
       }
+
+      //   function replaceWithText(sevenContainer) {
+      //   // Create a new text container
+      //   const textContainer = document.createElement("div");
+      //   textContainer.className = "text-container";
+      //   textContainer.textContent = "Your Text Here"; // Replace "Your Text Here" with your desired text
+
+      //   // Insert the text container after the "seven" container
+      //   // textContainer.style.position = "absolute";
+      //   sevenContainer.insertAdjacentElement("afterend", textContainer);
+
+      //   // Animate the "seven" container to move down and disappear
+      //   sevenContainer.classList.add("move-down");
+
+      //   // Animate the text container to appear
+      //   setTimeout(() => {
+      //     textContainer.style.transform = "translateY(0)";
+      //     // textContainer.style.opacity = "1";
+      //   }, 100); // This should match the transition duration in CSS for a smooth appearance
+      // }
     </script>
   </body>
 </html>
