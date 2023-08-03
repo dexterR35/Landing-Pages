@@ -11,8 +11,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"
-      integrity="sha512-bcfltY+lNLlNxz38yBBm/HLaUB1gTV6I0e+fahbF9pS6roIdzUytozWdnFV8ZnM6cSAG5EbmO0ag0a/fLZSG4Q=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"
+      integrity="sha512-3WFaXQUsbGieECwv3t3DvyAkZ7pp+/rIKOQnx7NKhfwIF0u2l+DYsE2eF635ewJVj3YTU4/Ug6UqEkSTZCiSew=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
@@ -72,7 +72,7 @@
         align-items: center;
         justify-content: space-between;
         max-width: 1400px; */
-        height: 200vh;
+        /* height: 200vh; */
       }
       body::after {
         content: "";
@@ -97,13 +97,23 @@
         z-index: 12;
         position: relative;
       }
-
+      .app-main {
+        width: 100%;
+        top: 18vh;
+        left: -18vh;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 100;
+        position: relative;
+        background: red;
+      }
       .wrapper-seven {
         position: relative;
-        top: 18vh;
         gap: 1em;
-        left: -18vh;
       }
+
       .wrapper-seven,
       .container-seven {
         display: flex;
@@ -201,7 +211,7 @@
         top: -13%;
         left: 70%;
         width: 100%;
-        height: 100%;
+        /* height: 100%; */
         /* mix-blend-mode: screen; */
       }
       .bubble_instruction {
@@ -262,6 +272,7 @@
         height: 33vh;
         background-color: red;
         position: relative;
+        color: var(--color-white);
       }
 
       .bubble::after {
@@ -322,12 +333,38 @@
           0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad,
           0 0 41px #12617e;
       }
-      .letter-door.open {
+      .letter-seven.open {
         transition: var(--transition-mask);
         transform: translate(-0.45em, -2.6em);
         font-size: 6.6vh;
         color: var(--letter_door);
       }
+
+      .picked {
+        background: green;
+      }
+      .seven {
+        /* Add your default styles for the .seven element here */
+      }
+
+      .clicked {
+        /* Add styles for the .seven element when it's clicked here */
+        /* For example, you can change the background color to green */
+        background-color: green;
+      }
+
+      .clicked-uit {
+        /* Add styles for the .seven element that was not clicked and marked as "clicked-uit" */
+        /* For example, you can change the background color to red */
+        background-color: red;
+      }
+
+      .wrapper-seven {
+        /* Add any styles for the wrapper container here if needed */
+      }
+      /* .random_open {
+        background: #000;
+      } */
 
       /*END LETTER DOOR*/
       /*END LETTER DOOR*/
@@ -335,7 +372,7 @@
     </style>
   </head>
   <body>
-    <div class="container-all" style="height: 100vh">
+    <div class="container-all">
       <div class="container-stuff">
         <div class="container-girl">
           <img src="./png/girl.png" alt="girl" />
@@ -381,43 +418,35 @@
             </div>
           </div>
         </div>
-        <div class="wrapper-seven">
-          <div class="container-seven open">
-            <div class="swirl-top"></div>
-            <div class="seven" onclick="replaceWithText(this)"></div>
-            <div class="swirl-bottom"></div>
-            <div class="letter-seven">A</div>
-          </div>
-          <div class="container-seven open">
-            <div class="swirl-top"></div>
-            <div class="seven" onclick="replaceWithText(this)"></div>
-            <div class="swirl-bottom"></div>
-            <div class="letter-seven">B</div>
-          </div>
-          <div class="container-seven open">
-            <div class="swirl-top"></div>
-            <div class="seven" onclick="replaceWithText(this)"></div>
-            <div class="swirl-bottom"></div>
-            <div class="letter-seven">C</div>
+        <div id="app" class="app-main">
+          <div class="wrapper-seven" id="_Sevens">
+            <!-- <div class="container-seven open">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="pickDoor(this)"></div>
+              <div class="swirl-bottom"></div>
+              <div class="letter-seven">A</div>
+            </div>
+            <div class="container-seven open">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="pickDoor(this)"></div>
+              <div class="swirl-bottom"></div>
+              <div class="letter-seven">B</div>
+            </div>
+            <div class="container-seven open">
+              <div class="swirl-top"></div>
+              <div class="seven" onclick="pickDoor(this)"></div>
+              <div class="swirl-bottom"></div>
+              <div class="letter-seven">C</div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="section2"
-      style="
-        height: 100vh;
-        background: black;
-        width: 100%;
-        height: 100%;
-        z-index: 2131231231;
-        position: relative;
-      "
-    >
-      test
-    </div>
     <script>
-      const doors = [];
+      // const doors = $("#_Sevens .seven").toArray();
+      const symbolsSeven = [];
+      console.log(symbolsSeven, "doors");
+
       const inputs = [];
       const instruction = [];
 
@@ -458,12 +487,294 @@
           $(".bubble_hidden").css("visibility", "visible");
         }, 0);
       }
+      // const letters = ["A", "B", "C"];
+      function startGame() {
+        // for (let i = 0; i < doors.length; i++) {
+        //   let door = doors[i];
+        //   let doorIndex = i + 1;
+        //   let doorsLetter = "";
+        //   if (doorIndex >= 1 && doorIndex <= letters.length) {
+        //     doorsLetter = letters[doorIndex - 1];
+        //   }
+        //   // door.style("cursor", "default");
+        //   $(".letter-seven").eq(i).text(doorsLetter);
+        //   // select(".letter-seven", door).removeClass("light");
+        // }
+        state = "!PICK";
 
+        $("#_Sevens").addClass("doorNon-Active");
+        // select(".door-container").style("cursor","default");
+        $(".start_game").show();
+
+        $("button#start_game").on("click", function () {
+          resetDoor();
+        });
+
+        $("#instruction > p").html(first_text);
+        $("#instruction > .choices").hide();
+        $("#instruction > .p_continue").hide();
+        // $("#instruction > #play-again").hide();
+        $("#instruction > .select_door").hide();
+        // select("button#yes_select").hide();
+      }
+
+      function pickDoor() {
+        if (state !== "PICK") return;
+        state = "REVEAL";
+
+        pickedDoor = random(symbolsSeven);
+        pickedDoor = this;
+        pickedDoor.addClass("picked open");
+
+        const userPickDoor = symbolsSeven.find((symbolsSeven) =>
+          this.hasClass("picked")
+        );
+        console.log(userPickDoor, "rest");
+
+        userPickDoorIndex = userPickDoor.index + 1;
+        if (userPickDoorIndex === 1) {
+          userPickDoorIndex = "A";
+        } else if (userPickDoorIndex === 2) {
+          userPickDoorIndex = "B";
+        } else if (userPickDoorIndex === 3) {
+          userPickDoorIndex = "C";
+        }
+
+        select(".letter-seven", pickedDoor).addClass("open");
+
+        let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div><br/>`;
+        // select('#instr_text').hide();
+        select("#yes_select").hide();
+        setTimeout(() => {
+          select("#instruction > p").html(third_text);
+          select("#instruction").style("display", "flex");
+          select("#instruction > .p_continue").show();
+        }, delay1s);
+      }
+
+      function makeDoors() {
+        // clear array
+        for (let seven of symbolsSeven) {
+          seven.remove();
+        }
+        symbolsSeven.splice(0, symbolsSeven.length);
+
+        const sevensLetter = [
+          { letter: "A" },
+          { letter: "B" },
+          { letter: "C" },
+        ];
+
+        for (let i = 0; i < totalDoors; i++) {
+          symbolsSeven[i] = createDiv();
+          symbolsSeven[i].parent("#_Sevens");
+          symbolsSeven[i].class("container-seven");
+          symbolsSeven[i].index = i;
+          symbolsSeven[i].mousePressed(pickDoor);
+
+          const swirlTop = createDiv();
+          swirlTop.class("swirl-top");
+          swirlTop.parent(symbolsSeven[i]);
+
+          const sevenElement = createDiv();
+          sevenElement.class("seven");
+          sevenElement.mouseClicked(pickDoor); // If you want to handle the click event using p5.js
+          sevenElement.parent(symbolsSeven[i]);
+
+          const swirlBottom = createDiv();
+          swirlBottom.class("swirl-bottom");
+          swirlBottom.parent(symbolsSeven[i]);
+
+          const letter = createDiv();
+          letter.class("letter-seven");
+          letter.parent(symbolsSeven[i]);
+          letter.html(sevensLetter[i].letter);
+        }
+      }
+
+      function revealDoor() {
+        const options = symbolsSeven.filter(
+          (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
+        );
+
+        // right door!
+        if (options.length === symbolsSeven.length - 1) {
+          // Randomly remove 1
+          options.splice(floor(random(options.length)), 1);
+        }
+
+        for (const revealedDoor of options) {
+          revealedDoor.addClass("revealed");
+          // select(".content", revealedDoor).html(revealedDoor.prize);
+        }
+
+        const lastDoor = symbolsSeven.find(
+          (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
+        );
+        lastDoor.addClass("stayClose");
+        const switchDoor = symbolsSeven.find((seven) =>
+          seven.hasClass("picked")
+        );
+        select("#instruction > p").html(four_text);
+        select(".letter-seven", lastDoor).addClass("pause stayClose");
+
+        lastDoorIndex = lastDoor.index + 1;
+        switchDoorIndex = switchDoor.index + 1;
+
+        if (lastDoorIndex === 1) {
+          lastDoorIndex = "A";
+        } else if (lastDoorIndex === 2) {
+          lastDoorIndex = "B";
+        } else if (lastDoorIndex === 3) {
+          lastDoorIndex = "C";
+        }
+
+        if (switchDoorIndex === 1) {
+          switchDoorIndex = "A";
+        } else if (switchDoorIndex === 2) {
+          switchDoorIndex = "B";
+        } else if (switchDoorIndex === 3) {
+          switchDoorIndex = "C";
+        }
+
+        let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div> <br/><div class="third_text_t5">vrei să schimbi?</div>`;
+
+        // retriveData();
+
+        setTimeout(() => {
+          select("#_Sevens > .container-seven.revealed").hide();
+        }, delay2s);
+
+        select("#instruction > .p_continue").hide();
+
+        select("#instruction > p").html(five_text);
+
+        select("#instruction > .choices").show();
+
+        setTimeout(() => {
+          select("#instruction").style("display", "flex");
+        }, delay2_5s);
+      }
+
+      function chooseDoor(hasSwitched = false) {
+        select("#instruction > .choices").hide();
+
+        if (hasSwitched) {
+          const newPick = symbolsSeven.find(
+            (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
+          );
+          newPick.addClass("picked");
+          pickedDoor.removeClass("picked");
+          pickedDoor = newPick;
+        } else {
+          // // stayDoorsRev.addClass("rev_open");
+          // const newPick2 = doors.find(
+          //   (door) => !door.hasClass("revealed") && !door.hasClass("won")
+          // );
+          // console.log(newPick2);
+        }
+        const stayDoorsRev = symbolsSeven.find((seven) =>
+          seven.hasClass("open")
+        );
+        stayDoorsRev.addClass("rev_open");
+        checkWin(hasSwitched);
+      }
+
+      function checkWin(hasSwitched) {
+        for (let seven of symbolsSeven) {
+          codeString = `<span class="content-l1">${largeCode.substring(
+            1,
+            4
+          )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
+          seven.prize = codeString;
+          seven.addClass("revealed");
+          select(".letter-seven", seven).addClass("revealed");
+
+          // select(".content", seven).html(door.prize);
+        }
+
+        // select(".span_code_input").html(codeString);
+
+        // select(".span_game_input").html(gamesCode);
+
+        select(".letter-seven.open").addClass("rev_open");
+
+        if (pickedDoor.prize === codeString) {
+          pickedDoor.addClass("won");
+
+          select("#instruction > p").html("Ai câstigat!");
+
+          setTimeout(() => {
+            showDialog();
+            select("#mask_modal").addClass("active");
+            select(".above-fold").style("height", "100vh");
+          }, delay3s);
+        } else {
+          select("#instruction > p").html("Ai pierdut!");
+
+          // select('#doors > .lose > .content').html(codeString);
+        }
+      }
+
+      function resetDoor() {
+        for (const seven of symbolsSeven) {
+          let sevensIndex = seven.index + 1;
+          if (sevensIndex === 1) {
+            sevensIndex = "A";
+          } else if (sevensIndex === 2) {
+            sevensIndex = "B";
+          } else if (sevensIndex === 3) {
+            sevensIndex = "C";
+          }
+
+          seven.show();
+          seven.prize = smallCode;
+
+          seven.revealed = false;
+          select(".letter-seven", seven).html(sevensIndex);
+          select(".letter-seven", seven).addClass("light");
+          select(".letter-seven", seven).removeClass("open");
+          select(".letter-seven", seven).removeClass("pause");
+          select(".letter-seven", seven).removeClass("revealed");
+          select(".letter-seven", seven).removeClass("rev_open");
+          select(".letter-seven", seven).removeClass("stayClose");
+
+          seven.removeClass("revealed");
+          // door.removeClass('revealedNone');
+          seven.removeClass("picked");
+          seven.removeClass("won");
+          seven.removeClass("lose");
+          seven.removeClass("open");
+          seven.removeClass("rev_open");
+          seven.removeClass("stayClose");
+          // select(".content", door).html("");
+          // select('#instr_text').show();
+        }
+        // closeDialog();
+        // select('#doors').style("display","flex");
+        select("#_Sevens").removeClass("doorNon-Active");
+
+        select(".start_game").hide();
+
+        // select("#instruction > #play-again").hide();
+
+        // select("button#play-again").hide();
+
+        const winner = random(symbolsSeven);
+        winner.prize = largeCode;
+        select("#instruction > p").html(second_text);
+        select("#instruction > .select_door").show();
+      }
       // makeDoors();
       // startGame();
       // makeInput();
       // resizeWin();
-      $(document).ready(function () {
+      function setup() {
+        noCanvas();
+        startInstruction();
+        makeDoors();
+        startGame();
+        // makeInput();
         $("#yes").on("click", function () {
           $("#instruction").hide();
           setTimeout(() => {
@@ -492,32 +803,34 @@
         });
 
         $("#yes_select").on("click", function () {
-          for (const door of doors) {
-            $(door).css("cursor", "pointer");
+          for (const seven of symbolsSeven) {
+            $(seven).css("cursor", "pointer");
           }
           $("#instruction").hide();
           state = "PICK";
         });
-        startInstruction();
-      });
 
-      function replaceWithText(sevenContainer) {
-        // Create a new text container
-        const textContainer = document.createElement("div");
-        textContainer.className = "text-container";
-        textContainer.textContent = "Your Text Here"; // Replace "Your Text Here" with your desired text
-
-        // Insert the text container after the "seven" container
-        sevenContainer.insertAdjacentElement("afterend", textContainer);
-
-        // Animate the "seven" container to move down
-        sevenContainer.classList.add("move-down");
-
-        // Animate the text container to move up
-        setTimeout(() => {
-          textContainer.style.transform = "translateY(0)";
-        }, 100); // A small delay for smoother transition
+        // startInstruction();
+        // startGame();
       }
+
+      // function replaceWithText(sevenContainer) {
+      //   // Create a new text container
+      //   const textContainer = document.createElement("div");
+      //   textContainer.className = "text-container";
+      //   textContainer.textContent = "Your Text Here"; // Replace "Your Text Here" with your desired text
+
+      //   // Insert the text container after the "seven" container
+      //   sevenContainer.insertAdjacentElement("afterend", textContainer);
+
+      //   // Animate the "seven" container to move down
+      //   sevenContainer.classList.add("move-down");
+
+      //   // Animate the text container to move up
+      //   setTimeout(() => {
+      //     textContainer.style.transform = "translateY(0)";
+      //   }, 100); // A small delay for smoother transition
+      // }
 
       //   function replaceWithText(sevenContainer) {
       //   // Create a new text container
