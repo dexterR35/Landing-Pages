@@ -25,7 +25,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-
+      @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
       :root {
         /* --orange: #f89e4f; */
         --button_color: #ff4c16;
@@ -73,6 +73,9 @@
         justify-content: space-between;
         max-width: 1400px; */
         /* height: 200vh; */
+        font-family: 'Play', sans-serif;
+       
+        
       }
       body::after {
         content: "";
@@ -105,9 +108,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 100;
+        /* z-index: 100; */
         position: relative;
-        background: red;
+        /* background: red; */
       }
       .wrapper-seven {
         position: relative;
@@ -151,7 +154,7 @@
       .swirl-bottom {
         background-image: url(./png/swirl-bottom2.png);
         /* top: 14.8vh; */
-        z-index: 1;
+        z-index: 12;
       }
       .seven,
       .text-container {
@@ -208,7 +211,7 @@
 
       .container-bubble {
         position: absolute;
-        top: -13%;
+        top: -18%;
         left: 70%;
         width: 100%;
         /* height: 100%; */
@@ -216,17 +219,19 @@
       }
       .bubble_instruction {
         position: absolute;
-        top: 13vh;
-        left: 39%;
-        transform: translate(-50%, -50%);
-        width: 40%;
+        top: 0vh;
+        left: 9.5%;
+        /* transform: translate(-50%, -50%); */
+        width: 80%;
+        height: 100%;
         /* background: darkred; */
-        margin-left: 14%;
+        /* margin-left: 14%; */
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         z-index: 24;
+        /* background-color: rgba(90, 125, 241, 0.514); */
       }
       .bubble_instruction > div button {
         padding: 0.7em 2em;
@@ -245,7 +250,7 @@
       }
       .bubble_instruction > div {
         /* position: absolute; */
-        width: 75%;
+        width: 40%;
       }
       .bubble_base {
         position: absolute;
@@ -268,9 +273,9 @@
       }
 
       .bubble {
-        width: 80vh;
-        height: 33vh;
-        background-color: red;
+        width: 90vh;
+        height: 38vh;
+        /* background-color: red; */
         position: relative;
         color: var(--color-white);
       }
@@ -282,10 +287,10 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: url(./png/bubble_base.png);
+        background-image: url(./png/bubble_base3.png);
         background-repeat: no-repeat;
         background-position: 0vh top;
-        background-size: 66vh;
+        background-size: 75vh;
         z-index: 0;
       }
 
@@ -296,16 +301,24 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: url(./png/bubble_light.png);
+        background-image: url(./png/bubble_light3.png);
         background-repeat: no-repeat;
         background-position: 0vh top;
-        background-size: 66vh;
+        background-size: 75vh;
         z-index: 12;
       }
       .choices {
         display: flex;
         align-items: center;
         justify-content: center;
+        gap:1em;
+      }
+
+      .bubble p {
+        font-size: 2.3vh;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
       }
       /*end bubble*/
       /*end bubble*/
@@ -314,7 +327,7 @@
       /*letter seven*/
       .letter-seven {
         position: absolute;
-        bottom: 8vh;
+        bottom: 10vh;
         left: -1vh;
         width: 100%;
         /* transform: translate(0px, -0.5em); */
@@ -328,40 +341,21 @@
         /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
       }
       .letter-seven.light {
-        text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff,
-          0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9,
-          0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad,
-          0 0 41px #12617e;
+        text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ffb0a5 0px 0px 20px, #f34502 0px 0px 30px, #eb1e1e 0px 0px 40px, #d54110 0px 0px 50px, #ed5120 0px 0px 75px;
       }
       .letter-seven.open {
         transition: var(--transition-mask);
-        transform: translate(-0.45em, -2.6em);
+        transform: translate(0em, 0.2em);
         font-size: 6.6vh;
         color: var(--letter_door);
+        width: 100%;
+        height: 100%;
       }
 
       .picked {
-        background: green;
-      }
-      .seven {
-        /* Add your default styles for the .seven element here */
+        background: blue;
       }
 
-      .clicked {
-        /* Add styles for the .seven element when it's clicked here */
-        /* For example, you can change the background color to green */
-        background-color: green;
-      }
-
-      .clicked-uit {
-        /* Add styles for the .seven element that was not clicked and marked as "clicked-uit" */
-        /* For example, you can change the background color to red */
-        background-color: red;
-      }
-
-      .wrapper-seven {
-        /* Add any styles for the wrapper container here if needed */
-      }
       /* .random_open {
         background: #000;
       } */
@@ -384,7 +378,8 @@
             <div class="bubble">
               <div class="bubble_instruction" id="instruction">
                 <!-- <div id="instr_text"></div> -->
-                <p></p>
+                <p style="margin-bottom: 0.6em;"></p>
+               
                 <div class="start_game" style="z-index: 10">
                   <button
                     id="start_game"
@@ -443,10 +438,45 @@
       </div>
     </div>
     <script>
+      function retriveData() {
+        let request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            let codeText = this.responseText;
+            console.log(codeText, "codul");
+ 
+            if (codeText.match(/A250/gi) || codeText.match(/A350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[0];
+            } else if (codeText.match(/B250/gi) || codeText.match(/B350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[1];
+            } else if (codeText.match(/C250/gi) || codeText.match(/C350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[2];
+            } else if (codeText.match(/D250/gi) || codeText.match(/D350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[3];
+            } else if (codeText.match(/E250/gi) || codeText.match(/E350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[4];
+            } else if (codeText.match(/F250/gi) || codeText.match(/F350/gi)) {
+              largeCode = codeText;
+              gamesCode = _games[5];
+            } else {
+              console.log("Error no mached");
+            }
+          }
+        };
+        request.open(
+          "GET",
+          "https://casino-promo.netbet.ro/scripts/api/space/getcode1.php"
+        );
+        request.send();
+      }
       // const doors = $("#_Sevens .seven").toArray();
       const symbolsSeven = [];
       console.log(symbolsSeven, "doors");
-
       const inputs = [];
       const instruction = [];
 
@@ -471,12 +501,21 @@
       let delay4_5s = 4500;
       let delay5s = 5000;
 
+      let _games = [
+    "Game of Gladiators Uprising",
+    "Dice and Roll",
+    "Versailles Gold",
+    "Candy Island Princess",
+    "Fire Joker",
+    "Shining Crown",
+  ];
+  console.log(gamesCode, "gamesCode");
       let first_text =
         '<div class="first_text_t1">Bun venit pe netbet!</div><br/><div class="second_text_t1">Te provoc să iei sute de <br/> runde gratuite</div>';
       let second_text =
-        '<div class="first_text_t2">SIMBOLURILE ASCUND RUNDE GRATUITE</div><br/><div class="second_text_t2">UNUL DINTRE ELE ASCUNDE<br/>PREMIUL CEL MARE</div><br/>';
+        '<div class="first_text_t2">SIMBOLURILE ASCUND RUNDE GRATUITE</div><br/><div class="second_text_t2">UNUL DINTRE ELE ASCUNDE<br/>PREMIUL CEL MARE</div>';
       let four_text =
-        '<div class="first_text_t4">AM ELIMINAT UȘA <br/> NECÂȘTIGĂTOARE</div>';
+        '<div class="first_text_t4">AM ELIMINAT UȘA NECÂȘTIGĂTOARE</div>';
       let privacy_terms =
         "Am citit și accept Termenii și Condițiile și Politica de Confidențialitate.";
       let privacy_marketing =
@@ -542,7 +581,7 @@
 
         select(".letter-seven", pickedDoor).addClass("open");
 
-        let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div><br/>`;
+        let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div>`;
         // select('#instr_text').hide();
         select("#yes_select").hide();
         setTimeout(() => {
@@ -591,7 +630,7 @@
           letter.html(sevensLetter[i].letter);
         }
       }
-
+      retriveData();
       function revealDoor() {
         const options = symbolsSeven.filter(
           (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
@@ -637,9 +676,9 @@
           switchDoorIndex = "C";
         }
 
-        let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div> <br/><div class="third_text_t5">vrei să schimbi?</div>`;
+        let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div><div class="third_text_t5">vrei să schimbi?</div>`;
 
-        // retriveData();
+       
 
         setTimeout(() => {
           select("#_Sevens > .container-seven.revealed").hide();
@@ -649,10 +688,11 @@
 
         select("#instruction > p").html(five_text);
 
-        select("#instruction > .choices").show();
+        select("#instruction > .choices").style("display", "flex");
 
         setTimeout(() => {
           select("#instruction").style("display", "flex");
+  
         }, delay2_5s);
       }
 
@@ -781,7 +821,7 @@
             chooseDoor(true);
           }, delay1s);
           setTimeout(() => {
-            alert("ai castigat")
+            alert("ai castigat" + largeCode);
             // winConfetti();
           }, delay1_5s);
         });
@@ -792,7 +832,7 @@
             chooseDoor(false);
           }, delay1s);
           setTimeout(() => {
-            alert("ai castigat")
+            alert("ai castigat");
             // winConfetti();
           }, delay1_5s);
         });
