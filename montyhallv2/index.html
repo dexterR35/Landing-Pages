@@ -25,7 +25,7 @@
         padding: 0;
         box-sizing: border-box;
       }
-      @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
       :root {
         /* --orange: #f89e4f; */
         --button_color: #ff4c16;
@@ -73,9 +73,7 @@
         justify-content: space-between;
         max-width: 1400px; */
         /* height: 200vh; */
-        font-family: 'Play', sans-serif;
-       
-        
+        font-family: "Play", sans-serif;
       }
       body::after {
         content: "";
@@ -101,10 +99,10 @@
         position: relative;
       }
       .app-main {
-        width: 100%;
+        /* width: 100%; */
         top: 18vh;
         left: -18vh;
-        max-width: 1200px;
+        /* max-width: 1200px; */
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -311,7 +309,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap:1em;
+        gap: 1em;
       }
 
       .bubble p {
@@ -341,7 +339,9 @@
         /* text-shadow: 0 0 0 transparent, 0 0 1px #dcf1ff, 0 0 20px rgb(0 195 255 / 50%), 0 0 4px #c2e3d5, 0 0 4px #ddfff9, 0 0 10px #2fb6bf94, 0 0 3px #29d0d9a9, 0 0 4px #168cad, 0 0 41px #12617e; */
       }
       .letter-seven.light {
-        text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #ffb0a5 0px 0px 20px, #f34502 0px 0px 30px, #eb1e1e 0px 0px 40px, #d54110 0px 0px 50px, #ed5120 0px 0px 75px;
+        text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+          #ffb0a5 0px 0px 20px, #f34502 0px 0px 30px, #eb1e1e 0px 0px 40px,
+          #d54110 0px 0px 50px, #ed5120 0px 0px 75px;
       }
       .letter-seven.open {
         transition: var(--transition-mask);
@@ -353,7 +353,14 @@
       }
 
       .picked {
-        background: blue;
+        background: green;
+      }
+
+      .container-seven.revealed {
+        background-color: #08f;
+      }
+      .container-seven.remaining {
+        background-color: purple;
       }
 
       /* .random_open {
@@ -378,8 +385,8 @@
             <div class="bubble">
               <div class="bubble_instruction" id="instruction">
                 <!-- <div id="instr_text"></div> -->
-                <p style="margin-bottom: 0.6em;"></p>
-               
+                <p style="margin-bottom: 0.6em"></p>
+
                 <div class="start_game" style="z-index: 10">
                   <button
                     id="start_game"
@@ -414,26 +421,7 @@
           </div>
         </div>
         <div id="app" class="app-main">
-          <div class="wrapper-seven" id="_Sevens">
-            <!-- <div class="container-seven open">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="pickDoor(this)"></div>
-              <div class="swirl-bottom"></div>
-              <div class="letter-seven">A</div>
-            </div>
-            <div class="container-seven open">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="pickDoor(this)"></div>
-              <div class="swirl-bottom"></div>
-              <div class="letter-seven">B</div>
-            </div>
-            <div class="container-seven open">
-              <div class="swirl-top"></div>
-              <div class="seven" onclick="pickDoor(this)"></div>
-              <div class="swirl-bottom"></div>
-              <div class="letter-seven">C</div>
-            </div> -->
-          </div>
+          <div class="wrapper-seven" id="_Sevens"></div>
         </div>
       </div>
     </div>
@@ -444,7 +432,7 @@
           if (this.readyState == 4 && this.status == 200) {
             let codeText = this.responseText;
             console.log(codeText, "codul");
- 
+
             if (codeText.match(/A250/gi) || codeText.match(/A350/gi)) {
               largeCode = codeText;
               gamesCode = _games[0];
@@ -502,14 +490,15 @@
       let delay5s = 5000;
 
       let _games = [
-    "Game of Gladiators Uprising",
-    "Dice and Roll",
-    "Versailles Gold",
-    "Candy Island Princess",
-    "Fire Joker",
-    "Shining Crown",
-  ];
-  console.log(gamesCode, "gamesCode");
+        "Game of Gladiators Uprising",
+        "Dice and Roll",
+        "Versailles Gold",
+        "Candy Island Princess",
+        "Fire Joker",
+        "Shining Crown",
+      ];
+      const sevensLetter = [{ letter: "A" }, { letter: "B" }, { letter: "C" }];
+      console.log(gamesCode, "gamesCode");
       let first_text =
         '<div class="first_text_t1">Bun venit pe netbet!</div><br/><div class="second_text_t1">Te provoc să iei sute de <br/> runde gratuite</div>';
       let second_text =
@@ -565,12 +554,13 @@
         pickedDoor = this;
         pickedDoor.addClass("picked open");
 
-        const userPickDoor = symbolsSeven.find((symbolsSeven) =>
-          this.hasClass("picked")
+        const userPickDoor = symbolsSeven.find((seven) =>
+          seven.hasClass("picked")
         );
         console.log(userPickDoor, "rest");
 
         userPickDoorIndex = userPickDoor.index + 1;
+        console.log(userPickDoorIndex, "userPickDoorIndex");
         if (userPickDoorIndex === 1) {
           userPickDoorIndex = "A";
         } else if (userPickDoorIndex === 2) {
@@ -597,12 +587,6 @@
           seven.remove();
         }
         symbolsSeven.splice(0, symbolsSeven.length);
-
-        const sevensLetter = [
-          { letter: "A" },
-          { letter: "B" },
-          { letter: "C" },
-        ];
 
         for (let i = 0; i < totalDoors; i++) {
           symbolsSeven[i] = createDiv();
@@ -650,7 +634,7 @@
         const lastDoor = symbolsSeven.find(
           (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
         );
-        lastDoor.addClass("stayClose");
+        lastDoor.addClass("remaining");
         const switchDoor = symbolsSeven.find((seven) =>
           seven.hasClass("picked")
         );
@@ -678,8 +662,6 @@
 
         let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div><div class="third_text_t5">vrei să schimbi?</div>`;
 
-       
-
         setTimeout(() => {
           select("#_Sevens > .container-seven.revealed").hide();
         }, delay2s);
@@ -692,7 +674,6 @@
 
         setTimeout(() => {
           select("#instruction").style("display", "flex");
-  
         }, delay2_5s);
       }
 
@@ -786,7 +767,7 @@
           seven.removeClass("lose");
           seven.removeClass("open");
           seven.removeClass("rev_open");
-          seven.removeClass("stayClose");
+          seven.removeClass("remaining");
           // select(".content", door).html("");
           // select('#instr_text').show();
         }
