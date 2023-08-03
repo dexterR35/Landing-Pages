@@ -124,7 +124,7 @@
       .container-seven {
         height: fit-content;
         position: relative;
-        overflow: hidden;
+        /* overflow: hidden; */
       }
       .container-seven:hover {
         transform: scale(1.05);
@@ -136,7 +136,7 @@
       .swirl-bottom {
         background-position: center;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: 110%;
         width: 40vh;
         height: 100%;
         mix-blend-mode: screen;
@@ -352,9 +352,9 @@
         height: 100%;
       }
 
-      .picked {
+      /* .picked {
         background: green;
-      }
+      } */
 
       .container-seven.revealed {
         background-color: #08f;
@@ -362,7 +362,69 @@
       .container-seven.remaining {
         background-color: purple;
       }
+      .seven._movefromBottom,
+      .letter-seven._movefromBottom {
+        transform: translateY(44vh);
+        animation: _movefromBottom 1s 0.6s ease forwards;
+      }
+      .letter-seven._movefromBottom {
+        animation-delay: 0.6s;
+      }
+      .container-seven:nth-child(1) .seven._movefromBottom {
+        animation-delay: 0.6s;
+      }
+      .container-seven:nth-child(2) .seven._movefromBottom {
+        animation-delay: 0.8s;
+      }
+      .container-seven:nth-child(3) .seven._movefromBottom {
+        animation-delay: 1s;
+      }
+      .seven._active {
+        transform: scale(1.1);
+        transition: transform 0.5s ease both;
+      }
+      .container-seven.picked.open .swirls {
+        animation: moveDown 2s cubic-bezier(0.77, 0, 0.175, 1) infinite
+          alternate;
+          opacity: 1;
+      }
+      @keyframes moveDown {
+        0% {
+          transform: translate(-20vh, -18vh);
+          width: 40vh;
+          background-size: 110%;
+        }
+        100% {
+          transform: translate(-20vh, -43vh);
+          /* width: 50vh; */
+          background-size: 120%;
+        }
+      }
 
+      @keyframes _movefromBottom {
+        0% {
+          transform: translateY(44vh);
+        }
+        100% {
+          transform: translateY(0vh);
+        }
+      }
+
+      @keyframes scaleElem {
+        0% {
+          transform: scale(0) translate(0vh, -18vh);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) translate(-20vh, -18vh);
+          opacity: 1;
+        }
+      }
+      .swirls {
+        transform: translate(-20vh, -18vh);
+        animation: scaleElem 1s 0.3s forwards ease;
+        opacity: 0;
+      }
       /* .random_open {
         background: #000;
       } */
@@ -497,6 +559,7 @@
         "Fire Joker",
         "Shining Crown",
       ];
+
       const sevensLetter = [{ letter: "A" }, { letter: "B" }, { letter: "C" }];
       console.log(gamesCode, "gamesCode");
       let first_text =
@@ -530,19 +593,20 @@
         // }
         state = "!PICK";
 
-        $("#_Sevens").addClass("doorNon-Active");
+        select("#_Sevens").addClass("doorNon-Active");
+        // select(".seven").addClass("moveTop");
         // select(".door-container").style("cursor","default");
-        $(".start_game").show();
+        select(".start_game").show();
 
-        $("button#start_game").on("click", function () {
-          resetDoor();
-        });
+        select("button#start_game").mousePressed(resetDoor);
 
-        $("#instruction > p").html(first_text);
-        $("#instruction > .choices").hide();
-        $("#instruction > .p_continue").hide();
+        select("#instruction > p").html(first_text);
+        select("#instruction > .choices").hide();
+        select("#instruction > .p_continue").hide();
         // $("#instruction > #play-again").hide();
-        $("#instruction > .select_door").hide();
+        select("#instruction > .select_door").hide();
+        // select(".seven").addClass("_movefromBottom");
+
         // select("button#yes_select").hide();
       }
 
@@ -571,6 +635,9 @@
 
         select(".letter-seven", pickedDoor).addClass("open");
 
+        select(".seven", pickedDoor).addClass("_active");
+        select(".swirls", pickedDoor).addClass("_move");
+
         let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div>`;
         // select('#instr_text').hide();
         select("#yes_select").hide();
@@ -596,30 +663,31 @@
           symbolsSeven[i].mousePressed(pickDoor);
 
           const swirlTop = createDiv();
-          swirlTop.class("swirl-top");
+          swirlTop.class("swirl-top swirls");
           swirlTop.parent(symbolsSeven[i]);
 
           const sevenElement = createDiv();
-          sevenElement.class("seven");
+          sevenElement.class("seven _movefromBottom");
           sevenElement.mouseClicked(pickDoor); // If you want to handle the click event using p5.js
           sevenElement.parent(symbolsSeven[i]);
 
           const swirlBottom = createDiv();
-          swirlBottom.class("swirl-bottom");
+          swirlBottom.class("swirl-bottom swirls");
           swirlBottom.parent(symbolsSeven[i]);
 
           const letter = createDiv();
-          letter.class("letter-seven");
+          letter.class("letter-seven _movefromBottom");
           letter.parent(symbolsSeven[i]);
           letter.html(sevensLetter[i].letter);
         }
       }
+
       retriveData();
       function revealDoor() {
         const options = symbolsSeven.filter(
           (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
         );
-
+ 
         // right door!
         if (options.length === symbolsSeven.length - 1) {
           // Randomly remove 1
@@ -640,7 +708,7 @@
         );
         select("#instruction > p").html(four_text);
         select(".letter-seven", lastDoor).addClass("pause stayClose");
-
+    
         lastDoorIndex = lastDoor.index + 1;
         switchDoorIndex = switchDoor.index + 1;
 
@@ -752,7 +820,9 @@
           seven.prize = smallCode;
 
           seven.revealed = false;
-          select(".letter-seven", seven).html(sevensIndex);
+          $(".letter-seven", seven).html(sevensIndex);
+          // let test =  document.getElementsByClassName("letter-seven");
+          console.log("test");
           select(".letter-seven", seven).addClass("light");
           select(".letter-seven", seven).removeClass("open");
           select(".letter-seven", seven).removeClass("pause");
@@ -760,6 +830,7 @@
           select(".letter-seven", seven).removeClass("rev_open");
           select(".letter-seven", seven).removeClass("stayClose");
 
+          select(".seven", seven).removeClass("_movefromBottom");
           seven.removeClass("revealed");
           // door.removeClass('revealedNone');
           seven.removeClass("picked");
@@ -819,6 +890,7 @@
         });
 
         $("#yes_continue").on("click", function () {
+          select(".seven", seven).removeClass("_active");
           $("#instruction").hide();
           setTimeout(() => {
             revealDoor();
