@@ -365,7 +365,7 @@
       .seven._movefromBottom,
       .letter-seven._movefromBottom {
         transform: translateY(44vh);
-        animation: _movefromBottom 1s 0.6s ease forwards;
+        animation: _movefromBottom 2s 1s ease forwards;
       }
       .letter-seven._movefromBottom {
         animation-delay: 0.6s;
@@ -387,6 +387,9 @@
         animation: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
           alternate;
         opacity: 1;
+      }
+      .container-seven.picked.revealed.won {
+        background-color: rgba(231, 21, 63, 0.336);
       }
       /* .container-seven.revealed .seven{
         animation: moveDown2 10.5s ease forwards ;
@@ -675,7 +678,6 @@
         // $("#instruction > #play-again").hide();
         select("#instruction > .select_door").hide();
         // select(".seven").addClass("_movefromBottom");
-
         // select("button#yes_select").hide();
       }
 
@@ -767,18 +769,13 @@
         }
 
         for (const revealedDoor of options) {
-          revealedDoor.addClass("revealed");
-          // select("#p_continue",revealedDoor).mousePressed(switchDivs);
+          revealedDoor.addClass("revealed _first");
+          // Check if the door already has the classes 'box_content' and 'box_seven'
           select(".content", revealedDoor).addClass("box_content");
           select(".seven", revealedDoor).addClass("box_seven");
-          // setTimeout(() => {
-          //   select(".content", revealedDoor).removeClass("box_content");
-          //   select(".seven", revealedDoor).removeClass("box_seven");
-          // }, delay2s);
-          // select(".content", revealedDoor).html(revealedDoor.prize);
         }
         $("#p_continue").click(switchDivs());
-        //last door 
+        //last door
         const lastDoor = symbolsSeven.find(
           (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
         );
@@ -788,7 +785,7 @@
           seven.hasClass("picked")
         );
 
-        console.log(switchDoor,"switchDoor");
+        console.log(switchDoor, "switchDoor");
 
         select("#instruction > p").html(four_text);
         select(".letter-seven", lastDoor).addClass("pause stayClose");
@@ -815,8 +812,8 @@
         let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div><div class="third_text_t5">vrei să schimbi?</div>`;
 
         setTimeout(() => {
-          // select("#_Sevens > .container-seven.revealed").hide();
-        }, delay2s);
+          select("#_Sevens > .container-seven.revealed._first").hide();
+        }, delay3s);
 
         select("#instruction > .p_continue").hide();
 
@@ -826,7 +823,7 @@
 
         setTimeout(() => {
           select("#instruction").style("display", "flex");
-        }, delay2_5s);
+        }, delay3_5s);
       }
 
       function chooseDoor(hasSwitched = false) {
@@ -866,15 +863,15 @@
           seven.removeClass("remaining");
 
           // select(".letter-seven", seven).addClass("revealed");
-
+          select(".content", seven).addClass("box_content");
+          select(".seven", seven).addClass("box_seven");
           // select(".content", seven).html(door.prize);
         }
-        const revv = symbolsSeven.find((seven) =>
-          seven.hasClass("picked")
-        );
-
-          console.log(revv,"tesssxcvzxztr")
-
+        // const revv = symbolsSeven.find((seven) => seven.hasClass("revealed"));
+        // console.log(revv, "tesssxcvzxztr");
+        // Add classes only if the door doesn't have them yet
+         
+          $("#yes").click(switchDivs());
         // select(".span_code_input").html(codeString);
 
         // select(".span_game_input").html(gamesCode);
@@ -883,8 +880,9 @@
 
         if (pickedDoor.prize === codeString) {
           pickedDoor.addClass("won");
-     
-          // $("#p_continue").click(switchDivs());
+          // select(".content", pickedDoor).addClass("box_content");
+          // select(".seven", pickedDoor).addClass("box_seven");
+   
 
           select("#instruction > p").html("Ai câstigat!");
 
