@@ -124,14 +124,9 @@
       .container-seven {
         height: fit-content;
         position: relative;
-        overflow: hidden;
+        /* overflow: hidden; */
       }
-      .container-seven:hover {
-        transform: scale(1.05);
-        transition: transform 0.5s ease;
-        cursor: pointer;
-        mix-blend-mode: screen;
-      }
+
       .swirl-top,
       .swirl-bottom {
         background-position: center;
@@ -290,6 +285,7 @@
         background-position: 0vh top;
         background-size: 75vh;
         z-index: 0;
+        mix-blend-mode: overlay;
       }
 
       .bubble::before {
@@ -304,6 +300,7 @@
         background-position: 0vh top;
         background-size: 75vh;
         z-index: 12;
+        mix-blend-mode: screen;
       }
       .choices {
         display: flex;
@@ -331,7 +328,7 @@
         /* transform: translate(0px, -0.5em); */
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
         /* cursor: pointer; */
         z-index: 20;
         font-size: 3.7vh;
@@ -349,13 +346,11 @@
         font-size: 6.6vh;
         color: var(--letter_door);
         width: 100%;
-        height: 100%;
+        /* height: 100%; */
       }
-
       /* .picked {
         background: green;
       } */
-
       /* .container-seven.revealed {
         background-color: #08f;
       } */
@@ -381,7 +376,12 @@
       }
       .seven._active {
         transform: scale(1.1);
-        transition: transform 0.5s ease both;
+        transition: transform 0.5s ease;
+        /* -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px,
+          #ff8000 0 -10px 20px, red 0 -18px 40px,
+          inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01);
+        box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+          red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
       }
       .container-seven.revealed .swirls {
         animation: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
@@ -401,12 +401,11 @@
           background-size: 110%;
         }
         100% {
-          transform: translate(-20vh, -43vh);
+          transform: translate(-20vh, -48vh);
           /* width: 50vh; */
           background-size: 120%;
         }
       }
-
       @keyframes moveDown2 {
         0% {
           /* width: 38vh; */
@@ -417,7 +416,6 @@
           /* width:  0%; */
         }
       }
-
       @keyframes _movefromBottom {
         0% {
           transform: translateY(44vh);
@@ -426,7 +424,6 @@
           transform: translateY(0vh);
         }
       }
-
       @keyframes scaleElem {
         0% {
           transform: scale(0) translate(0vh, -18vh);
@@ -501,96 +498,119 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        mix-blend-mode: screen;
+        /* mix-blend-mode: screen; */
         z-index: 1;
       }
 
+      .rafter {
+        display: flex;
+        justify-content: center;
+        border-top: 4px solid black;
+      }
 
+      .lamp {
+        position: absolute;
+      }
 
+      .lamp:nth-child(1) {
+        transform: translate(-26vh, -27px) rotate(0deg);
+      }
+      .lamp:nth-child(1)::before {
+        /* border-bottom: 88vh solid rgb(255 255 255 / 34%); */
+      }
 
-      
-.rafter {
-  display: flex;
-  justify-content: center;
-  border-top: 4px solid black;
-}
+      .lamp:nth-child(2) {
+        transform: translate(14vh, -25px) rotate(0deg);
+        /* border-bottom: 90vh solid rgb(255 255 255 / 17%); */
+      }
 
-.lamp {
-  position: relative;
-}
+      .lamp:nth-child(3) {
+        transform: translate(54vh, -22px) rotate(0deg);
+      }
 
-.lamp:nth-child(1) {
-  transform: translate(-2px,5px) rotate(-9deg);
-}
+      .lamp::before {
+        content: "";
+        position: absolute;
+        border-bottom: 88vh solid rgb(255 255 255 / 17%);
+        border-left: 20vh solid transparent;
+        width: 43vh;
+        height: 0;
+        border-right: 20vh solid transparent;
+        top: 56px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom-left-radius: 93px;
+        border-bottom-right-radius: 93px;
+        opacity: 0;
+      }
 
-.lamp:nth-child(3) {
-  transform: translate(2px,5px) rotate(9deg);
-}
-
-.lamp::before {
-  content: '';
-  position: absolute;
-  border-bottom: 400px solid rgba(255, 255, 255, 0.5);
-  border-left: 50px solid transparent;
-  width: 25px;
-  height: 0;
-  border-right: 50px solid transparent;
-  top: 56px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-}
-
-.lamp::after {
+      /* .lamp::after {
   content: '';
   position: absolute;
   border-radius: 0 0 62.5px 62.5px;
   width: 125px;
   height: 62.5px;
   background: rgba(255, 255, 255, 0.5);
-  top: 456px;
+  top: 60vh;
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
-}
+} */
 
-.lamp[open]::before,
-.lamp[open]::after {
-  opacity: 1;
-}
+      .lamp[open]::before,
+      .lamp[open]::after {
+        opacity: 1;
+      }
 
-.lamp__icon {
-  list-style-image: none;
-  width: 64px;
-  height: 64px;
-  background: url('data:image/svg+xml;utf8,<svg width="64" height="64" viewBox="0 0 64 64" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M0 4C0 1.79086 1.79086 0 4 0H14.2857C16.4949 0 18.2857 1.79086 18.2857 4V36.5714H0V4Z" transform="translate(22.8571 8)"/><path d="M6.85714 0H25.1429L29.6 5.94286C30.5889 7.26133 29.6481 9.14286 28 9.14286H4C2.35191 9.14286 1.41115 7.26133 2.4 5.94286L6.85714 0Z" transform="translate(16 46.8571)"/></svg>');
-  position: relative;
-  cursor: pointer;
-  transition: opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+      .lamp__icon {
+        list-style-image: none;
+        width: 64px;
+        height: 64px;
+        background: url('data:image/svg+xml;utf8,<svg width="64" height="64" viewBox="0 0 64 64" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M0 4C0 1.79086 1.79086 0 4 0H14.2857C16.4949 0 18.2857 1.79086 18.2857 4V36.5714H0V4Z" transform="translate(22.8571 8)"/><path d="M6.85714 0H25.1429L29.6 5.94286C30.5889 7.26133 29.6481 9.14286 28 9.14286H4C2.35191 9.14286 1.41115 7.26133 2.4 5.94286L6.85714 0Z" transform="translate(16 46.8571)"/></svg>');
+        position: relative;
+        cursor: pointer;
+        transition: opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
 
-.lamp__icon:hover {
-  opacity: 0.6;
-}
+      .lamp__icon:hover {
+        opacity: 0.6;
+      }
 
-.lamp__icon::-webkit-details-marker {
-  background: none;
-  color: transparent;
-}
+      .lamp__icon::-webkit-details-marker {
+        background: none;
+        color: transparent;
+      }
 
-.stage {    
-  display: flex;
-  justify-content: center;
-  height: 400px;
-  align-items: flex-end;
-  border-bottom: 80px solid saddlebrown;
-}
+      .stage {
+        display: flex;
+        justify-content: center;
+        height: 400px;
+        align-items: flex-end;
+        border-bottom: 80px solid saddlebrown;
+      }
 
-.stage::after {
-  content: attr(content);
-  z-index: 1;
-}
+      .stage::after {
+        content: attr(content);
+        z-index: 1;
+      }
 
+      .bonusText {
+        font-size: 2em;
+        color: black;
+        font-weight: bold;
+        top: -1em;
+        position: relative;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 33;
+        flex-direction: column;
+        line-height: 0.9;
+        text-transform: uppercase;
+      }
     </style>
   </head>
   <body>
@@ -598,16 +618,44 @@
       <details class="lamp">
         <summary class="lamp__icon"></summary>
       </details>
-      
-    <details class="lamp">
-      <summary class="lamp__icon"></summary>
-    </details>
 
-    <details class="lamp">
-      <summary class="lamp__icon"></summary>
-    </details>
-  </div>
+      <details class="lamp">
+        <summary class="lamp__icon"></summary>
+      </details>
+
+      <details class="lamp">
+        <summary class="lamp__icon"></summary>
+      </details>
     </div>
+
+    <script>
+// Functia pentru a atribui o litera unui element "lamp" specific
+function assignLetterToLamp(lampElement, index) {
+  const lettersMap = {
+    1: "A",
+    2: "B",
+    3: "C",
+    // Poti continua adaugand mai multe litere daca este nevoie
+  };
+
+  const letterM = lettersMap[index];
+  if (letterM) {
+    lampElement.textContent = letterM;
+    lampElement.setAttribute("data-letter", letterM); // Adauga atributul "data-letter"
+  }
+}
+
+// Exemplu de utilizare cu elementele "lamp" din HTML
+const lampElements = document.querySelectorAll(".lamp__icon");
+
+lampElements.forEach((lampElement, index) => {
+  assignLetterToLamp(lampElement, index + 1);
+  console.log("testz",  index + 1)
+  console.log("testz",  lampElement)
+});
+
+    </script>
+
     <div class="container-all">
       <div class="container-stuff">
         <div class="container-girl">
@@ -791,31 +839,34 @@
         pickedDoor.addClass("picked");
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
-        userPickDoorIndex = pickedDoor.index + 1;
-        console.log(userPickDoorIndex, "userPickDoorIndex");
-        if (userPickDoorIndex === 1) {
-          userPickDoorIndex = "A";
-        } else if (userPickDoorIndex === 2) {
-          userPickDoorIndex = "B";
-        } else if (userPickDoorIndex === 3) {
-          userPickDoorIndex = "C";
+        pickDoorIndex = pickedDoor.index + 1;
+        const letterM = pickedDoor.getAttribute("data-letter");
+  console.log("The picked door's letter is:", letterM);
+        console.log(pickDoorIndex, "pickDoorIndex");
+
+        if (pickDoorIndex === 1) {
+          pickDoorIndex = "A";
+        } else if (pickDoorIndex === 2) {
+          pickDoorIndex = "B";
+        } else if (pickDoorIndex === 3) {
+          pickDoorIndex = "C";
         }
+        let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${pickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div>`;
+
         // add class to simbols and letters
         select(".letter-seven", pickedDoor).addClass("open");
 
         select(".seven", pickedDoor).addClass("_active");
-        // select(".swirls", pickedDoor).addClass("_move");
 
-        let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div>`;
-        // select('#instr_text').hide();
         select("#yes_select").hide();
 
         // instructions and buttons show
         setTimeout(() => {
-          select("#instruction > p").html(third_text);
           select("#instruction").style("display", "flex");
+          select("#instruction > p").html(third_text);
+          select(".bubble").show();
           select("#instruction > .p_continue").show();
-        }, delay1s);
+        }, delay0_5s);
       }
 
       function makeDoors() {
@@ -853,16 +904,22 @@
           const contentBonus = createDiv();
           contentBonus.class("content");
           contentBonus.parent(symbolsSeven[i]);
+
+          const bonusText = createDiv();
+          bonusText.class("bonusText");
+          bonusText.parent(contentBonus);
+
           // contentBonus.html(sevensLetter[i].letter);
         }
       }
 
-      retriveData();
+      // retriveData();
       function revealDoor() {
         const options = symbolsSeven.filter(
           (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
         );
 
+        console.log(options, "options");
         // right door!
         if (options.length === symbolsSeven.length - 1) {
           // Randomly remove 1
@@ -871,21 +928,26 @@
 
         for (const revealedDoor of options) {
           revealedDoor.addClass("revealed _first");
+          console.log(revealedDoor, "revealedDoor");
           // Check if the door already has the classes 'box_content' and 'box_seven'
           select(".content", revealedDoor).addClass("box_content");
           select(".seven", revealedDoor).addClass("box_seven");
+          select(".bonusText", revealedDoor).html(revealedDoor.prize);
         }
         $("#p_continue").click(switchDivs());
         //last door
         const lastDoor = symbolsSeven.find(
-          (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
+          (findClass) =>
+            !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
+
         lastDoor.addClass("remaining");
+        console.log(lastDoor, "lastDoor");
+        // console.log(lastDoor2,"lastDoor2");
 
-        const switchDoor = symbolsSeven.find((seven) =>
-          seven.hasClass("picked")
+        const switchDoor = symbolsSeven.find((findClass) =>
+          findClass.hasClass("picked")
         );
-
         console.log(switchDoor, "switchDoor");
 
         select("#instruction > p").html(four_text);
@@ -911,20 +973,20 @@
         }
 
         let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div><div class="third_text_t5">vrei să schimbi?</div>`;
-
-        setTimeout(() => {
-          select("#_Sevens > .container-seven.revealed._first").hide();
-        }, delay3s);
-
+        // hide show random revealead door
+        // setTimeout(() => {
+        //   select("#_Sevens > .container-seven.revealed._first").hide();
+        // }, delay3s);
+        retriveData();
         select("#instruction > .p_continue").hide();
 
         select("#instruction > p").html(five_text);
 
-        select("#instruction > .choices").style("display", "flex");
-
         setTimeout(() => {
+          select("#instruction > .choices").style("display", "flex");
           select("#instruction").style("display", "flex");
-        }, delay3_5s);
+          select(".bubble").show();
+        }, delay2s);
       }
 
       function chooseDoor(hasSwitched = false) {
@@ -932,8 +994,10 @@
 
         if (hasSwitched) {
           const newPick = symbolsSeven.find(
-            (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
+            (findClass) =>
+              !findClass.hasClass("revealed") && !findClass.hasClass("picked")
           );
+          console.log(newPick, "newPick");
           newPick.addClass("picked");
           pickedDoor.removeClass("picked");
           pickedDoor = newPick;
@@ -944,20 +1008,34 @@
           // );
           // console.log(newPick2);
         }
-        const stayDoorsRev = symbolsSeven.find((seven) =>
-          seven.hasClass("picked")
-        );
+        // const stayDoorsRev = symbolsSeven.find((seven) =>
+        //   seven.hasClass("picked")
+        // );
+        // console.log(stayDoorsRev,"stayDoorsRev");
+
         // stayDoorsRev.addClass("rev_open");
         checkWin(hasSwitched);
       }
 
       function checkWin(hasSwitched) {
         for (let seven of symbolsSeven) {
+          const parentSeven = seven.parent(); // Get the parent element of 'seven'
           codeString = `<span class="content-l1">${largeCode.substring(
             1,
             4
           )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
-          seven.prize = codeString;
+
+          const newPick2 = symbolsSeven.find(
+            (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
+          );
+          console.log(newPick2, "newPick2");
+
+          // Check if the element has the class "revealed_first" before adding the prize
+          if (seven.hasClass("picked")) {
+            seven.prize = codeString;
+            select(".bonusText", seven).html(seven.prize);
+          }
+          // seven.prize = codeString;
           seven.addClass("revealed");
           // select(".content", seven).addClass("box_content");
           // select(".seven", seven).addClass("box_seven");
@@ -966,13 +1044,16 @@
           // select(".letter-seven", seven).addClass("revealed");
           select(".content", seven).addClass("box_content");
           select(".seven", seven).addClass("box_seven");
-          // select(".content", seven).html(door.prize);
+          // select(".bonusText", seven).html(seven.prize);
+
+          console.log(seven, "seven");
+          console.log(seven.prize, "prize");
         }
         // const revv = symbolsSeven.find((seven) => seven.hasClass("revealed"));
         // console.log(revv, "tesssxcvzxztr");
         // Add classes only if the door doesn't have them yet
-         
-          $("#yes").click(switchDivs());
+
+        $("#yes").click(switchDivs());
         // select(".span_code_input").html(codeString);
 
         // select(".span_game_input").html(gamesCode);
@@ -981,9 +1062,9 @@
 
         if (pickedDoor.prize === codeString) {
           pickedDoor.addClass("won");
+          console.log(pickedDoor, "pickedDoor won");
           // select(".content", pickedDoor).addClass("box_content");
           // select(".seven", pickedDoor).addClass("box_seven");
-   
 
           select("#instruction > p").html("Ai câstigat!");
 
@@ -1018,6 +1099,7 @@
           // let test =  document.getElementsByClassName("letter-seven");
           console.log("test");
           select(".letter-seven", seven).addClass("light");
+          $(".lamp",seven).attr("open", "");
           // select(".letter-seven", seven).removeClass("open");
           // select(".letter-seven", seven).removeClass("pause");
           // select(".letter-seven", seven).removeClass("revealed");
@@ -1099,6 +1181,7 @@
         // makeInput();
         $("#yes").on("click", function () {
           $("#instruction").hide();
+          select(".bubble").hide();
           setTimeout(() => {
             chooseDoor(true);
           }, delay1s);
@@ -1122,6 +1205,7 @@
         $("#yes_continue").on("click", function () {
           // select(".seven", symbolsSeven).removeClass("_active");
           $("#instruction").hide();
+          select(".bubble").hide();
           setTimeout(() => {
             revealDoor();
           }, delay1s);
@@ -1131,7 +1215,7 @@
           for (const seven of symbolsSeven) {
             $(seven).css("cursor", "pointer");
           }
-          $("#instruction").hide();
+          select(".bubble").hide();
           state = "PICK";
         });
 
