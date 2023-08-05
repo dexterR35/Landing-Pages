@@ -504,9 +504,110 @@
         mix-blend-mode: screen;
         z-index: 1;
       }
+
+
+
+
+      
+.rafter {
+  display: flex;
+  justify-content: center;
+  border-top: 4px solid black;
+}
+
+.lamp {
+  position: relative;
+}
+
+.lamp:nth-child(1) {
+  transform: translate(-2px,5px) rotate(-9deg);
+}
+
+.lamp:nth-child(3) {
+  transform: translate(2px,5px) rotate(9deg);
+}
+
+.lamp::before {
+  content: '';
+  position: absolute;
+  border-bottom: 400px solid rgba(255, 255, 255, 0.5);
+  border-left: 50px solid transparent;
+  width: 25px;
+  height: 0;
+  border-right: 50px solid transparent;
+  top: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.lamp::after {
+  content: '';
+  position: absolute;
+  border-radius: 0 0 62.5px 62.5px;
+  width: 125px;
+  height: 62.5px;
+  background: rgba(255, 255, 255, 0.5);
+  top: 456px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+}
+
+.lamp[open]::before,
+.lamp[open]::after {
+  opacity: 1;
+}
+
+.lamp__icon {
+  list-style-image: none;
+  width: 64px;
+  height: 64px;
+  background: url('data:image/svg+xml;utf8,<svg width="64" height="64" viewBox="0 0 64 64" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M0 4C0 1.79086 1.79086 0 4 0H14.2857C16.4949 0 18.2857 1.79086 18.2857 4V36.5714H0V4Z" transform="translate(22.8571 8)"/><path d="M6.85714 0H25.1429L29.6 5.94286C30.5889 7.26133 29.6481 9.14286 28 9.14286H4C2.35191 9.14286 1.41115 7.26133 2.4 5.94286L6.85714 0Z" transform="translate(16 46.8571)"/></svg>');
+  position: relative;
+  cursor: pointer;
+  transition: opacity 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.lamp__icon:hover {
+  opacity: 0.6;
+}
+
+.lamp__icon::-webkit-details-marker {
+  background: none;
+  color: transparent;
+}
+
+.stage {    
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  align-items: flex-end;
+  border-bottom: 80px solid saddlebrown;
+}
+
+.stage::after {
+  content: attr(content);
+  z-index: 1;
+}
+
     </style>
   </head>
   <body>
+    <div class="rafter">
+      <details class="lamp">
+        <summary class="lamp__icon"></summary>
+      </details>
+      
+    <details class="lamp">
+      <summary class="lamp__icon"></summary>
+    </details>
+
+    <details class="lamp">
+      <summary class="lamp__icon"></summary>
+    </details>
+  </div>
+    </div>
     <div class="container-all">
       <div class="container-stuff">
         <div class="container-girl">
