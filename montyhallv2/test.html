@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+      }
+
+      .box {
+        /* position: absolute; */
+        width: 200px;
+        height: 200px;
+        /* top: 0; */
+        left: 0;
+        /* display: none; */
+      }
+
+      #box1 {
+        background-color: #f00;
+        display: block;
+        /* top:30em ; */
+        z-index: 12;
+        position: relative;
+      }
+
+      #box2 {
+        background-color: #00f;
+        top: 30em;
+        opacity: 0;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1" id="box1">Content of Div 1</div>
+      <div class="box box2" id="box2">Content of Div 2</div>
+    </div>
+    <button id="switchButton">Switch Divs</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        let isBox2Visible = false;
+        let speedSwitch = 600;
+
+        function switchDivs() {
+          if (isBox2Visible) {
+            $("#box1").animate(
+              { top: "-=30em", opacity: 1 },
+              speedSwitch,
+              function () {
+                $(this).show().css({ top: "0" });
+              }
+            );
+            $("#box2")
+              .css({ top: "0em", opacity: 1 })
+              .show()
+              .animate({ top: "30em", opacity: 0 }, speedSwitch);
+         
+          } else {
+            $("#box1")
+              .css({ top: "0em", opacity: 1 })
+              .show()
+              .animate({ top: "30em", opacity: 0 }, speedSwitch);
+            $("#box2").animate(
+              { top: "0em", opacity: 1 },
+              speedSwitch,
+              function () {
+                $(this).show().css({ top: "0" });
+                altaFunctie();
+              }
+            );
+          }
+          isBox2Visible = !isBox2Visible;
+        }
+
+        $("#switchButton").click(switchDivs);
+      });
+
+      function altaFunctie() {
+  // Aici puteți scrie codul pentru funcția dorită care trebuie apelată după ce se afișează #box2
+  console.log("Alta funcție a fost apelată.");
+}
+    </script>
+  </body>
+</html>

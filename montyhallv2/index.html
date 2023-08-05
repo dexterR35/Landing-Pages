@@ -124,7 +124,7 @@
       .container-seven {
         height: fit-content;
         position: relative;
-        /* overflow: hidden; */
+        overflow: hidden;
       }
       .container-seven:hover {
         transform: scale(1.05);
@@ -356,11 +356,11 @@
         background: green;
       } */
 
-      .container-seven.revealed {
+      /* .container-seven.revealed {
         background-color: #08f;
-      }
+      } */
       .container-seven.remaining {
-        background-color: purple;
+        /* background-color: purple; */
       }
       .seven._movefromBottom,
       .letter-seven._movefromBottom {
@@ -383,21 +383,35 @@
         transform: scale(1.1);
         transition: transform 0.5s ease both;
       }
-      .container-seven.picked.open .swirls {
-        animation: moveDown 2s cubic-bezier(0.77, 0, 0.175, 1) infinite
+      .container-seven.revealed .swirls {
+        animation: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
           alternate;
-          opacity: 1;
+        opacity: 1;
       }
+      /* .container-seven.revealed .seven{
+        animation: moveDown2 10.5s ease forwards ;
+      } */
       @keyframes moveDown {
         0% {
           transform: translate(-20vh, -18vh);
-          width: 40vh;
+          /* width: 40vh; */
           background-size: 110%;
         }
         100% {
           transform: translate(-20vh, -43vh);
           /* width: 50vh; */
           background-size: 120%;
+        }
+      }
+
+      @keyframes moveDown2 {
+        0% {
+          /* width: 38vh; */
+        }
+        100% {
+          /* transform: translate(-20vh, -43vh); */
+          /* width: 50vh; */
+          /* width:  0%; */
         }
       }
 
@@ -432,6 +446,61 @@
       /*END LETTER DOOR*/
       /*END LETTER DOOR*/
       /*end bubble and girl*/
+
+      .content {
+        /* background: #0000ff5c; */
+        width: 100%;
+        height: 100%;
+        z-index: 21;
+        /* position: absolute;
+    transform: translateY(40vh); */
+        opacity: 0;
+        position: absolute;
+        /* background-image: url(./png/content_prize.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        mix-blend-mode: screen;
+        z-index: 1; */
+      }
+      .content._show {
+        animation: moveTop 2s ease forwards;
+        transform: translateY(0vh);
+        opacity: 1;
+        transition: opacity ease 0.5s;
+      }
+      @keyframes moveTop {
+        0% {
+          transform: translate(-20vh, -18vh);
+          width: 40vh;
+          background-size: 110%;
+        }
+        100% {
+          transform: translate(-20vh, -43vh);
+          width: 50vh;
+          background-size: 120%;
+        }
+      }
+
+      .box_seven {
+        /* background-color: #f00; */
+        display: block;
+        /* top:30em ; */
+        z-index: 12;
+      }
+
+      .box_content {
+        /* background-color: #00f; */
+        top: 30em;
+        opacity: 0;
+        position: absolute;
+        background-image: url(./png/content_prize.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        mix-blend-mode: screen;
+        z-index: 1;
+      }
     </style>
   </head>
   <body>
@@ -613,17 +682,13 @@
       function pickDoor() {
         if (state !== "PICK") return;
         state = "REVEAL";
-
         pickedDoor = random(symbolsSeven);
+        // picked simbol
         pickedDoor = this;
-        pickedDoor.addClass("picked open");
-
-        const userPickDoor = symbolsSeven.find((seven) =>
-          seven.hasClass("picked")
-        );
-        console.log(userPickDoor, "rest");
-
-        userPickDoorIndex = userPickDoor.index + 1;
+        pickedDoor.addClass("picked");
+        console.log(pickedDoor, "pickedDoor");
+        // symbols for text for html
+        userPickDoorIndex = pickedDoor.index + 1;
         console.log(userPickDoorIndex, "userPickDoorIndex");
         if (userPickDoorIndex === 1) {
           userPickDoorIndex = "A";
@@ -632,15 +697,17 @@
         } else if (userPickDoorIndex === 3) {
           userPickDoorIndex = "C";
         }
-
+        // add class to simbols and letters
         select(".letter-seven", pickedDoor).addClass("open");
 
         select(".seven", pickedDoor).addClass("_active");
-        select(".swirls", pickedDoor).addClass("_move");
+        // select(".swirls", pickedDoor).addClass("_move");
 
         let third_text = `<div class="first_text_t3">AI ALES SIMBOLUL "${userPickDoorIndex}"</div><br/><div class="second_text_t3">TE AJUT ȘI ELIMIN UN SIMBOL <br/> NECÂȘTIGĂTOR!</div>`;
         // select('#instr_text').hide();
         select("#yes_select").hide();
+
+        // instructions and buttons show
         setTimeout(() => {
           select("#instruction > p").html(third_text);
           select("#instruction").style("display", "flex");
@@ -679,6 +746,11 @@
           letter.class("letter-seven _movefromBottom");
           letter.parent(symbolsSeven[i]);
           letter.html(sevensLetter[i].letter);
+
+          const contentBonus = createDiv();
+          contentBonus.class("content");
+          contentBonus.parent(symbolsSeven[i]);
+          // contentBonus.html(sevensLetter[i].letter);
         }
       }
 
@@ -687,7 +759,7 @@
         const options = symbolsSeven.filter(
           (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
         );
- 
+
         // right door!
         if (options.length === symbolsSeven.length - 1) {
           // Randomly remove 1
@@ -696,19 +768,31 @@
 
         for (const revealedDoor of options) {
           revealedDoor.addClass("revealed");
+          // select("#p_continue",revealedDoor).mousePressed(switchDivs);
+          select(".content", revealedDoor).addClass("box_content");
+          select(".seven", revealedDoor).addClass("box_seven");
+          // setTimeout(() => {
+          //   select(".content", revealedDoor).removeClass("box_content");
+          //   select(".seven", revealedDoor).removeClass("box_seven");
+          // }, delay2s);
           // select(".content", revealedDoor).html(revealedDoor.prize);
         }
-
+        $("#p_continue").click(switchDivs());
+        //last door 
         const lastDoor = symbolsSeven.find(
           (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
         );
         lastDoor.addClass("remaining");
+
         const switchDoor = symbolsSeven.find((seven) =>
           seven.hasClass("picked")
         );
+
+        console.log(switchDoor,"switchDoor");
+
         select("#instruction > p").html(four_text);
         select(".letter-seven", lastDoor).addClass("pause stayClose");
-    
+
         lastDoorIndex = lastDoor.index + 1;
         switchDoorIndex = switchDoor.index + 1;
 
@@ -731,7 +815,7 @@
         let five_text = `<div class="first_text_t5">POȚI SCHIMBA SIMBOLUL "${switchDoorIndex}"</div><div class="second_text_t5">cu "${lastDoorIndex}"</div><div class="third_text_t5">vrei să schimbi?</div>`;
 
         setTimeout(() => {
-          select("#_Sevens > .container-seven.revealed").hide();
+          // select("#_Sevens > .container-seven.revealed").hide();
         }, delay2s);
 
         select("#instruction > .p_continue").hide();
@@ -763,9 +847,9 @@
           // console.log(newPick2);
         }
         const stayDoorsRev = symbolsSeven.find((seven) =>
-          seven.hasClass("open")
+          seven.hasClass("picked")
         );
-        stayDoorsRev.addClass("rev_open");
+        // stayDoorsRev.addClass("rev_open");
         checkWin(hasSwitched);
       }
 
@@ -777,26 +861,37 @@
           )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
           seven.prize = codeString;
           seven.addClass("revealed");
-          select(".letter-seven", seven).addClass("revealed");
+          // select(".content", seven).addClass("box_content");
+          // select(".seven", seven).addClass("box_seven");
+          seven.removeClass("remaining");
+
+          // select(".letter-seven", seven).addClass("revealed");
 
           // select(".content", seven).html(door.prize);
         }
+        const revv = symbolsSeven.find((seven) =>
+          seven.hasClass("picked")
+        );
+
+          console.log(revv,"tesssxcvzxztr")
 
         // select(".span_code_input").html(codeString);
 
         // select(".span_game_input").html(gamesCode);
 
-        select(".letter-seven.open").addClass("rev_open");
+        // select(".letter-seven.open").addClass("rev_open");
 
         if (pickedDoor.prize === codeString) {
           pickedDoor.addClass("won");
+     
+          // $("#p_continue").click(switchDivs());
 
           select("#instruction > p").html("Ai câstigat!");
 
           setTimeout(() => {
-            showDialog();
-            select("#mask_modal").addClass("active");
-            select(".above-fold").style("height", "100vh");
+            // showDialog();
+            // select("#mask_modal").addClass("active");
+            // select(".above-fold").style("height", "100vh");
           }, delay3s);
         } else {
           select("#instruction > p").html("Ai pierdut!");
@@ -824,11 +919,11 @@
           // let test =  document.getElementsByClassName("letter-seven");
           console.log("test");
           select(".letter-seven", seven).addClass("light");
-          select(".letter-seven", seven).removeClass("open");
-          select(".letter-seven", seven).removeClass("pause");
-          select(".letter-seven", seven).removeClass("revealed");
-          select(".letter-seven", seven).removeClass("rev_open");
-          select(".letter-seven", seven).removeClass("stayClose");
+          // select(".letter-seven", seven).removeClass("open");
+          // select(".letter-seven", seven).removeClass("pause");
+          // select(".letter-seven", seven).removeClass("revealed");
+          // select(".letter-seven", seven).removeClass("rev_open");
+          // select(".letter-seven", seven).removeClass("stayClose");
 
           select(".seven", seven).removeClass("_movefromBottom");
           seven.removeClass("revealed");
@@ -837,7 +932,7 @@
           seven.removeClass("won");
           seven.removeClass("lose");
           seven.removeClass("open");
-          seven.removeClass("rev_open");
+          // seven.removeClass("rev_open");
           seven.removeClass("remaining");
           // select(".content", door).html("");
           // select('#instr_text').show();
@@ -857,6 +952,42 @@
         select("#instruction > p").html(second_text);
         select("#instruction > .select_door").show();
       }
+
+      function switchDivs() {
+        console.log("swtich");
+        let isBox2Visible = false;
+        let speedSwitch = 1000;
+        let speedSwitchDelay = 1500;
+        if (isBox2Visible) {
+          $(".box_seven").animate(
+            { top: "-=30em", opacity: 1 },
+            speedSwitch,
+            function () {
+              $(this).show().css({ top: "0" });
+            }
+          );
+          $(".box_content")
+            .css({ top: "0em", opacity: 0 })
+            .show()
+            .animate({ top: "-23em", opacity: 0 }, speedSwitch);
+        } else {
+          $(".box_seven")
+            .css({ top: "-0em", opacity: 1 })
+            .show()
+            .animate({ top: "30em", opacity: 0 }, speedSwitch);
+          $(".box_content").animate(
+            { top: "-1em", opacity: 0 },
+            speedSwitch,
+            function () {
+              $(this).show().css({ top: "-1em", opacity: 1 });
+
+              // altaFunctie();
+            }
+          );
+        }
+        isBox2Visible = !isBox2Visible;
+      }
+
       // makeDoors();
       // startGame();
       // makeInput();
@@ -873,7 +1004,7 @@
             chooseDoor(true);
           }, delay1s);
           setTimeout(() => {
-            alert("ai castigat" + largeCode);
+            // alert("ai castigat" + largeCode);
             // winConfetti();
           }, delay1_5s);
         });
@@ -884,13 +1015,13 @@
             chooseDoor(false);
           }, delay1s);
           setTimeout(() => {
-            alert("ai castigat");
+            // alert("ai castigat");
             // winConfetti();
           }, delay1_5s);
         });
 
         $("#yes_continue").on("click", function () {
-          select(".seven", seven).removeClass("_active");
+          // select(".seven", symbolsSeven).removeClass("_active");
           $("#instruction").hide();
           setTimeout(() => {
             revealDoor();
