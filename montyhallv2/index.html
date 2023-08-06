@@ -629,31 +629,30 @@
     </div>
 
     <script>
-// Functia pentru a atribui o litera unui element "lamp" specific
-function assignLetterToLamp(lampElement, index) {
-  const lettersMap = {
-    1: "A",
-    2: "B",
-    3: "C",
-    // Poti continua adaugand mai multe litere daca este nevoie
-  };
+      // Functia pentru a atribui o litera unui element "lamp" specific
+      function assignLetterToLamp(lampElement, index) {
+        const lettersMap = {
+          1: "A",
+          2: "B",
+          3: "C",
+          // Poti continua adaugand mai multe litere daca este nevoie
+        };
 
-  const letterM = lettersMap[index];
-  if (letterM) {
-    lampElement.textContent = letterM;
-    lampElement.setAttribute("data-letter", letterM); // Adauga atributul "data-letter"
-  }
-}
+        const letterM = lettersMap[index];
+        if (letterM) {
+          lampElement.textContent = letterM;
+          lampElement.setAttribute("data-letter", letterM); // Adauga atributul "data-letter"
+        }
+      }
 
-// Exemplu de utilizare cu elementele "lamp" din HTML
-const lampElements = document.querySelectorAll(".lamp__icon");
+      // Exemplu de utilizare cu elementele "lamp" din HTML
+      const lampElements = document.querySelectorAll(".lamp__icon");
 
-lampElements.forEach((lampElement, index) => {
-  assignLetterToLamp(lampElement, index + 1);
-  console.log("testz",  index + 1)
-  console.log("testz",  lampElement)
-});
-
+      lampElements.forEach((lampElement, index) => {
+        assignLetterToLamp(lampElement, index + 1);
+        console.log("testz", index + 1);
+        console.log("testz", lampElement);
+      });
     </script>
 
     <div class="container-all">
@@ -801,26 +800,10 @@ lampElements.forEach((lampElement, index) => {
       }
       // const letters = ["A", "B", "C"];
       function startGame() {
-        // for (let i = 0; i < doors.length; i++) {
-        //   let door = doors[i];
-        //   let doorIndex = i + 1;
-        //   let doorsLetter = "";
-        //   if (doorIndex >= 1 && doorIndex <= letters.length) {
-        //     doorsLetter = letters[doorIndex - 1];
-        //   }
-        //   // door.style("cursor", "default");
-        //   $(".letter-seven").eq(i).text(doorsLetter);
-        //   // select(".letter-seven", door).removeClass("light");
-        // }
         state = "!PICK";
-
         select("#_Sevens").addClass("doorNon-Active");
-        // select(".seven").addClass("moveTop");
-        // select(".door-container").style("cursor","default");
         select(".start_game").show();
-
         select("button#start_game").mousePressed(resetDoor);
-
         select("#instruction > p").html(first_text);
         select("#instruction > .choices").hide();
         select("#instruction > .p_continue").hide();
@@ -840,8 +823,6 @@ lampElements.forEach((lampElement, index) => {
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
         pickDoorIndex = pickedDoor.index + 1;
-        const letterM = pickedDoor.getAttribute("data-letter");
-  console.log("The picked door's letter is:", letterM);
         console.log(pickDoorIndex, "pickDoorIndex");
 
         if (pickDoorIndex === 1) {
@@ -1002,58 +983,52 @@ lampElements.forEach((lampElement, index) => {
           pickedDoor.removeClass("picked");
           pickedDoor = newPick;
         } else {
-          // // stayDoorsRev.addClass("rev_open");
-          // const newPick2 = doors.find(
-          //   (door) => !door.hasClass("revealed") && !door.hasClass("won")
-          // );
-          // console.log(newPick2);
+          const newPick2 = symbolsSeven.find(
+            (findClass) =>
+              !findClass.hasClass("revealed") && !findClass.hasClass("won")
+          );
+          console.log(newPick2);
         }
-        // const stayDoorsRev = symbolsSeven.find((seven) =>
-        //   seven.hasClass("picked")
-        // );
-        // console.log(stayDoorsRev,"stayDoorsRev");
-
-        // stayDoorsRev.addClass("rev_open");
         checkWin(hasSwitched);
       }
 
       function checkWin(hasSwitched) {
         for (let seven of symbolsSeven) {
-          const parentSeven = seven.parent(); // Get the parent element of 'seven'
+          // const parentSeven = seven.parent(); // Get the parent element of 'seven'
           codeString = `<span class="content-l1">${largeCode.substring(
             1,
             4
           )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
-
-          const newPick2 = symbolsSeven.find(
-            (seven) => !seven.hasClass("revealed") && !seven.hasClass("picked")
-          );
-          console.log(newPick2, "newPick2");
-
           // Check if the element has the class "revealed_first" before adding the prize
-          if (seven.hasClass("picked")) {
+          if (!seven.hasClass("picked")) {
             seven.prize = codeString;
+            console.log(codeString,"codestring")
             select(".bonusText", seven).html(seven.prize);
+            select(".content", pickedDoor).addClass("box_content");
+          select(".seven", pickedDoor).addClass("box_seven");
+          }
+          if (seven.hasClass("remaining")) {
+            seven.prize = smallCode;
+            console.log(codeString,"codestring")
+            select(".bonusText", seven).html(seven.prize);
+            select(".content", pickedDoor).addClass("box_content");
+          select(".seven", pickedDoor).addClass("box_seven");
           }
           // seven.prize = codeString;
-          seven.addClass("revealed");
+          // seven.addClass("revealed");
           // select(".content", seven).addClass("box_content");
           // select(".seven", seven).addClass("box_seven");
-          seven.removeClass("remaining");
+          // seven.removeClass("remaining");
 
           // select(".letter-seven", seven).addClass("revealed");
-          select(".content", seven).addClass("box_content");
-          select(".seven", seven).addClass("box_seven");
+          // select(".content", seven).addClass("box_content");
+          // select(".seven", seven).addClass("box_seven");
           // select(".bonusText", seven).html(seven.prize);
 
-          console.log(seven, "seven");
+          // console.log(seven, "seven");
           console.log(seven.prize, "prize");
         }
-        // const revv = symbolsSeven.find((seven) => seven.hasClass("revealed"));
-        // console.log(revv, "tesssxcvzxztr");
-        // Add classes only if the door doesn't have them yet
 
-        $("#yes").click(switchDivs());
         // select(".span_code_input").html(codeString);
 
         // select(".span_game_input").html(gamesCode);
@@ -1061,13 +1036,13 @@ lampElements.forEach((lampElement, index) => {
         // select(".letter-seven.open").addClass("rev_open");
 
         if (pickedDoor.prize === codeString) {
-          pickedDoor.addClass("won");
+          select(".content", pickedDoor).addClass("box_content");
+          select(".seven", pickedDoor).addClass("box_seven");
+          pickedDoor.addClass("won"); 
           console.log(pickedDoor, "pickedDoor won");
-          // select(".content", pickedDoor).addClass("box_content");
-          // select(".seven", pickedDoor).addClass("box_seven");
-
+          console.log(pickedDoor.prize === largeCode);
+          console.log( "codeString",codeString);
           select("#instruction > p").html("Ai câstigat!");
-
           setTimeout(() => {
             // showDialog();
             // select("#mask_modal").addClass("active");
@@ -1075,9 +1050,9 @@ lampElements.forEach((lampElement, index) => {
           }, delay3s);
         } else {
           select("#instruction > p").html("Ai pierdut!");
-
           // select('#doors > .lose > .content').html(codeString);
         }
+        $("#yes").click(switchDivs());
       }
 
       function resetDoor() {
@@ -1099,7 +1074,7 @@ lampElements.forEach((lampElement, index) => {
           // let test =  document.getElementsByClassName("letter-seven");
           console.log("test");
           select(".letter-seven", seven).addClass("light");
-          $(".lamp",seven).attr("open", "");
+          $(".lamp", seven).attr("open", "");
           // select(".letter-seven", seven).removeClass("open");
           // select(".letter-seven", seven).removeClass("pause");
           // select(".letter-seven", seven).removeClass("revealed");
