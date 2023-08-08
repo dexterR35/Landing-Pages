@@ -876,7 +876,7 @@
         pickedDoor = random(symbolsSeven);
         // picked simbol
         pickedDoor = this;
-        pickedDoor.addClass("picked esx c_picked");
+        pickedDoor.addClass("picked c_picked -sel");
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
         pickDoorIndex = pickedDoor.index + 1;
@@ -921,7 +921,7 @@
         }
         // revealed random doors
         for (const revealedDoor of options) {
-          revealedDoor.addClass("revealed _first c_revealed");
+          revealedDoor.addClass("revealed _first c_revealed -sel");
           console.log(revealedDoor, "revealedDoor");
           // Check if the door already has the classes 'box_content' and 'box_seven'
           select(".content", revealedDoor).addClass("box_content");
@@ -1000,13 +1000,13 @@
           // select(".content", newPick).addClass("box_content");
           //   select(".seven", newPick).addClass("box_seven test");
         } else {
-          const newPick2 = symbolsSeven.find(
-            (findClass) =>
-              !findClass.hasClass("revealed") && !findClass.hasClass("won")
-          );
-          select(".content", newPick2).addClass("box_content ");
-          select(".seven", newPick2).addClass("box_seven c_remaining");
-          console.log(newPick2, "newPick2");
+          // const newPick2 = symbolsSeven.find(
+          //   (findClass) =>
+          //     !findClass.hasClass("revealed") && !findClass.hasClass("won")
+          // );
+          // select(".content", newPick).addClass("box_content ");
+          // select(".seven", newPick).addClass("box_seven c_remaining");
+          // console.log(newPick, "newPick2");
           // select(".content", newPick1).addClass("box_content c_remaining");
           // select(".seven", newPick).addClass("box_seven ");
         }
@@ -1014,63 +1014,54 @@
       }
 
       function checkWin(hasSwitched) {
+        const winPick = symbolsSeven.filter(
+          (findClass) =>
+            findClass.hasClass("picked") && !findClass.hasClass("_first")
+        );
         // for (let seven of symbolsSeven) {
-        //   // // const parentSeven = seven.parent(); // Get the parent element of 'seven'
-        //   codeString = `<span class="content-l1">${largeCode.substring(
-        //     1,
-        //     4
-        //   )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
-        //      select(".content", seven).addClass(" c_remaining");
-        //     select(".seven", seven).addClass(" c_remaining");
-        //   // const newPick3 = symbolsSeven.find(
-        //   //   (findClass) =>
-        //   //     !findClass.hasClass("remaining") && findClass.hasClass("esx")
-        //   // );
-        //   // Verificați dacă elementul curent (seven) nu are clasa "esx"
-        //   // if (seven.hasClass("picked")) {
-        //   //   // Adăugați clasele "box_content" și "box_seven" la elementul curent (seven)
-        //   //   select(".content", seven).addClass("box_seven c_remaining");
-        //   //   select(".seven", seven).addClass("box_content c_remaining");
-        //   //   console.log(seven,"picked seven")
-        //   //   console.log(seven.hasClass("picked"))
-        //   // }
-        //   // setTimeout(() => {
-        //   //     if (seven.hasClass("esx"))  {
-        //   //       select(".content", seven).addClass("box_seven");
-        //   //   select(".seven", seven).addClass("box_content");
-        //   //   console.log(seven,"exs")
-        //   //     }
-        //   //     // showDialog();
-        //   //     // select("#mask_modal").addClass("active");
-        //   //     // select(".above-fold").style("height", "100vh");
-        //   //   }, delay3s);
-        //   // console.log("newPick3", newPick3);
-        //   // if (pickedDoor.prize === codeString) {
-        //   //   pickedDoor.addClass("won");
-        //   //   console.log(pickedDoor, "pickedDoor won");
-        //   //   console.log(pickedDoor.prize === largeCode, "prizzee");
-        //   //   console.log("codeString", codeString);
-        //   //   select("#instruction > p").html("Ai câstigat!");
-        //   //   select(".content", pickedDoor).addClass("box_content");
-        //   //   select(".seven", pickedDoor).addClass("box_seven");
-        //   //   setTimeout(() => {
-        //   //     // showDialog();
-        //   //     // select("#mask_modal").addClass("active");
-        //   //     // select(".above-fold").style("height", "100vh");
-        //   //   }, delay3s);
-        //   // } else {
-        //   //   select("#instruction > p").html("Ai pierdut!");
-        //   //   // select('#doors > .lose > .content').html(codeString);
-        //   // }
-        //   // $("#yes").click(switchDivs());
-        // }
-        // const options2 = symbolsSeven.filter(
-        //   (seven, i) => i !== pickedDoor.index && seven.prize !== largeCode
-        // );
-        // console.log(options2,option2);
-        // console.log(options,option1);
-        // $("#yes").click(switchDivs());
+        console.log(winPick, "newpick222222");
+        // const parentSeven = seven.parent(); // Get the parent element of 'seven'
+        let codeString = `<span class="content-l1">${largeCode.substring(
+          1,
+          4
+        )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
+        console.log(codeString, "codeString");
+        // console.log("sevennn", seven);
+        for (let textCode of winPick) {
+          select(".bonusText", textCode).html(codeString);
+          //       select(".content", seven).addClass("box_seven");
+          //   select(".seven", seven).addClass("box_content");
+          // console.log(pickedDoor.prize === codeString, "prizzee");
+          //   // setTimeout(() => {
+          //   //     // showDialog();
+          //   //     // select("#mask_modal").addClass("active");
+          //   //     // select(".above-fold").style("height", "100vh");
+          //   //   }, delay3s);
+          // console.log("pickedDoor", pickedDoor.prize);
+          // console.log("largeCode", largeCode);
+          //  let winnerS = largeCode;
+          textCode.prize = largeCode;
+          if (textCode.prize === largeCode) {
+            textCode.addClass("won");
+            // console.log(pickedDoor, "pickedDoor won");
+            console.log(textCode, "winPick");
+            // console.log("codeString", codeString);
+            select("#instruction > p").html("Ai câstigat!");
+            // select(".content", pickedDoor).addClass("box_content");
+            // select(".seven", pickedDoor).addClass("box_seven");
+            setTimeout(() => {
+              // showDialog();
+              // select("#mask_modal").addClass("active");
+              // select(".above-fold").style("height", "100vh");
+            }, delay3s);
+          } else {
+            select("#instruction > p").html("Ai pierdut!");
+            // select('#doors > .lose > .content').html(codeString);
+          }
+          //   // $("#yes").click(switchDivs());
+        }
       }
+
 
       function resetDoor() {
         for (const seven of symbolsSeven) {
@@ -1091,7 +1082,7 @@
           // let test =  document.getElementsByClassName("letter-seven");
           console.log("test");
           select(".letter-seven", seven).addClass("light");
-          $(".lamp", seven).attr("open", "");
+          // $(".lamp", seven).attr("open", "");
           select(".seven", seven).removeClass("_movefromBottom");
           seven.removeClass("revealed");
           seven.removeClass("picked");
@@ -1105,8 +1096,6 @@
         select("#_Sevens").removeClass("doorNon-Active");
         select(".start_game").hide();
 
-        const winner = random(symbolsSeven);
-        winner.prize = largeCode;
         select("#instruction > p").html(second_text);
         select("#instruction > .select_door").show();
       }
