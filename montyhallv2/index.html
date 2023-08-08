@@ -54,26 +54,27 @@
         --letter_door: azure;
         --letter_pause: azure;
 
-        /* --bg-doorInside: url({$asset}/img/INSIDE_V8.png);
-    --bg-desktop: url({$asset}/bg-desktop.jpg);
-    --bg-openDoor: url({$asset}/img/door_open2.png);
+        --bg-desktop: url(./png/bg.jpg);
+        --sevens: url(./png/seven.png);
 
-    --iFrame-doorLeft: url({$asset}/img/door_left2.png);
-    --iFrame-doorCenter: url({$asset}/img/door_center3.png);
-    --iFrame-doorRight: url({$asset}/img/door_right2.png);
+        --swirl-top: url(./png/swirl-top2.png);
+        --swirl-bottom: url(./png/swirl-bottom2.png);
 
-    --img-speachBubble: url({$asset}/img/speachBubble.png);
-    --img-astronaut: url({$asset}/img/astronaut2.png); */
+        --bubble_base: url(./png/bubble_base3.png);
+        --bubble_light: url(./png/bubble_light3.png);
+
+        --content_prize: url(./png/content_prize.png);
       }
 
       body {
         /* height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1400px; */
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              max-width: 1400px; */
         /* height: 200vh; */
         font-family: "Play", sans-serif;
+        -webkit-user-select: none;
       }
       body::after {
         content: "";
@@ -82,7 +83,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url(./png/bg.jpg);
+        background-image: var(--bg-desktop);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -90,8 +91,8 @@
       }
       .seven {
         /* width: 30vh;
-        height: 30vh; */
-        background-image: url(./png/seven.png);
+              height: 30vh; */
+        background-image: var(--sevens);
         background-position: center;
         background-repeat: no-repeat;
         background-size: 100%;
@@ -141,11 +142,11 @@
         transform: translate(-50%, -50%);
       }
       .swirl-top {
-        background-image: url(./png/swirl-top2.png);
+        background-image: var(--swirl-top);
         /* bottom: 55px; */
       }
       .swirl-bottom {
-        background-image: url(./png/swirl-bottom2.png);
+        background-image: var(--swirl-bottom);
         /* top: 14.8vh; */
         z-index: 15;
       }
@@ -280,7 +281,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: url(./png/bubble_base3.png);
+        background-image: var(--bubble_base);
         background-repeat: no-repeat;
         background-position: 0vh top;
         background-size: 75vh;
@@ -295,7 +296,7 @@
         top: 0;
         width: 100%;
         height: 100%;
-        background-image: url(./png/bubble_light3.png);
+        background-image: var(--bubble_light);
         background-repeat: no-repeat;
         background-position: 0vh top;
         background-size: 75vh;
@@ -349,20 +350,20 @@
         /* height: 100%; */
       }
       /* .picked {
-        background: green;
-      } */
+              background: green;
+            } */
       /* .container-seven.revealed {
-        background-color: #08f;
-      } */
+              background-color: #08f;
+            } */
       .container-seven.remaining {
         /* background-color: purple; */
       }
       .seven._movefromBottom,
-      /* .letter-seven._movefromBottom {
-        transform: translateY(44vh);
-        animation: _movefromBottom 2s 1s ease forwards;
-      } */
-      .letter-seven._movefromBottom {
+            /* .letter-seven._movefromBottom {
+              transform: translateY(44vh);
+              animation: _movefromBottom 2s 1s ease forwards;
+            } */
+            .letter-seven._movefromBottom {
         animation-delay: 0.6s;
       }
       .container-seven:nth-child(1) .seven._movefromBottom {
@@ -378,22 +379,18 @@
         transform: scale(1.1);
         transition: transform 0.5s ease;
         /* -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px,
-          #ff8000 0 -10px 20px, red 0 -18px 40px,
-          inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01);
-        box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-          red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
+                #ff8000 0 -10px 20px, red 0 -18px 40px,
+                inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01);
+              box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
+                red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
       }
       :root {
-        --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
-          alternate;
+        --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1)
+          forwards 2 alternate;
       }
       .container-seven.revealed .swirls {
-      animation: var(--animation-swirls);
-        /* opacity: 1; */
-      }
-      .container-seven.picked.won .swirls {
-        /* background-color: rgba(231, 21, 63, 0.336); */
         animation: var(--animation-swirls);
+        /* opacity: 1; */
       }
 
       .container-seven.remaining.-sel .swirls {
@@ -406,10 +403,35 @@
         animation: var(--animation-swirls);
       }
 
- 
+      .container-seven.picked.won .swirls {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        animation: var(--animation-swirls);
+      }
+
+      .container-seven.revealed.-sel .seven.-sev {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        background-color: #08f;
+      }
+      .container-seven.lastOpen.-sel .seven.-sev {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        background-color: red;
+      }
+
+      .container-seven.picked.won .seven.-sev {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        background: orange;
+      }
+      .container-seven.remaining.-sel .seven.-sev {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        background: purple;
+      }
+
       /* .container-seven.revealed .seven{
-        animation: moveDown2 10.5s ease forwards ;
-      } */
+              animation: moveDown2 10.5s ease forwards ;
+            } */
       @keyframes moveDown {
         0% {
           transform: translate(-20vh, -18vh);
@@ -451,13 +473,13 @@
         }
       }
       /* .swirls {
-        transform: translate(-20vh, -18vh);
-        animation: scaleElem 1s 0.3s forwards ease;
-        opacity: 0;
-      } */
+              transform: translate(-20vh, -18vh);
+              animation: scaleElem 1s 0.3s forwards ease;
+              opacity: 0;
+            } */
       /* .random_open {
-        background: #000;
-      } */
+              background: #000;
+            } */
 
       /*END LETTER DOOR*/
       /*END LETTER DOOR*/
@@ -469,16 +491,16 @@
         height: 100%;
         z-index: 21;
         /* position: absolute;
-    transform: translateY(40vh); */
+          transform: translateY(40vh); */
         opacity: 1;
         position: absolute;
         top: -1vh !important;
         /* background-image: url(./png/content_prize.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        mix-blend-mode: screen;
-        z-index: 1; */
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              mix-blend-mode: screen;
+              z-index: 1; */
       }
       .content._show {
         animation: moveTop 2s ease forwards;
@@ -502,7 +524,7 @@
       .box_seven {
         /* background-color: #f00; */
         display: block;
-        /* top:30em ; */
+        top: 30em;
         z-index: 12;
       }
 
@@ -511,7 +533,7 @@
         top: 30em;
         opacity: 1;
         position: absolute;
-        background-image: url(./png/content_prize.png);
+        background-image: var(--content_prize);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -566,17 +588,17 @@
         position: absolute;
       }
       /* .lamp::after {
-  content: '';
-  position: absolute;
-  border-radius: 0 0 62.5px 62.5px;
-  width: 125px;
-  height: 62.5px;
-  background: rgba(255, 255, 255, 0.5);
-  top: 60vh;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-} */
+        content: '';
+        position: absolute;
+        border-radius: 0 0 62.5px 62.5px;
+        width: 125px;
+        height: 62.5px;
+        background: rgba(255, 255, 255, 0.5);
+        top: 60vh;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+      } */
 
       .lamp__icon {
         list-style-image: none;
@@ -627,7 +649,7 @@
         line-height: 0.9;
         text-transform: uppercase;
       }
-
+      /* 
       .c_picked {
         background-color: rgba(255, 0, 0, 0.068);
       }
@@ -636,7 +658,7 @@
       }
       .c_revealed {
         background-color: rgba(0, 0, 0, 0.082);
-      }
+      } */
     </style>
   </head>
   <body>
@@ -883,7 +905,7 @@
         pickedDoor = random(symbolsSeven);
         // picked simbol
         pickedDoor = this;
-        pickedDoor.addClass("picked c_picked lastOpen");
+        pickedDoor.addClass("picked lastOpen");
         // pickedDoor.setAttribute("open", "");
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
@@ -935,11 +957,11 @@
         }
         // revealed random doors
         for (const revealedDoor of options) {
-          revealedDoor.addClass("revealed _first c_revealed -sel");
+          revealedDoor.addClass("revealed _first -sel");
           console.log(revealedDoor, "revealedDoor");
           // Check if the door already has the classes 'box_content' and 'box_seven'
           select(".content", revealedDoor).addClass("box_content");
-          select(".seven", revealedDoor).addClass("box_seven");
+          select(".seven", revealedDoor).addClass("box_seven -sev");
           select(".bonusText", revealedDoor).html(revealedDoor.prize);
 
           // Add class "lamp_selected" to the corresponding lamp
@@ -960,6 +982,7 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
+        // $("#yes_continue").click(switchDivs());
 
         lastDoor.addClass("remaining");
         console.log(lastDoor, "lastDoor");
@@ -1016,29 +1039,35 @@
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
         setTimeout(() => {
-        lastDoor.addClass("-sel");
-      }, delay1_5s);
+          lastDoor.addClass("-sel");
+          select(".seven", lastDoor).addClass("-sev");
+        }, delay1_5s);
         select("#instruction > .choices").hide();
         const newPick = symbolsSeven.find(
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
+                  // click yes and revealed
         if (hasSwitched) {
           newPick.addClass("picked");
           pickedDoor.removeClass("picked");
           pickedDoor = newPick;
           console.log(newPick, "newPicksssssss");
-          select(".content", newPick).addClass("box_content ");
-          select(".seven", newPick).addClass("box_seven");
-        } else {
           setTimeout(() => {
-            const newPick2 = symbolsSeven.find(
-              (findClass) =>
-                !findClass.hasClass("revealed") && !findClass.hasClass("won")
-            );
-            select(".content", newPick2).addClass("box_content ");
-            select(".seven", newPick2).addClass("box_seven");
-          }, delay1_5s);
+          select(".content", newPick).addClass("box_content");
+          select(".seven", newPick).addClass("box_seven");
+        }, delay1_5s);
+        } else {
+
+          // click no and revealed
+          // setTimeout(() => {
+          //   const newPick2 = symbolsSeven.find(
+          //     (findClass) =>
+          //       !findClass.hasClass("revealed") && !findClass.hasClass("won")
+          //   );
+          //   select(".content", newPick2).addClass("box_content");
+          //   select(".seven", newPick2).addClass("box_seven");
+          // }, delay1_5s);
         }
         checkWin(hasSwitched);
       }
@@ -1051,6 +1080,7 @@
         );
         // for (let seven of symbolsSeven) {
         console.log(winPick, "newpick222222");
+  
         // const parentSeven = seven.parent(); // Get the parent element of 'seven'
         let codeString = `<span class="content-l1">${largeCode.substring(
           1,
@@ -1066,10 +1096,11 @@
           winDiv.prize = largeCode;
           if (winDiv.prize === largeCode) {
             winDiv.addClass("won");
+            winDiv.removeClass("remaining");
             console.log(winDiv, "winDiv");
             select("#instruction > p").html("Ai câstigat!");
             select(".content", winDiv).addClass("box_content");
-            select(".seven", winDiv).addClass("box_seven");
+            select(".seven", winDiv).addClass("box_seven -sev");
             setTimeout(() => {
               // showDialog();
               // select("#mask_modal").addClass("active");
@@ -1080,16 +1111,22 @@
                 (findClass) =>
                   !findClass.hasClass("revealed") && !findClass.hasClass("won")
               );
-              select(".content", lastOneOpen).addClass("box_content ");
-              select(".seven", lastOneOpen).addClass("box_seven c_remaining");
+              // select(".content", lastOneOpen).addClass("box_content");
+              // select(".seven", lastOneOpen).addClass("box_seven");
               select(".bonusText", lastOneOpen).html(smallCode);
+              select(".content", lastOneOpen).addClass("box_content");
+            select(".seven", lastOneOpen).addClass("box_seven -sev");
             }, delay1_5s);
 
-            const correspondingLampIndex = winDiv.index;
-            const correspondingLamp = select(
-              `.lamp:nth-child(${correspondingLampIndex})`
-            );
-            correspondingLamp.addClass("lamp_selected");
+            // const correspondingLampIndex = winDiv.index;
+            // const correspondingLamp = select(
+            //   `.lamp:nth-child(${correspondingLampIndex})`
+            // );
+            // correspondingLamp.addClass("lamp_selected");
+            // if (!isBox2Visible) {
+            //   // Only trigger if the second animation isn't already active
+            //   switchDivs();
+            // }
           } else {
             select("#instruction > p").html("Ai pierdut!");
             // select('#doors > .lose > .content').html(codeString);
@@ -1100,9 +1137,9 @@
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
         setTimeout(() => {
-        lastDoor1.addClass("-sel");
-      }, delay1_5s);
-      console.log("lastDoor",lastDoor1)
+          lastDoor1.addClass("-sel");
+          select(".seven", lastDoor1).addClass("-sev");
+        }, delay1_5s);
       }
 
       function resetDoor() {
@@ -1187,41 +1224,49 @@
       //   }
       //   isBox2Visible = !isBox2Visible;
       // }
-      // function switchDivs() {
-      //   console.log("swtich");
-      //   let isBox2Visible = false;
-      //   let speedSwitch = 1000;
-      //   let speedSwitchDelay = 1500;
-      //   if (isBox2Visible) {
-      //     // $(".box_seven").animate(
-      //     //   { top: "-=30em", opacity: 1 },
-      //     //   speedSwitch,
-      //     //   function () {
-      //     //     $(this).show().css({ top: "0" });
-      //     //   }
-      //     // );
-      //     // $(".box_content")
-      //     //   .css({ top: "0em", opacity: 0 })
-      //     //   .show()
-      //     //   .animate({ top: "-23em", opacity: 0 }, speedSwitch);
-      //   } else {
-      //     $(".box_seven")
-      //       .css({ top: "-0em", opacity: 1 })
-      //       .show()
-      //       .animate({ top: "30em", opacity: 0 }, speedSwitch);
-      //     $(".box_content").animate(
-      //       { top: "-1em", opacity: 0 },
-      //       speedSwitch,
-      //       function () {
-      //         $(this).show().css({ top: "-1em", opacity: 1 });
+      let isBox2Visible = false;
+      //     function switchDivs() {
+      //       console.log("swtich");
+      //       // let isBox2Visible = false;
+      //       let speedSwitch = 1000;
+      //       let speedSwitchDelay = 1500;
 
-      //         // altaFunctie();
+      //       if (isBox2Visible) {
+      //         // $(".box_seven").animate(
+      //         //   { top: "-30em", opacity: 1 },
+      //         //   speedSwitch,
+      //         //   function () {
+      //         //     $(this).show().css({ top: "0" });
+      //         //   }
+      //         // );
+      //         $(".box_seven")
+      //           .css({ top: "0em", opacity: 1 })
+      //           .show()
+      //           .animate({ top: "30em", opacity: 0 }, speedSwitch);
+      //         // $(".box_content")
+      //         //   .css({ top: "0em", opacity: 0 })
+      //         //   .show()
+      //         //   .animate({ top: "-23em", opacity: 0 }, speedSwitch);
+      //         // alert("test");
+      //       } else {
+      //         // alert("test2");
+      //         $(".box_seven")
+      //           .css({ top: "0em", opacity: 1 })
+      //           .show()
+      //           .animate({ top: "10em", opacity: 0 }, speedSwitch);
+      //         // $(".box_content").animate(
+      //         //   { top: "-1em", opacity: 0 },
+      //         //   speedSwitch,
+      //         //   function () {
+      //         //     $(this).show().css({ top: "-1em", opacity: 1 });
+
+      //         //     // altaFunctie();
+      //         //   }
+      //         // );
+      //         isBox2Visible = !isBox2Visible;
       //       }
-      //     );
-      //   }
-      //   isBox2Visible = !isBox2Visible;
-      // }
 
+      // }
       function setup() {
         noCanvas();
         startInstruction();
@@ -1231,6 +1276,7 @@
         $("#yes").on("click", function () {
           $("#instruction").hide();
           select(".bubble").hide();
+
           setTimeout(() => {
             chooseDoor(true);
           }, delay1s);
