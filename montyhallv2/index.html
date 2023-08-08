@@ -383,14 +383,30 @@
         box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
           red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
       }
-      .container-seven.revealed .swirls {
-        animation: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
+      :root {
+        --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1) forwards 2
           alternate;
-        opacity: 1;
       }
-      .container-seven.picked.revealed.won {
-        background-color: rgba(231, 21, 63, 0.336);
+      .container-seven.revealed .swirls {
+      animation: var(--animation-swirls);
+        /* opacity: 1; */
       }
+      .container-seven.picked.won .swirls {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        animation: var(--animation-swirls);
+      }
+
+      .container-seven.remaining.-sel .swirls {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        animation: var(--animation-swirls);
+      }
+
+      .container-seven.lastOpen.-sel .swirls {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        animation: var(--animation-swirls);
+      }
+
+ 
       /* .container-seven.revealed .seven{
         animation: moveDown2 10.5s ease forwards ;
       } */
@@ -456,7 +472,7 @@
     transform: translateY(40vh); */
         opacity: 1;
         position: absolute;
-        top: 0 !important;
+        top: -1vh !important;
         /* background-image: url(./png/content_prize.png);
         background-repeat: no-repeat;
         background-size: contain;
@@ -529,9 +545,7 @@
         transform: translate(54vh, -22px) rotate(0deg);
       }
 
-      .lamp::before {
-        content: "";
-        position: absolute;
+      .lamp-selected::before {
         border-bottom: 88vh solid rgb(255 255 255 / 17%);
         border-left: 20vh solid transparent;
         width: 43vh;
@@ -545,6 +559,12 @@
         opacity: 0;
       }
 
+      .lamp-selected::before,
+      .lamp-selected::after {
+        opacity: 1 !important;
+        content: "";
+        position: absolute;
+      }
       /* .lamp::after {
   content: '';
   position: absolute;
@@ -557,11 +577,6 @@
   transform: translateX(-50%);
   opacity: 0;
 } */
-
-      .lamp[open]::before,
-      .lamp[open]::after {
-        opacity: 1;
-      }
 
       .lamp__icon {
         list-style-image: none;
@@ -597,7 +612,7 @@
 
       .bonusText {
         font-size: 2em;
-        color: black;
+        color: white;
         font-weight: bold;
         top: -1em;
         position: relative;
@@ -626,46 +641,18 @@
   </head>
   <body>
     <div class="rafter">
-      <details class="lamp">
-        <summary class="lamp__icon"></summary>
-      </details>
+      <div class="lamp">
+        <div class="lamp__icon"></div>
+      </div>
 
-      <details class="lamp">
-        <summary class="lamp__icon"></summary>
-      </details>
+      <div class="lamp">
+        <div class="lamp__icon"></div>
+      </div>
 
-      <details class="lamp">
-        <summary class="lamp__icon"></summary>
-      </details>
+      <div class="lamp">
+        <div class="lamp__icon"></div>
+      </div>
     </div>
-
-    <script>
-      // Functia pentru a atribui o litera unui element "lamp" specific
-      function assignLetterToLamp(lampElement, index) {
-        const lettersMap = {
-          1: "A",
-          2: "B",
-          3: "C",
-          // Poti continua adaugand mai multe litere daca este nevoie
-        };
-
-        const letterM = lettersMap[index];
-        if (letterM) {
-          lampElement.textContent = letterM;
-          lampElement.setAttribute("data-letter", letterM); // Adauga atributul "data-letter"
-        }
-      }
-
-      // Exemplu de utilizare cu elementele "lamp" din HTML
-      const lampElements = document.querySelectorAll(".lamp__icon");
-
-      lampElements.forEach((lampElement, index) => {
-        assignLetterToLamp(lampElement, index + 1);
-        console.log("testz", index + 1);
-        console.log("testz", lampElement);
-      });
-    </script>
-
     <div class="container-all">
       <div class="container-stuff">
         <div class="container-girl">
@@ -760,7 +747,7 @@
       console.log(symbolsSeven, "doors");
       const inputs = [];
       const instruction = [];
-
+      const lamps = [];
       let totalDoors = 3;
       let state = "PICK";
       let pickedDoor;
@@ -867,9 +854,28 @@
           bonusText.class("bonusText");
           bonusText.parent(contentBonus);
 
+          const lampIndex = lampIndices[i];
+
+          // Use lampIndex as needed, for example:
+          console.log(`Door ${i + 1} is associated with Lamp ${lampIndex}`);
+
           // contentBonus.html(sevensLetter[i].letter);
         }
       }
+      function getLampIndices() {
+        const lamps = document.querySelectorAll(".lamp"); // Select all elements with class "lamp"
+        const lampIndices = [];
+
+        console.log(lamps, "lamps");
+        lamps.forEach((lamp, index) => {
+          lampIndices.push(index + 1); // Adding 1 to convert from zero-based index to one-based index
+        });
+
+        return lampIndices;
+      }
+
+      const lampIndices = getLampIndices();
+      console.log(lampIndices, "test");
 
       function pickDoor() {
         if (state !== "PICK") return;
@@ -878,10 +884,17 @@
         // picked simbol
         pickedDoor = this;
         pickedDoor.addClass("picked c_picked lastOpen");
+        // pickedDoor.setAttribute("open", "");
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
+
         pickDoorIndex = pickedDoor.index + 1;
-        console.log(pickDoorIndex, "pickDoorIndex");
+        // Adăugați această linie pentru a adăuga clasa "lamp-selected" la lampa corespunzătoare
+        const correspondingLampIndex = pickedDoor.index;
+        const correspondingLamp = select(
+          `.lamp:nth-child(${correspondingLampIndex + 1})`
+        );
+        correspondingLamp.addClass("lamp-selected");
 
         if (pickDoorIndex === 1) {
           pickDoorIndex = "A";
@@ -929,6 +942,13 @@
           select(".seven", revealedDoor).addClass("box_seven");
           select(".bonusText", revealedDoor).html(revealedDoor.prize);
 
+          // Add class "lamp_selected" to the corresponding lamp
+
+          const correspondingLampIndex = revealedDoor.index;
+          const correspondingLamp = select(
+            `.lamp:nth-child(${correspondingLampIndex + 1})`
+          );
+          correspondingLamp.addClass("lamp_selected");
           // setTimeout(() => {
           //   select(".content", revealedDoor).removeClass("box_content");
           // select(".seven", revealedDoor).removeClass("box_seven");
@@ -991,6 +1011,13 @@
       }
 
       function chooseDoor(hasSwitched = false) {
+        const lastDoor = symbolsSeven.find(
+          (findClass) =>
+            !findClass.hasClass("revealed") && !findClass.hasClass("picked")
+        );
+        setTimeout(() => {
+        lastDoor.addClass("-sel");
+      }, delay1_5s);
         select("#instruction > .choices").hide();
         const newPick = symbolsSeven.find(
           (findClass) =>
@@ -1002,19 +1029,16 @@
           pickedDoor = newPick;
           console.log(newPick, "newPicksssssss");
           select(".content", newPick).addClass("box_content ");
-          select(".seven", newPick).addClass("box_seven c_remaining");
-          // select(".content", newPick).addClass("box_content");
-          //   select(".seven", newPick).addClass("box_seven test");
+          select(".seven", newPick).addClass("box_seven");
         } else {
           setTimeout(() => {
-               const newPick2 = symbolsSeven.find(
-            (findClass) =>
-              !findClass.hasClass("revealed") && !findClass.hasClass("won")
-          );
-              select(".content", newPick2).addClass("box_content ");
-              select(".seven", newPick2).addClass("box_seven c_remaining");
-              // select(".bonusText", newPick2).html(smallCode);
-            }, delay1_5s);
+            const newPick2 = symbolsSeven.find(
+              (findClass) =>
+                !findClass.hasClass("revealed") && !findClass.hasClass("won")
+            );
+            select(".content", newPick2).addClass("box_content ");
+            select(".seven", newPick2).addClass("box_seven");
+          }, delay1_5s);
         }
         checkWin(hasSwitched);
       }
@@ -1032,12 +1056,8 @@
           1,
           4
         )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
-        console.log(codeString, "codeString");
-        // console.log("sevennn", seven);
         for (let winDiv of winPick) {
           select(".bonusText", winDiv).html(codeString);
-          //       select(".content", seven).addClass("box_seven");
-          //   select(".seven", seven).addClass("box_content");
           //   // setTimeout(() => {
           //   //     // showDialog();
           //   //     // select("#mask_modal").addClass("active");
@@ -1046,35 +1066,43 @@
           winDiv.prize = largeCode;
           if (winDiv.prize === largeCode) {
             winDiv.addClass("won");
-            // console.log(pickedDoor, "pickedDoor won");
             console.log(winDiv, "winDiv");
-            // console.log("codeString", codeString);
             select("#instruction > p").html("Ai câstigat!");
             select(".content", winDiv).addClass("box_content");
             select(".seven", winDiv).addClass("box_seven");
-            // $("#yes").click(switchDivs());
             setTimeout(() => {
               // showDialog();
               // select("#mask_modal").addClass("active");
               // select(".above-fold").style("height", "100vh");
-        
-          }, delay1_5s);
-          setTimeout(() => {
-               const lastOneOpen = symbolsSeven.find(
-            (findClass) =>
-              !findClass.hasClass("revealed") && !findClass.hasClass("won")
-          );
+            }, delay1_5s);
+            setTimeout(() => {
+              const lastOneOpen = symbolsSeven.find(
+                (findClass) =>
+                  !findClass.hasClass("revealed") && !findClass.hasClass("won")
+              );
               select(".content", lastOneOpen).addClass("box_content ");
               select(".seven", lastOneOpen).addClass("box_seven c_remaining");
               select(".bonusText", lastOneOpen).html(smallCode);
             }, delay1_5s);
-        
 
+            const correspondingLampIndex = winDiv.index;
+            const correspondingLamp = select(
+              `.lamp:nth-child(${correspondingLampIndex})`
+            );
+            correspondingLamp.addClass("lamp_selected");
           } else {
             select("#instruction > p").html("Ai pierdut!");
             // select('#doors > .lose > .content').html(codeString);
           }
         }
+        const lastDoor1 = symbolsSeven.find(
+          (findClass) =>
+            !findClass.hasClass("revealed") && !findClass.hasClass("picked")
+        );
+        setTimeout(() => {
+        lastDoor1.addClass("-sel");
+      }, delay1_5s);
+      console.log("lastDoor",lastDoor1)
       }
 
       function resetDoor() {
@@ -1104,6 +1132,7 @@
           seven.removeClass("lose");
           seven.removeClass("open");
           seven.removeClass("remaining");
+          seven.removeClass("-sel");
           select(".content", seven).removeClass("box_content");
           select(".seven", seven).removeClass("box_seven");
         }
@@ -1192,10 +1221,7 @@
       //   }
       //   isBox2Visible = !isBox2Visible;
       // }
-      // makeDoors();
-      // startGame();
-      // makeInput();
-      // resizeWin();
+
       function setup() {
         noCanvas();
         startInstruction();
@@ -1216,6 +1242,7 @@
 
         $("#no").on("click", function () {
           $("#instruction").hide();
+          select(".bubble").hide();
           setTimeout(() => {
             chooseDoor(false);
           }, delay1s);
