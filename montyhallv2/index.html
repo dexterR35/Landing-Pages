@@ -147,7 +147,7 @@
       .swirl-bottom {
         background-image: url(./png/swirl-bottom2.png);
         /* top: 14.8vh; */
-        z-index: 12;
+        z-index: 15;
       }
       .seven,
       .text-container {
@@ -454,8 +454,9 @@
         z-index: 21;
         /* position: absolute;
     transform: translateY(40vh); */
-        opacity: 0;
+        opacity: 1;
         position: absolute;
+        top: 0 !important;
         /* background-image: url(./png/content_prize.png);
         background-repeat: no-repeat;
         background-size: contain;
@@ -492,7 +493,7 @@
       .box_content {
         /* background-color: #00f; */
         top: 30em;
-        opacity: 0;
+        opacity: 1;
         position: absolute;
         background-image: url(./png/content_prize.png);
         background-repeat: no-repeat;
@@ -613,13 +614,13 @@
       }
 
       .c_picked {
-        background-color: red;
+        background-color: rgba(255, 0, 0, 0.068);
       }
       .c_remaining {
-        background-color: purple;
+        background-color: rgba(128, 0, 128, 0.068);
       }
       .c_revealed {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.082);
       }
     </style>
   </head>
@@ -876,7 +877,7 @@
         pickedDoor = random(symbolsSeven);
         // picked simbol
         pickedDoor = this;
-        pickedDoor.addClass("picked c_picked -sel");
+        pickedDoor.addClass("picked c_picked lastOpen");
         console.log(pickedDoor, "pickedDoor");
         // symbols for text for html
         pickDoorIndex = pickedDoor.index + 1;
@@ -927,8 +928,12 @@
           select(".content", revealedDoor).addClass("box_content");
           select(".seven", revealedDoor).addClass("box_seven");
           select(".bonusText", revealedDoor).html(revealedDoor.prize);
+
+          // setTimeout(() => {
+          //   select(".content", revealedDoor).removeClass("box_content");
+          // select(".seven", revealedDoor).removeClass("box_seven");
+          // }, delay3s);
         }
-        // $("#p_continue").click(switchDivs());
 
         //last door
         const lastDoor = symbolsSeven.find(
@@ -973,10 +978,11 @@
         //   select("#_Sevens > .container-seven.revealed._first").hide();
         // }, delay3s);
         retriveData();
+        // lastDoor.mousePressed(switchDivs);
         select("#instruction > .p_continue").hide();
 
         select("#instruction > p").html(five_text);
-
+        select(".content").removeClass("box-content");
         setTimeout(() => {
           select("#instruction > .choices").style("display", "flex");
           select("#instruction").style("display", "flex");
@@ -1000,20 +1006,21 @@
           // select(".content", newPick).addClass("box_content");
           //   select(".seven", newPick).addClass("box_seven test");
         } else {
-          // const newPick2 = symbolsSeven.find(
-          //   (findClass) =>
-          //     !findClass.hasClass("revealed") && !findClass.hasClass("won")
-          // );
-          // select(".content", newPick).addClass("box_content ");
-          // select(".seven", newPick).addClass("box_seven c_remaining");
-          // console.log(newPick, "newPick2");
-          // select(".content", newPick1).addClass("box_content c_remaining");
-          // select(".seven", newPick).addClass("box_seven ");
+          setTimeout(() => {
+               const newPick2 = symbolsSeven.find(
+            (findClass) =>
+              !findClass.hasClass("revealed") && !findClass.hasClass("won")
+          );
+              select(".content", newPick2).addClass("box_content ");
+              select(".seven", newPick2).addClass("box_seven c_remaining");
+              // select(".bonusText", newPick2).html(smallCode);
+            }, delay1_5s);
         }
         checkWin(hasSwitched);
       }
 
       function checkWin(hasSwitched) {
+        // revealedDoor.removeClass("box_content");
         const winPick = symbolsSeven.filter(
           (findClass) =>
             findClass.hasClass("picked") && !findClass.hasClass("_first")
@@ -1027,41 +1034,48 @@
         )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
         console.log(codeString, "codeString");
         // console.log("sevennn", seven);
-        for (let textCode of winPick) {
-          select(".bonusText", textCode).html(codeString);
+        for (let winDiv of winPick) {
+          select(".bonusText", winDiv).html(codeString);
           //       select(".content", seven).addClass("box_seven");
           //   select(".seven", seven).addClass("box_content");
-          // console.log(pickedDoor.prize === codeString, "prizzee");
           //   // setTimeout(() => {
           //   //     // showDialog();
           //   //     // select("#mask_modal").addClass("active");
           //   //     // select(".above-fold").style("height", "100vh");
           //   //   }, delay3s);
-          // console.log("pickedDoor", pickedDoor.prize);
-          // console.log("largeCode", largeCode);
-          //  let winnerS = largeCode;
-          textCode.prize = largeCode;
-          if (textCode.prize === largeCode) {
-            textCode.addClass("won");
+          winDiv.prize = largeCode;
+          if (winDiv.prize === largeCode) {
+            winDiv.addClass("won");
             // console.log(pickedDoor, "pickedDoor won");
-            console.log(textCode, "winPick");
+            console.log(winDiv, "winDiv");
             // console.log("codeString", codeString);
             select("#instruction > p").html("Ai câstigat!");
-            // select(".content", pickedDoor).addClass("box_content");
-            // select(".seven", pickedDoor).addClass("box_seven");
+            select(".content", winDiv).addClass("box_content");
+            select(".seven", winDiv).addClass("box_seven");
+            // $("#yes").click(switchDivs());
             setTimeout(() => {
               // showDialog();
               // select("#mask_modal").addClass("active");
               // select(".above-fold").style("height", "100vh");
-            }, delay3s);
+        
+          }, delay1_5s);
+          setTimeout(() => {
+               const lastOneOpen = symbolsSeven.find(
+            (findClass) =>
+              !findClass.hasClass("revealed") && !findClass.hasClass("won")
+          );
+              select(".content", lastOneOpen).addClass("box_content ");
+              select(".seven", lastOneOpen).addClass("box_seven c_remaining");
+              select(".bonusText", lastOneOpen).html(smallCode);
+            }, delay1_5s);
+        
+
           } else {
             select("#instruction > p").html("Ai pierdut!");
             // select('#doors > .lose > .content').html(codeString);
           }
-          //   // $("#yes").click(switchDivs());
         }
       }
-
 
       function resetDoor() {
         for (const seven of symbolsSeven) {
@@ -1090,6 +1104,8 @@
           seven.removeClass("lose");
           seven.removeClass("open");
           seven.removeClass("remaining");
+          select(".content", seven).removeClass("box_content");
+          select(".seven", seven).removeClass("box_seven");
         }
         // closeDialog();
         // select('#doors').style("display","flex");
@@ -1148,17 +1164,17 @@
       //   let speedSwitch = 1000;
       //   let speedSwitchDelay = 1500;
       //   if (isBox2Visible) {
-      //     $(".box_seven").animate(
-      //       { top: "-=30em", opacity: 1 },
-      //       speedSwitch,
-      //       function () {
-      //         $(this).show().css({ top: "0" });
-      //       }
-      //     );
-      //     $(".box_content")
-      //       .css({ top: "0em", opacity: 0 })
-      //       .show()
-      //       .animate({ top: "-23em", opacity: 0 }, speedSwitch);
+      //     // $(".box_seven").animate(
+      //     //   { top: "-=30em", opacity: 1 },
+      //     //   speedSwitch,
+      //     //   function () {
+      //     //     $(this).show().css({ top: "0" });
+      //     //   }
+      //     // );
+      //     // $(".box_content")
+      //     //   .css({ top: "0em", opacity: 0 })
+      //     //   .show()
+      //     //   .animate({ top: "-23em", opacity: 0 }, speedSwitch);
       //   } else {
       //     $(".box_seven")
       //       .css({ top: "-0em", opacity: 1 })
