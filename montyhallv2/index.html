@@ -387,6 +387,10 @@
       :root {
         --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1)
           forwards 2 alternate;
+        --animation-seven: seven-down 0.8s cubic-bezier(1, 0.22, 0.15, 1)
+          forwards;
+        --animation-content: content-up 0.7s cubic-bezier(1, 0.22, 0.15, 1)
+          forwards;
       }
       .container-seven.revealed .swirls {
         animation: var(--animation-swirls);
@@ -410,7 +414,9 @@
 
       .container-seven.revealed.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
-        background-color: #08f;
+        /* background-color: #08f; */
+        transform: scale(1) translate(0vh, 0vh);
+        animation: var(--animation-seven);
       }
       .container-seven.lastOpen.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
@@ -418,17 +424,44 @@
         background-color: red;
       }
 
-      .container-seven.picked.won .seven.-sev {
+      .container-seven.picked.won.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* animation: var(--animation-swirls); */
-        background: orange;
+        background-color: orange;
       }
       .container-seven.remaining.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* animation: var(--animation-swirls); */
-        background: purple;
+        background-color: purple;
+      }
+      @keyframes seven-down {
+        0% {
+          transform: scale(1) translate(0vh, 0vh);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1) translate(0vh, 30vh);
+          opacity: 0;
+        }
       }
 
+        .container-seven.revealed.-sel .box_content.-anim {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* background-color: #08f; */
+        transform: scale(1) translate(0vh, 30vh);
+        animation: var(--animation-content);
+      }
+         @keyframes content-up {
+        0% {
+          transform: scale(1) translate(0vh, 30vh);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1) translate(0vh, 0vh);
+          opacity: 1;
+        }
+      }
+      
       /* .container-seven.revealed .seven{
               animation: moveDown2 10.5s ease forwards ;
             } */
@@ -524,7 +557,7 @@
       .box_seven {
         /* background-color: #f00; */
         display: block;
-        top: 30em;
+        /* top: 30em; */
         z-index: 12;
       }
 
@@ -960,9 +993,12 @@
           revealedDoor.addClass("revealed _first -sel");
           console.log(revealedDoor, "revealedDoor");
           // Check if the door already has the classes 'box_content' and 'box_seven'
-          select(".content", revealedDoor).addClass("box_content");
+          setTimeout(() => {
+            select(".content", revealedDoor).addClass("box_content -anim");
           select(".seven", revealedDoor).addClass("box_seven -sev");
           select(".bonusText", revealedDoor).html(revealedDoor.prize);
+        }, 700);
+
 
           // Add class "lamp_selected" to the corresponding lamp
 
@@ -1047,18 +1083,17 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
-                  // click yes and revealed
+        // click yes and revealed
         if (hasSwitched) {
           newPick.addClass("picked");
           pickedDoor.removeClass("picked");
           pickedDoor = newPick;
           console.log(newPick, "newPicksssssss");
           setTimeout(() => {
-          select(".content", newPick).addClass("box_content");
-          select(".seven", newPick).addClass("box_seven");
-        }, delay1_5s);
+            select(".content", newPick).addClass("box_content");
+            select(".seven", newPick).addClass("box_seven");
+          }, delay1_5s);
         } else {
-
           // click no and revealed
           // setTimeout(() => {
           //   const newPick2 = symbolsSeven.find(
@@ -1080,7 +1115,7 @@
         );
         // for (let seven of symbolsSeven) {
         console.log(winPick, "newpick222222");
-  
+
         // const parentSeven = seven.parent(); // Get the parent element of 'seven'
         let codeString = `<span class="content-l1">${largeCode.substring(
           1,
@@ -1115,7 +1150,7 @@
               // select(".seven", lastOneOpen).addClass("box_seven");
               select(".bonusText", lastOneOpen).html(smallCode);
               select(".content", lastOneOpen).addClass("box_content");
-            select(".seven", lastOneOpen).addClass("box_seven -sev");
+              select(".seven", lastOneOpen).addClass("box_seven -sev");
             }, delay1_5s);
 
             // const correspondingLampIndex = winDiv.index;
