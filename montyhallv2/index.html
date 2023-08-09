@@ -54,7 +54,7 @@
         --letter_door: azure;
         --letter_pause: azure;
 
-        --bg-desktop: url(./png/bg.jpg);
+        --bg-desktop: url(./png/bg2.jpg);
         --sevens: url(./png/seven.png);
         --sevens2: url(./png/seven2.png);
 
@@ -65,9 +65,7 @@
         --bubble_light: url(./png/bubble_light3.png);
 
         --content_prize: url(./png/content_prize.png);
-
-
-        
+        --content_prize_base: url(./png/content_prize_base.png);
       }
 
       body {
@@ -99,7 +97,7 @@
         background-image: var(--sevens);
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size:40vh;
         z-index: 12;
         position: relative;
       }
@@ -136,7 +134,7 @@
       .swirl-bottom {
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 110%;
+        background-size:45vh;
         width: 40vh;
         height: 100%;
         mix-blend-mode: screen;
@@ -197,6 +195,8 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        position: relative;
+        top: 5vh;
       }
       .container-girl {
         position: relative;
@@ -403,7 +403,7 @@
         z-index: -1;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 100%;
+        background-size:40vh;
         mix-blend-mode: screen;
         /* transform: scale(1.05); */
         opacity: 0.8;
@@ -562,29 +562,6 @@
       /*END LETTER DOOR*/
       /*end bubble and girl*/
 
-      .content {
-        /* background: #0000ff5c; */
-        width: 100%;
-        height: 100%;
-        z-index: 21;
-        /* position: absolute;
-          transform: translateY(40vh); */
-        opacity: 1;
-        position: absolute;
-        top: -1vh !important;
-        /* background-image: url(./png/content_prize.png);
-              background-repeat: no-repeat;
-              background-size: contain;
-              background-position: center;
-              mix-blend-mode: screen;
-              z-index: 1; */
-      }
-      .content._show {
-        animation: moveTop 2s ease forwards;
-        transform: translateY(0vh);
-        opacity: 1;
-        transition: opacity ease 0.5s;
-      }
       @keyframes moveTop {
         0% {
           transform: translate(-20vh, -18vh);
@@ -605,19 +582,6 @@
         z-index: 12;
       }
 
-      .box_content {
-        /* background-color: #00f; */
-        top: 30em;
-        opacity: 1;
-        position: absolute;
-        background-image: var(--content_prize);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        /* mix-blend-mode: screen; */
-        z-index: 12;
-      }
-
       .rafter {
         display: flex;
         justify-content: center;
@@ -626,6 +590,7 @@
 
       .lamp {
         position: absolute;
+        z-index: 12;
       }
 
       .lamp:nth-child(1) {
@@ -657,13 +622,13 @@
         border-bottom-right-radius: 93px;
         opacity: 0;
       } */
-    
-        .lamp.lamp-selected::before,
-       .lamp.lamp-selected::after {
+
+      .lamp.lamp-selected::before,
+      .lamp.lamp-selected::after {
         opacity: 1 !important;
         content: "";
         position: absolute;
-          border-bottom: 88vh solid rgb(255 255 255 / 17%);
+        border-bottom: 88vh solid rgb(255 255 255 / 9%);
         border-left: 20vh solid transparent;
         width: 43vh;
         height: 0;
@@ -675,7 +640,68 @@
         border-bottom-right-radius: 93px;
         opacity: 0;
       }
+      .content {
+        top: 25em;
+      }
+      .content {
+        /* background: #0000ff5c; */
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        /* position: absolute;
+          transform: translateY(40vh); */
+        opacity: 1;
+        position: absolute;
 
+        /* mix-blend-mode: screen; */
+        /* background-image: url(./png/content_prize.png);
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              mix-blend-mode: screen;
+              z-index: 1; */
+      }
+      /* .content._show {
+        animation: moveTop 2s ease forwards;
+        transform: translateY(0vh);
+        opacity: 1;
+        transition: opacity ease 0.5s;
+      } */
+
+      .content.box_content::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: var(--content_prize_base);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        mix-blend-mode: screen;
+        top: 0;
+        left: 0;
+      }
+      .box_content {
+        opacity: 1;
+        position: absolute;
+        top: -1vh;
+      }
+      .content.box_content::before {
+        content: "";
+        position: absolute;
+        /* background-color: #00f; */
+        /* top: 25em; */
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        position: absolute;
+        background-image: var(--content_prize);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+
+        z-index: 12;
+      }
       /* .lamp.lamp-selected::before,
       .lamp.lamp-selected::after {
         opacity: 1 !important;
@@ -885,7 +911,7 @@
       let delay4s = 4000;
       let delay4_5s = 4500;
       let delay5s = 5000;
-      let addClassAnimation = 600;  // time add class for animation
+      let addClassAnimation = 600; // time add class for animation
       let hasSwitchedDivs = false;
       let _games = [
         "Game of Gladiators Uprising",
@@ -1064,7 +1090,6 @@
 
           // Add class "lamp_selected" to the corresponding lamp
 
-     
           // setTimeout(() => {
           //   select(".content", revealedDoor).removeClass("box_content");
           // select(".seven", revealedDoor).removeClass("box_seven");
@@ -1132,22 +1157,21 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
-     
+
         const correspondingLampIndex = lastDoor.index;
-          const correspondingLamp = select(
-            `.lamp:nth-child(${correspondingLampIndex + 1})`
-          );
-          correspondingLamp.addClass("lamp-selected");
+        const correspondingLamp = select(
+          `.lamp:nth-child(${correspondingLampIndex + 1})`
+        );
+        correspondingLamp.addClass("lamp-selected");
         setTimeout(() => {
           lastDoor.addClass("-sel");
-        
         }, delay1_5s);
         select("#instruction > .choices").hide();
         const newPick = symbolsSeven.find(
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
-  
+
         // click yes and revealed
         if (hasSwitched) {
           select(".seven", lastDoor).addClass("-sev");
@@ -1155,7 +1179,7 @@
           pickedDoor.removeClass("picked");
           // select(".seven", lastDoor).removeClass("-sev");
           pickedDoor = newPick;
-         
+
           // const correspondingLampIndex = pickedDoor.index;
           // console.log(correspondingLampIndex, "correspondingLampIndex");
           //   const correspondingLamp = select(
@@ -1163,11 +1187,9 @@
           //   );
           //   correspondingLamp.addClass("lamp_selected");
           setTimeout(() => {
-          
             select(".content", newPick).addClass("box_content -anim");
             select(".seven", newPick).addClass("box_seven -sev");
           }, addClassAnimation);
-       
         } else {
           setTimeout(() => {
             const newPick2 = symbolsSeven.find(
@@ -1176,12 +1198,11 @@
             );
             select(".content", newPick2).addClass("box_content -anim");
             select(".seven", newPick2).addClass("box_seven -sev");
-  
           }, addClassAnimation);
           // click no and revealed
           // setTimeout(() => {
         }
-      
+
         checkWin(hasSwitched);
       }
 
@@ -1191,7 +1212,7 @@
           (findClass) =>
             findClass.hasClass("picked") && !findClass.hasClass("_first")
         );
-      
+
         // for (let seven of symbolsSeven) {
         // console.log(winPick, "newpick222222");
 
@@ -1209,14 +1230,14 @@
           //   //   }, delay3s);
 
           select(".seven", winDiv).addClass("_active");
-        winDiv.prize = largeCode;
+          winDiv.prize = largeCode;
           if (winDiv.prize === largeCode) {
             setTimeout(() => {
               select(".bonusText", winDiv).html(codeString);
             }, addClassAnimation);
             winDiv.addClass("won");
             winDiv.removeClass("remaining");
-      
+
             console.log(winDiv, "winDiv");
             select("#instruction > p").html("Ai câstigat!");
             const lastOneOpen = symbolsSeven.find(
@@ -1232,7 +1253,6 @@
             // select(".above-fold").style("height", "100vh");
             setTimeout(() => {
               lastOneOpen.addClass("-sel");
-           
             }, delay1_5s);
 
             setTimeout(() => {
@@ -1338,7 +1358,6 @@
         });
 
         $("#yes_continue").on("click", function () {
- 
           $("#instruction").hide();
           select(".bubble").hide();
           setTimeout(() => {
