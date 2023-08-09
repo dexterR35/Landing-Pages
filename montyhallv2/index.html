@@ -375,15 +375,15 @@
       .container-seven:nth-child(3) .seven._movefromBottom {
         animation-delay: 1s;
       }
-      .seven._active {
-        transform: scale(1.1);
-        transition: transform 0.5s ease;
+      /* .seven._active { */
+        /* transform: scale(1.1); */
+        /* transition: transform 0.5s ease; */
         /* -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px,
                 #ff8000 0 -10px 20px, red 0 -18px 40px,
                 inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01);
               box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
                 red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
-      }
+      /* } */
       :root {
         --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1)
           forwards 2 alternate;
@@ -413,26 +413,31 @@
       }
 
       .container-seven.revealed.-sel .seven.-sev {
-        /* background-color: rgba(231, 21, 63, 0.336); */
+
         /* background-color: #08f; */
         transform: scale(1) translate(0vh, 0vh);
         animation: var(--animation-seven);
       }
       .container-seven.lastOpen.-sel .seven.-sev {
-        /* background-color: rgba(231, 21, 63, 0.336); */
-        /* animation: var(--animation-swirls); */
-        background-color: red;
+
+        /* background-color: red; */
+          animation: var(--animation-seven);
       }
 
-      .container-seven.picked.won.-sel .seven.-sev {
-        /* background-color: rgba(231, 21, 63, 0.336); */
-        /* animation: var(--animation-swirls); */
-        background-color: orange;
+      .container-seven.picked.won .seven.-sev {
+        
+        /* background-color: orange; */
+        animation: var(--animation-seven);
+      }
+      .container-seven.picked.lastOpen.won .seven.-sev {
+
+        /* background-color: orange; */
+        animation: var(--animation-seven);
       }
       .container-seven.remaining.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
-        /* animation: var(--animation-swirls); */
-        background-color: purple;
+
+             animation: var(--animation-seven);
       }
       @keyframes seven-down {
         0% {
@@ -445,13 +450,31 @@
         }
       }
 
-        .container-seven.revealed.-sel .box_content.-anim {
+      .container-seven.revealed.-sel .box_content.-anim {
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* background-color: #08f; */
         transform: scale(1) translate(0vh, 30vh);
         animation: var(--animation-content);
       }
-         @keyframes content-up {
+      .container-seven.picked.won .box_content.-anim {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        /* background-color: orange; */
+       animation: var(--animation-content);
+      }
+      .container-seven.lastOpen.-sel .box_content.-anim {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        /* background-color: orange; */
+       animation: var(--animation-content);
+      }
+        .container-seven.remaining.-sel .box_content.-anim {
+        /* background-color: rgba(231, 21, 63, 0.336); */
+        /* animation: var(--animation-swirls); */
+        /* background-color: orange; */
+       animation: var(--animation-content);
+      }
+      @keyframes content-up {
         0% {
           transform: scale(1) translate(0vh, 30vh);
           opacity: 0;
@@ -461,7 +484,7 @@
           opacity: 1;
         }
       }
-      
+
       /* .container-seven.revealed .seven{
               animation: moveDown2 10.5s ease forwards ;
             } */
@@ -995,10 +1018,9 @@
           // Check if the door already has the classes 'box_content' and 'box_seven'
           setTimeout(() => {
             select(".content", revealedDoor).addClass("box_content -anim");
-          select(".seven", revealedDoor).addClass("box_seven -sev");
-          select(".bonusText", revealedDoor).html(revealedDoor.prize);
-        }, 700);
-
+            select(".seven", revealedDoor).addClass("box_seven -sev");
+            select(".bonusText", revealedDoor).html(revealedDoor.prize);
+          }, 700);
 
           // Add class "lamp_selected" to the corresponding lamp
 
@@ -1061,7 +1083,7 @@
         select("#instruction > .p_continue").hide();
 
         select("#instruction > p").html(five_text);
-        select(".content").removeClass("box-content");
+        // select(".content").removeClass("box-content");
         setTimeout(() => {
           select("#instruction > .choices").style("display", "flex");
           select("#instruction").style("display", "flex");
@@ -1076,7 +1098,7 @@
         );
         setTimeout(() => {
           lastDoor.addClass("-sel");
-          select(".seven", lastDoor).addClass("-sev");
+        
         }, delay1_5s);
         select("#instruction > .choices").hide();
         const newPick = symbolsSeven.find(
@@ -1085,24 +1107,31 @@
         );
         // click yes and revealed
         if (hasSwitched) {
+            select(".seven", lastDoor).addClass("-sev");
           newPick.addClass("picked");
           pickedDoor.removeClass("picked");
+          // select(".seven", lastDoor).removeClass("-sev");
           pickedDoor = newPick;
           console.log(newPick, "newPicksssssss");
           setTimeout(() => {
-            select(".content", newPick).addClass("box_content");
-            select(".seven", newPick).addClass("box_seven");
-          }, delay1_5s);
+            select(".content", newPick).addClass("box_content -anim");
+            select(".seven", newPick).addClass("box_seven -sev");
+          }, 700);
         } else {
+              setTimeout(() => {
+             const newPick2 = symbolsSeven.find(
+              (findClass) =>
+              findClass.hasClass("picked") && !findClass.hasClass("_first")
+            );
+                    select(".content", newPick2).addClass("box_content -anim");
+            select(".seven", newPick2).addClass("box_seven -sev");
+
+            }, 700);
           // click no and revealed
           // setTimeout(() => {
-          //   const newPick2 = symbolsSeven.find(
-          //     (findClass) =>
-          //       !findClass.hasClass("revealed") && !findClass.hasClass("won")
-          //   );
-          //   select(".content", newPick2).addClass("box_content");
-          //   select(".seven", newPick2).addClass("box_seven");
-          // }, delay1_5s);
+         
+    
+        
         }
         checkWin(hasSwitched);
       }
@@ -1114,44 +1143,58 @@
             findClass.hasClass("picked") && !findClass.hasClass("_first")
         );
         // for (let seven of symbolsSeven) {
-        console.log(winPick, "newpick222222");
-
-        // const parentSeven = seven.parent(); // Get the parent element of 'seven'
+        // console.log(winPick, "newpick222222");
+ 
         let codeString = `<span class="content-l1">${largeCode.substring(
           1,
           4
         )}</span><span class="content-l2">runde</span><span class="content-l3">gratuite</span>`;
+        // const parentSeven = seven.parent(); // Get the parent element of 'seven'
+
         for (let winDiv of winPick) {
-          select(".bonusText", winDiv).html(codeString);
+         
           //   // setTimeout(() => {
           //   //     // showDialog();
           //   //     // select("#mask_modal").addClass("active");
           //   //     // select(".above-fold").style("height", "100vh");
           //   //   }, delay3s);
+
           winDiv.prize = largeCode;
+
           if (winDiv.prize === largeCode) {
+   
+
+        setTimeout(() => {
+          select(".bonusText", winDiv).html(codeString);
+        }, 700)
             winDiv.addClass("won");
             winDiv.removeClass("remaining");
+            
             console.log(winDiv, "winDiv");
             select("#instruction > p").html("Ai câstigat!");
-            select(".content", winDiv).addClass("box_content");
-            select(".seven", winDiv).addClass("box_seven -sev");
-            setTimeout(() => {
-              // showDialog();
-              // select("#mask_modal").addClass("active");
-              // select(".above-fold").style("height", "100vh");
-            }, delay1_5s);
-            setTimeout(() => {
-              const lastOneOpen = symbolsSeven.find(
+            const lastOneOpen = symbolsSeven.find(
                 (findClass) =>
                   !findClass.hasClass("revealed") && !findClass.hasClass("won")
               );
+          //   setTimeout(() => {
+          //   select(".content", winDiv).addClass("box_content -anim");
+          //   select(".seven", winDiv).addClass("box_seven -sev");
+          // }, 700);
+            // showDialog();
+            // select("#mask_modal").addClass("active");
+            // select(".above-fold").style("height", "100vh");
+            setTimeout(() => {
+              lastOneOpen.addClass("-sel")
+            }, delay1_5s);
+
+            setTimeout(() => {
+   
               // select(".content", lastOneOpen).addClass("box_content");
               // select(".seven", lastOneOpen).addClass("box_seven");
-              select(".bonusText", lastOneOpen).html(smallCode);
-              select(".content", lastOneOpen).addClass("box_content");
+              select(".content", lastOneOpen).addClass("box_content -anim");
               select(".seven", lastOneOpen).addClass("box_seven -sev");
-            }, delay1_5s);
+              select(".bonusText", lastOneOpen).html(smallCode);
+            }, delay2s);
 
             // const correspondingLampIndex = winDiv.index;
             // const correspondingLamp = select(
@@ -1171,10 +1214,10 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
-        setTimeout(() => {
-          lastDoor1.addClass("-sel");
-          select(".seven", lastDoor1).addClass("-sev");
-        }, delay1_5s);
+        // setTimeout(() => {
+        //   lastDoor1.addClass("-sel");
+        //   select(".seven", lastDoor1).addClass("-sev");
+        // }, delay1_5s);
       }
 
       function resetDoor() {
@@ -1205,6 +1248,7 @@
           seven.removeClass("open");
           seven.removeClass("remaining");
           seven.removeClass("-sel");
+          seven.removeClass("-sev");
           select(".content", seven).removeClass("box_content");
           select(".seven", seven).removeClass("box_seven");
         }
@@ -1314,7 +1358,7 @@
 
           setTimeout(() => {
             chooseDoor(true);
-          }, delay1s);
+          }, 700);
           setTimeout(() => {
             // alert("ai castigat" + largeCode);
             // winConfetti();
