@@ -56,6 +56,7 @@
 
         --bg-desktop: url(./png/bg.jpg);
         --sevens: url(./png/seven.png);
+        --sevens2: url(./png/seven2.png);
 
         --swirl-top: url(./png/swirl-top2.png);
         --swirl-bottom: url(./png/swirl-bottom2.png);
@@ -64,6 +65,9 @@
         --bubble_light: url(./png/bubble_light3.png);
 
         --content_prize: url(./png/content_prize.png);
+
+
+        
       }
 
       body {
@@ -341,13 +345,22 @@
           #ffb0a5 0px 0px 20px, #f34502 0px 0px 30px, #eb1e1e 0px 0px 40px,
           #d54110 0px 0px 50px, #ed5120 0px 0px 75px;
       }
-      .letter-seven.open {
+      /* .letter-seven.open {
         transition: var(--transition-mask);
         transform: translate(0em, 0.2em);
         font-size: 6.6vh;
         color: var(--letter_door);
         width: 100%;
-        /* height: 100%; */
+
+        position: relative;
+      } */
+      .letter-seven.open::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
       /* .picked {
               background: green;
@@ -375,21 +388,33 @@
       .container-seven:nth-child(3) .seven._movefromBottom {
         animation-delay: 1s;
       }
-      /* .seven._active { */
-        /* transform: scale(1.1); */
-        /* transition: transform 0.5s ease; */
-        /* -webkit-box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px,
-                #ff8000 0 -10px 20px, red 0 -18px 40px,
-                inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01);
-              box-shadow: #fff 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px,
-                red 0 -18px 40px, inset 12px -6px 12px 1px rgba(0, 0, 0, 0.01); */
-      /* } */
+      .seven._active {
+        /* position: relative;
+        z-index: 12; */
+        transform: scale(1.05);
+      }
+      .seven._active::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        mix-blend-mode: screen;
+        /* transform: scale(1.05); */
+        opacity: 0.8;
+        background-image: var(--sevens);
+      }
       :root {
-        --animation-swirls: moveDown 0.7s cubic-bezier(1, 0.22, 0.15, 1)
+        --animation-swirls: moveDown 0.55s cubic-bezier(1, 0.22, 0.15, 1)
           forwards 2 alternate;
-        --animation-seven: seven-down 0.8s cubic-bezier(1, 0.22, 0.15, 1)
+        --animation-seven: seven-down 0.55s cubic-bezier(1, 0.22, 0.15, 1)
           forwards;
-        --animation-content: content-up 0.7s cubic-bezier(1, 0.22, 0.15, 1)
+        --animation-content: content-up 0.55s cubic-bezier(1, 0.22, 0.15, 1)
           forwards;
       }
       .container-seven.revealed .swirls {
@@ -413,31 +438,27 @@
       }
 
       .container-seven.revealed.-sel .seven.-sev {
-
         /* background-color: #08f; */
-        transform: scale(1) translate(0vh, 0vh);
+        /* transform: scale(1) translate(0vh, 0vh); */
         animation: var(--animation-seven);
       }
       .container-seven.lastOpen.-sel .seven.-sev {
-
         /* background-color: red; */
-          animation: var(--animation-seven);
+        animation: var(--animation-seven);
       }
 
       .container-seven.picked.won .seven.-sev {
-        
         /* background-color: orange; */
         animation: var(--animation-seven);
       }
       .container-seven.picked.lastOpen.won .seven.-sev {
-
         /* background-color: orange; */
         animation: var(--animation-seven);
       }
       .container-seven.remaining.-sel .seven.-sev {
         /* background-color: rgba(231, 21, 63, 0.336); */
 
-             animation: var(--animation-seven);
+        animation: var(--animation-seven);
       }
       @keyframes seven-down {
         0% {
@@ -460,19 +481,19 @@
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* animation: var(--animation-swirls); */
         /* background-color: orange; */
-       animation: var(--animation-content);
+        animation: var(--animation-content);
       }
       .container-seven.lastOpen.-sel .box_content.-anim {
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* animation: var(--animation-swirls); */
         /* background-color: orange; */
-       animation: var(--animation-content);
+        animation: var(--animation-content);
       }
-        .container-seven.remaining.-sel .box_content.-anim {
+      .container-seven.remaining.-sel .box_content.-anim {
         /* background-color: rgba(231, 21, 63, 0.336); */
         /* animation: var(--animation-swirls); */
         /* background-color: orange; */
-       animation: var(--animation-content);
+        animation: var(--animation-content);
       }
       @keyframes content-up {
         0% {
@@ -623,8 +644,26 @@
         transform: translate(54vh, -22px) rotate(0deg);
       }
 
-      .lamp-selected::before {
+      /* .lamp.lamp-selected::before {
         border-bottom: 88vh solid rgb(255 255 255 / 17%);
+        border-left: 20vh solid transparent;
+        width: 43vh;
+        height: 0;
+        border-right: 20vh solid transparent;
+        top: 56px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom-left-radius: 93px;
+        border-bottom-right-radius: 93px;
+        opacity: 0;
+      } */
+    
+        .lamp.lamp-selected::before,
+       .lamp.lamp-selected::after {
+        opacity: 1 !important;
+        content: "";
+        position: absolute;
+          border-bottom: 88vh solid rgb(255 255 255 / 17%);
         border-left: 20vh solid transparent;
         width: 43vh;
         height: 0;
@@ -637,12 +676,12 @@
         opacity: 0;
       }
 
-      .lamp-selected::before,
-      .lamp-selected::after {
+      /* .lamp.lamp-selected::before,
+      .lamp.lamp-selected::after {
         opacity: 1 !important;
         content: "";
         position: absolute;
-      }
+      } */
       /* .lamp::after {
         content: '';
         position: absolute;
@@ -846,6 +885,7 @@
       let delay4s = 4000;
       let delay4_5s = 4500;
       let delay5s = 5000;
+      let addClassAnimation = 600;  // time add class for animation
       let hasSwitchedDivs = false;
       let _games = [
         "Game of Gladiators Uprising",
@@ -1020,15 +1060,11 @@
             select(".content", revealedDoor).addClass("box_content -anim");
             select(".seven", revealedDoor).addClass("box_seven -sev");
             select(".bonusText", revealedDoor).html(revealedDoor.prize);
-          }, 700);
+          }, addClassAnimation);
 
           // Add class "lamp_selected" to the corresponding lamp
 
-          const correspondingLampIndex = revealedDoor.index;
-          const correspondingLamp = select(
-            `.lamp:nth-child(${correspondingLampIndex + 1})`
-          );
-          correspondingLamp.addClass("lamp_selected");
+     
           // setTimeout(() => {
           //   select(".content", revealedDoor).removeClass("box_content");
           // select(".seven", revealedDoor).removeClass("box_seven");
@@ -1096,6 +1132,12 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
+     
+        const correspondingLampIndex = lastDoor.index;
+          const correspondingLamp = select(
+            `.lamp:nth-child(${correspondingLampIndex + 1})`
+          );
+          correspondingLamp.addClass("lamp-selected");
         setTimeout(() => {
           lastDoor.addClass("-sel");
         
@@ -1105,34 +1147,41 @@
           (findClass) =>
             !findClass.hasClass("revealed") && !findClass.hasClass("picked")
         );
+  
         // click yes and revealed
         if (hasSwitched) {
-            select(".seven", lastDoor).addClass("-sev");
+          select(".seven", lastDoor).addClass("-sev");
           newPick.addClass("picked");
           pickedDoor.removeClass("picked");
           // select(".seven", lastDoor).removeClass("-sev");
           pickedDoor = newPick;
-          console.log(newPick, "newPicksssssss");
+         
+          // const correspondingLampIndex = pickedDoor.index;
+          // console.log(correspondingLampIndex, "correspondingLampIndex");
+          //   const correspondingLamp = select(
+          //     `.lamp:nth-child(${correspondingLampIndex})`
+          //   );
+          //   correspondingLamp.addClass("lamp_selected");
           setTimeout(() => {
+          
             select(".content", newPick).addClass("box_content -anim");
             select(".seven", newPick).addClass("box_seven -sev");
-          }, 700);
+          }, addClassAnimation);
+       
         } else {
-              setTimeout(() => {
-             const newPick2 = symbolsSeven.find(
+          setTimeout(() => {
+            const newPick2 = symbolsSeven.find(
               (findClass) =>
-              findClass.hasClass("picked") && !findClass.hasClass("_first")
+                findClass.hasClass("picked") && !findClass.hasClass("_first")
             );
-                    select(".content", newPick2).addClass("box_content -anim");
+            select(".content", newPick2).addClass("box_content -anim");
             select(".seven", newPick2).addClass("box_seven -sev");
-
-            }, 700);
+  
+          }, addClassAnimation);
           // click no and revealed
           // setTimeout(() => {
-         
-    
-        
         }
+      
         checkWin(hasSwitched);
       }
 
@@ -1142,9 +1191,10 @@
           (findClass) =>
             findClass.hasClass("picked") && !findClass.hasClass("_first")
         );
+      
         // for (let seven of symbolsSeven) {
         // console.log(winPick, "newpick222222");
- 
+
         let codeString = `<span class="content-l1">${largeCode.substring(
           1,
           4
@@ -1152,43 +1202,40 @@
         // const parentSeven = seven.parent(); // Get the parent element of 'seven'
 
         for (let winDiv of winPick) {
-         
           //   // setTimeout(() => {
           //   //     // showDialog();
           //   //     // select("#mask_modal").addClass("active");
           //   //     // select(".above-fold").style("height", "100vh");
           //   //   }, delay3s);
 
-          winDiv.prize = largeCode;
-
+          select(".seven", winDiv).addClass("_active");
+        winDiv.prize = largeCode;
           if (winDiv.prize === largeCode) {
-   
-
-        setTimeout(() => {
-          select(".bonusText", winDiv).html(codeString);
-        }, 700)
+            setTimeout(() => {
+              select(".bonusText", winDiv).html(codeString);
+            }, addClassAnimation);
             winDiv.addClass("won");
             winDiv.removeClass("remaining");
-            
+      
             console.log(winDiv, "winDiv");
             select("#instruction > p").html("Ai câstigat!");
             const lastOneOpen = symbolsSeven.find(
-                (findClass) =>
-                  !findClass.hasClass("revealed") && !findClass.hasClass("won")
-              );
-          //   setTimeout(() => {
-          //   select(".content", winDiv).addClass("box_content -anim");
-          //   select(".seven", winDiv).addClass("box_seven -sev");
-          // }, 700);
+              (findClass) =>
+                !findClass.hasClass("revealed") && !findClass.hasClass("won")
+            );
+            //   setTimeout(() => {
+            //   select(".content", winDiv).addClass("box_content -anim");
+            //   select(".seven", winDiv).addClass("box_seven -sev");
+            // }, 700);
             // showDialog();
             // select("#mask_modal").addClass("active");
             // select(".above-fold").style("height", "100vh");
             setTimeout(() => {
-              lastOneOpen.addClass("-sel")
+              lastOneOpen.addClass("-sel");
+           
             }, delay1_5s);
 
             setTimeout(() => {
-   
               // select(".content", lastOneOpen).addClass("box_content");
               // select(".seven", lastOneOpen).addClass("box_seven");
               select(".content", lastOneOpen).addClass("box_content -anim");
@@ -1201,10 +1248,6 @@
             //   `.lamp:nth-child(${correspondingLampIndex})`
             // );
             // correspondingLamp.addClass("lamp_selected");
-            // if (!isBox2Visible) {
-            //   // Only trigger if the second animation isn't already active
-            //   switchDivs();
-            // }
           } else {
             select("#instruction > p").html("Ai pierdut!");
             // select('#doors > .lose > .content').html(codeString);
@@ -1261,7 +1304,6 @@
         select("#instruction > .select_door").show();
       }
 
-    
       function setup() {
         noCanvas();
         startInstruction();
@@ -1269,6 +1311,7 @@
         startGame();
         // makeInput();
         $("#yes").on("click", function () {
+          select(".seven", symbolsSeven).removeClass("_active");
           $("#instruction").hide();
           select(".bubble").hide();
 
@@ -1282,6 +1325,7 @@
         });
 
         $("#no").on("click", function () {
+          select(".seven", symbolsSeven).removeClass("_active");
           $("#instruction").hide();
           select(".bubble").hide();
           setTimeout(() => {
@@ -1294,7 +1338,7 @@
         });
 
         $("#yes_continue").on("click", function () {
-          // select(".seven", symbolsSeven).removeClass("_active");
+ 
           $("#instruction").hide();
           select(".bubble").hide();
           setTimeout(() => {
