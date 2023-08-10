@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>pragmatic</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+    .myPanels {
+      width: 250px;
+      height: 200px;
+      background: red;
+      position: relative;
+      perspective: 1000px;
+      /* margin-left: 400px; */
+      /* margin-top: 150px;  */
+    }
+    .myPanels2 {
+        width: 250px;
+      height: 200px;
+      background: red;
+      position: relative;
+      perspective: 1000px;
+      /* margin-left: 400px; */
+      /* margin-top: 150px;  */  
+    }
+    #carousel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: 20s linear all;
+      /*   perspective: 10000px; */
+    }
+    #carousel_ {
+    width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: 20s linear all; 
+    }
+    #carousel .pane {
+      margin: 0;
+      display: block;
+      position: absolute;
+      width: 240px;
+      height: 100px;
+      /* left: 10px; */
+      background: salmon;
+      /* top: 10px; */
+      border: 2px solid lightgray;
+      /* font-size: 60px; */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #carousel_ .pane2 {
+        margin: 0;
+      display: block;
+      position: absolute;
+      width: 240px;
+      height: 100px;
+      /* left: 10px; */
+      background: salmon;
+      /* top: 10px; */
+      border: 2px solid lightgray;
+      /* font-size: 60px; */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    /* .pane {
+      text-align: center;
+    }
+    .pane:hover {
+      background-color: #0022ff95 !important;
+    } */
+
+    .container, .container2 {
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div class="wrapper-carousel">
+      <div class="container-carousel">
+        <div class="text-center myPanels">
+          <div id="carousel">
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane" style="display: none">center</div>
+          </div>
+        </div>
+        <button class="btn btn-primary toggleAxis">Toggle axis</button>
+      </div>
+        <div class="container-carousel2">
+          <div class="text-center2 myPanels2">
+            <div id="carousel_">
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2"></div>
+              <div class="pane2" style="display: none">center</div>
+            </div>
+          </div>
+          <!-- <button class="btn btn-primary toggleAxis">Toggle axis</button> -->
+        </div>
+    </div>
+    <script>
+      var xAxis = true;
+    //   var timer;
+      var panelSize = 70;
+      var numberOfPanels = $(".pane").length - 1;
+      var tz = Math.round(
+        (panelSize * 2) / Math.tan((Math.PI * 2) / numberOfPanels / 2)
+      ); //traslateZ
+
+      var rotateY = 360 / numberOfPanels; //rotateY
+
+      var deg = 0;
+    //   var color = [
+    //     "#008000a8",
+    //     "#ffff00a8",
+    //     "#ffa500a8",
+    //     "#000000a8",
+    //     "#00ffffa8",
+    //   ];
+
+      $(document).ready(function () {
+        //   $('.toggleAxis').on('click', function(){
+        //     clearInterval(timer);
+        //     xAxis = !xAxis;
+        //     buildPanels(xAxis);
+        //   });
+        buildPanels(xAxis);
+      });
+      var images = [
+        "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+      ];
+      function buildPanels(xAxis) {
+        $(".pane").each(function (i, obj) {
+          // var rand = color[Math.floor(Math.random() * color.length)];
+          var imageUrl = images[i];
+          // $(this).css('background-color',rand);
+          $(this).css("background-image", "url(" + imageUrl + ")");
+          if (i != $(".pane").length - 1) {
+            if (xAxis) {
+              $(this).css(
+                "transform",
+                "rotateY(" + deg + "deg) translateZ(" + tz + "px)"
+              );
+              $(this).css("transition-timing-function", "ease-in");
+              deg = deg + rotateY;
+            } else {
+              $(this).css(
+                "transform",
+                " rotateX(" + deg + "deg) translateZ(" + tz / 3 + "px)"
+              );
+              $(this).css("transition-timing-function", "ease-in");
+              deg = deg - rotateY;
+            }
+          } else {
+            $(this).css("border-radius", "50%");
+            // $(this).css('background-color','black');
+            $(this).css("height", "170px");
+          }
+          // deg = deg - rotateY
+          // deg = deg - rotateY;
+        });
+        move();
+      }
+
+      function move() {
+        // clearInterval(timer);
+        timer = setInterval(function () {
+          if (xAxis) {
+            $("#carousel").css("transform", "rotateY(" + deg + "deg)");
+          } else {
+            $("#carousel").css("transform", "rotateX(" + -deg + "deg)");
+          }
+          deg = deg + rotateY;
+        }, 2000);
+      }
+    </script>
+    <script>
+        var xAxis2 = true;
+        var timer2;
+        var panelSize2 = 70;
+        var numberOfPanels2 = $(".pane2").length - 1;
+        var tz2 = Math.round(
+          (panelSize2 * 2) / Math.tan((Math.PI * 2) / numberOfPanels2 / 2)
+        ); //traslateZ
+  
+        var rotateY2 = 360 / numberOfPanels2; //rotateY
+  
+        var deg2 = -180;
+      //   var color = [
+      //     "#008000a8",
+      //     "#ffff00a8",
+      //     "#ffa500a8",
+      //     "#000000a8",
+      //     "#00ffffa8",
+      //   ];
+  
+        $(document).ready(function () {
+          //   $('.toggleAxis').on('click', function(){
+          //     clearInterval(timer);
+          //     xAxis = !xAxis;
+          //     buildPanels(xAxis);
+          //   });
+          buildPanelsTest(xAxis2);
+        });
+        var images = [
+          "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+          "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+        ];
+        function buildPanelsTest(xAxis2) {
+          $(".pane2").each(function (i, obj) {
+            // var rand = color[Math.floor(Math.random() * color.length)];
+            var imageUrl = images[i];
+            // $(this).css('background-color',rand);
+            $(this).css("background-image", "url(" + imageUrl + ")");
+            if (i != $(".pane2").length - 1) {
+              if (xAxis2) {
+                $(this).css(
+                  "transform",
+                  "rotateY(" + deg2 + "deg) translateZ(" + tz2 + "px)"
+                );
+                $(this).css("transition-timing-function", "ease-in");
+                deg2 = deg2 - rotateY2;
+              } else {
+                $(this).css(
+                  "transform",
+                  " rotateX(" + deg2 + "deg) translateZ(" + tz2 / 3 + "px)"
+                );
+                $(this).css("transition-timing-function", "ease-in");
+                deg2 = deg2 - rotateY2;
+              }
+            } else {
+            //   $(this).css("border-radius", "50%");
+              // $(this).css('background-color','black');
+            //   $(this).css("height", "170px");
+            }
+            // deg = deg - rotateY
+            // deg = deg - rotateY;
+          });
+          moveTest();
+        }
+  
+        function moveTest() {
+          // clearInterval(timer);
+          timer2 = setInterval(function () {
+            if (xAxis2) {
+              $("#carousel_").css("transform", "rotateY(" + deg2 + "deg)");
+            } else {
+              $("#carousel_").css("transform", "rotateX(" + -deg2 + "deg)");
+            }
+            deg2 = deg2 + rotateY2;
+          }, 1000);
+        }
+      </script>
+  </body>
+</html>
