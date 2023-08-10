@@ -127,6 +127,8 @@
       .container-seven {
         height: fit-content;
         position: relative;
+        width: 40vh;
+        height: 40vh;
         /* overflow: hidden; */
       }
 
@@ -142,6 +144,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        width: 40vh;
+    height: 40vh;
       }
       .swirl-top {
         background-image: var(--swirl-top);
@@ -154,8 +158,8 @@
       }
       .seven,
       .text-container {
-        width: 38vh;
-        height: 38vh;
+        width: 100%;
+    height: 100%;
       }
       .text-container {
         background-color: #fff;
@@ -799,7 +803,7 @@
     <div class="container-all">
       <div class="container-stuff">
         <div class="container-girl">
-          <img src="./png/girl.png" alt="girl" />
+          <img src="./png/girl.png" alt="girl" class="desktop_girl"/>
           <div class="container-bubble bubble_hidden">
             <!-- <div class="bubble-img">
                         <img src="./png/bubble_light.png" class="bubble_light" alt="" />
@@ -911,7 +915,7 @@
       let delay4s = 4000;
       let delay4_5s = 4500;
       let delay5s = 5000;
-      let addClassAnimation = 600; // time add class for animation
+      let addClassAnimation = 2000; // time add class for animation
       let hasSwitchedDivs = false;
       let _games = [
         "Game of Gladiators Uprising",
