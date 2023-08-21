@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Document</title>
+    <style>
+         body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+    }
+    .myPanels {
+      width: 250px;
+      height: 200px;
+      background: red;
+      position: relative;
+      perspective: 1000px;
+      /* margin-left: 400px; */
+      /* margin-top: 150px;  */
+    }
+    .myPanels2 {
+        width: 250px;
+      height: 200px;
+      background: red;
+      position: relative;
+      perspective: 1000px;
+      /* margin-left: 400px; */
+      /* margin-top: 150px;  */  
+    }
+    #carousel {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: 20s linear all;
+      /*   perspective: 10000px; */
+    }
+    #carousel_ {
+    width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      transition: 20s linear all; 
+    }
+    #carousel .pane {
+      margin: 0;
+      display: block;
+      position: absolute;
+      width: 240px;
+      height: 100px;
+      /* left: 10px; */
+      background: salmon;
+      /* top: 10px; */
+      border: 2px solid lightgray;
+      /* font-size: 60px; */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #carousel_ .pane2 {
+        margin: 0;
+      display: block;
+      position: absolute;
+      width: 240px;
+      height: 100px;
+      /* left: 10px; */
+      background: salmon;
+      /* top: 10px; */
+      border: 2px solid lightgray;
+      /* font-size: 60px; */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    </style>
+</head>
+<body>
+    <div class="container-carousel">
+        <div class="text-center myPanels">
+            <div id="carousel1" class="carousel"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane" style="display: none">center</div>
+            <button class="btn btn-primary toggleAxis1">Toggle axis</button>
+        </div>
+        <div class="text-center myPanels">
+            <div id="carousel2" class="carousel"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane"></div>
+            <div class="pane" style="display: none">center</div>
+            <button class="btn btn-primary toggleAxis2">Toggle axis</button>
+        </div>
+    </div>
+
+    
+<script>
+    var panelSize = 70;
+  var numberOfPanels = 8; // Numărul de panouri din fiecare carusel
+  var tz = Math.round((panelSize * 2) / Math.tan((Math.PI * 2) / numberOfPanels / 2)); // traslateZ
+  var rotateY = 360 / numberOfPanels; // rotateY
+  var deg1 = 0; // Unghiul de rotație pentru primul carusel
+  var deg2 = 0; // Unghiul de rotație pentru al doilea carusel
+  var images = [
+        "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1713-shining-crown__4.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/1718-burning-hot__5.jpg",
+        "https://img.netbet.ro/gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg",
+      ];
+  $(document).ready(function () {
+    buildPanels("#carousel1", true);
+    buildPanels("#carousel2", false);
+  });
+
+  function buildPanels(carouselId, xAxis) {
+    var $carousel = $(carouselId);
+    var deg = 0;
+
+    $(".pane", $carousel).each(function (i, obj) {
+      var imageUrl = images[i % images.length];
+      $(this).css("background-image", "url(" + imageUrl + ")");
+      if (xAxis) {
+        $(this).css(
+          "transform",
+          "rotateY(" + deg + "deg) translateZ(" + tz + "px)"
+        );
+      } else {
+        $(this).css(
+          "transform",
+          "rotateY(" + deg + "deg) translateZ(" + -tz + "px)"
+        );
+      }
+      deg = deg + rotateY;
+    });
+
+    move(carouselId, xAxis);
+  }
+
+  function move(carouselId, xAxis) {
+    var $carousel = $(carouselId);
+    var deg = 0;
+    setInterval(function () {
+      if (xAxis) {
+        $carousel.css("transform", "rotateY(" + deg + "deg)");
+      } else {
+        $carousel.css("transform", "rotateY(" + -deg + "deg)");
+      }
+      deg = deg + rotateY;
+    }, 2000);
+  }
+</script>
+</body>
+</html>
