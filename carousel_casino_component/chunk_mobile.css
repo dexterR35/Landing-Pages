@@ -9534,6 +9534,13 @@ img._2kFRaViRm2uwhgOhO0l68x {
     ._1Zn7bunzurFPV8_kkgcnvY ._3o4HIusGW388ssrFgpE12S ._1gnmdyM26_u1LzF42UDV0u img {
         max-width:455px
     }
+    .GoodTest {
+        width:unset;
+    }
+    
+       
+  
+
 }
 
 @media(max-width: 992px) {
