@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>\
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./mystyle.css" />
+  </head>
+  <body>
+    <main class="l-band">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide swiper-slide--1">
+            <div class="c-card">
+              <h2 class="c-card__title">Amón Lopez</h2>
+              <p class="c-card__instrument">Voices</p>
+            </div>
+          </div>
+          <div class="swiper-slide swiper-slide--2">
+            <div class="c-card">
+              <h2 class="c-card__title">Marisa Marquez</h2>
+              <p class="c-card__instrument">Voices</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide swiper-slide--3">
+            <div class="c-card">
+              <h2 class="c-card__title">H. Zzor</h2>
+              <p class="c-card__instrument">Bass</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide swiper-slide--4">
+            <div class="c-card">
+              <h2 class="c-card__title">Vicente Payá</h2>
+              <p class="c-card__instrument">Lead Guitar</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide swiper-slide--5">
+            <div class="c-card">
+              <h2 class="c-card__title">Leoben Conoy</h2>
+              <p class="c-card__instrument">Synths + Guitars</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+      </div>
+    </main>
+
+    <script>
+      var swiper = new Swiper(".swiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 3,
+          slideShadows: true,
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+          1560: {
+            slidesPerView: 3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

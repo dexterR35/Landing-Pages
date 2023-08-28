@@ -1,0 +1,163 @@
+
+ * {
+	 margin: 0;
+	 padding: 0;
+	 box-sizing: border-box;
+	 font-family: "Open Sans", sans-serif;
+}
+ :root {
+	 --color-ats-primary: #4527a0;
+	 --color-ats-secondary: #6a1b9a;
+	 --color-light: #fff;
+	 --color-1: #0f2027;
+	 --color-2: #203a43 0;
+	 --color-3: #2c5364 0;
+}
+ .l-band {
+	 position: relative;
+	 width: calc(min(90rem, 90%));
+	 margin: 0 auto;
+	 min-height: 100vh;
+	 column-gap: 3rem;
+	 padding-block: min(20vh, 3rem);
+}
+ .l-band .l-band__header-subtitle {
+	 text-transform: uppercase;
+	 letter-spacing: 1.5px;
+	 font-size: 1rem;
+	 color: #717171;
+}
+ .l-band .l-band__header-title {
+	 text-transform: capitalize;
+	 letter-spacing: 0.8px;
+	 font-family: "Roboto", sans-serif;
+	 font-weight: 900;
+	 font-size: clamp(3.4375rem, 4rem, 4rem);
+	 background-color: #005baa;
+	 background-image: linear-gradient(45deg, var(--color-ats-primary), var(--color-ats-secondary));
+	 background-size: 100%;
+	 background-repeat: repeat;
+	 -webkit-background-clip: text;
+	 -webkit-text-fill-color: transparent;
+	 -moz-background-clip: text;
+	 -moz-text-fill-color: transparent;
+}
+ .l-band .l-band__header hr {
+	 display: block;
+	 width: 6.25rem;
+	 height: 0.25rem;
+	 margin: 1.125rem 0 1.875rem 0;
+	 background: var(--color-ats-primary);
+	 border: none;
+}
+ .l-band .l-band__header-description {
+	 line-height: 1.6;
+}
+ .l-band .l-band__header-link {
+	 margin-top: 2.188rem;
+	 padding: 0.625rem 1.875rem;
+	 border: 2px solid var(--color-ats-primary);
+	 color: var(--color-ats-primary);
+	 display: inline-block;
+	 text-decoration: none;
+	 text-transform: uppercase;
+	 font-weight: 500;
+	 background: var(--color-light);
+	 border-radius: 3.125rem;
+	 transition: 0.3s ease-in-out;
+}
+ .l-band .l-band__header-link:hover {
+	 background-image: linear-gradient(45deg, var(--color-ats-primary), var(--color-ats-secondary));
+	 border: 0.125rem solid var(--color-ats-secondary);
+	 color: var(--color-light);
+}
+ .c-card {
+	 display: none;
+	 opacity: 0;
+	 padding-bottom: 0.625rem;
+}
+ .c-card__title {
+	 color: var(--color-light);
+	 font-family: "Roboto", sans-serif;
+	 font-weight: 400;
+	 font-size: 1.4rem;
+	 line-height: 1.4;
+	 margin-bottom: 0.625rem;
+	 padding: 0 0 0 1.563rem;
+	 text-transform: uppercase;
+}
+ .c-card__instrument {
+	 color: #dadada;
+	 font-family: "Roboto", sans-serif;
+	 font-weight: 300;
+	 padding: 0 1.563rem 4rem;
+	 line-height: 1.6;
+	 font-size: 0.75rem;
+	 display: -webkit-box;
+	 -webkit-line-clamp: 4;
+	 -webkit-box-orient: vertical;
+	 overflow: hidden;
+}
+ .swiper {
+	 width: 100%;
+	 padding-top: 3.125rem;
+}
+ .swiper-slide {
+	 width: 18.75rem;
+	 height: 28.125rem;
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: end;
+	 align-items: self-start;
+}
+ .swiper-pagination {
+	 bottom: 1.25rem !important;
+}
+ .swiper-pagination-bullet, .swiper-pagination-bullet-active {
+	 background: var(--color-light);
+}
+ .swiper-slide--1 {
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png");
+	 /* background: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3)), url("https://www.ats.hugo-salazar.com/wp-content/uploads/2023/04/pincho.jpeg"); */
+}
+ .swiper-slide--2 {
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png");
+	 /* background: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3)), url("https://www.ats.hugo-salazar.com/wp-content/uploads/2023/04/marisa.jpeg") no-repeat 50% 50% / cover; */
+}
+ .swiper-slide--3 {
+	background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png");
+	 /* background: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3)), url("https://www.ats.hugo-salazar.com/wp-content/uploads/2023/04/zzor.jpeg") no-repeat 50% 50% / cover; */
+}
+ .swiper-slide--4 {
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png");
+	 /* background: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3)), url("https://www.ats.hugo-salazar.com/wp-content/uploads/2023/04/vicente.jpeg") no-repeat 50% 50% / cover; */
+}
+ .swiper-slide--5 {
+    background-image: url("https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png");
+	 /* background: linear-gradient(to top, var(--color-1), var(--color-2), var(--color-3)), url("https://www.ats.hugo-salazar.com/wp-content/uploads/2023/04/leoben.jpeg") no-repeat 50% 50% / cover; */
+}
+.swiper-slide {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    /* background: linear-gradient(to top,  var(--color-2), var(--color-3)); */
+}
+ .swiper-slide-active .c-card {
+	 display: block;
+	 opacity: 1;
+}
+ .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
+	 background-image: none;
+}
+ @media screen and (min-width: 48rem) {
+	 .l-band {
+		 display: flex;
+		 align-items: center;
+	}
+}
+ @media screen and (min-width: 93.75rem) {
+	 .swiper {
+		 width: 85%;
+	}
+}
+ 
