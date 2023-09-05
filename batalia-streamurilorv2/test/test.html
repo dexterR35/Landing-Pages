@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Carousel</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .section_one {
+        height: 100vh;
+        background: lightgray;
+      }
+      .section_two {
+        background: lightpink;
+        height: 100vh;
+      }
+      .container_ful {
+        height: 100vh;
+        background: red;
+      }
+
+      .sample-slider {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sample-slider img {
+        height: 30vh;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sample-slider .swiper-wrapper {
+        transition-timing-function: linear;
+      }
+
+      .swiper-slide {
+        border: 4px solid white;
+        background-color: crimson;
+        text-align: center;
+        /* width: 280px !important; */
+      }
+      .bottom_swiper_box {
+        width: 100%;
+        border: 1px solid black;
+        height: 2em;
+        background: blue;
+        position: relative;
+        font-size: 3em;
+      }
+      .top_swiper_box {
+        background-color: black;
+        height: 2em;
+        position: absolute;
+        width: 30%;
+        font-size: 3em;
+        top: 0;
+        right: 0;
+      }
+
+      .section_one .cnt_one {
+        height: 40%;
+      }
+    </style>
+    <!-- https://open-code.tech/en/post-1059/ -->
+  </head>
+  <body>
+    <div class="container_full">
+      <section class="section_one">
+        <div class="cnt_one">
+          cnt_one
+        </div>
+        <div class="swiper sample-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png"
+              />
+            </div>
+            <div class="swiper-slide">
+              <img
+                src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_two">
+        <p>section two</p>
+      </section>
+    </div>
+    <script>
+      const swiper = new Swiper(".sample-slider", {
+        loop: true,
+        autoplay: {
+          //add
+          delay: 0, //add
+        },
+        speed: 3 * 1000, //add
+        slidesPerView: 2,
+        effect: "coverflow", //add
+        coverflowEffect: {
+          rotate: 2, // added (Rotate of the prev and next slides)
+          depth: 100, // added (Depth of the prev and next slides)
+          stretch: 20, // added (Space between the slides)
+          modifier: 2, // added (Multiply the values of rotate, depth, and stretch)
+          slideShadows: true, // added (Presence of shadow on the surfaces of the prev and next slides)
+        },
+        breakpoints: {
+          320: { slidesPerView: 2 },
+          640: { slidesPerView: 4 },
+          1024: { slidesPerView: 4 },
+          1921: { slidesPerView: 3 },
+        },
+      });
+
+      swiper.el.addEventListener("mouseover", function () {
+        swiper.autoplay.stop();
+      });
+
+      swiper.el.addEventListener("mouseleave", function () {
+        swiper.autoplay.start();
+      });
+
+      function appendStuff() {
+        $(".swiper-slide").each(function (howMany) {
+          const streamer_pos = Math.floor(Math.random() * 10);
+          const streamer_info = howMany;
+
+          let boxSlideTop = $(
+            `<div class="top_swiper_box">#${streamer_pos}</div>`
+          );
+          let boxSlideBottom = $(
+            `<div class="bottom_swiper_box">${streamer_info}</div>`
+          );
+
+          $(this).append(boxSlideBottom);
+          $(this).prepend(boxSlideTop);
+        });
+      }
+      appendStuff();
+    </script>
+  </body>
+</html>
