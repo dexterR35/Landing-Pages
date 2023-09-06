@@ -19,7 +19,7 @@ https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css
 
   <body>
     <div class="container">
-      <div class="swiper" id="swiper1">
+<!--      <div class="swiper" id="swiper1">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <img
@@ -124,6 +124,10 @@ https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css
         </div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+      </div> -->
+      <div class="bg">
+        <!-- <img src="./bg.png" alt=""> -->
+        <img src="./fg.png" alt="">
       </div>
       <div class="swiper" id="swiper2">
         <div class="swiper-wrapper">
@@ -237,20 +241,20 @@ https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css
 
       const baseConfig = {
         effect: "coverflow",
-        speed: 1000,
+        speed: 3000,
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
 
         coverflowEffect: {
-          rotate: 4, // Slide rotate in degrees
-          stretch: 0, // Stretch space between slides (in px)
-          depth: 50, // Depth offset in px (slides translate in Z axis)
-          modifier: 3, // Effect multipler
-          slideShadows: true, // Enables slides shadows
+          rotate: 10, // Slide rotate in degrees
+          stretch: -30, // Stretch space between slides (in px)
+          depth: 150, // Depth offset in px (slides translate in Z axis)
+          modifier: 4, // Effect multipler
+          slideShadows: false, // Enables slides shadows
         },
 
-        touchRatio: 0.2,
+        touchRatio: 0.1,
         parallax: true,
         spaceBetween: 0,
         loop: true,
@@ -267,18 +271,18 @@ https://cdn.jsdelivr.net/npm/swiper@8.4.7/swiper-bundle.min.css
       let swiper1 = new Swiper("#swiper1", {
         ...baseConfig,
         autoplay: {
-          delay: 1200,
+          delay: 0,
           reverseDirection: true,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         },
       });
 
       let swiper2 = new Swiper("#swiper2", {
         ...baseConfig,
         autoplay: {
-          delay: 1200,
+          delay: 0,
           reverseDirection: false,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         },
       });
 
