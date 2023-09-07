@@ -1,4 +1,35 @@
-/*!chunkhash:e2775a24aea6264a01fa, name:casino, filebase:style.casino.4dfa381f15ea07e6be5b.css, query:, file:style.casino.4dfa381f15ea07e6be5b.css*/
+
+:root  {
+    --primary-color: #1f2229;
+    --flip-primary-color: #272a33;
+    --secondary-color: #272a33;
+    --flip-secondary-color: #1f2229;
+    --category-nav: #515765;
+    --sub-nav: #333743;
+    --text: #b2b2b2;
+    --borders: #272a33;
+    --strong-text: #fff;
+    --category-button: #333743;
+    --table-strong: #b2b2b2;
+    --table-header: #272a33;
+    --grey: #272a33;
+    --tournaments-frame: rgba(51,55,67,0.8);
+    --help-input-border: #515765;
+    --brightness-icon: brightness(5);
+    --gradient-to-secondary: #333743;
+    --breadcrumbs-main-color: #272a33;
+    --breadcrumbs-shadow: #333743;
+    --faq-text: #b2b2b2;
+    --anchor: #b2b2b2;
+    --table-border: #272a33;
+    --blockquote: #323641;
+    --faq-white-btn: #1f2229;
+    --shop-overlay: rgba(39,42,51,0.98);
+    --cat-nav-arrow: #fff;
+    --cat-nav-bg-left: linear-gradient(90deg,#515765,#515765 30%,rgba(81,87,101,0));
+    --cat-nav-bg-right: linear-gradient(270deg,#515765,#515765 30%,rgba(81,87,101,0))
+}
+
 .error-boundary {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -11,6 +42,29 @@
     font-weight: 700;
     line-height: normal
 }
+.PIVLQf9k9es76n8qONrm {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background: var(--primary-color) !important;
+    width: 100%;
+    height: 400%;
+    border-radius: 4%;
+    box-shadow: -20px -20px 0 0 rgba(255,255,255,.2), -10px -10px 0 0 rgba(255,255,255,.2);
+    aspect-ratio: 1/1;
+    margin: 0;
+    left: 146%;
+    border-radius: 4%;
+    transform: rotate(-45deg) translate(-50%,-55%);
+    top: -155%;
+}
+@media screen and (max-width:480px) {
+    .PIVLQf9k9es76n8qONrm {
+        left: 174%;
+        top: -44%;
+    }
+}
+
 
 .error-boundary:after,.error-boundary:before {
     box-sizing: border-box
@@ -27,6 +81,12 @@
     align-items: center;
     justify-content: center
 }
+@media screen and (max-width: 480px) {
+    .GoodTest {
+        width: 390px !important;
+    }
+}
+
 
 .error-boundary .error-header a img {
     max-width: 157px;
@@ -1964,67 +2024,7 @@ progress {
     display: none!important;
 }
 
-:root {
-    --primary-color: #fff;
-    --flip-primary-color: #fff;
-    --secondary-color: #f3f3f3;
-    --flip-secondary-color: #f3f3f3;
-    --category-nav: #ebebeb;
-    --sub-nav: #f3f3f3;
-    --text: #697174;
-    --borders: #f3f3f3;
-    --strong-text: #333743;
-    --category-button: #fff;
-    --table-header: #e9eaee;
-    --table-strong: #454954;
-    --grey: #c1c3c6;
-    --help-input-border: #ececec;
-    --tournaments-frame: hsla(0,0%,97.3%,0.8);
-    --brightness-icon: brightness(1);
-    --gradient-to-secondary: -webkit-linear-gradient(top left,#ff5d3c 0%,#ff8929);
-    --breadcrumbs-main-color: #e1e1e1;
-    --breadcrumbs-shadow: #e1e1e1;
-    --faq-text: #000;
-    --anchor: #337ab7;
-    --table-border: #ddd;
-    --blockquote: #eee;
-    --faq-white-btn: #fff;
-    --shop-overlay: hsla(0,0%,100%,0.9);
-    --cat-nav-arrow: #000;
-    --cat-nav-bg-left: linear-gradient(90deg,#ebebeb,#ebebeb 30%,hsla(0,0%,92.2%,0));
-    --cat-nav-bg-right: linear-gradient(270deg,#ebebeb,#ebebeb 30%,hsla(0,0%,92.2%,0))
-}
 
-:root .dark-theme {
-    --primary-color: #1f2229;
-    --flip-primary-color: #272a33;
-    --secondary-color: #272a33;
-    --flip-secondary-color: #1f2229;
-    --category-nav: #515765;
-    --sub-nav: #333743;
-    --text: #b2b2b2;
-    --borders: #272a33;
-    --strong-text: #fff;
-    --category-button: #333743;
-    --table-strong: #b2b2b2;
-    --table-header: #272a33;
-    --grey: #272a33;
-    --tournaments-frame: rgba(51,55,67,0.8);
-    --help-input-border: #515765;
-    --brightness-icon: brightness(5);
-    --gradient-to-secondary: #333743;
-    --breadcrumbs-main-color: #272a33;
-    --breadcrumbs-shadow: #333743;
-    --faq-text: #b2b2b2;
-    --anchor: #b2b2b2;
-    --table-border: #272a33;
-    --blockquote: #323641;
-    --faq-white-btn: #1f2229;
-    --shop-overlay: rgba(39,42,51,0.98);
-    --cat-nav-arrow: #fff;
-    --cat-nav-bg-left: linear-gradient(90deg,#515765,#515765 30%,rgba(81,87,101,0));
-    --cat-nav-bg-right: linear-gradient(270deg,#515765,#515765 30%,rgba(81,87,101,0))
-}
 
 :root .casino,:root .global,:root .lotto {
     --gradient-buttons: linear-gradient(to bottom right,#ff5d3c 0,#ff8929);
@@ -3743,7 +3743,8 @@ messenger#global {
     width: 100%;
     transition: background .4s;
     background: var(--secondary-color);
-    min-height: calc(100vh - 55px)
+    /* min-height: calc(100vh - 55px) */
+    height:40em;
 }
 
 ._2c8lfL8bLAPIH2hQzttUFo ._2_tIyXGEmcsRXhjh0QHIxc:before,._2d8qWLNRFf5HAnJS-4bcRk:before,.AC4nHT23Ys6g0eywajucG:before {

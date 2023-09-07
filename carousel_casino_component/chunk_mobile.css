@@ -1,4 +1,4 @@
-/*!chunkhash:2547a1caeb532aa6954b, name:component.BottomUserSectionDesktop, filebase:chunk.component.BottomUserSectionDesktop.4d0379e0408efa1ae4e1.css, query:, file:chunk.component.BottomUserSectionDesktop.4d0379e0408efa1ae4e1.css*/
+
 ._1nOwSJiqi4nBUQxi6RW73W {
     background: linear-gradient(90deg,#d42f2f 0,#e14745);
     color: #fff
@@ -2504,7 +2504,8 @@ img {
 .wX1McKZcvp8aXqN1zp6Kz img {
     width: 103%;
     height: 100%;
-    display: block
+    display: block;
+    object-fit:contain;
 }
 
 @media(max-width: 1181px) {
@@ -12852,6 +12853,7 @@ img._2kFRaViRm2uwhgOhO0l68x {
 ._1exGf4U7DFDHaJZ9dRolI_ {
     pointer-events: none
 }
+
 
 @-webkit-keyframes _19LR9p-0dStG8EJtbcRJ9S {
     0% {
