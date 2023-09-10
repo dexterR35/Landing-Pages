@@ -39,46 +39,33 @@
           initial
         ); */
       }
-      .sample-slider {
+      .stream-slider {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         /* background: black; */
       }
-      .sample-slider img {
-        height: 30vh;
+      .stream-slider img {
+       width: 100%;
+       height: 100%;
+       object-fit: contain;
         /* width: 30vh; */
         /* margin: auto; */
       }
-      .sample-slider .swiper-wrapper {
+      .stream-slider .swiper-wrapper {
         transition-timing-function: linear;
         /* transition: all 3s linear !important; */
         /* transition-duration:3000ms !important; */
       }
-      .sample-slider .swiper-slide {
-        flex-shrink: 0;
+      .stream-slider .slide-streamer {
+
         transition-property: transform;
-        /* width: 20em !important; */
-        /* height: 20em; */
-        /* margin-right: -18.4em; */
-        /* display: flex; */
-        /* transition-timing-function: linear !important; */
-        /* transition-duration:1000ms !important; */
-        /* transform: translate3d(0px,0px, 0px) rotateX(30deg) rotateY(0deg) scale(1) !important; */
       }
-      .swiper-slide.swiper-slide-visible.swiper-slide-active {
+      /* .slide-streamer.swiper-slide-visible.swiper-slide-active {
         background: yellow !important;
         border: 4px solid yellow !important;
         transition: all 0.3s ease;
-      }
-      /* .swiper-slide.swiper-slide-visible.swiper-slide-active {
-        background: yellow !important;
-        border: 4px solid yellow !important;
-      }
-      .swiper-slide.swiper-slide-visible {
-        background-color: fuchsia !important;
-        border: 4px solid fuchsia !important;
       } */
 
       /* .swiper-slide.swiper-slide-visible.swiper-slide-next {
@@ -89,37 +76,34 @@
         background: green !important;
         border: 4px solid green !important;
       }  */
+
       /* .swiper-slide.swiper-slide-visible {
         background: black !important;
         border: 4px solid black !important;
       } */
 
-      .swiper-slide.swiper-slide-duplicate {
-        background: cyan !important;
-        border: 4px solid cyan !important;
-      }
-      /* .swiper-slide.swiper-slide-duplicate.swiper-slide-active {
-        background: orangered !important;
-        border: 4px solid orangered !important;
-      } */
-
-      .swiper-slide {
+      .slide-streamer {
         border: 4px solid white;
-        /* background-color: crimson; */
+        background-color: crimson;
         text-align: center;
-        /* opacity: 0.6; */
-        /* width: 32em !important; */
-        /* margin-right: -19.3em; */
-        /* margin-right: -45px; */
-        /* width: 280px !important; */
+        margin-right: 7.9em;
+        width: 360px;
+        height: 18vh;
       }
+
       .bottom_swiper_box {
-        width: 100%;
+        /* width: 100%; */
         border: 1px solid black;
-        height: 2em;
-        background: blue;
-        position: relative;
+        height: 1em;
+        background: #0000002b;
+        position: absolute;
         font-size: 3em;
+        width: 84%;
+        bottom: 0.2em;
+        left: 0.5em;
+        text-align: start;
+        z-index: -1;
+        text-indent: 26px;
       }
       .top_swiper_box {
         background-color: black;
@@ -133,7 +117,7 @@
       }
 
       .section_one .cnt_one {
-        height: 40%;
+        /* height: 40%; */
       }
       .section_two {
         position: relative;
@@ -184,69 +168,69 @@
     <div class="container_full">
       <section class="section_one">
         <div class="cnt_one">cnt_one</div>
-        <div class="swiper sample-slider">
+        <div class="swipers stream-slider">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
               />
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide slide-streamer">
               <img
                 src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
               />
@@ -260,51 +244,48 @@
       </section>
     </div>
     <script>
-      const swiper = new Swiper(".sample-slider", {
+      const swiperStr = new Swiper(".stream-slider", {
         effect: "coverflow",
         loop: true,
         autoplay: {
           delay: 0,
         },
-        speed: 2 * 1000,
-        reverseDirection: true,
-        // slidesPerView: 4,
-        parallax: true,
-        // hashNavigation: true,
-        // crossFade:true,
+        speed: 2.5 * 1000,
+        slidesPerView: "4",
+        parallax: false,
         cache: true,
         centeredSlides: true,
         coverflowEffect: {
           rotate: 0, // (Rotate of the prev and next slides);
-          depth: 130, // (Depth of the prev and next slides);
-          stretch: 0, // (Space between the slides);
+          depth: 100, // (Depth of the prev and next slides);
+          stretch: 100, // (Space between the slides);
           modifier: 1, // (Multiply the values of rotate, depth, and stretch);
           slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
         },
-        breakpoints: {
-          320: { slidesPerView: 2 },
-          640: { slidesPerView: 4 },
-          1024: { slidesPerView: 6 },
-          1921: { slidesPerView: 3 },
-        },
+        // breakpoints: {
+        //   320: { slidesPerView: 2 },
+        //   640: { slidesPerView: 4 },
+        //   1024: { slidesPerView: 6 },
+        //   1921: { slidesPerView: 3 },
+        // },
       });
 
-      swiper.el.addEventListener("mouseover", function () {
-        swiper.autoplay.stop();
+      swiperStr.el.addEventListener("mouseover", function () {
+        swiperStr.autoplay.stop();
       });
 
-      swiper.el.addEventListener("mouseleave", function () {
-        swiper.autoplay.start();
+      swiperStr.el.addEventListener("mouseleave", function () {
+        swiperStr.autoplay.start();
       });
 
       function appendStuff() {
-        $(".swiper-slide").each(function (howMany) {
+        $(".slide-streamer").each(function (howMany) {
           const streamer_pos = Math.floor(Math.random() * 10);
           let boxSlideTop = $(
-            `<div class="top_swiper_box" data-swiper-parallax="-10">#${streamer_pos}</div>`
+            `<div class="top_swiper_box" data-swiper-parallax="-30">#${streamer_pos}</div>`
           );
           let boxSlideBottom = $(
-            `<div class="bottom_swiper_box" data-swiper-parallax="-10">${howMany}</div>`
+            `<div class="bottom_swiper_box" data-swiper-parallax="30">${howMany}</div>`
           );
           $(this).append(boxSlideBottom);
           $(this).prepend(boxSlideTop);
@@ -312,102 +293,6 @@
       }
       appendStuff();
 
-      // function S({ swiper: t, extendParams: s, on: o }) {
-      //   s({
-      //     panoramaEffect: {
-      //       depth: 100,
-      //       rotate: 30,
-      //     },
-      //   }),
-      //     o("beforeInit", () => {
-      //       if (t.params.effect !== "panorama") return;
-      //       t.classNames.push(`${t.params.containerModifierClass}panorama`),
-      //         t.classNames.push(`${t.params.containerModifierClass}3d`);
-      //       const r = {
-      //         watchSlidesProgress: !0,
-      //       };
-      //       Object.assign(t.params, r), Object.assign(t.originalParams, r);
-      //     }),
-      //     o("progress", () => {
-      //       if (t.params.effect !== "panorama") return;
-      //       const r = t.slidesSizesGrid,
-      //         { depth: e = 200, rotate: a = 30 } = t.params.panoramaEffect,
-      //         g = (a * Math.PI) / 180 / 2,
-      //         h = 1 / (180 / a);
-      //       for (let i = 0; i < t.slides.length; i += 1) {
-      //         const d = t.slides[i],
-      //           P = d.progress,
-      //           c = r[i],
-      //           y = t.params.centeredSlides
-      //             ? 0
-      //             : (t.params.slidesPerView - 1) * 0.5,
-      //           l = P + y,
-      //           f = 1 - Math.cos(l * h * Math.PI),
-      //           m = `${l * (c / 3) * f}px`,
-      //           p = l * a,
-      //           u = `${((c * 0.5) / Math.sin(g)) * f - e}px`;
-      //         d.style.transform =
-      //           t.params.direction === "horizontal"
-      //             ? `translateX(${m}) translateZ(${u}) rotateY(${p}deg)`
-      //             : `translateY(${m}) translateZ(${u}) rotateX(${-p}deg)`;
-      //       }
-      //     }),
-      //     o("setTransition", (r, e) => {
-      //       t.params.effect === "panorama" &&
-      //         t.slides.forEach((a) => {
-      //           a.style.transitionDuration = `${e}ms`;
-      //         });
-      //     });
-      // }
-      // const swiper = new Swiper(" .sample-slider", {
-      //   //r(".sample-slider", {
-      //   modules: [$, S],
-      //   effect: "panorama",
-      //   speed: 2 * 1000,
-      //   loop: true,
-      //   autoplay: {
-      //     delay: 0,
-      //   },
-      //   slidesPerView: "auto",
-
-      //   centeredSlides: true,
-      //   grabCursor: !0,
-
-      //   panoramaEffect: {
-      //     depth: 150,
-      //     rotate: 15,
-      //   },
-      //   breakpoints: {
-      //     480: {
-      //       slidesPerView: 2,
-      //       panoramaEffect: {
-      //         rotate: 35,
-      //         depth: 150,
-      //       },
-      //     },
-      //     640: {
-      //       slidesPerView: 3,
-      //       panoramaEffect: {
-      //         rotate: 30,
-      //         depth: 150,
-      //       },
-      //     },
-      //     1024: {
-      //       slidesPerView: 4,
-      //       panoramaEffect: {
-      //         rotate: 30,
-      //         depth: 200,
-      //       },
-      //     },
-      //     1200: {
-      //       slidesPerView: 4,
-      //       panoramaEffect: {
-      //         rotate: 25,
-      //         depth: 250,
-      //       },
-      //     },
-      //   },
-      // });
     </script>
   </body>
 </html>
