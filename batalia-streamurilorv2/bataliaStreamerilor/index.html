@@ -1,280 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
-      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
-      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <title>Document</title>
-  </head>
 
-  <style>
-    *,
-    *::after,
-    *::before {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+    integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
 
-    .modal-body {
-      overflow-y: scroll;
-      max-height: 65vh;
-      height: 65vh;
-    }
+<style>
+  *,
+  *::after,
+  *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  html {
+  scroll-behavior: smooth;
+}
 
-    a {
-      text-decoration: none;
-      color: #000;
-      cursor: pointer;
-    }
+  .modal-body {
+    overflow-y: scroll;
+    max-height: 65vh;
+    height: 65vh;
+  }
 
-    .modal-body .row {
-      row-gap: 30px;
-    }
-    .modal {
-      --bs-modal-border-width: unset !important;
-    }
-    .modal-content {
-      background: #f3f5e1c7 !important;
-    }
-    .modal-header {
-      background: #212529 !important;
-    }
-    .modal-title,
-    .btn-close {
-      color: #fff09a;
-    }
-    .modal-content::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(
-        circle,
+  a {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+
+  .modal-body .row {
+    row-gap: 30px;
+  }
+
+  .modal {
+    --bs-modal-border-width: unset !important;
+  }
+
+  .modal-content {
+    background: #f3f5e1c7 !important;
+  }
+
+  .modal-header {
+    background: #212529 !important;
+  }
+
+  .modal-title,
+  .btn-close {
+    color: #fff09a;
+  }
+
+  .modal-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle,
         #e8fbff82,
-        #d3c06329
-      ) !important;
-      z-index: -1;
-    }
-    .btn-primary {
-      filter: drop-shadow(10px 17px 10px rgba(0, 0, 0, 0.653));
-    }
-    .card-custom {
-      /* background-image: radial-gradient(circle, yellow, orange); */
-      border: solid 2px #000;
-      border-top-right-radius: 0px;
-      box-shadow: 0 6px 6px -6px #000;
-      overflow: hidden;
-      height: 200px;
-      cursor: pointer;
-    }
+        #d3c06329) !important;
+    z-index: -1;
+  }
 
-    .card-custom:hover {
-      transform: scale(1.02);
-      box-shadow: 0px 0px 20px 2px #5e5e5e;
-      transition: all 0.5s ease;
-      /* box-shadow: 0 6px 6px -6px orange; */
-    }
+  .btn-primary {
+    filter: drop-shadow(10px 17px 10px rgba(0, 0, 0, 0.653));
+  }
 
-    .card-image {
-      background-size: contain;
-      background-position: 26%;
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      bottom: -1em;
-    }
+  .card-custom {
+    /* background-image: radial-gradient(circle, yellow, orange); */
+    border: solid 2px #000;
+    border-top-right-radius: 0px;
+    box-shadow: 0 6px 6px -6px #000;
+    overflow: hidden;
+    height: 200px;
+    cursor: pointer;
+  }
 
-    .col-lg-4:nth-child(4n + 1) .card-custom,
-    .col-lg-4:nth-child(4n + 2) .card-custom,
-    .col-lg-4:nth-child(4n + 3) .card-custom,
-    .col-lg-4:nth-child(4n + 4) .card-custom {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-    }
+  .card-custom:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 20px 2px #5e5e5e;
+    transition: all 0.5s ease;
+    /* box-shadow: 0 6px 6px -6px orange; */
+  }
 
-    .col-lg-4:nth-child(4n + 1) .card-custom {
-      /* background-image: radial-gradient(circle, yellow, orange); */
-      background-image: url(./_modal/_yellowModalBg.jpg);
-    }
+  .card-image {
+    background-size: contain;
+    background-position: 26%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    bottom: -1em;
+  }
 
-    .col-lg-4:nth-child(4n + 2) .card-custom {
-      /* background-image: radial-gradient(circle, lightblue, deepskyblue); */
-      background-image: url(./_modal/_blueModalBg.jpg);
-    }
+  .col-lg-4:nth-child(4n + 1) .card-custom,
+  .col-lg-4:nth-child(4n + 2) .card-custom,
+  .col-lg-4:nth-child(4n + 3) .card-custom,
+  .col-lg-4:nth-child(4n + 4) .card-custom {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
 
-    .col-lg-4:nth-child(4n + 3) .card-custom {
-      /* background-image: radial-gradient(circle, palegreen, yellowgreen); */
-      background-image: url(./_modal/_greenModalBg.jpg);
-    }
+  .col-lg-4:nth-child(4n + 1) .card-custom {
+    /* background-image: radial-gradient(circle, yellow, orange); */
+    background-image: url(./_modal/_yellowModalBg.jpg);
+  }
 
-    .col-lg-4:nth-child(4n + 4) .card-custom {
-      /* background-image: radial-gradient(circle, lightcoral, tomato); */
-      background-image: url(./_modal/_redModalBg.jpg);
-    }
+  .col-lg-4:nth-child(4n + 2) .card-custom {
+    /* background-image: radial-gradient(circle, lightblue, deepskyblue); */
+    background-image: url(./_modal/_blueModalBg.jpg);
+  }
 
-    .text {
-      background-color: #fff;
-      border: solid 2px #000;
-      margin: 0;
-      padding: 3px 10px;
-      text-transform: capitalize;
-      font-size: 1.4em;
-    }
+  .col-lg-4:nth-child(4n + 3) .card-custom {
+    /* background-image: radial-gradient(circle, palegreen, yellowgreen); */
+    background-image: url(./_modal/_greenModalBg.jpg);
+  }
 
-    .addBvote {
-      position: absolute;
-      bottom: 0;
-      left: 4e;
-    }
+  .col-lg-4:nth-child(4n + 4) .card-custom {
+    /* background-image: radial-gradient(circle, lightcoral, tomato); */
+    background-image: url(./_modal/_redModalBg.jpg);
+  }
 
-    .card-text.vote.true {
-      position: absolute;
-      top: 50%;
-      text-align: center;
-      width: 200%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(27deg);
-      font-size: 5em;
-      z-index: 21;
-      background: rgba(255, 255, 255, 0.212);
-      height: 200%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      filter: grayscale(1);
-    }
+  .text {
+    background-color: #fff;
+    border: solid 2px #000;
+    margin: 0;
+    padding: 3px 10px;
+    text-transform: capitalize;
+    font-size: 1.4em;
+  }
 
-    .top-left {
-      left: -6px;
-      position: absolute;
-      top: -2px;
-      transform: skew(-15deg);
-    }
+  .addBvote {
+    position: absolute;
+    bottom: 0;
+    left: 4e;
+  }
 
-    .bottom-right {
-      bottom: -2px;
-      position: absolute;
-      right: -6px;
-      transform: skew(-15deg);
-      font-size: 1.2em;
-    }
+  .card-text.vote.true {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 200%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(27deg);
+    font-size: 5em;
+    z-index: 21;
+    background: rgba(255, 255, 255, 0.212);
+    height: 200%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: grayscale(1);
+  }
 
-    .card-wrapp .card-button .btn-custom {
-      bottom: -5px;
-      position: relative;
-      right: -5px;
-      transform: skew(-15deg);
-      font-size: 1.2em;
-      border-top-left-radius: 10px;
-      border-top-left-radius: 10px;
-    }
+  .top-left {
+    left: -6px;
+    position: absolute;
+    top: -2px;
+    transform: skew(-15deg);
+  }
 
-    .speech {
-      background-color: #fff;
-      border: solid 2px #000;
-      border-radius: 12px;
-      display: inline-block;
-      margin: 0.5em;
-      padding: 0.5em 1em;
-      position: absolute;
-      z-index: 2;
-    }
+  .bottom-right {
+    bottom: -2px;
+    position: absolute;
+    right: -6px;
+    transform: skew(-15deg);
+    font-size: 1.2em;
+  }
 
-    .speech:before {
-      border: solid 12px transparent;
-      border-left: solid 12px #000;
-      border-top: solid 12px #000;
-      bottom: -24px;
-      content: "";
-      height: 0;
-      left: 24px;
-      position: absolute;
-      transform: skew(-15deg);
-      width: 0;
-    }
+  .card-wrapp .card-button .btn-custom {
+    bottom: -5px;
+    position: relative;
+    right: -5px;
+    transform: skew(-15deg);
+    font-size: 1.2em;
+    border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+  }
 
-    .speech:after {
-      border: solid 10px transparent;
-      border-left: solid 10px #fff;
-      border-top: solid 10px #fff;
-      bottom: -19px;
-      content: "";
-      height: 0;
-      left: 27px;
-      position: absolute;
-      transform: skew(-15deg);
-      width: 0;
-    }
+  .speech {
+    background-color: #fff;
+    border: solid 2px #000;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 0.5em;
+    padding: 0.5em 1em;
+    position: absolute;
+    z-index: 2;
+  }
 
-    .card-text.top-left:hover {
-      background-color: crimson;
-      transition: all 0.5s ease;
-      color: white;
-      left: -8px;
-    }
+  .speech:before {
+    border: solid 12px transparent;
+    border-left: solid 12px #000;
+    border-top: solid 12px #000;
+    bottom: -24px;
+    content: "";
+    height: 0;
+    left: 24px;
+    position: absolute;
+    transform: skew(-15deg);
+    width: 0;
+  }
 
-    .container-section {
-      height: 100vh;
-      width: 100%;
-    }
+  .speech:after {
+    border: solid 10px transparent;
+    border-left: solid 10px #fff;
+    border-top: solid 10px #fff;
+    bottom: -19px;
+    content: "";
+    height: 0;
+    left: 27px;
+    position: absolute;
+    transform: skew(-15deg);
+    width: 0;
+  }
 
-    .wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
+  .card-text.top-left:hover {
+    background-color: crimson;
+    transition: all 0.5s ease;
+    color: white;
+    left: -8px;
+  }
 
-    .wrapper::after {
-      content: "";
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: url(./_bg/BG_generic.jpg);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      z-index: -1;
-    }
+  .container-section {
+    height: 100vh;
+    width: 100%;
+  }
 
-    .section_one {
-      position: relative;
-    }
+  .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-    .section_two {
-      /* background: purple; */
-      width: 95%;
-      position: relative;
-      z-index: 2;
-      height: 100vh;
-    }
+  /* body {
+      background-image: linear-gradient(
+        to top,
+        #051937,
+        #001b4c,
+        #001c60,
+        #001a72,
+        #171283
+      );
+    } */
+  .wrapper::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background-image: url(./_bg/bg_nospikes.jpg); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(-6px) scale(1.1) rotate(-5deg);
+    z-index: -1;
+  }
 
-    .section_two::after {
+  .wrapper::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* background-image: url(./_bg/bg_spikes.png); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translateZ(-5px) scale(1.1) rotate(2deg);
+    z-index: 0;
+  }
+
+  .section_one {
+    position: relative;
+  }
+
+  .section_two {
+    /* background: purple; */
+    width: 95%;
+    position: relative;
+    z-index: 22;
+    height: 100vh;
+  }
+
+  /* .section_two::after {
       content: "";
       position: absolute;
       width: 100%;
@@ -284,375 +309,450 @@
       top: 0;
       left: 0;
       z-index: -1;
-    }
+    } */
 
-    thead tr th,
-    tfoot tr th a {
-      color: #fff09a !important;
-    }
+  thead tr th,
+  tfoot tr th a {
+    color: #fff09a !important;
+  }
 
-    h2 {
-      color: white;
-      text-transform: uppercase;
-    }
+  h2 {
+    color: white;
+    text-transform: uppercase;
+  }
 
-    .col.text-center.py-4 {
-      background-color: black;
-      width: 95%;
-      color: white;
-      display: flex;
-      justify-content: center;
-    }
+  .col.text-center.py-4 {
+    background-color: black;
+    width: 95%;
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
 
-    .container-content .s-providers {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-direction: column;
-    }
-    .s-providers ._prov_transf_top_l,
-    .s-providers ._prov_transf_bottom_r {
-      transform: rotate(10deg);
-    }
-    .s-providers ._prov_transf_top_r,
-    .s-providers ._prov_transf_bottom_l {
-      transform: rotate(-10deg);
-    }
-    .s-providers div img {
-        /* height: 10vh; */
-        width: 25vh;
-        object-fit: contain;
-    }
-    .container-content .bg-img img {
-        width: 100%;
-    }
+  .container-content .s-providers {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+  }
 
-    .container-content .col-8 {
-      /* background: crimson; */
-    }
+  .s-providers ._prov_transf_top_l,
+  .s-providers ._prov_transf_bottom_r {
+    transform: rotate(10deg);
+  }
 
-    .container-content .col-8 img {
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(6px 19px 12px black);
-    }
+  .s-providers ._prov_transf_top_r,
+  .s-providers ._prov_transf_bottom_l {
+    transform: rotate(-10deg);
+  }
 
-    .container-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  </style>
+  .s-providers div img {
+    /* height: 10vh; */
+    width: 25vh;
+    object-fit: contain;
+  }
 
-  <body>
-    <div class="wrapper">
-      <div class="container-modal">
-        <div class="modal fade" id="myModal">
-          <div class="modal-dialog modal-xl">
-            <!-- Use modal-xl for larger modal -->
-            <div class="modal-content pos">
-              <!-- Modal Header -->
-              <div class="modal-header">
-                <h4 class="modal-title">Voteaza un streamer favorit pentru</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal">
-                  x
-                </button>
+  .s-providers:nth-child(1) {
+    filter: drop-shadow(20px 20px 20px #333);
+  }
+
+
+  .s-providers:nth-child(3) {
+    filter: drop-shadow(-20px 20px 20px #333);
+  }
+
+  .container-content .bg-img img {
+    width: 100%;
+  }
+
+  .container-content .col-8 {
+    /* background: crimson; */
+  }
+
+  .container-content .col-8 img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(6px 19px 12px black);
+  }
+
+  .container-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #parallax3 {
+    position: relative;
+    margin: auto;
+    width: 100%;
+    z-index: 3;
+  }
+  /* #parallax2 {
+    overflow: hidden;
+  } */
+
+  #parallax {
+    /* position: fixed;
+      margin: auto;
+      width: 100%; */
+    /* background: url(./_bg/BG_generic.jpg); */
+    height: 150px;
+    /* background: white; */
+  }
+
+  body {
+        /* background: url(./_bg/bg_nospikes.jpg); */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    /* background-image: linear-gradient(to top,
+        #051937,
+        #001b4c,
+        #001c60,
+        #001a72,
+        #171283); */
+  }
+
+  /* .parallax-item:nth-child(3)  {
+  background: crimson;
+  background-size: cover;
+} */
+.section_one .bgD {
+  background: #fdd835;
+    background: url(./_bg/bg_nospikes.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width:100%;
+    height: 100%;
+    position:absolute;
+}
+  .section_one {
+    position: relative;
+
+    /* Parallax Effect for DIV 3 */
+  }
+
+  .section_two {
+    background: #FFF;
+    /* background: linear-gradient(0deg, #329cb6, #3048b9); */
+    /* background: url(./_bg/BG_generic.jpg); */
+    /* background: url(./_bg/BG_generic.jpg); */
+    /* background: url(./_modal/_blueModalBg.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .section-middle {
+    background: crimson;
+    height: 104px;
+    /* background: linear-gradient(180deg, #329cb6, #3048b9); */
+    /* background:url(./_bg/norisori.png) ; */
+
+  }
+  .section-middle .norisori {
+    width: 100%;
+    height: 100%;
+       background:url(./_bg/norisori.png) ;
+       background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    z-index: 21;
+  }
+
+  .spikes {
+    /* display: none; */
+    /* background-color: red; */
+    background: url(./_bg/bg_spikes.png);
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* Parallax Effect for DIV 3 */
+    /* height: 150px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* overflow: hidden; */
+  }
+
+  .parallax-item:nth-child(4) {
+    background-color: chocolate;
+  }
+</style>
+
+<body>
+  <div class="wrapper">
+    <div class="header-top" style="background: black; width: 100%; height: 5em; position:fixed; top:0; z-index:31" ></div>
+    <div class="container-modal">
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl">
+          <!-- Use modal-xl for larger modal -->
+          <div class="modal-content pos">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Voteaza un streamer favorit pentru</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal">
+                x
+              </button>
+            </div>
+            <div class="modal-body p-md-5">
+              <div class="subTitle text-center">subtitlu</div>
+              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2" id="dynamicCardBody">
+                <!-- Cards will be generated here -->
               </div>
-              <div class="modal-body p-md-5">
-                <div class="subTitle text-center">subtitlu</div>
-                <div
-                  class="row row-cols-1 row-cols-sm-2 row-cols-md-2"
-                  id="dynamicCardBody"
-                >
-                  <!-- Cards will be generated here -->
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-                <!-- <button type="button" class="btn btn-primary">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <!-- <button type="button" class="btn btn-primary">
                       Save Changes
                     </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="container-section section_one section pt-5" >
+      <div class="bgD" id="parallax2"></div>
+      <div class="row mx-auto d-flex justify-content-center pt-5" id="parallax3">
+        <div class="container-stuff container">
+          <div class="container-btn">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+              Votează Streamerul
+            </button>
+          </div>
+          <div class="row container-fluid container-content d-flex justify-content-center mx-auto">
+            <div class="col-2 s-providers">
+              <div>
+                <img src="./_providers/7777gaming.png" class="_prov_transf_top_l" alt="gaming" />
+              </div>
+              <div>
+                <img src="./_providers/playtech.png" class="_prov_transf_bottom_l" alt="playtech" />
+              </div>
+            </div>
+            <div class="col-6 bg-img">
+              <img src="./_bg/title_generic.png" alt="" />
+            </div>
+            <div class="col-2 s-providers">
+              <div>
+                <img src="./_providers/pragmatic.png" class="_prov_transf_top_r" alt="gaming" />
+              </div>
+              <div>
+                <img src="./_providers/skywind.png" class="_prov_transf_bottom_r" alt="playtech" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="container-section pt-5">
-        <div class="row mx-auto d-flex justify-content-center pt-5">
-          <section class="section_one section">
-            <div class="container-btn">
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#myModal"
-              >
-                Votează Streamerul
-              </button>
+      <div class="spikes" id="parallax4">
+        <!-- <img src="./_bg/bg_spikes.png" alt=""> -->
+      </div>
+    </section>
+    <section class="container-section section-middle d-flex justify-content-between align-items-center gap-5">
+          <div class="norisori"></div>
+    </section>
+    <section class="container-section pt-5 w-100 section_two section">
+      <div class="row mx-auto w-100 d-flex justify-content-center pt-5">
+        <div class="container-stuff container">
+          <h2 class="text-center m-3">titlu</h2>
+          <div class="col container pb-5">
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nume</th>
+                    <th scope="col">vs</th>
+                    <th scope="col">Points</th>
+                  </tr>
+                </thead>
+                <tbody id="table-body">
+                  <!-- Dynamic table content will go here -->
+                </tbody>
+                <tfoot class="table-dark">
+                  <tr>
+                    <th colspan="4" class="text-center">
+                      <a href="#"> Inregistreaza-te</a>
+                    </th>
+                  </tr>
+                </tfoot>
+              </table>
             </div>
-            <div class="row container container-content mx-auto">
-              <div class="col-3 s-providers">
-                <div>
-                  <img
-                    src="./_providers/7777gaming.png"
-                    class="_prov_transf_top_l"
-                    alt="gaming"
-                  />
-                </div>
-                <div>
-                  <img
-                    src="./_providers/playtech.png"
-                    class="_prov_transf_bottom_l"
-                    alt="playtech"
-                  />
-                </div>
-              </div>
-              <div class="col-6 bg-img">
-                <img src="./_bg/title_generic.png" alt="" />
-              </div>
-              <div class="col-3 s-providers">
-                <div>
-                  <img
-                    src="./_providers/pragmatic.png"
-                    class="_prov_transf_top_r"
-                    alt="gaming"
-                  />
-                </div>
-                <div>
-                  <img
-                    src="./_providers/skywind.png"
-                    class="_prov_transf_bottom_r"
-                    alt="playtech"
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
+          </div>
+          <div class="col text-center py-4 my-2 container">providers</div>
+          <div class="col text-center py-4 my-2 container">
+            termeni si conditii
+          </div>
         </div>
       </div>
-      <div class="container-section pt-5">
-        <div class="row mx-auto w-100 d-flex justify-content-center pt-5">
-          <section class="section_two section mx-auto">
-            <h2 class="text-center m-3">titlu</h2>
-            <div class="col container pb-5">
-              <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                  <thead class="table-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Nume</th>
-                      <th scope="col">vs</th>
-                      <th scope="col">Points</th>
-                    </tr>
-                  </thead>
-                  <tbody id="table-body">
-                    <!-- Dynamic table content will go here -->
-                  </tbody>
-                  <tfoot class="table-dark">
-                    <tr>
-                      <th colspan="4" class="text-center">
-                        <a href="#"> Inregistreaza-te</a>
-                      </th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
-            </div>
-            <div class="col text-center py-4 my-2 container">providers</div>
-            <div class="col text-center py-4 my-2 container">
-              termeni si conditii
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-    <script>
-      $(document).ready(function () {
-        const streamers = [
-          {
-            name: "ana",
-            points: "310",
-            position: "#3",
-            challenge: false,
-            social: {
-              facebook: "ana facebook",
-              insta: "ana insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=ana",
-            },
-            bgPicture: "link",
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/pacanela.png",
+    </section>
+  </div>
+  <script>
+    $(document).ready(function () {
+      const streamers = [{
+          name: "ana",
+          points: "310",
+          position: "#3",
+          challenge: false,
+          social: {
+            facebook: "ana facebook",
+            insta: "ana insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=ana",
           },
-          {
-            name: "stero",
-            points: "120",
-            challenge: true,
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
-            },
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+          bgPicture: "link",
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/pacanela.png",
+        },
+        {
+          name: "stero",
+          points: "120",
+          challenge: true,
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
           },
-          {
-            name: "alin",
-            points: "770",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
-            },
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+        },
+        {
+          name: "alin",
+          points: "770",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
           },
-          {
-            name: "maria",
-            points: "970",
-            challenge: true,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
-            },
+        },
+        {
+          name: "maria",
+          points: "970",
+          challenge: true,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
           },
-          {
-            name: "george",
-            points: "1214",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
-            },
+        },
+        {
+          name: "george",
+          points: "1214",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
           },
-          {
-            name: "daniel",
-            points: "6453654",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-            },
+        },
+        {
+          name: "daniel",
+          points: "6453654",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
           },
-          {
-            name: "stero",
-            points: "120",
-            challenge: true,
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
-            },
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+        },
+        {
+          name: "stero",
+          points: "120",
+          challenge: true,
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
           },
-          {
-            name: "daniel",
-            points: "6453654",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-            },
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+        },
+        {
+          name: "daniel",
+          points: "6453654",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
           },
-          {
-            name: "daniel",
-            points: "6453654",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-            },
+        },
+        {
+          name: "daniel",
+          points: "6453654",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
           },
-          {
-            name: "stero",
-            points: "120",
-            challenge: true,
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
-            },
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+        },
+        {
+          name: "stero",
+          points: "120",
+          challenge: true,
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
           },
-          {
-            name: "daniel",
-            points: "6453654",
-            challenge: false,
-            avatar:
-              "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
-            social: {
-              facebook: "{$asset}/social/facebook.png",
-              insta: "stero insta",
-              streaming: "link",
-              website:
-                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-            },
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+        },
+        {
+          name: "daniel",
+          points: "6453654",
+          challenge: false,
+          avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+          social: {
+            facebook: "{$asset}/social/facebook.png",
+            insta: "stero insta",
+            streaming: "link",
+            website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
           },
-        ];
+        },
+      ];
 
-        /*    <p class="card-text">${cardData.challenge ? "challenge" : "no challenge"}</p>
-            <div class="card-button text-end"><button class="btn-custom text top-right">votează-mă</div>
-        
-        */
+      /*    <p class="card-text">${cardData.challenge ? "challenge" : "no challenge"}</p>
+          <div class="card-button text-end"><button class="btn-custom text top-right">votează-mă</div>
+            + " -> " + "puncte: " + cardData.points
+      
+      */
 
-        // Function to generate a card
-        function generateCard(cardData) {
-          const cardHtml = `
+      // Function to generate a card
+      function generateCard(cardData) {
+        const cardHtml = `
             <div class="col-lg-4 card-wrapp">
             
                 <div class="card card-custom"; min-height:200px !important">
                     <div class="card-body text-center" >
                         <a class="card-text text top-left" href="${
                           cardData.social.website
-                        }" target="_blank">Vezi Oferta</a>
-                        <p class="speech">Voteaza-ma !!! ${
+                        }" target="_blank">Voteaza-ma</a>
+                        <p class="speech"> ${
                           cardData.points + " " + "Voturi"
                         }</p>
                         <div class="card-image" style="background-image:url(${
@@ -660,35 +760,35 @@
                         }")></div>
                         <p class="card-text vote addVote">VOTAT</p>
                         <h6 class="card-title text bottom-right">${
-                          cardData.name + " -> " + "puncte: " + cardData.points
+                          cardData.name 
                         }</h6>
                         
                     </div>
                 </div>
             </div>
         `;
-          return cardHtml;
-        }
+        return cardHtml;
+      }
 
-        // Populate the modal body with dynamically generated cards
-        let dynamicCardBody = $("#dynamicCardBody");
-        streamers.forEach(function (cardData) {
-          dynamicCardBody.append(generateCard(cardData));
+      // Populate the modal body with dynamically generated cards
+      let dynamicCardBody = $("#dynamicCardBody");
+      streamers.forEach(function (cardData) {
+        dynamicCardBody.append(generateCard(cardData));
+      });
+      // vote and vote-class
+      $(".addBvote").each(function (index) {
+        $(this).click(function () {
+          $(".addVote").eq(index).addClass("true");
         });
-        // vote and vote-class
-        $(".addBvote").each(function (index) {
-          $(this).click(function () {
-            $(".addVote").eq(index).addClass("true");
-          });
-        });
+      });
 
-        // Function to generate and populate the dynamic table
-        function populateTable() {
-          const tableBody = $("#table-body");
-          tableBody.empty(); // Clear any existing rows
+      // Function to generate and populate the dynamic table
+      function populateTable() {
+        const tableBody = $("#table-body");
+        tableBody.empty(); // Clear any existing rows
 
-          streamers.forEach((cardData, index) => {
-            const row = `
+        streamers.forEach((cardData, index) => {
+          const row = `
           <tr>
             <th scope="row">${index + 1}</th>
             <td>${cardData.name}</td>
@@ -696,12 +796,29 @@
             <td>${cardData.points}</td>
           </tr>
         `;
-            tableBody.append(row);
-          });
-        }
+          tableBody.append(row);
+        });
+      }
 
-        populateTable(streamers);
-      });
-    </script>
-  </body>
+      populateTable(streamers);
+    });
+
+    // const parallax4 = document.getElementById("parallax4");
+    const parallax2 = document.getElementById("parallax2");
+    const parallax3 = document.getElementById("parallax3");
+    const parallax4 = document.getElementById("parallax4");
+
+    // Parallax Effect for DIV 1
+    window.addEventListener("scroll", function () {
+      let offset = window.pageYOffset;
+ 
+      // parallax2.style.backgroundPositionY = offset * 2 + "px";
+      parallax2.style.transform = "translateY(" + (offset * 0.5 + "px)");
+      parallax3.style.transform = "translateY(" + (offset * 0.8 + "px)");
+      parallax4.style.transform = "translateY(" + (offset * 0.03 + "px)");
+      // DIV 1 background will move slower than other elements on scroll.
+    });
+  </script>
+</body>
+
 </html>
