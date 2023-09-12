@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
 
     <style>
@@ -12,13 +18,16 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        font-family: "Bangers", cursive;
       }
       body {
-        background: #333;
+        /* background: #333; */
         display: flex;
         align-items: center;
         justify-content: center;
         height: 90vh;
+      }
+      html {
       }
       .container {
         position: relative;
@@ -26,11 +35,10 @@
         justify-content: center;
       }
       .font {
-        font-family: sans-serif;
         font-size: 10em;
       }
       .title_top {
-        font-family: fantasy;
+        /* font-family: fantasy; */
         text-transform: uppercase;
         /* font-size: 16vw; */
         text-align: center;
@@ -41,111 +49,55 @@
         left: 50%;
         transform: translate(-50%, -50%);
         position: absolute;
-        color: #fa859e;
-        text-shadow: 1px -2px 0 #e9e3e3, 1px -2px 0 #fff, 3px -4px 0px #e25a78, 5px -6px 0px #e25a78;
-        /* text-shadow: rgb(255, 255, 255) 116px 0px 0px,
-          rgb(255, 255, 255) 15.9688px 0.999349px 0px,
-          rgb(255, 255, 255) 15.8752px 1.9948px 0px,
-          rgb(255, 255, 255) 15.7196px 2.98245px 0px,
-          rgb(255, 255, 255) 15.5026px 3.95846px 0px,
-          rgb(255, 255, 255) 15.2251px 4.91902px 0px,
-          rgb(255, 255, 255) 14.8881px 5.86036px 0px,
-          rgb(255, 255, 255) 14.493px 6.77882px 0px,
-          rgb(255, 255, 255) 14.0413px 7.67081px 0px,
-          rgb(255, 255, 255) 13.5348px 8.53284px 0px,
-          rgb(255, 255, 255) 12.9754px 9.36156px 0px,
-          rgb(255, 255, 255) 12.3654px 10.1537px 0px,
-          rgb(255, 255, 255) 11.707px 10.9062px 0px,
-          rgb(255, 255, 255) 11.003px 11.6161px 0px,
-          rgb(255, 255, 255) 10.2559px 12.2807px 0px,
-          rgb(255, 255, 255) 9.46888px 12.8973px 0px,
-          rgb(255, 255, 255) 8.64484px 13.4635px 0px,
-          rgb(255, 255, 255) 7.78703px 13.9772px 0px,
-          rgb(255, 255, 255) 6.89882px 14.4363px 0px,
-          rgb(255, 255, 255) 5.98367px 14.839px 0px,
-          rgb(255, 255, 255) 5.04516px 15.1838px 0px,
-          rgb(255, 255, 255) 4.08694px 15.4692px 0px,
-          rgb(255, 255, 255) 3.11276px 15.6943px 0px,
-          rgb(255, 255, 255) 2.12643px 15.8581px 0px,
-          rgb(255, 255, 255) 1.1318px 15.9599px 0px,
-          rgb(255, 255, 255) 0.13274px 15.9994px 0px,
-          rgb(255, 255, 255) -0.866834px 15.9765px 0px,
-          rgb(255, 255, 255) -1.86302px 15.8912px 0px,
-          rgb(255, 255, 255) -2.85194px 15.7438px 0px,
-          rgb(255, 255, 255) -3.82971px 15.5349px 0px,
-          rgb(255, 255, 255) -4.79254px 15.2654px 0px,
-          rgb(255, 255, 255) -5.73664px 14.9362px 0px,
-          rgb(255, 255, 255) -6.65835px 14.5488px 0px,
-          rgb(255, 255, 255) -7.55405px 14.1045px 0px,
-          rgb(255, 255, 255) -8.42026px 13.6051px 0px,
-          rgb(255, 255, 255) -9.25359px 13.0526px 0px,
-          rgb(255, 255, 255) -10.0508px 12.4492px 0px,
-          rgb(255, 255, 255) -10.8087px 11.7971px 0px,
-          rgb(255, 255, 255) -11.5245px 11.099px 0px,
-          rgb(255, 255, 255) -12.1952px 10.3575px 0px,
-          rgb(255, 255, 255) -12.8183px 9.57555px 0px,
-          rgb(255, 255, 255) -13.3914px 8.75624px 0px,
-          rgb(255, 255, 255) -13.9121px 7.90272px 0px,
-          rgb(255, 255, 255) -14.3786px 7.01835px 0px,
-          rgb(255, 255, 255) -14.7888px 6.10658px 0px,
-          rgb(255, 255, 255) -15.1414px 5.17095px 0px,
-          rgb(255, 255, 255) -15.4348px 4.21514px 0px,
-          rgb(255, 255, 255) -15.6679px 3.24286px 0px,
-          rgb(255, 255, 255) -15.8399px 2.25792px 0px,
-          rgb(255, 255, 255) -15.95px 1.26416px 0px,
-          rgb(255, 255, 255) -15.9978px 0.26547px 0px,
-          rgb(255, 255, 255) -15.9831px -0.73426px 0px,
-          rgb(255, 255, 255) -15.9061px -1.73112px 0px,
-          rgb(255, 255, 255) -15.7669px -2.72122px 0px,
-          rgb(255, 255, 255) -15.5661px -3.7007px 0px,
-          rgb(255, 255, 255) -15.3046px -4.66573px 0px,
-          rgb(255, 255, 255) -14.9833px -5.61253px 0px,
-          rgb(255, 255, 255) -14.6035px -6.53742px 0px,
-          rgb(255, 255, 255) -14.1667px -7.43678px 0px,
-          rgb(255, 255, 255) -13.6745px -8.3071px 0px,
-          rgb(255, 255, 255) -13.129px -9.14498px 0px,
-          rgb(255, 255, 255) -12.5321px -9.94715px 0px,
-          rgb(255, 255, 255) -11.8864px -10.7105px 0px,
-          rgb(255, 255, 255) -11.1942px -11.432px 0px,
-          rgb(255, 255, 255) -10.4583px -12.1088px 0px,
-          rgb(255, 255, 255) -9.68157px -12.7384px 0px,
-          rgb(255, 255, 255) -8.86703px -13.3182px 0px,
-          rgb(255, 255, 255) -8.01787px -13.8461px 0px,
-          rgb(255, 255, 255) -7.1374px -14.3198px 0px,
-          rgb(255, 255, 255) -6.22906px -14.7377px 0px,
-          rgb(255, 255, 255) -5.29639px -15.098px 0px,
-          rgb(255, 255, 255) -4.34304px -15.3993px 0px,
-          rgb(255, 255, 255) -3.37273px -15.6405px 0px,
-          rgb(255, 255, 255) -2.38925px -15.8206px 0px,
-          rgb(255, 255, 255) -1.39644px -15.9389px 0px,
-          rgb(255, 255, 255) -0.398183px -15.995px 0px,
-          rgb(255, 255, 255) 0.601634px -15.9887px 0px,
-          rgb(255, 255, 255) 1.5991px -15.9199px 0px,
-          rgb(255, 255, 255) 2.59033px -15.7889px 0px,
-          rgb(255, 255, 255) 3.57143px -15.5963px 0px,
-          rgb(255, 255, 255) 4.5386px -15.3428px 0px,
-          rgb(255, 255, 255) 5.48803px -15.0294px 0px,
-          rgb(255, 255, 255) 6.41604px -14.6572px 0px,
-          rgb(255, 255, 255) 7.31899px -14.2279px 0px,
-          rgb(255, 255, 255) 8.19337px -13.743px 0px,
-          rgb(255, 255, 255) 9.03575px -13.2044px 0px,
-          rgb(255, 255, 255) 9.84284px -12.6142px 0px,
-          rgb(255, 255, 255) 10.6115px -11.9748px 0px,
-          rgb(255, 255, 255) 11.3387px -11.2886px 0px,
-          rgb(255, 255, 255) 12.0217px -10.5584px 0px,
-          rgb(255, 255, 255) 12.6577px -9.78692px 0px,
-          rgb(255, 255, 255) 13.2442px -8.97722px 0px,
-          rgb(255, 255, 255) 13.7791px -8.13247px 0px,
-          rgb(255, 255, 255) 14.2601px -7.25595px 0px,
-          rgb(255, 255, 255) 14.6855px -6.35111px 0px,
-          rgb(255, 255, 255) 15.0535px -5.42146px 0px,
-          rgb(255, 255, 255) 15.3627px -4.47065px 0px,
-          rgb(255, 255, 255) 15.612px -3.50237px 0px,
-          rgb(255, 255, 255) 15.8002px -2.52042px 0px,
-          rgb(255, 255, 255) 15.9268px -1.52863px 0px,
-          rgb(255, 255, 255) 15.9912px -0.530867px 0px; */
-
+        color: #f9c174;
+        /* font-family: sans-serif; */
+        -webkit-text-stroke-width: 4px;
+        -webkit-text-stroke-color: black;
         position: relative;
+/* border-radius: 10px; */
+        /* text-shadow: 5px 2px 0px #1e1e1e, 3px 4px 0px transparent,
+          -1px 6px 1px transparent, 11px 3px 1px transparent,
+          -1px 9px 0px transparent, 11px 7px 0px transparent,
+          5px 13px 1px transparent, -4px 7px 1px transparent,
+          11px 12px 1px transparent, 2px 11px 2px transparent,
+          12px 12px 0px transparent, 13px 9px 1px transparent,
+          8px -2px 0px transparent, 12px 9px 0px transparent,
+          12px 7px 0px transparent, 9px 1px 0px transparent,
+          14px 11px 0px transparent, 4px -13px 1px rgba(206, 89, 55, 0); */
+    
+
+      text-shadow: 0 1px 0px #1e1e1e, 1px 0 0px #262626, 1px 2px 0px #1e1e1e,
+        2px 1px 0px #262626, 2px 3px 0px #1e1e1e, 3px 2px 0px #262626,
+        3px 4px 0px #1e1e1e, 4px 3px 0px #262626, 4px 5px 0px #1e1e1e,
+        5px 4px 0px #262626, 5px 6px 0px #1e1e1e, 6px 5px 0px #262626,
+        6px 7px 0px #1e1e1e, 7px 6px 0px #262626, 7px 8px 0px #1e1e1e,
+        8px 7px 0px #262626, 2px 2px 0px rgba(206, 89, 55, 0);
+
+      }
+      /* .tittle_top {
+          text-shadow: 5px 2px 0px #1e1e1e, 3px 4px 0px transparent,
+            -1px 6px 1px transparent, 11px 3px 1px transparent,
+            -1px 9px 0px transparent, 11px 7px 0px transparent,
+            5px 13px 1px transparent, -4px 7px 1px transparent,
+            11px 12px 1px transparent, 2px 11px 2px transparent,
+            12px 12px 0px transparent, 13px 9px 1px transparent,
+            8px -2px 0px transparent, 12px 9px 0px transparent,
+            12px 7px 0px transparent, 9px 1px 0px transparent,
+            14px 11px 0px transparent, 4px -13px 1px rgba(206, 89, 55, 0);
+                   /* text-shadow: 5px 2px 0px #1e1e1e, 3px 4px 0px #1e1e1e,
+          -1px 6px 1px #1e1e1e, 11px 3px 1px #1e1e1e, -1px 9px 0px #1e1e1e,
+          11px 7px 0px #1e1e1e, 5px 13px 1px #1e1e1e, -4px 7px 1px #1e1e1e,
+          11px 12px 1px #1e1e1e, 2px 11px 2px #1e1e1e, 12px 12px 0px #1e1e1e,
+          13px 9px 1px #1e1e1e, 8px -2px 0px #1e1e1e, 12px 9px 0px #1e1e1e,
+          12px 7px 0px #1e1e1e, 9px 1px 0px #1e1e1e, 14px 11px 0px #1e1e1e,
+          4px -13px 1px rgba(206, 89, 55, 0);  }*/
+
+      /*
+7px 2px 0px #1e1e1e, 6px -2px 0px #1e1e1e, 11px 9px 0px #1e1e1e, 8px 6px 1px #1e1e1e, 8px 4px 0px #1e1e1e, 9px 10px 0px #1e1e1e, 9px 6px 0px #1e1e1e, -1px 7.5px 0px #1e1e1e, 12px 14px 0px #1e1e1e, 5px 11px 0px #1e1e1e, 9px 13px 0px #1e1e1e, 7px 12px 0px #1e1e1e, -3px 6px 0px #1e1e1e, 1px 9px 0px #1e1e1e, 3px 10px 0px #1e1e1e, 7px 12px 0px #1e1e1e, 12px 12px 0px #1e1e1e, 7px 1px 0px #1e1e1e, 6px -2px 0px #1e1e1e, 10px 7px 0px #1e1e1e, 8px 6px 1px #1e1e1e, 8px 4px 0px #1e1e1e, 9px 10px 0px #1e1e1e, 9px 6px 0px #1e1e1e, -1px 7.5px 0px #1e1e1e, 12px 14px 0px #1e1e1e, 5px 11px 0px #1e1e1e, 9px 13px 0px #1e1e1e, 7px 12px 0px #1e1e1e, -3px 6px 0px #1e1e1e, 1px 9px 0px #1e1e1e, 3px 10px 0px #1e1e1e, 7px 12px 0px #1e1e1e, 12px 12px 0px #1e1e1e, 4px -13px 1px rgba(206, 89, 55, 0)*/
+
+      .title_top span {
+        font-size: 0.7em;
+        margin-right: 0.2em;
       }
       /* .title_top::after {
         content: "Batalia";
@@ -174,7 +126,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="title_top font">BĂtĂlia</div>
+      <div class="title_top font"><span>#</span>1</div>
     </div>
   </body>
 </html>
