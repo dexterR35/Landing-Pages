@@ -51,7 +51,8 @@
     }
 
     .yoda:hover::before {
-      opacity: 1;
+      opacity: 0.6;
+      background: black;
     }
 
     .yoda::after {
@@ -86,9 +87,9 @@
     }
 
     .logo {
-        text-align: center;
-        color:white;
-        font-size: 2em;
+      text-align: center;
+      color: white;
+      font-size: 2em;
       z-index: 1000;
       filter: invert(1);
       width: 65%;
@@ -99,7 +100,7 @@
     }
 
     .yoda:hover .logo {
-      transform: translateY(-2rem) translateZ(20px);
+      transform: translateY(-2rem) translateZ(120px);
       rotate: x calc(var(--rotation) * -1);
     }
 
@@ -111,14 +112,15 @@
       transition: var(--timing);
       height: 65vh;
       object-fit: cover;
-   inset: auto 20px 0;
-   object-fit: center;
+      inset: auto 20px 0;
+      object-fit: center;
     }
 
     .yoda:hover .front-image {
       opacity: 1;
       transform: translateY(-2rem) translateZ(-10px);
       rotate: x calc(var(--rotation) * -1);
+      filter: drop-shadow(2px 4px 6px black);
     }
 
     .inspiration {
@@ -129,17 +131,17 @@
       margin-inline: auto;
     }
     .wrapper {
-        /* overflow: hidden; */
+      /* overflow: hidden; */
     }
   </style>
 
   <body>
     <div class="wrapper">
-    <div class="container-cards yoda">
-      <p class="logo" alt="logo"/>text</p>
-      <img src="./png/zeus.gif" class="front-image" alt="front-img" />
-      <img src="./png/banner_zeus_dark.jpg" class="bg-image" alt="" />
+      <div class="container-cards yoda">
+        <p class="logo" alt="logo">text</p>
+        <img src="./png/zeus.gif" class="front-image" alt="front-img" />
+        <img src="./png/banner_zeus_dark.jpg" class="bg-image" alt="" />
+      </div>
     </div>
-</div>
   </body>
 </html>
