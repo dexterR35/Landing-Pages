@@ -27,7 +27,10 @@
     margin: 0;
     box-sizing: border-box;
   }
-
+:root {
+--text_color:#fff09a;
+--bg_dark_color:#212529;
+}
   html {
     scroll-behavior: smooth;
   }
@@ -57,12 +60,13 @@
   }
 
   .modal-header {
-    background: #212529 !important;
+    background: var(--bg_dark_color) !important;
   }
 
   .modal-title,
   .btn-close {
-    color: #fff09a;
+    color: var(--text_color);
+
   }
 
   .modal-content::after {
@@ -140,7 +144,7 @@
   }
 
   .text {
-    background-color: crimson;
+    background-color: #fff;
     border: solid 2px #000;
     margin: 0;
     padding: 3px 10px;
@@ -272,7 +276,7 @@
 
   thead tr th,
   tfoot tr th a {
-    color: #fff09a !important;
+    color: var(--text_color) !important;
   }
 
   h2 {
@@ -283,7 +287,7 @@
   .col.text-center.py-4 {
     background-color: black;
     width: 95%;
-    color: white;
+    color: var(--text_color);
     display: flex;
     justify-content: center;
   }
@@ -417,7 +421,7 @@
   }
 
   .section-middle::after {
-    content: "WELCOME";
+    content: "";
     position: absolute;
     top: 100%;
     left: 0;
@@ -470,6 +474,19 @@
     border-radius: 10px;
   }
 
+  .table-title h4 {
+    background: var(--bg_dark_color);
+    width: 30%;
+    position: relative;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: var(--text_color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
   /*end tables*/
   /*end tables*/
   /*end tables*/
@@ -525,7 +542,7 @@
       } */
 
   .slide-streamer {
-    border: 3px solid white;
+    border: 3px solid #FFF;
     /* background-image: url(./png/bg2.jpg); */
     background-size: cover;
     text-align: center;
@@ -565,6 +582,12 @@
 
   .bottom_swiper_box span:nth-child(2) {
     font-size: 2.8em;
+  }
+
+  .providers-table td div a img {
+    /* width: 100%; */
+    height: 40px;
+    /* object-fit: cover; */
   }
 
   .top_swiper_box {
@@ -639,13 +662,13 @@
           <div class="modal-content pos">
             <!-- Modal Header -->
             <div class="modal-header">
-              <h4 class="modal-title">Voteaza un streamer favorit pentru</h4>
+              <h4 class="modal-title">Provoacă streamerul favorit pentru chalenge-ul de azi!</h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal">
-                x
+                
               </button>
             </div>
             <div class="modal-body p-md-5">
-              <div class="subTitle text-center">subtitlu</div>
+              <div class="subTitle text-center">Voturile pentru acest challenge se vor reseta la data de 12.10.2023</div>
               <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2" id="dynamicCardBody">
                 <!-- Cards will be generated here -->
               </div>
@@ -666,7 +689,7 @@
           <div class="container-stuff container">
             <div class="container-btn">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                Votează Streamerul
+                Intră în luptă
               </button>
             </div>
             <div class="row container-content mx-auto gap-4">
@@ -758,36 +781,115 @@
     </section>
     <section class="container-section section_two section w-100">
       <div class="row mx-auto w-100 d-flex justify-content-center">
-        <div class="container-stuff container">
-          <h2 class="text-center m-3 title_s2">titlu</h2>
-          <div class="col container pb-5">
+        <div class="container-stuff container" style="align-items: center; justify-content: center; margin-top: -10vh;">
+          <div class="row container">
+          <h2 class="text-center m-3 title_s2">Participă la Bătălia streamerilor și câștigă premii fabuloase.</h2>
+          <p class="text-center m-3">Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte jucând orice slot participant la promotie iar primii 500 de jucători vor fi premiați cu pachete cadou si premii surpriză!</p>
+          <p class="text-center m-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nisl risus, euismod eget augue finibus, auctor laoreet justo. Aenean tempor tempor quam sed sollicitudin. Curabitur sodales euismod vulputate. Integer auctor neque vitae sem fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam maximus turpis et sapien cursus, et volutpat arcu maximus. Proin interdum placerat lacus ac mattis. Praesent sagittis justo non augue auctor, in finibus nibh convallis. Etiam eu eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet ac massa sed lacinia. Vivamus sollicitudin pulvinar sapien, in imperdiet dolor aliquet sit amet. Suspendisse arcu erat, lacinia ut imperdiet vel, interdum eget diam. Sed ultricies ut enim quis vulputate. Aenean venenatis dignissim erat, quis porttitor dolor scelerisque ut.</p>
+        </div>
+          <h2 class="text-center m-3 title_s2">Jocuri eligibile</h2>
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/26375-halloween__3.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/25354-jinn__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/25370-sea-of-treasures__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/4553-book-of-dead__6.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/9903-rich-wilde-and-the-tome-of-madness__4.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/7152-legacy-of-egypt__3.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+              </tr>
+
+              <tr>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/21726-royal-coins-2-hold-and-win__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/14166-legend-of-cleopatra-megaways__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/21318-luxor-gold-hold-and-win__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/11953-coin-coin-coin-ro__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/18166-age-of-the-gods-wonder-warriors__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/11955-streak-of-luck__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+              </tr>
+
+ 
+              <tr>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/9736-sweet-bonanza__4.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/15213-gates-of-olympus__4.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/20949-big-bass-splash__4.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/14220-aztec-respin-remember-skywind-prov__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/25884-toucan-wild__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+                <td><a href="#"><img src="https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/25258-sugar-bonanza-deluxe__2.jpg" alt="" style="border-radius:8px; height: 10em;"></a></td>
+              </tr>
+
+              <tr class="providers-table">
+                <td>
+                  <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" style="height: 40px;"></a></div>
+                </td>
+                <td>
+                  <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" style="height: 40px;"></a></div>
+                </td>
+                <td>
+                  <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" style="height: 40px;"></a></div>
+                </td>
+                <td>
+                  <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" style="height: 40px;"></a></div>
+                </td>
+                <td>
+                  <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" style="height: 40px;"></a></div>
+                </td>
+                <td>
+                 <div><a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playson.png" style="height: 40px;"></a></div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="6" align="center">
+                  <button type="button" class="btn " style="background-color: orangered; border: none; color: #fff; text-transform: uppercase;">
+                    vezi toate jocurile
+                  </button>  
+                </td>
+              </tr>
+            </table>
+            <h2 class="text-center m-3 title_s2">Clasamente</h2>
+          </div>
+          <div class="row container w-100">
+          <div class="col pb-5 table-title">
+            <h4 class="text-center">Users</h4>
             <div class="table-responsive">
               <table class="table table-bordered table-hover">
                 <thead class="table-dark">
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Nume</th>
                     <th scope="col">DisplayName</th>
-                    <th scope="col">is Streamer</th>
-                    <th scope="col">optIn</th>
-                    <th scope="col">voted</th>
                     <th scope="col">puncte acumulate</th>
                   </tr>
                 </thead>
-                <tbody id="table-body">
+                <tbody class="table-body">
                   <!-- Dynamic table content will go here -->
                 </tbody>
                 <tfoot class="table-dark">
-                  <tr>
-                    <th colspan="7" class="text-center">
-                      <a href="#"> Inregistreaza-te</a>
-                    </th>
-                  </tr>
+
                 </tfoot>
               </table>
             </div>
           </div>
-          <div class="col text-center py-4 my-2 container">providers</div>
+          <div class="col pb-5 table-title">
+            <h4 class="text-center">streamers</h4>
+            <div class="table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">DisplayName</th>
+                    <th scope="col">puncte acumulate</th>
+                  </tr>
+                </thead>
+                <tbody class="table-body">
+                  <!-- Dynamic table content will go here -->
+                </tbody>
+                <tfoot class="table-dark">
+
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
           <div class="col text-center py-4 my-2 container">
             termeni si conditii
           </div>
@@ -981,18 +1083,14 @@
 
       // Function to generate and populate the dynamic table
       function populateTable() {
-        const tableBody = $("#table-body");
+        const tableBody = $(".table-body");
         tableBody.empty(); // Clear any existing rows
 
         streamers.forEach((cardData, index) => {
           const row = `
           <tr>
             <th scope="row">${index + 1}</th>
-            <td>${cardData.name}</td>
-            <td>${cardData.username}</td>
-            <td>${cardData.isStreamer}</td>
-            <td>${cardData.isOptIn}</td>
-            <td>${cardData.isVoted}</td>
+            <td>${cardData.DisplayName}</td>
             <td>${cardData.points}</td>
           </tr>
         `;
