@@ -278,7 +278,9 @@ $(document).ready(function () {
       });
     });
   }
-
+  $("#toggleButton").click(function() {
+    $("#termsAndConditions").slideToggle(); 
+  });
   appendStuff();
   generateGames(gamesArray);
   populateTable(streamers);
@@ -321,13 +323,15 @@ swiperStr.el.addEventListener("mouseleave", function () {
 });
 
 // const parallax4 = document.getElementById("parallax4");
-const bgPalalax = document.getElementById("background_p");
-const contentMiddle = document.getElementById("contentImg_p");
-const spikePalalax = document.getElementById("spike_p");
-window.addEventListener("scroll", function () {
-  let offset = window.pageYOffset;
-  bgPalalax.style.backgroundPositionY = -offset * 0.1 + "px";
-  spikePalalax.style.transform = "translateY(" + (-offset * 0.2 + "px)");
-  contentMiddle.style.transform = "translateY(" + (-offset * 0.3 + "px)");
-});
+// const bgPalalax = document.getElementById("background_p");
+// const contentMiddle = document.getElementById("contentImg_p");
+// const spikePalalax = document.getElementById("spike_p");
+// const gameImages = document.querySelector(".s2_providers");
+// window.addEventListener("scroll", function () {
+//   let offset = window.pageYOffset;
+//   bgPalalax.style.backgroundPositionY = -offset * 0.1 + "px";
+//   spikePalalax.style.transform = "translateY(" + (offset * 0.3 + "px)");
+//   contentMiddle.style.transform = "translateY(" + (-offset * 0.5 + "px)");
+
+// });
 
