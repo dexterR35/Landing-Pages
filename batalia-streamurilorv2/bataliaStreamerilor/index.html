@@ -3,18 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
-      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -27,8 +29,15 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+   
     <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
   </head>
@@ -299,7 +308,7 @@
                   class="col-lg-7 col-md-12 d-flex justify-content-center align-items-center"
                 >
                   <div class="table-responsive">
-                    <table class="table" id="gameImages"></table>
+                    <table class="tables" id="gameImages"></table>
                     <button
                       type="button"
                       class="btn btn-NetBet-normal w-75 _mobile"
@@ -375,14 +384,15 @@
             <h2 class="text-center m-3 title_s2">Clasamente</h2>
             <div class="row container w-100 z-3">
               <div class="col pb-5 table-title">
-                <h4 class="text-center">Users</h4>
+         
                 <div class="table-responsive">
-                  <table class="table table-bordered table-hover">
+                  <table  id="usersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
                     <thead class="table-dark">
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">DisplayName</th>
-                        <th scope="col">puncte acumulate</th>
+                        <th>Client Name</th>
+                 
+                        <th>Points</th>
+                        <th>Challenge</th>
                       </tr>
                     </thead>
                     <tbody class="table-body" id="table">
@@ -393,14 +403,18 @@
                 </div>
               </div>
               <div class="col pb-5 table-title">
-                <h4 class="text-center">streamers</h4>
-                <div class="table-responsive">
-                  <table class="table table-bordered table-hover">
+              
+                <div class="table-responsives">
+                  <table id="streamersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
                     <thead class="table-dark">
                       <tr>
-                        <th scope="col">#</th>
+                        <!-- <th scope="col">#</th>
                         <th scope="col">DisplayName</th>
-                        <th scope="col">puncte acumulate</th>
+                        <th scope="col">puncte acumulate</th> -->
+                        <th>streamers Name</th>
+                   
+                        <th>Date of Birth</th>
+                        <th>App Access</th>
                       </tr>
                     </thead>
                     <tbody class="table-body">

@@ -1,6 +1,7 @@
 
 $(document).ready(function () {
   const streamers = [
+    
     {
       name: "ana",
       points: "310",
@@ -218,12 +219,26 @@ $(document).ready(function () {
 
   // Function to generate table streamres
   function generateDataTable(index, tableData) {
-    const tableHtml = ` <tr>
-        <th scope="row">${index + 1}</th>
-        <td>${tableData.name}</td>
-        <td>${tableData.points}</td>
-      </tr>`;
-    return tableHtml;
+      const tableAHtml = `<tr>
+      <td>
+          <div class="d-flex align-items-center">
+                  <div class="avatar-table avatar-blue mr-3">${(tableData.name).slice(0, 2).toUpperCase()}</div>
+                  <div class="">
+                      <p class="font-weight-bold mb-0">${tableData.name}</p>
+                      <p class="text-muted mb-0">${tableData.name}@example.com</p>
+                  </div>
+            </div>
+      </td>
+
+      <td>${tableData.points}</td>
+      <td>
+          <div class="badge text-bg-danger">
+              challenge off
+          </div>
+      </td>
+     
+  </tr>`
+    return tableAHtml;
   }
 
   // Function populate streamers table and modal streamers cards
@@ -336,4 +351,32 @@ swiperStr.el.addEventListener("mouseleave", function () {
 //   contentMiddle.style.transform = "translateY(" + (-offset * 0.5 + "px)");
 
 // });
+$(document).ready(function () {
+  const commonOptions = {
+    aaSorting: [],
+    responsive: true,
+    pageLength: 5,
+    lengthChange: false,
+    columnDefs: [
+      {
+        responsivePriority: 1,
+        targets: 0,
+      },
+      {
+        responsivePriority: 2,
+        targets: -1,
+      },
+    ],
+  };
+  $("#streamersTable").DataTable(commonOptions);
+  $("#usersTable").DataTable(commonOptions);
+  $("#usersTable_filter").prepend(`<h4>test</h4>`); 
+  $(".dataTables_filter input")
+      .attr("placeholder", "Search here...")
+      .css({
+          width: "200px",
+          display: "inline-block",
+      });
 
+  $('[data-toggle="tooltip"]').tooltip();
+});

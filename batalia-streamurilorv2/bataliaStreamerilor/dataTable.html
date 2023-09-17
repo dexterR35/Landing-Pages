@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+        integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@2.0.0/css/boxicons.min.css"
+    /> -->
+
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background: #f7f7f7;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .table {
+        border-spacing: 0 0.85rem !important;
+    }
+
+    .table .dropdown {
+        display: inline-block;
+    }
+
+    .table td,
+    .table th {
+        vertical-align: middle;
+        margin-bottom: 10px;
+        border: none;
+    }
+
+    .table thead tr,
+    .table thead th {
+        border: none;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: transparent;
+    }
+
+    .table td {
+        background: #fff;
+    }
+
+    .table td:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+
+    .table td:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .avatar-table {
+        width: 2.75rem;
+        height: 2.75rem;
+        line-height: 3rem;
+        border-radius: 50%;
+        display: inline-block;
+        background: transparent;
+        position: relative;
+        text-align: center;
+        color: #868e96;
+        font-weight: 700;
+        vertical-align: bottom;
+        font-size: 1rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .avatar-sm {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.83333rem;
+        line-height: 1.5;
+    }
+
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .avatar-blue {
+        background-color: #c8d9f1;
+        color: #467fcf;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+        top: 28px;
+        left: 14px;
+        border: none;
+        box-shadow: none;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child {
+        padding-left: 48px;
+    }
+
+    table.dataTable>tbody>tr.child ul.dtr-details {
+        width: 100%;
+    }
+
+    table.dataTable>tbody>tr.child span.dtr-title {
+        min-width: 50%;
+    }
+
+    table.dataTable.dtr-inline.collapsed>tbody>tr>td.child,
+    table.dataTable.dtr-inline.collapsed>tbody>tr>th.child,
+    table.dataTable.dtr-inline.collapsed>tbody>tr>td.dataTables_empty {
+        padding: 0.75rem 1rem 0.125rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_length label,
+    div.dataTables_wrapper div.dataTables_filter label {
+        margin-bottom: 0;
+    }
+
+    @media (max-width: 767px) {
+        div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+            -ms-flex-pack: center !important;
+            justify-content: center !important;
+            margin-top: 1rem;
+        }
+    }
+
+    .btn-icon {
+        background: #fff;
+    }
+
+    .btn-icon .bx {
+        font-size: 20px;
+    }
+
+    .btn .bx {
+        vertical-align: middle;
+        font-size: 20px;
+    }
+
+    .dropdown-menu {
+        padding: 0.25rem 0;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+    }
+
+    .badge {
+        padding: 0.5em 0.75em;
+    }
+
+    .badge-success-alt {
+        background-color: #d7f2c2;
+        color: #7bd235;
+    }
+
+    .table a {
+        color: #212529;
+    }
+
+    .table a:hover,
+    .table a:focus {
+        text-decoration: none;
+    }
+
+    table.dataTable {
+        margin-top: 12px !important;
+    }
+
+    .icon>.bx {
+        display: block;
+        min-width: 1.5em;
+        min-height: 1.5em;
+        text-align: center;
+        font-size: 1.0625rem;
+    }
+
+    .btn {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .avatar-blue {
+        background-color: #c8d9f1;
+        color: #467fcf;
+    }
+
+    .avatar-pink {
+        background-color: #fcd3e1;
+        color: #f66d9b;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-12">
+                <table id="example" class="table table-hover responsive nowrap" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Phone Number</th>
+                            <th>Profession</th>
+                            <th>Date of Birth</th>
+                            <th>App Access</th>
+                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-table avatar-blue mr-3">EB</div>
+
+                                        <div class="">
+                                            <p class="font-weight-bold mb-0">Ethan Black</p>
+                                            <p class="text-muted mb-0">ethan-black@example.com</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </td>
+                            <td>(784) 667 8768</td>
+                            <td>Designer</td>
+                            <td>09/04/1996</td>
+                            <td>
+                                <div class="badge badge-success badge-success-alt">
+                                    Enabled
+                                </div>
+                            </td>
+                           
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-center">
+        <div class="row py-5">
+            <div class="col-12">
+                <h6 class="small text-danger">
+                    Currently I'm just experimenting with this stuff, so there might be
+                    lots of redundant CSS.
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"
+        integrity="sha512-X/YkDZyjTf4wyc2Vy16YGCPHwAY8rZJY+POgokZjQB2mhIRFJCckEGc6YyX9eNsPfn0PzThEuNs+uaomE5CO6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+        integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+        integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.min.js" integrity="sha512-zjnVNy8zmH0JujmJgrADeEjpVIrafOQm2iQSbKk5dAiUBa18xYI2035PpojcvHKLKgDHPUdA3FoxneTC/RooGw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script>
+        $(document).ready(function () {
+            $(".tableDatas").DataTable({
+                aaSorting: [],
+                responsive: true,
+
+                columnDefs: [
+                    {
+                        responsivePriority: 1,
+                        targets: 0,
+                    },
+                    {
+                        responsivePriority: 2,
+                        targets: -1,
+                    },
+                ],
+            });
+
+            $(".dataTables_filter input")
+                .attr("placeholder", "Search here...")
+                .css({
+                    width: "200px",
+                    display: "inline-block",
+                });
+
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+</body>
+
+</html>
