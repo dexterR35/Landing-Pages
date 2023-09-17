@@ -1,91 +1,84 @@
-
 $(document).ready(function () {
   const streamers = [
-    
+
     {
       name: "ana",
       points: "310",
-      position: "#3",
+      position: "3",
+      vote:"2",
       challenge: false,
       social: {
         facebook: "ana facebook",
         insta: "ana insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=ana",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=ana",
       },
       bgPicture: "link",
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/pacanela.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/pacanela.png",
     },
     {
       name: "stero",
       points: "120",
+      vote:"12",
+      position: "13",
       challenge: true,
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
       },
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
     },
     {
       name: "alin",
       points: "770",
+      vote:"12",
+      position: "131",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
       },
     },
     {
       name: "maria",
       points: "970",
+      position: "113",
       challenge: true,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
       },
     },
     {
       name: "george",
       points: "1214",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
       },
     },
     {
       name: "daniel",
       points: "6453654",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
       },
     },
     {
@@ -96,38 +89,32 @@ $(document).ready(function () {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
       },
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
     },
     {
       name: "daniel",
       points: "6453654",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
-        streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+        streaming: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
       },
     },
     {
       name: "daniel",
       points: "6453654",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
       },
     },
     {
@@ -138,24 +125,20 @@ $(document).ready(function () {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
       },
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
     },
     {
       name: "daniel",
       points: "6453654",
       challenge: false,
-      avatar:
-        "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
+      avatar: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png",
       social: {
         facebook: "{$asset}/social/facebook.png",
         insta: "stero insta",
         streaming: "link",
-        website:
-          "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+        website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
       },
     },
   ];
@@ -189,11 +172,6 @@ $(document).ready(function () {
     'url("./_bg/bg3.jpg")',
   ];
 
-  /*    <p class="card-text">${cardData.challenge ? "challenge" : "no challenge"}</p>
-<div class="card-button text-end"><button class="btn-custom text top-right">votează-mă</div>
-+ " -> " + "puncte: " + cardData.points
-
-*/
   // Function to generate a card
   function generateCard(cardData) {
     const cardHtml = `
@@ -216,24 +194,25 @@ $(document).ready(function () {
     `;
     return cardHtml;
   }
+  let addvar = $("#badge").addClass("badge-success-alt")
 
   // Function to generate table streamres
   function generateDataTable(index, tableData) {
-      const tableAHtml = `<tr>
+    const tableAHtml = `<tr>
       <td>
           <div class="d-flex align-items-center">
                   <div class="avatar-table avatar-blue mr-3">${(tableData.name).slice(0, 2).toUpperCase()}</div>
                   <div class="">
                       <p class="font-weight-bold mb-0">${tableData.name}</p>
-                      <p class="text-muted mb-0">${tableData.name}@example.com</p>
+                      <p class="text-muted mb-0">Voturi: ${tableData.vote}</a>
                   </div>
             </div>
       </td>
-
+      <td>${tableData.position}</td>
       <td>${tableData.points}</td>
       <td>
-          <div class="badge text-bg-danger">
-              challenge off
+          <div class="badge ${tableData.challenge ? 'badge-success-alt' : 'text-bg-danger'}">
+          ${tableData.challenge ? "challenge" : "no challenge"}
           </div>
       </td>
      
@@ -294,8 +273,8 @@ $(document).ready(function () {
     });
   }
 
-  $("#toggleButton").click(function() {
-    $("#termsAndConditions").slideToggle(); 
+  $("#toggleButton").click(function () {
+    $("#termsAndConditions").slideToggle();
   });
 
   populateTable(streamers);
@@ -356,9 +335,17 @@ $(document).ready(function () {
     aaSorting: [],
     responsive: true,
     pageLength: 5,
+    info: true,
+    language: {
+      search: "",
+      paginate: {
+        'previous': '<span class="prev-icon"></span>',
+        'next': '<span class="next-icon"></span>'
+      }
+    },
     lengthChange: false,
-    columnDefs: [
-      {
+    bFilter: true,
+    columnDefs: [{
         responsivePriority: 1,
         targets: 0,
       },
@@ -370,13 +357,21 @@ $(document).ready(function () {
   };
   $("#streamersTable").DataTable(commonOptions);
   $("#usersTable").DataTable(commonOptions);
-  $("#usersTable_filter").prepend(`<h4>test</h4>`); 
+
+
+  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streamări</h4>`);
+  $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
+
+  $("#usersTable_filter > label").addClass("col-12 d-flex justify-content-end");
   $(".dataTables_filter input")
-      .attr("placeholder", "Search here...")
-      .css({
-          width: "200px",
-          display: "inline-block",
-      });
+    .attr("placeholder", "Search here...")
+    .css({
+      width: "200px",
+      display: "inline-block",
+      "font-size": "0.7em",
+      padding: "0.3em 0.7em",
+      outline: "none"
+    });
 
   $('[data-toggle="tooltip"]').tooltip();
 });
