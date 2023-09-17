@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
-    integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
-    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <link rel="stylesheet" href="./index.css">
-  <title>Document</title>
-</head>
+  <style></style>
 
-<style>
-
-</style>
-
-<body>
-  <!-- <header
+  <body>
+    <!-- <header
     class="header-top d-flex justify-content-center align-items-center"
     style="
       background: black;
@@ -41,310 +51,398 @@
   >
     navbar
   </header> -->
-  <div class="wrapper">
-    <div class="container-modal">
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-xl">
-          <!-- Use modal-xl for larger modal -->
-          <div class="modal-content pos">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 class="modal-title">
-                Provoacă streamerul favorit pentru chalenge-ul de azi!
-              </h4>
-              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body p-md-5">
-              <div class="subTitle text-center">
-                Voturile pentru acest challenge se vor reseta la data de
-                12.10.2023
+    <div class="wrapper" style="overflow: hidden">
+      <div class="container-modal">
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog modal-xl">
+            <!-- Use modal-xl for larger modal -->
+            <div class="modal-content pos">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">
+                  Provoacă streamerul favorit pentru chalenge-ul de azi!
+                </h4>
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
               </div>
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2" id="dynamicCardBody">
-                <!-- Cards will be generated here -->
+              <div class="modal-body p-md-5">
+                <div class="subTitle text-center">
+                  Voturile pentru acest challenge se vor reseta la data de
+                  12.10.2023
+                </div>
+                <div
+                  class="row row-cols-1 row-cols-sm-2 row-cols-md-2"
+                  id="dynamicCardBody"
+                >
+                  <!-- Cards will be generated here -->
+                </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div id="fullpage">
-      <div class="section" style="overflow: hidden">
-        <section class="container-section section_one">
-          <div class="bgD" id="background_p"></div>
-          <div class="col">
-            <div class="norisori" style="background: #1e1e1e !important; height: 5em;">
-              <p style="color: white; font-size: 2em; z-index: 214" class="text-center">
-                navbar
-              </p>
-            </div>
-          </div>
-          <div class="row mx-auto w-100 z-3" id="contentImg_p">
-            <div class="col-12" style="z-index: 50;">
-              <div class="container-stuff container">
-
-                <div class="container-content mx-auto gap-4">
-                  <div class="col-2 s-providers">
-                    <div>
-                      <a href="#">
-                        <img src="./_providers/7777gaming.png" class="_prov_transf_top_l" alt="gaming" /></a>
-                    </div>
-                    <div>
-                      <a href="#">
-                        <img src="./_providers/playson.png" class="_prov_transf_center_l" alt="playson" /></a>
-                    </div>
-                    <div>
-                      <a href="#">
-                        <img src="./_providers/playtech.png" class="_prov_transf_bottom_l" alt="playtech" /></a>
-                    </div>
-                  </div>
-                  <div class="col-lg-7 col-md-4 bg-img">
-                    <img src="./_bg/title_generic.png" alt="" />
-                  </div>
-                  <div class="col-2 s-providers">
-                    <div>
-                      <a href="#">
-                        <img src="./_providers/pragmatic.png" class="_prov_transf_top_r" alt="gaming" /></a>
-                    </div>
-                    <div>
-                      <a href="#">
-                        <img src="./_providers/playngo.png" class="_prov_transf_center_r" alt="playngo" /></a>
-                    </div>
-                    <div>
-                      <img src="./_providers/skywind.png" class="_prov_transf_bottom_r" alt="playtech" />
-                    </div>
-                  </div>
-                </div>
-                <div class="container-btn">
-                  <button type="button" class="btn !btn-primary btn-NetBet-large animate" data-bs-toggle="modal"
-                    data-bs-target="#myModal">
-                    Intră în luptă
-                  </button>
-                </div>
+      <div id="fullpage">
+        <div class="section">
+          <section class="container-section section_one">
+            <div class="bgD" id="background_p"></div>
+            <div class="col">
+              <div
+                class="s"
+                style="background: #1e1e1e !important; height: 5em; width: 100vw; z-index: 12;"
+              >
+                <p
+                  style="color: white; font-size: 2em; z-index: 214"
+                  class="text-center"
+                >
+                  navbar
+                </p>
               </div>
             </div>
-            <div class="col-12 container-swiper">
-              <div class="swipers stream-slider">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png" />
+            <div class="row mx-auto w-100 z-3" id="contentImg_p">
+              <div class="col-12" style="z-index: 50">
+                <div class="container-stuff container">
+                  <div class="container-content mx-auto gap-4">
+                    <div class="col-2 s-providers">
+                      <div>
+                        <a href="#">
+                          <img
+                            src="./_providers/7777gaming.png"
+                            class="_prov_transf_top_l"
+                            alt="gaming"
+                        /></a>
+                      </div>
+                      <div>
+                        <a href="#">
+                          <img
+                            src="./_providers/playson.png"
+                            class="_prov_transf_center_l"
+                            alt="playson"
+                        /></a>
+                      </div>
+                      <div>
+                        <a href="#">
+                          <img
+                            src="./_providers/playtech.png"
+                            class="_prov_transf_bottom_l"
+                            alt="playtech"
+                        /></a>
+                      </div>
+                    </div>
+                    <div class="col-lg-7 col-md-4 bg-img">
+                      <img src="./_bg/title_generic.png" alt="" />
+                    </div>
+                    <div class="col-2 s-providers">
+                      <div>
+                        <a href="#">
+                          <img
+                            src="./_providers/pragmatic.png"
+                            class="_prov_transf_top_r"
+                            alt="gaming"
+                        /></a>
+                      </div>
+                      <div>
+                        <a href="#">
+                          <img
+                            src="./_providers/playngo.png"
+                            class="_prov_transf_center_r"
+                            alt="playngo"
+                        /></a>
+                      </div>
+                      <div>
+                        <img
+                          src="./_providers/skywind.png"
+                          class="_prov_transf_bottom_r"
+                          alt="playtech"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png" />
-                  </div>
-                  <div class="swiper-slide slide-streamer">
-                    <img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png" />
+                  <div class="container-btn">
+                    <button
+                      type="button"
+                      class="btn !btn-primary btn-NetBet-large animate"
+                      data-bs-toggle="modal"
+                      data-bs-target="#myModal"
+                    >
+                      Intră în luptă
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="norisori"></div>
-          </div>
-          <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
-          <div class="spikes" id="spike_p"></div>
-        </section>
-      </div>
-
-      <div class="section">
-        <section class="container-section section_two w-100">
-          <div class="container d-flex justify-content-evenly flex-column h-100">
-            <div class="row">
-              <h2 class="text-center p-3 color-NetBet-orange w-85 mx-auto">
-                Participă la Bătălia streamerilor și câștigă premii fabuloase.
-              </h2>
-              <h5 class="text-center w-75 mx-auto">
-                Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
-                jucând orice slot participant la promotie iar primii 500 de
-                jucători vor fi premiați cu pachete cadou si premii
-                surpriză!
-              </h5>
-            </div>
-            <div class="row">
-              <div class="col-lg-5 col-md-12 container-stuff">
-                <h2 class="text-center text-dark">Jocuri eligibile</h2>
-                <div class="paragraph mb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  nisl risus, euismod eget augue finibus, auctor laoreet
-                  justo. Aenean tempor tempor quam sed sollicitudin. Curabitur
-                  sodales euismod vulputate. Integer auctor neque vitae sem
-                  fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam
-                  maximus turpis et sapien cursus, et volutpat arcu maximus.
-                  Proin interdum placerat lacus ac mattis. Praesent sagittis
-                  justo non augue auctor, in finibus nibh convallis. Etiam eu
-                  eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet
-                  ac massa sed lacinia.
+              <div class="col-12 container-swiper">
+                <div class="swipers stream-slider">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/stero.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/daniel.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/maria.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/alin.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
+                      />
+                    </div>
+                    <div class="swiper-slide slide-streamer">
+                      <img
+                        src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/george.png"
+                      />
+                    </div>
+                  </div>
                 </div>
-                <button type="button" class="btn btn-NetBet-normal w-75 _desktop">
-                  vezi toate jocurile
-                </button>
-
               </div>
-              <div class="col-lg-7 col-md-12">
-                <div class="table-responsive">
-                  <table class="table" id="gameImages">
+            </div>
+            <div class="col">
+              <div class="norisori"></div>
+            </div>
+            <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
+            <div class="spikes" id="spike_p"></div>
+          </section>
+        </div>
 
-
-                  </table>
-                  <button type="button" class="btn btn-NetBet-normal w-75 _mobile">
+        <div class="section">
+          <section class="container-section section_two w-100">
+            <div
+              class="container d-flex justify-content-evenly flex-column h-100"
+            >
+              <div class="row">
+                <h2 class="text-center p-3 color-NetBet-orange w-85 mx-auto">
+                  Participă la Bătălia streamerilor și câștigă premii fabuloase.
+                </h2>
+                <h5 class="text-center w-75 mx-auto">
+                  Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
+                  jucând orice slot participant la promotie iar primii 500 de
+                  jucători vor fi premiați cu pachete cadou si premii surpriză!
+                </h5>
+              </div>
+              <div class="row">
+                <div class="col-lg-5 col-md-12 container-stuff">
+                  <h2 class="text-center text-dark">Jocuri eligibile</h2>
+                  <div class="paragraph mb-3">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    nisl risus, euismod eget augue finibus, auctor laoreet
+                    justo. Aenean tempor tempor quam sed sollicitudin. Curabitur
+                    sodales euismod vulputate. Integer auctor neque vitae sem
+                    fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam
+                    maximus turpis et sapien cursus, et volutpat arcu maximus.
+                    Proin interdum placerat lacus ac mattis. Praesent sagittis
+                    justo non augue auctor, in finibus nibh convallis. Etiam eu
+                    eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet
+                    ac massa sed lacinia.
+                  </div>
+                  <button
+                    type="button"
+                    class="btn btn-NetBet-normal w-50 _desktop"
+                  >
                     vezi toate jocurile
                   </button>
                 </div>
+                <div
+                  class="col-lg-7 col-md-12 d-flex justify-content-center align-items-center"
+                >
+                  <div class="table-responsive">
+                    <table class="table" id="gameImages"></table>
+                    <button
+                      type="button"
+                      class="btn btn-NetBet-normal w-75 _mobile"
+                    >
+                      vezi toate jocurile
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <script>
+              
+                  if ($(window).width() < 1024) {
+                    $(".btn._mobile").addClass("w-100");
+                    $(".btn._desktop").css({ display: "none" });
+                    $(".btn._mobile").css({ display: "block" });
+
+                    $(".table-responsive").css({
+                      "overflow-y": "scroll",
+                      height: "320px",
+                    });
+                  } else {
+                    $(".btn._mobile").removeClass("w-100");
+                    $(".btn._desktop").css({ display: "block" });
+                    $(".btn._mobile").css({ display: "none" });
+                  }
+          
+              </script>
+              <div class="row mx-auto s2_providers">
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/skywind.png"
+                  /></a>
+                </div>
+
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/pragmatic.png"
+                  /></a>
+                </div>
+
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/playtech.png"
+                  /></a>
+                </div>
+
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/7777gaming.png"
+                  /></a>
+                </div>
+
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/playngo.png"
+                  /></a>
+                </div>
+
+                <div class="col-2">
+                  <a href="https://casino.netbet.ro/7777-gaming"
+                    ><img src="./_providers/playson.png"
+                  /></a>
+                </div>
               </div>
             </div>
-            <script>
-              $(document).ready(function () {
-                if ($(window).width() < 1024) {
-                  $(".btn._mobile").addClass("w-100");
-                  $(".btn._desktop").css({ "display": "none" });
-                  $(".btn._mobile").css({ "display": "block" });
-
-                  $(".table-responsive").css({ "overflow-y": "scroll", "height": "350px" });
-                } else {
-                  $(".btn._mobile").removeClass("w-100");
-                  $(".btn._desktop").css({ "display": "block" });
-                  $(".btn._mobile").css({ "display": "none" });
-                }
-              });
-            </script>
-            <div class="row mx-auto s2_providers">
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playson.png" /></a>
-              </div>
-
+          </section>
+        </div>
+        <div class="section">
+          <section class="container-section section_three w-100 flex-column">
+            <div class="col-12 s3_clouds">
+              <div class="norisori"></div>
             </div>
-          </div>
-        </section>
-      </div>
-      <div class="section">
-        <section class="container-section section_three w-100 flex-column">
-          <div class="col-12 s3_clouds">
-            <div class="norisori">
-            </div>
-          </div>
-          <h2 class="text-center m-3 title_s2">Clasamente</h2>
-          <div class="row container w-100 z-3">
-            <div class="col pb-5 table-title">
-              <h4 class="text-center">Users</h4>
-              <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                  <thead class="table-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">DisplayName</th>
-                      <th scope="col">puncte acumulate</th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-body" id="table">
-                    <!-- Dynamic table content will go here -->
-                  </tbody>
-                  <tfoot class="table-dark"></tfoot>
-                </table>
+            <h2 class="text-center m-3 title_s2">Clasamente</h2>
+            <div class="row container w-100 z-3">
+              <div class="col pb-5 table-title">
+                <h4 class="text-center">Users</h4>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">DisplayName</th>
+                        <th scope="col">puncte acumulate</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-body" id="table">
+                      <!-- Dynamic table content will go here -->
+                    </tbody>
+                    <tfoot class="table-dark"></tfoot>
+                  </table>
+                </div>
+              </div>
+              <div class="col pb-5 table-title">
+                <h4 class="text-center">streamers</h4>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">DisplayName</th>
+                        <th scope="col">puncte acumulate</th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-body">
+                      <!-- Dynamic table content will go here -->
+                    </tbody>
+                    <tfoot class="table-dark"></tfoot>
+                  </table>
+                </div>
               </div>
             </div>
-            <div class="col pb-5 table-title">
-              <h4 class="text-center">streamers</h4>
-              <div class="table-responsive">
-                <table class="table table-bordered table-hover">
-                  <thead class="table-dark">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">DisplayName</th>
-                      <th scope="col">puncte acumulate</th>
-                    </tr>
-                  </thead>
-                  <tbody class="table-body">
-                    <!-- Dynamic table content will go here -->
-                  </tbody>
-                  <tfoot class="table-dark"></tfoot>
-                </table>
+          </section>
+        </div>
+        <div class="section">
+          <div class="row container-section section_four w-100">
+            <div
+              class="col text-center py-4 my-2 container p-5 position-relative flex-column"
+            >
+              <h3 class="text-center my-3">title</h3>
+              <button
+                id="toggleButton"
+                class="toggleButton btn-NetBet-large z-3"
+              >
+                Termeni și Condiții
+              </button>
+
+              <div id="termsAndConditions" class="hidden termsAndConditions">
+                <h2>test</h2>
+                <ul>
+                  <li>1</li>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>5</li>
+                </ul>
+                <h2>anotjher h2</h2>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-      <div class="section">
-        <div class="row container-section section_four w-100">
-
-          <div class="col text-center py-4 my-2 container p-5 position-relative flex-column">
-            <h3 class="text-center my-3">title</h3>
-            <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">Termeni și Condiții</button>
-
-            <div id="termsAndConditions" class="hidden termsAndConditions">
-              <h2>test</h2>
-              <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-              </ul>
-              <h2>anotjher h2</h2>
-            </div>
-
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="./index.js"></script>
-</body>
-
+    <script src="./index.js"></script>
+  </body>
 </html>

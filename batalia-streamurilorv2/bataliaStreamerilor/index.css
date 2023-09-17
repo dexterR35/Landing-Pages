@@ -372,6 +372,7 @@ h2 {
   color: #fff;
   text-transform: uppercase;
   padding: 0.5em 1em;
+  font-weight: bold;
 }
 .container-content {
   z-index: 51;
@@ -396,7 +397,7 @@ h2 {
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 5px solid rgb(254, 150, 102);
-  filter:drop-shadow(4px 2px 0px rgb(254, 150, 102));
+  filter: drop-shadow(4px 2px 0px rgb(254, 150, 102));
   text-shadow: 0px 2px #333;
   color: white;
   border-radius: 2px;
@@ -406,7 +407,7 @@ h2 {
   position: absolute;
   top: -5em;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 #termsAndConditions {
   display: none;
@@ -415,7 +416,7 @@ h2 {
   border: 1px solid #ccc;
   margin-top: 10px;
 }
-.termsAndConditions{
+.termsAndConditions {
   width: 80%;
   margin: auto;
   background-color: red;
@@ -424,12 +425,12 @@ h2 {
 }
 
 .btn-NetBet-large:active {
-  transform: translate(-48%,-45%);
-  -webkit-transform: translate(-48%,-45%);
+  transform: translate(-48%, -45%);
+  -webkit-transform: translate(-48%, -45%);
   background-color: var(--NetBet-orange);
   border: none;
   outline: none;
-  filter:drop-shadow(0px 0px 0px rgb(254, 150, 102));
+  filter: drop-shadow(0px 0px 0px rgb(254, 150, 102));
   border-bottom: 1px solid rgb(254, 150, 102);
   transition: all 0.1s ease;
 }
@@ -551,6 +552,8 @@ h2 {
   gap: 0.7em;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
+  place-items: center;
+  margin: 0;
 }
 
 /* Stilurile pentru tablete */
@@ -808,6 +811,105 @@ h2 {
 
 @media (max-width: 1200px) {
 }
+@media (max-width: 480px) {
+  .toggleButton {
+    font-size: 0.8em;
+  }
+  .spikes {
+    display: none;
+  }
+  .section_one .s-providers {
+    display: none;
+  }
+
+  .section_one .slide-streamer {
+    width: 200px !important;
+    height: 20vh;
+  }
+  .section_one .top_swiper_box,
+  .bottom_swiper_box span:nth-child(2) {
+    font-size: 1.5em;
+  }
+  .section_one .bottom_swiper_box span:nth-child(1) {
+    font-size: 1em;
+  }
+  .section_one .bottom_swiper_box {
+    bottom: 0;
+  }
+
+  .section_two {
+    padding: 0.7em 0 1.5em 0;
+  }
+  .section_two .container .row:first-child {
+    margin-top: 1.5em;
+  }
+  .container-section {
+    height: 100% !important;
+  }
+  .section_two .row h2 {
+    font-size: 1em;
+    padding: 0.8em !important;
+  }
+  .section_two .row h5 {
+    font-size: 1em;
+    width: 90% !important;
+    text-align: justify !important;
+    margin-top: 1em;
+  }
+  .section_two .container-stuff {
+    gap: 0;
+  }
+  .section_two .btn-NetBet-normal._mobile {
+    margin: 0.8em 0;
+  }
+  .section_two #gameImages {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3em;
+  }
+  .section_two .s2_providers {
+    margin-top: 1em;
+    row-gap: 0.7em;
+  }
+  .section_two .s2_providers div {
+    width: 33%;
+  }
+  .section_two .row {
+    align-items: unset;
+  }
+  .section_two #gameImages a img {
+    max-height: 20vw;
+    width: unset;
+  }
+  .section_two .s2_providers div a img {
+    max-height: 8vw;
+    filter: drop-shadow(3px 2px 2px #3534);
+  }
+  .section_two .s2_providers div:nth-child(2) a img {
+    max-height: 12vw;
+    transform: translateY(-5px);
+  }
+  .section_two .s2_providers div:nth-child(4) a img {
+    max-height: 9vw;
+  }
+
+  .section_three .s3_clouds {
+    height: 4em;
+  }
+  .section_three .s3_clouds .norisori {
+    background-size: cover;
+    top: 0;
+  }
+  .section_three h4 {
+    font-size: 1em;
+  }
+  .section_three .table-responsive thead tr th {
+    font-size: 0.9em;
+  }
+  .section_three .table-responsive tbody tr th {
+    font-size: 0.9em;
+  }
+}
+
 /* 
     .top_swiper_box::after {
       background: none;

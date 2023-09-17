@@ -240,7 +240,7 @@ $(document).ready(function () {
     });
   }
 
-  //Function to generate games name and manipulate the link
+  //Function GamesName + manipulate the link
   function generateGames() {
     const gameImagesContainer = $("#gameImages");
     for (let i = 0; i < gamesArray.length; i++) {
@@ -278,12 +278,14 @@ $(document).ready(function () {
       });
     });
   }
+
   $("#toggleButton").click(function() {
     $("#termsAndConditions").slideToggle(); 
   });
-  appendStuff();
-  generateGames(gamesArray);
+
   populateTable(streamers);
+  generateGames(gamesArray);
+  appendStuff();
 });
 
 
