@@ -1,83 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
 
+      <!-- Add a div to display the start over button -->
+      <div id="startOverDiv" style="display: none;">
+        <button id="startOverButton">Start Over</button>
+    </div>
+    <form id="registerForm" style="display: none">
+        <input type="text" id="usernameInput" placeholder="Enter your username" />
+        <button type="submit">Register</button>
+      </form>
+    <div id="content">
+      <!-- Content will be updated based on user actions -->
+    </div>
 
-    <!-- Butonul ascuns pentru înregistrare -->
-    <button id="registerButton" style="display: none;">
-        <a href="link_de_inregistrare_aici">Înregistrează-te</a>
-    </button>
-    <button id="OptInButton" style="display: none;">
-        <a href="intra in batalia">intra in batalia</a>
-    </button>
+    <!-- Registration form -->
+ 
+
+    <!-- Buttons for user actions -->
+    <button id="participaButton" style="display: none">Participa</button>
+    <button id="votedButton" style="display: none">Voted</button>
     <script>
+    //   $(document).ready(function () {
+    //     // Function to get the value of a cookie
+    //     function getCookie(nameCookie) {
+    //       let value = "; " + document.cookie;
+    //       let parts = value.split("; " + nameCookie + "=");
+    //       if (parts.length == 2) return parts.pop().split(";").shift();
+    //       return null;
+    //     }
+
+    //     // Get the username cookie value
+    //     let cookieValue = getCookie("username");
+
+    //     if (cookieValue && cookieValue.trim() !== "") {
+    //       // User is logged in
+    //       // Check other conditions here
+    //       let optin = false; // Change this to your actual optin variable
+    //       let voted = false; // Change this to your actual voted variable
+
+    //       if (!optin) {
+    //         // User is not in battle
+    //         // Show the "Participa" button
+    //         $("#participaButton").show();
+    //         $("#content").text("user register but is not in battle.");
+    //         console.log("User is not in battle. Show Participa button.");
+
+    //         // Handle Participa button click
+    //         $("#participaButton").click(function () {
+    //           // Check if the user has voted
+    //           if (!voted) {
+    //             // User has not voted
+    //             // Show the "Voted" button
+    //             $("#participaButton").hide();
+    //             $("#votedButton").show();
+    //             $("#content").text("user join battle but not voted");
+    //             console.log("User has not voted. Show Voted button.");
+
+    //             // Handle Voted button click
+    //             $("#votedButton").click(function () {
+    //               // Display a congratulatory message
+    //               $("#votedButton").hide();
+    //               $("#content").text("Congratulations! You have voted.");
+    //               console.log("Congratulations! You have voted.");
+    //             });
+    //           } else {
+    //             // Display a message indicating that the user has already voted
+    //             $("#content").text("You have already voted.");
+    //             console.log("You have already voted.");
+    //           }
+    //         });
+    //       } else {
+    //         // User is in battle
+    //         // Display a message indicating that the user is already in battle
+    //         $("#content").text("You are already in battle.");
+    //         console.log("User is in battle. You are already in battle.");
+    //       }
+    //     } else {
+    //       // User is not logged in
+    //       // Show the register form with an input field
+    //       $("#registerForm").show();
+    //       console.log("User is not logged in. Show register form.");
+
+    //       // Handle the registration form submission
+    //       $("#registerForm").submit(function (event) {
+    //         event.preventDefault(); // Prevent the form from submitting
+
+    //         // Get the username from the input field
+    //         let username = $("#usernameInput").val();
+
+    //         // Set the username cookie with the input value
+    //         document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+
+    //         // Reload the page to apply the login logic
+    //         location.reload();
+    //       });
+    //     }
+    //   });
 
 
-$(document).ready(function() {
-        document.cookie = "username=marian; expires= Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-        
-        console.log(document.cookie, "testcookie");
+    $(document).ready(function () {
+            // Function to get the value of a cookie
+            function getCookie(nameCookie) {
+                let value = "; " + document.cookie;
+                let parts = value.split("; " + nameCookie + "=");
+                if (parts.length == 2) return parts.pop().split(";").shift();
+                return null;
+            }
 
-        function getCookie(nameCookie) {
-            let value = "; " + document.cookie;
-            let parts = value.split("; " + nameCookie + "=");
-            if (parts.length == 2) return parts.pop().split(";").shift();
-            return null; // Adăugat pentru a returna null dacă cookie-ul nu există.
-        }
+            // Function to delete a cookie
+            function deleteCookie(nameCookie) {
+                document.cookie = `${nameCookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+            }
 
-        let cookieValue = getCookie("username");
-        console.log(cookieValue, "cookieValue");
+            // Get the username cookie value
+            let cookieValue = getCookie("username");
 
-        if (cookieValue && cookieValue.trim() !== "") {
-            $("#OptInButton").show();
-            console.log(`Cookie-ul 'username' cu valoarea '${cookieValue}' există și are o valoare!`);
-        } else {
-            console.log(`Cookie-ul 'username' nu există sau nu are o valoare.`);
-            $("#registerButton").show();
-        }
+            if (cookieValue && cookieValue.trim() !== "") {
+                // User is logged in
+                // Check other conditions here
+                let optin = false; // Change this to your actual optin variable
+                let voted = false; // Change this to your actual voted variable
 
+                if (!optin) {
+                    // User is not in battle
+                    // Show the "Participa" button
+                    $("#participaButton").show();
+                    $("#content").text("user register but is not in battle.");
+                    console.log("User is not in battle. Show Participa button.");
 
+                    // Handle Participa button click
+                    $("#participaButton").click(function () {
+                        // Check if the user has voted
+                        if (!voted) {
+                            // User has not voted
+                            // Show the "Voted" button
+                            $("#participaButton").hide();
+                            $("#votedButton").show();
+                            $("#content").text("user join battle but not voted");
+                            console.log("User has not voted. Show Voted button.");
 
+                            // Handle Voted button click
+                            $("#votedButton").click(function () {
+                                // Display a congratulatory message
+                                $("#votedButton").hide();
+                                $("#content").text("Congratulations! You have voted.");
+                                console.log("Congratulations! You have voted.");
 
-            // Verifică dacă valoarea cookie-ului este diferită de "check"
-    // if (cookieValue && cookieValue !== "check") {
-    //     // Solicitați variabila "opt in" din API
-    //     $.ajax({
-    //         url: 'URL_API_AICI', // Înlocuiți cu URL-ul API dvs.
-    //         type: 'GET',
-    //         dataType: 'json',
-    //         success: function(data) {
-    //             if (data['opt in']) {
-    //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este true
-    //                 console.log("Utilizatorul a optat.");
-    //             } else {
-    //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este false
-    //                 console.log("Utilizatorul nu a optat.");
-    //             }
-    //         },
-    //         error: function(error) {
-    //             console.log("Eroare la preluarea datelor din API:", error);
-    //         }
-    //     });
-    // }
-});
+                                // Show the "Start Over" button
+                                $("#startOverDiv").show();
+                            });
+                        } else {
+                            // Display a message indicating that the user has already voted
+                            $("#content").text("You have already voted.");
+                            console.log("You have already voted.");
+                        }
+                    });
+                } else {
+                    // User is in battle
+                    // Display a message indicating that the user is already in battle
+                    $("#content").text("You are already in battle.");
+                    console.log("User is in battle. You are already in battle.");
+                }
+            } else {
+                // User is not logged in
+                // Show the register form with an input field
+                $("#registerForm").show();
+                console.log("User is not logged in. Show register form.");
 
-/*
+                // Handle the registration form submission
+                $("#registerForm").submit(function (event) {
+                    event.preventDefault(); // Prevent the form from submitting
+
+                    // Get the username from the input field
+                    let username = $("#usernameInput").val();
+
+                    // Set the username cookie with the input value
+                    document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+
+                    // Reload the page to apply the login logic
+                    location.reload();
+                });
+            }
+
+            // Handle the "Start Over" button click
+            $("#startOverButton").click(function () {
+                // Remove the "username" cookie
+                deleteCookie("username");
+
+                // Hide the "Start Over" button and display the registration form
+                $("#startOverDiv").hide();
+                $("#registerForm").show();
+            });
+
+            // Listen for the beforeunload event (page refresh)
+            $(window).on("beforeunload", function () {
+                // Remove the "username" cookie before the page is refreshed
+                deleteCookie("username");
+            });
+        });
+
+      // Verifică dacă valoarea cookie-ului este diferită de "check"
+      // if (cookieValue && cookieValue !== "check") {
+      //     // Solicitați variabila "opt in" din API
+      //     $.ajax({
+      //         url: 'URL_API_AICI', // Înlocuiți cu URL-ul API dvs.
+      //         type: 'GET',
+      //         dataType: 'json',
+      //         success: function(data) {
+      //             if (data['opt in']) {
+      //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este true
+      //                 console.log("Utilizatorul a optat.");
+      //             } else {
+      //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este false
+      //                 console.log("Utilizatorul nu a optat.");
+      //             }
+      //         },
+      //         error: function(error) {
+      //             console.log("Eroare la preluarea datelor din API:", error);
+      //         }
+      //     });
+      // }
+
+      /*
 Acest cod va verifica mai întâi dacă valoarea cookie-ului username este diferită de "check". Dacă este, va face o solicitare AJAX către API pentru a prelua valoarea variabilei "opt in". În funcție de răspuns, puteți executa diferite acțiuni.
 
 De asemenea, asigurați-vă că API-ul dvs. acceptă solicitări de tip cross-origin sau că ați configurat un server proxy pentru a evita erorile CORS.
 */
     </script>
-</body>
-
+  </body>
 </html>
