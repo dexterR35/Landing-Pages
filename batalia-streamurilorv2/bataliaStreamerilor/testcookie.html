@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <!-- Butonul ascuns pentru înregistrare -->
+    <button id="registerButton" style="display: none;">
+        <a href="link_de_inregistrare_aici">Înregistrează-te</a>
+    </button>
+    <button id="OptInButton" style="display: none;">
+        <a href="intra in batalia">intra in batalia</a>
+    </button>
+    <script>
+
+
+$(document).ready(function() {
+        document.cookie = "username=marian; expires= Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+        
+        console.log(document.cookie, "testcookie");
+
+        function getCookie(nameCookie) {
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + nameCookie + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+            return null; // Adăugat pentru a returna null dacă cookie-ul nu există.
+        }
+
+        let cookieValue = getCookie("username");
+        console.log(cookieValue, "cookieValue");
+
+        if (cookieValue && cookieValue.trim() !== "") {
+            $("#OptInButton").show();
+            console.log(`Cookie-ul 'username' cu valoarea '${cookieValue}' există și are o valoare!`);
+        } else {
+            console.log(`Cookie-ul 'username' nu există sau nu are o valoare.`);
+            $("#registerButton").show();
+        }
+
+
+
+
+            // Verifică dacă valoarea cookie-ului este diferită de "check"
+    // if (cookieValue && cookieValue !== "check") {
+    //     // Solicitați variabila "opt in" din API
+    //     $.ajax({
+    //         url: 'URL_API_AICI', // Înlocuiți cu URL-ul API dvs.
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             if (data['opt in']) {
+    //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este true
+    //                 console.log("Utilizatorul a optat.");
+    //             } else {
+    //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este false
+    //                 console.log("Utilizatorul nu a optat.");
+    //             }
+    //         },
+    //         error: function(error) {
+    //             console.log("Eroare la preluarea datelor din API:", error);
+    //         }
+    //     });
+    // }
+});
+
+/*
+Acest cod va verifica mai întâi dacă valoarea cookie-ului username este diferită de "check". Dacă este, va face o solicitare AJAX către API pentru a prelua valoarea variabilei "opt in". În funcție de răspuns, puteți executa diferite acțiuni.
+
+De asemenea, asigurați-vă că API-ul dvs. acceptă solicitări de tip cross-origin sau că ați configurat un server proxy pentru a evita erorile CORS.
+*/
+    </script>
+</body>
+
+</html>

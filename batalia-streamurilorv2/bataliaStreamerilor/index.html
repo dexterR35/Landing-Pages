@@ -45,7 +45,7 @@
   <style></style>
 
   <body>
-    <!-- <header
+    <header
     class="header-top d-flex justify-content-center align-items-center"
     style="
       background: black;
@@ -59,7 +59,7 @@
     "
   >
     navbar
-  </header> -->
+  </header>
     <div class="wrapper" style="overflow: hidden">
       <div class="container-modal">
         <div class="modal fade" id="myModal">
@@ -178,7 +178,7 @@
                   <div class="container-btn">
                     <button
                       type="button"
-                      class="btn !btn-primary btn-NetBet-large animate"
+                      class="btn btn-primary animate"
                       data-bs-toggle="modal"
                       data-bs-target="#myModal"
                     >
@@ -260,7 +260,7 @@
               </div>
             </div>
             <div class="col">
-              <div class="norisori"></div>
+              <div class="norisori" style="top:unset; bottom: 0; height: 5em;"></div>
             </div>
             <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
             <div class="spikes" id="spike_p"></div>
@@ -272,6 +272,11 @@
             <div
               class="container d-flex justify-content-evenly flex-column h-100"
             >
+            <style>
+              #tesst {
+                transform: translateY(-200px);
+              }
+            </style>
               <div class="row">
                 <h2 class="text-center p-3 color-NetBet-orange w-85 mx-auto">
                   Participă la Bătălia streamerilor și câștigă premii fabuloase.
@@ -306,7 +311,7 @@
                 </div>
                 <div
                   class="col-lg-7 col-md-12 d-flex justify-content-center align-items-center"
-                >
+                  >
                   <div class="table-responsive">
                     <table class="tables" id="gameImages"></table>
                     <button
@@ -381,7 +386,7 @@
             <div class="col-12 s3_clouds">
               <div class="norisori"></div>
             </div>
-            <h2 class="text-center m-3 py-5 title_s2 z-2">Clasamente</h2>
+            <h2 class="text-center m-3 py-2 title_s2 z-2">Clasamente</h2>
             <div class="row container w-100 z-3">
               <div class="col pb-5 table-title">
                 <div class="table-responsive">
@@ -423,7 +428,7 @@
           </section>
         </div>
         <div class="section">
-          <div class="row container-section section_four w-100">
+          <div class="row container-section section_four w-100 mx-auto">
             <div
               class="col text-center py-4 my-2 container p-5 position-relative flex-column"
             >

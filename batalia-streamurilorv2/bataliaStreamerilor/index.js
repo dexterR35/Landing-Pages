@@ -292,13 +292,13 @@ const swiperStr = new Swiper(".stream-slider", {
   speed: 2 * 1000,
   slidesPerView: "auto",
   parallax: true,
-  licenseKey: "STREA",
+  touchRatio: 0.3,
   cache: true,
   centeredSlides: true,
   coverflowEffect: {
-    rotate: 2, // (Rotate of the prev and next slides);
-    depth: 70, // (Depth of the prev and next slides);
-    stretch: 10, // (Space between the slides);
+    rotate: 5, // (Rotate of the prev and next slides);
+    depth: 30, // (Depth of the prev and next slides);
+    stretch: 5, // (Space between the slides);
     modifier: 2, // (Multiply the values of rotate, depth, and stretch);
     slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
   },
@@ -318,18 +318,21 @@ swiperStr.el.addEventListener("mouseleave", function () {
   swiperStr.autoplay.start();
 });
 
-// const parallax4 = document.getElementById("parallax4");
-// const bgPalalax = document.getElementById("background_p");
-// const contentMiddle = document.getElementById("contentImg_p");
-// const spikePalalax = document.getElementById("spike_p");
+const parallax4 = document.getElementById("parallax4");
+const bgPalalax = document.getElementById("background_p");
+const contentMiddle = document.getElementById("contentImg_p");
+const spikePalalax = document.getElementById("spike_p");
+const tesst = document.getElementById("tesst");
 // const gameImages = document.querySelector(".s2_providers");
-// window.addEventListener("scroll", function () {
-//   let offset = window.pageYOffset;
-//   bgPalalax.style.backgroundPositionY = -offset * 0.1 + "px";
-//   spikePalalax.style.transform = "translateY(" + (offset * 0.3 + "px)");
-//   contentMiddle.style.transform = "translateY(" + (-offset * 0.5 + "px)");
+window.addEventListener("scroll", function () {
+  let offset = window.pageYOffset;
+  bgPalalax.style.backgroundPositionY = -offset * 0.1 + "px";
+  spikePalalax.style.transform = "translateY(" + (offset * 0.3 + "px)");
+  contentMiddle.style.transform = "translateY(" + (-offset * 0.1 + "px)");
+  // tesst.style.transform = "translateY(" + (offset * 0.04 + "px)");
 
-// });
+});
+
 $(document).ready(function () {
   const commonOptions = {
     aaSorting: [],
