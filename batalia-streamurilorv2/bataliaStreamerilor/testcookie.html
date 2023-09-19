@@ -13,232 +13,770 @@
   </head>
 
   <body>
-
-      <!-- Add a div to display the start over button -->
-      <div id="startOverDiv" style="display: none;">
-        <button id="startOverButton">Start Over</button>
+    <!-- Add a div to display the start over button -->
+    <div id="startOverDiv" style="display: none">
+      <button id="startOverButton">Start Over</button>
     </div>
     <form id="registerForm" style="display: none">
-        <input type="text" id="usernameInput" placeholder="Enter your username" />
-        <button type="submit">Register</button>
-      </form>
+      <input type="text" id="usernameInput" placeholder="Enter your username" />
+      <button type="submit">Register</button>
+    </form>
     <div id="content">
       <!-- Content will be updated based on user actions -->
     </div>
 
     <!-- Registration form -->
- 
 
     <!-- Buttons for user actions -->
     <button id="participaButton" style="display: none">Participa</button>
-    <button id="votedButton" style="display: none">Voted</button>
+    <button id="voteButton" style="display: none">Voted</button>
     <script>
-    //   $(document).ready(function () {
-    //     // Function to get the value of a cookie
-    //     function getCookie(nameCookie) {
-    //       let value = "; " + document.cookie;
-    //       let parts = value.split("; " + nameCookie + "=");
-    //       if (parts.length == 2) return parts.pop().split(";").shift();
-    //       return null;
-    //     }
+        $(document).ready(async function () {
+  // Function to get the value of a cookie
+  function getCookie(nameCookie) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + nameCookie + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
 
-    //     // Get the username cookie value
-    //     let cookieValue = getCookie("username");
+  // Function to check if the user is authenticated
+  async function isAuthenticated() {
+    // Check if the user is authenticated using cookies
+    const username = getCookie("username");
+    return username && username.trim() !== "";
+  }
 
-    //     if (cookieValue && cookieValue.trim() !== "") {
-    //       // User is logged in
-    //       // Check other conditions here
-    //       let optin = false; // Change this to your actual optin variable
-    //       let voted = false; // Change this to your actual voted variable
+  // Function to check if the user has voted
+  async function hasVoted() {
+    // Check if the user has voted using cookies
+    const votedCookie = getCookie("voted");
+    return votedCookie === "true";
+  }
 
-    //       if (!optin) {
-    //         // User is not in battle
-    //         // Show the "Participa" button
-    //         $("#participaButton").show();
-    //         $("#content").text("user register but is not in battle.");
-    //         console.log("User is not in battle. Show Participa button.");
+  // Function to check if the user has registered
+  async function hasRegistered() {
+    // Check if the user has registered using cookies
+    const registeredCookie = getCookie("registered");
+    return registeredCookie === "true";
+  }
 
-    //         // Handle Participa button click
-    //         $("#participaButton").click(function () {
-    //           // Check if the user has voted
-    //           if (!voted) {
-    //             // User has not voted
-    //             // Show the "Voted" button
-    //             $("#participaButton").hide();
-    //             $("#votedButton").show();
-    //             $("#content").text("user join battle but not voted");
-    //             console.log("User has not voted. Show Voted button.");
+  // Function to check if the user has joined the battle
+  async function hasJoinedBattle() {
+    // Check if the user has joined the battle using cookies
+    const joinedBattleCookie = getCookie("joined_battle");
+    return joinedBattleCookie === "true";
+  }
 
-    //             // Handle Voted button click
-    //             $("#votedButton").click(function () {
-    //               // Display a congratulatory message
-    //               $("#votedButton").hide();
-    //               $("#content").text("Congratulations! You have voted.");
-    //               console.log("Congratulations! You have voted.");
-    //             });
-    //           } else {
-    //             // Display a message indicating that the user has already voted
-    //             $("#content").text("You have already voted.");
-    //             console.log("You have already voted.");
-    //           }
-    //         });
-    //       } else {
-    //         // User is in battle
-    //         // Display a message indicating that the user is already in battle
-    //         $("#content").text("You are already in battle.");
-    //         console.log("User is in battle. You are already in battle.");
-    //       }
-    //     } else {
-    //       // User is not logged in
-    //       // Show the register form with an input field
-    //       $("#registerForm").show();
-    //       console.log("User is not logged in. Show register form.");
+  // Get the username cookie value
+  let cookieValue = getCookie("username");
 
-    //       // Handle the registration form submission
-    //       $("#registerForm").submit(function (event) {
-    //         event.preventDefault(); // Prevent the form from submitting
+  if (await isAuthenticated()) {
+    // User is logged in
+    const username = cookieValue;
 
-    //         // Get the username from the input field
-    //         let username = $("#usernameInput").val();
+    if (!(await hasRegistered())) {
+      // User has not registered
+      // Handle registration and update cookies
+      $("#registerForm").show();
+      console.log("User is not registered. Show register form.");
 
-    //         // Set the username cookie with the input value
-    //         document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+      // Handle the registration form submission
+      $("#registerForm").submit(async function (event) {
+        event.preventDefault(); // Prevent the form from submitting
 
-    //         // Reload the page to apply the login logic
-    //         location.reload();
-    //       });
-    //     }
-    //   });
+        // Get the username from the input field
+        let username = $("#usernameInput").val();
 
+        // Set the username in both cookie and local storage
+        document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+        localStorage.setItem("username", username);
 
-    $(document).ready(function () {
-            // Function to get the value of a cookie
-            function getCookie(nameCookie) {
-                let value = "; " + document.cookie;
-                let parts = value.split("; " + nameCookie + "=");
-                if (parts.length == 2) return parts.pop().split(";").shift();
-                return null;
-            }
+        // Set the user as registered in both cookie and local storage
+        document.cookie =
+          "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+        localStorage.setItem("registered", "true");
 
-            // Function to delete a cookie
-            function deleteCookie(nameCookie) {
-                document.cookie = `${nameCookie}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-            }
+        // Set that the user has not joined the battle in both cookies and local storage
+        document.cookie =
+          "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+        localStorage.setItem("joined_battle", "false");
 
-            // Get the username cookie value
-            let cookieValue = getCookie("username");
+        // Set the "voted" flag to false in both cookies and local storage
+        document.cookie =
+          "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+        localStorage.setItem("voted", "false");
 
-            if (cookieValue && cookieValue.trim() !== "") {
-                // User is logged in
-                // Check other conditions here
-                let optin = false; // Change this to your actual optin variable
-                let voted = false; // Change this to your actual voted variable
+        // Reload the page to apply the login logic
+        location.reload();
+      });
+    } else {
+      // User has registered
+      // Check if the user has joined the battle
+      if (!(await hasJoinedBattle())) {
+        // User is not in battle
+        // Show the "Participa now" button
+        $("#participaButton").show();
+        $("#content").text("User is registered but is not in battle.");
+        console.log("User is not in battle. Show Participa now button.");
 
-                if (!optin) {
-                    // User is not in battle
-                    // Show the "Participa" button
-                    $("#participaButton").show();
-                    $("#content").text("user register but is not in battle.");
-                    console.log("User is not in battle. Show Participa button.");
+        if (!(await hasVoted())) {
+          // User has not voted
+          // Handle Participa now button click
+          $("#participaButton").click(async function () {
+            // Set that the user has joined the battle in both cookies and local storage
+            document.cookie =
+              "joined_battle=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+            localStorage.setItem("joined_battle", "true");
 
-                    // Handle Participa button click
-                    $("#participaButton").click(function () {
-                        // Check if the user has voted
-                        if (!voted) {
-                            // User has not voted
-                            // Show the "Voted" button
-                            $("#participaButton").hide();
-                            $("#votedButton").show();
-                            $("#content").text("user join battle but not voted");
-                            console.log("User has not voted. Show Voted button.");
+            // Hide the "Participa now" button
+            $("#participaButton").hide();
 
-                            // Handle Voted button click
-                            $("#votedButton").click(function () {
-                                // Display a congratulatory message
-                                $("#votedButton").hide();
-                                $("#content").text("Congratulations! You have voted.");
-                                console.log("Congratulations! You have voted.");
+            if (!(await hasVoted())) {
+              // User has not voted, show the "Vote" button
+              $("#voteButton").show();
+              $("#content").text("User joined the battle but has not voted. Click 'Vote' to participate.");
+              console.log("User has not voted. Show Vote button.");
 
-                                // Show the "Start Over" button
-                                $("#startOverDiv").show();
-                            });
-                        } else {
-                            // Display a message indicating that the user has already voted
-                            $("#content").text("You have already voted.");
-                            console.log("You have already voted.");
-                        }
-                    });
+              // Handle Vote button click
+              $("#voteButton").click(async function () {
+                // Set the "voted" flag in both cookies and local storage to track that the user has voted
+                document.cookie =
+                  "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+                localStorage.setItem("voted", "true");
+
+                // Hide the "Vote" button
+                $("#voteButton").hide();
+
+                // Check if the user has registered, participated, and voted
+                if (
+                  (await hasRegistered()) &&
+                  (await hasJoinedBattle()) &&
+                  (await hasVoted())
+                ) {
+                  // Display the congratulatory message
+                  $("#content").text(
+                    "Congratulations! You have registered, participated in the battle, and voted."
+                  );
+                  console.log(
+                    "Congratulations! You have registered, participated in the battle, and voted."
+                  );
                 } else {
-                    // User is in battle
-                    // Display a message indicating that the user is already in battle
-                    $("#content").text("You are already in battle.");
-                    console.log("User is in battle. You are already in battle.");
+                  $("#content").text("not good");
                 }
-            } else {
-                // User is not logged in
-                // Show the register form with an input field
-                $("#registerForm").show();
-                console.log("User is not logged in. Show register form.");
-
-                // Handle the registration form submission
-                $("#registerForm").submit(function (event) {
-                    event.preventDefault(); // Prevent the form from submitting
-
-                    // Get the username from the input field
-                    let username = $("#usernameInput").val();
-
-                    // Set the username cookie with the input value
-                    document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
-
-                    // Reload the page to apply the login logic
-                    location.reload();
-                });
+              });
             }
+          });
+        }
+      } else {
+        // User is in battle
+        // Show a message indicating that the user is in battle
 
-            // Handle the "Start Over" button click
-            $("#startOverButton").click(function () {
-                // Remove the "username" cookie
-                deleteCookie("username");
+        if (!(await hasVoted())) {
+          // User has not voted yet, show the "Vote" button
+          $("#voteButton").show();
+          console.log("User is in battle but has not voted. Show Vote button.");
+          $("#content").text("User is in battle but has not voted.");
 
-                // Hide the "Start Over" button and display the registration form
-                $("#startOverDiv").hide();
-                $("#registerForm").show();
-            });
+          // Handle Vote button click
+          $("#voteButton").click(async function () {
+            // Set the "voted" flag in both cookies and local storage to track that the user has voted
+            document.cookie =
+              "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+            localStorage.setItem("voted", "true");
 
-            // Listen for the beforeunload event (page refresh)
-            $(window).on("beforeunload", function () {
-                // Remove the "username" cookie before the page is refreshed
-                deleteCookie("username");
-            });
-        });
+            // Hide the "Vote" button
+            $("#voteButton").hide();
 
-      // Verifică dacă valoarea cookie-ului este diferită de "check"
-      // if (cookieValue && cookieValue !== "check") {
-      //     // Solicitați variabila "opt in" din API
-      //     $.ajax({
-      //         url: 'URL_API_AICI', // Înlocuiți cu URL-ul API dvs.
-      //         type: 'GET',
-      //         dataType: 'json',
-      //         success: function(data) {
-      //             if (data['opt in']) {
-      //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este true
-      //                 console.log("Utilizatorul a optat.");
-      //             } else {
-      //                 // Acțiunea pe care doriți să o faceți dacă "opt in" este false
-      //                 console.log("Utilizatorul nu a optat.");
-      //             }
-      //         },
-      //         error: function(error) {
-      //             console.log("Eroare la preluarea datelor din API:", error);
-      //         }
-      //     });
-      // }
+            // Check if the user has registered, participated, and voted
+            if (
+              (await hasRegistered()) &&
+              (await hasJoinedBattle()) &&
+              (await hasVoted())
+            ) {
+              // Display the congratulatory message
+              $("#content").text(
+                "Congratulations! You have registered, participated in the battle, and voted."
+              );
+              console.log(
+                "Congratulations! You have registered, participated in the battle, and voted."
+              );
+            }
+          });
+        } else if (
+          (await hasRegistered()) &&
+          (await hasJoinedBattle()) &&
+          (await hasVoted())
+        ) {
+          // Display the congratulatory message
+          $("#content").text(
+            "Congratulations! You have registered, participated in the battle, and voted."
+          );
+          console.log(
+            "Congratulations! You have registered, participated in the battle, and voted."
+          );
+        } else {
+          // User has already voted
+          console.log("else");
+        }
+      }
+    }
+  } else {
+    // User is not logged in
+    // Show the register form with an input field
+    $("#registerForm").show();
+    console.log("User is not logged in. Show register form.");
 
-      /*
-Acest cod va verifica mai întâi dacă valoarea cookie-ului username este diferită de "check". Dacă este, va face o solicitare AJAX către API pentru a prelua valoarea variabilei "opt in". În funcție de răspuns, puteți executa diferite acțiuni.
+    // Handle the registration form submission
+    $("#registerForm").submit(async function (event) {
+      event.preventDefault(); // Prevent the form from submitting
 
-De asemenea, asigurați-vă că API-ul dvs. acceptă solicitări de tip cross-origin sau că ați configurat un server proxy pentru a evita erorile CORS.
-*/
+      // Get the username from the input field
+      let username = $("#usernameInput").val();
+
+      // Set the username in both cookie and local storage
+      document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+      localStorage.setItem("username", username);
+
+      // Set the user as registered in both cookie and local storage
+      document.cookie =
+        "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+      localStorage.setItem("registered", "true");
+
+      // Set that the user has not joined the battle in both cookies and local storage
+      document.cookie =
+        "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+      localStorage.setItem("joined_battle", "false");
+
+      // Set the "voted" flag to false in both cookies and local storage
+      document.cookie =
+        "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+      localStorage.setItem("voted", "false");
+
+      // Reload the page to apply the login logic
+      location.reload();
+    });
+  }
+});
+
     </script>
+    <!-- <script>
+      $(document).ready(function () {
+        // Function to get the value of a cookie
+        function getCookie(nameCookie) {
+          let value = "; " + document.cookie;
+          let parts = value.split("; " + nameCookie + "=");
+          if (parts.length == 2) return parts.pop().split(";").shift();
+          return null;
+        }
+
+        // Function to check if the user is authenticated
+        function isAuthenticated() {
+          // Check if the user is authenticated using cookies
+          const username = getCookie("username");
+          return username && username.trim() !== "";
+        }
+
+        // Function to check if the user has voted
+        function hasVoted() {
+          // Check if the user has voted using cookies
+          const votedCookie = getCookie("voted");
+          return votedCookie === "true";
+        }
+
+        // Function to check if the user has registered
+        function hasRegistered() {
+          // Check if the user has registered using cookies
+          const registeredCookie = getCookie("registered");
+          return registeredCookie === "true";
+        }
+
+        // Function to check if the user has joined the battle
+        function hasJoinedBattle() {
+          // Check if the user has joined the battle using cookies
+          const joinedBattleCookie = getCookie("joined_battle");
+          return joinedBattleCookie === "true";
+        }
+
+        // Get the username cookie value
+        let cookieValue = getCookie("username");
+
+        if (isAuthenticated()) {
+          // User is logged in
+          const username = cookieValue;
+
+          // Check if the user has registered
+          if (!hasRegistered()) {
+            // User has not registered
+            // Handle registration and update cookies/local storage
+            $("#registerForm").show();
+            console.log("User is not registered. Show register form.");
+
+            // Handle the registration form submission
+            $("#registerForm").submit(function (event) {
+              event.preventDefault(); // Prevent the form from submitting
+
+              // Get the username from the input field
+              let username = $("#usernameInput").val();
+
+              // Set the username in both cookie and local storage
+              document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+              localStorage.setItem("username", username);
+
+              // Set the user as registered in both cookie and local storage
+              document.cookie =
+                "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+              localStorage.setItem("registered", "true");
+
+              // Set that the user has not joined the battle in both cookies and local storage
+              document.cookie =
+                "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+              localStorage.setItem("joined_battle", "false");
+
+              // Set the "voted" flag to false in both cookies and local storage
+              document.cookie =
+                "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+              localStorage.setItem("voted", "false");
+
+              // Reload the page to apply the login logic
+              location.reload();
+            });
+          } else {
+            // User has registered
+            // Check if the user has joined the battle
+            if (!hasJoinedBattle()) {
+              // User is not in battle
+              // Show the "Participa now" button
+              $("#participaButton").show();
+              $("#content").text("User is registered but is not in battle.");
+              console.log("User is not in battle. Show Participa now button.");
+
+              if (hasVoted()) {
+                // User has already voted, hide the "Participa now" button
+                $("#participaButton").hide();
+                $("#content").text("You have already voted.");
+                console.log(
+                  "You have already voted. Hide Participa now button."
+                );
+              } else {
+                // User has not voted
+                // Handle Participa now button click
+                $("#participaButton").click(function () {
+                  // Set that the user has joined the battle in both cookies and local storage
+                  document.cookie =
+                    "joined_battle=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+                  localStorage.setItem("joined_battle", "true");
+
+                  // Hide the "Participa now" button
+                  $("#participaButton").hide();
+
+                  if (hasVoted()) {
+                    // User has voted, show congratulatory message
+                    $("#content").text(
+                      "Congratulations! You have registered, participated in the battle, and voted."
+                    );
+                    console.log(
+                      "Congratulations! You have registered, participated in the battle, and voted."
+                    );
+                  } else {
+                    // User has not voted, show the "Vote" button
+                    $("#voteButton").show();
+                    $("#content").text(
+                      "User joined the battle but has not voted. Click 'Vote' to participate."
+                    );
+                    console.log("User has not voted. Show Vote button.");
+
+                    // Handle Vote button click
+                    $("#voteButton").click(function () {
+                      // Set the "voted" flag in both cookies and local storage to track that the user has voted
+                      document.cookie =
+                        "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+                      localStorage.setItem("voted", "true");
+
+                      // Hide the "Vote" button
+                      $("#voteButton").hide();
+
+                      // Check if the user has registered, participated, and voted
+                      if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
+                        // Display the congratulatory message
+                        $("#content").text(
+                          "Congratulations! You have registered, participated in the battle, and voted."
+                        );
+                        console.log(
+                          "Congratulations! You have registered, participated in the battle, and voted."
+                        );
+                      } else {
+                        $("#content").text(
+                          "not good"
+                        );
+                      }
+                    });
+                  }
+                });
+              }
+            } else {
+              // User is in battle
+              // Show a message indicating that the user is in battle
+
+              if (!hasVoted()) {
+                // User has not voted yet, show the "Vote" button
+                $("#voteButton").show();
+                console.log(
+                  "User is in battle but has not voted. Show Vote button."
+                );
+                $("#content").text("User is in battle but has not voted.");
+                // Handle Vote button click
+                $("#voteButton").click(function () {
+                  // Set the "voted" flag in both cookies and local storage to track that the user has voted
+                  document.cookie =
+                    "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+                  localStorage.setItem("voted", "true");
+
+                  // Hide the "Vote" button
+                  $("#voteButton").hide();
+
+                  // Check if the user has registered, participated, and voted
+                  if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
+                    // Display the congratulatory message
+                    $("#content").text(
+                      "Congratulations! You have registered, participated in the battle, and voted."
+                    );
+                    console.log(
+                      "Congratulations! You have registered, participated in the battle, and voted."
+                    );
+                  }
+                });
+              } else if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
+                // Display the congratulatory message
+                $("#content").text(
+                  "Congratulations! You have registered, participated in the battle, and voted."
+                );
+                console.log(
+                  "Congratulations! You have registered, participated in the battle, and voted."
+                );
+              } else {
+                // User has already voted
+                console.log("else");
+              }
+            }
+          }
+        } else {
+          // User is not logged in
+          // Show the register form with an input field
+          $("#registerForm").show();
+          console.log("User is not logged in. Show register form.");
+
+          // Handle the registration form submission
+          $("#registerForm").submit(function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the username from the input field
+            let username = $("#usernameInput").val();
+
+            // Set the username in both cookie and local storage
+            document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
+            localStorage.setItem("username", username);
+
+            // Set the user as registered in both cookie and local storage
+            document.cookie =
+              "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+            localStorage.setItem("registered", "true");
+
+            // Set that the user has not joined the battle in both cookies and local storage
+            document.cookie =
+              "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+            localStorage.setItem("joined_battle", "false");
+
+            // Set the "voted" flag to false in both cookies and local storage
+            document.cookie =
+              "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
+            localStorage.setItem("voted", "false");
+
+            // Reload the page to apply the login logic
+            location.reload();
+          });
+        }
+      });
+
+    
+
+
+
+//for backend
+      /*
+      $(document).ready(async function () {
+  // Function to get the value of a cookie
+  function getCookie(nameCookie) {
+    let value = "; " + document.cookie;
+    let parts = value.split("; " + nameCookie + "=");
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  }
+
+  // Function to check if the user is authenticated
+  async function isAuthenticated() {
+    // Check if the user is authenticated using cookies or server
+    const username = getCookie("username");
+    if (username && username.trim() !== "") {
+      // Check with the server if the user is authenticated
+      const isAuthenticated = await checkAuthentication(username);
+      return isAuthenticated;
+    }
+    return false;
+  }
+
+  // Replace this function with your server authentication logic
+  async function checkAuthentication(username) {
+    // Replace with a server request to check if the user is authenticated
+    // Return true if authenticated, false otherwise
+    return true;
+  }
+
+  // Function to check if the user has voted
+  async function hasVoted() {
+    // Check if the user has voted using cookies or server
+    const votedCookie = getCookie("voted");
+    if (votedCookie === "true") {
+      // Check with the server if the user has voted
+      const hasVoted = await checkHasVoted();
+      return hasVoted;
+    }
+    return false;
+  }
+
+  // Replace this function with your server check for voting
+  async function checkHasVoted() {
+    // Replace with a server request to check if the user has voted
+    // Return true if voted, false otherwise
+    return true;
+  }
+
+  // Function to check if the user has registered
+  async function hasRegistered() {
+    // Check if the user has registered using cookies or server
+    const registeredCookie = getCookie("registered");
+    if (registeredCookie === "true") {
+      // Check with the server if the user is registered
+      const isRegistered = await checkRegistrationStatus();
+      return isRegistered;
+    }
+    return false;
+  }
+
+  // Replace this function with your server registration check
+  async function checkRegistrationStatus() {
+    // Replace with a server request to check if the user is registered
+    // Return true if registered, false otherwise
+    return true;
+  }
+
+  // Function to check if the user has joined the battle
+  async function hasJoinedBattle() {
+    // Check if the user has joined the battle using cookies or server
+    const joinedBattleCookie = getCookie("joined_battle");
+    if (joinedBattleCookie === "true") {
+      // Check with the server if the user has joined the battle
+      const hasJoined = await checkJoinStatus();
+      return hasJoined;
+    }
+    return false;
+  }
+
+  // Replace this function with your server join status check
+  async function checkJoinStatus() {
+    // Replace with a server request to check if the user has joined the battle
+    // Return true if joined, false otherwise
+    return true;
+  }
+
+  // Get the username cookie value
+  let cookieValue = getCookie("username");
+
+  if (await isAuthenticated()) {
+    // User is logged in
+    const username = cookieValue;
+
+    if (!(await hasRegistered())) {
+      // User has not registered
+      // Handle registration and update cookies/server
+      $("#registerForm").show();
+      console.log("User is not registered. Show register form.");
+
+      // Handle the registration form submission
+      $("#registerForm").submit(async function (event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Get the username from the input field
+        let username = $("#usernameInput").val();
+
+        // Set the username on the server
+        await setServerUsername(username);
+
+        // Set the user as registered on the server
+        await setServerRegisteredStatus();
+
+        // Set that the user has not joined the battle on the server
+        await setServerJoinStatus(false);
+
+        // Set the "voted" flag to false on the server
+        await setServerVotedStatus(false);
+
+        // Reload the page to apply the login logic
+        location.reload();
+      });
+    } else {
+      // User has registered
+      // Check if the user has joined the battle
+      if (!(await hasJoinedBattle())) {
+        // User is not in battle
+        // Show the "Participa now" button
+        $("#participaButton").show();
+        $("#content").text("User is registered but is not in battle.");
+        console.log("User is not in battle. Show Participa now button.");
+
+        if (!(await hasVoted())) {
+          // User has not voted
+          // Handle Participa now button click
+          $("#participaButton").click(async function () {
+            // Set that the user has joined the battle on the server
+            await setServerJoinStatus(true);
+
+            // Hide the "Participa now" button
+            $("#participaButton").hide();
+
+            if (!(await hasVoted())) {
+              // User has not voted, show the "Vote" button
+              $("#voteButton").show();
+              $("#content").text("User joined the battle but has not voted. Click 'Vote' to participate.");
+              console.log("User has not voted. Show Vote button.");
+
+              // Handle Vote button click
+              $("#voteButton").click(async function () {
+                // Set the "voted" flag on the server to track that the user has voted
+                await setServerVotedStatus(true);
+
+                // Hide the "Vote" button
+                $("#voteButton").hide();
+
+                if (
+                  (await hasRegistered()) &&
+                  (await hasJoinedBattle()) &&
+                  (await hasVoted())
+                ) {
+                  // Display the congratulatory message
+                  $("#content").text(
+                    "Congratulations! You have registered, participated in the battle, and voted."
+                  );
+                  console.log(
+                    "Congratulations! You have registered, participated in the battle, and voted."
+                  );
+                } else {
+                  $("#content").text("not good");
+                }
+              });
+            }
+          });
+        }
+      } else {
+        // User is in battle
+        // Show a message indicating that the user is in battle
+
+        if (!(await hasVoted())) {
+          // User has not voted yet, show the "Vote" button
+          $("#voteButton").show();
+          console.log("User is in battle but has not voted. Show Vote button.");
+          $("#content").text("User is in battle but has not voted.");
+
+          // Handle Vote button click
+          $("#voteButton").click(async function () {
+            // Set the "voted" flag on the server to track that the user has voted
+            await setServerVotedStatus(true);
+
+            // Hide the "Vote" button
+            $("#voteButton").hide();
+
+            if (
+              (await hasRegistered()) &&
+              (await hasJoinedBattle()) &&
+              (await hasVoted())
+            ) {
+              // Display the congratulatory message
+              $("#content").text(
+                "Congratulations! You have registered, participated in the battle, and voted."
+              );
+              console.log(
+                "Congratulations! You have registered, participated in the battle, and voted."
+              );
+            }
+          });
+        } else if (
+          (await hasRegistered()) &&
+          (await hasJoinedBattle()) &&
+          (await hasVoted())
+        ) {
+          // Display the congratulatory message
+          $("#content").text(
+            "Congratulations! You have registered, participated in the battle, and voted."
+          );
+          console.log(
+            "Congratulations! You have registered, participated in the battle, and voted."
+          );
+        } else {
+          // User has already voted
+          console.log("else");
+        }
+      }
+    }
+  } else {
+    // User is not logged in
+    // Show the register form with an input field
+    $("#registerForm").show();
+    console.log("User is not logged in. Show register form.");
+
+    // Handle the registration form submission
+    $("#registerForm").submit(async function (event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      // Get the username from the input field
+      let username = $("#usernameInput").val();
+
+      // Set the username on the server
+      await setServerUsername(username);
+
+      // Set the user as registered on the server
+      await setServerRegisteredStatus();
+
+      // Set that the user has not joined the battle on the server
+      await setServerJoinStatus(false);
+
+      // Set the "voted" flag to false on the server
+      await setServerVotedStatus(false);
+
+      // Reload the page to apply the login logic
+      location.reload();
+    });
+  }
+});
+
+// Replace these functions with your server-side functions
+async function setServerUsername(username) {
+  // Replace with a server request to set the username
+}
+
+async function setServerRegisteredStatus() {
+  // Replace with a server request to set the registered status
+}
+
+async function setServerJoinStatus(status) {
+  // Replace with a server request to set the join status
+}
+
+async function setServerVotedStatus(status) {
+  // Replace with a server request to set the voted status
+}
+
+      
+      */
+    </script> -->
   </body>
 </html>
