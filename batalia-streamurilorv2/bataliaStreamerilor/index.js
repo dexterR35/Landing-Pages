@@ -347,7 +347,7 @@ $(document).ready(function () {
       }
     },
     lengthChange: false,
-    bFilter: true,
+    bFilter: false,
     columnDefs: [{
         responsivePriority: 1,
         targets: 0,
@@ -362,7 +362,7 @@ $(document).ready(function () {
   $("#usersTable").DataTable(commonOptions);
 
 
-  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streamări</h4>`);
+  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
   $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
   $("#usersTable_filter > label").addClass("col-12 d-flex justify-content-end");
