@@ -10,256 +10,70 @@
       referrerpolicy="no-referrer"
     ></script>
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        color: white;
+        font-weight: bold;
+      }
+      button {
+        padding: 0.5em 1em;
+        background-color: #c64923;
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        margin-top: 10px;
+        cursor: pointer;
+        width: 200px;
+        height: 3em;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 90vh;
+        width: 100%;
+        background-color: darkslateblue;
+      }
+      input[type="text"] {
+        padding: 0.7em;
+        border: none;
+        outline: none;
+        background: lightgrey;
+        color: black;
+
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      
+      }
+      #content {
+        font-size: 1.2em;
+        margin: 20px;
+      }
+    </style>
   </head>
 
   <body>
-    <!-- Add a div to display the start over button -->
-    <div id="startOverDiv" style="display: none">
-      <button id="startOverButton">Start Over</button>
-    </div>
+    <div id="content"></div>
     <form id="registerForm" style="display: none">
       <input type="text" id="usernameInput" placeholder="Enter your username" />
-      <button type="submit">Register</button>
+      <button type="submit">Register / Login</button>
     </form>
-    <div id="content">
-      <!-- Content will be updated based on user actions -->
-    </div>
 
-    <!-- Registration form -->
+    <button id="joinBattle" style="display: none">check / join</button>
+    <button id="voteButton" style="display: none">Vote</button>
+    <button id="clearDataButton" style="display: none">clearData</button>
+    <script src="./cookieAsync.js"></script>
 
-    <!-- Buttons for user actions -->
-    <button id="participaButton" style="display: none">Participa</button>
-    <button id="voteButton" style="display: none">Voted</button>
-    <script>
-        $(document).ready(async function () {
-  // Function to get the value of a cookie
-  function getCookie(nameCookie) {
-    let value = "; " + document.cookie;
-    let parts = value.split("; " + nameCookie + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-    return null;
-  }
-
-  // Function to check if the user is authenticated
-  async function isAuthenticated() {
-    // Check if the user is authenticated using cookies
-    const username = getCookie("username");
-    return username && username.trim() !== "";
-  }
-
-  // Function to check if the user has voted
-  async function hasVoted() {
-    // Check if the user has voted using cookies
-    const votedCookie = getCookie("voted");
-    return votedCookie === "true";
-  }
-
-  // Function to check if the user has registered
-  async function hasRegistered() {
-    // Check if the user has registered using cookies
-    const registeredCookie = getCookie("registered");
-    return registeredCookie === "true";
-  }
-
-  // Function to check if the user has joined the battle
-  async function hasJoinedBattle() {
-    // Check if the user has joined the battle using cookies
-    const joinedBattleCookie = getCookie("joined_battle");
-    return joinedBattleCookie === "true";
-  }
-
-  // Get the username cookie value
-  let cookieValue = getCookie("username");
-
-  if (await isAuthenticated()) {
-    // User is logged in
-    const username = cookieValue;
-
-    if (!(await hasRegistered())) {
-      // User has not registered
-      // Handle registration and update cookies
-      $("#registerForm").show();
-      console.log("User is not registered. Show register form.");
-
-      // Handle the registration form submission
-      $("#registerForm").submit(async function (event) {
-        event.preventDefault(); // Prevent the form from submitting
-
-        // Get the username from the input field
-        let username = $("#usernameInput").val();
-
-        // Set the username in both cookie and local storage
-        document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
-        localStorage.setItem("username", username);
-
-        // Set the user as registered in both cookie and local storage
-        document.cookie =
-          "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-        localStorage.setItem("registered", "true");
-
-        // Set that the user has not joined the battle in both cookies and local storage
-        document.cookie =
-          "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-        localStorage.setItem("joined_battle", "false");
-
-        // Set the "voted" flag to false in both cookies and local storage
-        document.cookie =
-          "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-        localStorage.setItem("voted", "false");
-
-        // Reload the page to apply the login logic
-        location.reload();
-      });
-    } else {
-      // User has registered
-      // Check if the user has joined the battle
-      if (!(await hasJoinedBattle())) {
-        // User is not in battle
-        // Show the "Participa now" button
-        $("#participaButton").show();
-        $("#content").text("User is registered but is not in battle.");
-        console.log("User is not in battle. Show Participa now button.");
-
-        if (!(await hasVoted())) {
-          // User has not voted
-          // Handle Participa now button click
-          $("#participaButton").click(async function () {
-            // Set that the user has joined the battle in both cookies and local storage
-            document.cookie =
-              "joined_battle=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-            localStorage.setItem("joined_battle", "true");
-
-            // Hide the "Participa now" button
-            $("#participaButton").hide();
-
-            if (!(await hasVoted())) {
-              // User has not voted, show the "Vote" button
-              $("#voteButton").show();
-              $("#content").text("User joined the battle but has not voted. Click 'Vote' to participate.");
-              console.log("User has not voted. Show Vote button.");
-
-              // Handle Vote button click
-              $("#voteButton").click(async function () {
-                // Set the "voted" flag in both cookies and local storage to track that the user has voted
-                document.cookie =
-                  "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-                localStorage.setItem("voted", "true");
-
-                // Hide the "Vote" button
-                $("#voteButton").hide();
-
-                // Check if the user has registered, participated, and voted
-                if (
-                  (await hasRegistered()) &&
-                  (await hasJoinedBattle()) &&
-                  (await hasVoted())
-                ) {
-                  // Display the congratulatory message
-                  $("#content").text(
-                    "Congratulations! You have registered, participated in the battle, and voted."
-                  );
-                  console.log(
-                    "Congratulations! You have registered, participated in the battle, and voted."
-                  );
-                } else {
-                  $("#content").text("not good");
-                }
-              });
-            }
-          });
-        }
-      } else {
-        // User is in battle
-        // Show a message indicating that the user is in battle
-
-        if (!(await hasVoted())) {
-          // User has not voted yet, show the "Vote" button
-          $("#voteButton").show();
-          console.log("User is in battle but has not voted. Show Vote button.");
-          $("#content").text("User is in battle but has not voted.");
-
-          // Handle Vote button click
-          $("#voteButton").click(async function () {
-            // Set the "voted" flag in both cookies and local storage to track that the user has voted
-            document.cookie =
-              "voted=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-            localStorage.setItem("voted", "true");
-
-            // Hide the "Vote" button
-            $("#voteButton").hide();
-
-            // Check if the user has registered, participated, and voted
-            if (
-              (await hasRegistered()) &&
-              (await hasJoinedBattle()) &&
-              (await hasVoted())
-            ) {
-              // Display the congratulatory message
-              $("#content").text(
-                "Congratulations! You have registered, participated in the battle, and voted."
-              );
-              console.log(
-                "Congratulations! You have registered, participated in the battle, and voted."
-              );
-            }
-          });
-        } else if (
-          (await hasRegistered()) &&
-          (await hasJoinedBattle()) &&
-          (await hasVoted())
-        ) {
-          // Display the congratulatory message
-          $("#content").text(
-            "Congratulations! You have registered, participated in the battle, and voted."
-          );
-          console.log(
-            "Congratulations! You have registered, participated in the battle, and voted."
-          );
-        } else {
-          // User has already voted
-          console.log("else");
-        }
-      }
-    }
-  } else {
-    // User is not logged in
-    // Show the register form with an input field
-    $("#registerForm").show();
-    console.log("User is not logged in. Show register form.");
-
-    // Handle the registration form submission
-    $("#registerForm").submit(async function (event) {
-      event.preventDefault(); // Prevent the form from submitting
-
-      // Get the username from the input field
-      let username = $("#usernameInput").val();
-
-      // Set the username in both cookie and local storage
-      document.cookie = `username=${username}; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/`;
-      localStorage.setItem("username", username);
-
-      // Set the user as registered in both cookie and local storage
-      document.cookie =
-        "registered=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-      localStorage.setItem("registered", "true");
-
-      // Set that the user has not joined the battle in both cookies and local storage
-      document.cookie =
-        "joined_battle=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-      localStorage.setItem("joined_battle", "false");
-
-      // Set the "voted" flag to false in both cookies and local storage
-      document.cookie =
-        "voted=false; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
-      localStorage.setItem("voted", "false");
-
-      // Reload the page to apply the login logic
-      location.reload();
-    });
-  }
-});
-
-    </script>
     <!-- <script>
       $(document).ready(function () {
         // Function to get the value of a cookie
@@ -347,13 +161,13 @@
             if (!hasJoinedBattle()) {
               // User is not in battle
               // Show the "Participa now" button
-              $("#participaButton").show();
+              $("#joinBattle").show();
               $("#content").text("User is registered but is not in battle.");
               console.log("User is not in battle. Show Participa now button.");
 
               if (hasVoted()) {
                 // User has already voted, hide the "Participa now" button
-                $("#participaButton").hide();
+                $("#joinBattle").hide();
                 $("#content").text("You have already voted.");
                 console.log(
                   "You have already voted. Hide Participa now button."
@@ -361,28 +175,28 @@
               } else {
                 // User has not voted
                 // Handle Participa now button click
-                $("#participaButton").click(function () {
+                $("#joinBattle").click(function () {
                   // Set that the user has joined the battle in both cookies and local storage
                   document.cookie =
                     "joined_battle=true; expires=Thu, 18 Dec 2023 14:08:00 UTC; path=/";
                   localStorage.setItem("joined_battle", "true");
 
                   // Hide the "Participa now" button
-                  $("#participaButton").hide();
+                  $("#joinBattle").hide();
 
                   if (hasVoted()) {
                     // User has voted, show congratulatory message
                     $("#content").text(
-                      "Congratulations! You have registered, participated in the battle, and voted."
+                      "Congratulations! You have registered, joinBattle in the battle, and voted."
                     );
                     console.log(
-                      "Congratulations! You have registered, participated in the battle, and voted."
+                      "Congratulations! You have registered, joinBattle in the battle, and voted."
                     );
                   } else {
                     // User has not voted, show the "Vote" button
                     $("#voteButton").show();
                     $("#content").text(
-                      "User joined the battle but has not voted. Click 'Vote' to participate."
+                      "User joined the battle but has not voted. Click 'Vote' to joinBattle."
                     );
                     console.log("User has not voted. Show Vote button.");
 
@@ -396,14 +210,14 @@
                       // Hide the "Vote" button
                       $("#voteButton").hide();
 
-                      // Check if the user has registered, participated, and voted
+                      // Check if the user has registered, joinBattle, and voted
                       if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
                         // Display the congratulatory message
                         $("#content").text(
-                          "Congratulations! You have registered, participated in the battle, and voted."
+                          "Congratulations! You have registered, joinBattle in the battle, and voted."
                         );
                         console.log(
-                          "Congratulations! You have registered, participated in the battle, and voted."
+                          "Congratulations! You have registered, joinBattle in the battle, and voted."
                         );
                       } else {
                         $("#content").text(
@@ -435,24 +249,24 @@
                   // Hide the "Vote" button
                   $("#voteButton").hide();
 
-                  // Check if the user has registered, participated, and voted
+                  // Check if the user has registered, joinBattle, and voted
                   if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
                     // Display the congratulatory message
                     $("#content").text(
-                      "Congratulations! You have registered, participated in the battle, and voted."
+                      "Congratulations! You have registered, joinBattle in the battle, and voted."
                     );
                     console.log(
-                      "Congratulations! You have registered, participated in the battle, and voted."
+                      "Congratulations! You have registered, joinBattle in the battle, and voted."
                     );
                   }
                 });
               } else if (hasRegistered() && hasJoinedBattle() && hasVoted()) {
                 // Display the congratulatory message
                 $("#content").text(
-                  "Congratulations! You have registered, participated in the battle, and voted."
+                  "Congratulations! You have registered, joinBattle in the battle, and voted."
                 );
                 console.log(
-                  "Congratulations! You have registered, participated in the battle, and voted."
+                  "Congratulations! You have registered, joinBattle in the battle, and voted."
                 );
               } else {
                 // User has already voted
@@ -630,24 +444,24 @@
       if (!(await hasJoinedBattle())) {
         // User is not in battle
         // Show the "Participa now" button
-        $("#participaButton").show();
+        $("#joinBattle").show();
         $("#content").text("User is registered but is not in battle.");
         console.log("User is not in battle. Show Participa now button.");
 
         if (!(await hasVoted())) {
           // User has not voted
           // Handle Participa now button click
-          $("#participaButton").click(async function () {
+          $("#joinBattle").click(async function () {
             // Set that the user has joined the battle on the server
             await setServerJoinStatus(true);
 
             // Hide the "Participa now" button
-            $("#participaButton").hide();
+            $("#joinBattle").hide();
 
             if (!(await hasVoted())) {
               // User has not voted, show the "Vote" button
               $("#voteButton").show();
-              $("#content").text("User joined the battle but has not voted. Click 'Vote' to participate.");
+              $("#content").text("User joined the battle but has not voted. Click 'Vote' to joinBattle.");
               console.log("User has not voted. Show Vote button.");
 
               // Handle Vote button click
@@ -665,10 +479,10 @@
                 ) {
                   // Display the congratulatory message
                   $("#content").text(
-                    "Congratulations! You have registered, participated in the battle, and voted."
+                    "Congratulations! You have registered, joinBattle in the battle, and voted."
                   );
                   console.log(
-                    "Congratulations! You have registered, participated in the battle, and voted."
+                    "Congratulations! You have registered, joinBattle in the battle, and voted."
                   );
                 } else {
                   $("#content").text("not good");
@@ -702,10 +516,10 @@
             ) {
               // Display the congratulatory message
               $("#content").text(
-                "Congratulations! You have registered, participated in the battle, and voted."
+                "Congratulations! You have registered, joinBattle in the battle, and voted."
               );
               console.log(
-                "Congratulations! You have registered, participated in the battle, and voted."
+                "Congratulations! You have registered, joinBattle in the battle, and voted."
               );
             }
           });
@@ -716,10 +530,10 @@
         ) {
           // Display the congratulatory message
           $("#content").text(
-            "Congratulations! You have registered, participated in the battle, and voted."
+            "Congratulations! You have registered, joinBattle in the battle, and voted."
           );
           console.log(
-            "Congratulations! You have registered, participated in the battle, and voted."
+            "Congratulations! You have registered, joinBattle in the battle, and voted."
           );
         } else {
           // User has already voted
