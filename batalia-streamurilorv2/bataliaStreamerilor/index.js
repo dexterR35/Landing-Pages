@@ -417,7 +417,7 @@ scroll.on("scroll", (e) => {
 
     if (table) {
       const skewValue = e.scroll.y / 9; // Ajustați acest număr pentru a controla intensitatea efectului de skew
-      table.style.transform = `skew(${skewValue / 25}deg)`; // Aplicați efectul de skew pe axa orizontală
+      table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
     }
 });
 
