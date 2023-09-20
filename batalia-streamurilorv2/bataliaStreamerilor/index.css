@@ -25,11 +25,14 @@
 .w-80 {
   width: 80%;
 }
-
-html {
-  scroll-behavior: smooth;
+.section.active{
+  background-color:red;
 }
 
+.section {
+  width: 100%;
+  height: 100vh;
+}
 .modal-body {
   overflow-y: scroll;
   max-height: 65vh;
@@ -276,7 +279,7 @@ a {
 .section_two {
   /* background: purple; */
   width: 95%;
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
   z-index: 22;
 }
@@ -442,13 +445,24 @@ h2 {
   transition: all 0.1s ease;
 }
 
-#parallax3 {
+.scroll-container {
   position: relative;
-  margin: auto;
-  width: 100%;
-  z-index: 3;
 }
+.scroll-container a img {
+  filter: drop-shadow(-6px 6px 1px lightgrey);
 
+}
+.scroll-container a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+
+  
+}
 .section_one .bgD {
   background: #fdd835;
   background: url(./_bg/bg_nospikes.jpg);
@@ -463,7 +477,7 @@ h2 {
 
 .section_one {
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .section_two,
@@ -481,7 +495,7 @@ h2 {
   /* background: url(./_bg/bg_clouds2.png); */
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -538,6 +552,7 @@ h2 {
 }
 .section_two .row {
   align-items: center;
+  flex-direction: row-reverse;
 }
 
 .section_two .table-responsive .table tbody tr {
@@ -795,11 +810,6 @@ transition: transform 0.5s ease;
   font-size: 2.8em;
 }
 
-.providers-table td div a img {
-  /* width: 100%; */
-  height: 40px;
-  /* object-fit: cover; */
-}
 
 .top_swiper_box {
   height: fit-content;
@@ -826,6 +836,11 @@ transition: transform 0.5s ease;
 
 
 
+.providers-table td div a img {
+  /* width: 100%; */
+  height: 40px;
+  /* object-fit: cover; */
+}
 
 
 .table {

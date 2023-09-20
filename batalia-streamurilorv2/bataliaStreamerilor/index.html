@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
-        integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
-    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+      integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> 
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+    />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -29,15 +40,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
-    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
-    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+      integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-   
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
+
+
     <link rel="stylesheet" href="./index.css" />
     <title>Document</title>
   </head>
@@ -46,20 +65,20 @@
 
   <body>
     <header
-    class="header-top d-flex justify-content-center align-items-center"
-    style="
-      background: black;
-      width: 100%;
-      height: 5em;
-      position: absolute;
-      top: 0;
-      text-transform: uppercase;
-      color: white;
-      z-index: 31;
-    "
-  >
-    navbar
-  </header>
+      class="header-top d-flex justify-content-center align-items-center"
+      style="
+        background: black;
+        width: 100%;
+        height: 5em;
+        position: absolute;
+        top: 0;
+        text-transform: uppercase;
+        color: white;
+        z-index: 31;
+      "
+    >
+      navbar
+    </header>
     <div class="wrapper" style="overflow: hidden">
       <div class="container-modal">
         <div class="modal fade" id="myModal">
@@ -100,13 +119,18 @@
       </div>
 
       <div id="fullpage">
-        <div class="section">
-          <section class="container-section section_one">
-            <div class="bgD" id="background_p"></div>
+        <div class="section" data-scroll-section>
+          <section class="container-section section_one" >
+            <div class="bgD" id="background_p" data-scroll data-scroll-speed="0.5" data-scroll-direction="vertical" data-scroll-delay="0.1" data-call-bg="bg"></div>
             <div class="col">
               <div
                 class="s"
-                style="background: #1e1e1e !important; height: 5em; width: 100vw; z-index: 12;"
+                style="
+                  background: #1e1e1e !important;
+                  height: 5em;
+                  width: 100vw;
+                  z-index: 12;
+                "
               >
                 <p
                   style="color: white; font-size: 2em; z-index: 214"
@@ -118,9 +142,9 @@
             </div>
             <div class="row mx-auto w-100 z-3" id="contentImg_p">
               <div class="col-12" style="z-index: 50">
-                <div class="container-stuff container">
+                <div class="container-stuff container mt-4">
                   <div class="container-content mx-auto gap-4">
-                    <div class="col-2 s-providers">
+                    <div class="col-2 s-providers" data-scroll data-scroll-speed="2" data-scroll-direction="horizontal">
                       <div>
                         <a href="#">
                           <img
@@ -146,10 +170,10 @@
                         /></a>
                       </div>
                     </div>
-                    <div class="col-lg-7 col-md-4 bg-img">
+                    <div class="col-lg-7 col-md-4 bg-img" data-scroll data-scroll-speed="2" data-scroll-direction="vertical">
                       <img src="./_bg/title_generic.png" alt="" />
                     </div>
-                    <div class="col-2 s-providers">
+                    <div class="col-2 s-providers" data-scroll data-scroll-speed="-2" data-scroll-direction="horizontal">
                       <div>
                         <a href="#">
                           <img
@@ -175,21 +199,21 @@
                       </div>
                     </div>
                   </div>
-                  <div class="container-btn">
+                  <div class="container-btn" >
                     <button
                       type="button"
                       class="btn btn-primary animate"
                       data-bs-toggle="modal"
                       data-bs-target="#myModal"
-                    >
+                      data-scroll data-scroll-speed="-7.5" data-scroll-direction="vertical" data-scroll-position="top">
                       Intră în luptă
                     </button>
                   </div>
                 </div>
               </div>
               <div class="col-12 container-swiper">
-                <div class="swipers stream-slider">
-                  <div class="swiper-wrapper">
+                <div class="swipers stream-slider" >
+                  <div class="swiper-wrapper" >
                     <div class="swiper-slide slide-streamer">
                       <img
                         src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/ana.png"
@@ -260,24 +284,23 @@
               </div>
             </div>
             <div class="col">
-              <div class="norisori" style="top:unset; bottom: 0; height: 5em;"></div>
+              <div
+                class="norisori"
+                style="top: unset; bottom: 0; height: 5em"
+              ></div>
             </div>
             <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
             <div class="spikes" id="spike_p"></div>
           </section>
         </div>
 
-        <div class="section">
+        <div class="section" data-scroll-section>
           <section class="container-section section_two w-100">
             <div
               class="container d-flex justify-content-evenly flex-column h-100"
             >
-            <style>
-              #tesst {
-                transform: translateY(-200px);
-              }
-            </style>
-              <div class="row">
+        
+              <div class="row" data-scroll data-scroll-speed="0.2" data-scroll-direction="horizontal" data-scroll-position="top">
                 <h2 class="text-center p-3 color-NetBet-orange w-85 mx-auto">
                   Participă la Bătălia streamerilor și câștigă premii fabuloase.
                 </h2>
@@ -288,7 +311,7 @@
                 </h5>
               </div>
               <div class="row">
-                <div class="col-lg-5 col-md-12 container-stuff">
+                <div class="col-lg-5 col-md-12 container-stuff" >
                   <h2 class="text-center text-dark">Jocuri eligibile</h2>
                   <div class="paragraph mb-3">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -311,9 +334,9 @@
                 </div>
                 <div
                   class="col-lg-7 col-md-12 d-flex justify-content-center align-items-center"
-                  >
-                  <div class="table-responsive">
-                    <table class="tables" id="gameImages"></table>
+                  data-scroll data-scroll-speed="0.9" data-scroll-direction="vertical">
+                  <div class="table-responsive" >
+                    <table class="tables scroll-container" id="gameImages"></table>
                     <button
                       type="button"
                       class="btn btn-NetBet-normal w-75 _mobile"
@@ -324,24 +347,22 @@
                 </div>
               </div>
               <script>
-              
-                  if ($(window).width() < 1024) {
-                    $(".btn._mobile").addClass("w-100");
-                    $(".btn._desktop").css({ display: "none" });
-                    $(".btn._mobile").css({ display: "block" });
+                if ($(window).width() < 1024) {
+                  $(".btn._mobile").addClass("w-100");
+                  $(".btn._desktop").css({ display: "none" });
+                  $(".btn._mobile").css({ display: "block" });
 
-                    $(".table-responsive").css({
-                      "overflow-y": "scroll",
-                      height: "320px",
-                    });
-                  } else {
-                    $(".btn._mobile").removeClass("w-100");
-                    $(".btn._desktop").css({ display: "block" });
-                    $(".btn._mobile").css({ display: "none" });
-                  }
-          
+                  $(".table-responsive").css({
+                    "overflow-y": "scroll",
+                    height: "320px",
+                  });
+                } else {
+                  $(".btn._mobile").removeClass("w-100");
+                  $(".btn._desktop").css({ display: "block" });
+                  $(".btn._mobile").css({ display: "none" });
+                }
               </script>
-              <div class="row mx-auto s2_providers">
+              <div class="row mx-auto s2_providers" data-scroll data-scroll-speed="-8" data-scroll-direction="horizontal">
                 <div class="col-2">
                   <a href="https://casino.netbet.ro/7777-gaming"
                     ><img src="./_providers/skywind.png"
@@ -381,16 +402,20 @@
             </div>
           </section>
         </div>
-        <div class="section">
+        <div class="section" data-scroll-section>
           <section class="container-section section_three w-100 flex-column">
             <div class="col-12 s3_clouds">
               <div class="norisori"></div>
             </div>
             <h2 class="text-center m-3 py-2 title_s2 z-2">Clasamente</h2>
             <div class="row container w-100 z-3">
-              <div class="col pb-5 table-title">
-                <div class="table-responsive">
-                  <table  id="streamersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
+              <div class="col pb-5 table-title" data-scroll data-scroll-speed="-0.1" data-scroll-direction="horizontal">
+                <div class="table-responsive" > 
+                  <table
+                    id="streamersTable"
+                    class="tableData table table-hover responsive nowrap"
+                    style="width: 100%"
+                  >
                     <thead class="table-dark">
                       <tr>
                         <th>Streamer</th>
@@ -406,9 +431,13 @@
                   </table>
                 </div>
               </div>
-              <div class="col pb-5 table-title">
+              <div class="col pb-5 table-title" data-scroll data-scroll-speed="0.1" data-scroll-direction="horizontal">
                 <div class="table-responsive">
-                  <table id="usersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
+                  <table
+                    id="usersTable"
+                    class="tableData table table-hover responsive nowrap"
+                    style="width: 100%"
+                  >
                     <thead class="table-dark">
                       <tr>
                         <th>Utilizator</th>
@@ -427,7 +456,7 @@
             </div>
           </section>
         </div>
-        <div class="section">
+        <div class="section" data-scroll-section>
           <div class="row container-section section_four w-100 mx-auto">
             <div
               class="col text-center py-4 my-2 container p-5 position-relative flex-column"
