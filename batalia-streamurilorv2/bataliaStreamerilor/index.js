@@ -366,33 +366,6 @@ swiperStr.el.addEventListener("mouseleave", function () {
 
 // });
 
-
-// var head = $('.s2_providers')
-// $.scrollify({
-//   section:".section",
-//   scrollbars:false,
-//   interstitialSection:"",
-//   easing: "easeOutExpo",
-//   scrollSpeed: 300,
-//   touchScroll :true,
-//   offset :0,
-// 	standardScrollElements: ".normal-scroll",
-//   setHeights: true,
-//   overflowScroll: true,
-//   updateHash: false,
-//    before: function(i,section){
-//     console.log(i,"i")
-//     console.log(section,"panel")
-//       $('.section').removeClass('active')
-//       // section[i].find(".table-responsive").addClass("moved");
-    
-//     },
-//     after: function(){
-//       current = $.scrollify.current();
-//       current.addClass('active')
-//     }
-  
-// });
 const scrollContainer = document.querySelector("#fullpage");
 
 const scroll = new LocomotiveScroll({
@@ -401,17 +374,16 @@ const scroll = new LocomotiveScroll({
     smooth: true
 },
 firefoxMultiplier:"",
-touchMultiplier:2,
 scrollFromAnywhere:true,
 reloadOnContextChange:true,
 resetNativeScroll:false,
 	smooth: true,
-	lerp: 0.05
+	// lerp: 0.05
 });
 
 scroll.on("scroll", (e) => {
-	scrollContainer.style.backgroundColor =
-		"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
+	// scrollContainer.style.backgroundColor =
+	// 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
 
     const table = document.getElementById("gameImages"); // Selectați tabelul după ID
 

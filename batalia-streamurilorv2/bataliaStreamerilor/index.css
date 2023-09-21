@@ -33,6 +33,12 @@
   width: 100%;
   height: 100vh;
 }
+@media (orientation:portrait) {
+  .section {
+    height: 100%;
+  }
+  
+}
 .modal-body {
   overflow-y: scroll;
   max-height: 65vh;
