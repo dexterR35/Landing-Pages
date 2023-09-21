@@ -15,7 +15,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -32,7 +32,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script>
 
-
   <link rel="stylesheet" href="./index.css" />
   <title>Document</title>
 </head>
@@ -44,7 +43,7 @@
         background: black;
         width: 100%;
         height: 5em;
-        position: absolute;
+        position: relative;
         top: 0;
         text-transform: uppercase;
         color: white;
@@ -52,7 +51,7 @@
       ">
     navbar
   </header>
-  <div class="wrapper" style="overflow: hidden">
+  <div class="wrapper" data-scroll-section>
     <div class="container-modal">
       <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-xl">
@@ -85,26 +84,17 @@
     </div>
 
     <div id="fullpage">
-      <div class="section" data-scroll-section>
-        <section class="container-section section_one">
-          <div class="bgD" id="background_p" data-scroll data-scroll-speed="0.5" data-scroll-direction="vertical"
-            data-scroll-delay="0.1" data-call-bg="bg"></div>
-          <div class="col">
-            <div class="s" style="
-                  background: #1e1e1e !important;
-                  height: 5em;
-                  width: 100vw;
-                  z-index: 12;
-                ">
-              <p style="color: white; font-size: 2em; z-index: 214" class="text-center">
-                navbar
-              </p>
-            </div>
-          </div>
+      <div class="section">
+        <div class="bgD" id="background_p" ></div>
+        <div class="spikes" id="spike_p"></div>
+        <div class="norisoris">
+          <div class="norisori" style="top: unset; bottom: 0; height: 5em"></div>
+        </div>
+        <div class="container-section section_one">
           <div class="row mx-auto w-100 z-3" id="contentImg_p">
             <div class="col-12" style="z-index: 50">
               <div class="container-stuff container mt-4">
-                <div class="container-content mx-auto gap-4">
+                <div class="content-elements mx-auto gap-4">
                   <div class="col-2 s-providers" data-scroll data-scroll-speed="2" data-scroll-direction="horizontal">
                     <div>
                       <a href="#">
@@ -137,9 +127,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="container-btn">
-                  <button type="button" class="btn btn-primary animate" data-bs-toggle="modal" data-bs-target="#myModal"
-                    data-scroll data-scroll-speed="-7.5" data-scroll-direction="vertical" data-scroll-position="top">
+                <div class="container-btn" data-scroll data-scroll-speed="-7" data-scroll-direction="vertical"
+                  data-scroll-position="top">
+                  <button type="button" class="btn btn-primary animate" data-bs-toggle="modal"
+                    data-bs-target="#myModal">
                     Intră în luptă
                   </button>
                 </div>
@@ -191,20 +182,17 @@
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="norisori" style="top: unset; bottom: 0; height: 5em"></div>
-          </div>
+        
           <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
-          <div class="spikes" id="spike_p"></div>
-        </section>
+     
+        </div>
       </div>
-      <div class="section" data-scroll-section>
-        <section class="container-section section_two w-100">
-          <div class="container d-flex justify-content-evenly flex-column h-100">
-
-            <div class="row" data-scroll data-scroll-speed="0.2" data-scroll-direction="horizontal"
+      <div class="section">
+        <div class="container container-section section_two h-100">
+          <div class="d-flex justify-content-evenly flex-column h-100">
+            <div class="row" data-scroll data-scroll-speed="0.6" data-scroll-direction="horizontal"
               data-scroll-position="top">
-              <h2 class="text-center p-3 color-NetBet-orange w-85 mx-auto">
+              <h2 class="text-center p-3 color-softGrey w-85 mx-auto">
                 Participă la Bătălia streamerilor și câștigă premii fabuloase.
               </h2>
               <h5 class="text-center w-75 mx-auto">
@@ -214,7 +202,8 @@
               </h5>
             </div>
             <div class="row">
-              <div class="col-lg-5 col-md-12 container-stuff">
+              <div class="col-lg-5 col-md-12 container-stuff" data-scroll data-scroll-speed="-0.6"
+                data-scroll-direction="vertical">
                 <h2 class="text-center text-dark">Jocuri eligibile</h2>
                 <div class="paragraph mb-3">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -284,72 +273,180 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-      <div class="section" data-scroll-section>
-        <section class="container-section section_three w-100 flex-column">
-          <div class="col-12 s3_clouds position-relative">
-            <div class="norisori"></div>
-          </div>
+      <div class="section _s3">
+        <div class="col-12 s3_clouds">
+          <div class="norisori"></div>
+        </div>
+        <div class="container container-section section_three w-100 flex-column">
           <h2 class="text-center m-3 py-2 title_s2 z-2">Clasamente</h2>
           <div class="row container w-100 z-3">
-            <div class="col pb-5 table-title" data-scroll data-scroll-speed="-0.1" data-scroll-direction="horizontal">
+            <div class="col pb-5 table-title">
               <div class="table-responsive">
                 <table id="streamersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
                   <thead class="table-dark">
                     <tr>
-                      <th>Streamer</th>
                       <th>Pozitie</th>
+                      <th>Streamer</th>
                       <th>Puncte</th>
                       <th>Challenge</th>
                     </tr>
                   </thead>
-                  <tbody class="table-body" id="table">
-                    <!-- Dynamic table content will go here -->
-                  </tbody>
+                  <tbody class="table-body" id="table"></tbody>
                   <tfoot class="table-dark"></tfoot>
                 </table>
               </div>
             </div>
-            <div class="col pb-5 table-title" data-scroll data-scroll-speed="0.1" data-scroll-direction="horizontal">
+            <div class="col pb-5 table-title">
               <div class="table-responsive">
                 <table id="usersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
                   <thead class="table-dark">
                     <tr>
-                      <th>Utilizator</th>
                       <th>Pozitie</th>
+                      <th>Utilizator</th>
                       <th>Puncte</th>
                       <th>Challenge</th>
                     </tr>
                   </thead>
-                  <tbody class="table-body">
-                    <!-- Dynamic table content will go here -->
-                  </tbody>
+                  <tbody class="table-body"></tbody>
                   <tfoot class="table-dark"></tfoot>
                 </table>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-      <div class="section" data-scroll-section>
-        <div class="row container-section section_four w-100 mx-auto">
-          <div class="col text-center py-4 my-2 container p-5 position-relative flex-column">
+      <div class="section _s4">
+        <div class="container container-section section_four w-100 h-100">
+          <div class="col text-center position-relative flex-column">
             <h3 class="text-center my-3">title</h3>
-            <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">
+            <!-- <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">
               Termeni și Condiții
-            </button>
+            </button> -->
 
-            <div id="termsAndConditions" class="hidden termsAndConditions">
-              <h2>test</h2>
+            <div id="termsAndConditionsS" class="hidden termsAndConditions">
+              <p><b>Cine este eligibil?</b></p>
               <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+                <li>
+                  Această ofertă se adresează exclusiv jucătorilor din România
+                  care completează ultimul pas din înregistrare cu codul
+                  500ROTIRI și completează procesul de verificare a
+                  identității în termen de 14 zile de la înregistrare.
+                </li>
+                <li>
+                  Oferta este limitată la o singură utilizare per adresă
+                  domiciliu/calculator/adresă IP.
+                </li>
+                <li>
+                  <b><span style="color: #fe7332">Documentul necesar pentru validarea/ verificarea
+                      contului este buletinul sau actul de indentitate</span></b>
+                </li>
               </ul>
-              <h2>anotjher h2</h2>
+
+              <p><b>Cum funcționează?</b></p>
+              <ul>
+                <li>
+                  Jucătorii pot beneficia de accesul la widget-ul Roata
+                  Rundelor Gratis DOAR dacă în timpul procesului de
+                  înregistrare au introdus codul 500ROTIRI și au validat
+                  contul în termen de 14 zile de la înregistrare.
+                </li>
+                <li>
+                  Accesul la widget-ul Roata Rundelor Gratis este limitat la o
+                  singură participare, în ziua în care procesul de verificare
+                  a fost completat.
+                </li>
+                <li>
+                  Roata Rundelor Gratis va fi disponibilă în contul de jucător
+                  după verificarea documentului (buletinul sau actul de
+                  identitate) și confirmarea procesării cu succes a acestuia
+                  și este disponibilă timp de 24 de ore din momentul
+                  activării.
+                </li>
+                <li>
+                  Jucătorii eligibili trebuie să acceseze și să revendice
+                  rundele din secțiunea ”Oferte disponibile” accesând butonul
+                  ”Joacă acum”, odată ce au îndeplinit toate condițiile. La
+                  accesarea butonului ”Joacă acum”, un pop-up cu Roata
+                  Rundelor Gratis va apărea pe ecran. Jucătorii pot învârti
+                  Roata Rundelor Gratis accesând butonul ”ÎNVÂRTE”. Dacă Roata
+                  Rundelor Gratuite nu este folosită imediat, va rămâne activă
+                  și poate fi accesată în secțiunea Oferte Speciale din contul
+                  de jucător. Premiul va fi creditat instant în contul
+                  jucătorului de cazino, odată ce Roata Rundelor Gratis a fost
+                  folosită.
+                </li>
+              </ul>
+
+              <p><b>Ce pot câștiga?</b></p>
+              <ul>
+                <li>
+                  Poți câștiga unul dintre cele 5 premii, care constau în până
+                  la 500 Runde Gratuite, conform premiilor afișate pe roată și
+                  enumerate mai jos:
+                </li>
+                <ul style="list-style: disc">
+                  <li>
+                    100 Runde Gratuite la Rich Wilde and the Tome of Madness
+                  </li>
+                  <li>200 Runde Gratuite la Big Bass Bonanza</li>
+                  <li>300 Runde Gratuite la Eye of Cleopatra</li>
+                  <li>400 Runde Gratuite la Starlight Princess</li>
+                  <li>500 Runde Gratuite la Hot 4 Cash</li>
+                </ul>
+                <li>
+                  Rundele Gratuite vor fi creditate automat și se pot juca la
+                  jocurile indicate cu valoarea minimă a unei runde.
+                </li>
+                <li>
+                  Odată emise, rundele gratuite sunt valabile timp de 3 zile.
+                </li>
+              </ul>
+
+              <p><b>Ce altceva trebuie să știu?</b></p>
+              <ul>
+                <li>
+                  Conturile care beneficiază de această ofertă vor fi excluse
+                  de la alte promoții de bun venit.
+                </li>
+                <li>
+                  Câștigurile în bani reali rezultate din rulajul bonusului
+                  sunt limitate la 300 RON.
+                </li>
+                <li>
+                  Câștigurile obținute în timpul rundelor gratuite vor fi
+                  creditate în balanța jucătorilor sub formă de bonus, de
+                  îndată ce toate rundele acordate sunt epuizate.
+                </li>
+                <li>
+                  Acest Bonus (echivalentul câștigurilor) este valabil timp de
+                  7 zile de la data acordării și are playthrough standard x40
+                  (trebuie mizat de 40 de ori pentru a fi transformat în bani
+                  reali). După această perioadă, toate bonusurile neutilizate,
+                  bonusurile cu playthrough necompletat sau câștigurile în
+                  așteptare derivate din acestea vor fi deduse automat din
+                  balanța contului de jucător.
+                </li>
+                <!-- <li>Această ofertă respectă <a href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions{$url_postfix|escape:"html"}" style="display:inline-block;">Termenii și Condițiile NetBet Cazino</a>.</li> -->
+                <li>
+                  NetBet își rezervă dreptul de a anula sau de a modifica
+                  condițiile acestei promoții fără notificare prealabilă.
+                </li>
+                <li>
+                  NetBet își rezervă dreptul de a exclude jucătorii care
+                  participă la promoții cu mai multe conturi.
+                </li>
+                <li>
+                  NetBet își rezervă dreptul de a descalifica jucătorii în caz
+                  de coluziune, joc incorect sau în cazul în care consideră că
+                  au abuzat de promoție.
+                </li>
+
+                <li>END</li>
+              </ul>
+              <br />
+              <hr />
             </div>
           </div>
         </div>

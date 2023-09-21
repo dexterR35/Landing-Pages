@@ -1,3 +1,7 @@
+const scrollContainer = document.querySelector("#fullpage");
+
+
+
 $(document).ready(function () {
   const streamers = [
 
@@ -208,7 +212,7 @@ $(document).ready(function () {
 
   // Function to generate a card
   function generateCard(streamerData) {
-    // console.log(streamerData, "streamerData")
+    console.log(streamerData, "streamerData")
     const cardHtml = `
         <div class="col-lg-4 card-wrapp">
             <div class="card card-custom"; min-height:200px !important">
@@ -217,9 +221,9 @@ $(document).ready(function () {
       }" target="_blank">Voteaza-ma</a>
                     <p class="speech"> ${streamerData.points + " " + "Voturi"
       }</p>
-                    <div class="card-image" style="background-image:url(${streamerData.picture._avatar
+                    <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg
       })"></div>
-                    <p class="card-text vote addVote">VOTAT</p>
+                   
                     <h6 class="card-title text bottom-right">${streamerData.name
       }</h6>
                     
@@ -229,17 +233,16 @@ $(document).ready(function () {
     `;
     return cardHtml;
   }
-  // let addvar = $("#badge").addClass("badge-success-alt")
 
   // Function to generate table streamres
-  function generateDataTable(index, streamerData) {
+  function generateDataTable(streamerData) {
     const tableAHtml = `<tr>
       <td>
           <div class="d-flex align-items-center">
                   <div class="avatar-table avatar-blue mr-3">${(streamerData.name).slice(0, 2).toUpperCase()}</div>
                   <div class="">
                       <p class="font-weight-bold mb-0">${streamerData.name}</p>
-                      <p class="text-muted mb-0">Voturi: ${streamerData.vote}</a>
+                      <p class="text-muted mb-0">Voturi: ${streamerData.vote}</p>
                   </div>
             </div>
       </td>
@@ -256,22 +259,27 @@ $(document).ready(function () {
   }
 
   // Function populate streamers table and modal streamers cards
-  function populateTable() {
-    let dynamicCardBody = $("#dynamicCardBody");
-    dynamicCardBody.empty(); // Clear any existing content
-    let tableBody = $(".table-body");
-    tableBody.empty(); // Clear any existing rows
-    streamers.forEach((streamerData, index) => {
+  function populateTable(objData) {
+  
+    let cardData = $("#dynamicCardBody");
+    cardData.empty(); // Clear any existing content
+
+    let tableData = $(".table-body");
+    tableData.empty(); // Clear any existing rows
+
+    objData.forEach((streamerData) => {
       // console.log(streamerData, "card");
-      dynamicCardBody.append(generateCard(streamerData));
-      tableBody.append(generateDataTable(index, streamerData));
+      //card for modal
+      cardData.append(generateCard(streamerData));
+      //table for section 2
+      tableData.append(generateDataTable(streamerData));
     });
   }
 
   //Function GamesName + manipulate the link
-  function generateGames() {
+  function generateGames(objData) {
     const gameImagesContainer = $("#gameImages");
-    gamesArray.forEach((gameName) => {
+    objData.forEach((gameName) => {
       const img = $("<img>")
         .attr(
           "src",
@@ -282,22 +290,27 @@ $(document).ready(function () {
       gameImagesContainer.append(link);
     });
   }
-  
+
   // Function append bg card ,pos, name for swipper
-  function appendStuff() {
+  function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
+
+      // let boxSlideTop = $(
+      //   `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>term</span>inator</div>`
+      // );
       let boxSlideTop = $(
-        `<div class="top_swiper_box" data-text="Pacanela" data-swiper-parallax="10"><span>păcă</span>nela</div>`
+        `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/names/t_ana.png" class="Testpicture"></div>`
       );
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-10"><span># </span><span>${streamer_pos}</span></div>`
       );
- 
+
       $(this).append(boxSlideBottom);
       $(this).prepend(boxSlideTop);
+
       const bgImage = backgroundImages[index % backgroundImages.length];
-      // random     const randomIndex = Math.floor(Math.random() * backgroundImages.length);    const bgImage = backgroundImages[randomIndex];
+
       $(this).css("background-image", bgImage);
       $(this).css({
         "background-size": "cover",
@@ -311,95 +324,13 @@ $(document).ready(function () {
     $("#termsAndConditions").slideToggle();
   });
 
+
   populateTable(streamers);
   generateGames(gamesArray);
-  appendStuff();
-});
 
-const swiperStr = new Swiper(".stream-slider", {
-  effect: "coverflow",
-  loop: true,
-  autoplay: {
-    delay: 0,
-  },
-  speed: 2 * 1000,
-  slidesPerView:"auto",
-  parallax: true,
-  touchRatio: 0.3,
-  cache: true,
-  centeredSlides: true,
-  coverflowEffect: {
-    rotate: 5, // (Rotate of the prev and next slides);
-    depth: 30, // (Depth of the prev and next slides);
-    stretch: 5, // (Space between the slides);
-    modifier: 2, // (Multiply the values of rotate, depth, and stretch);
-    slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
-  },
-  // breakpoints: {
-  //   320: { slidesPerView: 2 },
-  //   640: { slidesPerView: 4 },
-  //   1024: { slidesPerView: 6 },
-  //   1921: { slidesPerView: 3 },
-  // },
-});
-// swiperStr.autoplay.stop();
-swiperStr.el.addEventListener("mouseover", function () {
-  swiperStr.autoplay.stop();
-});
+  generetaDataSlider();
+ 
 
-swiperStr.el.addEventListener("mouseleave", function () {
-  swiperStr.autoplay.start();
-});
-
-// const parallax4 = document.getElementById("parallax4");
-// const bgPalalax = document.getElementById("background_p");
-// const contentMiddle = document.getElementById("contentImg_p");
-// const spikePalalax = document.getElementById("spike_p");
-// const tesst = document.getElementById("tesst");
-// // const gameImages = document.querySelector(".s2_providers");
-// window.addEventListener("scroll", function () {
-//   let offset = window.pageYOffset;
-//   bgPalalax.style.backgroundPositionY = -offset * 0.1 + "px";
-//   spikePalalax.style.transform = "translateY(" + (offset * 0.3 + "px)");
-//   contentMiddle.style.transform = "translateY(" + (-offset * 0.1 + "px)");
-//   // tesst.style.transform = "translateY(" + (offset * 0.04 + "px)");
-
-// });
-
-const scrollContainer = document.querySelector("#fullpage");
-
-const scroll = new LocomotiveScroll({
-	el: scrollContainer,
-  smartphone: {
-    smooth: true
-},
-firefoxMultiplier:"",
-scrollFromAnywhere:true,
-reloadOnContextChange:true,
-resetNativeScroll:false,
-	smooth: true,
-	// lerp: 0.05
-});
-
-scroll.on("scroll", (e) => {
-	// scrollContainer.style.backgroundColor =
-	// 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
-
-    const table = document.getElementById("gameImages"); // Selectați tabelul după ID
-
-    if (table) {
-      const skewValue = e.scroll.y / 9; // Ajustați acest număr pentru a controla intensitatea efectului de skew
-      table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
-    }
-});
-
-$(document).ready(function () {
-  // $('.nav-link').on('click', function() {
-  //   var page = $(this).attr('href');
-  //   var speed = 1100;
-  //   $('html, body').animate( { scrollTop: $(page).offset().top }, speed );
-  //   return false;
-  // });
   const commonOptions = {
     aaSorting: [],
     responsive: true,
@@ -444,6 +375,7 @@ $(document).ready(function () {
       },
     ],
   };
+
   $("#streamersTable").DataTable(streamersTableOptions);
   $("#usersTable").DataTable(usersTableOptions);
 
@@ -463,4 +395,89 @@ $(document).ready(function () {
     });
 
   $('[data-toggle="tooltip"]').tooltip();
+
+
+  const scroll = new LocomotiveScroll({
+    el: scrollContainer,
+    smartphone: {
+      smooth: true
+    },
+    firefoxMultiplier: "",
+    scrollFromAnywhere: true,
+    reloadOnContextChange: false,
+    resetNativeScroll: false,
+    smooth: true,
+    autoResize: true,
+    // lerp: 0.05
+  });
+  
+  scroll.on("scroll", (e) => {
+  
+    // scrollContainer.style.backgroundColor =
+    // 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
+    // const table = document.getElementById("gameImages"); // Selectați tabelul după ID
+    // if (table) {
+    //   const skewValue = e.scroll.y / 9; // Ajustați acest număr pentru a controla intensitatea efectului de skew
+    //   table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
+    // }
+  });
 });
+
+const swiperStr = new Swiper(".stream-slider", {
+  effect: "coverflow",
+  loop: true,
+  autoplay: {
+    delay: 0,
+  },
+  speed: 2 * 1000,
+  slidesPerView: "auto",
+  parallax: true,
+  touchRatio: 0.3,
+  cache: true,
+  centeredSlides: true,
+  coverflowEffect: {
+    rotate: 5, // (Rotate of the prev and next slides);
+    depth: 30, // (Depth of the prev and next slides);
+    stretch: 5, // (Space between the slides);
+    modifier: 2, // (Multiply the values of rotate, depth, and stretch);
+    slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
+  },
+  // breakpoints: {
+  //   320: { slidesPerView: 2 },
+  //   640: { slidesPerView: 4 },
+  //   1024: { slidesPerView: 6 },
+  //   1921: { slidesPerView: 3 },
+  // },
+});
+// swiperStr.autoplay.stop();
+swiperStr.el.addEventListener("mouseover", function () {
+  swiperStr.autoplay.stop();
+});
+
+swiperStr.el.addEventListener("mouseleave", function () {
+  swiperStr.autoplay.start();
+});
+
+
+
+
+// Obțineți numele din cookie-ul specificat (în acest exemplu, numele cookie-ului este "username")
+const usernameFromCookie = getCookieValue('username');
+
+function voteCard(username) {
+    $('.card-custom').click(function(event) {
+        // Verificați dacă numele utilizatorului din cookie corespunde cu numele utilizatorului din card
+        if (usernameFromCookie === username) {
+            // Adăugați o clasă, de exemplu "voted", la card
+            $(this).addClass('voted');
+
+            // Preveniți comportamentul implicit al clicului pe card
+            event.preventDefault();
+        }
+    });
+}
+
+// Verificați dacă există un nume în cookie și apoi apelați funcția voteCard cu acel nume
+if (usernameFromCookie) {
+    voteCard(usernameFromCookie);
+}

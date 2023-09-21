@@ -4731,6 +4731,7 @@
     //  var usernameToCheck = "logged_out";
     //  var usernameToCheck = null;
     var usernameToCheck = getCookie("netbet_login");
+    console.log(usernameToCheck,"checkuser")
     const dataLink = new Request('https://casino-promo.netbet.ro/scripts/cursa-streamurilor/data.php?user=' +
       usernameToCheck);
 
