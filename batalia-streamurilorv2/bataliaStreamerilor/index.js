@@ -1,3 +1,6 @@
+// Define a function to create and append lazy-loaded images
+
+
 const scrollContainer = document.querySelector("#fullpage");
 
 
@@ -212,10 +215,11 @@ $(document).ready(function () {
 
   // Function to generate a card
   function generateCard(streamerData) {
-    console.log(streamerData, "streamerData")
+    console.log(streamerData, "streamerData");
+    const isVoted = false; // Setăm inițial cardul ca "non-voted"
     const cardHtml = `
         <div class="col-lg-4 card-wrapp">
-            <div class="card card-custom"; min-height:200px !important">
+            <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" >
                 <div class="card-body text-center" >
                     <a class="card-text text top-left" href="${streamerData.social.website
       }" target="_blank">Voteaza-ma</a>
@@ -231,7 +235,28 @@ $(document).ready(function () {
             </div>
         </div>
     `;
-    return cardHtml;
+    // Adaugăm un eveniment de click pentru card-ul generat folosind jQuery
+    const cardElement = $(cardHtml);
+    const cardCustomElement = cardElement.find('.card-custom');
+    cardCustomElement.removeClass('non-voted');
+    cardCustomElement.on('click', function () {
+     
+      // Verificăm dacă cardul pe care l-am selectat are clasa "voted"
+      if (!cardCustomElement.hasClass('voted')) {
+        
+          // Eliminăm clasa "non-voted" de pe toate celelalte carduri care nu au clasa "voted"
+          $('.card-custom:not(.voted)').removeClass('non-voted');
+          
+          // Adăugăm clasa "voted" la cardul pe care l-am selectat
+          cardCustomElement.addClass('voted');
+          // Setăm atributul personalizat pentru a marca cardul ca "votat"
+          cardCustomElement.attr('data-voted', 'true');
+          if (cardCustomElement.hasClass('voted')) { 
+            $('.card-custom:not(.voted)').addClass('non-voted');
+          }
+      }
+  });
+    return cardElement;
   }
 
   // Function to generate table streamres
@@ -260,7 +285,7 @@ $(document).ready(function () {
 
   // Function populate streamers table and modal streamers cards
   function populateTable(objData) {
-  
+
     let cardData = $("#dynamicCardBody");
     cardData.empty(); // Clear any existing content
 
@@ -281,11 +306,11 @@ $(document).ready(function () {
     const gameImagesContainer = $("#gameImages");
     objData.forEach((gameName) => {
       const img = $("<img>")
-        .attr(
-          "src",
-          `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`
-        )
-        .attr("alt", gameName);
+        .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`) // Placeholder image
+        .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
+        .attr("alt", gameName)
+        .attr("loading", "lazy") // Add loading="lazy" attribute
+        .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
       const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
       gameImagesContainer.append(link);
     });
@@ -324,12 +349,26 @@ $(document).ready(function () {
     $("#termsAndConditions").slideToggle();
   });
 
-
   populateTable(streamers);
   generateGames(gamesArray);
 
   generetaDataSlider();
- 
+
+  // function lazyLoadBackgroundImages(data) {
+  //   data.forEach((bgImage, index) => {
+  //     const container = document.getElementById(`bg-container-${index}`); // Replace with the ID of your background image container
+
+  //     const div = document.createElement('div');
+  //     div.style.backgroundImage = bgImage;
+  //     div.style.width = '100%';
+  //     div.style.height = '200px'; // Set the height as needed
+  //     div.loading = 'lazy'; // Set the loading attribute to lazy
+
+  //     container.appendChild(div); // Add the background image to your container
+  //   });
+  // }
+  // lazyLoadBackgroundImages(backgroundImages);
+
 
   const commonOptions = {
     aaSorting: [],
@@ -399,9 +438,9 @@ $(document).ready(function () {
 
   const scroll = new LocomotiveScroll({
     el: scrollContainer,
-    smartphone: {
-      smooth: true
-    },
+    smoothMobile: true,
+    getSpeed: true,
+    getDirection: true,
     firefoxMultiplier: "",
     scrollFromAnywhere: true,
     reloadOnContextChange: false,
@@ -410,9 +449,9 @@ $(document).ready(function () {
     autoResize: true,
     // lerp: 0.05
   });
-  
+
   scroll.on("scroll", (e) => {
-  
+
     // scrollContainer.style.backgroundColor =
     // 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
     // const table = document.getElementById("gameImages"); // Selectați tabelul după ID
@@ -421,7 +460,9 @@ $(document).ready(function () {
     //   table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
     // }
   });
+
 });
+
 
 const swiperStr = new Swiper(".stream-slider", {
   effect: "coverflow",
@@ -460,24 +501,55 @@ swiperStr.el.addEventListener("mouseleave", function () {
 
 
 
+$("#setCookieButton").click(function () {
+  const name = $("#cookieInput").val();
+  document.cookie = `name=${name}`;
+  updateButton();
+});
 
-// Obțineți numele din cookie-ul specificat (în acest exemplu, numele cookie-ului este "username")
-const usernameFromCookie = getCookieValue('username');
-
-function voteCard(username) {
-    $('.card-custom').click(function(event) {
-        // Verificați dacă numele utilizatorului din cookie corespunde cu numele utilizatorului din card
-        if (usernameFromCookie === username) {
-            // Adăugați o clasă, de exemplu "voted", la card
-            $(this).addClass('voted');
-
-            // Preveniți comportamentul implicit al clicului pe card
-            event.preventDefault();
-        }
-    });
+function updateButton() {
+  const cookieValue = getCookie("name");
+  const inputName = $("#cookieInput").val();
+  console.log(cookieValue);
+  const actionButton = $("#actionButton");
+  if ((cookieValue === inputName) || cookieValue) {
+    actionButton.attr("href", "test1.html");
+    actionButton.attr("data-bs-toggle", "modal");
+    actionButton.attr("data-bs-target", "#myModal");
+    actionButton.text("Join Battles");
+  } else {
+    actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
+    actionButton.attr("target", "blank");
+    actionButton.text("Show Me Offer");
+  }
 }
 
-// Verificați dacă există un nume în cookie și apoi apelați funcția voteCard cu acel nume
-if (usernameFromCookie) {
-    voteCard(usernameFromCookie);
+function getCookie(nameCookie) {
+  let value = "; " + document.cookie;
+  let parts = value.split("; " + nameCookie + "=");
+  if (parts.length === 2) {
+    return parts.pop().split(";").shift();
+  } else {
+    return null;
+  }
 }
+
+// La încărcarea paginii, actualizați textul butonului în funcție de cookie-ul existent
+updateButton();
+
+
+// Obține toate elementele cu clasa "card-custom"
+const cardElements = document.querySelectorAll('.card-custom');
+console.log(cardElements, "cards")
+
+// Adaugă un ascultător de eveniment pentru fiecare card
+cardElements.forEach(card => {
+  card.addEventListener('click', () => {
+    // Adaugă clasa "voted" la cardul apăsat
+    card.classList.add('voted');
+  });
+});
+// document.addEventListener('DOMContentLoaded', function () {
+
+
+// lazyLoadImagesFromObject(streamers);

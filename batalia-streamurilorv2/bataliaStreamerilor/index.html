@@ -49,9 +49,11 @@
         color: white;
         z-index: 31;
       ">
-    navbar
+
+    <input type="text" id="cookieInput" placeholder="Introduceți numele">
+    <button id="setCookieButton">Set Cookie</button>
   </header>
-  <div class="wrapper" data-scroll-section>
+  <div class="wrapper">
     <div class="container-modal">
       <div class="modal fade" id="myModal">
         <div class="modal-dialog modal-xl">
@@ -62,34 +64,29 @@
               <h4 class="modal-title">
                 Provoacă streamerul favorit pentru chalenge-ul de azi!
               </h4>
-              <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"></button> -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeModal"></button>
             </div>
-            <div class="modal-body p-md-5">
+            <div class="modal-body px-4">
               <div class="subTitle text-center">
                 Voturile pentru acest challenge se vor reseta la data de
                 12.10.2023
               </div>
-              <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2" id="dynamicCardBody">
+              <div class="row d-flex justify-content-lg-start justify-content-sm-center" id="dynamicCardBody">
                 <!-- Cards will be generated here -->
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
+    <h4>Vezi Oferta</h4>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div id="fullpage">
+    <div id="fullpage" class="overflow-hidden">
       <div class="section">
         <div class="bgD" id="background_p" ></div>
         <div class="spikes" id="spike_p"></div>
-        <div class="norisoris">
-          <div class="norisori" style="top: unset; bottom: 0; height: 5em"></div>
-        </div>
         <div class="container-section section_one">
           <div class="row mx-auto w-100 z-3" id="contentImg_p">
             <div class="col-12" style="z-index: 50">
@@ -129,10 +126,9 @@
                 </div>
                 <div class="container-btn" data-scroll data-scroll-speed="-7" data-scroll-direction="vertical"
                   data-scroll-position="top">
-                  <button type="button" class="btn btn-primary animate" data-bs-toggle="modal"
-                    data-bs-target="#myModal">
-                    Intră în luptă
-                  </button>
+                  <a id="actionButton" class="btn btn-primary">
+                
+                 </a>
                 </div>
               </div>
             </div>
@@ -276,9 +272,7 @@
         </div>
       </div>
       <div class="section _s3">
-        <div class="col-12 s3_clouds">
-          <div class="norisori"></div>
-        </div>
+     
         <div class="container container-section section_three w-100 flex-column">
           <h2 class="text-center m-3 py-2 title_s2 z-2">Clasamente</h2>
           <div class="row container w-100 z-3">
@@ -318,9 +312,10 @@
         </div>
       </div>
       <div class="section _s4">
-        <div class="container container-section section_four w-100 h-100">
+        <div class="container container-section section_four w-100 h-100 py-4">
           <div class="col text-center position-relative flex-column">
-            <h3 class="text-center my-3">title</h3>
+            <h2 class="text-center">TERMENI SI CONDITII</h2>
+            <h4 class="text-center text my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut!</h4>
             <!-- <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">
               Termeni și Condiții
             </button> -->

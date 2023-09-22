@@ -189,7 +189,16 @@ h2 {
 .modal-body {
   overflow-y: scroll;
   max-height: 65vh;
-  height: 65vh;
+  height: 100%;
+}
+
+@media (orientation:portrait) {
+  
+.modal-body {
+  overflow-y: scroll;
+  max-height: 100%;
+  height: 100%;
+}
 }
 
 a {
@@ -199,7 +208,7 @@ a {
 }
 
 .modal-body .row {
-  row-gap: 30px;
+  row-gap: 12px;
 }
 
 .modal {
@@ -210,13 +219,18 @@ a {
   background: #f3f5e1c7 !important;
 }
 
-.modal-header {
+.modal-header, .modal-footer {
   background: var(--bg_dark_color) !important;
+  color: var(--color-white);
 }
-
+.modal-header h4, .modal-footer h4 {
+  text-align: center;
+  width: 100%;
+}
 .modal-title,
 .btn-close {
   color: var(--text_color);
+  text-align: center;
 }
 
 .modal-content::after {
@@ -240,8 +254,43 @@ a {
   border-top-right-radius: 0px;
   box-shadow: 0 6px 6px -6px #000;
   overflow: hidden;
-  height: 200px;
+  height: 100%;
   cursor: pointer;
+}
+.card-custom.voted {
+  filter: grayscale(1);
+  position: relative;
+}
+.card-custom.voted::after {
+  content: "VOTAT";
+  position: absolute;
+  top:0 ;
+  left:0 ;
+  width: 100%;
+  height: 100%;
+  font-size: 3.5em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  transform: rotate(35deg);
+  color: white;
+}
+.card-custom.voted::before {
+  content: "";
+  position: absolute;
+  top:0 ;
+  left:0 ;
+  width: 100%;
+  height: 100%;
+  background-color: crimson;
+  z-index: 2;
+  opacity: 0.9; 
+}
+
+.card-custom.non-voted {
+  filter: grayscale(1);
 }
 
 .card-custom:hover {
@@ -259,8 +308,14 @@ a {
   height: 100%;
   position: relative;
   bottom: -1em;
+  z-index:2;
 }
-
+#dynamicCardBody .card-wrapp {
+  width: 20%;
+  height: 150px;
+  padding: 0 0.4em;
+  max-width: 20%;
+}
 .col-lg-4:nth-child(4n + 1) .card-custom,
 .col-lg-4:nth-child(4n + 2) .card-custom,
 .col-lg-4:nth-child(4n + 3) .card-custom,
@@ -272,22 +327,18 @@ a {
 }
 
 .col-lg-4:nth-child(4n + 1) .card-custom {
-  /* background-image: radial-gradient(circle, yellow, orange); */
   background-image: url(./_modal/_yellowModalBg.jpg);
 }
 
 .col-lg-4:nth-child(4n + 2) .card-custom {
-  /* background-image: radial-gradient(circle, lightblue, deepskyblue); */
   background-image: url(./_modal/_blueModalBg.jpg);
 }
 
 .col-lg-4:nth-child(4n + 3) .card-custom {
-  /* background-image: radial-gradient(circle, palegreen, yellowgreen); */
   background-image: url(./_modal/_greenModalBg.jpg);
 }
 
 .col-lg-4:nth-child(4n + 4) .card-custom {
-  /* background-image: radial-gradient(circle, lightcoral, tomato); */
   background-image: url(./_modal/_redModalBg.jpg);
 }
 
@@ -297,7 +348,7 @@ a {
   margin: 0;
   padding: 3px 10px;
   text-transform: capitalize;
-  font-size: 1.4em;
+  font-size: 2vh;
 }
 .card-custom .addVote {
   position: absolute;
@@ -336,11 +387,20 @@ a {
   background-color: var(--color-white);
   border: solid 2px var(--color-black);
   border-radius: 12px;
-  display: inline-block;
+  display: flex;
   margin: 0.5em;
-  padding: 0.5em 1em;
+  padding: 0.2em 0.3em;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
+  top: 16px;
+  right: -4px;
+  height: 54px;
+  font-size: 1em;
+  width: 38%;
+  line-height: 0.9;
+  /* vertical-align: middle; */
+  align-items: center;
+  justify-content: center;
 }
 
 .card-custom .speech:before {
@@ -602,7 +662,25 @@ a {
 /*SECTION 3*/
 /*SECTION 3*/
 /*SECTION 3*/
+.between_sections {
+  height: 50px;
+  /* background: var(--NetBet-orange); */
+  color: var(--color-white);
+  z-index: 3;
+  position: relative;
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+      border: 4px solid black;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom: 0;
 
+}
 .section_three {
   /* background: crimson; */
   /* background: url(./_bg/bg_clouds2.png); */
@@ -614,18 +692,8 @@ a {
   background-repeat: no-repeat;
   z-index: 3;
 }
-._s3::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: url(./_bg/clouds_larrge.png);
-  z-index: 2;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
+
 ._s3::before {
   content: "";
   position: absolute;
@@ -642,31 +710,21 @@ a {
   ); */
   background-image: linear-gradient(to right top, #5f9dc5, #00805d);
 }
-.Testpicture {
-  width: 25vh !important;
-  filter: drop-shadow(2px 2px 2px black);
-}
-._s3 .s3_clouds {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 12;
-  height: 5em;
-  width: 100%;
-  transform: translateY(-5px) rotate(180deg);
-}
+
+
+
 
 .section_three .table-responsive tr {
   cursor: pointer;
 }
 
 .section_four {
-  background: rgb(215, 214, 215);
   max-height: 100%;
   display: block;
 }
 ._s4 {
   height: 100%;
+  background-image: linear-gradient(to right top, #ffffff, #5f9dc5);
 }
 .section-middle {
   height: 104px;
@@ -696,11 +754,11 @@ a {
   height: 100%;
   background: url(./_bg/norisori.png);
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
   background-size: contain;
   z-index: 2;
   position: absolute;
-  top: 4px;
+  top: 14px;
   width: 100%;
 }
 
@@ -752,15 +810,14 @@ a {
   margin-top: 10px;
 }
 .termsAndConditions {
-  width: 95%;
+  width: 100%;
   margin: auto;
-  background-color: red;
-  padding: 2em 1em;
+  background-color: #fbfbfb;
+  padding: 3em;
   position: relative;
-  padding: 2em 1em;
-    position: relative;
-    font-size: 0.9em;
-    text-align: justify;
+  font-size: 0.9em;
+  border-radius: 10px;
+  text-align: justify;
 }
 
 /*end tables*/
@@ -1136,6 +1193,54 @@ table.dataTable {
 
 @media (max-width: 1200px) {
 }
+@media (orientation:portrait) {
+
+  .modal-body .card-wrapp {
+    width: 45% !important;
+    padding: 0 0.2em !important;
+    height: 95px !important;
+    margin: 0 auto;
+    max-width: 45% !important;
+  }
+
+  .modal-body .card-custom .text {
+    padding: 2px 10px;
+    font-size: 0.8em;
+  }
+  .card-custom .text {
+    font-size: 0.9em;
+    padding: 1px 5px 2px 10px;
+  }
+  .card-custom .speech {
+    font-size: 0.8em;
+    padding: 0.5em 0.5em;
+    line-height: 1.2;
+    font-weight: bold;
+    transform: translateY(11px) rotate(3deg);
+    -webkit-transform: translateY(11px) rotate(3deg);
+    margin: 0;
+  }
+  .card-custom .bottom-right {
+    font-size: 0.8em;
+  }
+  .card-custom .speech:after {
+    border: solid 6px transparent;
+    border-left: solid 6px var(--color-white);
+    border-top: solid 6px var(--color-white);
+    bottom: -11px;
+    left: 16px;
+  }
+  .card-custom .speech:before {
+    border: solid 7px transparent;
+    border-left: solid 7px var(--color-black);
+    border-top: solid 7px var(--color-black);
+    bottom: -14px;
+    left: 14px;
+  }
+}
+
+
+
 @media (max-width: 480px) {
   .toggleButton {
     font-size: 0.8em;
