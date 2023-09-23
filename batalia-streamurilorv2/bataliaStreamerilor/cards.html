@@ -72,6 +72,12 @@
             var videoSrc = videoIframe.attr('src');
             videoIframe.attr('src', videoSrc + '&autoplay=1');
         });
+        $('#modal-youtube').on('hidden.bs.modal', function () {
+            // When the modal is hidden, pause the video
+            var videoIframe = $('#youtubeVideo');
+            var videoSrc = videoIframe.attr('src');
+            videoIframe.attr('src', videoSrc.replace('&autoplay=1', ''));
+        });
     });
       //fetch data from server for vote and another data
       let countVote = generateRandomNumber(false);
