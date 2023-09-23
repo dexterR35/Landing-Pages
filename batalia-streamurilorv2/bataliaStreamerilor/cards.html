@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/css/iziModal.css" integrity="sha512-uZ+G0SzK4GMUDUzxzbIeLGLjYgAhQ2KrIV4bWIP5o6URt5XVcn8S02eW6C1DH35bqq/XX1jYwlhhNPPIE1+q1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/js/iziModal.js" integrity="sha512-1J0h9sFPFsywGN1ZMdHRX7n94nW1lvmX+yNAqcsSJSdayFsGE935ginqQ31R6rwxarOKG7j//Km5SB6cOT8aUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    .card-wrapp {
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      /* background-color: red; */
+    }
+
+    .card-wrapp.selected {
+      background-color: blue;
+    }
+
+    #dynamicCardBody {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+    }
+  </style>
+
+  <body>
+    <div class="row d-flex justify-content-lg-start justify-content-sm-center w-25">
+        <button type="button" class="btn btn-primary" id="openModalButton">Open Modal</button>
+    </div>
+<!-- Modal -->
+<div class="modal fade" id="modal-youtube" tabindex="-1" aria-labelledby="modal-youtube-label" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal-youtube-label">Youtube</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="youtubeVideo" width="100%" height="315" src="https://www.youtube.com/embed/tn1aRemwjvI?si=trcw4oBe_P3BmwW-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div
+      class="row d-flex justify-content-lg-start justify-content-sm-center"
+      id="dynamicCardBody"
+    >
+
+    </div>
+    <script>
+      $(document).ready(function () {
+        $('#openModalButton').click(function () {
+            $('#modal-youtube').modal('show');
+            var videoIframe = $('#youtubeVideo');
+            var videoSrc = videoIframe.attr('src');
+            videoIframe.attr('src', videoSrc + '&autoplay=1');
+        });
+    });
+      //fetch data from server for vote and another data
+      let countVote = generateRandomNumber(false);
+
+      let AdataObject = {
+        streamers: [
+          {
+            name: "ana",
+            points: "310",
+            position: "3",
+            vote: countVote,
+            challenge: false,
+            picture: {
+              _bgImg: false,
+              _avatarImg: "",
+            },
+            social: {
+              facebook: "ana facebook",
+              insta: "ana insta",
+              streaming: "link",
+              website: "",
+            },
+          },
+          {
+            name: "stero",
+            points: "120",
+            vote: countVote,
+            position: "13",
+            challenge: true,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+            },
+          },
+          {
+            name: "alin",
+            points: "770",
+            vote: countVote,
+            position: "131",
+            challenge: false,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/alin.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
+            },
+          },
+          {
+            name: "maria",
+            points: "970",
+            position: "113",
+            vote: countVote,
+            challenge: true,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/maria.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
+            },
+          },
+          {
+            name: "george",
+            points: "1214",
+            challenge: false,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
+            },
+          },
+          {
+            name: "daniel",
+            points: "6453654",
+            challenge: false,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/daniel.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+            },
+          },
+          {
+            name: "stero",
+            points: "120",
+            challenge: true,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+            },
+          },
+          {
+            name: "daniel",
+            points: "6453654",
+            challenge: false,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+            },
+          },
+          {
+            name: "daniel",
+            points: "6453654",
+            challenge: false,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+            },
+          },
+          {
+            name: "stero",
+            points: "120",
+            challenge: true,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+            },
+          },
+          {
+            name: "daniel",
+            points: "6453654",
+            challenge: false,
+            vote: countVote,
+            picture: {
+              _bgImg: "",
+              _avatarImg:
+                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
+            },
+            social: {
+              facebook: "{$asset}/social/facebook.png",
+              insta: "stero insta",
+              streaming: "link",
+              website:
+                "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
+            },
+          },
+        ],
+      };
+
+      const streamerCards = AdataObject.streamers.map((streamerData) => {
+        return {
+          name: streamerData.name,
+          points: streamerData.points,
+          vote: streamerData.vote,
+        };
+      });
+
+      const cardData = $("#dynamicCardBody");
+
+      streamerCards.forEach((streamerData, index) => {
+        const rdNumber = generateRandomNumber(false);
+        const card = generateCard(streamerData, rdNumber);
+        cardData.append(card);
+      });
+      //gen numbers odd even and check if true or false
+      function generateRandomNumber(numbers) {
+        const isEven = numbers ? true : false;
+        let randomNumber;
+        do {
+          randomNumber = Math.floor(Math.random() * 100);
+        } while (
+          (isEven && randomNumber % 2 !== 0) ||
+          (!isEven && randomNumber % 2 === 0)
+        );
+        return randomNumber;
+      }
+
+      //gen modal cards streamers data with random number for voting
+      function generateCard(streamerData, rdNumber) {
+        return () => {
+          const cardHtml = `
+          <div class="col-lg-4 card-wrapp" d-v ="${rdNumber}">
+              <div class="card card-custom" style="background-image:url()">
+                  <div class="card-body text-center">
+                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
+                      <p class="speech">Voturi: <span class="streamerVote">${countVote}</span></p>
+                      <div class="card-image" style="background-image:url()></div>
+                      <h6 class="card-title text bottom-right">${streamerData.name}</h6>
+                  </div>
+              </div>
+          </div>
+      `;
+
+          const $card = $(cardHtml);
+
+          $card.click(function (e) {
+            if ($(".card-wrapp").hasClass("selected")) {
+              return;
+            }
+            // $(this).off("click");
+            if (rdNumber) {
+              $(".card-wrapp").removeClass("selected");
+              const confirmation = confirm("Vreți să votați acest element?");
+              if (confirmation) {
+                alert("Ai votat cu succes!");
+                $(this).attr("d-v", rdNumber + 1);
+                $(this).addClass("selected");
+                $(".card-wrapp").not(this).css("background", "yellow");
+                // Extract the "d-v" attribute value as an integer
+                const dVAttribute = parseInt($(this).attr("d-v"));
+                // Check if the extracted value is even
+                if (dVAttribute % 2 === 0) {
+                  countVote += 1;
+                  const $voteElement = $(this).find(".streamerVote");
+                  $voteElement.text(`${countVote}`);
+                  console.log(countVote, "count");
+                }
+                // $(".streamerVote").text(`Voturi: ${countVote}`);
+                console.log(countVote, "count");
+                //   $(".streamerVote").text(streamerData.countVote);
+                // if(rldt % 2 === 1 && rldt % 2 !== rldt)
+              } else {
+                alert("Ai anulat votul.");
+              }
+              //
+              e.preventDefault();
+            } else {
+              $(this).removeClass("selected");
+            }
+          });
+          return $card;
+        };
+      }
+    </script>
+  </body>
+</html>

@@ -6,7 +6,8 @@ const scrollContainer = document.querySelector("#fullpage");
 
 
 $(document).ready(function () {
-  const streamers = [
+const dataObject = {
+   streamers: [
 
     {
       name: "ana",
@@ -182,10 +183,8 @@ $(document).ready(function () {
         website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
       },
     },
-  ];
-
-  /// games name for section games
-  const gamesArray = [
+  ],
+  gamesArray:[
     "4553-book-of-dead__6",
     "9903-rich-wilde-and-the-tome-of-madness__4",
     "7152-legacy-of-egypt__3",
@@ -204,60 +203,115 @@ $(document).ready(function () {
     "14220-aztec-respin-remember-skywind-prov__2",
     "25884-toucan-wild__2",
     "25258-sugar-bonanza-deluxe__2",
-  ];
-
-  ////  backgroundImages for cards in modal
-  const backgroundImages = [
+    "14220-aztec-respin-remember-skywind-prov__2",
+    "25884-toucan-wild__2",
+    "25258-sugar-bonanza-deluxe__2",
+  ],
+  backgroundImages:[
     'url("./_bg/bg1.jpg")',
     'url("./_bg/bg2.jpg")',
     'url("./_bg/bg3.jpg")',
-  ];
+  ],
+}
+  /// games name for section games
+  const streamers = dataObject.streamers.map((streamer) => ({ ...streamer }));
+// Extrage jocurile din dataObject
+const gamesArray = [...dataObject.gamesArray];
+  console.log(gamesArray);
+  console.log(streamers);
+  ////  backgroundImages for cards in modal
+  const streamerCards = dataObject.streamers.map((streamerData) => {
+    return {
+      name: streamerData.name,
+      points: streamerData.points,
+      // ... alte proprietăți pe care le dorești
+    };
+  });
 
-  // Function to generate a card
+  
+//strData - streamerData
   function generateCard(streamerData) {
-    console.log(streamerData, "streamerData");
-    const isVoted = false; // Setăm inițial cardul ca "non-voted"
-    const cardHtml = `
-        <div class="col-lg-4 card-wrapp">
-            <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" >
-                <div class="card-body text-center" >
-                    <a class="card-text text top-left" href="${streamerData.social.website
-      }" target="_blank">Voteaza-ma</a>
-                    <p class="speech"> ${streamerData.points + " " + "Voturi"
-      }</p>
-                    <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg
-      })"></div>
-                   
-                    <h6 class="card-title text bottom-right">${streamerData.name
-      }</h6>
-                    
-                </div>
-            </div>
-        </div>
-    `;
-    // Adaugăm un eveniment de click pentru card-ul generat folosind jQuery
-    const cardElement = $(cardHtml);
-    const cardCustomElement = cardElement.find('.card-custom');
-    cardCustomElement.removeClass('non-voted');
-    cardCustomElement.on('click', function () {
-     
-      // Verificăm dacă cardul pe care l-am selectat are clasa "voted"
-      if (!cardCustomElement.hasClass('voted')) {
-        
-          // Eliminăm clasa "non-voted" de pe toate celelalte carduri care nu au clasa "voted"
+    return () => {
+      const isVoted = getCookie('namevoted') === streamerCards.name;
+      const cardHtml = `
+          <div class="col-lg-4 card-wrapp">
+              <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" style="background-image:url(${streamerData.picture._bgImg})">
+                  <div class="card-body text-center">
+                      <a class="card-text text top-left" href="${streamerData.social.website}" target="_blank">Voteaza-ma</a>
+                      <p class="speech">${streamerData.points} Voturi</p>
+                      <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg})"></div>
+                      <h6 class="card-title text bottom-right">${streamerData.name}</h6>
+                  </div>
+              </div>
+          </div>
+      `;
+      const cardElement = $(cardHtml);
+      const cardCustomElement = cardElement.find('.card-custom');
+      
+      cardCustomElement.removeClass('non-voted');
+      cardCustomElement.on('click', function () {
+        if (!cardCustomElement.hasClass('voted')) {
           $('.card-custom:not(.voted)').removeClass('non-voted');
-          
-          // Adăugăm clasa "voted" la cardul pe care l-am selectat
           cardCustomElement.addClass('voted');
-          // Setăm atributul personalizat pentru a marca cardul ca "votat"
           cardCustomElement.attr('data-voted', 'true');
-          if (cardCustomElement.hasClass('voted')) { 
+          if (cardCustomElement.hasClass('voted')) {
             $('.card-custom:not(.voted)').addClass('non-voted');
           }
-      }
-  });
-    return cardElement;
+        }
+      });
+  
+      // Aici poți utiliza streamerCards sau orice alte date adiționale
+      console.log(streamerCards);
+  
+      return cardElement;
+    };
   }
+  // Function to generate a card
+  // function generateCard(streamerData) {
+  //   console.log(streamerData, "streamerData");
+  //   const isVoted = false; // Setăm inițial cardul ca "non-voted"
+  //   const cardHtml = `
+  //       <div class="col-lg-4 card-wrapp">
+  //           <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" >
+  //               <div class="card-body text-center" >
+  //                   <a class="card-text text top-left" href="${streamerData.social.website
+  //     }" target="_blank">Voteaza-ma</a>
+  //                   <p class="speech"> ${streamerData.points + " " + "Voturi"
+  //     }</p>
+  //                   <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg
+  //     })"></div>
+                   
+  //                   <h6 class="card-title text bottom-right">${streamerData.name
+  //     }</h6>
+                    
+  //               </div>
+  //           </div>
+  //       </div>
+  //   `;
+  //   // Adaugăm un eveniment de click pentru card-ul generat folosind jQuery
+
+  //   const cardElement = $(cardHtml);
+  //   const cardCustomElement = cardElement.find('.card-custom');
+  //   cardCustomElement.removeClass('non-voted');
+  //   cardCustomElement.on('click', function () {
+     
+  //     // Verificăm dacă cardul pe care l-am selectat are clasa "voted"
+  //     if (!cardCustomElement.hasClass('voted')) {
+        
+  //         // Eliminăm clasa "non-voted" de pe toate celelalte carduri care nu au clasa "voted"
+  //         $('.card-custom:not(.voted)').removeClass('non-voted');
+          
+  //         // Adăugăm clasa "voted" la cardul pe care l-am selectat
+  //         cardCustomElement.addClass('voted');
+  //         // Setăm atributul personalizat pentru a marca cardul ca "votat"
+  //         cardCustomElement.attr('data-voted', 'true');
+  //         if (cardCustomElement.hasClass('voted')) { 
+  //           $('.card-custom:not(.voted)').addClass('non-voted');
+  //         }
+  //     }
+  // });
+  //   return cardElement;
+  // }
 
   // Function to generate table streamres
   function generateDataTable(streamerData) {
@@ -285,15 +339,11 @@ $(document).ready(function () {
 
   // Function populate streamers table and modal streamers cards
   function populateTable(objData) {
-
     let cardData = $("#dynamicCardBody");
-    cardData.empty(); // Clear any existing content
-
+    cardData.empty(); 
     let tableData = $(".table-body");
-    tableData.empty(); // Clear any existing rows
-
+    tableData.empty();
     objData.forEach((streamerData) => {
-      // console.log(streamerData, "card");
       //card for modal
       cardData.append(generateCard(streamerData));
       //table for section 2
@@ -306,10 +356,10 @@ $(document).ready(function () {
     const gameImagesContainer = $("#gameImages");
     objData.forEach((gameName) => {
       const img = $("<img>")
-        .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`) // Placeholder image
+        .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
-        .attr("loading", "lazy") // Add loading="lazy" attribute
+        .attr("loading", "lazy")
         .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
       const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
       gameImagesContainer.append(link);
@@ -320,17 +370,12 @@ $(document).ready(function () {
   function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
-
-      // let boxSlideTop = $(
-      //   `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>term</span>inator</div>`
-      // );
       let boxSlideTop = $(
-        `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><img src="https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/names/t_ana.png" class="Testpicture"></div>`
+        `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>Paca</span>Nela</div>`
       );
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-10"><span># </span><span>${streamer_pos}</span></div>`
       );
-
       $(this).append(boxSlideBottom);
       $(this).prepend(boxSlideTop);
 
@@ -345,31 +390,17 @@ $(document).ready(function () {
     });
   }
 
-  $("#toggleButton").click(function () {
-    $("#termsAndConditions").slideToggle();
-  });
+  // $("#toggleButton").click(function () {
+  //   $("#termsAndConditions").slideToggle();
+  // });
 
   populateTable(streamers);
   generateGames(gamesArray);
-
   generetaDataSlider();
 
-  // function lazyLoadBackgroundImages(data) {
-  //   data.forEach((bgImage, index) => {
-  //     const container = document.getElementById(`bg-container-${index}`); // Replace with the ID of your background image container
-
-  //     const div = document.createElement('div');
-  //     div.style.backgroundImage = bgImage;
-  //     div.style.width = '100%';
-  //     div.style.height = '200px'; // Set the height as needed
-  //     div.loading = 'lazy'; // Set the loading attribute to lazy
-
-  //     container.appendChild(div); // Add the background image to your container
-  //   });
-  // }
-  // lazyLoadBackgroundImages(backgroundImages);
 
 
+  //   TABLE GENERATE USERS AND STREAMERS
   const commonOptions = {
     aaSorting: [],
     responsive: true,
@@ -418,7 +449,6 @@ $(document).ready(function () {
   $("#streamersTable").DataTable(streamersTableOptions);
   $("#usersTable").DataTable(usersTableOptions);
 
-
   $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
   $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
@@ -435,7 +465,7 @@ $(document).ready(function () {
 
   $('[data-toggle="tooltip"]').tooltip();
 
-
+  //   SCROLL WINDOWS LOCOMOTIVE JS
   const scroll = new LocomotiveScroll({
     el: scrollContainer,
     smoothMobile: true,
@@ -451,7 +481,6 @@ $(document).ready(function () {
   });
 
   scroll.on("scroll", (e) => {
-
     // scrollContainer.style.backgroundColor =
     // 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
     // const table = document.getElementById("gameImages"); // Selectați tabelul după ID
@@ -463,6 +492,7 @@ $(document).ready(function () {
 
 });
 
+  //   SWIPER FOR STREAMERS
 
 const swiperStr = new Swiper(".stream-slider", {
   effect: "coverflow",
@@ -500,6 +530,7 @@ swiperStr.el.addEventListener("mouseleave", function () {
 });
 
 
+//SET COOKIES
 
 $("#setCookieButton").click(function () {
   const name = $("#cookieInput").val();
@@ -538,7 +569,8 @@ function getCookie(nameCookie) {
 updateButton();
 
 
-// Obține toate elementele cu clasa "card-custom"
+// VOTED CARDS 
+
 const cardElements = document.querySelectorAll('.card-custom');
 console.log(cardElements, "cards")
 

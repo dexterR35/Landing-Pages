@@ -76,7 +76,7 @@
               </div>
             </div>
             <div class="modal-footer">
-    <h4>Vezi Oferta</h4>
+              <h4>Vezi Oferta</h4>
             </div>
           </div>
         </div>
@@ -84,8 +84,8 @@
     </div>
 
     <div id="fullpage" class="overflow-hidden">
-      <div class="section">
-        <div class="bgD" id="background_p" ></div>
+      <div class="section _s1">
+        <div class="bgD" id="background_p"></div>
         <div class="spikes" id="spike_p"></div>
         <div class="container-section section_one">
           <div class="row mx-auto w-100 z-3" id="contentImg_p">
@@ -127,8 +127,8 @@
                 <div class="container-btn" data-scroll data-scroll-speed="-7" data-scroll-direction="vertical"
                   data-scroll-position="top">
                   <a id="actionButton" class="btn btn-primary">
-                
-                 </a>
+
+                  </a>
                 </div>
               </div>
             </div>
@@ -178,101 +178,100 @@
               </div>
             </div>
           </div>
-        
+
           <!-- <div class="row mx-auto position-fixed w-100 z-2 top-50"></div> -->
-     
+
         </div>
       </div>
-      <div class="section">
-        <div class="container container-section section_two h-100">
-          <div class="d-flex justify-content-evenly flex-column h-100">
-            <div class="row" data-scroll data-scroll-speed="0.6" data-scroll-direction="horizontal"
-              data-scroll-position="top">
-              <h2 class="text-center p-3 color-softGrey w-85 mx-auto">
-                Participă la Bătălia streamerilor și câștigă premii fabuloase.
-              </h2>
-              <h5 class="text-center w-75 mx-auto">
-                Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
-                jucând orice slot participant la promotie iar primii 500 de
-                jucători vor fi premiați cu pachete cadou si premii surpriză!
-              </h5>
+      <div class="section _s2">
+        <div class="container container-section section_two justify-content-evenly flex-column h-100">
+          <div class="row" data-scroll data-scroll-speed="0.6" data-scroll-direction="horizontal"
+            data-scroll-position="top">
+            <h2 class="text text-center p-2 w-85 mx-auto">
+              Participă la Bătălia streamerilor și câștigă premii fabuloase.
+            </h2>
+            <h4 class="text text-center w-75 mx-auto">
+              Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
+              jucând orice slot participant la promotie iar primii 500 de
+              jucători vor fi premiați cu pachete cadou si premii surpriză!
+            </h4>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-12 container-stuff" data-scroll data-scroll-speed="-0.6"
+              data-scroll-direction="vertical">
+              <h2 class="text-center text-dark">Jocuri eligibile</h2>
+              <div class="paragraph mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                nisl risus, euismod eget augue finibus, auctor laoreet
+                justo. Aenean tempor tempor quam sed sollicitudin. Curabitur
+                sodales euismod vulputate. Integer auctor neque vitae sem
+                fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam
+                maximus turpis et sapien cursus, et volutpat arcu maximus.
+                Proin interdum placerat lacus ac mattis. Praesent sagittis
+                justo non augue auctor, in finibus nibh convallis. Etiam eu
+                eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet
+                ac massa sed lacinia.
+              </div>
+              <button type="button" class="btn btn-NetBet-normal w-50 _desktop">
+                vezi toate jocurile
+              </button>
             </div>
-            <div class="row">
-              <div class="col-lg-5 col-md-12 container-stuff" data-scroll data-scroll-speed="-0.6"
-                data-scroll-direction="vertical">
-                <h2 class="text-center text-dark">Jocuri eligibile</h2>
-                <div class="paragraph mb-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  nisl risus, euismod eget augue finibus, auctor laoreet
-                  justo. Aenean tempor tempor quam sed sollicitudin. Curabitur
-                  sodales euismod vulputate. Integer auctor neque vitae sem
-                  fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam
-                  maximus turpis et sapien cursus, et volutpat arcu maximus.
-                  Proin interdum placerat lacus ac mattis. Praesent sagittis
-                  justo non augue auctor, in finibus nibh convallis. Etiam eu
-                  eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet
-                  ac massa sed lacinia.
-                </div>
-                <button type="button" class="btn btn-NetBet-normal w-50 _desktop">
+            <div class="col-lg-8 col-md-12 d-flex justify-content-center align-items-center" data-scroll
+              data-scroll-speed="0.9" data-scroll-direction="vertical">
+              <div class="table-responsive">
+                <table class="tables scroll-container" id="gameImages"></table>
+                <button type="button" class="btn btn-NetBet-normal w-75 _mobile">
                   vezi toate jocurile
                 </button>
               </div>
-              <div class="col-lg-7 col-md-12 d-flex justify-content-center align-items-center" data-scroll
-                data-scroll-speed="0.9" data-scroll-direction="vertical">
-                <div class="table-responsive">
-                  <table class="tables scroll-container" id="gameImages"></table>
-                  <button type="button" class="btn btn-NetBet-normal w-75 _mobile">
-                    vezi toate jocurile
-                  </button>
-                </div>
-              </div>
-            </div>
-            <script>
-              if ($(window).width() < 1024) {
-                $(".btn._mobile").addClass("w-100");
-                $(".btn._desktop").css({ display: "none" });
-                $(".btn._mobile").css({ display: "block" });
-
-                $(".table-responsive").css({
-                  "overflow-y": "unset",
-                  height: "fit-content",
-                });
-              } else {
-                $(".btn._mobile").removeClass("w-100");
-                $(".btn._desktop").css({ display: "block" });
-                $(".btn._mobile").css({ display: "none" });
-              }
-            </script>
-            <div class="row mx-auto s2_providers" data-scroll data-scroll-speed="-8" data-scroll-direction="horizontal">
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" /></a>
-              </div>
-
-              <div class="col-2">
-                <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playson.png" /></a>
-              </div>
             </div>
           </div>
+          <script>
+            if ($(window).width() < 1024) {
+              $(".btn._mobile").addClass("w-100");
+              $(".btn._desktop").css({ display: "none" });
+              $(".btn._mobile").css({ display: "block" });
+
+              $(".table-responsive").css({
+                "overflow-y": "unset",
+                height: "fit-content",
+              });
+            } else {
+              $(".btn._mobile").removeClass("w-100");
+              $(".btn._desktop").css({ display: "block" });
+              $(".btn._mobile").css({ display: "none" });
+            }
+          </script>
+          <div class="row mx-auto s2_providers" data-scroll data-scroll-speed="-8" data-scroll-direction="horizontal">
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" /></a>
+            </div>
+
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" /></a>
+            </div>
+
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" /></a>
+            </div>
+
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" /></a>
+            </div>
+
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" /></a>
+            </div>
+
+            <div class="col-2">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playson.png" /></a>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="section _s3">
-     
+
         <div class="container container-section section_three w-100 flex-column">
           <h2 class="text-center m-3 py-2 title_s2 z-2">Clasamente</h2>
           <div class="row container w-100 z-3">
@@ -312,7 +311,7 @@
         </div>
       </div>
       <div class="section _s4">
-        <div class="container container-section section_four w-100 h-100 py-4">
+        <div class="container container-section section_four w-100 py-4">
           <div class="col text-center position-relative flex-column">
             <h2 class="text-center">TERMENI SI CONDITII</h2>
             <h4 class="text-center text my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut!</h4>
