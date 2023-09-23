@@ -9,14 +9,32 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
-    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/css/iziModal.css" integrity="sha512-uZ+G0SzK4GMUDUzxzbIeLGLjYgAhQ2KrIV4bWIP5o6URt5XVcn8S02eW6C1DH35bqq/XX1jYwlhhNPPIE1+q1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/js/iziModal.js" integrity="sha512-1J0h9sFPFsywGN1ZMdHRX7n94nW1lvmX+yNAqcsSJSdayFsGE935ginqQ31R6rwxarOKG7j//Km5SB6cOT8aUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
-    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/css/iziModal.css"
+      integrity="sha512-uZ+G0SzK4GMUDUzxzbIeLGLjYgAhQ2KrIV4bWIP5o6URt5XVcn8S02eW6C1DH35bqq/XX1jYwlhhNPPIE1+q1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.6.1/js/iziModal.js"
+      integrity="sha512-1J0h9sFPFsywGN1ZMdHRX7n94nW1lvmX+yNAqcsSJSdayFsGE935ginqQ31R6rwxarOKG7j//Km5SB6cOT8aUw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
   </head>
   <style>
@@ -34,54 +52,105 @@
     #dynamicCardBody {
       display: flex;
       justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
       gap: 10px;
+    }
+    #userList li {
+      padding: 1em;
+      list-style: none;
+      cursor: pointer;
+      display: inline;
+      border: 2px solid black;
+      margin-right: 10px;
     }
   </style>
 
   <body>
-    <div class="row d-flex justify-content-lg-start justify-content-sm-center w-25">
-        <button type="button" class="btn btn-primary" id="openModalButton">Open Modal</button>
-    </div>
-<!-- Modal -->
-<div class="modal fade" id="modal-youtube" tabindex="-1" aria-labelledby="modal-youtube-label" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal-youtube-label">Youtube</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <iframe id="youtubeVideo" width="100%" height="315" src="https://www.youtube.com/embed/tn1aRemwjvI?si=trcw4oBe_P3BmwW-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="container">
+      <div class="row">
+        <p>users</p>
+        <ul id="userList">
+          <!-- Aici vor fi afișați utilizatorii -->
+        </ul>
+      </div>
+      <div class="row">
+        <p>Detalii utilizator</p>
+        <p>Nume: <span id="userName"></span></p>
+        <p>Votat: <span id="userVoted"></span></p>
+      </div>
 
-    <div
-      class="row d-flex justify-content-lg-start justify-content-sm-center"
-      id="dynamicCardBody"
+      <!-- <button id="voteButton" disabled>Votează</button> -->
+
+      <!-- <div
+      class="row d-flex justify-content-lg-start justify-content-sm-center w-25"
     >
+      <button type="button" class="btn btn-primary" id="openModalButton">
+        Open Modal
+      </button>
+    </div> -->
+      <!-- Modal -->
+      <!-- <div
+      class="modal fade"
+      id="modal-youtube"
+      tabindex="-1"
+      aria-labelledby="modal-youtube-label"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-youtube-label">Youtube</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <iframe
+              id="youtubeVideo"
+              width="100%"
+              height="315"
+              src="https://www.youtube.com/embed/tn1aRemwjvI?si=trcw4oBe_P3BmwW-"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
+      <div class="row" id="dynamicCardBody"></div>
     </div>
     <script>
       $(document).ready(function () {
-        $('#openModalButton').click(function () {
-            $('#modal-youtube').modal('show');
-            var videoIframe = $('#youtubeVideo');
-            var videoSrc = videoIframe.attr('src');
-            videoIframe.attr('src', videoSrc + '&autoplay=1');
-        });
-        $('#modal-youtube').on('hidden.bs.modal', function () {
-            // When the modal is hidden, pause the video
-            var videoIframe = $('#youtubeVideo');
-            var videoSrc = videoIframe.attr('src');
-            videoIframe.attr('src', videoSrc.replace('&autoplay=1', ''));
-        });
-    });
-      //fetch data from server for vote and another data
-      let countVote = generateRandomNumber(false);
+        $("#openModalButton").click(openYoutubeModal);
+        $("#modal-youtube").on("hidden.bs.modal", pauseYoutubeVideo);
+      });
 
+      function openYoutubeModal() {
+        $("#modal-youtube").modal("show");
+        playYoutubeVideo();
+      }
+
+      function playYoutubeVideo() {
+        const videoIframe = $("#youtubeVideo");
+        const videoSrc = videoIframe.attr("src");
+        videoIframe.attr("src", videoSrc + "&autoplay=1");
+      }
+
+      function pauseYoutubeVideo() {
+        const videoIframe = $("#youtubeVideo");
+        const videoSrc = videoIframe.attr("src");
+        videoIframe.attr("src", videoSrc.replace("&autoplay=1", ""));
+      }
+      //fetch data from server for vote and another data
+      // let countVote = 12;
+      let selectedUser = null;
+      let countVote = 0;
       let AdataObject = {
         streamers: [
           {
@@ -299,11 +368,35 @@
       const cardData = $("#dynamicCardBody");
 
       streamerCards.forEach((streamerData, index) => {
-        const rdNumber = generateRandomNumber(false);
-        const card = generateCard(streamerData, rdNumber);
+        const card = generateCard(streamerData, countVote);
         cardData.append(card);
       });
-      //gen numbers odd even and check if true or false
+
+
+      //gen modal cards streamers data with random number for voting
+      function generateCard(streamerData) {
+        return () => {
+          const cardHtml = `
+          <div class="col-lg-4 card-wrapp">
+              <div class="card card-custom" style="background-image:url()">
+                  <div class="card-body text-center">
+                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
+                      <p class="speech">Voturi: <span class="streamerVote">${countVote}</span></p>
+                      <div class="card-image" style="background-image:url()></div>
+                      <h6 class="card-title text bottom-right">${streamerData.name}</h6>
+                  </div>
+              </div>
+          </div>
+      `;
+          const $card = $(cardHtml);
+          $card.click(function (e) {
+            voteForStreamer($card);
+            e.preventDefault();
+          });
+          return $card;
+        };
+      }
+
       function generateRandomNumber(numbers) {
         const isEven = numbers ? true : false;
         let randomNumber;
@@ -316,62 +409,63 @@
         return randomNumber;
       }
 
-      //gen modal cards streamers data with random number for voting
-      function generateCard(streamerData, rdNumber) {
-        return () => {
-          const cardHtml = `
-          <div class="col-lg-4 card-wrapp" d-v ="${rdNumber}">
-              <div class="card card-custom" style="background-image:url()">
-                  <div class="card-body text-center">
-                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
-                      <p class="speech">Voturi: <span class="streamerVote">${countVote}</span></p>
-                      <div class="card-image" style="background-image:url()></div>
-                      <h6 class="card-title text bottom-right">${streamerData.name}</h6>
-                  </div>
-              </div>
-          </div>
-      `;
-
-          const $card = $(cardHtml);
-
-          $card.click(function (e) {
-            if ($(".card-wrapp").hasClass("selected")) {
-              return;
-            }
-            // $(this).off("click");
-            if (rdNumber) {
-              $(".card-wrapp").removeClass("selected");
-              const confirmation = confirm("Vreți să votați acest element?");
-              if (confirmation) {
-                alert("Ai votat cu succes!");
-                $(this).attr("d-v", rdNumber + 1);
-                $(this).addClass("selected");
-                $(".card-wrapp").not(this).css("background", "yellow");
-                // Extract the "d-v" attribute value as an integer
-                const dVAttribute = parseInt($(this).attr("d-v"));
-                // Check if the extracted value is even
-                if (dVAttribute % 2 === 0) {
-                  countVote += 1;
-                  const $voteElement = $(this).find(".streamerVote");
-                  $voteElement.text(`${countVote}`);
-                  console.log(countVote, "count");
-                }
-                // $(".streamerVote").text(`Voturi: ${countVote}`);
-                console.log(countVote, "count");
-                //   $(".streamerVote").text(streamerData.countVote);
-                // if(rldt % 2 === 1 && rldt % 2 !== rldt)
-              } else {
-                alert("Ai anulat votul.");
-              }
-              //
-              e.preventDefault();
-            } else {
-              $(this).removeClass("selected");
-            }
-          });
-          return $card;
-        };
+      function voteForStreamer($card) {
+        console.log(countVote, "count");
+        if (!selectedUser) {
+          alert("Selectați un utilizator înainte de a vota.");
+          return;
+        }
+        if (selectedUser.voted === true) {
+          alert("Nu puteți vota pentru acest utilizator.");
+          return;
+        }
+        const confirmation = confirm("Vreți să votați acest element?");
+        if (confirmation) {
+          selectedUser.voted = true;
+          userVoted.text("Da");
+          alert("Ai votat cu succes!");
+          $card.addClass("selected");
+          $(".card-wrapp").not($card).css("background", "yellow");
+          // const currentDvValue = parseInt($($card).attr("d-v"));
+          $($card).css("background", "red");
+          const $voteElement = $card.find(".streamerVote");
+          $voteElement.text(`${countVote}`);
+        } else {
+          alert("Ai anulat votul.");
+        }
       }
+
+      const users = [
+        { id: 1, name: "marian 1", voted: true },
+        { id: 2, name: "andreea 2", voted: false },
+        { id: 3, name: "Luna 3", voted: false },
+      ];
+
+      const userList = $("#userList");
+      const userName = $("#userName");
+      const userVoted = $("#userVoted");
+
+      // Funcție pentru afișarea utilizatorilor în lista HTML
+      function displayUsers() {
+        userList.empty();
+        $.each(users, function (index, user) {
+          const li = $("<li>").text(user.name);
+          li.click(function () {
+            selectUser(user);
+          });
+          userList.append(li);
+        });
+      }
+
+      // Funcție pentru selectarea unui utilizator
+      function selectUser(user) {
+        userName.text(user.name);
+        userVoted.text(user.voted ? "Da" : "Nu");
+        // voteButton.prop("disabled", user.voted);
+        selectedUser = user;
+      }
+
+      displayUsers();
     </script>
   </body>
 </html>
