@@ -55,6 +55,7 @@
       flex-direction: row;
       gap: 10px;
     }
+
     #userList li {
       padding: 1em;
       list-style: none;
@@ -63,6 +64,7 @@
       border: 2px solid black;
       margin-right: 10px;
     }
+
     #messageContainer,
     .card-message {
       position: absolute;
@@ -70,51 +72,102 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
     #messageContainer {
       display: none;
 
       z-index: 150;
     }
+
     #messageContainer::after {
       content: "";
       background: rgba(0, 0, 0, 0.384);
       width: 100%;
       height: 100%;
       top: 0;
+      left: 0;
       position: fixed;
     }
+
     .card-message {
       z-index: 2;
       position: relative !important;
     }
+
+    .card-message .card {
+      border-radius: 20px;
+      /* border: 1.7px solid black; */
+      overflow: hidden;
+    }
+
     .card-message .card-header,
     .card-message .card-picture {
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
     .card-message .card-header {
       height: 220px;
       flex-direction: column;
-      gap: 10px;
+      justify-content: end;
+      gap: 7px;
+      border: none !important;
+      position: relative;
     }
+
     /* .card-message .card-body {
       height: 150px;
     } */
     .card-message h4 {
       text-transform: uppercase;
     }
+
     .card-message .card-picture {
-      background-color: purple;
-      border: 2px solid white;
+      background-color: #a6b8f1;
+      border: 2px solid #a5a5a5;
       width: 120px;
       height: 120px;
       border-radius: 100%;
+      border-radius: 100%;
+      box-shadow: 1px 1px 6px 2px #a6b8f1;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
+
     .card-message .btn-wrapp .w-25 {
       width: 40% !important;
-      height: 50px !important;
+      height: 43px !important;
       font-weight: bold;
+      background-color: orangered;
+      border: none;
+      outline: none;
+    }
+
+    .card-message .card-header .card-text {
+      position: absolute;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: #626262;
+      margin: 0;
+    }
+
+    .card-message .card-header ._text-left {
+      border: solid 2px #4d4d4d;
+      margin: 0;
+      padding: 6px 17px;
+      text-transform: capitalize;
+      font-size: 1.2em;
+      left: -6px;
+      top: -3px;
+      transform: skew(-15deg);
+      font-weight: 800;
+      border-radius: 3px;
+    }
+
+    .card-message .card-header ._text-right {
+      position: relative;
     }
   </style>
 
@@ -123,13 +176,7 @@
       id="messageContainer"
       class="container-fluid w-100 mx-auto h-100"
     ></div>
-    <!-- <div id="custom-popup" class="popup">
-      <div class="popup-content">
-        <p>Vreți să votați acest element?</p>
-        <button id="yes-button">Da</button>
-        <button id="no-button">Nu</button>
-      </div>
-    </div> -->
+
     <div class="container">
       <div class="row">
         <p>users</p>
@@ -142,8 +189,6 @@
         <p>Nume: <span id="userName"></span></p>
         <p>Votat: <span id="userVoted"></span></p>
       </div>
-
-      <!-- <button id="voteButton" disabled>Votează</button> -->
 
       <!-- <div
       class="row d-flex justify-content-lg-start justify-content-sm-center w-25"
@@ -191,8 +236,30 @@
     </div>
     <script>
       $(document).ready(function () {
+        function fadeOutAndHide(element, duration) {
+          $(element).animate(
+            {
+              opacity: 0,
+            },
+            duration,
+            function () {
+              $(this).hide();
+            }
+          );
+        }
+
+        function fadeInAndShow(element, duration) {
+          $(element).show().animate(
+            {
+              opacity: 1,
+            },
+            duration
+          );
+        }
+
         $("#openModalButton").click(openYoutubeModal);
         $("#modal-youtube").on("hidden.bs.modal", pauseYoutubeVideo);
+
         function openYoutubeModal() {
           $("#modal-youtube").modal("show");
           playYoutubeVideo();
@@ -222,44 +289,39 @@
               vote: countVote,
               challenge: true,
               bgImg: "",
-              avatarImg:
-                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/maria.png",
+              avatarImg: "./_avatar/maria.png",
 
               social: {
-                facebook: "{$asset}/social/facebook.png",
+                facebook: "",
                 insta: "stero insta",
                 streaming: "link",
-                website:
-                  "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
+                website: "/_avatar/alin.png",
               },
             },
             {
-              name: "maria",
+              name: "alin",
               points: "970",
               position: "113",
               vote: countVote,
               challenge: true,
               bgImg: "",
-              avatarImg:
-                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/maria.png",
+              avatarImg: "./_avatar/alin.png",
 
               social: {
-                facebook: "{$asset}/social/facebook.png",
+                facebook: "",
                 insta: "stero insta",
                 streaming: "link",
-                website:
-                  "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
+                website: "./_avatar/maria.png",
               },
             },
             {
-              name: "maria",
+              name: "stero",
               points: "970",
               position: "113",
               vote: countVote,
               challenge: true,
               bgImg: "",
-              avatarImg:
-                "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/maria.png",
+              avatarImg: "./_avatar/stero.png",
 
               social: {
                 facebook: "{$asset}/social/facebook.png",
@@ -279,33 +341,35 @@
         //   } while ((isEven && randomNumber % 2 !== 0) || (!isEven && randomNumber % 2 === 0));
         //   return randomNumber;
         // }
+
         const streamerCards = AdataObject.streamers.map((streamerData) => {
           return {
             name: streamerData.name,
             points: streamerData.points,
             vote: streamerData.vote,
-            picture: streamerData.picture,
+            avatarImg: streamerData.avatarImg,
+            position: streamerData.position,
           };
         });
 
         const cardData = $("#dynamicCardBody");
 
         streamerCards.forEach((streamerData, index) => {
-          // const mAvatar = streamerData.picture._avatarImg;
           const card = generateCard(streamerData, countVote);
           cardData.append(card);
         });
 
         function showMessage(message, streamerData) {
-          // console.log(streamerData.name, "streamerData");
-          // console.log(streamerData,"streamerData")
           console.log(message, "message");
           const messageHtml = `
-    <div class="card-message col-lg-4 col-md-8 col-sm-8">
+    <div class="card-message col-lg-3 col-md-8 col-sm-8">
       <div class="card">
         <div class="card-header">
-         <div class="card-picture" style="background:url('${streamerData.avatarImg}')"></div>
-         <h4 class="card-title"></h4>
+         <div class="card-picture" style="background-image:url('${streamerData.avatarImg}')"></div>
+         
+         <h6 class="card-text _text-left">pozitie: #${streamerData.position}</h6>
+         <h5 class="card-title text-uppercase m-0">${streamerData.name}</h5>
+         <h6 class="card-text _text-right">voturi: ${streamerData.vote}</h6>
         </div>
         <div class="card-body">
           <h4 class="card-title text-center">
@@ -319,7 +383,7 @@
       </div>
     </div>
   `;
-          return messageHtml;
+          return $("#messageContainer").append(messageHtml);
         }
 
         //gen modal cards streamers data with random number for voting
@@ -341,7 +405,8 @@
             const $card = $(cardHtml);
             $card.click(function (e) {
               $("#messageContainer").empty();
-              showMessage("doresti sa vorbesti cu", streamerData);
+              // fadeOutAndHide("#messageContainer", 500);
+              showMessage("doresti sa votezi cu", streamerData);
               voteForStreamer($card);
               e.preventDefault();
             });
@@ -352,33 +417,28 @@
         function voteForStreamer($card) {
           console.log(countVote, "count");
           if (!selectedUser) {
-            // alert("Selectați un utilizator înainte de a vota.");
-            showMessage("Selectați un utilizator înainte de a vota.", $card);
+            alert("Selectați un utilizator înainte de a vota.");
             return;
           }
           if (selectedUser.voted === true) {
             alert("Nu puteți vota pentru acest utilizator.");
-
             return;
           }
-          $("#messageContainer").show();
+          fadeInAndShow("#messageContainer", 500);
           // const confirmation = confirm("Vreți să votați acest element?");
           $("#yes-button").on("click", () => {
-            $("#messageContainer").hide();
             selectedUser.voted = true;
             userVoted.text("Da");
-
             $card.addClass("selected");
             $(".card-wrapp").not($card).css("background", "yellow");
-            // const currentDvValue = parseInt($($card).attr("d-v"));
             $($card).css("background", "red");
             const $voteElement = $card.find(".streamerVote");
             $voteElement.text(`${countVote}`);
+            fadeOutAndHide("#messageContainer", 500);
           });
           $("#no-button").on("click", () => {
-            // alert("Ai anulat votul.");
             alert("Ai anulat votul.");
-            $("#messageContainer").hide();
+            fadeOutAndHide("#messageContainer", 500);
           });
         }
 
