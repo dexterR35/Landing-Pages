@@ -1,7 +1,7 @@
 const min = 1;
 const max = 3000;
 const randomPointsTest = Math.floor(Math.random() * (max - min + 1)) + min;
-const randomVoteTest = Math.floor(Math.random() * (max - min + 1)) + min;
+const randomVoteTest = Math.floor(Math.random() * +(max - min + 1)) + min;
 
 
 console.log(randomVoteTest);
@@ -35,15 +35,6 @@ if ($(window).width() < 1024) {
 $(document).ready(function () {
   const dataObject = {
     streamers: [
-      {
-        name: "pacanela",
-        points: randomPointsTest,
-        vote: randomVoteTest,
-        position: "234253",
-        challenge: true,
-        bgImg: "./_bg/bg_pacanela.jpg",
-        avatarImg: "./_avatar/pacanela.png",
-      },
       {
         name: "anna",
         points: randomPointsTest,
@@ -99,6 +90,15 @@ $(document).ready(function () {
         avatarImg: "./_avatar/pacanedy.png",
       },
       {
+        name: "pacanela",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "234253",
+        challenge: true,
+        bgImg: "./_bg/bg_pacanela.jpg",
+        avatarImg: "./_avatar/pacanela.png",
+      },
+      {
         name: "princess",
         points: randomPointsTest,
         vote: randomVoteTest,
@@ -149,9 +149,25 @@ $(document).ready(function () {
       "25884-toucan-wild__2",
       "25258-sugar-bonanza-deluxe__2",
     ],
+    backgroundImages: [
+      'url("./_bg/bg_anna.jpg")',
+      'url("./_bg/bg_dudy.jpg")',
+      'url("./_bg/bg_dumisninja.jpg")',
+      'url("./_bg/bg_fratiijonson.jpg")',
+      'url("./_bg/bg_narcis.jpg")',
+      'url("./_bg/bg_pacanedy.jpg")',
+      'url("./_bg/bg_pacanela.jpg")',
+      'url("./_bg/bg_pacanela.jpg")',
+      'url("./_bg/bg_princess.jpg")',
+      'url("./_bg/bg_quikanu.jpg")',
+      'url("./_bg/bg_stero.jpg")',
+    ],
   }
 
   const gamesArray = [...dataObject.gamesArray];
+
+  const backgroundImages = [...dataObject.backgroundImages];
+  console.log(backgroundImages);
   // console.log(gamesArray, "games array");
   // console.log(streamers, "streamers array");
 
@@ -161,17 +177,12 @@ $(document).ready(function () {
       name: streamerData.name,
       points: streamerData.points,
       bgImg: streamerData.bgImg,
-      avatarImg:streamerData.avatarImg,
-
+      avatarImg: streamerData.avatarImg,
+      vote: streamerData.vote,
     };
   });
-  // console.log(streamerData.points,"asfasas");
-  console.log("fasfaaaaaaaaa");
-  // console.log(backgroundImages,"fasfaaaaaaaaa");
 
-  //strData - streamerData
   function generateCard(streamerData) {
-
     const isVoted = getCookie('namevoted') === streamerCards.name;
     const cardHtml = `
           <div class="col-lg-4 card-wrapp">
@@ -187,14 +198,11 @@ $(document).ready(function () {
       `;
     // Create a jQuery element from the cardHtml
     const cardElement = $(cardHtml);
-
     // Find the '.card-custom' element within the cardElement
     const cardCustomElement = cardElement.find('.card-custom');
-
     // Remove the 'non-voted' class from cardCustomElement
     cardCustomElement.removeClass('non-voted');
-    
-      // Add a click event handler to cardCustomElement
+    // Add a click event handler to cardCustomElement
     cardCustomElement.on('click', function () {
       if (!cardCustomElement.hasClass('voted')) {
         $('.card-custom:not(.voted)').removeClass('non-voted');
@@ -209,23 +217,23 @@ $(document).ready(function () {
   }
 
   function generateStreamerTable(streamerData) {
-    const tableAHtml = `<tr>
-    <td>${streamerData.position}</td>
+    const tableAHtml = `<tr class="parent-table">
+    <td class="parent-position ps">#${streamerData.position}</td>
       <td>
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center parent-avatar">
                   <div class="avatar-table avatar-blue">
-                  <img src="${(streamerData.avatarImg)}" alt="pict_table">
+                  <img src="${(streamerData.avatarImg)}" alt="pict_table" class="pict_table">
                   </div>
-                  <div class="">
-                      <p class="font-weight-bold mb-0">${streamerData.name}</p>
-                      <p class="text-muted mb-0">Locul: 1</p>
+                  <div class="parent-name">
+                      <p class="mb-0 ps">${streamerData.name}</p>
+                      <p class="text-muted mb-0">voturi: ${streamerData.vote}</p>
                   </div>
             </div>
       </td>
-      <td>${streamerData.points}</td>
-      <td>${streamerData.vote}</td>
-      <td>
-          <div class="badge ${streamerData.challenge ? 'badge-success-alt' : 'text-bg-danger'}">
+      <td class="parent-points ps">${streamerData.points}</td>
+      <td class="parent-vote ps">${streamerData.vote}</td>
+      <td class="parent-badge">
+          <div class="ps badge ${streamerData.challenge ? 'badge-success-alt' : 'text-bg-danger'}">
           ${streamerData.challenge ? "challenge" : "no challenge"}
           </div>
       </td>
@@ -240,12 +248,9 @@ $(document).ready(function () {
   function populateTable(streamerData) {
     let cardData = $("#dynamicCardBody");
     cardData.empty();
-
     let tableData = $(".table-body");
     tableData.empty();
-
     streamerData.forEach((streamerData, index) => {
-      streamerData.position = index + 1; // Set the position based on the sorted order
       //card for modal
       cardData.append(generateCard(streamerData));
       //table for section 2
@@ -253,138 +258,136 @@ $(document).ready(function () {
     });
   }
 
-
-  function generateGames(streamerData) {
-
-    const gameImagesContainer = $("#gameImages");
-
-    const isDesktop = window.innerWidth > 480; 
-
-    const maxGamesToShow = isDesktop ? streamerData.length : 16;
-
-    // Loop through the games and display up to maxGamesToShow
-
-    streamerData.slice(0, maxGamesToShow).forEach((gameName) => {
-      const img = $("<img>")
-        .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
-        .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
-        .attr("alt", gameName)
-        .attr("loading", "lazy")
-        .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
-      const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
-      gameImagesContainer.append(link);
-    });
-  }
-
-  // Add an event listener to re-run the function when the window is resized
-  window.addEventListener('resize', function () {
-    gameImagesContainer.empty(); // Clear the container
-    generateGames(objData); // Re-generate the games based on the new screen size
-  });
-
   // Function append bg card ,pos, name for swipper
-  function generetaDataSlider(streamerData) {
+  function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
-      // let boxSlideTop = $(
-      //   `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>Paca</span>Nela</div>`
-      // );
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-10"><span># </span><span>${streamer_pos}</span></div>`
       );
-      // streamerData[index].bgImg
-      // let test = $(`<img src="${streamerData[index].bgImg}">`);
+      const bgImage = backgroundImages[index % backgroundImages.length];
       $(this).append(boxSlideBottom);
+      $(this).css("background-image", bgImage);
+      $(this).css({
+        "background-size": "cover",
+        "background-position": "center",
+        "background-repeat": "no-repeat",
+      });
+
       // $(this).prepend(boxSlideTop);
-      // console.log("streamerCardsss",test);
     });
   }
 
-  generetaDataSlider(streamerCards);
+  generetaDataSlider();
   generateGames(gamesArray);
   populateTable(streamerCards);
 
 
-// Options for the "streamersTable"
-const streamersTableOptions = {
-  aaSorting: false,
-  responsive: true,
-  pageLength: 5,
-  info: false,
-  lengthChange: false,
-  searching: false, // Disable search
-  language: {
-    paginate: {
-      previous: '<span class="prev-icon">Inapoi</span>',
-      next: '<span class="next-icon">Inainte</span>'
-    }
-  },
-  columnDefs: [
-    { width: "5%", targets: 0 },
-    { width: "60%", targets: 1 },
-    { width: "10%", targets: 2 },
-    { width: "10%", targets: 3 },
-    { width: "10%", targets: 4 },
-
-    {
-      responsivePriority: 2,
-      targets: 2,
+  // Options for the "streamersTable"
+  const streamersTableOptions = {
+    aaSorting: false,
+    responsive: true,
+    pageLength: 5,
+    info: false,
+    lengthChange: false,
+    searching: false, // Disable search
+    language: {
+      paginate: {
+        previous: '',
+        next: ''
+      }
     },
+    columnDefs: [{
+        width: "5%",
+        targets: 0
+      },
+      {
+        width: "60%",
+        targets: 1
+      },
+      {
+        width: "10%",
+        targets: 2
+      },
+      {
+        width: "10%",
+        targets: 3
+      },
+      {
+        width: "10%",
+        targets: 4
+      },
 
-    {
-      visible: false,
-      targets: 2,
-    }
-  ],
-};
+      {
+        responsivePriority: 2,
+        targets: 2,
+      },
 
-// Options for the "usersTable"
-const usersTableOptions = {
-  autoWidth : false,
-  aaSorting: false,
-  responsive: true,
-  pageLength: 10,
-  paginate:false,
-  info: false,
-  searching: false, // Disable search
-  language: false,
-  columnDefs: [
-    { width: "10%", targets: 0 },
-    { width: "60%", targets: 1 },
-    { width: "15%", targets: 2 },
-    { width: "15%", targets: 3 },
-    {
-      responsivePriority: 1,
-      targets: -1,
-      visible: false, // Hide the last column (which is "Challenge")
-    },
-    // You can add more specific columnDefs for the "usersTable" here if needed
-  ],
-};
+      {
+        visible: false,
+        targets: 2,
+      }
+    ],
+  };
 
-// Initialize DataTables for both tables
-$("#streamersTable").DataTable(streamersTableOptions);
-$("#usersTable").DataTable(usersTableOptions);
+  // Options for the "usersTable"
+  const usersTableOptions = {
+    autoWidth: false,
+    aaSorting: false,
+    responsive: true,
+    pageLength: 10,
+    paginate: false,
+    info: false,
+    searching: false, // Disable search
+    language: false,
+    columnDefs: [{
+        width: "10%",
+        targets: 0
+      },
+      {
+        width: "60%",
+        targets: 1
+      },
+      {
+        width: "15%",
+        targets: 2
+      },
+      {
+        width: "15%",
+        targets: 3
+      },
+      {
+        responsivePriority: 1,
+        targets: -1,
+        visible: false, // Hide the last column (which is "Challenge")
+      },
+      // You can add more specific columnDefs for the "usersTable" here if needed
+    ],
+  };
 
-// Add titles to table wrappers
-$("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
-$("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
+  // Initialize DataTables for both tables
+  $("#streamersTable").DataTable(streamersTableOptions);
+  $("#usersTable").DataTable(usersTableOptions);
+
+  // Add titles to table wrappers
+  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
+  $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
 
 
-// Customize search input (if needed)
-$(".dataTables_filter input")
-  .attr("placeholder", "Search here...")
-  .css({
-    width: "200px",
-    display: "inline-block",
-    "font-size": "0.7em",
-    padding: "0.3em 0.7em",
-    outline: "none"
-  });
+  // Customize search input (if needed)
+  $(".dataTables_filter input")
+    .attr("placeholder", "Search here...")
+    .css({
+      width: "200px",
+      display: "inline-block",
+      "font-size": "0.7em",
+      padding: "0.3em 0.7em",
+      outline: "none"
+    });
 
-// Add tooltips (if needed)
-$('[data-toggle="tooltip"]').tooltip();
+  // Add tooltips (if needed)
+  $('[data-toggle="tooltip"]').tooltip();
 
 
   // //   SCROLL WINDOWS LOCOMOTIVE JS
@@ -422,8 +425,8 @@ const swiperStr = new Swiper(".stream-slider", {
   autoplay: {
     delay: 0,
   },
-  speed: 2 * 1000,
   slidesPerView: "auto",
+  speed: 2 * 1000,
   parallax: true,
   touchRatio: 0.3,
   cache: true,
@@ -438,10 +441,11 @@ const swiperStr = new Swiper(".stream-slider", {
   // breakpoints: {
   //   320: { slidesPerView: 2 },
   //   640: { slidesPerView: 4 },
-  //   1024: { slidesPerView: 6 },
-  //   1921: { slidesPerView: 3 },
+  //   1024: { slidesPerView: 4 },
+  //   1440: { slidesPerView: "auto" },
   // },
 });
+
 // swiperStr.autoplay.stop();
 swiperStr.el.addEventListener("mouseover", function () {
   swiperStr.autoplay.stop();
@@ -451,6 +455,30 @@ swiperStr.el.addEventListener("mouseleave", function () {
   swiperStr.autoplay.start();
 });
 
+
+function generateGames(streamerData) {
+
+  const gameImagesContainer = $("#gameImages");
+  const isDesktop = window.innerWidth > 480;
+  const maxGamesToShow = isDesktop ? streamerData.length : 16;
+  // Loop through the games and display up to maxGamesToShow
+  streamerData.slice(0, maxGamesToShow).forEach((gameName) => {
+    const img = $("<img>")
+      .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
+      .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
+      .attr("alt", gameName)
+      .attr("loading", "lazy")
+      .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
+    const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
+    gameImagesContainer.append(link);
+  });
+}
+
+// Add an event listener to re-run the function when the window is resized
+window.addEventListener('resize', function () {
+  gameImagesContainer.empty(); // Clear the container
+  generateGames(objData); // Re-generate the games based on the new screen size
+});
 
 //SET COOKIES
 
@@ -503,6 +531,3 @@ cardElements.forEach(card => {
     card.classList.add('voted');
   });
 });
-
-
-
