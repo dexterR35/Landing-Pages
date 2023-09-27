@@ -1,12 +1,22 @@
-// Define a function to create and append lazy-loaded images
+const min = 1;
+const max = 3000;
+const randomPointsTest = Math.floor(Math.random() * (max - min + 1)) + min;
+const randomVoteTest = Math.floor(Math.random() * (max - min + 1)) + min;
+
+
+console.log(randomVoteTest);
 
 
 const scrollContainer = document.querySelector("#fullpage");
 
 if ($(window).width() < 1024) {
   $(".btn._mobile").addClass("w-100");
-  $(".btn._desktop").css({ display: "none" });
-  $(".btn._mobile").css({ display: "block" });
+  $(".btn._desktop").css({
+    display: "none"
+  });
+  $(".btn._mobile").css({
+    display: "block"
+  });
 
   $(".table-responsive").css({
     "overflow-y": "unset",
@@ -14,173 +24,127 @@ if ($(window).width() < 1024) {
   });
 } else {
   $(".btn._mobile").removeClass("w-100");
-  $(".btn._desktop").css({ display: "block" });
-  $(".btn._mobile").css({ display: "none" });
+  $(".btn._desktop").css({
+    display: "block"
+  });
+  $(".btn._mobile").css({
+    display: "none"
+  });
 }
 
 $(document).ready(function () {
   const dataObject = {
     streamers: [
-
       {
-        name: "ana",
-        points: "310",
-        position: "3",
-        vote: "2",
+        name: "pacanela",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "234253",
         challenge: false,
         picture: {
           _bgImg: false,
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/pacanela.png",
+          _avatarImg: "./_avatar/pacanela.png",
         },
-        social: {
-          facebook: "ana facebook",
-          insta: "ana insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=ana",
+      },
+      {
+        name: "anna",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "34527",
+        challenge: true,
+        picture: {
+          _bgImg: "",
+          _avatarImg: `./_avatar/anna.png`,
+        },
+      },
+      {
+        name: "dudy",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "564564",
+        challenge: false,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/dudy.png",
+        },
+      },
+      {
+        name: "dumisninja",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "867862",
+        challenge: true,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/dumisninja.png",
+        },
+      },
+      {
+        name: "fratii jonson",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "645678",
+        challenge: false,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/fratiijonson.png",
+        },
+      },
+      {
+        name: "narcis",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "412310",
+        challenge: false,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/narcis.png",
+        },
+      },
+      {
+        name: "pacanedy",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "5234",
+        challenge: true,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/pacanedy.png",
+        },
+      },
+      {
+        name: "princess",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "123",
+        challenge: false,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/princess.png",
+        },
+      },
+      {
+        name: "quikanu",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "67589",
+        challenge: false,
+        picture: {
+          _bgImg: "",
+          _avatarImg: "./_avatar/quikanu.png",
         },
       },
       {
         name: "stero",
-        points: "120",
-        vote: "12",
-        position: "13",
+        points: randomPointsTest,
+        vote: randomVoteTest,
+        position: "5345",
         challenge: true,
         picture: {
           _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
+          _avatarImg: "./_avatar/stero.png",
         },
       },
-      {
-        name: "alin",
-        points: "770",
-        vote: "12",
-        position: "131",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/alin.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=alin",
-        },
-      },
-      {
-        name: "maria",
-        points: "970",
-        position: "113",
-        challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/maria.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=maria",
-        },
-      },
-      {
-        name: "george",
-        points: "1214",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/george.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=george",
-        },
-      },
-      {
-        name: "daniel",
-        points: "6453654",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/daniel.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-        },
-      },
-      {
-        name: "stero",
-        points: "120",
-        challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
-        },
-
-      },
-      {
-        name: "daniel",
-        points: "6453654",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-        },
-      },
-      {
-        name: "daniel",
-        points: "6453654",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=daniel",
-        },
-      },
-      {
-        name: "stero",
-        points: "120",
-        challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "https://go-testing.netbet.ro/lp-asset/netbetro/casino/bataliaStreamarilorv2/avatar/stero2.png",
-        },
-        social: {
-          facebook: "{$asset}/social/facebook.png",
-          insta: "stero insta",
-          streaming: "link",
-          website: "https://go-testing.netbet.ro/casino/?lp=bataliaStreamarilorv2&streamer=stero",
-        },
-
-      }
     ],
     gamesArray: [
       "4553-book-of-dead__6",
@@ -217,28 +181,30 @@ $(document).ready(function () {
   }));
   // Extrage jocurile din dataObject
   const gamesArray = [...dataObject.gamesArray];
-  console.log(gamesArray);
-  console.log(streamers);
-  ////  backgroundImages for cards in modal
+  // console.log(gamesArray, "games array");
+  console.log(streamers, "streamers array");
+
+  //map streamers
   const streamerCards = dataObject.streamers.map((streamerData) => {
     return {
       name: streamerData.name,
       points: streamerData.points,
-      picture:streamerData.picture,
-      // ... alte proprietăți pe care le dorești
+      picture: streamerData.picture,
+      position:streamerData.position,
+
     };
   });
 
 
   //strData - streamerData
   function generateCard(streamerData) {
-    return () => {
-      const isVoted = getCookie('namevoted') === streamerCards.name;
-      const cardHtml = `
+
+    const isVoted = getCookie('namevoted') === streamerCards.name;
+    const cardHtml = `
           <div class="col-lg-4 card-wrapp">
               <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" style="background:url(${streamerData.picture._bgImg}")>
                   <div class="card-body text-center">
-                      <a class="card-text text top-left" href="${streamerData.social.website}" target="_blank">Voteaza-ma</a>
+                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
                       <p class="speech">${streamerData.points} Voturi</p>
                       <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg})"></div>
                       <h6 class="card-title text bottom-right">${streamerData.name}</h6>
@@ -246,31 +212,32 @@ $(document).ready(function () {
               </div>
           </div>
       `;
-      const cardElement = $(cardHtml);
-      const cardCustomElement = cardElement.find('.card-custom');
+    // Create a jQuery element from the cardHtml
+    const cardElement = $(cardHtml);
 
-      cardCustomElement.removeClass('non-voted');
-      cardCustomElement.on('click', function () {
-        if (!cardCustomElement.hasClass('voted')) {
-          $('.card-custom:not(.voted)').removeClass('non-voted');
-          cardCustomElement.addClass('voted');
-          cardCustomElement.attr('data-voted', 'true');
-          if (cardCustomElement.hasClass('voted')) {
-            $('.card-custom:not(.voted)').addClass('non-voted');
-          }
+    // Find the '.card-custom' element within the cardElement
+    const cardCustomElement = cardElement.find('.card-custom');
+
+    // Remove the 'non-voted' class from cardCustomElement
+    cardCustomElement.removeClass('non-voted');
+    
+      // Add a click event handler to cardCustomElement
+    cardCustomElement.on('click', function () {
+      if (!cardCustomElement.hasClass('voted')) {
+        $('.card-custom:not(.voted)').removeClass('non-voted');
+        cardCustomElement.addClass('voted');
+        cardCustomElement.attr('data-voted', 'true');
+        if (cardCustomElement.hasClass('voted')) {
+          $('.card-custom:not(.voted)').addClass('non-voted');
         }
-      });
-
-      // Aici poți utiliza streamerCards sau orice alte date adiționale
-      console.log(streamerCards);
-
-      return cardElement;
-    };
+      }
+    });
+    return cardElement;
   }
 
   function generateStreamerTable(streamerData) {
     const tableAHtml = `<tr>
-       
+    <td>${streamerData.position}</td>
       <td>
           <div class="d-flex align-items-center">
                   <div class="avatar-table avatar-blue">
@@ -283,7 +250,7 @@ $(document).ready(function () {
             </div>
       </td>
       <td>${streamerData.points}</td>
-      <td>${streamerData.points}</td>
+      <td>${streamerData.vote}</td>
       <td>
           <div class="badge ${streamerData.challenge ? 'badge-success-alt' : 'text-bg-danger'}">
           ${streamerData.challenge ? "challenge" : "no challenge"}
@@ -309,15 +276,39 @@ $(document).ready(function () {
   </tr>`
     return tableAHtml;
   }
+  // Function to generate a random number between min and max (inclusive)
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function calculatePositions(streamerCards) {
+  const sortedStreamers = [...streamerCards].sort((a, b) => b.points - a.points);
+  console.log(sortedStreamers,"saaa")
 
+  sortedStreamers.forEach((streamer, index) => {
+    streamer.position = index + 1;
+    console.log( streamer.position = index + 1,"sfaas")
+  });
+
+  return sortedStreamers;
+}
+  
+  // Sort the streamers based on their points in descending order
+  function sortStreamersByPoints(streamers) {
+    return streamers.sort((a, b) => b.points - a.points);
+  }
+  
   // Function populate streamers table and modal streamers cards
 
   function populateTable(objData) {
+    const sortedStreamers = sortStreamersByPoints(objData);
     let cardData = $("#dynamicCardBody");
     cardData.empty();
+
     let tableData = $(".table-body");
     tableData.empty();
-    objData.forEach((streamerData) => {
+
+    sortedStreamers.forEach((streamerData, index) => {
+      streamerData.position = index + 1; // Set the position based on the sorted order
       //card for modal
       cardData.append(generateCard(streamerData));
       //table for section 2
@@ -325,13 +316,17 @@ $(document).ready(function () {
     });
   }
 
+
   function generateGames(objData) {
+
     const gameImagesContainer = $("#gameImages");
-    const isDesktop = window.innerWidth > 480; // Check if the screen width is greater than 480px
-    // Calculate the maximum number of games to display based on the screen size
+
+    const isDesktop = window.innerWidth > 480; 
+
     const maxGamesToShow = isDesktop ? objData.length : 16;
-  
+
     // Loop through the games and display up to maxGamesToShow
+
     objData.slice(0, maxGamesToShow).forEach((gameName) => {
       const img = $("<img>")
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
@@ -343,13 +338,13 @@ $(document).ready(function () {
       gameImagesContainer.append(link);
     });
   }
-  
+
   // Add an event listener to re-run the function when the window is resized
   window.addEventListener('resize', function () {
     gameImagesContainer.empty(); // Clear the container
     generateGames(objData); // Re-generate the games based on the new screen size
   });
-  
+
   // Initial generation of games
   // generateGames(objData);
 
@@ -377,7 +372,7 @@ $(document).ready(function () {
       });
     });
     $(".card-custom").each(function (index) {
-      console.log(index);
+      // console.log(index);
       const bgImage = backgroundImages[index % backgroundImages.length];
       $(this).css("background-image", bgImage);
     });
@@ -386,8 +381,9 @@ $(document).ready(function () {
   // $("#toggleButton").click(function () {
   //   $("#termsAndConditions").slideToggle();
   // });
-
-  populateTable(streamers);
+  const updatedStreamerCards   = calculatePositions(streamers);
+  populateTable(updatedStreamerCards);
+  // populateTable(streamers);
   generateGames(gamesArray);
   generetaDataSlider();
 
@@ -395,12 +391,19 @@ $(document).ready(function () {
 
   //   TABLE GENERATE USERS AND STREAMERS
   const commonOptions = {
-    aaSorting: [],
-    responsive: true,
+    aaSorting: false,
+    responsive: {
+      details: {
+        type: 'column',
+        target: 0,
+        width:"1000px"
+      },
+    },
     pageLength: 5,
     info: false,
     lengthChange: false,
     bFilter: false,
+    rowReorder: true,
   };
 
   // Options for the "streamersTable" with all columns
@@ -408,11 +411,15 @@ $(document).ready(function () {
     ...commonOptions,
     columnDefs: [{
         responsivePriority: 1,
-        targets: 0,
+        targets: [0,1], className: 'TEST22222222222',
       },
       {
         responsivePriority: 2,
-        targets: -1,
+        targets: 2,
+      },
+      {
+        className: 'TEST', // Apply custom width to specific columns
+        targets: [0, 1,3], // Set the column indices you want to apply the custom width to
       },
     ],
   };
@@ -422,7 +429,7 @@ $(document).ready(function () {
     ...commonOptions,
     columnDefs: [{
         responsivePriority: 1,
-        targets: 0,
+        targets: -1,
       },
       {
         responsivePriority: 1,
@@ -434,6 +441,7 @@ $(document).ready(function () {
 
   $("#streamersTable").DataTable(streamersTableOptions);
   $("#usersTable").DataTable(usersTableOptions);
+
 
   $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
   $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
@@ -558,7 +566,7 @@ updateButton();
 // VOTED CARDS 
 
 const cardElements = document.querySelectorAll('.card-custom');
-console.log(cardElements, "cards")
+// console.log(cardElements, "cards")
 
 // Adaugă un ascultător de eveniment pentru fiecare card
 cardElements.forEach(card => {

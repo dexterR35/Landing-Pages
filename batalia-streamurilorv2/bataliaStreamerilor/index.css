@@ -18,12 +18,16 @@
   --text_color: var(--color-white) 09a;
   --bg_dark_color: #212529;
 
---shadow-soft:rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
---shadow-medium:rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
---shadow-border:rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  --shadow-soft: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  --shadow-medium: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+    rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  --shadow-border: rgba(6, 24, 44, 0.4) 0px 3px 2px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 0px -1px,
+    rgba(255, 255, 255, 0.08) 0px 2px 1px inset;
   /*netbet bg color*/
   --NetBet-orange: orangered;
-  --NetBet-blue:#2a2e38;
+  --NetBet-blue: #2a2e38;
   --bg-s1: url(./_bg/bg_nospikes.jpg);
   --bg-spikes: url(./_bg/bg_spikes.png);
 }
@@ -74,7 +78,7 @@ body {
 
   z-index: 1;
 }
-@media (max-width:767px) {
+@media (max-width: 767px) {
   .clouds-bottom {
     height: 100%;
   }
@@ -106,7 +110,8 @@ body {
   position: relative;
 }
 .bgd,
-.spikes,.avatar-blue {
+.spikes,
+.avatar-blue {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
@@ -496,7 +501,7 @@ a {
   align-items: center;
   flex-direction: column;
 }
-.section_one .s-providers_left div a img  {
+.section_one .s-providers_left div a img {
   width: 16vh;
 }
 ._prov_transf_bottom_r,
@@ -546,7 +551,9 @@ a {
   display: flex;
   justify-content: center;
 }
-
+.TEST.TEST22222222222.sorting {
+  width: 30px !important;
+}
 .section_one .container-swiper {
   transform: translateY(-25px);
   -webkit-transform: translateY(-25px);
@@ -603,7 +610,6 @@ a {
   max-height: 12vh;
 }
 
-
 .section_two #gameImages {
   gap: 0.7em;
   display: grid;
@@ -634,7 +640,6 @@ a {
   top: 0px;
   width: 100%;
   left: 0;
-
 }
 
 .section_two .s2_providers {
@@ -657,18 +662,20 @@ a {
 
   filter: drop-shadow(6px 6px 4px #3534);
 }
-@media (max-width:767px) {
-    .section_two .s2_providers .col-2:nth-child(1), .section_two .s2_providers .col-2:nth-child(2) {
+@media (max-width: 767px) {
+  .section_two .s2_providers .col-2:nth-child(1),
+  .section_two .s2_providers .col-2:nth-child(2) {
     width: 33% !important;
   }
 
-  .section_two .s2_providers .col-2:nth-child(3),  .section_two .s2_providers .col-2:nth-child(4),  .section_two .s2_providers .col-2:nth-child(5) {
+  .section_two .s2_providers .col-2:nth-child(3),
+  .section_two .s2_providers .col-2:nth-child(4),
+  .section_two .s2_providers .col-2:nth-child(5) {
     width: 45% !important;
-  } 
+  }
 }
 
 .section_two .s2_providers div:nth-child(5) a img {
-
   transform: translateY(-10px);
   -webkit-transform: translateY(-10px);
 }
@@ -704,19 +711,16 @@ a {
 
 .section_three .table-responsive tr {
   cursor: pointer;
-
 }
 
 .section_three #streamersTable .table-body tr {
   box-shadow: var(--shadow-border);
   border-radius: 10px;
   overflow: hidden;
-
 }
 
-
 #usersTable .table-body .avatar-table,
-#usersTable .table-body .text-muted{
+#usersTable .table-body .text-muted {
   display: none !important;
 }
 #usersTable .table-body tr {
@@ -742,8 +746,7 @@ a {
   padding: 0;
 }
 
-@media (max-width:767px) {
-  
+@media (max-width: 767px) {
   .section._s4 .termsAndConditions {
     padding: 1em 2em 1em 1em;
   }
@@ -900,7 +903,7 @@ a {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.table-hover>tbody>tr:hover>* {
+.table-hover > tbody > tr:hover > * {
   --bs-table-bg-state: rgb(42 127 207 / 13%) !important;
 }
 
@@ -955,8 +958,6 @@ a {
   object-fit: cover;
 }
 
-
-
 .avatar-pink {
   background-color: #fcd3e1;
   color: #f66d9b;
@@ -970,19 +971,24 @@ table.dataTable.dtr-inline.collapsed
   > tbody
   > tr[role="row"]
   > th:first-child:before {
-  top: 28px;
-  right: 14px !important;
-  left: unset;
-  height: 18px;
-  width: 18px;
+  top: 19px;
+  /* right: -137px !important; */
+  left: -9px;
+  height: 20px;
+  width: 16px;
   border: none;
   font-family: unset;
   box-shadow: none;
+  position: absolute;
+  line-height: 1.3;
+  background-color: var(--NetBet-blue);
 }
 .dtr-control div {
   gap: 10px;
 }
-
+.table > :not(caption) > * > * {
+  border-radius: 0px;
+}
 table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
 table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
   padding-left: 15px;
@@ -995,13 +1001,37 @@ table.dataTable > tbody > tr.child ul.dtr-details {
 table.dataTable > tbody > tr.child span.dtr-title {
   min-width: 50%;
 }
-
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
+.sorting table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
 table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
   padding: 0.75rem 1rem 0.125rem;
 }
 
+table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
+  display: flex;
+}
+table.dataTable thead > tr > th.sorting_asc,
+table.dataTable thead > tr > th.sorting_desc,
+table.dataTable thead > tr > th.sorting,
+table.dataTable thead > tr > td.sorting_asc,
+table.dataTable thead > tr > td.sorting_desc,
+table.dataTable thead > tr > td.sorting {
+  border-radius: 0;
+}
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+  display: none !important;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+  display: none !important;
+}
 /* div.dataTables_wrapper div.dataTables_length label,
 div.dataTables_wrapper div.dataTables_filter label {
   margin-bottom: 0;
@@ -1035,7 +1065,7 @@ div.dataTables_wrapper div.dataTables_filter label {
 }
 
 .table-dark {
-  background: var(--bg_dark_color);
+  background: var(--NetBet-blue);
 }
 
 div.dataTables_wrapper div.dataTables_paginate {
@@ -1224,7 +1254,7 @@ div.dataTables_wrapper div.dataTables_paginate {
   }
   .section_two .s2_providers {
     margin-top: 1em;
-   gap: unset;
+    gap: unset;
   }
   .section_two .s2_providers div {
     /* width: 33%; */
