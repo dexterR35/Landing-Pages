@@ -40,11 +40,9 @@ $(document).ready(function () {
         points: randomPointsTest,
         vote: randomVoteTest,
         position: "234253",
-        challenge: false,
-        picture: {
-          _bgImg: false,
-          _avatarImg: "./_avatar/pacanela.png",
-        },
+        challenge: true,
+        bgImg: "./_bg/bg_pacanela.jpg",
+        avatarImg: "./_avatar/pacanela.png",
       },
       {
         name: "anna",
@@ -52,10 +50,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "34527",
         challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: `./_avatar/anna.png`,
-        },
+        bgImg: "./_bg/bg_anna.jpg",
+        avatarImg: `./_avatar/anna.png`,
       },
       {
         name: "dudy",
@@ -63,10 +59,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "564564",
         challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/dudy.png",
-        },
+        bgImg: "./_bg/bg_dudy.jpg",
+        avatarImg: "./_avatar/dudy.png",
       },
       {
         name: "dumisninja",
@@ -74,10 +68,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "867862",
         challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/dumisninja.png",
-        },
+        bgImg: "./_bg/bg_dumisninja.jpg",
+        avatarImg: "./_avatar/dumisninja.png",
       },
       {
         name: "fratii jonson",
@@ -85,21 +77,17 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "645678",
         challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/fratiijonson.png",
-        },
+        bgImg: "./_bg/bg_fratiijonson.jpg",
+        avatarImg: "./_avatar/fratiijonson.png",
       },
       {
         name: "narcis",
         points: randomPointsTest,
         vote: randomVoteTest,
         position: "412310",
-        challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/narcis.png",
-        },
+        challenge: true,
+        bgImg: "./_bg/bg_narcis.jpg",
+        avatarImg: "./_avatar/narcis.png",
       },
       {
         name: "pacanedy",
@@ -107,10 +95,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "5234",
         challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/pacanedy.png",
-        },
+        bgImg: "./_bg/bg_pacanedy.jpg",
+        avatarImg: "./_avatar/pacanedy.png",
       },
       {
         name: "princess",
@@ -118,10 +104,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "123",
         challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/princess.png",
-        },
+        bgImg: "./_bg/bg_princess.jpg",
+        avatarImg: "./_avatar/princess.png",
       },
       {
         name: "quikanu",
@@ -129,10 +113,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "67589",
         challenge: false,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/quikanu.png",
-        },
+        bgImg: "./_bg/bg_quikanu.jpg",
+        avatarImg: "./_avatar/quikanu.png",
       },
       {
         name: "stero",
@@ -140,10 +122,8 @@ $(document).ready(function () {
         vote: randomVoteTest,
         position: "5345",
         challenge: true,
-        picture: {
-          _bgImg: "",
-          _avatarImg: "./_avatar/stero.png",
-        },
+        bgImg: "./_bg/bg_stero.jpg",
+        avatarImg: "./_avatar/stero.png",
       },
     ],
     gamesArray: [
@@ -169,32 +149,25 @@ $(document).ready(function () {
       "25884-toucan-wild__2",
       "25258-sugar-bonanza-deluxe__2",
     ],
-    backgroundImages: [
-      'url("./_bg/bg1.jpg")',
-      'url("./_bg/bg2.jpg")',
-      'url("./_bg/bg3.jpg")',
-    ],
   }
-  /// games name for section games
-  const streamers = dataObject.streamers.map((streamer) => ({
-    ...streamer
-  }));
-  // Extrage jocurile din dataObject
+
   const gamesArray = [...dataObject.gamesArray];
   // console.log(gamesArray, "games array");
-  console.log(streamers, "streamers array");
+  // console.log(streamers, "streamers array");
 
   //map streamers
   const streamerCards = dataObject.streamers.map((streamerData) => {
     return {
       name: streamerData.name,
       points: streamerData.points,
-      picture: streamerData.picture,
-      position:streamerData.position,
+      bgImg: streamerData.bgImg,
+      avatarImg:streamerData.avatarImg,
 
     };
   });
-
+  // console.log(streamerData.points,"asfasas");
+  console.log("fasfaaaaaaaaa");
+  // console.log(backgroundImages,"fasfaaaaaaaaa");
 
   //strData - streamerData
   function generateCard(streamerData) {
@@ -202,11 +175,11 @@ $(document).ready(function () {
     const isVoted = getCookie('namevoted') === streamerCards.name;
     const cardHtml = `
           <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" style="background:url(${streamerData.picture._bgImg}")>
+              <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" style="background:url(${streamerData.bgImg}")>
                   <div class="card-body text-center">
                       <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
                       <p class="speech">${streamerData.points} Voturi</p>
-                      <div class="card-image" style="background-image:url(${streamerData.picture._avatarImg})"></div>
+                      <div class="card-image" style="background-image:url(${streamerData.avatarImg})"></div>
                       <h6 class="card-title text bottom-right">${streamerData.name}</h6>
                   </div>
               </div>
@@ -241,7 +214,7 @@ $(document).ready(function () {
       <td>
           <div class="d-flex align-items-center">
                   <div class="avatar-table avatar-blue">
-                  <img src="${(streamerData.picture._avatarImg)}" alt="pict_table">
+                  <img src="${(streamerData.avatarImg)}" alt="pict_table">
                   </div>
                   <div class="">
                       <p class="font-weight-bold mb-0">${streamerData.name}</p>
@@ -261,53 +234,17 @@ $(document).ready(function () {
     return tableAHtml;
   }
 
-  function generateUserTable() {
-    const tableAHtml = `<tr>
-      <td>
-          <div class="d-flex align-items-center">
-                 
-                  <div class="">
-                      <p class="font-weight-bold mb-0">Marian</p>
-                  </div>
-            </div>
-      </td>
-      <td>3</td>
-      <td>12345</td>  
-  </tr>`
-    return tableAHtml;
-  }
-  // Function to generate a random number between min and max (inclusive)
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-function calculatePositions(streamerCards) {
-  const sortedStreamers = [...streamerCards].sort((a, b) => b.points - a.points);
-  console.log(sortedStreamers,"saaa")
 
-  sortedStreamers.forEach((streamer, index) => {
-    streamer.position = index + 1;
-    console.log( streamer.position = index + 1,"sfaas")
-  });
-
-  return sortedStreamers;
-}
-  
-  // Sort the streamers based on their points in descending order
-  function sortStreamersByPoints(streamers) {
-    return streamers.sort((a, b) => b.points - a.points);
-  }
-  
   // Function populate streamers table and modal streamers cards
 
-  function populateTable(objData) {
-    const sortedStreamers = sortStreamersByPoints(objData);
+  function populateTable(streamerData) {
     let cardData = $("#dynamicCardBody");
     cardData.empty();
 
     let tableData = $(".table-body");
     tableData.empty();
 
-    sortedStreamers.forEach((streamerData, index) => {
+    streamerData.forEach((streamerData, index) => {
       streamerData.position = index + 1; // Set the position based on the sorted order
       //card for modal
       cardData.append(generateCard(streamerData));
@@ -317,17 +254,17 @@ function calculatePositions(streamerCards) {
   }
 
 
-  function generateGames(objData) {
+  function generateGames(streamerData) {
 
     const gameImagesContainer = $("#gameImages");
 
     const isDesktop = window.innerWidth > 480; 
 
-    const maxGamesToShow = isDesktop ? objData.length : 16;
+    const maxGamesToShow = isDesktop ? streamerData.length : 16;
 
     // Loop through the games and display up to maxGamesToShow
 
-    objData.slice(0, maxGamesToShow).forEach((gameName) => {
+    streamerData.slice(0, maxGamesToShow).forEach((gameName) => {
       const img = $("<img>")
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
@@ -345,119 +282,110 @@ function calculatePositions(streamerCards) {
     generateGames(objData); // Re-generate the games based on the new screen size
   });
 
-  // Initial generation of games
-  // generateGames(objData);
-
   // Function append bg card ,pos, name for swipper
-  function generetaDataSlider() {
-    const backgroundImages = dataObject.backgroundImages;
+  function generetaDataSlider(streamerData) {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
-      let boxSlideTop = $(
-        `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>Paca</span>Nela</div>`
-      );
+      // let boxSlideTop = $(
+      //   `<div class="top_swiper_box" data-text="terminator" data-swiper-parallax="10"><span>Paca</span>Nela</div>`
+      // );
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-10"><span># </span><span>${streamer_pos}</span></div>`
       );
+      // streamerData[index].bgImg
+      // let test = $(`<img src="${streamerData[index].bgImg}">`);
       $(this).append(boxSlideBottom);
-      $(this).prepend(boxSlideTop);
-
-      const bgImage = backgroundImages[index % backgroundImages.length];
-
-      $(this).css("background-image", bgImage);
-      $(this).css({
-        "background-size": "cover",
-        "background-position": "center",
-        "background-repeat": "no-repeat",
-      });
-    });
-    $(".card-custom").each(function (index) {
-      // console.log(index);
-      const bgImage = backgroundImages[index % backgroundImages.length];
-      $(this).css("background-image", bgImage);
+      // $(this).prepend(boxSlideTop);
+      // console.log("streamerCardsss",test);
     });
   }
 
-  // $("#toggleButton").click(function () {
-  //   $("#termsAndConditions").slideToggle();
-  // });
-  const updatedStreamerCards   = calculatePositions(streamers);
-  populateTable(updatedStreamerCards);
-  // populateTable(streamers);
+  generetaDataSlider(streamerCards);
   generateGames(gamesArray);
-  generetaDataSlider();
+  populateTable(streamerCards);
 
 
+// Options for the "streamersTable"
+const streamersTableOptions = {
+  aaSorting: false,
+  responsive: true,
+  pageLength: 5,
+  info: false,
+  lengthChange: false,
+  searching: false, // Disable search
+  language: {
+    paginate: {
+      previous: '<span class="prev-icon">Inapoi</span>',
+      next: '<span class="next-icon">Inainte</span>'
+    }
+  },
+  columnDefs: [
+    { width: "5%", targets: 0 },
+    { width: "60%", targets: 1 },
+    { width: "10%", targets: 2 },
+    { width: "10%", targets: 3 },
+    { width: "10%", targets: 4 },
 
-  //   TABLE GENERATE USERS AND STREAMERS
-  const commonOptions = {
-    aaSorting: false,
-    responsive: {
-      details: {
-        type: 'column',
-        target: 0,
-        width:"1000px"
-      },
+    {
+      responsivePriority: 2,
+      targets: 2,
     },
-    pageLength: 5,
-    info: false,
-    lengthChange: false,
-    bFilter: false,
-    rowReorder: true,
-  };
 
-  // Options for the "streamersTable" with all columns
-  const streamersTableOptions = {
-    ...commonOptions,
-    columnDefs: [{
-        responsivePriority: 1,
-        targets: [0,1], className: 'TEST22222222222',
-      },
-      {
-        responsivePriority: 2,
-        targets: 2,
-      },
-      {
-        className: 'TEST', // Apply custom width to specific columns
-        targets: [0, 1,3], // Set the column indices you want to apply the custom width to
-      },
-    ],
-  };
+    {
+      visible: false,
+      targets: 2,
+    }
+  ],
+};
 
-  // Options for the "usersTable" without the "Challenge" column
-  const usersTableOptions = {
-    ...commonOptions,
-    columnDefs: [{
-        responsivePriority: 1,
-        targets: -1,
-      },
-      {
-        responsivePriority: 1,
-        targets: -1, // This targets the last column (which is "Challenge")
-        visible: false, // This hides the column
-      },
-    ],
-  };
+// Options for the "usersTable"
+const usersTableOptions = {
+  autoWidth : false,
+  aaSorting: false,
+  responsive: true,
+  pageLength: 10,
+  paginate:false,
+  info: false,
+  searching: false, // Disable search
+  language: false,
+  columnDefs: [
+    { width: "10%", targets: 0 },
+    { width: "60%", targets: 1 },
+    { width: "15%", targets: 2 },
+    { width: "15%", targets: 3 },
+    {
+      responsivePriority: 1,
+      targets: -1,
+      visible: false, // Hide the last column (which is "Challenge")
+    },
+    // You can add more specific columnDefs for the "usersTable" here if needed
+  ],
+};
 
-  $("#streamersTable").DataTable(streamersTableOptions);
-  $("#usersTable").DataTable(usersTableOptions);
+// Initialize DataTables for both tables
+$("#streamersTable").DataTable(streamersTableOptions);
+$("#usersTable").DataTable(usersTableOptions);
+
+// Add titles to table wrappers
+$("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
+$("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
 
-  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
-  $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
-  $("#usersTable_filter > label").addClass("col-12 d-flex justify-content-end");
-  $(".dataTables_filter input")
-    .attr("placeholder", "Search here...")
-    .css({
-      width: "200px",
-      display: "inline-block",
-      "font-size": "0.7em",
-      padding: "0.3em 0.7em",
-      outline: "none"
-    });
+// Customize search input (if needed)
+$(".dataTables_filter input")
+  .attr("placeholder", "Search here...")
+  .css({
+    width: "200px",
+    display: "inline-block",
+    "font-size": "0.7em",
+    padding: "0.3em 0.7em",
+    outline: "none"
+  });
 
-  $('[data-toggle="tooltip"]').tooltip();
+// Add tooltips (if needed)
+$('[data-toggle="tooltip"]').tooltip();
+
 
   // //   SCROLL WINDOWS LOCOMOTIVE JS
   // const scroll = new LocomotiveScroll({
@@ -575,7 +503,6 @@ cardElements.forEach(card => {
     card.classList.add('voted');
   });
 });
-// document.addEventListener('DOMContentLoaded', function () {
 
 
-// lazyLoadImagesFromObject(streamers);
+

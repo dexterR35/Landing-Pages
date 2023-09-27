@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+// User's username to check
+// User's username to check
+const usernameToCheck = "gigi";
+
+// Create a new XMLHttpRequest object
+const xhr = new XMLHttpRequest();
+
+// Configure the request
+xhr.open("GET", "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user", true);
+
+// Set up an event handler for when the request is complete
+xhr.onload = function() {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    // Parse the JSON response
+    try {
+      const jsonData = JSON.parse(xhr.responseText);
+      
+      // Find the user by username
+      const user = jsonData.find(item => item.username === usernameToCheck);
+      
+      // Check if the user is opted in or not
+      if (user) {
+        if (user.optin === "true") {
+          console.log(`${usernameToCheck} is opted in.`);
+        } else {
+          console.log(`${usernameToCheck} is not opted in.`);
+        }
+      } else {
+        console.log(`User ${usernameToCheck} not found.`);
+      }
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+    }
+  } else {
+    console.error("Request failed with status:", xhr.status);
+  }
+};
+
+// Handle network errors
+xhr.onerror = function() {
+  console.error("Network error occurred.");
+};
+
+// Send the request
+xhr.send();
+
+    </script>
+</body>
+
+</html>
