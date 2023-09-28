@@ -74,7 +74,9 @@ body {
     font-size: 80%;
   }
 }
-
+h2 {
+  color: black !important;
+}
 .color-NetBet-orange {
   background: var(--NetBet-orange);
   border-radius: 10px;
@@ -805,7 +807,8 @@ a {
 
 .section._s4 {
   height: 100%;
-  background-image: linear-gradient(to right top, #ffffff, #5f9dc5);
+  /* background-image: linear-gradient(to right top, #ffffff, #5f9dc5); */
+  background-color: var(--color-white);
 }
 .section_four {
   max-height: 100%;
@@ -1326,6 +1329,7 @@ div.dataTables_wrapper div.dataTables_paginate {
   .container-section * h2 {
     font-size: 1.1rem !important;
     margin: 10px 0;
+
   }
   .section_two .row.py-4 {
     text-align: justify !important ;
