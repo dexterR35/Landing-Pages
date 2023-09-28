@@ -280,7 +280,6 @@ a {
   background: var(--NetBet-orange);
   outline: none;
   border: none;
-  
 }
 
 /*Buttons*/
@@ -782,7 +781,7 @@ a {
 }
 .section_three #streamersTable .table-body tr {
   box-shadow: var(--shadow-border);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
 }
 
@@ -813,6 +812,7 @@ a {
 .section_four {
   max-height: 100%;
   display: block;
+  padding-top: 4em;
 }
 .section._s4 .col {
   padding: 0;
@@ -838,7 +838,7 @@ a {
   background-color: #fbfbfb;
   padding: 3em;
   position: relative;
-  font-size: 0.9em;
+  font-size: 1em;
   border-radius: 10px;
   text-align: justify;
 }
@@ -861,10 +861,17 @@ a {
   flex-direction: column-reverse;
   align-items: end;
 }
-.stream-slider img {
+.stream-slider img:not(.top_swiper_box img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.top_swiper_box img {
   width: 80%;
   height: 80%;
   object-fit: contain;
+  position: relative;
+  left: 70px;
 }
 
 .stream-slider .swiper-wrapper {
@@ -893,8 +900,8 @@ a {
   position: absolute;
   font-size: 2em;
   width: 100%;
-  bottom: -0.7em;
-  left: 0.2em;
+  bottom: -10px;
+  /* left: 0.2em; */
   text-align: start;
   text-indent: 10px;
   z-index: 0;
@@ -911,11 +918,11 @@ a {
 }
 
 .bottom_swiper_box span:nth-child(1) {
-  font-size: 1.7em;
+  font-size: 1.2em;
 }
 
 .bottom_swiper_box span:nth-child(2) {
-  font-size: 2.8em;
+  font-size: 1.8em;
 }
 .slide-streamer {
   /* background-image: url(./_bg/bg_dumisninja.jpg); */
@@ -924,12 +931,10 @@ a {
   background-size: cover;
 }
 .top_swiper_box {
-  /* height: fit-content; */
   position: absolute;
-  /* width: 40%; */
-  /* font-size: 3em; */
-  top: 0;
-  left: -1.2em;
+  width: fit-content;
+  bottom: 5px;
+  /* left: -1.2em; */
   color: rgb(255, 148, 166);
   text-shadow: 0 1px 0px #1e1e1e, 1px 0 0px #262626, 1px 2px 0px #1e1e1e,
     2px 1px 0px #262626, 2px 3px 0px #1e1e1e, 3px 2px 0px #262626,
@@ -975,11 +980,6 @@ a {
 
 .table td {
   background: var(--color-white);
-}
-
-.table td:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 .table td:last-child {
@@ -1093,6 +1093,12 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
 
 table.dataTable > tbody > tr.child ul.dtr-details > li:last-child {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+table.dataTable > tbody > tr.child ul.dtr-details > li:first-child {
+  padding: 0;
 }
 table.dataTable thead > tr > th.sorting_asc,
 table.dataTable thead > tr > th.sorting_desc,
@@ -1137,6 +1143,9 @@ div.dataTables_wrapper div.dataTables_filter label {
 .parent-name {
   line-height: 1.2;
 }
+.parent-vote {
+  text-align: center !important;
+}
 .dataTables_wrapper {
   border-radius: 10px;
   display: flex;
@@ -1175,7 +1184,8 @@ div.dataTables_wrapper div.dataTables_paginate {
   right: 0;
   /* display: none !important; */
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button.next,.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
+.dataTables_wrapper .dataTables_paginate .paginate_button.next,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous {
   display: none;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
@@ -1220,15 +1230,18 @@ div.dataTables_wrapper div.dataTables_paginate {
   padding: 0.7em 0.75em;
   text-transform: uppercase;
   font-size: 0.7em;
-  background-color: var(--NetBet-orange) !important;
+  background-color: var(--NetBet-orange);
   display: flex;
-  /* width: fit-content; */
+  width: fit-content;
   margin: auto;
 }
 
-.dataTables_wrapper .badge-success-alt {
+.badge-success {
   color: var(--color-white);
-  background-color: var(--NetBet-blue) !important;
+  background-color: #348906 !important;
+}
+.badge-danger {
+  background-color: var(--NetBet-orange);
 }
 
 .table a {
@@ -1299,8 +1312,9 @@ div.dataTables_wrapper div.dataTables_paginate {
     bottom: -14px;
     left: 14px;
   }
-  .section_three {
-    padding: 0;
+
+  .section_three .table-responsive:nth-child(1) {
+    margin-bottom: 30px;
   }
   /* .container {
     padding: 0 !important;
@@ -1329,16 +1343,74 @@ div.dataTables_wrapper div.dataTables_paginate {
   .container-section * h2 {
     font-size: 1.1rem !important;
     margin: 10px 0;
-
   }
   .section_two .row.py-4 {
     text-align: justify !important ;
   }
   .section._s1 {
-    height: 92vh !important;
+    height: 100vh !important;
   }
   .container {
     padding: 0 5px;
+  }
+  .section_three {
+    padding: 5em 5px 3em 5px;
+  }
+  /* .top_swiper_box {
+    bottom: -10px;
+  } */
+  .section._s4 .clouds-bottom {
+    top: -8.5em;
+  }
+  .section_one .content-elements {
+    position: relative;
+  }
+
+  .section_one .s-providers {
+    position: absolute;
+    top: -30px;
+    height: 30%;
+    width: 100%;
+  }
+  .section_one .s-providers a div img,.section_one .s-providers_left div a img {
+    transform: unset !important;
+  }
+  .section_one .s-providers a {
+    position: absolute;
+  }
+  .section_one .s-providers div img {
+    width: 140px;
+  }
+  .section_one .s-providers_left div a img {
+    width: 90px;
+  }
+  .section_one .s-providers .aprag {
+    top: 0;
+    left: 5%;
+  }
+  .section_one .s-providers .askywind {
+    top: 25px;
+    right: 5%;
+  }
+  .section_one .s-providers .aplaytech {
+    top: 100px;
+    left: 5%;
+  }
+  .section_one .s-providers .aplayngo {
+    top: 100px;
+    left: 37%;
+  }
+ 
+
+  .section_one .s-providers .agaming {
+    top: 100px;
+    left: 70%;
+  }
+  .section._s1 .bgD {
+    position: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -1347,11 +1419,11 @@ div.dataTables_wrapper div.dataTables_paginate {
     font-size: 0.8em;
   }
   .spikes {
-    display: none;
+    background-position: fixed;
   }
-  .section_one .s-providers {
+  /* .section_one .s-providers {
     display: none;
-  }
+  } */
 
   .section_one .slide-streamer {
     width: 200px !important;
@@ -1360,15 +1432,14 @@ div.dataTables_wrapper div.dataTables_paginate {
     flex-direction: column-reverse;
     align-items: end;
   }
-  .section_one .top_swiper_box,
-  .bottom_swiper_box span:nth-child(2) {
-    font-size: 1.5em;
+  .section_one .bottom_swiper_box span:nth-child(2) {
+    font-size: 2em;
   }
   .section_one .bottom_swiper_box span:nth-child(1) {
-    font-size: 1em;
+    font-size: 1.5em;
   }
   .section_one .bottom_swiper_box {
-    bottom: 0;
+    bottom: -10px;
   }
 
   .section_two .container .row:first-child {

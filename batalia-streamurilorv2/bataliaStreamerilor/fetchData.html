@@ -1,65 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="result"></div>
     <script>
-// User's username to check
-// User's username to check
-const usernameToCheck = "gigi";
+      async function checkUser(username) {
+        const apiUrl =
+          "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user";
 
-// Create a new XMLHttpRequest object
-const xhr = new XMLHttpRequest();
+        try {
+          const response = await fetch(apiUrl);
 
-// Configure the request
-xhr.open("GET", "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user", true);
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
 
-// Set up an event handler for when the request is complete
-xhr.onload = function() {
-  if (xhr.status >= 200 && xhr.status < 300) {
-    // Parse the JSON response
-    try {
-      const jsonData = JSON.parse(xhr.responseText);
-      
-      // Find the user by username
-      const user = jsonData.find(item => item.username === usernameToCheck);
-      
-      // Check if the user is opted in or not
-      if (user) {
-        if (user.optin === "true") {
-          console.log(`${usernameToCheck} is opted in.`);
-        } else {
-          console.log(`${usernameToCheck} is not opted in.`);
+          const checkUserData = await response.json();
+          const usernames = checkUserData.map((user) => user.username);
+
+          if (usernames.includes(username)) {
+            console.log(`Username ${username} exists in the API.`);
+          } else {
+            console.log(`Username ${username} does not exist in the API.`);
+          }
+        } catch (error) {
+          console.error("Error: Unable to retrieve data from the API.", error);
         }
-      } else {
-        console.log(`User ${usernameToCheck} not found.`);
       }
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-    }
-  } else {
-    console.error("Request failed with status:", xhr.status);
-  }
-};
 
-// Handle network errors
-xhr.onerror = function() {
-  console.error("Network error occurred.");
-};
+      // Call the checkUser function with the username "ticucatalin"
+      checkUser("ticucatalin");
+      checkUser("gabitza1");
+      checkUser("Marian");
 
-// Send the request
-xhr.send();
+      // function checkUser(username) {
+      //   const apiUrl =
+      //     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user";
 
+      //   fetch(apiUrl)
+      //     .then((response) => {
+      //       if (!response.ok) {
+      //         throw new Error("Network response was not ok");
+      //       }
+      //       return response.json();
+      //     })
+      //     .then((checkUserData) => {
+      //       console.log(checkUserData, "checkUser");
+      //       const usernames = checkUserData.map((user) => user.username);
+      //       if (usernames.includes(username)) {
+      //         console.log(`Username ${username} exists in the API.`);
+      //       } else {
+      //         console.log(`Username ${username} does not exist in the API.`);
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.error(
+      //         "Error: Unable to retrieve data from the API.",
+      //         error
+      //       );
+      //     });
+      // }
+
+      // // Call the checkUser function with the username "ticucatalin"
+      // checkUser("ticucatalin");
+      // checkUser("gabitza1");
+      // checkUser("Marian");
     </script>
-</body>
-
+  </body>
 </html>

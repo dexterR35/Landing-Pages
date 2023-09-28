@@ -39,7 +39,7 @@ $(document).ready(function () {
         name: "anna",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "10",
+        position: "1",
         challenge: true,
         bgImg: "./_bg/bg_anna.jpg",
         avatarImg: `./_avatar/anna.png`,
@@ -48,7 +48,7 @@ $(document).ready(function () {
         name: "dudy",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "9",
+        position: "2",
         challenge: false,
         bgImg: "./_bg/bg_dudy.jpg",
         avatarImg: "./_avatar/dudy.png",
@@ -57,16 +57,16 @@ $(document).ready(function () {
         name: "dumisninja",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "7",
+        position: "3",
         challenge: true,
         bgImg: "./_bg/bg_dumisninja.jpg",
         avatarImg: "./_avatar/dumisninja.png",
       },
       {
-        name: "fratii jonson",
+        name: "fratiijonson",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "6",
+        position: "4",
         challenge: false,
         bgImg: "./_bg/bg_fratiijonson.jpg",
         avatarImg: "./_avatar/fratiijonson.png",
@@ -84,7 +84,7 @@ $(document).ready(function () {
         name: "pacanedy",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "4",
+        position: "6",
         challenge: true,
         bgImg: "./_bg/bg_pacanedy.jpg",
         avatarImg: "./_avatar/pacanedy.png",
@@ -93,7 +93,7 @@ $(document).ready(function () {
         name: "pacanela",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "3",
+        position: "7",
         challenge: true,
         bgImg: "./_bg/bg_pacanela.jpg",
         avatarImg: "./_avatar/pacanela.png",
@@ -102,7 +102,7 @@ $(document).ready(function () {
         name: "princess",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "2",
+        position: "8",
         challenge: false,
         bgImg: "./_bg/bg_princess.jpg",
         avatarImg: "./_avatar/princess.png",
@@ -111,7 +111,7 @@ $(document).ready(function () {
         name: "quikanu",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "1",
+        position: "9",
         challenge: false,
         bgImg: "./_bg/bg_quikanu.jpg",
         avatarImg: "./_avatar/quikanu.png",
@@ -120,7 +120,7 @@ $(document).ready(function () {
         name: "stero",
         points: randomPointsTest,
         vote: randomVoteTest,
-        position: "5345",
+        position: "10",
         challenge: true,
         bgImg: "./_bg/bg_stero.jpg",
         avatarImg: "./_avatar/stero.png",
@@ -179,6 +179,8 @@ $(document).ready(function () {
       bgImg: streamerData.bgImg,
       avatarImg: streamerData.avatarImg,
       vote: streamerData.vote,
+      position: streamerData.position,
+      challenge: streamerData.challenge,
     };
   });
 
@@ -233,9 +235,9 @@ $(document).ready(function () {
       <td class="parent-points ps">${streamerData.points}</td>
       <td class="parent-vote ps">${streamerData.vote}</td>
       <td class="parent-badge">
-          <div class="ps badge ${streamerData.challenge ? 'badge-success-alt' : 'text-bg-danger'}">
-          ${streamerData.challenge ? "challenge" : "no challenge"}
-          </div>
+      <div class="ps badge ${streamerData.challenge ? 'badge-success' : 'badge-danger'}">
+  ${streamerData.challenge ? '&#10004;' : '&#10006;'}
+</div>
       </td>
      
   </tr>`
@@ -263,7 +265,7 @@ $(document).ready(function () {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
       let boxSlideBottom = $(
-        `<div class="bottom_swiper_box" data-swiper-parallax="-10"><span># </span><span>${streamer_pos}</span></div>`
+        `<div class="bottom_swiper_box" data-swiper-parallax="-5"><span># </span><span>${streamer_pos}</span></div>`
       );
       const bgImage = backgroundImages[index % backgroundImages.length];
       $(this).append(boxSlideBottom);
@@ -311,7 +313,8 @@ $(document).ready(function () {
       },
       {
         width: "10%",
-        targets: 3
+        targets: 3,
+        className:"text-center"
       },
       {
         width: "10%",
@@ -350,17 +353,25 @@ $(document).ready(function () {
       },
       {
         width: "15%",
-        targets: 2
+        targets: 2,
       },
       {
         width: "15%",
-        targets: 3
+        targets: 3,
+        visible: false,
       },
       {
         responsivePriority: 1,
         targets: -1,
         visible: false, // Hide the last column (which is "Challenge")
       },
+      {
+        width: "15%",
+        targets: 4,
+        visible: false,
+      },
+      
+      
       // You can add more specific columnDefs for the "usersTable" here if needed
     ],
   };
