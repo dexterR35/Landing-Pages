@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css" /> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -46,27 +45,22 @@
         background: black;
         width: 100%;
         height: 5em;
-        position: absolute;
+        position: fixed;
         top: 0;
         text-transform: uppercase;
         color: white;
         z-index: 31;
       ">
-
-    <input type="text" id="cookieInput" placeholder="Introduceți numele">
+    <input type="text" id="cookieInput" placeholder="Introduceți numele" />
     <button id="setCookieButton">Set Cookie</button>
   </header>
-  
-  <div class="wrapper">
 
+  <div class="wrapper">
     <div class="container-modal">
-      
       <div class="modal fade" id="cardsModal">
         <div class="modal-dialog modal-xl modal-dialog-centered">
-          
           <!-- Use modal-xl for larger modal -->
           <div class="modal-content pos">
-
             <!-- Modal Header -->
             <div class="modal-header">
               <div id="messageContainer" class="container-fluid w-100 mx-auto h-100"></div>
@@ -76,7 +70,6 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeModal"></button>
             </div>
             <div class="modal-body px-4">
-              
               <div class="subTitle text-center">
                 Voturile pentru acest challenge se vor reseta la data de
                 12.10.2023
@@ -89,7 +82,7 @@
         </div>
       </div>
     </div>
-    
+
     <div id="fullpage" class="overflow-hidden">
       <div class="section _s1">
         <div class="bgD" id="background_p"></div>
@@ -129,52 +122,73 @@
                 </div>
               </div>
               <div class="container-btn">
-                <a id="actionButton" class="btn btn-NetBet-large">
-                </a>
+                
+                  <button class="btn-NB-large btn-custom"><a id="actionButton">intra in lupta </a></button>
+                
               </div>
             </div>
           </div>
           <div class="col-12 container-swiper">
             <div class="swipers stream-slider">
               <div class="swiper-wrapper">
-                <div class="swiper-slide slide-streamer  bg_anna">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_anna.png"></div>
+                <div class="swiper-slide slide-streamer bg_anna">
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_anna.png" />
+                  </div>
                   <img src="./_avatar/anna.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_dudy">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_dudy.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_dudy.png" />
+                  </div>
                   <img src="./_avatar/dudy.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_dumisninja">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_dumisninja.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_dumisninja.png" />
+                  </div>
                   <img src="./_avatar/dumisninja.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_fratiijonson">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_fratiijonson.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_fratiijonson.png" />
+                  </div>
                   <img src="./_avatar/fratiijonson.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_pacanedy">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_narcis.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_narcis.png" />
+                  </div>
                   <img src="./_avatar/pacanedy.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_narcis">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_pacanedy.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_pacanedy.png" />
+                  </div>
                   <img src="./_avatar/narcis.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_insert">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_pacanela.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_pacanela.png" />
+                  </div>
                   <img src="./_avatar/pacanela.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_insert">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_princess.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_princess.png" />
+                  </div>
                   <img src="./_avatar/princess.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_insert">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_quikanu.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_quikanu.png" />
+                  </div>
                   <img src="./_avatar/quikanu.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_insert">
-                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_stero.png"></div>
+                  <div class="top_swiper_box" data-swiper-parallax="10">
+                    <img src="./_name/name_stero.png" />
+                  </div>
                   <img src="./_avatar/stero.png" />
                 </div>
               </div>
@@ -184,69 +198,93 @@
       </div>
       <div class="section _s2">
         <div class="clouds-bottom">
-          <img src="./_bg/norisori2.png" alt="">
+          <img src="./_bg/norisori2.png" alt="" />
         </div>
         <div class="container container-section section_two justify-content-evenly flex-column h-100">
-          <div class="row">
-            <h2 class="text text-center mx-auto title_s2">
-              Participă la Bătălia streamerilor și câștigă premii fabuloase.
+          <div class="row text-center ">
+            <h2 class="text mx-auto mb-3 title_s2">
+              Participă la <br /><span>Bătălia streamerilor</span> și câștigă
+              premii fabuloase.
             </h2>
-          </div>
-          <div class="row text-custom">
-            <h4 class="text text-center mx-auto">
-              Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
-              jucând orice slot participant la promotie iar primii 500 de
-              jucători vor fi premiați cu pachete cadou si premii surpriză!
-            </h4>
+            <p class="text text-custom mx-auto">
+              <b>Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
+                jucând orice slot participant la promotie iar primii 500 de
+                jucători vor fi premiați cu pachete cadou si premii
+                surpriză!</b>
+            </p>
           </div>
           <div class="row">
-            <div class="col-lg-4 col-md-12 container-stuff">
-              <h2 class="text-center text-dark" style="font-size: 1.7rem;">JOCURI FAVORITE STREAMERI</h2>
-              <div class="paragraph mb-3">
-                Streamerii tăi preferați s-au adunat pentru cea mai tare campanie a anului! Vrei să duci distracția la un nou nivel și să te alături lor? Joacă și câștigă premii la Bătălia Streamerilor 2023!
-                Pss...îți mai spunem ceva. În stânga ai o selecție de jocuri preferate ale streamerilor dar nu uita: toate sloturile de pe NetBet Cazino sunt eligibile iar cele de la <b><a href="https://casino.netbet.ro/pragmatic">Pragmatic Play</a></b>,<b><a href="https://casino.netbet.ro/skywind">Skywind</a></b>, <b><a href="https://casino.netbet.ro/playson">Playson</a></b>, <b><a href="https://casino.netbet.ro/7777-gaming">7777Gaming</a></b>, <b><a href="https://casino.netbet.ro/playn-go">Play’n GO </a></b>,
-                <b><a href="https://casino.netbet.ro/playtech">Playtech</a></b>, ÎȚI ADUC PUNCTE DUBLE!
+    
+            <div class="col-lg-5 col-md-12 d-flex justify-content-center">
+              <div class="w-85 container-stuff">
+                <h2 class="text-center text-dark" style="font-size: 1.7rem">
+                  JOCURI FAVORITE STREAMERI
+                </h2>
+                <h6 class="text-center text">
+                  <b>ÎȚI ADUC PUNCTE DUBLE!</b>
+                </h6>
+                <div class="paragraph">
+                  Streamerii tăi preferați s-au adunat pentru cea mai tare
+                  campanie a anului! Vrei să duci distracția la un nou nivel
+                  și să te alături lor ? <br />
+                </div>
+                <span class="m-2"><b>Joacă și câștigă premii la Bătălia Streamerilor 2023!</b></span>
+                <div class="paragraph mb-3">
+                  Pss...îți mai spunem ceva. <span id="changeWord"></span> ai
+                  o selecție de jocuri preferate ale streamerilor, dar nu
+                  uita: toate sloturile de pe NetBet Cazino sunt eligibile iar
+                  cele de la: <br />
+                  <b><a href="https://casino.netbet.ro/pragmatic">Pragmatic Play</a></b>,
+                  <b><a href="https://casino.netbet.ro/skywind">Skywind</a></b>,
+                  <b><a href="https://casino.netbet.ro/7777-gaming">7777Gaming</a></b>,
+                  <b><a href="https://casino.netbet.ro/playson">Playson</a></b>,
+                  <b><a href="https://casino.netbet.ro/playn-go">Play’n GO</a></b>,
+                  <b><a href="https://casino.netbet.ro/playtech">Playtech</a></b>.
+                </div>
+                <a href="https://casino.netbet.ro/batalia-streamerilor" class="w-100">
+                  <button type="button" class="btn btn-NB-normal w-100 _desktop">
+                    vezi toate jocurile
+                  </button>
+                </a>
               </div>
-              <a href="https://casino.netbet.ro/batalia-streamerilor" class="w-100">
-              <button type="button" class="btn btn-NetBet-normal w-100  _desktop">
-                vezi toate jocurile
-              </button>
-              </a>
             </div>
-            <div class="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
+            <div class="col-lg-7 col-md-12 d-flex justify-content-center">
               <div class="table-responsive">
                 <table class="tables scroll-container" id="gameImages"></table>
                 <a href="https://casino.netbet.ro/batalia-streamerilor" class="w-100">
-                <button type="button" class="btn btn-NetBet-normal w-100 _mobile">
-                  vezi toate jocurile
-                </button>
-              </a>
+                  <button type="button" class="btn btn-NB-normal btn-shadow _mobile w-100">
+                    vezi toate jocurile
+                  </button>
+                </a>
               </div>
             </div>
           </div>
           <div class="row mx-auto s2_providers">
-            <div class="cols">
+            <div class="col-10">
               <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" /></a>
             </div>
-            <div class="cols">
+            <div class="col-10">
               <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" /></a>
             </div>
 
-            <div class="cols">
+            <div class="col-10">
               <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" /></a>
             </div>
 
-            <div class="cols">
+            <div class="col-10">
               <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" /></a>
             </div>
+            <div class="col-10">
+              <a href="https://casino.netbet.ro/playson"><img src="./_providers/playson.png" /></a>
+            </div>
 
-            <div class="cols">
+            <div class="col-10">
               <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" /></a>
             </div>
           </div>
         </div>
         <div class="clouds-bottom">
-          <img src="./_bg/norisori2.png" alt="">
+          <img src="./_bg/norisori2.png" alt="" />
         </div>
       </div>
       <div class="section _s3 py-5 d-flex">
@@ -290,13 +328,16 @@
       </div>
       <div class="section _s4">
         <div class="clouds-bottom">
-          <img src="./_bg/norisori2.png" alt="">
+          <img src="./_bg/norisori2.png" alt="" />
         </div>
         <div class="container container-section section_four w-100 py-4">
           <div class="col text-center position-relative flex-column">
             <h2 class="text-center">TERMENI SI CONDITII</h2>
-            <h4 class="text-center text my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut!</h4>
-            <!-- <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">
+            <h4 class="text-center text my-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
+              aut!
+            </h4>
+            <!-- <button id="toggleButton" class="toggleButton btn-NB-large z-3">
               Termeni și Condiții
             </button> -->
 
@@ -304,47 +345,48 @@
               <p><b>Cine este eligibil?</b></p>
               <ul>
                 <li>
-                  „Bătălia Streamerilor” este o campanie realizată de NetBet și se adresează
-                  exclusiv jucătorilor noi din România care se înregistrează pe NetBet Cazino
-                  și pariază cu bani reali la sloturile din platforma de cazino.
+                  „Bătălia Streamerilor” este o campanie realizată de NetBet
+                  și se adresează exclusiv jucătorilor noi din România care se
+                  înregistrează pe NetBet Cazino și pariază cu bani reali la
+                  sloturile din platforma de cazino.
                 </li>
                 <li>
-                  Promoția se desfășoară în perioada 01.10.2023, ora 00:00 EEST – 30.10.2023,
-                  ora 23:59 EET. Ne rezervăm dreptul de a retrage disponibilitatea ofertei în
-                  orice moment.
+                  Promoția se desfășoară în perioada 01.10.2023, ora 00:00
+                  EEST – 30.10.2023, ora 23:59 EET. Ne rezervăm dreptul de a
+                  retrage disponibilitatea ofertei în orice moment.
                 </li>
                 <li>
-                  <b
-                    ><span style="color: #fe7332"
-                      >Oferta este limitată la o singură utilizare per adresă
-                      domiciliu/calculator/adresă IP.</span
-                    ></b
-                  >
+                  <b><span style="color: #fe7332">Oferta este limitată la o singură utilizare per adresă
+                      domiciliu/calculator/adresă IP.</span></b>
                 </li>
               </ul>
-              
+
               <p><b>Cum funcționează?</b></p>
               <ul>
                 <li>
-                  Jucătorii pot participa dacă accesează link-ul campaniei și apasă butonul de
-                  înscriere afișat pe ecranul principal al campaniei.
+                  Jucătorii pot participa dacă accesează link-ul campaniei și
+                  apasă butonul de înscriere afișat pe ecranul principal al
+                  campaniei.
                 </li>
                 <li>
-                  Campania împarte concurenții în două echipe: streameri și jucători.
-                  Jucătorii înscriși trebuie să acumuleze puncte în clasament jucând orice
-                  slot din colecția NetBet Cazino, cu excepția: Bugs Party, Vikings Fortune:
-                  Hold and Win, Goldfish, Deal or No Deal International, Brilliant Gems,
-                  Aviator, Rome: The Golden Age, The Magic Cauldron - Enchanted Brew, Fortune
-                  Finder with Holly, jocurilor bingo și curselor virtuale. De asemenea, nu
-                  contribuie la acumularea punctelor sumele depuse și mizate pe platformele
+                  Campania împarte concurenții în două echipe: streameri și
+                  jucători. Jucătorii înscriși trebuie să acumuleze puncte în
+                  clasament jucând orice slot din colecția NetBet Cazino, cu
+                  excepția: Bugs Party, Vikings Fortune: Hold and Win,
+                  Goldfish, Deal or No Deal International, Brilliant Gems,
+                  Aviator, Rome: The Golden Age, The Magic Cauldron -
+                  Enchanted Brew, Fortune Finder with Holly, jocurilor bingo
+                  și curselor virtuale. De asemenea, nu contribuie la
+                  acumularea punctelor sumele depuse și mizate pe platformele
                   NetBet Sport, NetBet Poker și NetBet Loto.
                 </li>
                 <li>
-                  Pentru a urca în clasament, jucătorii trebuie să depună și să joace cu bani
-                  reali la sloturile din colecția NetBet. Toate sloturile (cu excepția celor
-                  enumerate mai sus) contribuie la acumularea punctelor, dar dacă jucătorii
-                  aleg să parieze pe jocurile furnizorilor parteneri ai campaniei, punctele
-                  acumulate de aceștia vor fi duble.
+                  Pentru a urca în clasament, jucătorii trebuie să depună și
+                  să joace cu bani reali la sloturile din colecția NetBet.
+                  Toate sloturile (cu excepția celor enumerate mai sus)
+                  contribuie la acumularea punctelor, dar dacă jucătorii aleg
+                  să parieze pe jocurile furnizorilor parteneri ai campaniei,
+                  punctele acumulate de aceștia vor fi duble.
                 </li>
                 <li>Furnizorii parteneri ai campaniei sunt:</li>
                 <ul>
@@ -356,51 +398,63 @@
                   <li>Playson</li>
                 </ul>
                 <li>
-                  Orice miză plasată va contribui la scorul total al unui jucător. Scorul va fi
-                  afișat în clasament.
+                  Orice miză plasată va contribui la scorul total al unui
+                  jucător. Scorul va fi afișat în clasament.
                 </li>
                 <li>
-                  Scorul total este calculat prin adunarea punctelor obținute în timpul tuturor
-                  rundelor jucate la orice slot din casino, în timpul perioadei promoționale.
+                  Scorul total este calculat prin adunarea punctelor obținute
+                  în timpul tuturor rundelor jucate la orice slot din casino,
+                  în timpul perioadei promoționale.
                 </li>
                 <li>
-                  Punctele turneului se calculează după cum urmează: 1 RON CASH mizat la orice
-                  slot din cazino = 1 punct în clasament. În cazul jocurilor oferite de
-                  furnizorii parteneri, calculul este următorul: 1 RON CASH mizat la orice slot
-                  din cazino = 2 puncte în clasament.
+                  Punctele turneului se calculează după cum urmează: 1 RON
+                  CASH mizat la orice slot din cazino = 1 punct în clasament.
+                  În cazul jocurilor oferite de furnizorii parteneri, calculul
+                  este următorul: 1 RON CASH mizat la orice slot din cazino =
+                  2 puncte în clasament.
                 </li>
                 <li>
-                  Atenție! Dacă alegi să îți anulezi participarea, nu te vei mai putea înscrie
-                  din nou.
+                  Atenție! Dacă alegi să îți anulezi participarea, nu te vei
+                  mai putea înscrie din nou.
                 </li>
-                
+
                 <li>
-                  Atunci când doi jucători au același punctaj, premiile din turneu nu vor fi
-                  împărțite. Departajarea va fi decisă în funcție de suma totală câștigată în
-                  timpul jocului eligibil, și, de asemenea, de numărul de runde jucate.
+                  Atunci când doi jucători au același punctaj, premiile din
+                  turneu nu vor fi împărțite. Departajarea va fi decisă în
+                  funcție de suma totală câștigată în timpul jocului eligibil,
+                  și, de asemenea, de numărul de runde jucate.
                 </li>
                 <li>
-                  Pentru acest turneu vor fi luate în considerare doar mizele cash (mizele din
-                  bani bonus sunt excluse).
+                  Pentru acest turneu vor fi luate în considerare doar mizele
+                  cash (mizele din bani bonus sunt excluse).
                 </li>
               </ul>
-              
-              
+
               <p><b>Ce pot câștiga?</b></p>
               <ul>
                 <li>
-                  La finalul perioadei promoționale toți jucătorii vor fi premiați. Printre
-                  premiile oferite în cadrul acestei campanii se numără bani reali, Runde
-                  Gratuite și pachete cadou.
+                  La finalul perioadei promoționale toți jucătorii vor fi
+                  premiați. Printre premiile oferite în cadrul acestei
+                  campanii se numără bani reali, Runde Gratuite și pachete
+                  cadou.
                 </li>
-                <li>Valoarea totală a premiilor cash este de 20,000 de RON.</li>
-                <li>Valoarea minimă a Rundelor Gratuite este de 15,000 de rotiri.</li>
                 <li>
-                  Primii 200 de concurenți vor primi premii cash 💰, pachete cadou 🎁din
-                  partea Furnizorilor Parteneri si Runde Gratuite 🎰
+                  Valoarea totală a premiilor cash este de 20,000 de RON.
                 </li>
-                <li>Distribuția premiilor poate fi vizualizată în tabelul de mai jos:</li>
-               <br>
+                <li>
+                  Valoarea minimă a Rundelor Gratuite este de 15,000 de
+                  rotiri.
+                </li>
+                <li>
+                  Primii 200 de concurenți vor primi premii cash 💰, pachete
+                  cadou 🎁din partea Furnizorilor Parteneri si Runde Gratuite
+                  🎰
+                </li>
+                <li>
+                  Distribuția premiilor poate fi vizualizată în tabelul de mai
+                  jos:
+                </li>
+                <br />
                 <table class="tableNetBet">
                   <thead>
                     <tr>
@@ -472,155 +526,168 @@
                   </tbody>
                 </table>
               </ul>
-              
+
               <p><b>Care sunt condițiile premiilor?</b></p>
-              
+
               <ul>
-                
-                <li style="font-weight: bold;" >Premii cash:</li>
-                  <ul style="list-style: none;">
-                    <li>
-                      Premiile în bani reali vor fi acordate jucătorilor în baza scorului final
-                      afișat în clasament la încheierea turneului.
-                    </li>
-                    <li>
-                      Premiile vor fi creditate în conturile jucătorilor NetBet în termen de 72h (3 zile lucrătoare) de la încheierea promoției ca sume cash. Acestea nu
-                      sunt supuse niciunei condiții de rulaj și vor putea fi retrase în orice
-                      moment.
-                    </li>
-                  </ul>
-              
+                <li style="font-weight: bold">Premii cash:</li>
+                <ul style="list-style: none">
+                  <li>
+                    Premiile în bani reali vor fi acordate jucătorilor în baza
+                    scorului final afișat în clasament la încheierea
+                    turneului.
+                  </li>
+                  <li>
+                    Premiile vor fi creditate în conturile jucătorilor NetBet
+                    în termen de 72h (3 zile lucrătoare) de la încheierea
+                    promoției ca sume cash. Acestea nu sunt supuse niciunei
+                    condiții de rulaj și vor putea fi retrase în orice moment.
+                  </li>
+                </ul>
+
                 <li style="font-weight: bold">Pachete cadou:</li>
-              <ul style="list-style: none;">
-                <li>
-                  Pachetele cadou sunt oferite primilor 200 de jucători din clasament de către
-                  furnizorii parteneri ai campaniei, în funcție de locul ocupat în clasament.
-                </li>
-                <li>
-                  Pachetele cadou vor fi acordate jucătorilor după finalizarea campaniei (după
-                  10 zile de la finalizare) și vor fi contactați de un reprezentant NetBet
-                  pentru a oferi datele de contact și adresa de livrare.
-                </li>
-              </ul >
+                <ul style="list-style: none">
+                  <li>
+                    Pachetele cadou sunt oferite primilor 200 de jucători din
+                    clasament de către furnizorii parteneri ai campaniei, în
+                    funcție de locul ocupat în clasament.
+                  </li>
+                  <li>
+                    Pachetele cadou vor fi acordate jucătorilor după
+                    finalizarea campaniei (după 10 zile de la finalizare) și
+                    vor fi contactați de un reprezentant NetBet pentru a oferi
+                    datele de contact și adresa de livrare.
+                  </li>
+                </ul>
                 <li style="font-weight: bold">Runde Gratuite:</li>
-                <ul style="list-style: none;">
-                <li>
-                  Orice jucător care a obținut minimum 50 de puncte în clasament va primi
-                  garantat 77 de Runde Gratuite care vor putea fi folosite la slotul
-                  <b>Zeus vs. Hades</b> de la Pragmatic Play (atât pe desktop, cât și pe
-                  versiunea mobilă, dacă aceasta este disponibilă), la valoarea minimă a unei
-                  fise.
-                </li>
-                <li>
-                  Jucătorii clasați în primele 200 de locuri în clasament, vor primi, după
-                  finalizarea campaniei, Runde Gratuite la jocurile unuia dintre furnizorii
-                  parteneri. În acest caz, jucătorii vor beneficia de premiu la toate jocurile
-                  ce provin de la unul din cei 6 furnizori.
-                </li>
-                <li>
-                  Rundele Gratuite vor fi creditate instant în maxim 72 (3 zile lucrătoare) în
-                  contul jucătorilor și sunt active 3 zile de la momentul creditării.
-                </li>
-                <li>
-                  Câștigurile obținute în urma rulajului rundelor gratuite vor fi creditate în
-                  balanța jucătorilor sub formă de bonus de îndată ce toate rundele acordate
-                  au fost epuizate.
-                </li>
-                <li>
-                  Bonusul este supus unei condiții de mizare de 40x (playthrough 40x) înainte
-                  ca balanța bonus să fie convertită în fonduri cash. Orice cerere de
-                  retragere efectuată înainte de îndeplinirea condițiilor de mizare va rezulta
-                  în pierderea automată a tuturor sumelor bonus și a câștigurilor în așteptare
-                  derivate din acestea.
-                </li>
-                <li>
-                  Bonusul are valabilitate 7 zile de la data emiterii, cu excepția cazului în
-                  care se specifică altfel. La finalul acestei perioade, toate bonusurile
-                  neutilizate, bonusurile ale căror condiții de mizare nu au fost îndeplinite
-                  și câștigurile în așteptare derivate din acestea vor fi deduse automat din
-                  contul jucătorului.
-                </li>
+                <ul style="list-style: none">
+                  <li>
+                    Orice jucător care a obținut minimum 50 de puncte în
+                    clasament va primi garantat 77 de Runde Gratuite care vor
+                    putea fi folosite la slotul
+                    <b>Zeus vs. Hades</b> de la Pragmatic Play (atât pe
+                    desktop, cât și pe versiunea mobilă, dacă aceasta este
+                    disponibilă), la valoarea minimă a unei fise.
+                  </li>
+                  <li>
+                    Jucătorii clasați în primele 200 de locuri în clasament,
+                    vor primi, după finalizarea campaniei, Runde Gratuite la
+                    jocurile unuia dintre furnizorii parteneri. În acest caz,
+                    jucătorii vor beneficia de premiu la toate jocurile ce
+                    provin de la unul din cei 6 furnizori.
+                  </li>
+                  <li>
+                    Rundele Gratuite vor fi creditate instant în maxim 72 (3
+                    zile lucrătoare) în contul jucătorilor și sunt active 3
+                    zile de la momentul creditării.
+                  </li>
+                  <li>
+                    Câștigurile obținute în urma rulajului rundelor gratuite
+                    vor fi creditate în balanța jucătorilor sub formă de bonus
+                    de îndată ce toate rundele acordate au fost epuizate.
+                  </li>
+                  <li>
+                    Bonusul este supus unei condiții de mizare de 40x
+                    (playthrough 40x) înainte ca balanța bonus să fie
+                    convertită în fonduri cash. Orice cerere de retragere
+                    efectuată înainte de îndeplinirea condițiilor de mizare va
+                    rezulta în pierderea automată a tuturor sumelor bonus și a
+                    câștigurilor în așteptare derivate din acestea.
+                  </li>
+                  <li>
+                    Bonusul are valabilitate 7 zile de la data emiterii, cu
+                    excepția cazului în care se specifică altfel. La finalul
+                    acestei perioade, toate bonusurile neutilizate, bonusurile
+                    ale căror condiții de mizare nu au fost îndeplinite și
+                    câștigurile în așteptare derivate din acestea vor fi
+                    deduse automat din contul jucătorului.
+                  </li>
+                </ul>
               </ul>
-              </ul>
-              
+
               <p><b>Ce altceva trebuie să știi?</b></p>
               <ul>
-                <li>Această ofertă respectă <a href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions{$url_postfix|escape:"html"}" style="display:inline-block;">Termenii și Condițiile NetBet</a>.</li>
+                <li>Această ofertă respectă <a
+                    href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions{$url_postfix|escape:"
+                    html"}" style="display:inline-block;">Termenii și Condițiile NetBet</a>.</li>
                 <li>
-                  Streamerii nu sunt eligibili pentru a beneficia de premii, indiferent dacă
-                  vor avea cele mai multe puncte în clasament la finalul perioadei
-                  promoționale.
+                  Streamerii nu sunt eligibili pentru a beneficia de premii,
+                  indiferent dacă vor avea cele mai multe puncte în clasament
+                  la finalul perioadei promoționale.
                 </li>
                 <li>
-                  Ne rezervăm dreptul de a anula scorul cumulat sau de a nu credita premiul în
-                  cazul în care scorul cumulat sau parte din acesta a fost obținut în urma
-                  unei erori tehnice sau umane (inclusiv câștiguri înregistrate greșit în
-                  timpul jocului).
+                  Ne rezervăm dreptul de a anula scorul cumulat sau de a nu
+                  credita premiul în cazul în care scorul cumulat sau parte
+                  din acesta a fost obținut în urma unei erori tehnice sau
+                  umane (inclusiv câștiguri înregistrate greșit în timpul
+                  jocului).
                 </li>
                 <li>
-                  NetBet își rezervă dreptul de a exclude jucătorii care participă la această
-                  campanie cu conturi multiple de utilizator. În cazul în care avem motive să
-                  credem că un cont sau un grup de conturi operează sistematic, de exemplu,
-                  folosind tehnici de pariere specifice sau pariuri în grup, atunci NetBet își
-                  rezervă dreptul de a suspenda sau de a închide permanent toate conturile. În
-                  aceste circumstanțe, conturile vor fi excluse automat de la participarea la
-                  promoții, chiar dacă au început deja procesul de depunere sau de pariere.
+                  NetBet își rezervă dreptul de a exclude jucătorii care
+                  participă la această campanie cu conturi multiple de
+                  utilizator. În cazul în care avem motive să credem că un
+                  cont sau un grup de conturi operează sistematic, de exemplu,
+                  folosind tehnici de pariere specifice sau pariuri în grup,
+                  atunci NetBet își rezervă dreptul de a suspenda sau de a
+                  închide permanent toate conturile. În aceste circumstanțe,
+                  conturile vor fi excluse automat de la participarea la
+                  promoții, chiar dacă au început deja procesul de depunere
+                  sau de pariere.
                 </li>
-              
+
                 <li>
-                  NetBet își rezervă dreptul de a anula sau a modifica condițiile acestei
-                  promoții fără notificare prealabilă.
-                </li>
-                <li>
-                  NetBet își rezervă dreptul de a descalifica jucătorii în caz de coluziune,
-                  joc incorect sau în cazul în care avem motive să credem că jucătorii au
-                  abuzat de promoție. În acest caz, orice câștig rezultat în urma acestei
-                  promoții va fi anulat.
+                  NetBet își rezervă dreptul de a anula sau a modifica
+                  condițiile acestei promoții fără notificare prealabilă.
                 </li>
                 <li>
-                  Pentru a juca la NetBet, este necesar să ai peste 18 ani și să nu ai
-                  interdicție de a participa la jocuri de noroc din orice motiv.
+                  NetBet își rezervă dreptul de a descalifica jucătorii în caz
+                  de coluziune, joc incorect sau în cazul în care avem motive
+                  să credem că jucătorii au abuzat de promoție. În acest caz,
+                  orice câștig rezultat în urma acestei promoții va fi anulat.
+                </li>
+                <li>
+                  Pentru a juca la NetBet, este necesar să ai peste 18 ani și
+                  să nu ai interdicție de a participa la jocuri de noroc din
+                  orice motiv.
                 </li>
               </ul>
               <br />
               <hr />
-              
+
               <style>
                 table.tableNetBet {
                   width: 100%;
                   text-align: center;
                   border-collapse: collapse;
                 }
+
                 table.tableNetBet td,
                 table.tableNetBet th {
                   border: 1px solid #000000;
                   padding: 5px 4px;
                 }
+
                 table.tableNetBet tbody td {
                   font-size: 14px;
                 }
+
                 table.tableNetBet thead {
                   background: #cfcfcf;
-                  background: -moz-linear-gradient(
-                    top,
-                    #dbdbdb 0%,
-                    #d3d3d3 66%,
-                    #cfcfcf 100%
-                  );
-                  background: -webkit-linear-gradient(
-                    top,
-                    #dbdbdb 0%,
-                    #d3d3d3 66%,
-                    #cfcfcf 100%
-                  );
-                  background: linear-gradient(
-                    to bottom,
-                    #dbdbdb 0%,
-                    #d3d3d3 66%,
-                    #cfcfcf 100%
-                  );
+                  background: -moz-linear-gradient(top,
+                      #dbdbdb 0%,
+                      #d3d3d3 66%,
+                      #cfcfcf 100%);
+                  background: -webkit-linear-gradient(top,
+                      #dbdbdb 0%,
+                      #d3d3d3 66%,
+                      #cfcfcf 100%);
+                  background: linear-gradient(to bottom,
+                      #dbdbdb 0%,
+                      #d3d3d3 66%,
+                      #cfcfcf 100%);
                   border-bottom: 3px solid #000000;
                 }
+
                 table.tableNetBet thead th {
                   font-size: 15px;
                   font-weight: bold;
@@ -629,7 +696,7 @@
                   background: var(--NetBet-blue);
                 }
               </style>
-              
+
               <br />
               <hr />
             </div>
@@ -638,7 +705,6 @@
       </div>
     </div>
   </div>
-
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   <script src="./index.js"></script>

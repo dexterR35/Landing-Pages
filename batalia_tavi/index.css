@@ -129,7 +129,7 @@ h2 {
 .bgd,
 .spikes,
 .avatar-blue,
-.section._s1 .bgD ,
+.section._s1 .bgD,
 .card-custom {
   background-size: cover !important;
   background-position: center !important;
@@ -204,83 +204,27 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  overflow: hidden;
+  /* overflow: hidden; */
   z-index: 4;
 }
-.section_one .container-btn::after,
-.section_one .container-btn::before {
-  content: "";
-  position: absolute;
-  width: 150px;
-  transform: rotate(123deg) translateX(0%);
-  background-color: #ef0f0f;
-  mix-blend-mode: screen;
-  animation: anim-btn 3.5s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite
-    forwards;
-}
-.section_one .container-btn::after {
-  height: 10px;
-  left: 45px;
-}
-.section_one .container-btn::before {
-  height: 90px;
-  left: 65px;
-  z-index: 1;
-}
-
-@keyframes anim-btn {
-  from {
-    transform: translateX(-250%) rotate(123deg);
-  }
-  to {
-    transform: translateX(250%) rotate(123deg);
-  }
-}
-.section_one .container-btn {
-  z-index: 55;
-}
-
-.btn:hover {
-  background-color: var(--NetBet-orange-hover);
-  border-color: unset;
-  color: var(--bs-btn-hover-color);
-}
-.btn {
-  font-weight: bold !important;
-  color: var(--color-white);
-}
-.btn-primary {
-  filter: drop-shadow(10px 17px 10px rgba(0, 0, 0, 0.653));
-  padding: 1em 1.4em;
-  width: 250px;
-  font-size: 1.2em !important;
-  text-transform: uppercase;
-  font-weight: bold !important;
-  line-height: 1.4;
-  background: var(--NetBet-orange);
-  outline: none;
-  border: none;
-}
-
-.btn-NetBet-normal {
+.btn-NB-normal, .btn-NB-large {
   background-color: var(--NetBet-orange);
-  border: none !important;
   color: var(--color-white);
+  border: none !important;
+  outline: none !important;
   text-transform: uppercase;
-  padding: 0.5em 1em;
   font-weight: bold;
+  font-size: 1em;
+  border-radius:7px;
+}
+.btn-NB-normal {
+  padding: 0.5em 1em;
 }
 
-.btn-NetBet-large {
-  padding: 1em 1.4em;
+.btn-NB-large {
+  padding: 0.7em 1.2em;
   width: 250px;
-  font-size: 1.2em !important;
-  text-transform: uppercase;
-  font-weight: bold !important;
-  line-height: 1.4;
-  background: var(--NetBet-orange);
-  outline: none;
-  border: none;
+  font-size: 1.3em !important;
 }
 
 /*Buttons*/
@@ -667,6 +611,7 @@ a {
   height: 100%;
   width: 100%;
   max-height: 12vh;
+  object-fit: cover;
 }
 
 .section_two #gameImages {
@@ -677,12 +622,7 @@ a {
 }
 
 .section_two #gameImages {
-  grid-template-columns: repeat(7, 1fr);
-}
-@media (max-width: 1024px) {
-  .section_two #gameImages {
-    grid-template-columns: repeat(5, 1fr);
-  }
+  grid-template-columns: repeat(6, 1fr);
 }
 
 @media (max-width: 768px) {
@@ -695,16 +635,21 @@ a {
 }
 .section_two .title_s2 {
   position: relative;
-  color: var(--color-black);
+  color: var(--NetBet-orange) !important;
+  text-shadow: 1px 1px 1px black;
   top: 0px;
   width: 100%;
   left: 0;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .section_two .s2_providers {
-  gap: 35px;
+  gap: 5px;
   display: grid;
-  grid-template-columns: repeat(5, minmax(25vh, 0.5fr));
+  grid-template-columns: repeat(6, 1fr);
+  place-items: center;
 }
 
 @media (max-width: 768px) {
@@ -724,8 +669,7 @@ a {
   width: 100%;
   max-height: 12vh;
   object-fit: cover;
-
-  filter: drop-shadow(6px 6px 4px #3534);
+  filter: drop-shadow(5px 7px 5px #a7a7a7);
 }
 @media (max-width: 767px) {
   .section_two .s2_providers .col-2:nth-child(1),
@@ -1373,18 +1317,8 @@ div.dataTables_wrapper div.dataTables_paginate {
   position: relative;
 }
 
-
-
-
 /*end card modal*/
 /*end card modal*/
-
-
-
-
-
-
-
 
 @media (orientation: portrait) {
   .modal-body .card-wrapp {
@@ -1494,7 +1428,8 @@ div.dataTables_wrapper div.dataTables_paginate {
     height: 30%;
     width: 100%;
   }
-  .section_one .s-providers a div img,.section_one .s-providers_left div a img {
+  .section_one .s-providers a div img,
+  .section_one .s-providers_left div a img {
     transform: unset !important;
   }
   .section_one .s-providers a {
@@ -1522,7 +1457,6 @@ div.dataTables_wrapper div.dataTables_paginate {
     top: 100px;
     left: 37%;
   }
- 
 
   .section_one .s-providers .agaming {
     top: 100px;
@@ -1577,7 +1511,7 @@ div.dataTables_wrapper div.dataTables_paginate {
   .section_two .container-stuff {
     gap: 0;
   }
-  .section_two .btn-NetBet-normal._mobile {
+  .section_two .btn-NB-normal._mobile {
     margin: 0.8em 0;
   }
   .section_two #gameImages {

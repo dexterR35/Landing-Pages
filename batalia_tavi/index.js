@@ -127,9 +127,7 @@ $(document).ready(function () {
     ],
     gamesArray: [
       "4553-book-of-dead__6",
-      "9903-rich-wilde-and-the-tome-of-madness__4",
       "7152-legacy-of-egypt__3",
-      "21726-royal-coins-2-hold-and-win__2",
       "9903-rich-wilde-and-the-tome-of-madness__4",
       "7152-legacy-of-egypt__3",
       "21726-royal-coins-2-hold-and-win__2",
@@ -146,7 +144,6 @@ $(document).ready(function () {
       "25258-sugar-bonanza-deluxe__2",
       "14220-aztec-respin-remember-skywind-prov__2",
       "25884-toucan-wild__2",
-      "25258-sugar-bonanza-deluxe__2",
     ],
     backgroundImages: [
       'url("./_bg/bg_anna.jpg")',
@@ -479,7 +476,14 @@ $(document).ready(function () {
   //   //   table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
   //   // }
   // });
-
+  updateContent();
+  updateButton()
+  // Call the function again on window resize
+  $(window).resize(function () {
+    updateContent();
+    gameImagesContainer.empty(); // Clear the container
+    generateGames(objData); // Re-generate the games based on the new screen size
+  });
 });
 
 //   SWIPER FOR STREAMERS
@@ -521,12 +525,12 @@ swiperStr.el.addEventListener("mouseleave", function () {
 });
 
 
-function generateGames(streamerData) {
+function generateGames(allGames) {
   const gameImagesContainer = $("#gameImages");
   const isDesktop = window.innerWidth > 480;
-  const maxGamesToShow = isDesktop ? streamerData.length : 16;
+  const maxGamesToShow = isDesktop ? (allGames.length) : 12;
   // Loop through the games and display up to maxGamesToShow
-  streamerData.slice(0, maxGamesToShow).forEach((gameName) => {
+  allGames.slice(0, maxGamesToShow).forEach((gameName) => {
     const img = $("<img>")
       .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
       .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
@@ -538,12 +542,6 @@ function generateGames(streamerData) {
   });
 }
 
-// Add an event listener to re-run the function when the window is resized
-window.addEventListener('resize', function () {
-  gameImagesContainer.empty(); // Clear the container
-  generateGames(objData); // Re-generate the games based on the new screen size
-});
-
 //SET COOKIES
 
 // $("#setCookieButton").click(function () {
@@ -552,28 +550,36 @@ window.addEventListener('resize', function () {
 //   updateButton();
 // });
 
-function updateButton() {
+// function updateButton() {
+//   const cookieValue = getCookie("name");
+//   const inputName = $("#cookieInput").val();
+//   console.log(cookieValue);
+//   const actionButton = $("#actionButton");
+//   actionButton.attr("href", "test1.html");
+//   actionButton.attr("data-bs-toggle", "modal");
+//   actionButton.attr("data-bs-target", "#cardsModal");
+//   actionButton.text("Join Battles");
+//   if ((cookieValue === inputName) || cookieValue) {
+//     actionButton.attr("href", "test1.html");
+//     actionButton.attr("data-bs-toggle", "modal");
+//     actionButton.attr("data-bs-target", "#cardsModal");
+//     actionButton.text("Join Battles");
+//   } else {
+//     actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
+//     actionButton.attr("target", "blank");
+//     actionButton.text("Show Me Offer");
+//   }
+// }
 
-  // const cookieValue = getCookie("name");
-  // const inputName = $("#cookieInput").val();
-  // console.log(cookieValue);
-  const actionButton = $("#actionButton");
-  actionButton.attr("href", "test1.html");
-  actionButton.attr("data-bs-toggle", "modal");
-  actionButton.attr("data-bs-target", "#cardsModal");
-  actionButton.text("Join Battles");
-  // if ((cookieValue === inputName) || cookieValue) {
-  //   actionButton.attr("href", "test1.html");
-  //   actionButton.attr("data-bs-toggle", "modal");
-  //   actionButton.attr("data-bs-target", "#cardsModal");
-  //   actionButton.text("Join Battles");
-  // } else {
-  //   actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
-  //   actionButton.attr("target", "blank");
-  //   actionButton.text("Show Me Offer");
-  // }
+function updateContent() {
+  var screenWidth = $(window).width();
+  var netbetSpan = $('#changeWord');
+  if (screenWidth <= 480) {
+    netbetSpan.text('În partea de jos');
+  } else {
+    netbetSpan.text('În stânga');
+  }
 }
-updateButton()
 // function getCookie(nameCookie) {
 //   let value = "; " + document.cookie;
 //   let parts = value.split("; " + nameCookie + "=");
