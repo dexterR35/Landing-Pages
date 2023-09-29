@@ -34,8 +34,7 @@ if ($(window).width() < 1024) {
 
 $(document).ready(function () {
   const dataObject = {
-    streamers: [
-      {
+    streamers: [{
         name: "anna",
         points: randomPointsTest,
         vote: randomVoteTest,
@@ -185,12 +184,13 @@ $(document).ready(function () {
   });
 
   function generateCard(streamerData) {
-    const isVoted = getCookie('namevoted') === streamerCards.name;
+    // const isVoted = getCookie('namevoted') === streamerCards.name;
+    //${isVoted ? 'voted' : 'non-voted'}
     const cardHtml = `
           <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom ${isVoted ? 'voted' : 'non-voted'}" style="background:url(${streamerData.bgImg}")>
+              <div class="card card-custom " style="background:url(${streamerData.bgImg}")>
                   <div class="card-body text-center">
-                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
+                      <p class="card-text text top-left"">Voteaza-ma</p>
                       <p class="speech">${streamerData.points} Voturi</p>
                       <div class="card-image" style="background-image:url(${streamerData.avatarImg})"></div>
                       <h6 class="card-title text bottom-right">${streamerData.name}</h6>
@@ -198,24 +198,48 @@ $(document).ready(function () {
               </div>
           </div>
       `;
-    // Create a jQuery element from the cardHtml
-    const cardElement = $(cardHtml);
-    // Find the '.card-custom' element within the cardElement
-    const cardCustomElement = cardElement.find('.card-custom');
-    // Remove the 'non-voted' class from cardCustomElement
-    cardCustomElement.removeClass('non-voted');
-    // Add a click event handler to cardCustomElement
-    cardCustomElement.on('click', function () {
-      if (!cardCustomElement.hasClass('voted')) {
-        $('.card-custom:not(.voted)').removeClass('non-voted');
-        cardCustomElement.addClass('voted');
-        cardCustomElement.attr('data-voted', 'true');
-        if (cardCustomElement.hasClass('voted')) {
-          $('.card-custom:not(.voted)').addClass('non-voted');
-        }
-      }
+    const $cardElement = $(cardHtml);
+
+    $cardElement.click(function (e) {
+      $("#messageContainer").empty();
+      $("#messageContainer").show();
+      showMessage("doresti sa votezi cu", streamerData);
+      voteForStreamer($cardElement);
+      e.preventDefault();
     });
-    return cardElement;
+    // const cardCustomElement = cardElement.find('.card-custom');
+    // // Remove the 'non-voted' class from cardCustomElement
+    // cardCustomElement.removeClass('non-voted');
+    // // Add a click event handler to cardCustomElement
+    // cardCustomElement.on('click', function () {
+    //   if (!cardCustomElement.hasClass('voted')) {
+    //     $('.card-custom:not(.voted)').removeClass('non-voted');
+    //     cardCustomElement.addClass('voted');
+    //     cardCustomElement.attr('data-voted', 'true');
+    //     if (cardCustomElement.hasClass('voted')) {
+    //       $('.card-custom:not(.voted)').addClass('non-voted');
+    //     }
+    //   }
+    // });
+    return $cardElement;
+  }
+
+  function voteForStreamer($cardElement) {
+    // if (voted === true) {
+    //   alert("Nu puteți vota pentru acest utilizator.");
+    //   return;
+    // }
+    $("#yes-button").on("click", () => {
+      $("#messageContainer").hide();
+      $cardElement.addClass("voted");
+      $(".card-wrapp").not($cardElement).css("background", "yellow");
+      $($cardElement).css("background", "red");
+      const $voteElement = $cardElement.find(".streamerVote");
+      $voteElement.text("hello");
+    });
+    $("#no-button").on("click", () => {
+      $("#messageContainer").hide();
+    });
   }
 
   function generateStreamerTable(streamerData) {
@@ -280,6 +304,36 @@ $(document).ready(function () {
     });
   }
 
+
+  function showMessage(message, streamerData) {
+    console.log(message, "message");
+    const messageHtml = `
+<div class="card-message col-lg-3 col-md-8 col-sm-8">
+<div class="card">
+  <div class="card-header">
+   <div class="card-picture" style="background-image:url('${streamerData.avatarImg}')"></div>
+   
+   <h6 class="card-text _text-left">pozitie: #${streamerData.position}</h6>
+   <h5 class="card-title text-uppercase m-0">${streamerData.name}</h5>
+   <h6 class="card-text _text-right">voturi: ${streamerData.vote}</h6>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      ${message} ${streamerData.name}
+    </h4>
+    <div class="btn-wrapp d-flex justify-content-center gap-3 py-3">
+      <button type="button" id=yes-button class="btn btn-danger w-25">DA</button>
+      <button type="button" id=no-button class="btn btn-success w-25">NU</button>
+    </div>
+  </div>
+</div>
+</div>
+`;
+    return $("#messageContainer").append(messageHtml);
+  }
+
+
+
   generetaDataSlider();
   generateGames(gamesArray);
   populateTable(streamerCards);
@@ -314,7 +368,7 @@ $(document).ready(function () {
       {
         width: "10%",
         targets: 3,
-        className:"text-center"
+        className: "text-center"
       },
       {
         width: "10%",
@@ -370,8 +424,8 @@ $(document).ready(function () {
         targets: 4,
         visible: false,
       },
-      
-      
+
+
       // You can add more specific columnDefs for the "usersTable" here if needed
     ],
   };
@@ -468,7 +522,6 @@ swiperStr.el.addEventListener("mouseleave", function () {
 
 
 function generateGames(streamerData) {
-
   const gameImagesContainer = $("#gameImages");
   const isDesktop = window.innerWidth > 480;
   const maxGamesToShow = isDesktop ? streamerData.length : 16;
@@ -493,41 +546,46 @@ window.addEventListener('resize', function () {
 
 //SET COOKIES
 
-$("#setCookieButton").click(function () {
-  const name = $("#cookieInput").val();
-  document.cookie = `name=${name}`;
-  updateButton();
-});
+// $("#setCookieButton").click(function () {
+//   const name = $("#cookieInput").val();
+//   document.cookie = `name=${name}`;
+//   updateButton();
+// });
 
 function updateButton() {
-  const cookieValue = getCookie("name");
-  const inputName = $("#cookieInput").val();
-  console.log(cookieValue);
-  const actionButton = $("#actionButton");
-  if ((cookieValue === inputName) || cookieValue) {
-    actionButton.attr("href", "test1.html");
-    actionButton.attr("data-bs-toggle", "modal");
-    actionButton.attr("data-bs-target", "#myModal");
-    actionButton.text("Join Battles");
-  } else {
-    actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
-    actionButton.attr("target", "blank");
-    actionButton.text("Show Me Offer");
-  }
-}
 
-function getCookie(nameCookie) {
-  let value = "; " + document.cookie;
-  let parts = value.split("; " + nameCookie + "=");
-  if (parts.length === 2) {
-    return parts.pop().split(";").shift();
-  } else {
-    return null;
-  }
+  // const cookieValue = getCookie("name");
+  // const inputName = $("#cookieInput").val();
+  // console.log(cookieValue);
+  const actionButton = $("#actionButton");
+  actionButton.attr("href", "test1.html");
+  actionButton.attr("data-bs-toggle", "modal");
+  actionButton.attr("data-bs-target", "#cardsModal");
+  actionButton.text("Join Battles");
+  // if ((cookieValue === inputName) || cookieValue) {
+  //   actionButton.attr("href", "test1.html");
+  //   actionButton.attr("data-bs-toggle", "modal");
+  //   actionButton.attr("data-bs-target", "#cardsModal");
+  //   actionButton.text("Join Battles");
+  // } else {
+  //   actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
+  //   actionButton.attr("target", "blank");
+  //   actionButton.text("Show Me Offer");
+  // }
 }
+updateButton()
+// function getCookie(nameCookie) {
+//   let value = "; " + document.cookie;
+//   let parts = value.split("; " + nameCookie + "=");
+//   if (parts.length === 2) {
+//     return parts.pop().split(";").shift();
+//   } else {
+//     return null;
+//   }
+// }
 
 // La încărcarea paginii, actualizați textul butonului în funcție de cookie-ul existent
-updateButton();
+
 
 
 // VOTED CARDS 

@@ -129,6 +129,7 @@ h2 {
 .bgd,
 .spikes,
 .avatar-blue,
+.section._s1 .bgD ,
 .card-custom {
   background-size: cover !important;
   background-position: center !important;
@@ -395,7 +396,7 @@ a {
   width: 100%;
   height: 100%;
   position: relative;
-  bottom: -1em;
+  bottom: -1.4em;
   z-index: 2;
 }
 #dynamicCardBody .card-wrapp {
@@ -616,6 +617,7 @@ a {
 .section._s1 .bgD {
   background: var(--bg-s1);
   background-attachment: fixed;
+
   width: 100%;
   height: 100%;
   position: absolute;
@@ -1262,6 +1264,128 @@ div.dataTables_wrapper div.dataTables_paginate {
   font-size: 1rem;
 }
 
+/*card modal*/
+/*card modal*/
+/*card modal*/
+
+#messageContainer,
+.card-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#messageContainer {
+  display: none;
+
+  z-index: 150;
+}
+
+#messageContainer::after {
+  content: "";
+  background: rgba(0, 0, 0, 0.384);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+
+.card-message {
+  z-index: 2;
+  position: relative !important;
+}
+
+.card-message .card {
+  border-radius: 20px;
+  /* border: 1.7px solid black; */
+  overflow: hidden;
+}
+
+.card-message .card-header,
+.card-message .card-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-message .card-header {
+  height: 220px;
+  flex-direction: column;
+  justify-content: end;
+  gap: 7px;
+  border: none !important;
+  position: relative;
+}
+
+/* .card-message .card-body {
+  height: 150px;
+} */
+.card-message h4 {
+  text-transform: uppercase;
+}
+
+.card-message .card-picture {
+  background-color: #a6b8f1;
+  border: 2px solid #a5a5a5;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  border-radius: 100%;
+  box-shadow: 1px 1px 6px 2px #a6b8f1;
+  background-position: center 17px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.card-message .btn-wrapp .w-25 {
+  width: 40% !important;
+  height: 43px !important;
+  font-weight: bold;
+  background-color: orangered;
+  border: none;
+  outline: none;
+}
+
+.card-message .card-header .card-text {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #626262;
+  margin: 0;
+}
+
+.card-message .card-header ._text-left {
+  border: solid 2px #4d4d4d;
+  margin: 0;
+  padding: 6px 17px;
+  text-transform: capitalize;
+  font-size: 1.2em;
+  left: -6px;
+  top: -3px;
+  transform: skew(-15deg);
+  font-weight: 800;
+  border-radius: 3px;
+}
+
+.card-message .card-header ._text-right {
+  position: relative;
+}
+
+
+
+
+/*end card modal*/
+/*end card modal*/
+
+
+
+
+
+
+
+
 @media (orientation: portrait) {
   .modal-body .card-wrapp {
     width: 45% !important;
@@ -1281,12 +1405,9 @@ div.dataTables_wrapper div.dataTables_paginate {
   }
   .modal-body .card-custom .text {
     padding: 2px 10px;
-    font-size: 0.8em;
+    font-size: 1.1em;
   }
-  .card-custom .text {
-    font-size: 0.9em;
-    padding: 1px 5px 2px 10px;
-  }
+
   .card-custom .speech {
     font-size: 0.8em;
     padding: 0.5em 0.5em;

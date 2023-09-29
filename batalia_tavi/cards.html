@@ -405,7 +405,6 @@
             const $card = $(cardHtml);
             $card.click(function (e) {
               $("#messageContainer").empty();
-              // fadeOutAndHide("#messageContainer", 500);
               showMessage("doresti sa votezi cu", streamerData);
               voteForStreamer($card);
               e.preventDefault();

@@ -56,20 +56,27 @@
     <input type="text" id="cookieInput" placeholder="Introduceți numele">
     <button id="setCookieButton">Set Cookie</button>
   </header>
+  
   <div class="wrapper">
+
     <div class="container-modal">
-      <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-xl">
+      
+      <div class="modal fade" id="cardsModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+          
           <!-- Use modal-xl for larger modal -->
           <div class="modal-content pos">
+
             <!-- Modal Header -->
             <div class="modal-header">
+              <div id="messageContainer" class="container-fluid w-100 mx-auto h-100"></div>
               <h4 class="modal-title">
                 Provoacă streamerul favorit pentru chalenge-ul de azi!
               </h4>
               <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeModal"></button>
             </div>
             <div class="modal-body px-4">
+              
               <div class="subTitle text-center">
                 Voturile pentru acest challenge se vor reseta la data de
                 12.10.2023
@@ -82,6 +89,7 @@
         </div>
       </div>
     </div>
+    
     <div id="fullpage" class="overflow-hidden">
       <div class="section _s1">
         <div class="bgD" id="background_p"></div>
