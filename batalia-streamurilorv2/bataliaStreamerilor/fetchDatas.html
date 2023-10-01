@@ -14,232 +14,287 @@
 
   <body>
     <body>
-      <div id="username">
-
-      </div>
-      <div id="optin">
-
-      </div>
-      <div id="voted">
-        
-      </div>
+      <div id="data-container"></div>
+      <div id="username"></div>
+      <div id="optin"></div>
+      <div id="voted"></div>
       <table id="rankingTable_streamers" border="1">
-          <thead>
-              <tr>
-                <th>#</th>
-                <th>Streamer</th>
-                <th>Voturi</th>
-                <th>Puncte</th>
-                <th>Challenge</th>
-              </tr>
-          </thead>
-          <tbody>
-              <!-- Table rows will be populated here -->
-          </tbody>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Streamer</th>
+            <th>Voturi</th>
+            <th>Puncte</th>
+            <th>Challenge</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table rows will be populated here -->
+        </tbody>
       </table>
       <table id="rankingTable_users" border="1">
         <thead>
-            <tr>
-                <th>Ranking</th>
-                <th>Username</th>
-                <th>Points</th>
-            </tr>
+          <tr>
+            <th>Ranking</th>
+            <th>Username</th>
+            <th>Points</th>
+          </tr>
         </thead>
         <tbody>
-            <!-- Table rows will be populated here -->
+          <!-- Table rows will be populated here -->
         </tbody>
-    </table>  
+      </table>
     </body>
     <script>
+      // function getCookie(name) {
+      //   var nameEQ = name + "=";
+      //   var ca = document.cookie.split(';');
+      //   for (var i = 0; i < ca.length; i++) {
+      //     var c = ca[i];
+      //     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      //     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      //   }
+      //   return null;
+      // }
 
+      // var userToCheck = getCookie("netbet_login");
 
-    // function getCookie(name) {
-    //   var nameEQ = name + "=";
-    //   var ca = document.cookie.split(';');
-    //   for (var i = 0; i < ca.length; i++) {
-    //     var c = ca[i];
-    //     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-    //     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    //   }
-    //   return null;
-    // }
+      //     fetchData("ion")
+      //   userToCheck = "ion"; // DE LINKUIT AICI CHECKCOOKIE (VEZI MAI SUS)
+      //   userToVote = null;
 
-    // var userToCheck = getCookie("netbet_login");
+      // Define the API endpoint
+      const userToCheck = "marian";
+      const userToVote = null;
+      //   const apiEndpoint_check_user =
+      //     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
+      //     userToCheck;
+      //   console.log(apiEndpoint_check_user, "ch");
+      const apiEndpoint_clasament_streamers =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
+      const apiEndpoint_vote =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" +
+        userToCheck +
+        "&vote=" +
+        userToVote;
+      const apiEndpoint_optin_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" +
+        userToCheck;
+      const apiEndpoint_optout_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
+        userToCheck;
 
+      // Define the API endpoint
+      const apiEndpoint_check_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
+        userToCheck;
 
-userToCheck = "Annuskaa" // DE LINKUIT AICI CHECKCOOKIE (VEZI MAI SUS)
-userToVote = null;
+      // Fetch data from the API endpoint
+      fetch(apiEndpoint_check_user)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`Network response was not ok (${response.status})`);
+          }
+          return response.json(); // Assuming the response is JSON
+        })
+        .then((data) => {
+            
+            
+          // Handle the data from the API response
+          console.log("API response:", data);
+       
+          console.log("API response:", data[0]);
+          console.log("API response:", data[1]);
+          console.log("API response:", data[2]);
 
-// Define the API endpoint
-
-const apiEndpoint_check_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" + userToCheck;
-const apiEndpoint_clasament_streamers = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
-const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
-const apiEndpoint_optin_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" + userToCheck;
-const apiEndpoint_optout_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" + userToCheck; 
-
-
-
-
-// Make a GET request to the API for CHECK USER
-fetch(apiEndpoint_check_user)
-    .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON from the response
-    })
-    .then(data => {
-        // Initialize variables to hold optin, voted, and clasament data
-        let optin = null;
-        let voted = "Not available"; // Default value if "voted" is not in the response
-        let clasament = null;
-
-        // Iterate over the array and assign values to optin, voted, and clasament
-        data.forEach(item => {
-            if ('optin' in item) {
-                optin = item.optin === "true"; // Convert string to boolean
-            } else if ('voted' in item) {
-                voted = item.voted; // Assign the string value to voted
-            } else if ('clasament' in item) {
-                clasament = item.clasament;
-            }
+          // You can perform further actions based on the data here
+          if (userToVote !== null) {
+            // Perform voting logic based on userToVote
+          }
+        })
+        .catch((error) => {
+          // Handle any errors that occurred during the fetch
+          console.error("Fetch error:", error);
         });
+      // async function optOut() {
+      // Make a GET request to the API for CHECK USER
+      // fetch(apiEndpoint_check_user)
+      //     .then(response => {
+      //         // Check if the request was successful
+      //         if (!response.ok) {
+      //             throw new Error(`HTTP error! Status: ${response.status}`);
+      //         }
+      //         return response.json(); // Parse the JSON from the response
+      //     })
+      //     .then(data => {
+      //         // Initialize variables to hold optin, voted, and clasament data
+      //         let optin = null;
+      //         let voted = "Not available"; // Default value if "voted" is not in the response
+      //         let clasament = null;
 
-        // Check if optin and clasament have been assigned values
-        if (optin !== null && clasament !== null) {
-            // Log the optin and voted values
-            console.log("Optin:", optin);
-            console.log("Voted:", voted);
+      //         // Iterate over the array and assign values to optin, voted, and clasament
+      //         data.forEach(item => {
+      //             if ('optin' in item) {
+      //                 optin = item.optin === "true"; // Convert string to boolean
+      //             } else if ('voted' in item) {
+      //                 voted = item.voted; // Assign the string value to voted
+      //             } else if ('clasament' in item) {
+      //                 clasament = item.clasament;
+      //             }
+      //         });
 
-            document.querySelector("#username").innerHTML = userToCheck;
-            document.querySelector("#optin").innerHTML = optin + `<button onclick="">opt out</button> <button onclick="">opt in</button>`;
-            document.querySelector("#voted").innerHTML = voted;
+      //         // Check if optin and clasament have been assigned values
+      //         if (optin !== null && clasament !== null) {
+      //             // Log the optin and voted values
+      //             console.log("Optin:", optin);
+      //             console.log("Voted:", voted);
 
-            // Map through the clasament array
-            clasament.map((item) => {
-                // Check if the expected properties exist in the clasament item
-                if ('ranking' in item && 'username' in item && 'points' in item) {
-                    // Log or utilize the ranking, username, and points values
-                    console.log(`Ranking: ${item.ranking}, Username: ${item.username}, Points: ${item.points}`);
+      //             document.querySelector("#username").innerHTML = userToCheck;
+      //             document.querySelector("#optin").innerHTML = optin + `<button onclick="">opt out</button> <button onclick="">opt in</button>`;
+      //             document.querySelector("#voted").innerHTML = voted;
 
-                } else {
-                    console.error("Invalid clasament item structure:", item);
-                }
-            });
-        } else {
-            console.error("Invalid response structure:", data);
-        }
-    
-    })
-    .catch(error => {
-        // Log any errors that occurred during the fetch
-        console.error("Fetch error:", error);
-    });
+      //             // Map through the clasament array
+      //             clasament.map((item) => {
+      //                 // Check if the expected properties exist in the clasament item
+      //                 if ('ranking' in item && 'username' in item && 'points' in item) {
+      //                     // Log or utilize the ranking, username, and points values
+      //                     console.log(`Ranking: ${item.ranking}, Username: ${item.username}, Points: ${item.points}`);
 
+      //                 } else {
+      //                     console.error("Invalid clasament item structure:", item);
+      //                 }
+      //             });
+      //         } else {
+      //             console.error("Invalid response structure:", data);
+      //         }
 
-// Make a GET request to the API for CLASAMENT STREAMERS
-fetch(apiEndpoint_clasament_streamers)
-    .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON from the response
-    })
-    .then(data => {
-        // Initialize variables to hold optin, voted, and clasament data
-        let ranking = null;
-        let username = null; // Default value if "voted" is not in the response
-        let points = null;
-        let status = null;
-        let votes = null;
-        const tableBody_streamers = document.querySelector("#rankingTable_streamers tbody");
-        
-        data.forEach(item => {
-          ranking = item.ranking;
-          username = item.username;
-          points = item.points;
-          status = item.status;
-          votes = item.votes;
-          
-          const row = document.createElement("tr");
-          // Create cells for ranking, username, and points and append them to the row
-          row.innerHTML = `
-          <td>${item.ranking}</td>
-          <td>${item.username}<button onclick="">Vote for challenge</button></td>
-          <td>${item.votes}</td>
-          <td>${item.points}</td>
-          <td>${item.status}</td>
-          `;  
-          tableBody_streamers.appendChild(row);
-        });
+      //     })
+      //     .catch(error => {
+      //         // Log any errors that occurred during the fetch
+      //         console.error("Fetch error:", error);
+      //     });
 
-    
+      // // Make a GET request to the API for CLASAMENT STREAMERS
+      // fetch(apiEndpoint_clasament_streamers)
+      //     .then(response => {
+      //         // Check if the request was successful
+      //         if (!response.ok) {
+      //             throw new Error(`HTTP error! Status: ${response.status}`);
+      //         }
+      //         return response.json(); // Parse the JSON from the response
+      //     })
+      //     .then(data => {
+      //         // Initialize variables to hold optin, voted, and clasament data
+      //         let ranking = null;
+      //         let username = null; // Default value if "voted" is not in the response
+      //         let points = null;
+      //         let status = null;
+      //         let votes = null;
+      //         const tableBody_streamers = document.querySelector("#rankingTable_streamers tbody");
 
-    })
-    .catch(error => {
-        // Log any errors that occurred during the fetch
-        console.error("Fetch error:", error);
-    });
+      //         data.forEach(item => {
+      //           ranking = item.ranking;
+      //           username = item.username;
+      //           points = item.points;
+      //           status = item.status;
+      //           votes = item.votes;
 
-    
+      //           const row = document.createElement("tr");
+      //           // Create cells for ranking, username, and points and append them to the row
+      //           row.innerHTML = `
+      //           <td>${item.ranking}</td>
+      //           <td>${item.username}<button onclick="">Vote for challenge</button></td>
+      //           <td>${item.votes}</td>
+      //           <td>${item.points}</td>
+      //           <td>${item.status}</td>
+      //           `;
+      //           tableBody_streamers.appendChild(row);
+      //         });
 
-    async function optOut() {
-        console.log("optout")
-        await fetch(apiEndpoint_optout_user)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json(); // Parse the JSON from the response
-            })
-            .catch(error => {
-                // Log any errors that occurred during the fetch
-                console.error("Fetch error:", error);
-            });
-    }
+      //     })
+      //     .catch(error => {
+      //         // Log any errors that occurred during the fetch
+      //         console.error("Fetch error:", error);
+      //     });
+      // Function to fetch and display data
+      //   function fetchData(username) {
+      //     console.log(username, "fasf");
+      //     const url = `https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=${username}`;
 
-    async function optIn() {
-        console.log("optin")
-        await fetch(apiEndpoint_optin_user)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json(); // Parse the JSON from the response
-            })
-            .catch(error => {
-                // Log any errors that occurred during the fetch
-                console.error("Fetch error:", error);
-            });
-    }    
+      //     return fetch(url).then((response) => {
+      //       if (!response.ok) {
+      //         throw new Error(`Network response was not ok: ${response.status}`);
+      //       }
+      //       return response.json();
+      //     });
+      //   }
 
-    async function voteStreamer(user){
-        userToVote = user;
-        console.log ("Votam pe " + userToVote)
+      //   function displayData(data) {
+      //     const dataContainer = document.getElementById("data-container");
+      //     dataContainer.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+      //   }
 
-        await fetch(apiEndpoint_vote)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json(); // Parse the JSON from the response
-            })
-            .catch(error => {
-                // Log any errors that occurred during the fetch
-                console.error("Fetch error:", error);
-            });
-    }
+      //   // // Usage
+      //   const username = "Annuskaa"; // Replace with the actual username
 
+      //   fetchData(username)
+      //     .then((data) => {
+      //       displayData(data);
+      //       console.log(data, "data");
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error fetching data:", error);
+      //     });
+      // Define the userToCheck and userToVote variables
 
+      //     console.log("optout")
+      //     await fetch(apiEndpoint_optout_user)
+      //         .then(response => {
+      //             // Check if the request was successful
+      //             if (!response.ok) {
+      //                 throw new Error(`HTTP error! Status: ${response.status}`);
+      //             }
+      //             return response.json(); // Parse the JSON from the response
+      //         })
+      //         .catch(error => {
+      //             // Log any errors that occurred during the fetch
+      //             console.error("Fetch error:", error);
+      //         });
+      // }
 
+      // async function optIn() {
+      //     console.log("optin")
+      //     await fetch(apiEndpoint_optin_user)
+      //         .then(response => {
+      //             // Check if the request was successful
+      //             if (!response.ok) {
+      //                 throw new Error(`HTTP error! Status: ${response.status}`);
+      //             }
+      //             return response.json(); // Parse the JSON from the response
+      //         })
+      //         .catch(error => {
+      //             // Log any errors that occurred during the fetch
+      //             console.error("Fetch error:", error);
+      //         });
+      // }
 
+      // async function voteStreamer(user){
+      //     userToVote = user;
+      //     console.log ("Votam pe " + userToVote)
 
+      //     await fetch(apiEndpoint_vote)
+      //         .then(response => {
+      //             // Check if the request was successful
+      //             if (!response.ok) {
+      //                 throw new Error(`HTTP error! Status: ${response.status}`);
+      //             }
+      //             return response.json(); // Parse the JSON from the response
+      //         })
+      //         .catch(error => {
+      //             // Log any errors that occurred during the fetch
+      //             console.error("Fetch error:", error);
+      //         });
+      // }
 
       // // populam tabelul cu streamerii
       // const tableBody_streamers = document.querySelector("#rankingTable_streamers tbody");
@@ -250,14 +305,14 @@ fetch(apiEndpoint_clasament_streamers)
       //   clasament.slice(0, 10).forEach(item => {
       //   // Create a new table row
       //   const row = document.createElement("tr");
-  
+
       //   // Create cells for ranking, username, and points and append them to the row
       //   row.innerHTML = `
       //     <td>${item.ranking}</td>
       //     <td>${item.username}</td>
       //     <td>${item.points}</td>
       // `;
-  
+
       //   // Append the row to the table body
       //   tableBody_streamers.appendChild(row);
       //     });
@@ -265,22 +320,22 @@ fetch(apiEndpoint_clasament_streamers)
       //     clasament.slice(10, 17).forEach(item => {
       //   // Create a new table row
       //   const row = document.createElement("tr");
-  
+
       //   // Create cells for ranking, username, and points and append them to the row
       //   row.innerHTML = `
       //     <td>${item.ranking}</td>
       //     <td>${item.username}</td>
       //     <td>${item.points}</td>
       // `;
-  
+
       //   // Append the row to the table body
       //   tableBody_users.appendChild(row);
-      //     });          
+      //     });
 
       // } else {
       //   console.error("Invalid response structure:", data);
-      // }    
-    
+      // }
+      // Sample user and userToVote values (replace with actual values)
     </script>
   </body>
 </html>

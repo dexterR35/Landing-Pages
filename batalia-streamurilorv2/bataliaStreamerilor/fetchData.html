@@ -15,34 +15,7 @@
   <body>
     <div id="result"></div>
     <script>
-      async function checkUser(username) {
-        const apiUrl =
-          "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user";
 
-        try {
-          const response = await fetch(apiUrl);
-
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-
-          const checkUserData = await response.json();
-          const usernames = checkUserData.map((user) => user.username);
-
-          if (usernames.includes(username)) {
-            console.log(`Username ${username} exists in the API.`);
-          } else {
-            console.log(`Username ${username} does not exist in the API.`);
-          }
-        } catch (error) {
-          console.error("Error: Unable to retrieve data from the API.", error);
-        }
-      }
-
-      // Call the checkUser function with the username "ticucatalin"
-      checkUser("ticucatalin");
-      checkUser("gabitza1");
-      checkUser("Marian");
 
       // function checkUser(username) {
       //   const apiUrl =
