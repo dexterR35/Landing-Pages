@@ -13,10 +13,42 @@
   </head>
 
   <body>
-    <div id="result"></div>
+    <div id="username">
+
+    </div>
+    <div id="optin">
+
+    </div>
+    <div id="voted">
+      
+    </div>
+    <table id="rankingTable_streamers" border="1">
+        <thead>
+            <tr>
+              <th>#</th>
+              <th>Streamer</th>
+              <th>Voturi</th>
+              <th>Puncte</th>
+              <th>Challenge</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be populated here -->
+        </tbody>
+    </table>
+    <table id="rankingTable_users" border="1">
+      <thead>
+          <tr>
+              <th>Ranking</th>
+              <th>Username</th>
+              <th>Points</th>
+          </tr>
+      </thead>
+      <tbody>
+          <!-- Table rows will be populated here -->
+      </tbody>
+  </table>  
     <script>
-
-
       // function checkUser(username) {
       //   const apiUrl =
       //     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user";
@@ -45,10 +77,179 @@
       //     });
       // }
 
-      // // Call the checkUser function with the username "ticucatalin"
-      // checkUser("ticucatalin");
-      // checkUser("gabitza1");
-      // checkUser("Marian");
+      // checkUser("ion");
+
+// Define the user to check and user to vote
+const userToCheck = "Annuskaa";
+let userToVote = null;
+let clasament = [];
+// Define the API endpoints
+const apiEndpoint_check_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" + userToCheck;
+const apiEndpoint_clasament_streamers = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
+const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
+const apiEndpoint_optin_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" + userToCheck;
+const apiEndpoint_optout_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" + userToCheck;
+
+// Make a GET request to the API for CHECK USER
+fetch(apiEndpoint_check_user)
+    .then(response => {
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON from the response
+    })
+    .then(data => {
+        // Initialize variables to hold optin, voted, and clasament data
+        console.log(data, "Data");
+        let optin = null;
+
+        // Check if the user is opted in
+        data.forEach(item => {
+            if ('optin' in item) {
+                optin = item.optin === "true"; // Convert string to boolean
+            }
+        });
+
+        // Display the optin status and appropriate button
+        const optinButton = document.querySelector("#optin-button");
+
+        if (optin) {
+            // User is opted in, display the classament
+            let voted = "Not available"; // Default value if "voted" is not in the response
+            let clasament = null;
+
+            // Find and assign clasament data as before
+
+            // Display the classament if it's not null
+            if (clasament !== null) {
+                document.querySelector("#username").innerHTML = userToCheck;
+                optinButton.innerHTML = `<button onclick="optOut()">Opt Out</button>`;
+                document.querySelector("#voted").innerHTML = voted;
+
+                // Map through the clasament array and display the data
+                clasament.map((item) => {
+                   
+                    // Display ranking, username, and points
+                    console.log(`Ranking: ${item.ranking}, Username: ${item.username}, Points: ${item.points}`);
+                });
+            } else {
+                console.log("Classament data is null.");
+            }
+        } else {
+            // User is not opted in, display the "Opt In" button
+            document.querySelector("#username").innerHTML = userToCheck;
+            optinButton.innerHTML = `<button onclick="optIn()">Opt In</button>`;
+            console.log("User is not opted in.");
+        }
+    })
+    .catch(error => {
+        // Log any errors that occurred during the fetch
+        console.error("Fetch error:", error);
+    });
+
+// Make a GET request to the API for CLASAMENT STREAMERS
+fetch(apiEndpoint_clasament_streamers)
+    .then(response => {
+        // Check if the request was successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON from the response
+    })
+    .then(data => {
+        // Initialize variables to hold ranking, username, points, status, and votes
+        let ranking = null;
+        let username = null;
+        let points = null;
+        let status = null;
+        let votes = null;
+        const tableBody_streamers = document.querySelector("#rankingTable_streamers tbody");
+
+        // Iterate through the data and create table rows for each streamer
+        data.forEach(item => {
+            ranking = item.ranking;
+            username = item.username;
+            points = item.points;
+            status = item.status;
+            votes = item.votes;
+
+            const row = document.createElement("tr");
+            // Create cells for ranking, username, votes, points, and status and append them to the row
+            row.innerHTML = `
+                <td>${item.ranking}</td>
+                <td>${item.username}<button onclick="voteStreamer('${item.username}')">Vote for challenge</button></td>
+                <td>${item.votes}</td>
+                <td>${item.points}</td>
+                <td>${item.status}</td>
+            `;
+            tableBody_streamers.appendChild(row);
+        });
+    })
+    .catch(error => {
+        // Log any errors that occurred during the fetch
+        console.error("Fetch error:", error);
+    });
+
+// Define async functions for opt-out, opt-in, and voting
+async function optOut() {
+    console.log("optout");
+    await fetch(apiEndpoint_optout_user)
+        .then(response => {
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON from the response
+        })
+        .catch(error => {
+            // Log any errors that occurred during the fetch
+            console.error("Fetch error:", error);
+        });
+}
+
+async function optIn() {
+    console.log("optin");
+    await fetch(apiEndpoint_optin_user)
+        .then(response => {
+            console.log(response, "response optinsuer")
+            // Check if the request was successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON from the response
+        })
+        .catch(error => {
+            // Log any errors that occurred during the fetch
+            console.error("Fetch error:", error);
+        });
+}
+async function voteStreamer(streamerUsername) {
+    if (streamerUsername) {
+        console.log("Voting for " + streamerUsername);
+        // Update the userToVote variable with the selected streamer's username
+        userToVote = streamerUsername;
+
+        await fetch(apiEndpoint_vote)
+            .then(response => {
+                // Check if the request was successful
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // Parse the JSON from the response
+            })
+            .then(data => {
+                // Handle the response data if needed
+            })
+            .catch(error => {
+                // Log any errors that occurred during the fetch
+                console.error("Fetch error:", error);
+            });
+    } else {
+        console.error("Invalid streamer username. Set a valid username to vote for.");
+    }
+}
+
     </script>
   </body>
 </html>
