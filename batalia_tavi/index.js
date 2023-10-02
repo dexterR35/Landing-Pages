@@ -1,43 +1,62 @@
-const min = 1;
-const max = 3000;
-const randomPointsTest = Math.floor(Math.random() * (max - min + 1)) + min;
-const randomVoteTest = Math.floor(Math.random() * +(max - min + 1)) + min;
-
-
-console.log(randomVoteTest);
-
-
-const scrollContainer = document.querySelector("#fullpage");
-
-if ($(window).width() < 1024) {
-  $(".btn._mobile").addClass("w-100");
-  $(".btn._desktop").css({
-    display: "none"
-  });
-  $(".btn._mobile").css({
-    display: "block"
-  });
-
-  $(".table-responsive").css({
-    "overflow-y": "unset",
-    height: "fit-content",
-  });
-} else {
-  $(".btn._mobile").removeClass("w-100");
-  $(".btn._desktop").css({
-    display: "block"
-  });
-  $(".btn._mobile").css({
-    display: "none"
-  });
+function getCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
 }
 
+userToCheck = getCookie("netbet_login"); // DE LINKUIT AICI CHECKCOOKIE (VEZI MAI SUS)
+userToVote = null;
+
+const apiEndpoint_check_user =
+  "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
+  userToCheck;
+const apiEndpoint_clasament_streamers =
+  "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
+const apiEndpoint_optin_user =
+  "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" +
+  userToCheck;
+
+let tableDataUser = $("#bodyUser");
+let tableDataStreamer = $("#bodyStreamer");
+
+
 $(document).ready(function () {
+  const scrollContainer = document.querySelector("#fullpage");
+
+  if ($(window).width() < 1024) {
+    $(".btn._mobile").addClass("w-100");
+    $(".btn._desktop").css({
+      display: "none"
+    });
+    $(".btn._mobile").css({
+      display: "block"
+    });
+
+    $(".table-responsive").css({
+      "overflow-y": "unset",
+      height: "fit-content",
+    });
+  } else {
+    $(".btn._mobile").removeClass("w-100");
+    $(".btn._desktop").css({
+      display: "block"
+    });
+    $(".btn._mobile").css({
+      display: "none"
+    });
+  }
+
+
   const dataObject = {
     streamers: [{
         name: "anna",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "1",
         challenge: true,
         bgImg: "./_bg/bg_anna.jpg",
@@ -45,8 +64,8 @@ $(document).ready(function () {
       },
       {
         name: "dudy",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "2",
         challenge: false,
         bgImg: "./_bg/bg_dudy.jpg",
@@ -54,8 +73,8 @@ $(document).ready(function () {
       },
       {
         name: "dumisninja",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "3",
         challenge: true,
         bgImg: "./_bg/bg_dumisninja.jpg",
@@ -63,8 +82,8 @@ $(document).ready(function () {
       },
       {
         name: "fratiijonson",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "4",
         challenge: false,
         bgImg: "./_bg/bg_fratiijonson.jpg",
@@ -72,8 +91,8 @@ $(document).ready(function () {
       },
       {
         name: "narcis",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "5",
         challenge: true,
         bgImg: "./_bg/bg_narcis.jpg",
@@ -81,8 +100,8 @@ $(document).ready(function () {
       },
       {
         name: "pacanedy",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "6",
         challenge: true,
         bgImg: "./_bg/bg_pacanedy.jpg",
@@ -90,8 +109,8 @@ $(document).ready(function () {
       },
       {
         name: "pacanela",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "7",
         challenge: true,
         bgImg: "./_bg/bg_pacanela.jpg",
@@ -99,8 +118,8 @@ $(document).ready(function () {
       },
       {
         name: "princess",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "8",
         challenge: false,
         bgImg: "./_bg/bg_princess.jpg",
@@ -108,8 +127,8 @@ $(document).ready(function () {
       },
       {
         name: "quikanu",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "9",
         challenge: false,
         bgImg: "./_bg/bg_quikanu.jpg",
@@ -117,8 +136,8 @@ $(document).ready(function () {
       },
       {
         name: "stero",
-        points: randomPointsTest,
-        vote: randomVoteTest,
+        // points: randomPointsTest,
+        // vote: randomVoteTest,
         position: "10",
         challenge: true,
         bgImg: "./_bg/bg_stero.jpg",
@@ -126,24 +145,24 @@ $(document).ready(function () {
       },
     ],
     gamesArray: [
-      "4553-book-of-dead__6",
-      "7152-legacy-of-egypt__3",
-      "9903-rich-wilde-and-the-tome-of-madness__4",
-      "7152-legacy-of-egypt__3",
-      "21726-royal-coins-2-hold-and-win__2",
-      "14166-legend-of-cleopatra-megaways__2",
-      "21318-luxor-gold-hold-and-win__2",
-      "11953-coin-coin-coin-ro__2",
-      "18166-age-of-the-gods-wonder-warriors__2",
-      "11955-streak-of-luck__2",
-      "9736-sweet-bonanza__4",
-      "15213-gates-of-olympus__4",
-      "20949-big-bass-splash__4",
+      "10189-the-sword-and-the-grail__2",
+      "11877-sky-queen__4",
+      "12009-halloween-fortune-ro__3",
+      "20051-big-top-bonanza-megaways__2",
+      "20139-age-of-the-gods-ii-god-storms__2",
+      "20621-big-buffalo-badlands__3.jpg",
+      "21509-disco-mania-megaways-merge__2",
+      "23076-cash-of-command__2",
+      "23278-pirate-chest-hold-and-win__2",
+      "24576-big-bass-bonanza-hold-spinner__2",
+      "25313-cash-20x__2",
+      "25328-egyptian-treasure__2",
+      "25794-empire-gold-hold-and-win__2",
       "14220-aztec-respin-remember-skywind-prov__2",
-      "25884-toucan-wild__2",
-      "25258-sugar-bonanza-deluxe__2",
-      "14220-aztec-respin-remember-skywind-prov__2",
-      "25884-toucan-wild__2",
+      "25878-wisdom-of-athena__2",
+      "26018-fox-mayhem__2",
+      "26271-sky-bounty__2",
+      "26375-halloween__3",
     ],
     backgroundImages: [
       'url("./_bg/bg_anna.jpg")',
@@ -161,11 +180,8 @@ $(document).ready(function () {
   }
 
   const gamesArray = [...dataObject.gamesArray];
-
   const backgroundImages = [...dataObject.backgroundImages];
   console.log(backgroundImages);
-  // console.log(gamesArray, "games array");
-  // console.log(streamers, "streamers array");
 
   //map streamers
   const streamerCards = dataObject.streamers.map((streamerData) => {
@@ -180,106 +196,219 @@ $(document).ready(function () {
     };
   });
 
-  function generateCard(streamerData) {
-    // const isVoted = getCookie('namevoted') === streamerCards.name;
-    //${isVoted ? 'voted' : 'non-voted'}
-    const cardHtml = `
-          <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom " style="background:url(${streamerData.bgImg}")>
-                  <div class="card-body text-center">
-                      <p class="card-text text top-left"">Voteaza-ma</p>
-                      <p class="speech">${streamerData.points} Voturi</p>
-                      <div class="card-image" style="background-image:url(${streamerData.avatarImg})"></div>
-                      <h6 class="card-title text bottom-right">${streamerData.name}</h6>
-                  </div>
-              </div>
-          </div>
-      `;
-    const $cardElement = $(cardHtml);
 
-    $cardElement.click(function (e) {
-      $("#messageContainer").empty();
-      $("#messageContainer").show();
-      showMessage("doresti sa votezi cu", streamerData);
-      voteForStreamer($cardElement);
-      e.preventDefault();
-    });
-    // const cardCustomElement = cardElement.find('.card-custom');
-    // // Remove the 'non-voted' class from cardCustomElement
-    // cardCustomElement.removeClass('non-voted');
-    // // Add a click event handler to cardCustomElement
-    // cardCustomElement.on('click', function () {
-    //   if (!cardCustomElement.hasClass('voted')) {
-    //     $('.card-custom:not(.voted)').removeClass('non-voted');
-    //     cardCustomElement.addClass('voted');
-    //     cardCustomElement.attr('data-voted', 'true');
-    //     if (cardCustomElement.hasClass('voted')) {
-    //       $('.card-custom:not(.voted)').addClass('non-voted');
-    //     }
-    //   }
-    // });
-    return $cardElement;
-  }
 
-  function voteForStreamer($cardElement) {
-    // if (voted === true) {
-    //   alert("Nu puteți vota pentru acest utilizator.");
-    //   return;
-    // }
-    $("#yes-button").on("click", () => {
-      $("#messageContainer").hide();
-      $cardElement.addClass("voted");
-      $(".card-wrapp").not($cardElement).css("background", "yellow");
-      $($cardElement).css("background", "red");
-      const $voteElement = $cardElement.find(".streamerVote");
-      $voteElement.text("hello");
-    });
-    $("#no-button").on("click", () => {
-      $("#messageContainer").hide();
-    });
-  }
+  // Define the API endpoint
 
-  function generateStreamerTable(streamerData) {
+  // const apiEndpoint_optout_user =
+  //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
+  //   userToCheck;
+
+  // let isOptedIn = false;
+  // Make a GET request to the API for CHECK USER
+  fetch(apiEndpoint_check_user)
+    .then((response) => {
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Parse the JSON from the response
+    })
+    .then((data) => {
+      console.log(data, "Data");
+      // Initialize variables to hold optin, voted, and clasament data
+      let optin = null;
+      console.log(data[0].optin, "optin");
+      let voted = "Not available"; // Default value if "voted" is not in the response
+      let clasament = null;
+      // Iterate over the array and assign values to optin, voted, and clasament
+      data.forEach((item) => {
+        if ("optin" in item) {
+          optin = item.optin === "true"; // Convert string to boolean
+        } else if ("voted" in item) {
+          voted = item.voted; // Assign the string value to voted
+        } else if ("clasament" in item) {
+          clasament = item.clasament;
+        }
+      });
+      // if (!optin) {
+      //   $("#optin").html('<button onclick="optIn()">Opt In</button>');
+      // } else {
+      //   $("#optin").html('<button onclick="optOut()">Opt out</button>');
+      // }
+      // Check if optin and clasament have been assigned values
+      if (optin !== null && clasament !== null) {
+        console.log(clasament, "clasament");
+        tableDataUser.empty();
+        // Find the user's ranking
+        let pozitie = null;
+        clasament.forEach((item) => {
+          if (item.username === userToCheck) {
+            pozitie = item.ranking;
+            console.log("am gasit userul pe pozitia ", pozitie);
+          }
+        });
+
+        if (pozitie <= 10) {
+          console.log("userul e top 10");
+          clasament.slice(0, 10).forEach((item) => {
+            tableDataUser.append(createTableUsers(item));
+          });
+        } else if (pozitie > 10 && pozitie <= 200) {
+          console.log("userul e in top 200");
+          if (clasament.length == 17) {
+            console.log("userul nu e intre ultimii 3");
+
+            clasament.slice(0, 3).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+
+            clasament.slice(10, 17).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+          } else {
+            console.log("userul e intre ultimii 3");
+
+            clasament.slice(0, 6).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+
+            clasament
+              .slice(clasament.length - 4, clasament.length)
+              .forEach((item) => {
+                tableDataUser.append(createTableUsers(item));
+              });
+          }
+        } else if (pozitie > 200) {
+          console.log("userul e mai jos de 200");
+          if (clasament.length == 20) {
+            console.log("userul nu e intre ultimii 3");
+            clasament.slice(0, 3).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+            clasament.slice(10, 13).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+
+            clasament.slice(14, 18).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+          } else {
+            console.log("userul e intre ultimii 3");
+            clasament.slice(0, 3).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+
+            clasament.slice(10, 13).forEach((item) => {
+              tableDataUser.append(createTableUsers(item));
+            });
+            clasament
+              .slice(clasament.length - 4, clasament.length)
+              .forEach((item) => {
+                tableDataUser.append(createTableUsers(item));
+              });
+          }
+        }
+      } else {
+        console.error("Invalid response structure:", data);
+      }
+    })
+    .catch((error) => {
+      // Log any errors that occurred during the fetch
+      console.error("Fetch error:", error);
+    });
+
+  // Make a GET request to the API for CLASAMENT STREAMERS
+  fetch(apiEndpoint_clasament_streamers)
+    .then((response) => {
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Parse the JSON from the response
+    })
+    .then((data) => {
+      tableDataStreamer.empty();
+      data.forEach((user) => {
+        console.log(user,"fasfa")
+        switch (user.username) {
+          case "testpacanela" : 
+          user.username = "PACANELA";
+          break;
+          case "casinosro" : 
+          user.username = "QUIKANU";
+          break;
+          case "dumis423435" : 
+          user.username = "DUMISNINJA";
+          break;    
+          case "cazino265ro" : 
+          user.username = "DUDY";
+          break;   
+          case "cazinoz" : 
+          user.username = "NARCIS";
+          break; 
+          case "ster0iaBanii" : 
+          user.username = "STERO";
+          break; 
+          case "Annuskaa" : 
+          user.username = "ANNA";
+          break; 
+          case "supercazino1" : 
+          user.username = "FRATIIJONSON";
+          break;      
+          case "supercazino2" : 
+          user.username = "PACANEDY";
+          break;   
+          case "supercazino3" : 
+          user.username = "PRINCESS";
+          break;                       
+        }
+        tableDataStreamer.append(createTableUsers(user));
+      });
+    })
+    .catch((error) => {
+      // Log any errors that occurred during the fetch
+      console.error("Fetch error:", error);
+    });
+
+
+  function createTableUsers(item) {
+
     const tableAHtml = `<tr class="parent-table">
-    <td class="parent-position ps">#${streamerData.position}</td>
-      <td>
-          <div class="d-flex align-items-center parent-avatar">
-                  <div class="avatar-table avatar-blue">
-                  <img src="${(streamerData.avatarImg)}" alt="pict_table" class="pict_table">
-                  </div>
-                  <div class="parent-name">
-                      <p class="mb-0 ps">${streamerData.name}</p>
-                      <p class="text-muted mb-0">voturi: ${streamerData.vote}</p>
-                  </div>
+        <td class="parent-position ps">#${item.ranking}</td>
+        <td>
+            <div class="d-flex align-items-center parent-avatar">
+                <div class="avatar-table avatar-blue">
+                    <img src="" alt="pict_table" class="pict_table">
+                </div>
+                <div class="parent-name">
+                    <p class="mb-0 ps">${item.username}</p>
+                    <p class="text-muted mb-0">voturi: ${item.votes}</p>
+                </div>
             </div>
-      </td>
-      <td class="parent-points ps">${streamerData.points}</td>
-      <td class="parent-vote ps">${streamerData.vote}</td>
-      <td class="parent-badge">
-      <div class="ps badge ${streamerData.challenge ? 'badge-success' : 'badge-danger'}">
-  ${streamerData.challenge ? '&#10004;' : '&#10006;'}
-</div>
-      </td>
-     
-  </tr>`
+        </td>
+        <td class="parent-points ps">${item.points}</td>
+        
+    </tr>`;
     return tableAHtml;
   }
+  // streamerCards.forEach((streamerData, index) => {
+  //   console.log(streamerData, "test")
 
+  // });
+  // function createTableStreamers(data , streamerData) {
+  //   const tableHtml = `
+  //     <td class="parent-position ps">#${item.ranking}</td>
+  //     <td>
+  //       <div class="parent-name">
+  //                   <p class="mb-0 ps">${item.username}</p>
+  //               </div>
+  //     </td>
+  //     <td class="parent-points ps">${item.points}</td>
 
-  // Function populate streamers table and modal streamers cards
-
-  function populateTable(streamerData) {
-    let cardData = $("#dynamicCardBody");
-    cardData.empty();
-    let tableData = $(".table-body");
-    tableData.empty();
-    streamerData.forEach((streamerData, index) => {
-      //card for modal
-      cardData.append(generateCard(streamerData));
-      //table for section 2
-      tableData.append(generateStreamerTable(streamerData));
-    });
-  }
+  //   `;
+  //   return tableHtml;
+  // }
 
   // Function append bg card ,pos, name for swipper
   function generetaDataSlider() {
@@ -302,45 +431,35 @@ $(document).ready(function () {
   }
 
 
-  function showMessage(message, streamerData) {
-    console.log(message, "message");
-    const messageHtml = `
-<div class="card-message col-lg-3 col-md-8 col-sm-8">
-<div class="card">
-  <div class="card-header">
-   <div class="card-picture" style="background-image:url('${streamerData.avatarImg}')"></div>
-   
-   <h6 class="card-text _text-left">pozitie: #${streamerData.position}</h6>
-   <h5 class="card-title text-uppercase m-0">${streamerData.name}</h5>
-   <h6 class="card-text _text-right">voturi: ${streamerData.vote}</h6>
-  </div>
-  <div class="card-body">
-    <h4 class="card-title text-center">
-      ${message} ${streamerData.name}
-    </h4>
-    <div class="btn-wrapp d-flex justify-content-center gap-3 py-3">
-      <button type="button" id=yes-button class="btn btn-danger w-25">DA</button>
-      <button type="button" id=no-button class="btn btn-success w-25">NU</button>
-    </div>
-  </div>
-</div>
-</div>
-`;
-    return $("#messageContainer").append(messageHtml);
-  }
-
-
 
   generetaDataSlider();
   generateGames(gamesArray);
-  populateTable(streamerCards);
+
+
+  function generateGames(allGames) {
+    const gameImagesContainer = $("#gameImages");
+    const isDesktop = window.innerWidth > 480;
+    const maxGamesToShow = isDesktop ? (allGames.length) : 12;
+    // Loop through the games and display up to maxGamesToShow
+    allGames.slice(0, maxGamesToShow).forEach((gameName) => {
+      const img = $("<img>")
+        .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
+        .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
+        .attr("alt", gameName)
+        .attr("loading", "lazy")
+        .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
+      const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
+      gameImagesContainer.append(link);
+    });
+  }
 
 
   // Options for the "streamersTable"
   const streamersTableOptions = {
     aaSorting: false,
     responsive: true,
-    pageLength: 5,
+    pageLength: 10,
+    paging: true,
     info: false,
     lengthChange: false,
     searching: false, // Disable search
@@ -367,10 +486,7 @@ $(document).ready(function () {
         targets: 3,
         className: "text-center"
       },
-      {
-        width: "10%",
-        targets: 4
-      },
+
 
       {
         responsivePriority: 2,
@@ -428,8 +544,8 @@ $(document).ready(function () {
   };
 
   // Initialize DataTables for both tables
-  $("#streamersTable").DataTable(streamersTableOptions);
-  $("#usersTable").DataTable(usersTableOptions);
+  // $("#usersTable").DataTable(usersTableOptions);
+  // $("#streamersTable").DataTable(streamersTableOptions);
 
   // Add titles to table wrappers
   $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
@@ -476,8 +592,7 @@ $(document).ready(function () {
   //   //   table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
   //   // }
   // });
-  updateContent();
-  updateButton()
+
   // Call the function again on window resize
   $(window).resize(function () {
     updateContent();
@@ -524,52 +639,21 @@ swiperStr.el.addEventListener("mouseleave", function () {
   swiperStr.autoplay.start();
 });
 
-
-function generateGames(allGames) {
-  const gameImagesContainer = $("#gameImages");
-  const isDesktop = window.innerWidth > 480;
-  const maxGamesToShow = isDesktop ? (allGames.length) : 12;
-  // Loop through the games and display up to maxGamesToShow
-  allGames.slice(0, maxGamesToShow).forEach((gameName) => {
-    const img = $("<img>")
-      .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
-      .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
-      .attr("alt", gameName)
-      .attr("loading", "lazy")
-      .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
-    const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
-    gameImagesContainer.append(link);
-  });
+async function optIn() {
+  console.log("optin");
+  await fetch(apiEndpoint_optin_user)
+    .then((response) => {
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Parse the JSON from the response
+    })
+    .catch((error) => {
+      // Log any errors that occurred during the fetch
+      console.error("Fetch error:", error);
+    });
 }
-
-//SET COOKIES
-
-// $("#setCookieButton").click(function () {
-//   const name = $("#cookieInput").val();
-//   document.cookie = `name=${name}`;
-//   updateButton();
-// });
-
-// function updateButton() {
-//   const cookieValue = getCookie("name");
-//   const inputName = $("#cookieInput").val();
-//   console.log(cookieValue);
-//   const actionButton = $("#actionButton");
-//   actionButton.attr("href", "test1.html");
-//   actionButton.attr("data-bs-toggle", "modal");
-//   actionButton.attr("data-bs-target", "#cardsModal");
-//   actionButton.text("Join Battles");
-//   if ((cookieValue === inputName) || cookieValue) {
-//     actionButton.attr("href", "test1.html");
-//     actionButton.attr("data-bs-toggle", "modal");
-//     actionButton.attr("data-bs-target", "#cardsModal");
-//     actionButton.text("Join Battles");
-//   } else {
-//     actionButton.attr("href", "https://casino.netbet.ro/inregistrare");
-//     actionButton.attr("target", "blank");
-//     actionButton.text("Show Me Offer");
-//   }
-// }
 
 function updateContent() {
   var screenWidth = $(window).width();
@@ -580,29 +664,16 @@ function updateContent() {
     netbetSpan.text('În stânga');
   }
 }
-// function getCookie(nameCookie) {
-//   let value = "; " + document.cookie;
-//   let parts = value.split("; " + nameCookie + "=");
-//   if (parts.length === 2) {
-//     return parts.pop().split(";").shift();
-//   } else {
-//     return null;
-//   }
-// }
-
-// La încărcarea paginii, actualizați textul butonului în funcție de cookie-ul existent
+updateContent()
 
 
+// const cardElements = document.querySelectorAll('.card-custom');
+// // console.log(cardElements, "cards")
 
-// VOTED CARDS 
-
-const cardElements = document.querySelectorAll('.card-custom');
-// console.log(cardElements, "cards")
-
-// Adaugă un ascultător de eveniment pentru fiecare card
-cardElements.forEach(card => {
-  card.addEventListener('click', () => {
-    // Adaugă clasa "voted" la cardul apăsat
-    card.classList.add('voted');
-  });
-});
+// // Adaugă un ascultător de eveniment pentru fiecare card
+// cardElements.forEach(card => {
+//   card.addEventListener('click', () => {
+//     // Adaugă clasa "voted" la cardul apăsat
+//     card.classList.add('voted');
+//   });
+// });

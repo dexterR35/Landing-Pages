@@ -925,7 +925,6 @@ a {
   font-size: 1.8em;
 }
 .slide-streamer {
-  /* background-image: url(./_bg/bg_dumisninja.jpg); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1372,7 +1371,8 @@ div.dataTables_wrapper div.dataTables_paginate {
     height: 30%;
     width: 100%;
   }
-  .section_one .s-providers a div img,.section_one .s-providers_left div a img {
+  .section_one .s-providers a div img,
+  .section_one .s-providers_left div a img {
     transform: unset !important;
   }
   .section_one .s-providers a {
@@ -1400,7 +1400,6 @@ div.dataTables_wrapper div.dataTables_paginate {
     top: 100px;
     left: 37%;
   }
- 
 
   .section_one .s-providers .agaming {
     top: 100px;
@@ -1537,5 +1536,10 @@ div.dataTables_wrapper div.dataTables_paginate {
     grid-column: 5 / span 2;
     grid-row: 2;
     transform: translateY(3px);
+  }
+  ._s4 .clouds-bottom img {
+    width: unset;
+    height: unset;
+    object-fit: cover;
   }
 }

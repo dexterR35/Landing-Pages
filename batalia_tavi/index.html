@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 
 <head>
   <meta charset="UTF-8" />
@@ -35,26 +35,48 @@
   <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
 
   <link rel="stylesheet" href="./index.css" />
-  <title>Document</title>
+  <title>Batalia Streamerilor</title>
 </head>
 
 <style></style>
 
 <body>
-  <header class="header-top d-flex justify-content-center align-items-center" style="
-        background: black;
-        width: 100%;
-        height: 5em;
-        position: fixed;
-        top: 0;
-        text-transform: uppercase;
-        color: white;
-        z-index: 31;
-      ">
-    <input type="text" id="cookieInput" placeholder="Introduceți numele" />
-    <button id="setCookieButton">Set Cookie</button>
+  <header>
+    <div class="left">
+      <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=120&amp;t=register&amp;bid2land=8" class="logo-container">
+        <img class="logo" src="https://go.netbet.ro/lp-asset/shared/netbet/netbet-logo.png" alt="NetBet">
+      </a>
+    </div>
+    <div class="center">
+      <ul class="products">
+        <li>
+        <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=126&amp;t=register&amp;bid2land=8">Sport</a>
+        </li>
+        <li>
+        <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=120&amp;t=register&amp;bid2land=8">Cazino</a>
+        </li>
+        <li>
+        <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=152&amp;t=register&amp;bid2land=8">Loto</a>
+        </li>
+        <li>
+        <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=120&amp;t=register&amp;bid2land=8">Virtuale</a>
+        </li>
+        <li>
+        <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=121&amp;t=register&amp;bid2land=8">Poker</a>
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=120&amp;t=login&amp;bid2land=8" class="login-button">
+      Loghează-te
+      </a>
+    </div>
+    <div class="bottom">
+    <a href="https://netbet.livepartners.com/click.php?l=ro&amp;p=120&amp;t=register&amp;bid2land=8" class="bottom-link">
+    <div class="bottom-center">Înregistrează-te</div>
+    </a>
+    </div>
   </header>
-
   <div class="wrapper">
     <div class="container-modal">
       <div class="modal fade" id="cardsModal">
@@ -97,6 +119,11 @@
                       <img src="./_providers/pragmatic.png" class="_prov_transf_bottom_r" alt="pragmatic" />
                     </div>
                   </a>
+                  <a href="#" class="playson">
+                    <div>
+                      <img src="./_providers/playson.png" class="_prov_transf_top_center" alt="playson" />
+                    </div>
+                  </a>
                   <a href="#" class="askywind">
                     <div>
                       <img src="./_providers/skywind.png" class="_prov_transf_top_r" alt="skywind" />
@@ -123,7 +150,7 @@
               </div>
               <div class="container-btn">
                 
-                  <button class="btn-NB-large btn-custom"><a id="actionButton">intra in lupta </a></button>
+                  <button class="btn-NB-large btn-custom" onclick=optIn()><a id="actionButton">intră în luptă </a></button>
                 
               </div>
             </div>
@@ -155,17 +182,17 @@
                   </div>
                   <img src="./_avatar/fratiijonson.png" />
                 </div>
-                <div class="swiper-slide slide-streamer bg_pacanedy">
+                <div class="swiper-slide slide-streamer bg_narcis">
                   <div class="top_swiper_box" data-swiper-parallax="10">
                     <img src="./_name/name_narcis.png" />
                   </div>
-                  <img src="./_avatar/pacanedy.png" />
+                  <img src="./_avatar/narcis.png" />
                 </div>
-                <div class="swiper-slide slide-streamer bg_narcis">
+                <div class="swiper-slide slide-streamer bg_pacanedy">
                   <div class="top_swiper_box" data-swiper-parallax="10">
                     <img src="./_name/name_pacanedy.png" />
                   </div>
-                  <img src="./_avatar/narcis.png" />
+                  <img src="./_avatar/pacanedy.png" />
                 </div>
                 <div class="swiper-slide slide-streamer bg_insert">
                   <div class="top_swiper_box" data-swiper-parallax="10">
@@ -207,9 +234,9 @@
               premii fabuloase.
             </h2>
             <p class="text text-custom mx-auto">
-              <b>Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
-                jucând orice slot participant la promotie iar primii 500 de
-                jucători vor fi premiați cu pachete cadou si premii
+              <b>Intră pe NetBet în perioada 1 - 31 octombrie, adună puncte
+                jucând orice slot participant la promoție iar primii 200 de
+                jucători vor fi premiați cu pachete cadou și premii
                 surpriză!</b>
             </p>
           </div>
@@ -221,7 +248,7 @@
                   JOCURI FAVORITE STREAMERI
                 </h2>
                 <h6 class="text-center text">
-                  <b>ÎȚI ADUC PUNCTE DUBLE!</b>
+              
                 </h6>
                 <div class="paragraph">
                   Streamerii tăi preferați s-au adunat pentru cea mai tare
@@ -230,16 +257,17 @@
                 </div>
                 <span class="m-2"><b>Joacă și câștigă premii la Bătălia Streamerilor 2023!</b></span>
                 <div class="paragraph mb-3">
-                  Pss...îți mai spunem ceva. <span id="changeWord"></span> ai
+                  Pss... îți mai spunem ceva. <span id="changeWord"></span> ai
                   o selecție de jocuri preferate ale streamerilor, dar nu
                   uita: toate sloturile de pe NetBet Cazino sunt eligibile iar
-                  cele de la: <br />
+                  cele de la <br />
                   <b><a href="https://casino.netbet.ro/pragmatic">Pragmatic Play</a></b>,
                   <b><a href="https://casino.netbet.ro/skywind">Skywind</a></b>,
                   <b><a href="https://casino.netbet.ro/7777-gaming">7777Gaming</a></b>,
                   <b><a href="https://casino.netbet.ro/playson">Playson</a></b>,
                   <b><a href="https://casino.netbet.ro/playn-go">Play’n GO</a></b>,
-                  <b><a href="https://casino.netbet.ro/playtech">Playtech</a></b>.
+                  <b><a href="https://casino.netbet.ro/playtech">Playtech</a></b>,
+                  <span> ÎȚI ADUC PUNCTE DUBLE!</span>
                 </div>
                 <a href="https://casino.netbet.ro/batalia-streamerilor" class="w-100">
                   <button type="button" class="btn btn-NB-normal w-100 _desktop">
@@ -298,12 +326,12 @@
                     <tr>
                       <th>#</th>
                       <th>Streamer</th>
-                      <th>Voturi</th>
                       <th>Puncte</th>
-                      <th>Challenge</th>
+                      <!-- <th>Voturi</th> -->
+                      <!-- <th>Challenge</th> -->
                     </tr>
                   </thead>
-                  <tbody class="table-body" id="table"></tbody>
+                  <tbody class="table-body" id="bodyStreamer"></tbody>
                   <tfoot class="table-dark"></tfoot>
                 </table>
               </div>
@@ -318,7 +346,7 @@
                       <th>pct</th>
                     </tr>
                   </thead>
-                  <tbody class="table-body"></tbody>
+                  <tbody class="table-body" id="bodyUser"></tbody>
                   <tfoot class="table-dark"></tfoot>
                 </table>
               </div>
@@ -332,15 +360,10 @@
         </div>
         <div class="container container-section section_four w-100 py-4">
           <div class="col text-center position-relative flex-column">
-            <h2 class="text-center">TERMENI SI CONDITII</h2>
-            <h4 class="text-center text my-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
-              aut!
-            </h4>
+            <h2 class="text-center">TERMENI ȘI CONDIȚII</h2>
             <!-- <button id="toggleButton" class="toggleButton btn-NB-large z-3">
               Termeni și Condiții
             </button> -->
-
             <div id="termsAndConditionsS" class="hidden termsAndConditions">
               <p><b>Cine este eligibil?</b></p>
               <ul>
@@ -652,7 +675,7 @@
                 </li>
               </ul>
               <br />
-              <hr />
+      
 
               <style>
                 table.tableNetBet {

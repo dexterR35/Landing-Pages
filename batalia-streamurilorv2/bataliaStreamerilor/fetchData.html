@@ -3,253 +3,507 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css" /> -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+      integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+      integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+    />
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
+
+    <link rel="stylesheet" href="./index.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
     <title>Document</title>
   </head>
-
+  <style>
+    .optin-true {
+      background-color: rgb(198, 10, 255);
+      color: red;
+    }
+    .table td {
+      background: unset;
+    }
+  </style>
   <body>
-    <div id="username">
-
-    </div>
-    <div id="optin">
-
-    </div>
-    <div id="voted">
-      
-    </div>
-    <table id="rankingTable_streamers" border="1">
-        <thead>
-            <tr>
-              <th>#</th>
-              <th>Streamer</th>
-              <th>Voturi</th>
-              <th>Puncte</th>
-              <th>Challenge</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Table rows will be populated here -->
-        </tbody>
-    </table>
-    <table id="rankingTable_users" border="1">
-      <thead>
-          <tr>
-              <th>Ranking</th>
-              <th>Username</th>
-              <th>Points</th>
-          </tr>
-      </thead>
-      <tbody>
-          <!-- Table rows will be populated here -->
-      </tbody>
-  </table>  
+    <body>
+      <div class="section _s3 py-5 d-flex">
+        <div
+          class="container container-section section_three w-100 flex-column"
+        >
+          <div id="username"></div>
+          <!-- <button onclick=optIn()>TESTTT</button> -->
+          <div id="optin"></div>
+          <div id="voted"></div>
+          <!-- <h2 class="text-center py-3 mb-3 title_s3 z-2">Clasamente</h2> -->
+          <div class="row w-100 z-3">
+            <div class="col table-title">
+              <div class="table-responsive">
+                <table
+                  id="streamersTable"
+                  class="table table-hover responsive nowrap"
+                  style="width: 100%"
+                >
+                  <thead class="table-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>Streamer</th>
+                      <th>Voturi</th>
+                      <th>Puncte</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body" id="bodyStreamer"></tbody>
+                  <tfoot class="table-dark"></tfoot>
+                </table>
+              </div>
+            </div>
+            <div class="col table-title">
+              <div class="table-responsive">
+                <table
+                  id="usersTable"
+                  class="tableData table table-hover responsive nowrap"
+                  style="width: 100%"
+                >
+                  <thead class="table-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>nume</th>
+                      <th>pct</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body" id="bodyUser"></tbody>
+                  <tfoot class="table-dark"></tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
     <script>
-      // function checkUser(username) {
-      //   const apiUrl =
-      //     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user";
-
-      //   fetch(apiUrl)
-      //     .then((response) => {
-      //       if (!response.ok) {
-      //         throw new Error("Network response was not ok");
-      //       }
-      //       return response.json();
-      //     })
-      //     .then((checkUserData) => {
-      //       console.log(checkUserData, "checkUser");
-      //       const usernames = checkUserData.map((user) => user.username);
-      //       if (usernames.includes(username)) {
-      //         console.log(`Username ${username} exists in the API.`);
-      //       } else {
-      //         console.log(`Username ${username} does not exist in the API.`);
-      //       }
-      //     })
-      //     .catch((error) => {
-      //       console.error(
-      //         "Error: Unable to retrieve data from the API.",
-      //         error
-      //       );
-      //     });
+      // function getCookie(name) {
+      //   var nameEQ = name + "=";
+      //   var ca = document.cookie.split(';');
+      //   for (var i = 0; i < ca.length; i++) {
+      //     var c = ca[i];
+      //     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      //     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+      //   }
+      //   return null;
       // }
 
-      // checkUser("ion");
+      // var userToCheck = getCookie("netbet_login");
+      userToCheck = "iTaviB"; // DE LINKUIT AICI CHECKCOOKIE (VEZI MAI SUS)
+      userToVote = null;
 
-// Define the user to check and user to vote
-const userToCheck = "Annuskaa";
-let userToVote = null;
-let clasament = [];
-// Define the API endpoints
-const apiEndpoint_check_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" + userToCheck;
-const apiEndpoint_clasament_streamers = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
-const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
-const apiEndpoint_optin_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" + userToCheck;
-const apiEndpoint_optout_user = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" + userToCheck;
+      let tableDataUser = $("#bodyUser");
+      let tableDataStreamer = $("#bodyStreamer");
 
-// Make a GET request to the API for CHECK USER
-fetch(apiEndpoint_check_user)
-    .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
+      // Define the API endpoint
+
+      const apiEndpoint_check_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
+        userToCheck;
+      const apiEndpoint_clasament_streamers =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
+      const apiEndpoint_vote =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" +
+        userToCheck +
+        "&vote=" +
+        userToVote;
+      const apiEndpoint_optin_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" +
+        userToCheck;
+      const apiEndpoint_optout_user =
+        "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
+        userToCheck;
+
+      let isOptedIn = false;
+      // Make a GET request to the API for CHECK USER
+      fetch(apiEndpoint_check_user)
+        .then((response) => {
+          // Check if the request was successful
+          if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON from the response
-    })
-    .then(data => {
-        // Initialize variables to hold optin, voted, and clasament data
-        console.log(data, "Data");
-        let optin = null;
-
-        // Check if the user is opted in
-        data.forEach(item => {
-            if ('optin' in item) {
-                optin = item.optin === "true"; // Convert string to boolean
+          }
+          return response.json(); // Parse the JSON from the response
+        })
+        .then((data) => {
+          console.log(data, "Data");
+          // Initialize variables to hold optin, voted, and clasament data
+          let optin = null;
+          console.log(data[0].optin, "optin");
+          let voted = "Not available"; // Default value if "voted" is not in the response
+          let clasament = null;
+          // Iterate over the array and assign values to optin, voted, and clasament
+          data.forEach((item) => {
+            if ("optin" in item) {
+              optin = item.optin === "true"; // Convert string to boolean
+            } else if ("voted" in item) {
+              voted = item.voted; // Assign the string value to voted
+            } else if ("clasament" in item) {
+              clasament = item.clasament;
             }
-        });
-
-        // Display the optin status and appropriate button
-        const optinButton = document.querySelector("#optin-button");
-
-        if (optin) {
-            // User is opted in, display the classament
-            let voted = "Not available"; // Default value if "voted" is not in the response
-            let clasament = null;
-
-            // Find and assign clasament data as before
-
-            // Display the classament if it's not null
-            if (clasament !== null) {
-                document.querySelector("#username").innerHTML = userToCheck;
-                optinButton.innerHTML = `<button onclick="optOut()">Opt Out</button>`;
-                document.querySelector("#voted").innerHTML = voted;
-
-                // Map through the clasament array and display the data
-                clasament.map((item) => {
-                   
-                    // Display ranking, username, and points
-                    console.log(`Ranking: ${item.ranking}, Username: ${item.username}, Points: ${item.points}`);
-                });
-            } else {
-                console.log("Classament data is null.");
-            }
-        } else {
-            // User is not opted in, display the "Opt In" button
+          });
+          if (!optin) {
+            $("#optin").html('<button onclick="optIn()">Opt In</button>');
+          } else {
+            $("#optin").html('<button onclick="optOut()">Opt out</button>');
+          }
+          // Check if optin and clasament have been assigned values
+          if (optin !== null && clasament !== null) {
+            console.log(clasament, "clasament");
             document.querySelector("#username").innerHTML = userToCheck;
-            optinButton.innerHTML = `<button onclick="optIn()">Opt In</button>`;
-            console.log("User is not opted in.");
-        }
-    })
-    .catch(error => {
-        // Log any errors that occurred during the fetch
-        console.error("Fetch error:", error);
-    });
+            // document.querySelector("#optin").innerHTML = optin + `<button onclick="">opt out</button> <button onclick="">opt in</button>`;
+            document.querySelector("#voted").innerHTML = voted;
 
-// Make a GET request to the API for CLASAMENT STREAMERS
-fetch(apiEndpoint_clasament_streamers)
-    .then(response => {
-        // Check if the request was successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON from the response
-    })
-    .then(data => {
-        // Initialize variables to hold ranking, username, points, status, and votes
-        let ranking = null;
-        let username = null;
-        let points = null;
-        let status = null;
-        let votes = null;
-        const tableBody_streamers = document.querySelector("#rankingTable_streamers tbody");
+            tableDataUser.empty();
 
-        // Iterate through the data and create table rows for each streamer
-        data.forEach(item => {
-            ranking = item.ranking;
-            username = item.username;
-            points = item.points;
-            status = item.status;
-            votes = item.votes;
+            // Find the user's ranking
+            let pozitie = null;
 
-            const row = document.createElement("tr");
-            // Create cells for ranking, username, votes, points, and status and append them to the row
-            row.innerHTML = `
-                <td>${item.ranking}</td>
-                <td>${item.username}<button onclick="voteStreamer('${item.username}')">Vote for challenge</button></td>
-                <td>${item.votes}</td>
-                <td>${item.points}</td>
-                <td>${item.status}</td>
-            `;
-            tableBody_streamers.appendChild(row);
-        });
-    })
-    .catch(error => {
-        // Log any errors that occurred during the fetch
-        console.error("Fetch error:", error);
-    });
-
-// Define async functions for opt-out, opt-in, and voting
-async function optOut() {
-    console.log("optout");
-    await fetch(apiEndpoint_optout_user)
-        .then(response => {
-            // Check if the request was successful
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Parse the JSON from the response
-        })
-        .catch(error => {
-            // Log any errors that occurred during the fetch
-            console.error("Fetch error:", error);
-        });
-}
-
-async function optIn() {
-    console.log("optin");
-    await fetch(apiEndpoint_optin_user)
-        .then(response => {
-            console.log(response, "response optinsuer")
-            // Check if the request was successful
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json(); // Parse the JSON from the response
-        })
-        .catch(error => {
-            // Log any errors that occurred during the fetch
-            console.error("Fetch error:", error);
-        });
-}
-async function voteStreamer(streamerUsername) {
-    if (streamerUsername) {
-        console.log("Voting for " + streamerUsername);
-        // Update the userToVote variable with the selected streamer's username
-        userToVote = streamerUsername;
-
-        await fetch(apiEndpoint_vote)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json(); // Parse the JSON from the response
-            })
-            .then(data => {
-                // Handle the response data if needed
-            })
-            .catch(error => {
-                // Log any errors that occurred during the fetch
-                console.error("Fetch error:", error);
+            clasament.forEach((item) => {
+              if (item.username === userToCheck) {
+                pozitie = item.ranking;
+                console.log("am gasit userul pe pozitia ", pozitie);
+              }
+       
             });
-    } else {
-        console.error("Invalid streamer username. Set a valid username to vote for.");
-    }
-}
 
+            if (pozitie <= 10) {
+              console.log("userul e top 10");
+              clasament.slice(0, 10).forEach((item) => {
+                tableDataUser.append(createTableUsers(item));
+              });
+            } else if (pozitie > 10 && pozitie <= 200) {
+              console.log("userul e in top 200");
+              if (clasament.length == 17) {
+                console.log("userul nu e intre ultimii 3");
+
+                clasament.slice(0, 3).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+
+                clasament.slice(10, 17).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+              } else {
+                console.log("userul e intre ultimii 3");
+
+                clasament.slice(0, 6).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+
+                clasament
+                  .slice(clasament.length - 4, clasament.length)
+                  .forEach((item) => {
+                    tableDataUser.append(createTableUsers(item));
+                  });
+              }
+            } else if (pozitie > 200) {
+              console.log("userul e mai jos de 200");
+              if (clasament.length == 20) {
+                console.log("userul nu e intre ultimii 3");
+                clasament.slice(0, 3).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+                clasament.slice(10, 13).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+
+                clasament.slice(14, 18).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+              } else {
+                console.log("userul e intre ultimii 3");
+
+                clasament.slice(0, 3).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+
+                clasament.slice(10, 13).forEach((item) => {
+                  tableDataUser.append(createTableUsers(item));
+                });
+
+                clasament
+                  .slice(clasament.length - 4, clasament.length)
+                  .forEach((item) => {
+                    tableDataUser.append(createTableUsers(item));
+                  });
+              }
+            }
+          } else {
+            console.error("Invalid response structure:", data);
+          }
+        })
+        .catch((error) => {
+          // Log any errors that occurred during the fetch
+          console.error("Fetch error:", error);
+        });
+
+      // Make a GET request to the API for CLASAMENT STREAMERS
+      fetch(apiEndpoint_clasament_streamers)
+        .then((response) => {
+          // Check if the request was successful
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json(); // Parse the JSON from the response
+        })
+        .then((data) => {
+          tableDataStreamer.empty();
+          data.forEach((user) => {
+            tableDataStreamer.append(createTableUsers(user));
+          });
+        })
+        .catch((error) => {
+          // Log any errors that occurred during the fetch
+          console.error("Fetch error:", error);
+        });
+
+      async function optOut() {
+        console.log("optout");
+        await fetch(apiEndpoint_optout_user)
+          .then((response) => {
+            // Check if the request was successful
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON from the response
+          })
+          .catch((error) => {
+            // Log any errors that occurred during the fetch
+            console.error("Fetch error:", error);
+          });
+      }
+
+      async function optIn() {
+        console.log("optin");
+        await fetch(apiEndpoint_optin_user)
+          .then((response) => {
+            // Check if the request was successful
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json(); // Parse the JSON from the response
+          })
+          .catch((error) => {
+            // Log any errors that occurred during the fetch
+            console.error("Fetch error:", error);
+          });
+      }
+
+      // async function voteStreamer(user) {
+      //   userToVote = user;
+      //   console.log("Voting for " + userToVote);
+      //   await fetch(apiEndpoint_vote)
+      //     .then((response) => {
+      //       // Check if the request was successful
+      //       if (!response.ok) {
+      //         throw new Error(`HTTP error! Status: ${response.status}`);
+      //       }
+      //       return response.json(); // Parse the JSON from the response
+      //     })
+      //     .catch((error) => {
+      //       // Log any errors that occurred during the fetch
+      //       console.error("Fetch error:", error);
+      //     });
+      // }
+      
+
+      function createTableUsers(item) {
+        const tableAHtml = `<tr class="parent-table">
+            <td class="parent-position ps">#${item.ranking}</td>
+            <td>
+                <div class="d-flex align-items-center parent-avatar">
+                    <div class="avatar-table avatar-blue">
+                        <img src="#" alt="pict_table" class="pict_table">
+                    </div>
+                    <div class="parent-name">
+                        <p class="mb-0 ps">${item.username}</p>
+                        <p class="text-muted mb-0">voturi: ${item.votes}</p>
+                    </div>
+                </div>
+            </td>
+            <td class="parent-points ps">${item.points}</td>
+            
+        </tr>`;
+        return tableAHtml;
+      }
+
+      function createTableStreamers(data) {
+        const tableHtml = `
+          <td class="parent-position ps">#${item.ranking}</td>
+          <td>
+            <div class="parent-name">
+                        <p class="mb-0 ps">${item.username}</p>
+                    </div>
+          </td>
+          <td class="parent-points ps">${item.points}</td>
+          
+        `;
+        return tableHtml;
+      }
+
+      const streamersTableOptions = {
+        aaSorting: false,
+        responsive: true,
+        pageLength: 5,
+        info: false,
+        lengthChange: false,
+        searching: false, // Disable search
+        language: {
+          paginate: {
+            previous: "",
+            next: "",
+          },
+        },
+        columnDefs: [
+          {
+            width: "5%",
+            targets: 0,
+          },
+          {
+            width: "60%",
+            targets: 1,
+          },
+
+          {
+            width: "10%",
+            targets: 3,
+            className: "text-center",
+          },
+          // {
+          //   width: "10%",
+          //   targets: 4,
+          // },
+
+          {
+            responsivePriority: 2,
+            targets: 2,
+          },
+
+          {
+            visible: false,
+            targets: 2,
+          },
+        ],
+      };
+
+      // Options for the "usersTable"
+      const usersTableOptions = {
+        autoWidth: false,
+        aaSorting: false,
+        responsive: true,
+        pageLength: 10,
+        paginate: false,
+        info: false,
+        searching: false, // Disable search
+        language: false,
+        columnDefs: [
+          {
+            width: "10%",
+            targets: 0,
+          },
+          {
+            width: "60%",
+            targets: 1,
+          },
+          {
+            width: "15%",
+            targets: 2,
+          },
+          {
+            width: "15%",
+            targets: 3,
+            visible: false,
+          },
+          {
+            responsivePriority: 1,
+            targets: -1,
+            visible: false, // Hide the last column (which is "Challenge")
+          },
+          {
+            width: "15%",
+            targets: 4,
+            visible: false,
+          },
+
+          // You can add more specific columnDefs for the "usersTable" here if needed
+        ],
+      };
+
+      // Initialize DataTables for both tables
+      $("#usersTable").DataTable(usersTableOptions);
+      $("#streamersTable").DataTable(streamersTableOptions);
+
+      // Add titles to table wrappers
+      $("#streamersTable_wrapper").prepend(
+        `<h4 class="text-center p-2 position-relative">Streameri</h4>`
+      );
+      $("#usersTable_wrapper").prepend(
+        `<h4 class="text-center p-2 position-relative">Utilizatori</h4>`
+      );
+
+      // Customize search input (if needed)
+      $(".dataTables_filter input").attr("placeholder", "Search here...").css({
+        width: "200px",
+        display: "inline-block",
+        "font-size": "0.7em",
+        padding: "0.3em 0.7em",
+        outline: "none",
+      });
+      console.log("ready!");
+
+      // Add tooltips (if needed)
+      // $('[data-toggle="tooltip"]').tooltip();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
   </body>
 </html>
