@@ -48,6 +48,9 @@
 /* .avatar-table {
   display: none !important;
 } */
+.bottom_swiper_box {
+  display: none;
+}
 .top_swiper_box span,
 .top_swiper_box,
 .bottom_swiper_box span,
@@ -79,6 +82,46 @@ body {
 h2 {
   color: black !important;
 }
+
+
+/* Splash Screen Styles */
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--NetBet-blue);
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.loading-text {
+  font-size: 1.5em;
+  /* margin-top: 10px; */
+}
+
+/* Hide Main Content Initially */
+.contentS {
+  display: none;
+}
+
+.splash-content img {
+  width:100%;
+  height:100%;
+  object-fit: contain;
+
+}
+
 
 
 .color-NetBet-orange {
@@ -145,7 +188,7 @@ h2 {
     width: 100%;
   }
   .w-85.container-stuff {
-  width: 100%;
+    width: 100%;
   }
 }
 
@@ -209,10 +252,11 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
-  /* overflow: hidden; */
   z-index: 4;
+  overflow: hidden;
 }
-.btn-NB-normal, .btn-NB-large {
+.btn-NB-normal,
+.btn-NB-large {
   background-color: var(--NetBet-orange);
   color: var(--color-white);
   border: none !important;
@@ -220,14 +264,14 @@ a {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1em;
-  border-radius:7px;
+  border-radius: 7px;
 }
 
 .btn-NB-disabled {
   cursor: not-allowed;
   background-color: rgb(229, 229, 229) !important;
   pointer-events: none !important;
-  color: grey !important; 
+  color: grey !important;
 }
 
 .btn-NB-normal {
@@ -514,14 +558,17 @@ a {
 }
 
 .section_one .s-providers_left div a img {
-  width: 16vh;
+  /* width: 16vh; */
 }
 
 ._prov_transf_bottom_r,
 ._prov_transf_top_r {
-  width: 30vh;
+  /* width: 30vh; */
 }
-
+.s-providers .playson div img {
+  transform: translateX(-35px);
+  -webikit-transform: translateX(-35px);
+}
 .section_one .s-providers ._prov_transf_top_l,
 .section_one .s-providers ._prov_transf_bottom_r {
   transform: rotate(10deg);
@@ -543,8 +590,11 @@ a {
 .section_one .s-providers div img {
   /* height: 10vh; */
   height: 100%;
-  width: 18vh;
+  width: 22vh;
   object-fit: contain;
+}
+.section_one .col-12 {
+  /* transform: translateY(-25px); */
 }
 
 .section_one .s-providers:nth-child(1) {
@@ -657,7 +707,10 @@ a {
   text-transform: uppercase;
   font-weight: bold;
 }
-
+.container-stuff span.my-2 {
+  font-size: 1.1em;
+  text-align: center;
+}
 .section_two .s2_providers {
   gap: 5px;
   display: grid;
@@ -734,14 +787,19 @@ a {
 .section_three .table-responsive tr {
   cursor: pointer;
 }
-.TEST22222222222.dtr-control {
-  background: red;
-  width: 40px;
+.section_three .table-responsive h2 {
+  color: var(--NetBet-orange) !important;
 }
 .section_three #streamersTable .table-body tr {
   box-shadow: var(--shadow-border);
   /* border-radius: 10px; */
   overflow: hidden;
+}
+
+.btn-hover:hover {
+  transition: 0.4s all ease;
+  background-color: #ff8929;
+  color: var(--color-white);
 }
 
 #usersTable .table-body .avatar-table,
@@ -1198,10 +1256,19 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 .badge-success {
   color: var(--color-white);
-  background-color: #348906 !important;
+  color: #348906 !important;
 }
 .badge-danger {
-  background-color: var(--NetBet-orange);
+  color: var(--NetBet-orange);
+}
+.parent-name p {
+  position: relative;
+}
+.parent-name p span {
+  font-size: 0.7em;
+  top: -5px;
+  position: relative;
+  /* right: -20%; */
 }
 
 .table a {
@@ -1354,7 +1421,9 @@ div.dataTables_wrapper div.dataTables_paginate {
     padding: 2px 10px;
     font-size: 1.1em;
   }
-
+  .section_one .container-btn {
+    top: 55%;
+  }
   .card-custom .speech {
     font-size: 0.8em;
     padding: 0.5em 0.5em;
@@ -1374,6 +1443,7 @@ div.dataTables_wrapper div.dataTables_paginate {
     bottom: -11px;
     left: 16px;
   }
+
   .card-custom .speech:before {
     border: solid 7px transparent;
     border-left: solid 7px var(--color-black);
@@ -1381,7 +1451,14 @@ div.dataTables_wrapper div.dataTables_paginate {
     bottom: -14px;
     left: 14px;
   }
-
+  .section_one .s-providers:nth-child(1) {
+    filter: unset;
+  }
+  
+  .section_one .s-providers:nth-child(3) {
+    filter: unset;
+  }
+  
   .section_three .table-responsive:nth-child(1) {
     margin-bottom: 30px;
   }
@@ -1437,10 +1514,18 @@ div.dataTables_wrapper div.dataTables_paginate {
 
   .section_one .s-providers {
     position: absolute;
-    top: -40px;
+    top: -65px;
     height: 30%;
     width: 100%;
   }
+  .top_swiper_box img {
+    width: 90%;
+    height: 90%;
+    left: 3px;
+    top: -16px;
+    object-fit: contain;
+    position: relative;
+}
   .section_one .s-providers a div img,
   .section_one .s-providers_left div a img {
     transform: unset !important;
@@ -1455,27 +1540,27 @@ div.dataTables_wrapper div.dataTables_paginate {
     width: 90px;
   }
   .section_one .s-providers .aprag {
-    top: 0;
+    top: 12px;
     left: 5%;
   }
   .section_one .s-providers .askywind {
-    top: 25px;
+    top: 30px;
     right: 5%;
   }
   .section_one .s-providers .aplaytech {
-    top: 100px;
+    top: 90px;
     left: 5%;
   }
   .section_one .s-providers .aplayngo {
-    top: 100px;
+    top: 86px;
     left: 37%;
   }
   .section_one .s-providers .playson {
-    top: 25px;
+    top: 30px;
     /* left: 37%; */
   }
   .section_one .s-providers .agaming {
-    top: 100px;
+    top: 90px;
     left: 70%;
   }
   .section._s1 .bgD {
@@ -1593,31 +1678,31 @@ div.dataTables_wrapper div.dataTables_paginate {
     place-self: center;
   }
   .s2_providers .col-10:nth-child(1) {
-    grid-column: 1 /span 2;
+    grid-column: 1 / span 2;
     grid-row: 1;
   }
   .s2_providers .col-10:nth-child(2) {
-    grid-column: 3 /span 2;
+    grid-column: 3 / span 2;
     grid-row: 1;
     transform: translateY(2px);
   }
   .s2_providers .col-10:nth-child(3) {
     grid-row: 1;
-    grid-column: 5 /span 2;
+    grid-column: 5 / span 2;
   }
   .s2_providers .col-10:nth-child(4) {
     grid-row: 2;
-    grid-column: 1 /span 2;
+    grid-column: 1 / span 2;
   }
   .s2_providers .col-10:nth-child(5) {
     grid-row: 2;
-    grid-column: 3 /span 2;
+    grid-column: 3 / span 2;
     transform: translateY(3px);
     -webkit-transform: translateY(3px);
   }
   .s2_providers .col-10:nth-child(6) {
     grid-row: 2;
-    grid-column: 5 /span 2;
+    grid-column: 5 / span 2;
     transform: translateY(3px);
     -webkit-transform: translateY(3px);
   }

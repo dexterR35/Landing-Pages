@@ -9,7 +9,7 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = "iTaviB";
+userToCheck = getCookie("netbet_login");
 userToVote = null;
 
 const apiEndpoint_check_user =
@@ -149,7 +149,7 @@ $(document).ready(function () {
       "12009-halloween-fortune-ro__3",
       "20051-big-top-bonanza-megaways__2",
       "20139-age-of-the-gods-ii-god-storms__2",
-      "20621-big-buffalo-badlands__3.jpg",
+      "20621-big-buffalo-badlands__3",
       "21509-disco-mania-megaways-merge__2",
       "23076-cash-of-command__2",
       "23278-pirate-chest-hold-and-win__2",
@@ -157,7 +157,7 @@ $(document).ready(function () {
       "25313-cash-20x__2",
       "25328-egyptian-treasure__2",
       "25794-empire-gold-hold-and-win__2",
-      "14220-aztec-respin-remember-skywind-prov__2",
+      "22372-treasures-of-fire-scatter-pays-95__2",
       "25878-wisdom-of-athena__2",
       "26018-fox-mayhem__2",
       "26271-sky-bounty__2",
@@ -338,23 +338,23 @@ $(document).ready(function () {
             break;
           case "casinosro":
             user.username = "QUIKANU";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/quikanu.png";
             break;
           case "dumis423435":
             user.username = "DUMISNINJA";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/dumisninja.png";
             break;
           case "cazino265ro":
             user.username = "DUDY";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/dudy.png";
             break;
           case "cazinoz":
             user.username = "NARCIS";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/narcis.png";
             break;
           case "ster0iaBanii":
             user.username = "STERO";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/stero.png";
             break;
           case "Annuskaa":
             user.username = "ANNA";
@@ -362,29 +362,30 @@ $(document).ready(function () {
             break;
           case "supercazino1":
             user.username = "FRATIIJONSON";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/fratiijonson.png";
             break;
           case "supercazino2":
             user.username = "PACANEDY";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/pacanedy.png";
             break;
           case "supercazino3":
             user.username = "PRINCESS";
-            imgSrc = "./_avatar/pacanela.png";
+            imgSrc = "./_avatar/princess.png";
             break;
         }
 
         tableDataStreamer.append(createTableStreamers(user, imgSrc));
       });
-
-
+      $("#streamersTable").DataTable(streamersTableOptions);
     })
+
+ 
     .catch((error) => {
       console.error("Fetch error:", error);
     });
 
 
-  function createTableUsers(item,userToCheck) {
+  function createTableUsers(item, userToCheck) {
       // Check if the username matches userToCheck
 
 
@@ -415,7 +416,7 @@ $(document).ready(function () {
              <img src="${imgSrc}" alt="pict_table" class="pict_table">
          </div>
          <div class="parent-name">
-         <p class="mb-0 ps">${streamer.username} <span class="${false ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
+         <p class="mb-0 ps">${streamer.username} <span class="${true ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
               
              <p class="text-muted mb-0">voturi: ${streamer.votes}</p>
          </div>
@@ -484,9 +485,11 @@ $(document).ready(function () {
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
-        .attr("loading", "lazy")
+        .attr("loading", "lazy") 
+   
         .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
-      const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
+      const link = $("<a>").addClass("scroll-item-game").attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`).append(img);
+      link.attr("target", "_parent")
       gameImagesContainer.append(link);
     });
   }
@@ -498,15 +501,10 @@ $(document).ready(function () {
     aaSorting: false,
     responsive: true,
     pageLength: 5,
+    paginate: true,
     info: false,
     lengthChange: false,
     searching: false, // Disable search
-    language: {
-      paginate: {
-        previous: '',
-        next: ''
-      }
-    },
     columnDefs: [{
         width: "5%",
         targets: 0
@@ -519,8 +517,6 @@ $(document).ready(function () {
         width: "10%",
         targets: 2
       },
-
-
       {
         responsivePriority: 2,
         targets: 2,
@@ -533,7 +529,7 @@ $(document).ready(function () {
     autoWidth: false,
     aaSorting: false,
     responsive: true,
-    pageLength: 10,
+    pageLength: 5,
     paginate: false,
     info: false,
     searching: false, // Disable search
@@ -555,15 +551,15 @@ $(document).ready(function () {
     ],
   };
 
-  // Initialize DataTables for both tables
+
   $("#usersTable").DataTable(usersTableOptions);
-  $("#streamersTable").DataTable(streamersTableOptions);
+
 
   // Add titles to table wrappers
-  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
-  $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
+  // $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
+  // $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
-  // Customize search input (if needed)
+  // // Customize search input (if needed)
   $(".dataTables_filter input")
     .attr("placeholder", "Search here...")
     .css({
@@ -668,6 +664,24 @@ $(function () {
 
   imagesToLazyLoad.forEach(img => {
     observer.observe(img);
+  });
+});
+
+
+$(document).ready(function () {
+  const splashScreen = $('#splash-screen');
+  const mainContent = $('.contentS');
+
+  // Wait for all images and the DOM to be fully loaded
+  mainContent.imagesLoaded(function () {
+      // Hide the splash screen with a fade-out animation
+      splashScreen.fadeOut(500, function () {
+          // Animation complete callback - hide the splash screen
+          splashScreen.css('display', 'none');
+      });
+
+      // Display the main content
+      mainContent.css('display', 'block');
   });
 });
 // const cardElements = document.querySelectorAll('.card-custom');
