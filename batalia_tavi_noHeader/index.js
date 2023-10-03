@@ -146,7 +146,6 @@ $(document).ready(function () {
     gamesArray: [
       "10189-the-sword-and-the-grail__2",
       "11877-sky-queen__4",
-      "12009-halloween-fortune-ro__3",
       "20051-big-top-bonanza-megaways__2",
       "20139-age-of-the-gods-ii-god-storms__2",
       "20621-big-buffalo-badlands__3",
@@ -161,6 +160,7 @@ $(document).ready(function () {
       "25878-wisdom-of-athena__2",
       "26018-fox-mayhem__2",
       "26271-sky-bounty__2",
+      "12009-halloween-fortune-ro__3",
       "26375-halloween__3",
     ],
     backgroundImages: [
@@ -231,7 +231,7 @@ $(document).ready(function () {
         // Find the user's ranking
         let userPosition = null;
         clasament.forEach((item) => {
-    
+
           // Check if the username exists and has more than 2 characters
           if (item.username && item.username.length > 2) {
             // Get the first two letters of the username
@@ -239,15 +239,15 @@ $(document).ready(function () {
             const asterisks = '*'.repeat(item.username.length - 2);
             item.username = firstTwoLetters + asterisks;
             userPosition = item.ranking;
-            console.log(item.username,"falseeee")
+            console.log(item.username, "falseeee")
           }
-          
+
           // console.log(item, "for axterix")
           if (item.username === userToCheck) {
             userPosition = item.ranking;
             console.log("am gasit userul pe pozitia ", userPosition);
             userPosition.addClass('your-class-name');
- 
+
           }
         });
 
@@ -379,14 +379,14 @@ $(document).ready(function () {
       $("#streamersTable").DataTable(streamersTableOptions);
     })
 
- 
+
     .catch((error) => {
       console.error("Fetch error:", error);
     });
 
 
   function createTableUsers(item, userToCheck) {
-      // Check if the username matches userToCheck
+    // Check if the username matches userToCheck
 
 
 
@@ -474,21 +474,31 @@ $(document).ready(function () {
 
   generetaDataSlider();
 
-  // generate games from link and slice
   function generateGames(allGames) {
     const gameImagesContainer = $("#gameImages");
     const isDesktop = window.innerWidth > 480;
-    const maxGamesToShow = isDesktop ? (allGames.length) : 12;
+    const maxGamesToShow = isDesktop ? allGames.length : 12;
+
     // Loop through the games and display up to maxGamesToShow
-    allGames.slice(0, maxGamesToShow).forEach((gameName) => {
+    allGames.slice(0, maxGamesToShow).forEach((gameName, index) => {
       const img = $("<img>")
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
-        .attr("loading", "lazy") 
-   
+        .attr("loading", "lazy")
         .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
-      const link = $("<a>").addClass("scroll-item-game").attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`).append(img);
+
+      const link = $("<a>").addClass("scroll-item-game")
+      if (index <= allGames.length - 3) {
+        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`)
+      }
+      if (index >= allGames.length - 1) {
+        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)+ "-7777gaming"}`)
+      }
+      else if (index >= allGames.length - 2) {
+        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -6)}`)
+      }
+      link.append(img);
       link.attr("target", "_parent")
       gameImagesContainer.append(link);
     });
@@ -668,22 +678,22 @@ $(function () {
 });
 
 
-$(document).ready(function () {
-  const splashScreen = $('#splash-screen');
-  const mainContent = $('.contentS');
+// $(document).ready(function () {
+//   const splashScreen = $('#splash-screen');
+//   const mainContent = $('.contentS');
 
-  // Wait for all images and the DOM to be fully loaded
-  mainContent.imagesLoaded(function () {
-      // Hide the splash screen with a fade-out animation
-      splashScreen.fadeOut(500, function () {
-          // Animation complete callback - hide the splash screen
-          splashScreen.css('display', 'none');
-      });
+//   // Wait for all images and the DOM to be fully loaded
+//   mainContent.imagesLoaded(function () {
+//       // Hide the splash screen with a fade-out animation
+//       splashScreen.fadeOut(500, function () {
+//           // Animation complete callback - hide the splash screen
+//           splashScreen.css('display', 'none');
+//       });
 
-      // Display the main content
-      mainContent.css('display', 'block');
-  });
-});
+//       // Display the main content
+//       mainContent.css('display', 'block');
+//   });
+// });
 // const cardElements = document.querySelectorAll('.card-custom');
 // // console.log(cardElements, "cards")
 
