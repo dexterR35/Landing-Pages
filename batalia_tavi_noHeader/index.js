@@ -10,7 +10,7 @@ function getCookie(name) {
 }
 
 userToCheck = "testcozminn";
-// userToCheck = getCookie("netbet_login");
+// userToCheck = getCookie("netbet_login")
 userToVote = null;
 
 const apiEndpoint_check_user =
@@ -175,7 +175,7 @@ $(document).ready(function () {
   const backgroundImages = [...dataObject.backgroundImages];
   // console.log(backgroundImages);
 
-
+  let cardData = $("#dynamicCardBody");
 
   // const apiEndpoint_optout_user =
   //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
@@ -196,6 +196,7 @@ $(document).ready(function () {
       // console.log(data[0].optin, "optin");
       let voted = "Not available"; // Default value if "voted" is not in the response
       let clasament = null;
+   
       // Iterate over the array and assign values to optin, voted, and clasament
       data.forEach((item) => {
         if ("optin" in item) {
@@ -205,9 +206,9 @@ $(document).ready(function () {
         } else if ("clasament" in item) {
           clasament = item.clasament;
         }
+   
       });
-
-    
+  
       updateButtonBehavior(optin)
       console.log("optin:", optin);
       console.log("actionButton:", actionButton);
@@ -217,8 +218,13 @@ $(document).ready(function () {
         tableDataUser.empty();
         // Find the user's ranking
         let userPosition = null;
-        clasament.forEach((item) => {
-
+        clasament.forEach((item ,index) => {
+          if (index < 3) {
+            $(".parent-table").addClass("test");
+      
+            // console.log(index,"itemssss")?
+          }
+          console.log(index,"itemssss")
           // Check if the username exists and has more than 2 characters
           if (item.username && item.username.length > 2) {
             // Get the first two letters of the username
@@ -226,7 +232,7 @@ $(document).ready(function () {
             const asterisks = '*'.repeat(item.username.length - 2);
             item.username = firstTwoLetters + asterisks;
             userPosition = item.ranking;
-            console.log(item.username, "falseeee")
+            // console.log(item.username, "falseeee")
           }
 
           // console.log(item, "for axterix")
@@ -298,25 +304,15 @@ $(document).ready(function () {
       } else {
         console.error("Invalid response structure:", data);
       }
+      // tableDataUser.find('tr:lt(3)').addClass(topThreeClass);
+
     })
     .catch((error) => {
       console.error("Fetch error:", error);
     });
 
 
-    function updateButtonBehavior(optin) {
-      if (optin) {
-        actionButton.attr("data-bs-toggle", "modal");
-        actionButton.attr("data-bs-target", "#cardsModal");
-        actionButton.text("Votează Streamerul");
-        actionButton.removeAttr("onclick");
-      } else {
-        // Set the onclick attribute to call optIn() and update the button text
-        actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
-        actionButton.text("Înregistreaza-te");
-      }
-    }
-   
+
   // Make a GET request to the API for CLASAMENT STREAMERS
   fetch(apiEndpoint_clasament_streamers)
     .then((response) => {
@@ -329,53 +325,55 @@ $(document).ready(function () {
     .then((data) => {
       tableDataStreamer.empty();
 
-      data.forEach((user) => {
-        console.log(user, "fasfa")
+      data.forEach((streamer) => {
+        console.log(streamer, "fasfa")
         let imgSrc = "";
-        switch (user.username) {
+        switch (streamer.username) {
           case "testpacanela":
-            user.username = "PACANELA";
+            streamer.username = "PACANELA";
             imgSrc = "./_avatar/pacanela.png";
             break;
           case "casinosro":
-            user.username = "QUIKANU";
+            streamer.username = "QUIKANU";
             imgSrc = "./_avatar/quikanu.png";
             break;
           case "dumis423435":
-            user.username = "DUMISNINJA";
+            streamer.username = "DUMISNINJA";
             imgSrc = "./_avatar/dumisninja.png";
             break;
           case "cazino265ro":
-            user.username = "DUDY";
+            streamer.username = "DUDY";
             imgSrc = "./_avatar/dudy.png";
             break;
           case "cazinoz":
-            user.username = "NARCIS";
+            streamer.username = "NARCIS";
             imgSrc = "./_avatar/narcis.png";
             break;
           case "ster0iaBanii":
-            user.username = "STERO";
+            streamer.username = "STERO";
             imgSrc = "./_avatar/stero.png";
             break;
           case "Annuskaa":
-            user.username = "ANNA";
+            streamer.username = "ANNA";
             imgSrc = "./_avatar/anna.png";
             break;
           case "supercazino1":
-            user.username = "FRATIIJONSON";
+            streamer.username = "FRATIIJONSON";
             imgSrc = "./_avatar/fratiijonson.png";
             break;
           case "supercazino2":
-            user.username = "PACANEDY";
+            streamer.username = "PACANEDY";
             imgSrc = "./_avatar/pacanedy.png";
             break;
           case "supercazino3":
-            user.username = "PRINCESS";
+            streamer.username = "PRINCESS";
             imgSrc = "./_avatar/princess.png";
             break;
         }
 
-        tableDataStreamer.append(createTableStreamers(user, imgSrc));
+        tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
+        cardData.append(generateModalCard(streamer,imgSrc));
+
       });
       $("#streamersTable").DataTable(streamersTableOptions);
     })
@@ -422,6 +420,56 @@ $(document).ready(function () {
    `;
     return tableHtml;
   }
+
+
+  function generateModalCard(streamer, imgSrc) {
+    // const isVoted = getCookie('namevoted') === streamerCards.name;
+    const cardHtml = `
+          <div class="col-lg-4 card-wrapp" >
+              <div class="card card-custom ${false ? 'voted' : 'non-voted'}")>
+                  <div class="card-body text-center">
+                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
+                      <p class="speech">${streamer.points} Voturi</p>
+                      <div class="card-image" style="background-image:url(${imgSrc})"></div>
+                      <h6 class="card-title text bottom-right">${streamer.username}</h6>
+                  </div>
+              </div>
+          </div>
+      `;
+    // Create a jQuery element from the cardHtml
+    const cardElement = $(cardHtml);
+    // Find the '.card-custom' element within the cardElement
+    const cardCustomElement = cardElement.find('.card-custom');
+    // Remove the 'non-voted' class from cardCustomElement
+    cardCustomElement.removeClass('non-voted');
+    // Add a click event handler to cardCustomElement
+    cardCustomElement.on('click', function () {
+      if (!cardCustomElement.hasClass('voted')) {
+        $('.card-custom:not(.voted)').removeClass('non-voted');
+        cardCustomElement.addClass('voted');
+        cardCustomElement.attr('data-voted', 'true');
+        if (cardCustomElement.hasClass('voted')) {
+          $('.card-custom:not(.voted)').addClass('non-voted');
+        }
+      }
+    });
+    return cardElement;
+  }
+
+  function updateButtonBehavior(optin) {
+    if (optin) {
+      actionButton.attr("data-bs-toggle", "modal");
+      actionButton.attr("data-bs-target", "#cardsModal");
+      actionButton.text("Votează Streamerul");
+      actionButton.removeAttr("onclick");
+    } else {
+      // Set the onclick attribute to call optIn() and update the button text
+      actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
+      actionButton.text("Înregistreaza-te");
+    }
+  }
+ 
+
   //map streamers
   let streamerCards = dataObject.streamers.map((streamerData) => {
     return {
@@ -445,6 +493,7 @@ $(document).ready(function () {
   function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
+      
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-5"><span># </span><span>${streamer_pos}</span></div>`
       );
@@ -565,14 +614,16 @@ $(document).ready(function () {
 
 
 
-  // Call the function again on window resize
-  $(window).resize(function () {
-    updateContent();
-    gameImagesContainer.empty(); // Clear the container
-    generateGames(objData); // Re-generate the games based on the new screen size
-  });
+
 });
 
+
+  // Call the function again on window resize
+  $(window).resize(function () {
+    gameImagesContainer.empty(); // Clear the container
+    updateContent();
+    generateGames(objData); // Re-generate the games based on the new screen size
+  });
 //   SWIPER FOR STREAMERS
 
 const swiperStr = new Swiper(".stream-slider", {
