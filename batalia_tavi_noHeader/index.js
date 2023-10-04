@@ -9,7 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = getCookie("netbet_login");
+userToCheck = "testcozminn";
+// userToCheck = getCookie("netbet_login");
 userToVote = null;
 
 const apiEndpoint_check_user =
@@ -146,6 +147,7 @@ $(document).ready(function () {
     gamesArray: [
       "10189-the-sword-and-the-grail__2",
       "11877-sky-queen__4",
+      "12009-halloween-fortune-ro__3",
       "20051-big-top-bonanza-megaways__2",
       "20139-age-of-the-gods-ii-god-storms__2",
       "20621-big-buffalo-badlands__3",
@@ -160,21 +162,12 @@ $(document).ready(function () {
       "25878-wisdom-of-athena__2",
       "26018-fox-mayhem__2",
       "26271-sky-bounty__2",
-      "12009-halloween-fortune-ro__3",
       "26375-halloween__3",
     ],
     backgroundImages: [
       'url("./_bg/bg_anna.jpg")',
-      'url("./_bg/bg_dudy.jpg")',
-      'url("./_bg/bg_dumisninja.jpg")',
-      'url("./_bg/bg_fratiijonson.jpg")',
-      'url("./_bg/bg_narcis.jpg")',
-      'url("./_bg/bg_pacanedy.jpg")',
-      'url("./_bg/bg_pacanela.jpg")',
       'url("./_bg/bg_pacanela.jpg")',
       'url("./_bg/bg_princess.jpg")',
-      'url("./_bg/bg_quikanu.jpg")',
-      'url("./_bg/bg_stero.jpg")',
     ],
   }
 
@@ -187,7 +180,7 @@ $(document).ready(function () {
   // const apiEndpoint_optout_user =
   //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
   //   userToCheck;
-
+  const actionButton = $("#actionButton");
   // Make a GET request to the API for CHECK USER
   fetch(apiEndpoint_check_user)
     .then((response) => {
@@ -214,16 +207,10 @@ $(document).ready(function () {
         }
       });
 
-      // if (!optin) {
-      //   $("#optin").html('<button onclick="optIn()">Opt In</button>');
-      // } else {
-      //   $("#optin").html('<button onclick="optOut()">Opt out</button>');
-      // }
-
-      if (optin) {
-        $("#actionButton").addClass("btn-NB-large btn-custom btn-NB-disabled");
-      }
-
+    
+      updateButtonBehavior(optin)
+      console.log("optin:", optin);
+      console.log("actionButton:", actionButton);
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
         console.log(clasament, "clasament");
@@ -316,6 +303,20 @@ $(document).ready(function () {
       console.error("Fetch error:", error);
     });
 
+
+    function updateButtonBehavior(optin) {
+      if (optin) {
+        actionButton.attr("data-bs-toggle", "modal");
+        actionButton.attr("data-bs-target", "#cardsModal");
+        actionButton.text("Votează Streamerul");
+        actionButton.removeAttr("onclick");
+      } else {
+        // Set the onclick attribute to call optIn() and update the button text
+        actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
+        actionButton.text("Înregistreaza-te");
+      }
+    }
+   
   // Make a GET request to the API for CLASAMENT STREAMERS
   fetch(apiEndpoint_clasament_streamers)
     .then((response) => {
@@ -385,11 +386,7 @@ $(document).ready(function () {
     });
 
 
-  function createTableUsers(item, userToCheck) {
-    // Check if the username matches userToCheck
-
-
-
+  function createTableUsers(item) {
     const tableAHtml = `<tr class="parent-table ">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
@@ -404,9 +401,6 @@ $(document).ready(function () {
 
 
   function createTableStreamers(streamer, imgSrc) {
-    // Define a mapping object for username to image src
-    // Get the image source based on the username
-    // const imgSrc = usernameToImgSrc[streamer.username] || "default.jpg";
     const tableHtml = `<tr class="parent-table">
      <td class="parent-position ps">#${streamer.ranking}</td>
      <td>
@@ -428,10 +422,6 @@ $(document).ready(function () {
    `;
     return tableHtml;
   }
-  // streamerCards.forEach((streamerData, index) => {
-  //   console.log(streamerData, "test")
-  // });
-
   //map streamers
   let streamerCards = dataObject.streamers.map((streamerData) => {
     return {
@@ -474,31 +464,21 @@ $(document).ready(function () {
 
   generetaDataSlider();
 
+  // generate games from link and slice
   function generateGames(allGames) {
     const gameImagesContainer = $("#gameImages");
     const isDesktop = window.innerWidth > 480;
-    const maxGamesToShow = isDesktop ? allGames.length : 12;
-
+    const maxGamesToShow = isDesktop ? (allGames.length) : 12;
     // Loop through the games and display up to maxGamesToShow
-    allGames.slice(0, maxGamesToShow).forEach((gameName, index) => {
+    allGames.slice(0, maxGamesToShow).forEach((gameName) => {
       const img = $("<img>")
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
         .attr("loading", "lazy")
-        .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
 
-      const link = $("<a>").addClass("scroll-item-game")
-      if (index <= allGames.length - 3) {
-        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`)
-      }
-      if (index >= allGames.length - 1) {
-        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)+ "-7777gaming"}`)
-      }
-      else if (index >= allGames.length - 2) {
-        link.attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -6)}`)
-      }
-      link.append(img);
+        .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
+      const link = $("<a>").addClass("scroll-item-game").attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`).append(img);
       link.attr("target", "_parent")
       gameImagesContainer.append(link);
     });
@@ -632,7 +612,7 @@ swiperStr.el.addEventListener("mouseleave", function () {
 });
 
 async function optIn() {
-  console.log("optin");
+  // console.log("optin");
   await fetch(apiEndpoint_optin_user)
     .then((response) => {
       // Check if the request was successful

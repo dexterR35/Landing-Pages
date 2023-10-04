@@ -9,7 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = getCookie("netbet_login"); // DE LINKUIT AICI CHECKCOOKIE (VEZI MAI SUS)
+userToCheck = "test";
+// userToCheck = getCookie("netbet_login");
 userToVote = null;
 
 const apiEndpoint_check_user =
@@ -21,13 +22,12 @@ const apiEndpoint_optin_user =
   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" +
   userToCheck;
 
+
+const scrollContainer = document.querySelector("#fullpage");
 let tableDataUser = $("#bodyUser");
 let tableDataStreamer = $("#bodyStreamer");
 
-
 $(document).ready(function () {
-  const scrollContainer = document.querySelector("#fullpage");
-
   if ($(window).width() < 1024) {
     $(".btn._mobile").addClass("w-100");
     $(".btn._desktop").css({
@@ -55,90 +55,90 @@ $(document).ready(function () {
   const dataObject = {
     streamers: [{
         name: "anna",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "1",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_anna.jpg",
         avatarImg: `./_avatar/anna.png`,
       },
       {
         name: "dudy",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "2",
+        points: "",
+        vote: "",
+        position: "",
         challenge: false,
         bgImg: "./_bg/bg_dudy.jpg",
         avatarImg: "./_avatar/dudy.png",
       },
       {
         name: "dumisninja",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "3",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_dumisninja.jpg",
         avatarImg: "./_avatar/dumisninja.png",
       },
       {
         name: "fratiijonson",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "4",
+        points: "",
+        vote: "",
+        position: "",
         challenge: false,
         bgImg: "./_bg/bg_fratiijonson.jpg",
         avatarImg: "./_avatar/fratiijonson.png",
       },
       {
         name: "narcis",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "5",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_narcis.jpg",
         avatarImg: "./_avatar/narcis.png",
       },
       {
         name: "pacanedy",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "6",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_pacanedy.jpg",
         avatarImg: "./_avatar/pacanedy.png",
       },
       {
         name: "pacanela",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "7",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_pacanela.jpg",
         avatarImg: "./_avatar/pacanela.png",
       },
       {
         name: "princess",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "8",
+        points: "",
+        vote: "",
+        position: "",
         challenge: false,
         bgImg: "./_bg/bg_princess.jpg",
         avatarImg: "./_avatar/princess.png",
       },
       {
         name: "quikanu",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "9",
+        points: "",
+        vote: "",
+        position: "",
         challenge: false,
         bgImg: "./_bg/bg_quikanu.jpg",
         avatarImg: "./_avatar/quikanu.png",
       },
       {
         name: "stero",
-        // points: randomPointsTest,
-        // vote: randomVoteTest,
-        position: "10",
+        points: "",
+        vote: "",
+        position: "",
         challenge: true,
         bgImg: "./_bg/bg_stero.jpg",
         avatarImg: "./_avatar/stero.png",
@@ -150,7 +150,7 @@ $(document).ready(function () {
       "12009-halloween-fortune-ro__3",
       "20051-big-top-bonanza-megaways__2",
       "20139-age-of-the-gods-ii-god-storms__2",
-      "20621-big-buffalo-badlands__3.jpg",
+      "20621-big-buffalo-badlands__3",
       "21509-disco-mania-megaways-merge__2",
       "23076-cash-of-command__2",
       "23278-pirate-chest-hold-and-win__2",
@@ -158,7 +158,7 @@ $(document).ready(function () {
       "25313-cash-20x__2",
       "25328-egyptian-treasure__2",
       "25794-empire-gold-hold-and-win__2",
-      "14220-aztec-respin-remember-skywind-prov__2",
+      "22372-treasures-of-fire-scatter-pays-95__2",
       "25878-wisdom-of-athena__2",
       "26018-fox-mayhem__2",
       "26271-sky-bounty__2",
@@ -166,45 +166,21 @@ $(document).ready(function () {
     ],
     backgroundImages: [
       'url("./_bg/bg_anna.jpg")',
-      'url("./_bg/bg_dudy.jpg")',
-      'url("./_bg/bg_dumisninja.jpg")',
-      'url("./_bg/bg_fratiijonson.jpg")',
-      'url("./_bg/bg_narcis.jpg")',
-      'url("./_bg/bg_pacanedy.jpg")',
       'url("./_bg/bg_pacanela.jpg")',
-      'url("./_bg/bg_pacanela.jpg")',
-      'url("./_bg/bg_princess.jpg")',
-      'url("./_bg/bg_quikanu.jpg")',
       'url("./_bg/bg_stero.jpg")',
     ],
   }
 
   const gamesArray = [...dataObject.gamesArray];
   const backgroundImages = [...dataObject.backgroundImages];
-  console.log(backgroundImages);
-
-  //map streamers
-  const streamerCards = dataObject.streamers.map((streamerData) => {
-    return {
-      name: streamerData.name,
-      points: streamerData.points,
-      bgImg: streamerData.bgImg,
-      avatarImg: streamerData.avatarImg,
-      vote: streamerData.vote,
-      position: streamerData.position,
-      challenge: streamerData.challenge,
-    };
-  });
+  // console.log(backgroundImages);
 
 
-
-  // Define the API endpoint
 
   // const apiEndpoint_optout_user =
   //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
   //   userToCheck;
 
-  // let isOptedIn = false;
   // Make a GET request to the API for CHECK USER
   fetch(apiEndpoint_check_user)
     .then((response) => {
@@ -212,13 +188,11 @@ $(document).ready(function () {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json(); // Parse the JSON from the response
+      return response.json();
     })
     .then((data) => {
       console.log(data, "Data");
-      // Initialize variables to hold optin, voted, and clasament data
       let optin = null;
-      console.log(data[0].optin, "optin");
       let voted = "Not available"; // Default value if "voted" is not in the response
       let clasament = null;
       // Iterate over the array and assign values to optin, voted, and clasament
@@ -231,44 +205,53 @@ $(document).ready(function () {
           clasament = item.clasament;
         }
       });
-      // if (!optin) {
-      //   $("#optin").html('<button onclick="optIn()">Opt In</button>');
-      // } else {
-      //   $("#optin").html('<button onclick="optOut()">Opt out</button>');
-      // }
+
+      if (optin) {
+        $("#actionButton").addClass("btn-NB-large btn-custom btn-NB-disabled");
+      }
+
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
         console.log(clasament, "clasament");
         tableDataUser.empty();
         // Find the user's ranking
-        let pozitie = null;
+        let userPosition = null;
         clasament.forEach((item) => {
+          // Check if the username exists and has more than 2 characters
+          if (item.username && item.username.length > 2) {
+            // Get the first two letters of the username
+            const firstTwoLetters = item.username.slice(0, 2);
+            const asterisks = '*'.repeat(item.username.length - 2);
+            item.username = firstTwoLetters + asterisks;
+            userPosition = item.ranking;
+            console.log(item.username, "falseeee")
+          }
+
+          // console.log(item, "for axterix")
           if (item.username === userToCheck) {
-            pozitie = item.ranking;
-            console.log("am gasit userul pe pozitia ", pozitie);
+            userPosition = item.ranking;
+            console.log("am gasit userul pe pozitia ", userPosition);
+            userPosition.addClass('your-class-name');
           }
         });
 
-        if (pozitie <= 10) {
+        if (userPosition <= 10) {
           console.log("userul e top 10");
           clasament.slice(0, 10).forEach((item) => {
             tableDataUser.append(createTableUsers(item));
           });
-        } else if (pozitie > 10 && pozitie <= 200) {
+        } else if (userPosition > 10 && userPosition <= 200) {
           console.log("userul e in top 200");
           if (clasament.length == 17) {
             console.log("userul nu e intre ultimii 3");
-
             clasament.slice(0, 3).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
             });
-
             clasament.slice(10, 17).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
             });
           } else {
             console.log("userul e intre ultimii 3");
-
             clasament.slice(0, 6).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
             });
@@ -279,7 +262,7 @@ $(document).ready(function () {
                 tableDataUser.append(createTableUsers(item));
               });
           }
-        } else if (pozitie > 200) {
+        } else if (userPosition > 200) {
           console.log("userul e mai jos de 200");
           if (clasament.length == 20) {
             console.log("userul nu e intre ultimii 3");
@@ -314,7 +297,6 @@ $(document).ready(function () {
       }
     })
     .catch((error) => {
-      // Log any errors that occurred during the fetch
       console.error("Fetch error:", error);
     });
 
@@ -329,86 +311,126 @@ $(document).ready(function () {
     })
     .then((data) => {
       tableDataStreamer.empty();
+
       data.forEach((user) => {
-        console.log(user,"fasfa")
+        console.log(user, "fasfa")
+        let imgSrc = "";
         switch (user.username) {
-          case "testpacanela" : 
-          user.username = "PACANELA";
-          break;
-          case "casinosro" : 
-          user.username = "QUIKANU";
-          break;
-          case "dumis423435" : 
-          user.username = "DUMISNINJA";
-          break;    
-          case "cazino265ro" : 
-          user.username = "DUDY";
-          break;   
-          case "cazinoz" : 
-          user.username = "NARCIS";
-          break; 
-          case "ster0iaBanii" : 
-          user.username = "STERO";
-          break; 
-          case "Annuskaa" : 
-          user.username = "ANNA";
-          break; 
-          case "supercazino1" : 
-          user.username = "FRATIIJONSON";
-          break;      
-          case "supercazino2" : 
-          user.username = "PACANEDY";
-          break;   
-          case "supercazino3" : 
-          user.username = "PRINCESS";
-          break;                       
+          case "testpacanela":
+            user.username = "PACANELA";
+            imgSrc = "./_avatar/pacanela.png";
+            break;
+          case "casinosro":
+            user.username = "QUIKANU";
+            imgSrc = "./_avatar/quikanu.png";
+            break;
+          case "dumis423435":
+            user.username = "DUMISNINJA";
+            imgSrc = "./_avatar/dumisninja.png";
+            break;
+          case "cazino265ro":
+            user.username = "DUDY";
+            imgSrc = "./_avatar/dudy.png";
+            break;
+          case "cazinoz":
+            user.username = "NARCIS";
+            imgSrc = "./_avatar/narcis.png";
+            break;
+          case "ster0iaBanii":
+            user.username = "STERO";
+            imgSrc = "./_avatar/stero.png";
+            break;
+          case "Annuskaa":
+            user.username = "ANNA";
+            imgSrc = "./_avatar/anna.png";
+            break;
+          case "supercazino1":
+            user.username = "FRATIIJONSON";
+            imgSrc = "./_avatar/fratiijonson.png";
+            break;
+          case "supercazino2":
+            user.username = "PACANEDY";
+            imgSrc = "./_avatar/pacanedy.png";
+            break;
+          case "supercazino3":
+            user.username = "PRINCESS";
+            imgSrc = "./_avatar/princess.png";
+            break;
         }
-        tableDataStreamer.append(createTableUsers(user));
+        tableDataStreamer.append(createTableStreamers(user, imgSrc));
       });
+      $("#streamersTable").DataTable(streamersTableOptions);
     })
+
+
     .catch((error) => {
-      // Log any errors that occurred during the fetch
       console.error("Fetch error:", error);
     });
 
 
   function createTableUsers(item) {
+    // Check if the username matches userToCheck
 
-    const tableAHtml = `<tr class="parent-table">
+    const tableAHtml = `<tr class="parent-table ">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
-            <div class="d-flex align-items-center parent-avatar">
-                <div class="avatar-table avatar-blue">
-                    <img src="" alt="pict_table" class="pict_table">
-                </div>
                 <div class="parent-name">
                     <p class="mb-0 ps">${item.username}</p>
-                    <p class="text-muted mb-0">voturi: ${item.votes}</p>
                 </div>
-            </div>
         </td>
-        <td class="parent-points ps">${item.points}</td>
-        
+        <td class="parent-points ps">${item.points}</td>  
     </tr>`;
     return tableAHtml;
   }
+
+
+  function createTableStreamers(streamer, imgSrc) {
+    // Define a mapping object for username to image src
+    // Get the image source based on the username
+    // const imgSrc = usernameToImgSrc[streamer.username] || "default.jpg";
+    const tableHtml = `<tr class="parent-table">
+     <td class="parent-position ps">#${streamer.ranking}</td>
+     <td>
+
+     <div class="d-flex align-items-center parent-avatar">
+         <div class="avatar-table avatar-blue">
+             <img src="${imgSrc}" alt="pict_table" class="pict_table">
+         </div>
+         <div class="parent-name">
+         <p class="mb-0 ps">${streamer.username} <span class="${true ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
+              
+             <p class="text-muted mb-0">voturi: ${streamer.votes}</p>
+         </div>
+     </div>
+ </td>
+
+     <td class="parent-points ps">${streamer.points}</td>
+     </tr>;
+   `;
+    return tableHtml;
+  }
   // streamerCards.forEach((streamerData, index) => {
   //   console.log(streamerData, "test")
-
   // });
-  // function createTableStreamers(data , streamerData) {
-  //   const tableHtml = `
-  //     <td class="parent-position ps">#${item.ranking}</td>
-  //     <td>
-  //       <div class="parent-name">
-  //                   <p class="mb-0 ps">${item.username}</p>
-  //               </div>
-  //     </td>
-  //     <td class="parent-points ps">${item.points}</td>
 
-  //   `;
-  //   return tableHtml;
-  // }
+  //map streamers
+  let streamerCards = dataObject.streamers.map((streamerData) => {
+    return {
+      name: streamerData.name,
+      points: streamerData.points,
+      bgImg: streamerData.bgImg,
+      avatarImg: streamerData.avatarImg,
+      vote: streamerData.vote,
+      position: streamerData.position,
+      challenge: streamerData.challenge,
+    };
+  });
+
+  console.log(streamerCards, "dasfa")
+
+  // console.log(streamerCards, "t4est")
+
+
 
   // Function append bg card ,pos, name for swipper
   function generetaDataSlider() {
@@ -425,17 +447,15 @@ $(document).ready(function () {
         "background-position": "center",
         "background-repeat": "no-repeat",
       });
+      // $(this).attr("loading", "lazy")
 
       // $(this).prepend(boxSlideTop);
     });
   }
 
+  generetaDataSlider(backgroundImages);
 
-
-  generetaDataSlider();
-  generateGames(gamesArray);
-
-
+  // generate games from link and slice
   function generateGames(allGames) {
     const gameImagesContainer = $("#gameImages");
     const isDesktop = window.innerWidth > 480;
@@ -447,28 +467,26 @@ $(document).ready(function () {
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
         .attr("loading", "lazy")
+
         .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
-      const link = $("<a>").addClass("scroll-item-game").attr("href", "#").append(img);
+      const link = $("<a>").addClass("scroll-item-game").attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`).append(img);
+      link.attr("target", "_parent")
       gameImagesContainer.append(link);
     });
   }
 
-
+  generateGames(gamesArray);
   // Options for the "streamersTable"
+
+
   const streamersTableOptions = {
     aaSorting: false,
     responsive: true,
-    pageLength: 10,
-    paging: true,
+    pageLength: 5,
+    paginate: true,
     info: false,
     lengthChange: false,
     searching: false, // Disable search
-    language: {
-      paginate: {
-        previous: '',
-        next: ''
-      }
-    },
     columnDefs: [{
         width: "5%",
         targets: 0
@@ -482,21 +500,9 @@ $(document).ready(function () {
         targets: 2
       },
       {
-        width: "10%",
-        targets: 3,
-        className: "text-center"
-      },
-
-
-      {
         responsivePriority: 2,
         targets: 2,
       },
-
-      {
-        visible: false,
-        targets: 2,
-      }
     ],
   };
 
@@ -505,7 +511,7 @@ $(document).ready(function () {
     autoWidth: false,
     aaSorting: false,
     responsive: true,
-    pageLength: 10,
+    pageLength: 5,
     paginate: false,
     info: false,
     searching: false, // Disable search
@@ -522,38 +528,18 @@ $(document).ready(function () {
         width: "15%",
         targets: 2,
       },
-      {
-        width: "15%",
-        targets: 3,
-        visible: false,
-      },
-      {
-        responsivePriority: 1,
-        targets: -1,
-        visible: false, // Hide the last column (which is "Challenge")
-      },
-      {
-        width: "15%",
-        targets: 4,
-        visible: false,
-      },
-
-
-      // You can add more specific columnDefs for the "usersTable" here if needed
     ],
   };
 
-  // Initialize DataTables for both tables
-  // $("#usersTable").DataTable(usersTableOptions);
-  // $("#streamersTable").DataTable(streamersTableOptions);
+
+  $("#usersTable").DataTable(usersTableOptions);
+
 
   // Add titles to table wrappers
-  $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
-  $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
+  // $("#streamersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Streameri</h4>`);
+  // $("#usersTable_wrapper").prepend(`<h4 class="text-center p-2 position-relative">Utilizatori</h4>`);
 
-
-
-  // Customize search input (if needed)
+  // // Customize search input (if needed)
   $(".dataTables_filter input")
     .attr("placeholder", "Search here...")
     .css({
@@ -568,31 +554,91 @@ $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 
 
-  // //   SCROLL WINDOWS LOCOMOTIVE JS
-  // const scroll = new LocomotiveScroll({
-  //   el: scrollContainer,
-  //   smoothMobile: true,
-  //   getSpeed: true,
-  //   getDirection: true,
-  //   firefoxMultiplier: "",
-  //   scrollFromAnywhere: true,
-  //   reloadOnContextChange: false,
-  //   resetNativeScroll: false,
-  //   smooth: true,
-  //   autoResize: true,
-  //   // lerp: 0.05
-  // });
 
-  // scroll.on("scroll", (e) => {
-  //   // scrollContainer.style.backgroundColor =
-  //   // 	"hsl(" + 100 + e.scroll.y / 5 + ",40%,30%)";
-  //   // const table = document.getElementById("gameImages"); // Selectați tabelul după ID
-  //   // if (table) {
-  //   //   const skewValue = e.scroll.y / 9; // Ajustați acest număr pentru a controla intensitatea efectului de skew
-  //   //   table.style.transform = `skew(${skewValue / 30}deg)`; // Aplicați efectul de skew pe axa orizontală
-  //   // }
-  // });
 
+  //   SWIPER FOR STREAMERS
+
+  const swiperStr = new Swiper(".stream-slider", {
+    effect: "coverflow",
+    loop: true,
+    autoplay: {
+      delay: 0,
+    },
+    slidesPerView: "auto",
+    speed: 2 * 1000,
+    parallax: true,
+    touchRatio: 0.3,
+    cache: true,
+    centeredSlides: true,
+    coverflowEffect: {
+      rotate: 5, // (Rotate of the prev and next slides);
+      depth: 30, // (Depth of the prev and next slides);
+      stretch: 5, // (Space between the slides);
+      modifier: 2, // (Multiply the values of rotate, depth, and stretch);
+      slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
+    },
+    // breakpoints: {
+    //   320: { slidesPerView: 2 },
+    //   640: { slidesPerView: 4 },
+    //   1024: { slidesPerView: 4 },
+    //   1440: { slidesPerView: "auto" },
+    // },
+  });
+
+  // swiperStr.autoplay.stop();
+  swiperStr.el.addEventListener("mouseover", function () {
+    swiperStr.autoplay.stop();
+  });
+
+  swiperStr.el.addEventListener("mouseleave", function () {
+    swiperStr.autoplay.start();
+  });
+
+  async function optIn() {
+    // console.log("optin");
+    await fetch(apiEndpoint_optin_user)
+      .then((response) => {
+        // Check if the request was successful
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON from the response
+      })
+      .catch((error) => {
+        // Log any errors that occurred during the fetch
+        console.error("Fetch error:", error);
+      });
+  }
+
+  function updateContent() {
+    var screenWidth = $(window).width();
+    var netbetSpan = $('#changeWord');
+    if (screenWidth <= 480) {
+      netbetSpan.text('În partea de jos');
+    } else {
+      netbetSpan.text('În stânga');
+    }
+  }
+  updateContent()
+
+  $(function () {
+    const imagesToLazyLoad = document.querySelectorAll('img[data-src]');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    imagesToLazyLoad.forEach(img => {
+      observer.observe(img);
+    });
+  });
   // Call the function again on window resize
   $(window).resize(function () {
     updateContent();
@@ -601,72 +647,23 @@ $(document).ready(function () {
   });
 });
 
-//   SWIPER FOR STREAMERS
 
-const swiperStr = new Swiper(".stream-slider", {
-  effect: "coverflow",
-  loop: true,
-  autoplay: {
-    delay: 0,
-  },
-  slidesPerView: "auto",
-  speed: 2 * 1000,
-  parallax: true,
-  touchRatio: 0.3,
-  cache: true,
-  centeredSlides: true,
-  coverflowEffect: {
-    rotate: 5, // (Rotate of the prev and next slides);
-    depth: 30, // (Depth of the prev and next slides);
-    stretch: 5, // (Space between the slides);
-    modifier: 2, // (Multiply the values of rotate, depth, and stretch);
-    slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
-  },
-  // breakpoints: {
-  //   320: { slidesPerView: 2 },
-  //   640: { slidesPerView: 4 },
-  //   1024: { slidesPerView: 4 },
-  //   1440: { slidesPerView: "auto" },
-  // },
-});
+// $(document).ready(function () {
+//   const splashScreen = $('#splash-screen');
+//   const mainContent = $('.contentS');
 
-// swiperStr.autoplay.stop();
-swiperStr.el.addEventListener("mouseover", function () {
-  swiperStr.autoplay.stop();
-});
+//   // Wait for all images and the DOM to be fully loaded
+//   mainContent.imagesLoaded(function () {
+//       // Hide the splash screen with a fade-out animation
+//       splashScreen.fadeOut(500, function () {
+//           // Animation complete callback - hide the splash screen
+//           splashScreen.css('display', 'none');
+//       });
 
-swiperStr.el.addEventListener("mouseleave", function () {
-  swiperStr.autoplay.start();
-});
-
-async function optIn() {
-  console.log("optin");
-  await fetch(apiEndpoint_optin_user)
-    .then((response) => {
-      // Check if the request was successful
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json(); // Parse the JSON from the response
-    })
-    .catch((error) => {
-      // Log any errors that occurred during the fetch
-      console.error("Fetch error:", error);
-    });
-}
-
-function updateContent() {
-  var screenWidth = $(window).width();
-  var netbetSpan = $('#changeWord');
-  if (screenWidth <= 480) {
-    netbetSpan.text('În partea de jos');
-  } else {
-    netbetSpan.text('În stânga');
-  }
-}
-updateContent()
-
-
+//       // Display the main content
+//       mainContent.css('display', 'block');
+//   });
+// });
 // const cardElements = document.querySelectorAll('.card-custom');
 // // console.log(cardElements, "cards")
 
