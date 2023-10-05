@@ -53,97 +53,7 @@ $(document).ready(function () {
 
 
   const dataObject = {
-    streamers: [{
-        name: "anna",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_anna.jpg",
-        avatarImg: `./_avatar/anna.png`,
-      },
-      {
-        name: "dudy",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: false,
-        bgImg: "./_bg/bg_dudy.jpg",
-        avatarImg: "./_avatar/dudy.png",
-      },
-      {
-        name: "dumisninja",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_dumisninja.jpg",
-        avatarImg: "./_avatar/dumisninja.png",
-      },
-      {
-        name: "fratiijonson",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: false,
-        bgImg: "./_bg/bg_fratiijonson.jpg",
-        avatarImg: "./_avatar/fratiijonson.png",
-      },
-      {
-        name: "narcis",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_narcis.jpg",
-        avatarImg: "./_avatar/narcis.png",
-      },
-      {
-        name: "pacanedy",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_pacanedy.jpg",
-        avatarImg: "./_avatar/pacanedy.png",
-      },
-      {
-        name: "pacanela",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_pacanela.jpg",
-        avatarImg: "./_avatar/pacanela.png",
-      },
-      {
-        name: "princess",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: false,
-        bgImg: "./_bg/bg_princess.jpg",
-        avatarImg: "./_avatar/princess.png",
-      },
-      {
-        name: "quikanu",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: false,
-        bgImg: "./_bg/bg_quikanu.jpg",
-        avatarImg: "./_avatar/quikanu.png",
-      },
-      {
-        name: "stero",
-        points: "",
-        vote: "",
-        position: "",
-        challenge: true,
-        bgImg: "./_bg/bg_stero.jpg",
-        avatarImg: "./_avatar/stero.png",
-      },
-    ],
+
     gamesArray: [
       "10189-the-sword-and-the-grail__2",
       "11877-sky-queen__4",
@@ -183,6 +93,26 @@ $(document).ready(function () {
   const actionButton = $("#actionButton");
   let userPosition = null;
 
+
+
+  function formatPoints(pointsf) {
+    if (pointsf >= 1000000) {
+      if (pointsf % 1000000 === 0) {
+        return (pointsf / 1000000) + "mil";
+      } else {
+        return (pointsf / 1000000).toFixed(1) + "mil";
+      }
+    } else if (pointsf >= 1000) {
+      if (pointsf % 1000 === 0) {
+        return (pointsf / 1000) + "k";
+      } else {
+        return (pointsf / 1000).toFixed(1) + "k";
+      }
+    } else {
+      return pointsf.toString();
+    }
+  }
+
   // Make a GET request to the API for CHECK USER
   fetch(apiEndpoint_check_user)
     .then((response) => {
@@ -198,7 +128,7 @@ $(document).ready(function () {
       // console.log(data[0].optin, "optin");
       let voted = "Not available"; // Default value if "voted" is not in the response
       let clasament = null;
-   
+
       // Iterate over the array and assign values to optin, voted, and clasament
       data.forEach((item) => {
         if ("optin" in item) {
@@ -208,36 +138,27 @@ $(document).ready(function () {
         } else if ("clasament" in item) {
           clasament = item.clasament;
         }
+        
       });
-  
+
       updateButtonBehavior(optin);
 
-      console.log("optin:", optin);
-      // console.log("actionButton:", actionButton);
+      console.log("optin is:", optin);
+
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
-    
         tableDataUser.empty();
         // Find the user's ranking
         clasament.forEach((item) => {
-          // Check if the username exists and has more than 2 characters
-          // if (item.username && item.username.length > 2) {
-          //   // Get the first two letters of the username
-          //   const firstTwoLetters = item.username.slice(0, 2);
-          //   const asterisks = '*'.repeat(item.username.length - 2);
-          //   item.username = firstTwoLetters + asterisks;
-          //   userPosition = item.ranking;
-          //   // console.log(item.username, "falseeee")
-          // }
-          console.log(item.username,"111")
-          // console.log(item, "for axterix")
           if (item.username === userToCheck) {
-            console.log(userPosition = item.ranking,"zxczs")
-    
-
+            userPosition = item.ranking;
+            //
+          
           }
+         item.points = formatPoints(item.points);
+          console.log(item.points,"fasfasf")
+          // showMessage(message, item);
         });
-
         if (userPosition <= 10) {
           console.log("userul e top 10");
           clasament.slice(0, 10).forEach((item) => {
@@ -247,9 +168,10 @@ $(document).ready(function () {
           console.log("userul e in top 200");
           if (clasament.length == 17) {
             console.log("userul nu e intre ultimii 3");
-            clasament.slice(0, 3).forEach((item ,index) => {
-              tableDataUser.append(createTableUsers(item,index));
+            clasament.slice(0, 3).forEach((item, index) => {
+              tableDataUser.append(createTableUsers(item, index));
             });
+            console.log("userul se afla ultimii 3  >,add index (item, index");
             clasament.slice(10, 17).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
             });
@@ -258,11 +180,9 @@ $(document).ready(function () {
             clasament.slice(0, 6).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
             });
-
             clasament
               .slice(clasament.length - 4, clasament.length)
               .forEach((item) => {
-                console.log(item,"tes")
                 tableDataUser.append(createTableUsers(item));
               });
           }
@@ -297,6 +217,7 @@ $(document).ready(function () {
           }
         }
       } else {
+        
         console.error("Invalid response structure:", data);
       }
       // tableDataUser.find('tr:lt(3)').addClass(topThreeClass);
@@ -307,7 +228,7 @@ $(document).ready(function () {
     });
 
 
-
+  let imgSrc = "";
   // Make a GET request to the API for CLASAMENT STREAMERS
   fetch(apiEndpoint_clasament_streamers)
     .then((response) => {
@@ -320,9 +241,9 @@ $(document).ready(function () {
     .then((data) => {
       tableDataStreamer.empty();
 
-      data.forEach((streamer) => {
+      data.forEach((streamer,index,item) => {
         // console.log(streamer, "fasfa")
-        let imgSrc = "";
+
         switch (streamer.username) {
           case "testpacanela":
             streamer.username = "PACANELA";
@@ -365,9 +286,11 @@ $(document).ready(function () {
             imgSrc = "./_avatar/princess.png";
             break;
         }
+   
+        const bgImage = backgroundImages[index % backgroundImages.length];
 
         tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
-        cardData.append(generateModalCard(streamer,imgSrc));
+        cardData.append(generateModalCard(streamer, imgSrc,bgImage));
 
       });
       $("#streamersTable").DataTable(streamersTableOptions);
@@ -379,15 +302,21 @@ $(document).ready(function () {
     });
 
 
-  function createTableUsers(item,index) {
-    console.log(index)
+  function createTableUsers(item, index) {
+    let userAsterix = item.username;
+    if (userAsterix && userAsterix.length > 2) {
+      const firstTwoLetters = userAsterix.slice(0, 2);
+      const asterisks = '*'.repeat(userAsterix.length - 2);
+      userAsterix = firstTwoLetters + asterisks;
+      userPosition = item.ranking;
+    }
     const matchingUsername = item.username === userToCheck;
-    const isTopThree = index < 3;
-    const tableAHtml = `<tr class="parent-table ${matchingUsername ? 'highlighted' : ''} ${isTopThree ? 'top-three' : ''}">
+    const isTopThree = index <= 3;
+    const tableAHtml = `<tr class="parent-table ${matchingUsername ? '_hl' : ''}${isTopThree ? '_t3' : ''}">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
-                    <p class="mb-0 ps">${item.username}</p>
+                    <p class="mb-0 ps">${matchingUsername ? item.username : userAsterix}</p>
                 </div>
         </td>
         <td class="parent-points ps">${item.points}</td>  
@@ -397,10 +326,10 @@ $(document).ready(function () {
 
 
   function createTableStreamers(streamer, imgSrc) {
+    streamer.points = formatPoints(streamer.points);
     const tableHtml = `<tr class="parent-table">
      <td class="parent-position ps">#${streamer.ranking}</td>
      <td>
-
      <div class="d-flex align-items-center parent-avatar">
          <div class="avatar-table avatar-blue">
              <img src="${imgSrc}" alt="pict_table" class="pict_table">
@@ -408,11 +337,10 @@ $(document).ready(function () {
          <div class="parent-name">
          <p class="mb-0 ps">${streamer.username} <span class="${true ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
               
-             <p class="text-muted mb-0">voturi: ${streamer.votes}</p>
+             <p class="text-muted mb-0">voturi:1234</p>
          </div>
      </div>
  </td>
-
      <td class="parent-points ps">${streamer.points}</td>
      </tr>;
    `;
@@ -420,38 +348,32 @@ $(document).ready(function () {
   }
 
 
-  function generateModalCard(streamer, imgSrc) {
+  function generateModalCard(streamer, imgSrc,bgImage) {
     // const isVoted = getCookie('namevoted') === streamerCards.name;
+    // console.log(backgroundImages,"sfas")
     const cardHtml = `
           <div class="col-lg-4 card-wrapp" >
-              <div class="card card-custom ${false ? 'voted' : 'non-voted'}")>
+              <div class="card card-custom ${false ? 'voted' : 'non-voted'}" >
                   <div class="card-body text-center">
-                      <a class="card-text text top-left" href="#" target="_blank">Voteaza-ma</a>
-                      <p class="speech">${streamer.points} Voturi</p>
+                      <p class="card-text text top-left">Votează cu ${streamer.username}</p>
+                      <p class="speech"> <b> ${streamer.votes} </b><br> Voturi</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
-                      <h6 class="card-title text bottom-right">${streamer.username}</h6>
+                      <h6 class="card-title text bottom-right">Puncte: ${streamer.points}</h6>
                   </div>
               </div>
           </div>
       `;
-    // Create a jQuery element from the cardHtml
-    const cardElement = $(cardHtml);
-    // Find the '.card-custom' element within the cardElement
-    const cardCustomElement = cardElement.find('.card-custom');
-    // Remove the 'non-voted' class from cardCustomElement
-    cardCustomElement.removeClass('non-voted');
-    // Add a click event handler to cardCustomElement
-    cardCustomElement.on('click', function () {
-      if (!cardCustomElement.hasClass('voted')) {
-        $('.card-custom:not(.voted)').removeClass('non-voted');
-        cardCustomElement.addClass('voted');
-        cardCustomElement.attr('data-voted', 'true');
-        if (cardCustomElement.hasClass('voted')) {
-          $('.card-custom:not(.voted)').addClass('non-voted');
-        }
-      }
+    const $card = $(cardHtml);
+    $card.find(".card-custom").css("background",bgImage)
+    $card.click(function (e) {
+      $("#messageContainer").empty();
+      // $("#messageContainer").empty();
+      // fadeOutAndHide("#messageContainer", 500);
+      showMessage("doresti sa votezi cu", streamer, imgSrc).show();
+      voteForStreamer($card);
+      e.preventDefault();
     });
-    return cardElement;
+    return $card;
   }
 
   function updateButtonBehavior(optin) {
@@ -461,37 +383,89 @@ $(document).ready(function () {
       actionButton.text("Votează Streamerul");
       actionButton.removeAttr("onclick");
     } else {
-      // Set the onclick attribute to call optIn() and update the button text
       actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
       actionButton.text("Înregistreaza-te");
     }
   }
- 
+
 
   //map streamers
-  let streamerCards = dataObject.streamers.map((streamerData) => {
-    return {
-      name: streamerData.name,
-      points: streamerData.points,
-      bgImg: streamerData.bgImg,
-      avatarImg: streamerData.avatarImg,
-      vote: streamerData.vote,
-      position: streamerData.position,
-      challenge: streamerData.challenge,
-    };
-  });
+  // let streamerCards = dataObject.streamers.map((streamerData) => {
+  //   return {
+  //     name: streamerData.name,
+  //     points: streamerData.points,
+  //     bgImg: streamerData.bgImg,
+  //     avatarImg: streamerData.avatarImg,
+  //     vote: streamerData.vote,
+  //     position: streamerData.position,
+  //     challenge: streamerData.challenge,
+  //   };
+  // });
 
-  console.log(streamerCards, "dasfa")
+  // console.log(streamerCards, "dasfa");
 
   // console.log(streamerCards, "t4est")
-
-
+  function showMessage(message, item, imgSrc) {
+    console.log(message, "message");
+    const messageHtml = `
+<div class="card-message col-lg-4 col-md-8 col-sm-8">
+<div class="card">
+  <div class="card-header">
+   <div class="card-picture" style="background-image:url('${imgSrc}')"></div>
+   <h6 class="card-text _text-left">pozitie: #${item.ranking}</h6>
+   <h5 class="card-title text-uppercase m-0">${item.username}</h5>
+   <h6 class="card-text _text-right">voturi:${item.votes}</h6>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-center">
+      ${message} ${item.username}
+    </h4>
+    <div class="btn-wrapp d-flex justify-content-center gap-3 py-3">
+      <button type="button" id=yes-button class="btn btn-danger w-25">DA</button>
+      <button type="button" id=no-button class="btn btn-success w-25">NU</button>
+    </div>
+  </div>
+</div>
+</div>
+`;
+    return $("#messageContainer").append(messageHtml);
+  }
+  let selectedUser = null;
+  let countVote = 0;
+  function voteForStreamer($card) {
+    // console.log(countVote, "count");
+    // if (!selectedUser) {
+    //   alert("Selectați un utilizator înainte de a vota.");
+    //   return;
+    // }
+    // if (selectedUser.voted === true) {
+    //   alert("Nu puteți vota pentru acest utilizator.");
+    //   return;
+    // }
+    $("#messageContainer").show();
+    // const confirmation = confirm("Vreți să votați acest element?");
+    $("#yes-button").on("click", () => {
+      // selectedUser.voted = true;
+      // userVoted.text("Da");
+      $card.addClass("selected");
+      $(".card-wrapp").not($card).css("background", "yellow");
+      $($card).css("background", "red");
+      // const $voteElement = $card.find(".streamerVote");
+      // $voteElement.text(`${countVote}`);
+      alert("Ai depus votul.");
+      $("#messageContainer").hide();
+    });
+    $("#no-button").on("click", () => {
+      alert("Ai anulat votul.");
+      $("#messageContainer").hide();
+    });
+  }
 
   // Function append bg card ,pos, name for swipper
   function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       const streamer_pos = Math.floor(Math.random() * 10);
-      
+
       let boxSlideBottom = $(
         `<div class="bottom_swiper_box" data-swiper-parallax="-5"><span># </span><span>${streamer_pos}</span></div>`
       );
@@ -616,12 +590,12 @@ $(document).ready(function () {
 });
 
 
-  // Call the function again on window resize
-  $(window).resize(function () {
-    gameImagesContainer.empty(); // Clear the container
-    updateContent();
-    generateGames(objData); // Re-generate the games based on the new screen size
-  });
+// Call the function again on window resize
+$(window).resize(function () {
+  gameImagesContainer.empty(); // Clear the container
+  updateContent();
+  generateGames(objData); // Re-generate the games based on the new screen size
+});
 //   SWIPER FOR STREAMERS
 
 const swiperStr = new Swiper(".stream-slider", {

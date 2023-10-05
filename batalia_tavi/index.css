@@ -83,7 +83,6 @@ h2 {
   color: black !important;
 }
 
-
 /* Splash Screen Styles */
 .splash {
   position: fixed;
@@ -116,13 +115,10 @@ h2 {
 }
 
 .splash-content img {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-
 }
-
-
 
 .color-NetBet-orange {
   background: var(--NetBet-orange);
@@ -439,13 +435,14 @@ a {
   transform: skew(-15deg);
 }
 
-.card-custom .bottom-right {
-  bottom: -4px;
+.card-wrapp .bottom-right {
+  border-bottom: 0;
+  transform: skewX(-10deg);
+  width: 60%;
+  padding: 4px;
   position: absolute;
-  right: -6px;
-  transform: skew(-15deg);
-  font-size: 1.2em;
-  z-index: 2;
+  z-index: 14;
+  right: 0;
 }
 
 .card-wrapp .card-button .btn-custom {
@@ -943,7 +940,6 @@ a {
   font-size: 1.8em;
 }
 .slide-streamer {
-  /* background-image: url(./_bg/bg_dumisninja.jpg); */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1000,10 +996,10 @@ a {
   background: var(--color-white);
 }
 
-.table td:last-child {
+/* .table td:last-child {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-}
+} */
 .table-hover > tbody > tr:hover > * {
   --bs-table-bg-state: rgb(42 127 207 / 13%) !important;
 }
@@ -1454,11 +1450,11 @@ div.dataTables_wrapper div.dataTables_paginate {
   .section_one .s-providers:nth-child(1) {
     filter: unset;
   }
-  
+
   .section_one .s-providers:nth-child(3) {
     filter: unset;
   }
-  
+
   .section_three .table-responsive:nth-child(1) {
     margin-bottom: 30px;
   }
@@ -1525,7 +1521,7 @@ div.dataTables_wrapper div.dataTables_paginate {
     top: -16px;
     object-fit: contain;
     position: relative;
-}
+  }
   .section_one .s-providers a div img,
   .section_one .s-providers_left div a img {
     transform: unset !important;
