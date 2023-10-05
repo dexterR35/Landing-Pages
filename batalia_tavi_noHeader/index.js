@@ -181,6 +181,8 @@ $(document).ready(function () {
   //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
   //   userToCheck;
   const actionButton = $("#actionButton");
+  let userPosition = null;
+
   // Make a GET request to the API for CHECK USER
   fetch(apiEndpoint_check_user)
     .then((response) => {
@@ -206,40 +208,32 @@ $(document).ready(function () {
         } else if ("clasament" in item) {
           clasament = item.clasament;
         }
-   
       });
   
-      updateButtonBehavior(optin)
+      updateButtonBehavior(optin);
+
       console.log("optin:", optin);
-      console.log("actionButton:", actionButton);
+      // console.log("actionButton:", actionButton);
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
-        console.log(clasament, "clasament");
+    
         tableDataUser.empty();
         // Find the user's ranking
-        let userPosition = null;
-        clasament.forEach((item ,index) => {
-          if (index < 3) {
-            $(".parent-table").addClass("test");
-      
-            // console.log(index,"itemssss")?
-          }
-          console.log(index,"itemssss")
+        clasament.forEach((item) => {
           // Check if the username exists and has more than 2 characters
-          if (item.username && item.username.length > 2) {
-            // Get the first two letters of the username
-            const firstTwoLetters = item.username.slice(0, 2);
-            const asterisks = '*'.repeat(item.username.length - 2);
-            item.username = firstTwoLetters + asterisks;
-            userPosition = item.ranking;
-            // console.log(item.username, "falseeee")
-          }
-
+          // if (item.username && item.username.length > 2) {
+          //   // Get the first two letters of the username
+          //   const firstTwoLetters = item.username.slice(0, 2);
+          //   const asterisks = '*'.repeat(item.username.length - 2);
+          //   item.username = firstTwoLetters + asterisks;
+          //   userPosition = item.ranking;
+          //   // console.log(item.username, "falseeee")
+          // }
+          console.log(item.username,"111")
           // console.log(item, "for axterix")
           if (item.username === userToCheck) {
-            userPosition = item.ranking;
-            console.log("am gasit userul pe pozitia ", userPosition);
-            userPosition.addClass('your-class-name');
+            console.log(userPosition = item.ranking,"zxczs")
+    
 
           }
         });
@@ -253,8 +247,8 @@ $(document).ready(function () {
           console.log("userul e in top 200");
           if (clasament.length == 17) {
             console.log("userul nu e intre ultimii 3");
-            clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+            clasament.slice(0, 3).forEach((item ,index) => {
+              tableDataUser.append(createTableUsers(item,index));
             });
             clasament.slice(10, 17).forEach((item) => {
               tableDataUser.append(createTableUsers(item));
@@ -268,6 +262,7 @@ $(document).ready(function () {
             clasament
               .slice(clasament.length - 4, clasament.length)
               .forEach((item) => {
+                console.log(item,"tes")
                 tableDataUser.append(createTableUsers(item));
               });
           }
@@ -326,7 +321,7 @@ $(document).ready(function () {
       tableDataStreamer.empty();
 
       data.forEach((streamer) => {
-        console.log(streamer, "fasfa")
+        // console.log(streamer, "fasfa")
         let imgSrc = "";
         switch (streamer.username) {
           case "testpacanela":
@@ -384,8 +379,11 @@ $(document).ready(function () {
     });
 
 
-  function createTableUsers(item) {
-    const tableAHtml = `<tr class="parent-table ">
+  function createTableUsers(item,index) {
+    console.log(index)
+    const matchingUsername = item.username === userToCheck;
+    const isTopThree = index < 3;
+    const tableAHtml = `<tr class="parent-table ${matchingUsername ? 'highlighted' : ''} ${isTopThree ? 'top-three' : ''}">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
