@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+/* Styles for the modal */
+.modal {
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Add some hover effects to the close button */
+.close:hover {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+      <button id="openModalBtn">Open Video Modal</button>
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <video width="100%" height="315" controls autoplay muted>
+                <source src="https://content.livepartners.com/lpban/45878/45878.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Get references to the modal and the buttons
+var modal = document.getElementById("videoModal");
+var openModalBtn = document.getElementById("openModalBtn");
+var closeModalBtn = document.getElementById("closeModalBtn");
+
+// When the "Open Video Modal" button is clicked, display the modal and start playing the video
+openModalBtn.onclick = function() {
+    modal.style.display = "block";
+    var video = modal.querySelector("video");
+    video.play();
+}
+
+// When the close button (X) is clicked, hide the modal and pause the video
+closeModalBtn.onclick = function() {
+    modal.style.display = "none";
+    var video = modal.querySelector("video");
+    video.pause();
+}
+
+// When the user clicks outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        var video = modal.querySelector("video");
+        video.pause();
+    }
+}
+    </script>
+</body>
+</html>
