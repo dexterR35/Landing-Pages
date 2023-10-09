@@ -9,8 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = "testcozminn";
-// userToCheck = getCookie("netbet_login")
+// userToCheck = "CiprianTest";
+userToCheck = getCookie("netbet_login");
 let userToVote = null;
 
 const apiEndpoint_check_user =
@@ -139,10 +139,9 @@ $(document).ready(function () {
         } else if ("clasament" in item) {
           clasament = item.clasament;
         }
-
       });
 
-      updateButtonBehavior(optin);
+      updateButtonBehavior(optin, voted);
 
       console.log("optin is:", optin);
 
@@ -153,38 +152,36 @@ $(document).ready(function () {
         clasament.forEach((item) => {
           if (item.username === userToCheck) {
             userPosition = item.ranking;
-            //
-            let tespos = userPosition
+
           }
           item.points = formatPoints(item.points);
-          console.log(item.points, "fasfasf")
           // showMessage(message, item);
         });
         if (userPosition <= 10) {
-          console.log("userul e top 10");
+          // console.log("userul e top 10");
           clasament.slice(0, 10).forEach((item) => {
-            tableDataUser.append(createTableUsers(item));
+            tableDataUser.append(createTableUsers(item, userPosition));
           });
         } else if (userPosition > 10 && userPosition <= 200) {
           console.log("userul e in top 200");
           if (clasament.length == 17) {
-            console.log("userul nu e intre ultimii 3");
-            clasament.slice(0, 3).forEach((item, index) => {
-              tableDataUser.append(createTableUsers(item, index));
+            // console.log("userul nu e intre ultimii 3");
+            clasament.slice(0, 3).forEach((item) => {
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
-            console.log("userul se afla ultimii 3  >,add index (item, index");
+            // console.log("userul se afla ultimii 3  >,add index (item, index");
             clasament.slice(10, 17).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
           } else {
             console.log("userul e intre ultimii 3");
             clasament.slice(0, 6).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
             clasament
               .slice(clasament.length - 4, clasament.length)
               .forEach((item) => {
-                tableDataUser.append(createTableUsers(item));
+                tableDataUser.append(createTableUsers(item, userPosition));
               });
           }
         } else if (userPosition > 200) {
@@ -192,42 +189,42 @@ $(document).ready(function () {
           if (clasament.length == 20) {
             console.log("userul nu e intre ultimii 3");
             clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
             clasament.slice(10, 13).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
 
             clasament.slice(14, 18).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
           } else {
             console.log("userul e intre ultimii 3");
             clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
 
             clasament.slice(10, 13).forEach((item) => {
-              tableDataUser.append(createTableUsers(item));
+              tableDataUser.append(createTableUsers(item, userPosition));
             });
             clasament
               .slice(clasament.length - 4, clasament.length)
               .forEach((item) => {
-                tableDataUser.append(createTableUsers(item));
+                tableDataUser.append(createTableUsers(item, userPosition));
               });
           }
         }
       } else {
-    
+
         console.error("Invalid response structure:", data);
       }
       // tableDataUser.find('tr:lt(3)').addClass(topThreeClass);
-// if(!optin) {
-//   clasament.slice(0,10).forEach((item,index) => {
+      // if(!optin) {
+      //   clasament.slice(0,10).forEach((item,index) => {
 
-//     tableDataUser.append(createTableUsers(item,index));
-//   });
-// }
+      //     tableDataUser.append(createTableUsers(item,index));
+      //   });
+      // }
     })
     .catch((error) => {
       console.error("Fetch error:", error);
@@ -306,19 +303,22 @@ $(document).ready(function () {
     });
 
 
-  function createTableUsers(item, index) {
-    console.log(index,"sfasf")
+  function createTableUsers(item, userPosition) {
+    console.log(userPosition, "sfasf")
     let userAsterix = item.username;
+
     if (userAsterix && userAsterix.length > 2) {
       const firstTwoLetters = userAsterix.slice(0, 2);
       const asterisks = '*'.repeat(userAsterix.length - 2);
       userAsterix = firstTwoLetters + asterisks;
       userPosition = item.ranking;
     }
+
     const matchingUsername = item.username === userToCheck;
-    const isTopThree = index+1;
-    console.log(isTopThree,"fasff")
-    const tableAHtml = `<tr class="parent-table ${matchingUsername ? '_hl' : ' '}${isTopThree ? '_t3' : '_t10'}">
+
+
+    // const isTopTen = index <= 10;
+    const tableAHtml = `<tr class="parent-table ${userPosition<=10 ? '_t3' : `${userPosition<=200 ? '_t10 ' : ' ' }`}${matchingUsername ? '_hl' : ''}">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
@@ -343,7 +343,7 @@ $(document).ready(function () {
          <div class="parent-name">
          <p class="mb-0 ps">${streamer.username} <span class="${true ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
               
-             <p class="text-muted mb-0">voturi:${streamer.votes}</p>
+             <p class="text-muted mb-0">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</p>
          </div>
      </div>
  </td>
@@ -355,24 +355,35 @@ $(document).ready(function () {
 
 
   function generateModalCard(streamer, imgSrc, bgImage) {
-    // const isVoted = getCookie('namevoted') === streamerCards.name;
-    // console.log(backgroundImages,"sfas")
-    //${false ? 'voted' : 'non-voted'}"
     const cardHtml = `
           <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom">
+              <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
                   <div class="card-body text-center">
                       <p class="card-text text top-left">Votează cu ${streamer.username}</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
-                      <h6 class="card-title text bottom-right">Voturi: ${streamer.votes}</h6>
+                      <h6 class="card-title text bottom-right">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</h6>
                   </div>
               </div>
           </div>
       `;
     const $card = $(cardHtml);
+    console.log(streamer, "Fasfass")
     $card.find(".card-custom").css("background", bgImage)
     $card.click(function (e) {
       $("#messageContainer").empty();
+      console.log(streamer.username === "DUDY");
+      if (streamer.username === "PACĂNELA" || streamer.username === "DUDY") {
+        showMessage("nu se poate vota cu", streamer, imgSrc).show()
+        e.preventDefault(); // Prevent the click event for "PACĂNELA"
+        $("#no-button").hide();
+        $("#yes-button").text("Continuă");
+        $("#yes-button").one("click", function () {
+          // Hide the showMessage when "Continuă" is clicked
+          $("#messageContainer").hide();
+        });
+        return;
+      }
+
       showMessage("doresti sa votezi cu", streamer, imgSrc).show();
       voteForStreamer($card, streamer);
       e.preventDefault();
@@ -380,35 +391,29 @@ $(document).ready(function () {
     return $card;
   }
 
-  function updateButtonBehavior(optin) {
+  function updateButtonBehavior(optin, voted) {
     if (optin) {
-      actionButton.attr("data-bs-toggle", "modal");
-      actionButton.attr("data-bs-target", "#cardsModal");
-      actionButton.text("Votează Streamerul");
-      actionButton.removeAttr("onclick");
+      if (voted === "yes") {
+        actionButton.text("Ai votat");
+        actionButton.addClass("btn-NB-disabled");
+      } else {
+
+        actionButton.attr("data-bs-toggle", "modal");
+        actionButton.attr("data-bs-target", "#cardsModal");
+        actionButton.text("Votează Streamerul");
+        actionButton.removeAttr("onclick");
+      }
     } else {
       actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
       actionButton.text("Înregistreaza-te");
+      actionButton.off("click"); // Remove any existing click event handlers
+      actionButton.click(function () {
+        window.location.href = "https://casino.netbet.ro/inregistrare";
+      });
     }
   }
 
 
-  //map streamers
-  // let streamerCards = dataObject.streamers.map((streamerData) => {
-  //   return {
-  //     name: streamerData.name,
-  //     points: streamerData.points,
-  //     bgImg: streamerData.bgImg,
-  //     avatarImg: streamerData.avatarImg,
-  //     vote: streamerData.vote,
-  //     position: streamerData.position,
-  //     challenge: streamerData.challenge,
-  //   };
-  // });
-
-  // console.log(streamerCards, "dasfa");
-
-  // console.log(streamerCards, "t4est")
   function showMessage(message, item, imgSrc) {
     console.log(message, "message");
     const messageHtml = `
@@ -420,7 +425,7 @@ $(document).ready(function () {
    </div>
    <h6 class="card-text _text-left">pozitie: #${item.ranking}</h6>
    <h5 class="card-title text-uppercase m-0">${item.username}</h5>
-   <h6 class="card-text _text-right">voturi:${item.votes}</h6>
+   <h6 class="card-text _text-right">${item.votes === -1 ? " " : `Voturi: ${item.votes}`}</h6>
   </div>
   <div class="card-body">
     <h4 class="card-title text-center w-75 mx-auto">
@@ -438,24 +443,22 @@ $(document).ready(function () {
   }
 
 
-  let selectedUser = null;
-  let countVote = 0;
+  // let selectedUser = null;
+  // let countVote = 0;
 
   function voteForStreamer($card, streamer) {
+    console.log(streamer, "cardddd")
 
-    
-    
-    console.log(streamer,"cardddd")
-    // console.log(countVote, "count");
-    // if (!selectedUser) {
-      //   alert("Selectați un utilizator înainte de a vota.");
-      //   return;
-      // }
-      // if (selectedUser.voted === true) {
-        //   alert("Nu puteți vota pentru acest utilizator.");
+    // if (!streamer) {
+    //   // alert("Selectați un utilizator înainte de a vota.");
+    //   return;
+    // }
+    // if (streamer === true) {
+    //   alert("Nu puteți vota pentru acest utilizator.");
     //   return;
     // }
     $("#messageContainer").show();
+
     // const confirmation = confirm("Vreți să votați acest element?");
     $("#yes-button").on("click", () => {
       switch (streamer.username) {
@@ -499,12 +502,11 @@ $(document).ready(function () {
       // $($card).css("background", "red");
       $card.find(".card-custom").addClass("voted")
       // const $voteElement = $card.find(".streamerVote");
-      // $voteElement.text(`${countVote}`);
-      alert("Ai depus votul.");
       $("#messageContainer").hide();
+      window.location.reload();
     });
     $("#no-button").on("click", () => {
-      alert("Ai anulat votul.");
+      // alert("Ai anulat votul.");
       $("#messageContainer").hide();
     });
   }
@@ -513,25 +515,25 @@ $(document).ready(function () {
     const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
 
     if (userToVote !== null) {
-        console.log("Voting for " + userToVote);
-        console.log("API ESTE : ", apiEndpoint_vote)
+      console.log("Voting for " + userToVote);
+      console.log("API ESTE : ", apiEndpoint_vote)
 
-        await fetch(apiEndpoint_vote)
-            .then(response => {
-                // Check if the request was successful
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json(); // Parse the JSON from the response
-            })
-            .catch(error => {
-                // Log any errors that occurred during the fetch
-                console.error("Fetch error:", error);
-            });
+      await fetch(apiEndpoint_vote)
+        .then(response => {
+          // Check if the request was successful
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json(); // Parse the JSON from the response
+        })
+        .catch(error => {
+          // Log any errors that occurred during the fetch
+          console.error("Fetch error:", error);
+        });
     } else {
-        console.error("userToVote is null. Set a valid user to vote for.");
+      console.error("userToVote is null. Set a valid user to vote for.");
     }
-}
+  }
 
   // Function append bg card ,pos, name for swipper
   function generetaDataSlider() {

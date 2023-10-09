@@ -66,6 +66,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+._hl_t10 {
+  background: var(--NetBet-orange);
+  color: var(--color-white) !important;
+}
+
+._t3 {
+  background: var(--blue-hard);
+}
+._t3_hl {
+  background: var(--NetBet-orange);
+  color: var(--color-white) !important;
+}
+._t10 {
+  background: var(--blue-soft);
+}
+
+._hl_t10 > td {
+  color: var(--color-white) !important;
+}
+._hl {
+  background: var(--NetBet-orange);
+  color: var(--color-white) !important;
+}
+
+
 @media (max-width: 1199px) {
   body {
     font-size: 90%;
@@ -89,20 +114,6 @@ h2 {
 
 /*clasament color*/
 
-._hl_t10 {
-  background: var(--NetBet-orange);
-}
-
-._t3 {
-  background: var(--blue-hard);
-}
-._t10 {
-  background: var(--blue-soft);
-}
-
-._hl_t10 > td {
-  color: var(--color-white) !important;
-}
 
 #usersTable_wrapper {
   pointer-events: none;
@@ -374,6 +385,12 @@ a {
 .card-custom.voted {
   filter: grayscale(1);
   position: relative;
+}
+.card-custom.voted-no {
+  filter: grayscale(1);
+  position: relative;
+  cursor: not-allowed;
+  pointer-events: none !important;
 }
 .card-custom.voted::after {
   content: "VOTAT";
@@ -1762,3 +1779,5 @@ div.dataTables_wrapper div.dataTables_paginate {
     object-fit: cover;
   }
 }
+
+
