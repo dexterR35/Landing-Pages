@@ -9,7 +9,7 @@ function getCookie(name) {
   return null;
 }
 
-// userToCheck = "CiprianTest";
+// userToCheck = "iTaviBs";
 userToCheck = getCookie("netbet_login");
 let userToVote = null;
 
@@ -29,7 +29,7 @@ let tableDataUser = $("#bodyUser");
 let tableDataStreamer = $("#bodyStreamer");
 
 $(document).ready(function () {
-  if ($(window).width() < 1024) {
+  if ($(window).width() <= 1024) {
     $(".btn._mobile").addClass("w-100");
     $(".btn._desktop").css({
       display: "none"
@@ -392,24 +392,29 @@ $(document).ready(function () {
   }
 
   function updateButtonBehavior(optin, voted) {
-    if (optin) {
-      if (voted === "yes") {
-        actionButton.text("Ai votat");
-        actionButton.addClass("btn-NB-disabled");
-      } else {
-
-        actionButton.attr("data-bs-toggle", "modal");
-        actionButton.attr("data-bs-target", "#cardsModal");
-        actionButton.text("Votează Streamerul");
-        actionButton.removeAttr("onclick");
-      }
-    } else {
-      actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
-      actionButton.text("Înregistreaza-te");
-      actionButton.off("click"); // Remove any existing click event handlers
+    if (!userToCheck || userToCheck == "logged_out") {
+      actionButton.text("înregistrează-te");
       actionButton.click(function () {
-        window.location.href = "https://casino.netbet.ro/inregistrare";
+        window.parent.location.href = "https://casino.netbet.ro/inregistrare";
       });
+    } else {
+      if (optin) {
+        if (voted === "yes") {
+          actionButton.text("Ai votat");
+          actionButton.addClass("btn-NB-disabled");
+        } else {
+  
+          actionButton.attr("data-bs-toggle", "modal");
+          actionButton.attr("data-bs-target", "#cardsModal");
+          actionButton.text("Votează Streamerul");
+          actionButton.removeAttr("onclick");
+        }
+      } else {
+        actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
+        actionButton.text("Intră în luptă");
+        actionButton.off("click"); // Remove any existing click event handlers
+  
+      }
     }
   }
 
@@ -581,7 +586,7 @@ $(document).ready(function () {
 
   const streamersTableOptions = {
     aaSorting: false,
-    responsive: true,
+    responsive: false,
     pageLength: 5,
     paginate: true,
     info: false,
@@ -599,10 +604,10 @@ $(document).ready(function () {
         width: "10%",
         targets: 2
       },
-      {
-        responsivePriority: 2,
-        targets: 2,
-      },
+      // {
+      //   responsivePriority: 2,
+      //   targets: 3,
+      // },
     ],
   };
 
@@ -610,7 +615,7 @@ $(document).ready(function () {
   const usersTableOptions = {
     autoWidth: false,
     aaSorting: false,
-    responsive: true,
+    responsive: false,
     pageLength: 5,
     paginate: false,
     info: false,
@@ -708,17 +713,19 @@ swiperStr.el.addEventListener("mouseleave", function () {
 async function optIn() {
   // console.log("optin");
   await fetch(apiEndpoint_optin_user)
-    .then((response) => {
-      // Check if the request was successful
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json(); // Parse the JSON from the response
-    })
-    .catch((error) => {
-      // Log any errors that occurred during the fetch
-      console.error("Fetch error:", error);
-    });
+  .then((response) => {
+    // Check if the request was successful
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json(); // Parse the JSON from the response
+    
+  })
+  .catch((error) => {
+    // Log any errors that occurred during the fetch
+    console.error("Fetch error:", error);
+  });
+  window.location.reload();
 }
 
 function updateContent() {
