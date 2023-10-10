@@ -381,11 +381,15 @@ $(document).ready(function () {
     $card.click(function (e) {
       $("#messageContainer").empty();
 
-      if (streamer.username === "PACĂNELA" || streamer.username === "DUDY") {
+      if (streamer.votes === -1) {
         showMessage("nu se poate vota cu", streamer, imgSrc).show()
         e.preventDefault(); // Prevent the click event for "PACĂNELA"
         $("#no-button").hide();
-        $("#yes-button").text("Continuă");
+        if (!status){
+          $("#yes-button").text("Continuă");
+        } else {
+          $("#yes-button").text("VEZIE CHALLGE");
+        }
         $("#yes-button").one("click", function () {
           // Hide the showMessage when "Continuă" is clicked
           $("#messageContainer").hide();
