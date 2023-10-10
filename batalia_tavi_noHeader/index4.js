@@ -9,8 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-// userToCheck = "iTaviBs";
-userToCheck = getCookie("netbet_login");
+userToCheck = "testcozminn";
+// userToCheck = getCookie("netbet_login");
 let userToVote = null;
 
 const apiEndpoint_check_user =
@@ -28,7 +28,12 @@ const scrollContainer = document.querySelector("#fullpage");
 let tableDataUser = $("#bodyUser");
 let tableDataStreamer = $("#bodyStreamer");
 
+
+let voted = null;
+// console.log("1")
 $(document).ready(function () {
+
+
   if ($(window).width() <= 1024) {
     $(".btn._mobile").addClass("w-100");
     $(".btn._desktop").css({
@@ -86,7 +91,9 @@ $(document).ready(function () {
   const backgroundImages = [...dataObject.backgroundImages];
   // console.log(backgroundImages);
 
+  let isVoted = null;
   let cardData = $("#dynamicCardBody");
+  let cardChallenge = $("#dynamicChallenge");
 
   // const apiEndpoint_optout_user =
   //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
@@ -127,7 +134,7 @@ $(document).ready(function () {
       console.log(data, "Data");
       let optin = null;
       // console.log(data[0].optin, "optin");
-      let voted = "Not available"; // Default value if "voted" is not in the response
+      voted = "Not available"; // Default value if "voted" is not in the response
       let clasament = null;
 
       // Iterate over the array and assign values to optin, voted, and clasament
@@ -140,9 +147,8 @@ $(document).ready(function () {
           clasament = item.clasament;
         }
       });
-
       updateButtonBehavior(optin, voted);
-
+      
       console.log("optin is:", optin);
 
       // Check if optin and clasament have been assigned values
@@ -230,7 +236,7 @@ $(document).ready(function () {
       console.error("Fetch error:", error);
     });
 
-
+    console.log(voted,"tessss")
   let imgSrc = "";
   // Make a GET request to the API for CLASAMENT STREAMERS
   fetch(apiEndpoint_clasament_streamers)
@@ -291,9 +297,10 @@ $(document).ready(function () {
         }
 
         const bgImage = backgroundImages[index % backgroundImages.length];
-
         tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
-        cardData.append(generateModalCard(streamer, imgSrc, bgImage));
+        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted));
+
+        cardChallenge.append(generateModalChallenge(streamer, imgSrc, bgImage));
 
       });
       $("#streamersTable").DataTable(streamersTableOptions);
@@ -304,7 +311,7 @@ $(document).ready(function () {
 
 
   function createTableUsers(item, userPosition) {
-    console.log(userPosition, "sfasf")
+    // console.log(userPosition, "sfasf")
     let userAsterix = item.username;
 
     if (userAsterix && userAsterix.length > 2) {
@@ -341,7 +348,7 @@ $(document).ready(function () {
              <img src="${imgSrc}" alt="pict_table" class="pict_table">
          </div>
          <div class="parent-name">
-         <p class="mb-0 ps">${streamer.username} <span class="${true ? 'badge-successs' : 'badge-dangerr'}">${true ? '&#10004;' : '&#10006;'}</span></p> 
+         <p class="mb-0 ps">${streamer.username} <span class="${false ? 'badge-success' : 'badge-danger'}">${false ? '&#10004' : '&#10006'}</span></p> 
               
              <p class="text-muted mb-0">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</p>
          </div>
@@ -354,10 +361,11 @@ $(document).ready(function () {
   }
 
 
-  function generateModalCard(streamer, imgSrc, bgImage) {
+  function generateModalCard(streamer, imgSrc, bgImage ,voted) {
+    console.log(voted,"tessst")
     const cardHtml = `
           <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
+              <div class="card card-custom ${voted == "no" ? `${streamer.votes === -1 ? "voted-no" : ""}` : "voted-no" } >
                   <div class="card-body text-center">
                       <p class="card-text text top-left">Votează cu ${streamer.username}</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
@@ -367,11 +375,12 @@ $(document).ready(function () {
           </div>
       `;
     const $card = $(cardHtml);
-    console.log(streamer, "Fasfass")
+    
+    // console.log(voted === "no", "Fasfass")
     $card.find(".card-custom").css("background", bgImage)
     $card.click(function (e) {
       $("#messageContainer").empty();
-      console.log(streamer.username === "DUDY");
+
       if (streamer.username === "PACĂNELA" || streamer.username === "DUDY") {
         showMessage("nu se poate vota cu", streamer, imgSrc).show()
         e.preventDefault(); // Prevent the click event for "PACĂNELA"
@@ -391,19 +400,48 @@ $(document).ready(function () {
     return $card;
   }
 
+//style="background-image:url(${imgSrc})">   <p class="card-text text top-left">Vezi link-ul cu ${streamer.username}</p>
+  function generateModalChallenge(streamer, imgSrc) {
+    const cardChallenge =  `
+    <div class="col-lg-4 card-wrapp">
+        <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
+            <div class="card-body text-center">
+     
+              
+                <div class="card-image" > link</div>
+            </div>
+        </div>
+    </div>
+`;
+    const $card = $(cardChallenge);
+    // console.log(streamer, "Fasfass")
+    return $card;
+  }
+
+
+  var isVotingAllowed = true;
   function updateButtonBehavior(optin, voted) {
+
     if (!userToCheck || userToCheck == "logged_out") {
       actionButton.text("înregistrează-te");
       actionButton.click(function () {
         window.parent.location.href = "https://casino.netbet.ro/inregistrare";
       });
     } else {
-      if (optin) {
+      if (!isVotingAllowed) {
+        // Voting is not allowed, open another modal with "Vezi Challenge"
+        actionButton.attr("data-bs-toggle", "modal");
+        actionButton.attr("data-bs-target", "#challengeModal");
+        actionButton.text("Vezi Challenge");
+        // actionButton.removeAttr("onclick");
+        actionButton.click(openYoutubeModal);
+      } else if (optin) {
         if (voted === "yes") {
           actionButton.text("Ai votat");
-          actionButton.addClass("btn-NB-disabled");
+          actionButton.attr("data-bs-toggle", "modal");
+          actionButton.attr("data-bs-target", "#cardsModal");
+          actionButton.removeAttr("onclick");
         } else {
-  
           actionButton.attr("data-bs-toggle", "modal");
           actionButton.attr("data-bs-target", "#cardsModal");
           actionButton.text("Votează Streamerul");
@@ -413,14 +451,12 @@ $(document).ready(function () {
         actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
         actionButton.text("Intră în luptă");
         actionButton.off("click"); // Remove any existing click event handlers
-  
       }
     }
   }
 
-
   function showMessage(message, item, imgSrc) {
-    console.log(message, "message");
+    // console.log(message, "message");
     const messageHtml = `
 <div class="card-message col-lg-4 col-md-8 col-sm-8">
 <div class="card">
@@ -520,8 +556,8 @@ $(document).ready(function () {
     const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
 
     if (userToVote !== null) {
-      console.log("Voting for " + userToVote);
-      console.log("API ESTE : ", apiEndpoint_vote)
+      // console.log("Voting for " + userToVote);
+      // console.log("API ESTE : ", apiEndpoint_vote)
 
       await fetch(apiEndpoint_vote)
         .then(response => {
@@ -660,7 +696,24 @@ $(document).ready(function () {
   // Add tooltips (if needed)
   $('[data-toggle="tooltip"]').tooltip();
 
+  $("#openModalButton").click(openYoutubeModal);
 
+  $("#modal-youtube").on("hidden.bs.modal", pauseYoutubeVideo);
+
+  function openYoutubeModal() {
+    $("#modal-youtube").modal("show");
+    playYoutubeVideo();
+  }
+  function playYoutubeVideo() {
+    const videoIframe = $("#youtubeVideo");
+    const videoSrc = videoIframe.attr("src");
+    videoIframe.attr("src", videoSrc + "&autoplay=1");
+  }
+  function pauseYoutubeVideo() {
+    const videoIframe = $("#youtubeVideo");
+    const videoSrc = videoIframe.attr("src");
+    videoIframe.attr("src", videoSrc.replace("&autoplay=1", ""));
+  }
 
 
 });
@@ -713,18 +766,18 @@ swiperStr.el.addEventListener("mouseleave", function () {
 async function optIn() {
   // console.log("optin");
   await fetch(apiEndpoint_optin_user)
-  .then((response) => {
-    // Check if the request was successful
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json(); // Parse the JSON from the response
-    
-  })
-  .catch((error) => {
-    // Log any errors that occurred during the fetch
-    console.error("Fetch error:", error);
-  });
+    .then((response) => {
+      // Check if the request was successful
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json(); // Parse the JSON from the response
+
+    })
+    .catch((error) => {
+      // Log any errors that occurred during the fetch
+      console.error("Fetch error:", error);
+    });
   window.location.reload();
 }
 

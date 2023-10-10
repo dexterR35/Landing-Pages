@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="imageDisplay" src="" alt="Image">
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const imageDisplay = document.getElementById('imageDisplay');
+    const imagePath = './poze/poza1.png'; // Calea către imagine
+
+    // Setează calea imaginii ca sursă pentru elementul <img>
+    imageDisplay.src = imagePath;
+});
+</script>
+
+</body>
+</html>

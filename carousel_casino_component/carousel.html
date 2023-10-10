@@ -681,35 +681,51 @@
     </style>
 
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const fileInput = document.getElementById("fileInput");
-    const fileInput2 = document.getElementById("fileInput2");
-    const insertedDiv = document.querySelector(".add_picture");
-    const insertedDiv2 = document.querySelector(".add_girl");
-
-    function handleFileInput(input, imageElement, storageKey) {
-        input.addEventListener("change", function (event) {
-            const file = event.target.files[0];
-            if (file && file.type.startsWith("image/")) {
-                const reader = new FileReader();
-                reader.onload = function (e) {
-                    imageElement.src = e.target.result;
-                    localStorage.setItem(storageKey, e.target.result);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert("Please select a valid image file.");
-                input.value = ""; // Reset the input field
-            }
-        });
-        const storedImageSrc = localStorage.getItem(storageKey);
-        if (storedImageSrc) {
-            imageElement.src = storedImageSrc;
-        }
-    }
-    handleFileInput(fileInput, insertedDiv, "uploadedImageSrc");
-    handleFileInput(fileInput2, insertedDiv2, "uploadedImageSrc2");
+document.addEventListener('DOMContentLoaded', function () {
+    // Get the image elements with the classes '.add_girl' and '.picture'
+    const imageDisplay1 = document.querySelector('.add_picture');
+    const imageDisplay2 = document.querySelector('.add_girl');
+    
+    // Set the local file paths for your images
+    const imagePath1 = './poze/pozaBg.png'; // Replace with the actual path for the first image
+    const imagePath2 = './poze/pozaAvatar.png'; // Replace with the actual path for the second image
+    
+    // Set the image sources to the local file paths
+    imageDisplay1.src = imagePath1;
+    imageDisplay2.src = imagePath2;
 });
+
+
+//   document.addEventListener("DOMContentLoaded", function () {
+//       const fileInput = document.getElementById("fileInput");
+//       const fileInput2 = document.getElementById("fileInput2");
+//       const insertedDiv = document.querySelector(".add_picture");
+//       const insertedDiv2 = document.querySelector(".add_girl");
+
+//       function handleFileInput(input, imageElement, storageKey) {
+//           input.addEventListener("change", function (event) {
+//               const file = event.target.files[0];
+//               if (file && file.type.startsWith("image/")) {
+//                   const reader = new FileReader();
+//                   reader.onload = function (e) {
+//                       imageElement.src = e.target.result;
+//                       localStorage.setItem(storageKey, e.target.result);
+//                       window.location.reload()
+//                   };
+//                   reader.readAsDataURL(file);
+//               } else {
+//                   alert("Please select a valid image file.");
+//                   input.value = ""; // Reset the input field
+//               }
+//           });
+//           const storedImageSrc = localStorage.getItem(storageKey);
+//           if (storedImageSrc) {
+//               imageElement.src = storedImageSrc;
+//           }      
+//       }
+//       handleFileInput(fileInput, insertedDiv, "uploadedImageSrc");
+//       handleFileInput(fileInput2, insertedDiv2, "uploadedImageSrc2");
+// });
     </script>
     <script>
       // $(".slick-track").slick();
