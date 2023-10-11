@@ -9,8 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = "testcozminn";
-// userToCheck = getCookie("netbet_login");
+// userToCheck = "Te";
+userToCheck = getCookie("netbet_login");
 let userToVote = null;
 
 const apiEndpoint_check_user =
@@ -344,7 +344,7 @@ $(document).ready(function () {
   }
 
 ///MODAL CARD WITH STREAMERS FOR VOTING AND STUFF
-  let isVotingAllowed = true;
+  let isVotingAllowed = false;
   // generate modal card if voting allowed is true or false
   function generateModalCard(streamer, imgSrc, bgImage, linkVideo) {
     if (!isVotingAllowed) {

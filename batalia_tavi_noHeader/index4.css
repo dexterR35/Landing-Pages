@@ -66,10 +66,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.badge-danger {
+  display: none !important;
+}
+
+.card-wrapp {
+  pointer-events: none !important;
+}
+.card-title.bottom-left {
+  display: none !important ;
+}
+
+
 ._hl_t10 {
   background: var(--NetBet-orange);
   color: var(--color-white) !important;
 }
+.card.card-custom {
+  filter: grayscale(1);
+}
+
 
 ._t3 {
   background: var(--blue-hard);
