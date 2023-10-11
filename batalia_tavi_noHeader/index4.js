@@ -9,8 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-// userToCheck = "Te";
-userToCheck = getCookie("netbet_login");;;;;
+userToCheck = "testcozminn";
+// userToCheck = getCookie("netbet_login");
 let userToVote = null;
 
 const apiEndpoint_check_user =
@@ -349,7 +349,7 @@ $(document).ready(function () {
   function generateModalCard(streamer, imgSrc, bgImage, linkVideo) {
     if (!isVotingAllowed) {
       $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CEL MAI DISTRACTIV CHALLENGE!");
-      $("#subTitleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe pe data de 12 octombrie 2023.");
+      $("#subTitleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe in curând.");
       $("#infoModal").text('"Apăsați pe streamerul favorit pentru a urmări provocarea."');
       const cardHtml = `
           <div class="col-lg-4 card-wrapp position-relative">
@@ -361,7 +361,6 @@ $(document).ready(function () {
                       <p class="card-text text text-center top-left">Votarea a expirat</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
                       <h6 class="card-title text bottom-right">${streamer.username}</h6>
-                 
                   </div>
               </div>
           </div>

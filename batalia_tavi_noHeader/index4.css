@@ -67,7 +67,7 @@ body {
 }
 
 
-.badge-danger {
+/* .badge-danger {
   display: none !important;
 }
 
@@ -79,7 +79,7 @@ body {
 }
 #infoModal {
   display: none;
-}
+} */
 
 ._hl_t10 {
   background: var(--NetBet-orange);
