@@ -10,7 +10,7 @@ function getCookie(name) {
 }
 
 // userToCheck = "Te";
-userToCheck = getCookie("netbet_login");
+userToCheck = getCookie("netbet_login");;;;;
 let userToVote = null;
 
 const apiEndpoint_check_user =
