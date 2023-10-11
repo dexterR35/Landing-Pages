@@ -77,7 +77,9 @@ body {
 .card-title.bottom-left {
   display: none !important ;
 }
-
+#infoModal {
+  display: none;
+}
 
 ._hl_t10 {
   background: var(--NetBet-orange);
@@ -1542,7 +1544,7 @@ div.dataTables_wrapper div.dataTables_paginate {
     -webkit-transform: scale(0.95);
   }
   h3.modal-title {
-    font-size: 1.7em;
+    font-size: 1.4em;
     line-height: 1;
     font-weight: bold;
   }
