@@ -106,15 +106,15 @@ $(document).ready(function () {
   function formatPoints(pointsf) {
     if (pointsf >= 1000000) {
       if (pointsf % 1000000 === 0) {
-        return (pointsf / 1000000) + "mil";
+        return (pointsf / 1000000) + "MIL";
       } else {
-        return (pointsf / 1000000).toFixed(1) + "mil";
+        return (pointsf / 1000000).toFixed(1) + "MIL";
       }
     } else if (pointsf >= 1000) {
       if (pointsf % 1000 === 0) {
-        return (pointsf / 1000) + "k";
+        return (pointsf / 1000) + "K";
       } else {
-        return (pointsf / 1000).toFixed(1) + "k";
+        return (pointsf / 1000).toFixed(1) + "K";
       }
     } else {
       return pointsf.toString();
@@ -139,6 +139,7 @@ $(document).ready(function () {
 
       // Iterate over the array and assign values to optin, voted, and clasament
       data.forEach((item) => {
+
         if ("optin" in item) {
           optin = item.optin === "true"; // Convert string to boolean
         } else if ("voted" in item) {
@@ -148,7 +149,7 @@ $(document).ready(function () {
         }
       });
       updateButtonBehavior(optin, voted);
-      
+
       console.log("optin is:", optin);
 
       // Check if optin and clasament have been assigned values
@@ -158,7 +159,6 @@ $(document).ready(function () {
         clasament.forEach((item) => {
           if (item.username === userToCheck) {
             userPosition = item.ranking;
-
           }
           item.points = formatPoints(item.points);
           // showMessage(message, item);
@@ -191,9 +191,9 @@ $(document).ready(function () {
               });
           }
         } else if (userPosition > 200) {
-          console.log("userul e mai jos de 200");
+          // console.log("userul e mai jos de 200");
           if (clasament.length == 20) {
-            console.log("userul nu e intre ultimii 3");
+            // console.log("userul nu e intre ultimii 3");
             clasament.slice(0, 3).forEach((item) => {
               tableDataUser.append(createTableUsers(item, userPosition));
             });
@@ -221,42 +221,32 @@ $(document).ready(function () {
           }
         }
       } else {
-
         console.error("Invalid response structure:", data);
       }
-      // tableDataUser.find('tr:lt(3)').addClass(topThreeClass);
-      // if(!optin) {
-      //   clasament.slice(0,10).forEach((item,index) => {
-
-      //     tableDataUser.append(createTableUsers(item,index));
-      //   });
-      // }
     })
     .catch((error) => {
       console.error("Fetch error:", error);
     });
 
-    console.log(voted,"tessss")
   let imgSrc = "";
-  // Make a GET request to the API for CLASAMENT STREAMERS
+  let linkVideo;
   fetch(apiEndpoint_clasament_streamers)
     .then((response) => {
-      // Check if the request was successful
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      return response.json(); // Parse the JSON from the response
+      return response.json();
     })
     .then((data) => {
+      // console.log(data, "clasament streamer");
       tableDataStreamer.empty();
-
       data.forEach((streamer, index) => {
         // console.log(streamer, "fasfa")
-
         switch (streamer.username) {
           case "testpacanela":
-            streamer.username = "PACĂNELA";
+            streamer.username = "PĂCĂNELA";
             imgSrc = "./_avatar/pacanela.png";
+            linkVideo = streamer.status;
             break;
           case "casinosro":
             streamer.username = "QUIKANU";
@@ -295,15 +285,14 @@ $(document).ready(function () {
             imgSrc = "./_avatar/princess.png";
             break;
         }
-
         const bgImage = backgroundImages[index % backgroundImages.length];
         tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
-        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted));
-
-        cardChallenge.append(generateModalChallenge(streamer, imgSrc, bgImage));
-
+        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted , linkVideo));
+        // cardChallenge.append(generateModalChallenge(streamer, imgSrc, bgImage));
       });
+
       $("#streamersTable").DataTable(streamersTableOptions);
+
     })
     .catch((error) => {
       console.error("Fetch error:", error);
@@ -311,21 +300,16 @@ $(document).ready(function () {
 
 
   function createTableUsers(item, userPosition) {
-    // console.log(userPosition, "sfasf")
     let userAsterix = item.username;
-
     if (userAsterix && userAsterix.length > 2) {
       const firstTwoLetters = userAsterix.slice(0, 2);
       const asterisks = '*'.repeat(userAsterix.length - 2);
       userAsterix = firstTwoLetters + asterisks;
       userPosition = item.ranking;
     }
-
     const matchingUsername = item.username === userToCheck;
-
-
     // const isTopTen = index <= 10;
-    const tableAHtml = `<tr class="parent-table ${userPosition<=10 ? '_t3' : `${userPosition<=200 ? '_t10 ' : ' ' }`}${matchingUsername ? '_hl' : ''}">
+    const tableAHtml = `<tr class="parent-table ${userPosition<=10 ? '_t3' : `${userPosition<=200 ? '_t10 ' : '' }`}${matchingUsername ? '_hl' : ''}">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
@@ -349,7 +333,6 @@ $(document).ready(function () {
          </div>
          <div class="parent-name">
          <p class="mb-0 ps">${streamer.username} <span class="${false ? 'badge-success' : 'badge-danger'}">${false ? '&#10004' : '&#10006'}</span></p> 
-              
              <p class="text-muted mb-0">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</p>
          </div>
      </div>
@@ -360,72 +343,106 @@ $(document).ready(function () {
     return tableHtml;
   }
 
-
-  function generateModalCard(streamer, imgSrc, bgImage ,voted) {
-    console.log(voted,"tessst")
-    const cardHtml = `
-          <div class="col-lg-4 card-wrapp">
-              <div class="card card-custom ${voted == "no" ? `${streamer.votes === -1 ? "voted-no" : ""}` : "voted-no" } >
+///MODAL CARD WITH STREAMERS FOR VOTING AND STUFF
+  let isVotingAllowed = true;
+  // generate modal card if voting allowed is true or false
+  function generateModalCard(streamer, imgSrc, bgImage, linkVideo) {
+    if (!isVotingAllowed) {
+      $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CEL MAI DISTRACTIV CHALLENGE!");
+      $("#subTitleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe pe data de 12 octombrie 2023.");
+      $("#infoModal").text('"Apăsați pe streamerul favorit pentru a urmări provocarea."');
+      const cardHtml = `
+          <div class="col-lg-4 card-wrapp position-relative">
+          <div class="card-title text bottom-left d-flex align-items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+          <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+        </svg><h4>PLAY</h4></div>
+              <div class="card card-custom ${voted == "no" ?  "" : "voted-no" } >
                   <div class="card-body text-center">
-                      <p class="card-text text top-left">Votează cu ${streamer.username}</p>
+                      <p class="card-text text text-center top-left">Votarea a expirat</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
-                      <h6 class="card-title text bottom-right">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</h6>
+                      <h6 class="card-title text bottom-right">${streamer.username}</h6>
+                 
                   </div>
               </div>
           </div>
       `;
-    const $card = $(cardHtml);
-    
-    // console.log(voted === "no", "Fasfass")
-    $card.find(".card-custom").css("background", bgImage)
-    $card.click(function (e) {
-      $("#messageContainer").empty();
+      const $card = $(cardHtml);
+      $card.find(".card-custom").css("background", bgImage);
+      $card.click(function (e) {
+        openYoutubeModal();
+        // $("#messageContainer").empty();
+        // if (streamer.votes >= -1) {
+        //   showMessage("votul s a terminat", streamer, imgSrc).show();
+        //   e.preventDefault();
+        //   $("#no-button").hide();
+        //   $("#openYt").one("click", function () {
+        //     showMessage("votul s a terminat", streamer, imgSrc).hide()
+        //     openYoutubeModal();
+        //   });
+        //   return;
+        // }
+        // showMessage("doresti sa votezi cu", streamer, imgSrc).show();
+        // voteForStreamer($card, streamer);
+        e.preventDefault();
+      });
+      return $card;
+    } else {
 
-      if (streamer.votes === -1) {
-        showMessage("nu se poate vota cu", streamer, imgSrc).show()
-        e.preventDefault(); // Prevent the click event for "PACĂNELA"
-        $("#no-button").hide();
-        if (!status){
+      $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CE MAI DISTRACTIV CHALLENGE!");
+
+      $("#subTitleModal").text("Voturile pentru acest challenge se vor reseta la data de 11.10.2023");
+
+      const cardHtml = `
+      <div class="col-lg-4 card-wrapp ${streamer.votes === -1 ? "_pe" : ''}">
+          <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ''}">
+              <div class="card-body text-center">
+                  <p class="card-text text top-left">Votează cu ${streamer.username}</p>
+                  <div class="card-image" style="background-image:url(${imgSrc})"></div>
+                  <h6 class="card-title text bottom-right">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</h6>
+              </div>
+          </div>
+      </div>
+  `;
+      const $card = $(cardHtml);
+      
+      $card.find(".card-custom").css("background", bgImage);
+      console.log($card);
+      $card.find(".card-custom.voted-no").css("pointer-events", "none; !important");
+      $card.click(function (e) {
+        $("#messageContainer").empty();
+        if (streamer.votes <= -1) {
+          showMessage("nu se poate vota cu", streamer, imgSrc).show()
+          e.preventDefault();
+          $("#no-button").hide();
           $("#yes-button").text("Continuă");
-        } else {
-          $("#yes-button").text("VEZIE CHALLGE");
+          $("#yes-button").one("click", function () {
+            $("#messageContainer").hide();
+          });
+          return;
         }
-        $("#yes-button").one("click", function () {
-          // Hide the showMessage when "Continuă" is clicked
-          $("#messageContainer").hide();
-        });
-        return;
-      }
-
-      showMessage("doresti sa votezi cu", streamer, imgSrc).show();
-      voteForStreamer($card, streamer);
-      e.preventDefault();
-    });
-    return $card;
+        showMessage("doresti sa votezi cu", streamer, imgSrc).show();
+        voteForStreamer($card, streamer);
+        e.preventDefault();
+      });
+      return $card;
+    }
   }
 
-//style="background-image:url(${imgSrc})">   <p class="card-text text top-left">Vezi link-ul cu ${streamer.username}</p>
-  function generateModalChallenge(streamer, imgSrc) {
-    const cardChallenge =  `
-    <div class="col-lg-4 card-wrapp">
-        <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
-            <div class="card-body text-center">
-     
-              
-                <div class="card-image" > link</div>
-            </div>
-        </div>
-    </div>
-`;
-    const $card = $(cardChallenge);
-    // console.log(streamer, "Fasfass")
-    return $card;
-  }
+  //   function generateModalChallenge(streamer) {
+  //     const cardChallenge = `
+  //     <div class="col-lg-4 card-wrapp">
+  //         <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
+  //             <div class="card-body text-center">
+  //                 <div class="card-image" > link</div>
+  //             </div>
+  //         </div>
+  //     </div>
+  // `;
+  //     const $card = $(cardChallenge);
+  //     return $card;
+  //   }
 
-
-  var isVotingAllowed = true;
   function updateButtonBehavior(optin, voted) {
-
     if (!userToCheck || userToCheck == "logged_out") {
       actionButton.text("înregistrează-te");
       actionButton.click(function () {
@@ -433,14 +450,12 @@ $(document).ready(function () {
       });
     } else {
       if (!isVotingAllowed) {
-        // Voting is not allowed, open another modal with "Vezi Challenge"
         actionButton.attr("data-bs-toggle", "modal");
-        actionButton.attr("data-bs-target", "#challengeModal");
+        actionButton.attr("data-bs-target", "#cardsModal");
         actionButton.text("Vezi Challenge");
-        // actionButton.removeAttr("onclick");
-        actionButton.click(openYoutubeModal);
+        actionButton.removeAttr("onclick");
       } else if (optin) {
-        if (voted === "yes") {
+        if (voted == "yes") {
           actionButton.text("Ai votat");
           actionButton.attr("data-bs-toggle", "modal");
           actionButton.attr("data-bs-target", "#cardsModal");
@@ -461,7 +476,34 @@ $(document).ready(function () {
 
   function showMessage(message, item, imgSrc) {
     // console.log(message, "message");
-    const messageHtml = `
+    if (!isVotingAllowed) {
+      const messageHtml = `
+<div class="card-message col-lg-4 col-md-8 col-sm-8">
+<div class="card">
+  <div class="card-header">
+   <div class="card-picture">
+   <img src="${imgSrc}">
+   </div>
+   <h6 class="card-text _text-left">pozitie: #${item.ranking}</h6>
+   <h5 class="card-title text-uppercase m-0">${item.status == "link" ? `${item.status}` : `${item.username}`}</h5>
+   <h6 class="card-text _text-right"></h6>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title text-center w-75 mx-auto">
+      ${message}
+    </h4>
+    <div class="btn-wrapp d-flex justify-content-center gap-3 py-3">
+      <button type="button" id=openYt class="btn btn-danger w-25">vezi challenge</button>
+    </div>
+  </div>
+</div>
+</div>
+`;
+      return $("#messageContainer").append(messageHtml);
+
+    } else {
+
+      const messageHtml = `
 <div class="card-message col-lg-4 col-md-8 col-sm-8">
 <div class="card">
   <div class="card-header">
@@ -484,30 +526,20 @@ $(document).ready(function () {
 </div>
 </div>
 `;
-    return $("#messageContainer").append(messageHtml);
+      return $("#messageContainer").append(messageHtml);
+    }
   }
-
 
   // let selectedUser = null;
   // let countVote = 0;
 
   function voteForStreamer($card, streamer) {
-    console.log(streamer, "cardddd")
-
-    // if (!streamer) {
-    //   // alert("Selectați un utilizator înainte de a vota.");
-    //   return;
-    // }
-    // if (streamer === true) {
-    //   alert("Nu puteți vota pentru acest utilizator.");
-    //   return;
-    // }
+    console.log(streamer, "cardddd");
     $("#messageContainer").show();
 
-    // const confirmation = confirm("Vreți să votați acest element?");
     $("#yes-button").on("click", () => {
       switch (streamer.username) {
-        case "PACĂNELA":
+        case "PĂCĂNELA":
           userToVote = "testpacanela";
           break;
         case "QUIKANU":
@@ -700,7 +732,7 @@ $(document).ready(function () {
   // Add tooltips (if needed)
   $('[data-toggle="tooltip"]').tooltip();
 
-  $("#openModalButton").click(openYoutubeModal);
+  // $("#openModalButton").click(openYoutubeModal);
 
   $("#modal-youtube").on("hidden.bs.modal", pauseYoutubeVideo);
 
@@ -708,11 +740,13 @@ $(document).ready(function () {
     $("#modal-youtube").modal("show");
     playYoutubeVideo();
   }
+
   function playYoutubeVideo() {
     const videoIframe = $("#youtubeVideo");
     const videoSrc = videoIframe.attr("src");
     videoIframe.attr("src", videoSrc + "&autoplay=1");
   }
+
   function pauseYoutubeVideo() {
     const videoIframe = $("#youtubeVideo");
     const videoSrc = videoIframe.attr("src");
