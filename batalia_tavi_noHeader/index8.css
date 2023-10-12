@@ -85,9 +85,10 @@ body {
   background: var(--NetBet-orange);
   color: var(--color-white) !important;
 }
-.card.card-custom {
+
+/* .card.card-custom {
   filter: grayscale(1);
-}
+} */
 
 
 ._t3 {
@@ -133,7 +134,9 @@ body {
 h2 {
   color: black !important;
 }
-
+.badge-danger {
+  display: none !important;
+}
 /*clasament color*/
 
 #usersTable_wrapper {
@@ -565,8 +568,8 @@ a {
   /* background:red ; */
 }
 .card-wrapp .bottom-left svg {
-  width: 30px !important;
-  height: 35px !important;
+  width: 25px !important;
+  height: 30px !important;
 }
 .card-wrapp .bottom-left h4 {
   margin: 0;

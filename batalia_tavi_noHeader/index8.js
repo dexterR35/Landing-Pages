@@ -12,6 +12,7 @@ function getCookie(name) {
 userToCheck = "testcozminn";
 // userToCheck = getCookie("netbet_login");
 let userToVote = null;
+let isVotingAllowed = true;
 
 const apiEndpoint_check_user =
   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
@@ -131,7 +132,7 @@ $(document).ready(function () {
       return response.json();
     })
     .then((data) => {
-      console.log(data, "Data");
+      // console.log(data, "Data");
       let optin = null;
       // console.log(data[0].optin, "optin");
       voted = "Not available"; // Default value if "voted" is not in the response
@@ -147,6 +148,7 @@ $(document).ready(function () {
         } else if ("clasament" in item) {
           clasament = item.clasament;
         }
+
       });
       updateButtonBehavior(optin, voted);
 
@@ -205,7 +207,7 @@ $(document).ready(function () {
               tableDataUser.append(createTableUsers(item, userPosition));
             });
           } else {
-            console.log("userul e intre ultimii 3");
+            // console.log("userul e intre ultimii 3");
             clasament.slice(0, 3).forEach((item) => {
               tableDataUser.append(createTableUsers(item, userPosition));
             });
@@ -238,15 +240,23 @@ $(document).ready(function () {
       return response.json();
     })
     .then((data) => {
-      // console.log(data, "clasament streamer");
+      console.log(data, "clasament streamer");
       tableDataStreamer.empty();
       data.forEach((streamer, index) => {
+        // console.log(streamer, "streamer streamer");
+        if (streamer.votes != -1) {
+          isVotingAllowed = true;
+          console.log("voting")
+        }
+
+        // console.log ("voting is allowed");
+
         // console.log(streamer, "fasfa")
         switch (streamer.username) {
           case "testpacanela":
             streamer.username = "PĂCĂNELA";
             imgSrc = "./_avatar/pacanela.png";
-            linkVideo = streamer.status;
+            // linkVideo = streamer.status;
             break;
           case "casinosro":
             streamer.username = "QUIKANU";
@@ -279,6 +289,7 @@ $(document).ready(function () {
           case "supercazino2":
             streamer.username = "PACANEDY";
             imgSrc = "./_avatar/pacanedy.png";
+            // console.log(imgSrc,"sfasf")
             break;
           case "supercazino3":
             streamer.username = "PRINCESS";
@@ -287,8 +298,7 @@ $(document).ready(function () {
         }
         const bgImage = backgroundImages[index % backgroundImages.length];
         tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
-        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted , linkVideo));
-        // cardChallenge.append(generateModalChallenge(streamer, imgSrc, bgImage));
+        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted, linkVideo));
       });
 
       $("#streamersTable").DataTable(streamersTableOptions);
@@ -343,19 +353,32 @@ $(document).ready(function () {
     return tableHtml;
   }
 
-///MODAL CARD WITH STREAMERS FOR VOTING AND STUFF
-  let isVotingAllowed = false;
+  ///MODAL CARD WITH STREAMERS FOR VOTING AND STUFF
+
   // generate modal card if voting allowed is true or false
-  function generateModalCard(streamer, imgSrc, bgImage, linkVideo) {
+  function generateModalCard(streamer, imgSrc, bgImage) {
+    // console.log(streamer.status === "link");
+    // console.log(streamer.status,"test");
     if (!isVotingAllowed) {
-      $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CEL MAI DISTRACTIV CHALLENGE!");
-      $("#subTitleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe in curând.");
+      $("#titleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe in curând.");
       $("#infoModal").text('"Apăsați pe streamerul favorit pentru a urmări provocarea."');
+
+      let customContent = '';
+      if (streamer.status != "" && streamer.status != "false") {
+        console.log;
+        customContent = `
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+                  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+              </svg>
+              <h4>PLAY</h4>`;
+        let iframeSrc = `https://www.youtube.com/embed/${streamer.status}`;
+        $("#youtubeVideo").attr("src", iframeSrc);
+      }
+
+      console.log(streamer.status)
       const cardHtml = `
           <div class="col-lg-4 card-wrapp position-relative">
-          <div class="card-title text bottom-left d-flex align-items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
-          <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-        </svg><h4>PLAY</h4></div>
+          <div class="card-title text bottom-left d-flex align-items-center gap-1">${customContent}</div>
               <div class="card card-custom ${voted == "no" ?  "" : "voted-no" } >
                   <div class="card-body text-center">
                       <p class="card-text text text-center top-left">Votarea a expirat</p>
@@ -368,29 +391,16 @@ $(document).ready(function () {
       const $card = $(cardHtml);
       $card.find(".card-custom").css("background", bgImage);
       $card.click(function (e) {
-        openYoutubeModal();
-        // $("#messageContainer").empty();
-        // if (streamer.votes >= -1) {
-        //   showMessage("votul s a terminat", streamer, imgSrc).show();
-        //   e.preventDefault();
-        //   $("#no-button").hide();
-        //   $("#openYt").one("click", function () {
-        //     showMessage("votul s a terminat", streamer, imgSrc).hide()
-        //     openYoutubeModal();
-        //   });
-        //   return;
-        // }
-        // showMessage("doresti sa votezi cu", streamer, imgSrc).show();
-        // voteForStreamer($card, streamer);
-        e.preventDefault();
+        if (streamer.status !== "") {
+          console.log(streamer.status, "balba")
+          openYoutubeModal();
+          e.preventDefault();
+        }
       });
       return $card;
     } else {
-
-      $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CE MAI DISTRACTIV CHALLENGE!");
-
-      $("#subTitleModal").text("Voturile pentru acest challenge se vor reseta la data de 11.10.2023");
-
+      $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CEL MAI DISTRACTIV CHALLENGE!");
+      $("#infoModal").text("Voturile pentru challenge se vor reseta periodic");
       const cardHtml = `
       <div class="col-lg-4 card-wrapp ${streamer.votes === -1 ? "_pe" : ''}">
           <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ''}">
@@ -403,9 +413,8 @@ $(document).ready(function () {
       </div>
   `;
       const $card = $(cardHtml);
-      
       $card.find(".card-custom").css("background", bgImage);
-      console.log($card);
+      // console.log($card);
       $card.find(".card-custom.voted-no").css("pointer-events", "none; !important");
       $card.click(function (e) {
         $("#messageContainer").empty();
@@ -419,27 +428,13 @@ $(document).ready(function () {
           });
           return;
         }
-        showMessage("doresti sa votezi cu", streamer, imgSrc).show();
+        showMessage("dorești sa votezi cu", streamer, imgSrc).show();
         voteForStreamer($card, streamer);
         e.preventDefault();
       });
       return $card;
     }
   }
-
-  //   function generateModalChallenge(streamer) {
-  //     const cardChallenge = `
-  //     <div class="col-lg-4 card-wrapp">
-  //         <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ` `}" >
-  //             <div class="card-body text-center">
-  //                 <div class="card-image" > link</div>
-  //             </div>
-  //         </div>
-  //     </div>
-  // `;
-  //     const $card = $(cardChallenge);
-  //     return $card;
-  //   }
 
   function updateButtonBehavior(optin, voted) {
     if (!userToCheck || userToCheck == "logged_out") {
@@ -448,7 +443,7 @@ $(document).ready(function () {
         window.parent.location.href = "https://casino.netbet.ro/inregistrare";
       });
     } else {
-      if (!isVotingAllowed) {
+      if (!isVotingAllowed || voted == "yes") {
         actionButton.attr("data-bs-toggle", "modal");
         actionButton.attr("data-bs-target", "#cardsModal");
         actionButton.text("Vezi Challenge");
@@ -483,8 +478,8 @@ $(document).ready(function () {
    <div class="card-picture">
    <img src="${imgSrc}">
    </div>
-   <h6 class="card-text _text-left">pozitie: #${item.ranking}</h6>
-   <h5 class="card-title text-uppercase m-0">${item.status == "link" ? `${item.status}` : `${item.username}`}</h5>
+   <h6 class="card-text _text-left">poziție: #${item.ranking}</h6>
+   <h5 class="card-title text-uppercase m-0">${item.status == "" ? `${item.status}` : `${item.username}`}</h5>
    <h6 class="card-text _text-right"></h6>
   </div>
   <div class="card-body">
@@ -644,7 +639,6 @@ $(document).ready(function () {
         .attr("data-src", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg`)
         .attr("alt", gameName)
         .attr("loading", "lazy")
-
         .attr("srcset", `https://img.netbet.ro/cdn-cgi/image/q=90,w=214,f=webp//gms/games/casino_new/preview/${gameName}.jpg 214w`);
       const link = $("<a>").addClass("scroll-item-game").attr("href", `https://casino.netbet.ro/play/${gameName.slice(6, -3)}`).append(img);
       link.attr("target", "_parent")
@@ -675,10 +669,6 @@ $(document).ready(function () {
         width: "10%",
         targets: 2
       },
-      // {
-      //   responsivePriority: 2,
-      //   targets: 3,
-      // },
     ],
   };
 
@@ -704,8 +694,6 @@ $(document).ready(function () {
         width: "15%",
         targets: 2,
       },
-
-      // You can add more specific columnDefs for the "usersTable" here if needed
     ],
   };
 
@@ -731,7 +719,7 @@ $(document).ready(function () {
   // Add tooltips (if needed)
   $('[data-toggle="tooltip"]').tooltip();
 
-  // $("#openModalButton").click(openYoutubeModal);
+  $("#openModalButton").click(openYoutubeModal);
 
   $("#modal-youtube").on("hidden.bs.modal", pauseYoutubeVideo);
 
@@ -847,7 +835,6 @@ $(function () {
     observer.observe(img);
   });
 });
-
 
 // $(document).ready(function () {
 //   const splashScreen = $('#splash-screen');
