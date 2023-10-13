@@ -430,6 +430,9 @@ a {
   cursor: not-allowed;
   pointer-events: none !important;
 }
+.card-custom.voted-no:hover {
+  transform: unset !important;
+}
 .card-custom.voted::after {
   content: "VOTAT";
   position: absolute;

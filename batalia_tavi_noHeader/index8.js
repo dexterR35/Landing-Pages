@@ -9,10 +9,10 @@ function getCookie(name) {
   return null;
 }
 
-userToCheck = "testcozminn";
+userToCheck = "testcozminn";   //testcarla
 // userToCheck = getCookie("netbet_login");
 let userToVote = null;
-let isVotingAllowed = true;
+let isVotingAllowed = false;
 
 const apiEndpoint_check_user =
   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
@@ -132,28 +132,37 @@ $(document).ready(function () {
       return response.json();
     })
     .then((data) => {
-      // console.log(data, "Data");
+
       let optin = null;
       // console.log(data[0].optin, "optin");
-      voted = "Not available"; // Default value if "voted" is not in the response
+      voted = null; // Default value if "voted" is not in the response
       let clasament = null;
+
 
       // Iterate over the array and assign values to optin, voted, and clasament
       data.forEach((item) => {
-
+          console.log(data)
         if ("optin" in item) {
           optin = item.optin === "true"; // Convert string to boolean
         } else if ("voted" in item) {
           voted = item.voted; // Assign the string value to voted
+          console.log(item.voted, "aaa");
         } else if ("clasament" in item) {
           clasament = item.clasament;
+          console.log(clasament, "aaa");
         }
 
       });
+
+  
       updateButtonBehavior(optin, voted);
 
+
+
+      
       console.log("optin is:", optin);
 
+        console.log(`User ${userToCheck}, voted: ${voted}`);
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
         tableDataUser.empty();
@@ -163,7 +172,6 @@ $(document).ready(function () {
             userPosition = item.ranking;
           }
           item.points = formatPoints(item.points);
-          // showMessage(message, item);
         });
         if (userPosition <= 10) {
           // console.log("userul e top 10");
@@ -245,12 +253,10 @@ $(document).ready(function () {
       data.forEach((streamer, index) => {
         // console.log(streamer, "streamer streamer");
         if (streamer.votes != -1) {
-          isVotingAllowed = true;
-          console.log("voting")
+          isVotingAllowed = false;
+   
         }
-
         // console.log ("voting is allowed");
-
         // console.log(streamer, "fasfa")
         switch (streamer.username) {
           case "testpacanela":
@@ -359,13 +365,12 @@ $(document).ready(function () {
   function generateModalCard(streamer, imgSrc, bgImage) {
     // console.log(streamer.status === "link");
     // console.log(streamer.status,"test");
+    let customContent = '';
     if (!isVotingAllowed) {
       $("#titleModal").text("Procesul de votare a fost finalizat, iar următoarea etapă de vot va începe in curând.");
       $("#infoModal").text('"Apăsați pe streamerul favorit pentru a urmări provocarea."');
-
-      let customContent = '';
-      if (streamer.status != "" && streamer.status != "false") {
-        console.log;
+  
+      if (streamer.status !== "" && streamer.status !== "false") {
         customContent = `
               <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
                   <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
@@ -373,15 +378,14 @@ $(document).ready(function () {
               <h4>PLAY</h4>`;
         let iframeSrc = `https://www.youtube.com/embed/${streamer.status}`;
         $("#youtubeVideo").attr("src", iframeSrc);
-      }
+      } 
 
-      console.log(streamer.status)
       const cardHtml = `
           <div class="col-lg-4 card-wrapp position-relative">
           <div class="card-title text bottom-left d-flex align-items-center gap-1">${customContent}</div>
-              <div class="card card-custom ${voted == "no" ?  "" : "voted-no" } >
+              <div class="card card-custom ${streamer.status !== "false" && streamer.status !== "" ?  "" : "voted-no" } " >
                   <div class="card-body text-center">
-                      <p class="card-text text text-center top-left">Votarea a expirat</p>
+                      <p class="card-text text text-center top-left">${streamer.status === "false" ? "A Fost Votat" : "Votarea a expirat"}</p>
                       <div class="card-image" style="background-image:url(${imgSrc})"></div>
                       <h6 class="card-title text bottom-right">${streamer.username}</h6>
                   </div>
@@ -391,21 +395,22 @@ $(document).ready(function () {
       const $card = $(cardHtml);
       $card.find(".card-custom").css("background", bgImage);
       $card.click(function (e) {
-        if (streamer.status !== "") {
-          console.log(streamer.status, "balba")
+        if (streamer.status !== "" && streamer.status !== "false") {
           openYoutubeModal();
           e.preventDefault();
         }
       });
       return $card;
-    } else {
+    } 
+
+    else {
       $("#titleModal").text("PROVOACĂ STREAMERUL FAVORIT LA CEL MAI DISTRACTIV CHALLENGE!");
-      $("#infoModal").text("Voturile pentru challenge se vor reseta periodic");
+      $("#infoModal").text("Voturile pentru challenge se vor reseta periodic.");
       const cardHtml = `
       <div class="col-lg-4 card-wrapp ${streamer.votes === -1 ? "_pe" : ''}">
           <div class="card card-custom ${streamer.votes === -1 ? "voted-no" : ''}">
               <div class="card-body text-center">
-                  <p class="card-text text top-left">Votează cu ${streamer.username}</p>
+                  <p class="card-text text top-left">${streamer.username === "PĂCĂNELA" || streamer.username ==="DUDY" ? "Indisponibil" : "Votează cu" + " " +`${streamer.username}`}</p>
                   <div class="card-image" style="background-image:url(${imgSrc})"></div>
                   <h6 class="card-title text bottom-right">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</h6>
               </div>
@@ -416,9 +421,12 @@ $(document).ready(function () {
       $card.find(".card-custom").css("background", bgImage);
       // console.log($card);
       $card.find(".card-custom.voted-no").css("pointer-events", "none; !important");
+  
       $card.click(function (e) {
+        console.log(userToCheck,"xvzxvzxvzvzxvz")
+   
         $("#messageContainer").empty();
-        if (streamer.votes <= -1) {
+        if (streamer.votes <= -1 && streamer.status !== "false") {
           showMessage("nu se poate vota cu", streamer, imgSrc).show()
           e.preventDefault();
           $("#no-button").hide();
@@ -433,7 +441,9 @@ $(document).ready(function () {
         e.preventDefault();
       });
       return $card;
-    }
+    } 
+
+    
   }
 
   function updateButtonBehavior(optin, voted) {
@@ -443,14 +453,15 @@ $(document).ready(function () {
         window.parent.location.href = "https://casino.netbet.ro/inregistrare";
       });
     } else {
-      if (!isVotingAllowed || voted == "yes") {
+      if (!isVotingAllowed && voted == "yes") {
+        console.log(!isVotingAllowed,"Z");
         actionButton.attr("data-bs-toggle", "modal");
         actionButton.attr("data-bs-target", "#cardsModal");
         actionButton.text("Vezi Challenge");
         actionButton.removeAttr("onclick");
       } else if (optin) {
         if (voted == "yes") {
-          actionButton.text("Ai votat");
+          actionButton.text("Vezi Challenge");
           actionButton.attr("data-bs-toggle", "modal");
           actionButton.attr("data-bs-target", "#cardsModal");
           actionButton.removeAttr("onclick");
@@ -460,16 +471,19 @@ $(document).ready(function () {
           actionButton.text("Votează Streamerul");
           actionButton.removeAttr("onclick");
         }
+      } else if(optin == null && !userToCheck) {
+        console.log(optin,"?XZ")
+        actionButton.text("înregistrează-te")
+        // actionButton.off("click"); // Remove any existing click event handlers
       } else {
-        actionButton.attr("onclick", "optIn(); actionButton.text('Votează Streamerul');");
+        actionButton.attr("onclick", "optIn();");
         actionButton.text("Intră în luptă");
-        actionButton.off("click"); // Remove any existing click event handlers
       }
     }
   }
 
   function showMessage(message, item, imgSrc) {
-    // console.log(message, "message");
+    // console.log(item, "item");
     if (!isVotingAllowed) {
       const messageHtml = `
 <div class="card-message col-lg-4 col-md-8 col-sm-8">
@@ -494,6 +508,8 @@ $(document).ready(function () {
 </div>
 `;
       return $("#messageContainer").append(messageHtml);
+
+    
 
     } else {
 
@@ -574,7 +590,10 @@ $(document).ready(function () {
       $card.find(".card-custom").addClass("voted")
       // const $voteElement = $card.find(".streamerVote");
       $("#messageContainer").hide();
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
+
     });
     $("#no-button").on("click", () => {
       // alert("Ai anulat votul.");
@@ -803,7 +822,7 @@ async function optIn() {
       // Log any errors that occurred during the fetch
       console.error("Fetch error:", error);
     });
-  window.location.reload();
+  // window.location.reload();
 }
 
 function updateContent() {
