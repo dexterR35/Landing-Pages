@@ -38,11 +38,11 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         height: 100vh;
         background: #333;
       }
       .container-table {
-        /* background: crimson; */
         padding: 1em;
         max-height: 750px;
         overflow-y: scroll;
@@ -57,6 +57,7 @@
         border-top-right-radius: 10px;
         overflow: hidden;
       }
+
       #userTable {
         /* margin: auto; */
         /* width: 100%; */
@@ -123,18 +124,20 @@
   </head>
   <body>
     <div class="wrapp-table">
+      <h1>Clasament Whatever</h1>
       <div class="container-table">
         <table id="userTable" class="tableData">
           <thead class="thead">
             <tr>
-              <th scope="col">Poziție</th>
-              <th scope="col">Nume</th>
-              <th scope="col">Puncte</th>
+              <th>Poziție</th>
+              <th>Nume</th>
+              <th>Puncte</th>
             </tr>
           </thead>
           <tbody class="table-body" id="bodyUser"></tbody>
         </table>
       </div>
+      <p>Enjoy whatever</p>
     </div>
     <script>
       function getCookie(name) {
@@ -163,7 +166,7 @@
         })
         .then((data) => {
           console.log(data, "dataaa");
-          tableData.empty();
+          //   tableData.empty();
           data.forEach((user, index) => {
             switch (user.cnt) {
               case "1":
@@ -181,7 +184,6 @@
             }
             tableData.append(generateUserTable(user, avatarSrc));
           });
-          //   $("#userTable").DataTable(streamersTableOptions);
         })
         .catch((error) => {
           console.error("Fetch error:", error);
