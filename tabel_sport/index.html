@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Play", sans-serif;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      .d-flex-auto {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .d-flex-start {
+        display: flex;
+        justify-content: start;
+        flex-direction: row-reverse;
+        align-items: center;
+      }
+
+      table {
+        border-collapse: collapse;
+        color: white;
+        font-weight: bold;
+      }
+      .wrapp-table {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #333;
+      }
+      .container-table {
+        /* background: crimson; */
+        padding: 1em;
+        max-height: 750px;
+        overflow-y: scroll;
+        width: 50%;
+      }
+      .container-table {
+        position: relative;
+      }
+
+      #userTable {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        overflow: hidden;
+      }
+      #userTable {
+        /* margin: auto; */
+        /* width: 100%; */
+        /* border-collapse: collapse; */
+      }
+
+      #userTable .thead {
+        background: #003009;
+      }
+
+      .user-avatar img {
+        width: 50px;
+        height: 50px;
+      }
+      .user-position {
+        text-align: center;
+      }
+      table {
+        color: white !important;
+      }
+      tr {
+        font-size: 1.2em;
+      }
+      .thead tr th {
+        padding: 1em;
+        text-align: start;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+      .thead tr th:first-child {
+        width: 5%;
+        /* border-right: 2px solid black; */
+      }
+      .thead tr th:nth-child(2) {
+        /* width: 50%; */
+        /* border-right: 2px solid black; */
+      }
+      .thead tr th:last-child {
+        width: 5%;
+      }
+      .parent-table._high {
+        background: linear-gradient(
+          90deg,
+          rgb(242 242 242) 0%,
+          rgb(236 236 236) 100%
+        );
+        color: black;
+      }
+      .parent-table {
+        background: hsla(86, 100%, 35%, 1);
+        background: linear-gradient(
+          90deg,
+          hsla(86, 100%, 35%, 1) 0%,
+          hsla(115, 58%, 23%, 1) 100%
+        );
+        border-bottom: 10px solid #003009;
+      }
+      .parent-table .ps {
+        padding: 0.3em 0.5em;
+      }
+    </style>
+
+    <title>Sport</title>
+  </head>
+  <body>
+    <div class="wrapp-table">
+      <div class="container-table">
+        <table id="userTable" class="tableData">
+          <thead class="thead">
+            <tr>
+              <th scope="col">Poziție</th>
+              <th scope="col">Nume</th>
+              <th scope="col">Puncte</th>
+            </tr>
+          </thead>
+          <tbody class="table-body" id="bodyUser"></tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      userToCheck = "alinachio";
+
+      let tableData = $("#bodyUser");
+      let api_report =
+        "https://casino-promo.netbet.ro/scripts/cursa-betbuilder/report_json.php";
+      fetch(api_report)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data, "dataaa");
+          tableData.empty();
+          data.forEach((user, index) => {
+            switch (user.cnt) {
+              case "1":
+                avatarSrc = "./png/gold.svg";
+                break;
+              case "2":
+                avatarSrc = "./png/silver.svg";
+                break;
+              case "3":
+                avatarSrc = "./png/bronze.svg";
+                break;
+              case "4":
+                avatarSrc = "./png/regular.svg";
+                break;
+            }
+            tableData.append(generateUserTable(user, avatarSrc));
+          });
+          //   $("#userTable").DataTable(streamersTableOptions);
+        })
+        .catch((error) => {
+          console.error("Fetch error:", error);
+        });
+
+      function generateUserTable(user, avatarSrc) {
+        console.log(avatarSrc, "fasfa");
+        let userAsterix = user.name;
+        if (userAsterix && userAsterix.length > 2) {
+          const firstTwoLetters = userAsterix.slice(0, 2);
+          const asterisks = "*".repeat(userAsterix.length - 2);
+          userAsterix = firstTwoLetters + asterisks;
+        }
+        const matchingUsername = user.name === userToCheck;
+
+        console.log(matchingUsername, "test");
+        // console.log(user, "userdata");
+        const tableHtml = `
+        <tr class="${matchingUsername ? "parent-table _high" : "parent-table"}">
+            <td class="parent-position d-flex-start ps">
+                    <div class="user-avatar">
+                        <img src="${avatarSrc}" alt="pict_table" class="pict_table">
+                    </div>
+                    <div class="user-position ps">#${user.cnt}</div>
+            </td>
+            <td class="parent-user">
+                    <div class="user-name ps">${
+                      matchingUsername ? user.name : userAsterix
+                    }</div>   
+            </td>
+            <td class="parent-points">
+                <div class="user-points ps">${user.value}</div>   
+            </td>
+        </tr>;
+   `;
+        return tableHtml;
+      }
+    </script>
+  </body>
+</html>
