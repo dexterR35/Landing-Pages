@@ -38,6 +38,7 @@
       }
       .d-flex-auto,
       .d-flex-column,
+      .d-flex-space,
       .d-flex-start {
         display: flex;
         justify-content: center;
@@ -50,40 +51,47 @@
       .d-flex-start {
         justify-content: start !important;
       }
+      .d-flex-space {
+        justify-content: space-between;
+        margin: 0 20px;
+      }
 
       body {
-        background-color: #fff;
+        /* background: rgb(58 69 89) !important; */
+        background-image: url(./png/bg.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
       }
 
-      :is(tr th) {
-        background: black;
-        color: white;
-        text-align: start;
-      }
-      .dataTables_scrollHead {
-        padding: 1em 0 0;
-      }
-      .container-table {
-        width: fit-content;
-        padding: 10px;
-        margin: auto;
-        background: #333;
-      }
-
-      @media (min-width: 991px) {
-      .container-table {
-          width: 70% !important;
-        }
-      }
-      @media (max-width: 768px) {
-      .container-table {
-          width: 80% !important;
-        }
-      }
       @media (max-width: 480px) {
-      .container-table {
-          width: 100% !important;
+        body {
+          background-image: url(./png/bg-mobile.jpg);
         }
+      }
+      .dataTables_wrapper.no-footer .dataTables_scrollBody {
+        border: none !important;
+      }
+      /* .dataTables_scrollHead {
+        padding: 0 0 0;
+      } */
+
+      .wrapp-table {
+        display: grid;
+        place-content: center;
+        padding-top: 8vh;
+      }
+
+      .container-table {
+        width: 100%;
+        padding: 10px 10px 30px;
+        margin: auto;
+        background: #fcfeff;
+        /* border: 1px solid #333; */
+        box-shadow: rgba(14, 30, 37, 0.6) 0px 2px 14px 0px,
+          rgba(14, 30, 37, 0.6) 0px 6px 16px 0px;
+        border-radius: 13px;
       }
 
       table.dataTable > thead > tr > th,
@@ -97,46 +105,105 @@
         width: 50px;
         height: 50px;
       }
-
+      :is(thead tr),
+      tr._high {
+        background: #015d0d !important;
+      }
+      :is(th:first-child, td:first-child) {
+        border-top-left-radius: 7px;
+        border-bottom-left-radius: 7px;
+      }
+      :is(th:last-child, td:last-child) {
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+      }
+      :is(tr th) {
+        color: white;
+        text-align: start;
+        font-size: 1.1em !important;
+        text-transform: uppercase;
+      }
       :is(tr th:first-child) {
         width: 13%;
-        border-right: 1px solid #333;
+        border-right: 1px solid grey;
+        text-align: center !important;
       }
 
       :is(tr th:nth-child(2)) {
         /* width: 35%; */
-        border-right: 1px solid #333;
+        border-right: 1px solid grey;
       }
       :is(tr th:last-child) {
         width: 20%;
+        text-align: center !important;
       }
       :is(tr td):not(.user-avatar) {
-        /* background: white; */
-        font-size: 1.2rem;
+        font-size: 1.2em;
         font-weight: bold;
         color: #fff;
+      }
+      :is(tr td:last-child) {
+        text-align: center !important;
+      }
+      :is(h1) {
+        padding: 0.3em 0;
+        font-size: 2em;
+        text-transform: uppercase;
+        font-weight: bold;
       }
       .d-flex-start.ps {
         gap: 10px;
       }
-      ._high {
-        background: linear-gradient(
-          90deg,
-          rgb(242 242 242) 0%,
-          rgb(236 236 236) 100%
-        ) !important;
-      }
-      ._high td {
-        color: black !important;
-      }
 
-      :is(.odd, .even) {
-        background: hsla(86, 100%, 35%, 1);
-        background: linear-gradient(
-          90deg,
-          hsla(86, 100%, 35%, 1) 0%,
-          hsla(115, 58%, 23%, 1) 100%
-        );
+      .container-table span img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      /* ._high td {
+        color: #fff !important;
+      } */
+
+      table.dataTable tbody tr {
+        background: #1d9112;
+      }
+      @media (min-width: 992px) {
+        .container-table {
+          width: 750px !important;
+          max-width: 900px !important;
+        }
+      }
+      @media (max-width: 991px) {
+        .container-table {
+          width: 700px !important;
+          max-width: 800px !important;
+        }
+      }
+      @media (max-width: 768px) {
+        .container-table {
+          width: 650px !important;
+          max-width: 750px !important;
+        }
+        .wrapp-table {
+          padding-top: 4vh;
+        }
+      }
+      @media (max-width: 480px) {
+        .container-table {
+          width: 370px !important;
+          max-width: 370px !important;
+        }
+        :is(tr td, tr th) {
+          font-size: 0.9em !important;
+        }
+        :is(h1) {
+          font-size: 1.5em !important;
+        }
+        .container-table span img {
+          width: 80%;
+          height: 80%;
+          object-fit: contain;
+        }
       }
     </style>
 
@@ -144,10 +211,14 @@
   </head>
   <body>
     <div class="wrapp-table">
-    
-
       <div class="container-table">
-        <h1>Clasament Whatever</h1>
+        <div class="d-flex-space">
+          <h1>Clasament</h1>
+          <span class="d-flex-auto"
+            ><img src="./png/logo.png" alt="logo"
+          /></span>
+        </div>
+
         <table id="userTable" class="tableData"></table>
       </div>
     </div>
@@ -164,7 +235,7 @@
         return null;
       }
 
-      userToCheck = "alinachio";
+      userToCheck = getCookie("netbet_login");
 
       async function initializeDataTable() {
         new DataTable("#userTable", {
@@ -176,14 +247,14 @@
           autoWidth: true,
           fixedHeader: true,
           fixedColumns: true,
-          scrollY: "700px",
+          scrollY: "550px",
           info: false,
           aaSorting: false,
           responsive: true,
           pageLength: 15,
           paginate: false,
           info: false,
-          searching: false, 
+          searching: false,
           language: false,
           rowCallback: function (row, data) {
             if (data.name === userToCheck) {
@@ -195,15 +266,7 @@
               title: "Poziție",
               sorting: false,
               render: function (data, type, row, meta) {
-                let userAsterix = row.name;
-
-                if (userAsterix && userAsterix.length > 2) {
-                  const firstTwoLetters = userAsterix.slice(0, 2);
-                  const asterisks = "*".repeat(userAsterix.length - 2);
-                  userAsterix = firstTwoLetters + asterisks;
-                }
-                const matchingUsername = row.name === userToCheck;
-
+           
                 let avatarSrc = "./png/regular.svg";
                 switch (row.cnt) {
                   case "1":
@@ -216,41 +279,32 @@
                     avatarSrc = "./png/bronze.svg";
                     break;
                 }
-
-                return `
-                  
-                  <div class="${matchingUsername ? "_high" : ""}">
+                return `     
                       <div class="parent-position d-flex-start ps">
                         <div class="user-position ps">#${row.cnt}</div>
                           <div class="user-avatar">
                               <img src="${avatarSrc}" alt="pict_table" class="pict_table">
                           </div>
                       </div>
-                  </div>
               `;
               },
             },
             {
-              title: "Nume",
+              title: "Username",
               data: "name",
               sorting: false,
               render: function (data, type, row, meta) {
                 let userAsterix = row.name;
-
                 if (userAsterix && userAsterix.length > 2) {
-                  const firstTwoLetters = userAsterix.slice(0, 2);
+                  const firstTwoLetters = userAsterix.slice(0, 4);
                   const asterisks = "*".repeat(userAsterix.length - 2);
                   userAsterix = firstTwoLetters + asterisks;
                 }
                 const matchingUsername = row.name === userToCheck;
                 if (type === "display") {
-                  return `
-                       
-                            <div class="user-name">${
-                              matchingUsername ? row.name : userAsterix
-                            }</div>
-                    
-                    `;
+                  return `<div class="user-name">${
+                    matchingUsername ? row.name : userAsterix
+                  }</div>`;
                 } else {
                   return data;
                 }
