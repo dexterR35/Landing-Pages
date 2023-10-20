@@ -4,6 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> -->
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css"
+    />
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap");
       *,
@@ -17,106 +36,107 @@
       ::-webkit-scrollbar {
         display: none;
       }
-      .d-flex-auto {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+      .d-flex-auto,
+      .d-flex-column,
       .d-flex-start {
         display: flex;
-        justify-content: start;
-        flex-direction: row-reverse;
+        justify-content: center;
         align-items: center;
       }
 
-      table {
-        border-collapse: collapse;
-        color: white;
-        font-weight: bold;
-      }
-      .wrapp-table {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .d-flex-column {
         flex-direction: column;
-        height: 100vh;
+      }
+      .d-flex-start {
+        justify-content: start !important;
+      }
+
+      body {
+        background-color: #fff;
+      }
+
+      :is(tr th) {
+        background: black;
+        color: white;
+        text-align: start;
+      }
+      .dataTables_scrollHead {
+        padding: 1em 0 0;
+      }
+      .container-table {
+        width: fit-content;
+        padding: 10px;
+        margin: auto;
         background: #333;
       }
+
+      @media (min-width: 991px) {
       .container-table {
-        padding: 1em;
-        max-height: 750px;
-        overflow-y: scroll;
-        width: 50%;
+          width: 70% !important;
+        }
       }
+      @media (max-width: 768px) {
       .container-table {
-        position: relative;
+          width: 80% !important;
+        }
+      }
+      @media (max-width: 480px) {
+      .container-table {
+          width: 100% !important;
+        }
       }
 
-      #userTable {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        overflow: hidden;
+      table.dataTable > thead > tr > th,
+      table.dataTable > thead > tr > th {
+        padding: 20px;
       }
-
-      #userTable {
-        /* margin: auto; */
-        /* width: 100%; */
-        /* border-collapse: collapse; */
+      table.dataTable {
+        border-spacing: 0 8px !important;
       }
-
-      #userTable .thead {
-        background: #003009;
-      }
-
       .user-avatar img {
         width: 50px;
         height: 50px;
       }
-      .user-position {
-        text-align: center;
+
+      :is(tr th:first-child) {
+        width: 13%;
+        border-right: 1px solid #333;
       }
-      table {
-        color: white !important;
+
+      :is(tr th:nth-child(2)) {
+        /* width: 35%; */
+        border-right: 1px solid #333;
       }
-      tr {
-        font-size: 1.2em;
+      :is(tr th:last-child) {
+        width: 20%;
       }
-      .thead tr th {
-        padding: 1em;
-        text-align: start;
-        text-transform: uppercase;
+      :is(tr td):not(.user-avatar) {
+        /* background: white; */
+        font-size: 1.2rem;
         font-weight: bold;
+        color: #fff;
       }
-      .thead tr th:first-child {
-        width: 5%;
-        /* border-right: 2px solid black; */
+      .d-flex-start.ps {
+        gap: 10px;
       }
-      .thead tr th:nth-child(2) {
-        /* width: 50%; */
-        /* border-right: 2px solid black; */
-      }
-      .thead tr th:last-child {
-        width: 5%;
-      }
-      .parent-table._high {
+      ._high {
         background: linear-gradient(
           90deg,
           rgb(242 242 242) 0%,
           rgb(236 236 236) 100%
-        );
-        color: black;
+        ) !important;
       }
-      .parent-table {
+      ._high td {
+        color: black !important;
+      }
+
+      :is(.odd, .even) {
         background: hsla(86, 100%, 35%, 1);
         background: linear-gradient(
           90deg,
           hsla(86, 100%, 35%, 1) 0%,
           hsla(115, 58%, 23%, 1) 100%
         );
-        border-bottom: 10px solid #003009;
-      }
-      .parent-table .ps {
-        padding: 0.3em 0.5em;
       }
     </style>
 
@@ -124,20 +144,12 @@
   </head>
   <body>
     <div class="wrapp-table">
-      <h1>Clasament Whatever</h1>
+    
+
       <div class="container-table">
-        <table id="userTable" class="tableData">
-          <thead class="thead">
-            <tr>
-              <th>Poziție</th>
-              <th>Nume</th>
-              <th>Puncte</th>
-            </tr>
-          </thead>
-          <tbody class="table-body" id="bodyUser"></tbody>
-        </table>
+        <h1>Clasament Whatever</h1>
+        <table id="userTable" class="tableData"></table>
       </div>
-      <p>Enjoy whatever</p>
     </div>
     <script>
       function getCookie(name) {
@@ -154,73 +166,101 @@
 
       userToCheck = "alinachio";
 
-      let tableData = $("#bodyUser");
-      let api_report =
-        "https://casino-promo.netbet.ro/scripts/cursa-betbuilder/report_json.php";
-      fetch(api_report)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data, "dataaa");
-          //   tableData.empty();
-          data.forEach((user, index) => {
-            switch (user.cnt) {
-              case "1":
-                avatarSrc = "./png/gold.svg";
-                break;
-              case "2":
-                avatarSrc = "./png/silver.svg";
-                break;
-              case "3":
-                avatarSrc = "./png/bronze.svg";
-                break;
-              case "4":
-                avatarSrc = "./png/regular.svg";
-                break;
+      async function initializeDataTable() {
+        new DataTable("#userTable", {
+          ajax: {
+            url: "https://casino-promo.netbet.ro/scripts/cursa-betbuilder/report_json.php",
+            dataSrc: "",
+          },
+          paging: false,
+          autoWidth: true,
+          fixedHeader: true,
+          fixedColumns: true,
+          scrollY: "700px",
+          info: false,
+          aaSorting: false,
+          responsive: true,
+          pageLength: 15,
+          paginate: false,
+          info: false,
+          searching: false, 
+          language: false,
+          rowCallback: function (row, data) {
+            if (data.name === userToCheck) {
+              $(row).addClass("_high");
             }
-            tableData.append(generateUserTable(user, avatarSrc));
-          });
-        })
-        .catch((error) => {
-          console.error("Fetch error:", error);
+          },
+          columns: [
+            {
+              title: "Poziție",
+              sorting: false,
+              render: function (data, type, row, meta) {
+                let userAsterix = row.name;
+
+                if (userAsterix && userAsterix.length > 2) {
+                  const firstTwoLetters = userAsterix.slice(0, 2);
+                  const asterisks = "*".repeat(userAsterix.length - 2);
+                  userAsterix = firstTwoLetters + asterisks;
+                }
+                const matchingUsername = row.name === userToCheck;
+
+                let avatarSrc = "./png/regular.svg";
+                switch (row.cnt) {
+                  case "1":
+                    avatarSrc = "./png/gold.svg";
+                    break;
+                  case "2":
+                    avatarSrc = "./png/silver.svg";
+                    break;
+                  case "3":
+                    avatarSrc = "./png/bronze.svg";
+                    break;
+                }
+
+                return `
+                  
+                  <div class="${matchingUsername ? "_high" : ""}">
+                      <div class="parent-position d-flex-start ps">
+                        <div class="user-position ps">#${row.cnt}</div>
+                          <div class="user-avatar">
+                              <img src="${avatarSrc}" alt="pict_table" class="pict_table">
+                          </div>
+                      </div>
+                  </div>
+              `;
+              },
+            },
+            {
+              title: "Nume",
+              data: "name",
+              sorting: false,
+              render: function (data, type, row, meta) {
+                let userAsterix = row.name;
+
+                if (userAsterix && userAsterix.length > 2) {
+                  const firstTwoLetters = userAsterix.slice(0, 2);
+                  const asterisks = "*".repeat(userAsterix.length - 2);
+                  userAsterix = firstTwoLetters + asterisks;
+                }
+                const matchingUsername = row.name === userToCheck;
+                if (type === "display") {
+                  return `
+                       
+                            <div class="user-name">${
+                              matchingUsername ? row.name : userAsterix
+                            }</div>
+                    
+                    `;
+                } else {
+                  return data;
+                }
+              },
+            },
+            { title: "Puncte", data: "value", sorting: false },
+          ],
         });
-
-      function generateUserTable(user, avatarSrc) {
-        console.log(avatarSrc, "fasfa");
-        let userAsterix = user.name;
-        if (userAsterix && userAsterix.length > 2) {
-          const firstTwoLetters = userAsterix.slice(0, 2);
-          const asterisks = "*".repeat(userAsterix.length - 2);
-          userAsterix = firstTwoLetters + asterisks;
-        }
-        const matchingUsername = user.name === userToCheck;
-
-        console.log(matchingUsername, "test");
-        // console.log(user, "userdata");
-        const tableHtml = `
-        <tr class="${matchingUsername ? "parent-table _high" : "parent-table"}">
-            <td class="parent-position d-flex-start ps">
-                    <div class="user-avatar">
-                        <img src="${avatarSrc}" alt="pict_table" class="pict_table">
-                    </div>
-                    <div class="user-position ps">#${user.cnt}</div>
-            </td>
-            <td class="parent-user">
-                    <div class="user-name ps">${
-                      matchingUsername ? user.name : userAsterix
-                    }</div>   
-            </td>
-            <td class="parent-points">
-                <div class="user-points ps">${user.value}</div>   
-            </td>
-        </tr>;
-   `;
-        return tableHtml;
       }
+      initializeDataTable();
     </script>
   </body>
 </html>
