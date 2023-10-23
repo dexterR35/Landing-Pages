@@ -1,5 +1,5 @@
 
-<script>
+
     const inputName = document.querySelector(".input_n1");
     const updateName = document.querySelector(".errorDiv_n1");
   
@@ -198,4 +198,3 @@
     });
   console.log("222222222222");
     checKPhoneCheckbox();
-  </script>
