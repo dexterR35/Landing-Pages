@@ -1,5 +1,5 @@
-{block append name=js} {literal}
-<script>
+
+
    console.log("<--Loaded--> Script Game Logic");
   function retriveData() {
     let request = new XMLHttpRequest();
@@ -525,10 +525,8 @@
     // startInstruction();
     // startGame();
   }
-</script>
 
 
-<script>
      console.log("<--Loaded--> Script Input Logic");
   const inputName = document.querySelector(".input_n1");
   const updateName = document.querySelector(".errorDiv_n1");
@@ -728,10 +726,6 @@
   });
 
   checKPhoneCheckbox();
-</script>
-
-
-<script>
      console.log("<--Loaded--> API");
    console.log("<--Loaded--> Script Send Data");
   const form_q = document.querySelector("#inputForm");
@@ -908,9 +902,8 @@
     }
   }
 
-</script>
 
-<script>
+
   
   function showDialog() {
     const scrollY =
@@ -973,5 +966,5 @@
     })();
   }
 
-</script>
-{/literal} {/block}
+
+
