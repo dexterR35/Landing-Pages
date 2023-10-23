@@ -8,7 +8,7 @@
     padding: 1em 0;
     display: grid;
     grid-template-columns: 1.1fr 1fr;
-    font-size: 2em;
+    font-size: 1.9em;
     background: url("{$asset}/bg-1.jpg");
     background-size: cover;
     background-position-y: top;
