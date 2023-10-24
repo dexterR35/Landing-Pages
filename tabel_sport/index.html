@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script> -->
     <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
 
     <link
@@ -57,7 +56,6 @@
       }
 
       body {
-        /* background: rgb(58 69 89) !important; */
         background-image: url(./png/bg.jpg);
         background-position: center;
         background-repeat: no-repeat;
@@ -88,7 +86,6 @@
         padding: 10px 10px 30px;
         margin: auto;
         background: #fcfeff;
-        /* border: 1px solid #333; */
         box-shadow: rgba(14, 30, 37, 0.6) 0px 2px 14px 0px,
           rgba(14, 30, 37, 0.6) 0px 6px 16px 0px;
         border-radius: 13px;
@@ -130,7 +127,6 @@
       }
 
       :is(tr th:nth-child(2)) {
-        /* width: 35%; */
         border-right: 1px solid grey;
       }
       :is(tr th:last-child) {
@@ -160,9 +156,6 @@
         height: 100%;
         object-fit: contain;
       }
-      /* ._high td {
-        color: #fff !important;
-      } */
 
       table.dataTable tbody tr {
         background: #1d9112;
@@ -207,7 +200,7 @@
       }
     </style>
 
-    <title>Sport</title>
+    <title>Netbet Sport</title>
   </head>
   <body>
     <div class="wrapp-table">
@@ -255,7 +248,10 @@
           paginate: false,
           info: false,
           searching: false,
-          language: false,
+          language:false,
+          "oLanguage": {
+          "sEmptyTable": "Clasamentul se actualizează în fiecare dimineață la ora 10:00 AM"
+          },
           rowCallback: function (row, data) {
             if (data.name === userToCheck) {
               $(row).addClass("_high");
@@ -266,7 +262,6 @@
               title: "Poziție",
               sorting: false,
               render: function (data, type, row, meta) {
-           
                 let avatarSrc = "./png/regular.svg";
                 switch (row.cnt) {
                   case "1":
