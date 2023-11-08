@@ -171,55 +171,6 @@
       }
     </style>
 
-    <script>
-      const inputDiv = document.querySelectorAll("input");
-      const labelDiv = document.querySelectorAll("label");
-      const parentInput = document.querySelectorAll(".float-label-input");
-
-      inputDiv.forEach((input) => {
-        input.classList.add(
-          "w-full",
-          "bg-white",
-          "focus:outline-none",
-          "focus:shadow-outline",
-          "border",
-          "border-gray-400",
-          "py-[12px]",
-          "px-[10px]",
-          "block",
-          "appearance-none",
-          "leading-normal",
-          "focus:border-blue-400",
-          "rounded-md",
-          "shadow_custom",
-          "text-field-input"
-        );
-      });
-
-      parentInput.forEach((parent) => {
-        parent.classList.add("lg:mt-[25px]", "mt-[23px]", "relative");
-      });
-
-      labelDiv.forEach((label) => {
-        label.classList.add(
-          "absolute",
-          "top-[14px]",
-          "left-[5px]",
-          "focus:shadow-outline",
-          "text-gray-400",
-          "text-[14px]",
-          "lg:text-[16px]",
-          "pointer-events-none",
-          "transition",
-          "duration-200",
-          "ease-in-out",
-          "bg-transparent",
-          "px-3",
-          "text-gray-600",
-          "rounded-t-lg"
-        );
-      });
-    </script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
       import {
@@ -251,7 +202,7 @@
 
       ///for player id
       let queryParams = new URLSearchParams(window.location.search);
-      const playerId = "";
+      const playerId = 1997;
       // const playerId = queryParams.get("playerId");
 
       function validateAndSetColor(inputElement) {
@@ -302,10 +253,11 @@
           const collectionRef = collection(db, "batalia_2023_premii");
           const q = query(collectionRef, where("playerId", "==", playerId));
           const querySnapshot = await getDocs(q);
-          if (querySnapshot.size > 0) {
+          if (!querySnapshot.empty) {
+            updateContent();
             querySnapshot.forEach((doc) => {
               const playerIdValue = doc.data().playerId;
-              console.log("PlayerId:", playerIdValue);
+              console.log("PlayerId:", doc.data().playerId);
             });
           } else {
             messageDiv.innerHTML = "PlayerId not found in Firestore";
@@ -314,7 +266,7 @@
           messageDiv.innerHTML = `Error fetching playerId: ${error}`;
         }
       }
-
+      getPlayerIdFromFirestore(playerId);
       function handleFormSubmission() {
         // getPlayerIdFromFirestore(playerId);
         const inputElements = [
@@ -367,7 +319,7 @@
               destinatar_etaj: inputElements[7].value,
               destinatar_codpostal: inputElements[8].value,
             };
-            console.log("docData.playterId", docData.playterId);
+            // console.log("docData.playterId", docData.playterId);
             try {
               const docRef = await addDoc(
                 collection(db, "batalia_2023_premii"),
@@ -420,6 +372,55 @@
             }
           });
       }
+
+      const inputDiv = document.querySelectorAll("input");
+      const labelDiv = document.querySelectorAll("label");
+      const parentInput = document.querySelectorAll(".float-label-input");
+
+      inputDiv.forEach((input) => {
+        input.classList.add(
+          "w-full",
+          "bg-white",
+          "focus:outline-none",
+          "focus:shadow-outline",
+          "border",
+          "border-gray-400",
+          "py-[12px]",
+          "px-[10px]",
+          "block",
+          "appearance-none",
+          "leading-normal",
+          "focus:border-blue-400",
+          "rounded-md",
+          "shadow_custom",
+          "text-field-input"
+        );
+      });
+
+      parentInput.forEach((parent) => {
+        parent.classList.add("lg:mt-[25px]", "mt-[23px]", "relative");
+      });
+
+      labelDiv.forEach((label) => {
+        label.classList.add(
+          "absolute",
+          "top-[14px]",
+          "left-[5px]",
+          "focus:shadow-outline",
+          "text-gray-400",
+          "text-[14px]",
+          "lg:text-[16px]",
+          "pointer-events-none",
+          "transition",
+          "duration-200",
+          "ease-in-out",
+          "bg-transparent",
+          "px-3",
+          "text-gray-600",
+          "rounded-t-lg"
+        );
+      });
+
       const dataForms = document.getElementById("dataForm");
       const textChange = document.querySelector(".text-if");
       const titleChange = document.querySelector(".title-if");
@@ -439,7 +440,7 @@
         imageSwitch.style.display = "none";
       }
 
-      if (playerId !== "" && playerId !== null) {
+      if (playerId !== "" && playerId === null) {
         getPlayerIdFromFirestore(playerId);
         updateContent();
       } else {
