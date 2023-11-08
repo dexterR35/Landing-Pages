@@ -81,11 +81,18 @@
             </div>
           </div>
         </form>
-        <a id="hRef" class="mt-5 lg:w-1/4 w-full">
+        <a class="mt-5 lg:w-1/4 w-full">
           <button
             id="submitBtn"
             type="button"
             class="bg-gradient-to-r from-orange-600 to-orange-400 text-white font-bold lg:text-md text-lg w-full p-3 rounded-md uppercase"
+          ></button>
+        </a>
+        <a id="hRef" class="mt-5 lg:w-1/4 w-full">
+          <button
+            id="redirectBtn"
+            type="button"
+            class="bg-gradient-to-r from-orange-600 to-orange-400 text-white justify-center font-bold lg:text-md text-lg w-full p-3 rounded-md uppercase hidden"
           ></button>
         </a>
       </div>
@@ -198,11 +205,12 @@
       const db = getFirestore(app);
       const dataForm = document.getElementById("dataForm");
       const submitBtn = document.getElementById("submitBtn");
+      const redirectBtn = document.getElementById("redirectBtn");
       const messageDiv = document.getElementById("messageDiv");
 
       ///for player id
       let queryParams = new URLSearchParams(window.location.search);
-      const playerId = 99999; // sre exemplu 1,2,1997, se afla in firebase
+      const playerId = 14111; // sre exemplu 1,2,1997, se afla in firebase
       // const playerId = queryParams.get("playerId");
 
       function validateAndSetColor(inputElement) {
@@ -247,6 +255,7 @@
 
         return isValid;
       }
+
       async function getPlayerIdFromFirestore(playerId) {
         console.log(playerId, "playerId");
         try {
@@ -313,14 +322,15 @@
           .getElementById("submitBtn")
           .addEventListener("click", async (event) => {
             event.preventDefault();
-            const isPhoneNumberValid = /^07\d{8}$/.test(inputElements[2].value);
+            // const isPhoneNumberValid = /^07\d{8}$/.test(inputElements[2].value);
+
             const areAllValid = inputElements.every((inputElement) =>
               validateAndSetColor(inputElement)
             );
-            if (!isPhoneNumberValid) {
-              messageDiv.innerHTML = "Adauga un numar valid"; // Display an error message
-              return;
-            }
+            // if (!isPhoneNumberValid) {
+            //   messageDiv.innerHTML = "Adauga un numar valid"; // Display an error message
+            //   return;
+            // }
 
             if (!areAllValid) {
               messageDiv.innerHTML = "Vă rugăm să completați toate câmpurile";
@@ -332,7 +342,7 @@
               playerId: playerId,
               destinatar_nume: inputElements[0].value,
               destinatar_prenume: inputElements[1].value,
-              destinatar_telefon: isPhoneNumberValid,
+              destinatar_telefon: inputElements[2].value,
               destinatar_oras: inputElements[3].value,
               destinatar_strada: inputElements[4].value,
               destinatar_bloc: inputElements[5].value,
@@ -439,14 +449,17 @@
       const titleChange = document.querySelector(".title-if");
       const hRef = document.getElementById("hRef");
       const imageSwitch = document.querySelector("img");
-
+      // redirectBtn.style.display = "flex";
       function updateContent() {
         dataForms.style.display = "none";
+        submitBtn.style.display = "none";
+        redirectBtn.style.display = "flex";
+        redirectBtn.innerHTML = "Continua";
         textChange.innerHTML =
           "Ai completat formularul. Premiile ți-au fost alocate.";
         titleChange.innerHTML = "Felicitări!";
-        submitBtn.innerHTML = "Continua";
-        submitBtn.removeAttribute("id", "submitBtn");
+        // submitBtn.innerHTML = "Continua";
+        // submitBtn.removeAttribute("id", "submitBtn");
         hRef.setAttribute("href", "https://www.google.ro");
         hRef.setAttribute("target", "_self");
         hRef.style.margin = "auto";
