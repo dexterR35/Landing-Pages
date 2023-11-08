@@ -4,54 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Formular</title>
   </head>
-  <style>
-    .float-label-input {
-      margin: 10px 0;
-    }
-    .success {
-      color: green !important; /* Setăm culoarea textului la roșu pentru clasa "success" */
-    }
-  </style>
+
   <body>
     <div
-      class="container bg-red-200 container-page flex lg:flex-row flex-col items-center mx-auto p-4 lg:space-x-6"
+      class="container container-page flex lg:flex-row flex-col items-center mx-auto lg:p-4 lg:space-x-6"
     >
       <div class="lg:max-w-[50%] flex items-center justify-center">
         <img
           src="./png/title_generic.png"
           alt="title"
-          class="w-[90%] h-[90%] object-contain"
+          class="lg:w-[90%] w-[60%] lg:w-[90%] md:w-[50%] h-[100%] object-contain"
         />
       </div>
 
       <div
-        class="container lg:max-w-[50%] flex flex-col bg-white p-5 rounded-md"
+        class="container shadow_custom_lg lg:max-w-[50%] md:max-w-[80%] max-w-[95%] flex flex-col bg-white lg:p-6 md:p-7 p-4 w-[95%] rounded-lg"
       >
         <div class="container-title text-center">
-          <h1 class="py-3 text-4xl font-bold">Felicitări</h1>
-          <h3 class="pb-3 text-md px-2">
-            Vă rugăm completați formularul de mai jos pentru a intra în posesia
-            premiilor
-          </h3>
+          <h1 class="pb-3 text-4xl font-bold title-if"></h1>
+          <h3 class="pb-3 lg:px-4 px-2 text-xl text-if"></h3>
         </div>
         <form id="dataForm" class="w-full mx-auto w-full py-3">
-          <div id="messageDiv" class="w-full text-center text-red-500"></div>
+          <div id="messageDiv" class="w-full text-center text-red-600"></div>
           <div
             class="container-name w-full md:grid md:grid-cols-3 md:space-x-2"
           >
-            <div class="relative float-label-input">
+            <div class="float-label-input">
               <label for="_name">Nume</label>
               <input id="_name" type="text" placeholder="" required />
             </div>
-            <div class="relative float-label-input">
+            <div class="float-label-input">
               <label for="_lastName">Prenume</label>
               <input id="_lastName" type="text" placeholder="" required />
             </div>
             <div class="float-label-input">
               <label for="_phone">Telefon</label>
-              <input id="_phone" type="tel" placeholder="" required />
+              <input id="_phone" type="number" placeholder="" required />
             </div>
           </div>
           <div
@@ -67,37 +63,119 @@
             </div>
           </div>
           <div class="container-info md:grid grid-cols-5 grid space-x-2">
-            <div class="float-label-input">
+            <div class="float-label-input m-0">
               <label for="_house">Bloc</label>
               <input id="_house" type="text" placeholder="" required />
             </div>
-            <div class="float-label-input">
-              <label for="_houseNr">Număr</label>
+            <div class="float-label-input m-0">
+              <label for="_houseNr">Nr</label>
               <input id="_houseNr" type="text" placeholder="" required />
             </div>
-            <div class="float-label-input">
+            <div class="relative float-label-input m-0">
               <label for="_floor">Etaj</label>
-              <input id="_floor" type="text" placeholder="" required />
+              <input id="_floor" type="number" placeholder="" required />
             </div>
-            <div class="float-label-input col-span-2">
+            <div class="float-label-input col-span-2 m-0">
               <label for="_postalCode">Cod Poștal</label>
               <input id="_postalCode" type="number" placeholder="" required />
             </div>
           </div>
         </form>
-        <button
-          type="button"
-          id="submitBtn"
-          class="bg-orange-500 text-white font-bold text-md p-3 rounded-md w-1/4"
-        >
-          Trimite
-        </button>
+        <a id="hRef" class="mt-5 lg:w-1/4 w-full">
+          <button
+            id="submitBtn"
+            type="button"
+            class="bg-gradient-to-r from-orange-600 to-orange-400 text-white font-bold lg:text-md text-lg w-full p-3 rounded-md uppercase"
+          ></button>
+        </a>
       </div>
     </div>
+
+    <style>
+      /* .float-label-input:focus-within label,
+      .float-label-input input:not(:placeholder-shown) + label {
+        transform: translateY(-1.5rem) scale(0.75);
+        background-color: white;
+      } */
+
+      .below-fold,
+      .promo-text,
+      .offer,
+      .cta-button,
+      .bottom {
+        display: none !important;
+        pointer-events: none !important;
+      }
+      .hero {
+        overflow: auto !important;
+      }
+
+      .success {
+        color: green !important; /* Setăm culoarea textului la roșu pentru clasa "success" */
+      }
+
+      .shadow_custom_lg {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        border: 1px solid white;
+      }
+
+      .container-hero {
+        height: 100%;
+        width: 100%;
+        top: 4vh !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        min-width: 300px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        margin: 0 auto !important;
+      }
+
+      /* .input-label.focused {
+        font-size: 122px;
+      } */
+
+      .float-label-input.focused > label {
+        font-size: 12px;
+      }
+
+      .container-info:nth-child(2) .float-label-input {
+        margin: 0 !important;
+      }
+
+      @media (min-width: 992px) {
+        .container-hero {
+          height: 90vh !important;
+          top: 0vh !important;
+        }
+        .object-contain {
+          top: 20px;
+          position: relative;
+        }
+      }
+
+      .above-fold {
+        height: 100% !important;
+      }
+
+      .float-label-input.focused label {
+        transition: all 0.2s linear;
+        top: -20px;
+        left: -5px;
+      }
+      #messageDiv {
+        color: red !important;
+      }
+    </style>
 
     <script>
       const inputDiv = document.querySelectorAll("input");
       const labelDiv = document.querySelectorAll("label");
+      const parentInput = document.querySelectorAll(".float-label-input");
+
       inputDiv.forEach((input) => {
         input.classList.add(
           "w-full",
@@ -105,29 +183,39 @@
           "focus:outline-none",
           "focus:shadow-outline",
           "border",
-          "border-gray-300",
-          "py-3",
-          "px-3",
+          "border-gray-400",
+          "py-[12px]",
+          "px-[10px]",
           "block",
           "appearance-none",
           "leading-normal",
           "focus:border-blue-400",
-          "rounded-lg"
+          "rounded-md",
+          "shadow_custom",
+          "text-field-input"
         );
       });
+
+      parentInput.forEach((parent) => {
+        parent.classList.add("lg:mt-[25px]", "mt-[23px]", "relative");
+      });
+
       labelDiv.forEach((label) => {
         label.classList.add(
-          "relative",
-          "top-[-2px]",
-          "left-[3px]",
+          "absolute",
+          "top-[14px]",
+          "left-[5px]",
           "focus:shadow-outline",
           "text-gray-400",
+          "text-[14px]",
+          "lg:text-[16px]",
           "pointer-events-none",
           "transition",
           "duration-200",
           "ease-in-out",
           "bg-transparent",
-          "text-gray-900",
+          "px-3",
+          "text-gray-600",
           "rounded-t-lg"
         );
       });
@@ -137,7 +225,10 @@
       import {
         getFirestore,
         collection,
+        getDocs,
         addDoc,
+        query,
+        where,
       } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
 
       const firebaseConfig = {
@@ -157,7 +248,11 @@
       const dataForm = document.getElementById("dataForm");
       const submitBtn = document.getElementById("submitBtn");
       const messageDiv = document.getElementById("messageDiv");
-      const playerId = 3;
+
+      ///for player id
+      let queryParams = new URLSearchParams(window.location.search);
+      const playerId = "";
+      // const playerId = queryParams.get("playerId");
 
       function validateAndSetColor(inputElement) {
         const isValid = inputElement.value.trim() !== "";
@@ -165,79 +260,207 @@
         return isValid;
       }
 
-      // Function to attach input event listeners to input fields
       function attachInputEventListeners(inputElements) {
         inputElements.forEach((inputElement) => {
           inputElement.addEventListener("input", () => {
             validateAndSetColor(inputElement);
+            // validatePhoneInput(phoneInput);
           });
         });
       }
+      function validatePhoneInput(phoneInput) {
+        let phoneValue = phoneInput.value.replace(/\D/g, "");
+        const maxLength = 10;
+        const prefix = "07";
+        // Limit the input to maxLength
+        if (phoneValue.length > maxLength) {
+          phoneValue = phoneValue.slice(0, maxLength);
+          phoneInput.value = phoneValue;
+        }
 
-      const inputElements = [
-        document.getElementById("_name"),
-        document.getElementById("_lastName"),
-        document.getElementById("_phone"),
-        document.getElementById("_city"),
-        document.getElementById("_street"),
-        document.getElementById("_house"),
-        document.getElementById("_houseNr"),
-        document.getElementById("_floor"),
-        document.getElementById("_postalCode"),
-      ];
-
-      // Attach input event listeners to all input fields
-      attachInputEventListeners(inputElements);
-
-      document
-        .getElementById("submitBtn")
-        .addEventListener("click", async (event) => {
-          event.preventDefault();
-
-          const areAllValid = inputElements.every((inputElement) =>
-            validateAndSetColor(inputElement)
-          );
-
-          if (!areAllValid) {
-            messageDiv.innerHTML = "Vă rugăm să completați toate câmpurile";
-            return;
-          }
-
-          const data = {
-            _playerId: playerId,
-            destinatar_nume: inputElements[0].value,
-            destinatar_prenume: inputElements[1].value,
-            destinatar_telefon: inputElements[2].value,
-            destinatar_oras: inputElements[3].value,
-            destinatar_strada: inputElements[4].value,
-            destinatar_bloc: inputElements[5].value,
-            destinatar_nr: inputElements[6].value,
-            destinatar_etaj: inputElements[7].value,
-            destinatar_codpostal: inputElements[8].value,
-          };
-
-          try {
-            const docRef = await addDoc(
-              collection(db, "batalia_2023_premii"),
-              data
-            );
-            messageDiv.innerHTML = `Datele au fost adăugate`;
-            messageDiv.classList.add("success");
-            setTimeout(() => {
-              messageDiv.innerHTML = "";
-              messageDiv.classList.remove("success");
-            }, 1000);
-            if (dataForm) {
-              dataForm.reset();
-              inputElements.forEach((inputElement) => {
-                inputElement.style.borderColor = "";
-              });
-            }
-          } catch (error) {
-            messageDiv.innerHTML = `Error adding data: ${error}`;
-            messageDiv.classList.remove("success");
-          }
+        const isValid =
+          phoneValue.startsWith(prefix) && phoneValue.length === maxLength;
+        phoneInput.style.borderColor = isValid ? "green" : "red";
+        // phoneInput.style.borderColor = isValid ? "green" : "red";
+        if (isValid) {
+          messageDiv.innerHTML = "Numar valid";
+          messageDiv.classList.add("success");
+        } else {
+          messageDiv.innerHTML = "Adauga un Numar valid";
+          messageDiv.classList.remove("success");
+        }
+        phoneInput.addEventListener("blur", () => {
+          messageDiv.innerHTML = "";
         });
+
+        return isValid;
+      }
+
+      async function getPlayerIdFromFirestore(playerId) {
+        console.log(playerId, "p[layerId]");
+        try {
+          const collectionRef = collection(db, "batalia_2023_premii");
+          const q = query(collectionRef, where("playerId", "==", playerId));
+          const querySnapshot = await getDocs(q);
+          if (querySnapshot.size > 0) {
+            querySnapshot.forEach((doc) => {
+              const playerIdValue = doc.data().playerId;
+              console.log("PlayerId:", playerIdValue);
+            });
+          } else {
+            messageDiv.innerHTML = "PlayerId not found in Firestore";
+          }
+        } catch (error) {
+          messageDiv.innerHTML = `Error fetching playerId: ${error}`;
+        }
+      }
+
+      function handleFormSubmission() {
+        // getPlayerIdFromFirestore(playerId);
+        const inputElements = [
+          document.getElementById("_name"),
+          document.getElementById("_lastName"),
+          document.getElementById("_phone"),
+          document.getElementById("_city"),
+          document.getElementById("_street"),
+          document.getElementById("_house"),
+          document.getElementById("_houseNr"),
+          document.getElementById("_floor"),
+          document.getElementById("_postalCode"),
+        ];
+
+        attachInputEventListeners(inputElements);
+
+        const phoneInput = document.getElementById("_phone");
+        phoneInput.addEventListener("input", () => {
+          validatePhoneInput(phoneInput);
+        });
+
+        document
+          .getElementById("submitBtn")
+          .addEventListener("click", async (event) => {
+            event.preventDefault();
+            const isPhoneNumberValid = /^07\d{8}$/.test(inputElements[2].value);
+            const areAllValid = inputElements.every((inputElement) =>
+              validateAndSetColor(inputElement)
+            );
+            if (!isPhoneNumberValid) {
+              messageDiv.innerHTML = "Adauga un numar valid"; // Display an error message
+              return;
+            }
+
+            if (!areAllValid) {
+              messageDiv.innerHTML = "Vă rugăm să completați toate câmpurile";
+
+              return;
+            }
+
+            const data = {
+              playerId: playerId,
+              destinatar_nume: inputElements[0].value,
+              destinatar_prenume: inputElements[1].value,
+              destinatar_telefon: isPhoneNumberValid,
+              destinatar_oras: inputElements[3].value,
+              destinatar_strada: inputElements[4].value,
+              destinatar_bloc: inputElements[5].value,
+              destinatar_nr: inputElements[6].value,
+              destinatar_etaj: inputElements[7].value,
+              destinatar_codpostal: inputElements[8].value,
+            };
+            console.log("docData.playterId", docData.playterId);
+            try {
+              const docRef = await addDoc(
+                collection(db, "batalia_2023_premii"),
+                data
+              );
+
+              const playterIdToCheck = data.playterId;
+              // console.log(playterIdToCheck, "playterIdToCheck");
+
+              const querySnapshot = await getDocs(
+                collection(db, "batalia_2023_premii")
+              );
+
+              let playterIdFound = false;
+
+              console.log(playterIdFound, "playterIdFound");
+
+              querySnapshot.forEach((doc) => {
+                const docData = doc.data();
+                if (docData.playterId === playterIdToCheck) {
+                  console.log("docData.playterId", docData.playterId);
+                  playterIdFound = true;
+                  console.log(playterIdFound, "playterIdFound true");
+                  return;
+                }
+              });
+
+              if (playterIdFound) {
+                // messageDiv.innerHTML = `Datele au fost adăugate`;
+                // messageDiv.classList.add("success");
+                updateContent();
+              } else {
+                alert("id-ul nu a fost găsit în db.");
+              }
+              // setTimeout(() => {
+              //   messageDiv.innerHTML = "";
+              //   messageDiv.classList.remove("success");
+              // }, 1000);
+
+              if (dataForm) {
+                dataForm.reset();
+                inputElements.forEach((inputElement) => {
+                  inputElement.style.borderColor = "";
+                });
+              }
+              return "Data added successfully";
+            } catch (error) {
+              messageDiv.innerHTML = `Error adding data: ${error}`;
+              messageDiv.classList.remove("success");
+            }
+          });
+      }
+      const dataForms = document.getElementById("dataForm");
+      const textChange = document.querySelector(".text-if");
+      const titleChange = document.querySelector(".title-if");
+      const hRef = document.getElementById("hRef");
+      const imageSwitch = document.querySelector("img");
+
+      function updateContent() {
+        dataForms.style.display = "none";
+        textChange.innerHTML =
+          "Ai completat formularul. Premiile ți-au fost alocate.";
+        titleChange.innerHTML = "Felicitări!";
+        submitBtn.innerHTML = "Continua";
+        submitBtn.removeAttribute("id", "submitBtn");
+        hRef.setAttribute("href", "https://www.google.ro");
+        hRef.setAttribute("target", "_self");
+        hRef.style.margin = "auto";
+        imageSwitch.style.display = "none";
+      }
+
+      if (playerId !== "" && playerId !== null) {
+        getPlayerIdFromFirestore(playerId);
+        updateContent();
+      } else {
+        handleFormSubmission();
+        if (dataForms) {
+          dataForms.style.display = "block";
+          textChange.innerHTML =
+            "Vă rugăm completați formularul de mai jos pentru a intra în posesia premiilor.";
+          titleChange.innerHTML = "Felicitări!";
+          submitBtn.innerHTML = "Revendica";
+        }
+      }
+      $(".text-field-input").on("focus", function () {
+        $(this).closest(".float-label-input").addClass("focused");
+      });
+
+      $(".text-field-input").on("blur", function () {
+        if ($(this).val() === "") {
+          $(this).closest(".float-label-input").removeClass("focused");
+        }
+      });
     </script>
   </body>
 </html>
