@@ -202,7 +202,7 @@
 
       ///for player id
       let queryParams = new URLSearchParams(window.location.search);
-      const playerId = 1997;
+      const playerId = 99999; // sre exemplu 1,2,1997, se afla in firebase
       // const playerId = queryParams.get("playerId");
 
       function validateAndSetColor(inputElement) {
@@ -219,6 +219,7 @@
           });
         });
       }
+
       function validatePhoneInput(phoneInput) {
         let phoneValue = phoneInput.value.replace(/\D/g, "");
         const maxLength = 10;
@@ -246,24 +247,44 @@
 
         return isValid;
       }
-
       async function getPlayerIdFromFirestore(playerId) {
-        console.log(playerId, "p[layerId]");
+        console.log(playerId, "playerId");
         try {
           const collectionRef = collection(db, "batalia_2023_premii");
           const q = query(collectionRef, where("playerId", "==", playerId));
           const querySnapshot = await getDocs(q);
-          if (!querySnapshot.empty) {
-            updateContent();
-            querySnapshot.forEach((doc) => {
-              const playerIdValue = doc.data().playerId;
-              console.log("PlayerId:", doc.data().playerId);
-            });
+          let playterIdFound = false;
+
+          if (querySnapshot.size > 0) {
+            console.log(`PlayerId ${playerId} found in Firestore.`);
           } else {
-            messageDiv.innerHTML = "PlayerId not found in Firestore";
+            console.log(`PlayerId ${playerId} not found in Firestore.`);
+          }
+          // console.log("docData1", docData.playerId);
+          querySnapshot.forEach((doc) => {
+            const docData = doc.data();
+            if (docData.playerId === playerId) {
+              console.log(docData.playerId === playerId, "true or false");
+              playterIdFound = true;
+              return;
+            }
+          });
+
+          if (playterIdFound) {
+            updateContent();
+          } else {
+            handleFormSubmission();
+            if (dataForms) {
+              dataForms.style.display = "block";
+              textChange.innerHTML =
+                "Vă rugăm completați formularul de mai jos pentru a intra în posesia premiilor.";
+              titleChange.innerHTML = "Felicitări!";
+              submitBtn.innerHTML = "TRIMITE";
+            }
+            console.log("id-ul nu a fost găsit în db.");
           }
         } catch (error) {
-          messageDiv.innerHTML = `Error fetching playerId: ${error}`;
+          console.log(`Error fetching playerId: ${error}`);
         }
       }
       getPlayerIdFromFirestore(playerId);
@@ -326,7 +347,7 @@
                 data
               );
 
-              const playterIdToCheck = data.playterId;
+              // const playterIdToCheck = data.playterId;
               // console.log(playterIdToCheck, "playterIdToCheck");
 
               const querySnapshot = await getDocs(
@@ -335,29 +356,21 @@
 
               let playterIdFound = false;
 
-              console.log(playterIdFound, "playterIdFound");
-
+              // console.log("docData1", docData.playerId);
               querySnapshot.forEach((doc) => {
                 const docData = doc.data();
-                if (docData.playterId === playterIdToCheck) {
-                  console.log("docData.playterId", docData.playterId);
+                if (docData.playerId === playerId) {
+                  console.log(docData.playerId === playerId, "true or false");
                   playterIdFound = true;
-                  console.log(playterIdFound, "playterIdFound true");
                   return;
                 }
               });
 
               if (playterIdFound) {
-                // messageDiv.innerHTML = `Datele au fost adăugate`;
-                // messageDiv.classList.add("success");
                 updateContent();
               } else {
-                alert("id-ul nu a fost găsit în db.");
+                console.log("id-ul nu a fost găsit în db.");
               }
-              // setTimeout(() => {
-              //   messageDiv.innerHTML = "";
-              //   messageDiv.classList.remove("success");
-              // }, 1000);
 
               if (dataForm) {
                 dataForm.reset();
@@ -367,7 +380,7 @@
               }
               return "Data added successfully";
             } catch (error) {
-              messageDiv.innerHTML = `Error adding data: ${error}`;
+              console.log(`Error adding data: ${error}`);
               messageDiv.classList.remove("success");
             }
           });
@@ -440,19 +453,19 @@
         imageSwitch.style.display = "none";
       }
 
-      if (playerId !== "" && playerId === null) {
-        getPlayerIdFromFirestore(playerId);
-        updateContent();
-      } else {
-        handleFormSubmission();
-        if (dataForms) {
-          dataForms.style.display = "block";
-          textChange.innerHTML =
-            "Vă rugăm completați formularul de mai jos pentru a intra în posesia premiilor.";
-          titleChange.innerHTML = "Felicitări!";
-          submitBtn.innerHTML = "Revendica";
-        }
-      }
+      // if (playerId !== "" && playerId === null) {
+      //   getPlayerIdFromFirestore(playerId);
+      //   updateContent();
+      // } else {
+      //   handleFormSubmission();
+      //   if (dataForms) {
+      //     dataForms.style.display = "block";
+      //     textChange.innerHTML =
+      //       "Vă rugăm completați formularul de mai jos pentru a intra în posesia premiilor.";
+      //     titleChange.innerHTML = "Felicitări!";
+      //     submitBtn.innerHTML = "Revendica";
+      //   }
+      // }
       $(".text-field-input").on("focus", function () {
         $(this).closest(".float-label-input").addClass("focused");
       });
