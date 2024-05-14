@@ -19,6 +19,11 @@
         margin: 0;
         padding: 20px;
       }
+
+      section {
+        height: 100vh;
+      }
+
       #example_wrapper {
         max-width: 50%;
         margin: 0 auto;
@@ -27,127 +32,328 @@
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
+
       img {
         width: 50px;
       }
+      @media screen and (orientation: portrait) {
+        #example_wrapper {
+          max-width: 100%;
+        }
+      }
+      @media screen and (max-width: 480px) and (orientation: portrait) {
+        #example_wrapper {
+          max-width: 100%;
+          padding: 5px;
+        }
+
+        img {
+          width: 35px;
+        }
+
+        .user-name {
+          font-size: 0.85em;
+        }
+      }
+
       table.dataTable {
         width: 100%;
         border-collapse: collapse;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
+
       table.dataTable th,
       table.dataTable td {
         padding: 10px 15px;
         text-align: left;
       }
+
       table.dataTable thead th {
         background-color: #007bff;
         color: white;
         border-bottom: 1px solid #007bff;
       }
+
       table.dataTable tbody tr {
         background-color: #ffffff;
         transition: background-color 0.3s ease;
       }
+
       table.dataTable tbody tr:nth-child(even) {
         background-color: #f9f9f9;
       }
+
       table.dataTable tbody tr:hover {
         background-color: #f1f1f1;
       }
+
       .material-symbols-outlined.up {
         color: green;
       }
+
       .material-symbols-outlined.down {
         color: red;
       }
+
       .material-symbols-outlined {
         vertical-align: middle;
       }
+
       table.dataTable th.dt-type-numeric,
       table.dataTable th.dt-type-date,
       table.dataTable td.dt-type-numeric,
       table.dataTable td.dt-type-date {
         text-align: left;
       }
+
       h2 {
         text-align: center;
         font-size: 2em;
       }
     </style>
   </head>
-  <body>
-    <h2>Tabel</h2>
-    <table id="example" class="display" style="width: 100%">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
 
+  <body>
+    <section>
+      <h1>first page</h1>
+    </section>
+    <section>
+      <h2>Tabel</h2>
+      <table id="example" class="display" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
     <script>
       $(document).ready(function () {
         var data = [
-          { name: "John Doe", status: true },
-          { name: "Jane Smith", status: false },
-          { name: "Alice Johnson", status: true },
-          { name: "ALice Johnson", status: true },
-          { name: "Robert Brown", status: false },
-          { name: "Emily Davis", status: true },
-          { name: "Michael Wilson", status: false },
-          { name: "Sarah Martinez", status: true },
-          { name: "David Anderson", status: false },
-          { name: "Linda Taylor", status: true },
-          { name: "James Thomas", status: false },
-          { name: "Linda1 Taylor", status: true },
-          { name: "James5 Thomas", status: false },
-          { name: "Linda4 Taylor", status: true },
-          { name: "James1 Thomas", status: false },
-          { name: "John Doe", status: true },
-          { name: "Jane Smith", status: false },
-          { name: "Robert Brown", status: false },
-          { name: "Emily Davis", status: true },
-          { name: "Michael Wilson", status: false },
-          { name: "Sarah Martinez", status: true },
-          { name: "David Anderson", status: false },
-          { name: "Linda Taylor", status: true },
-          { name: "James Thomas", status: false },
-          { name: "Linda1 Taylor", status: true },
-          { name: "James5 Thomas", status: false },
-          { name: "Linda4 Taylor", status: true },
-          { name: "James1 Thomas", status: false },
-          { name: "John Doe", status: true },
-          { name: "Jane Smith", status: false },
-          { name: "ALICE Johnson", status: true },
-          { name: "Robert Brown", status: false },
-          { name: "Emily Davis", status: true },
-          { name: "Michael Wilson", status: false },
-          { name: "Sarah Martinez", status: true },
-          { name: "David Anderson", status: false },
-          { name: "Linda Taylor", status: true },
-          { name: "James Thomas", status: false },
-          { name: "Linda1 Taylor", status: true },
-          { name: "James5 Thomas", status: false },
-          { name: "Linda4 Taylor", status: true },
-          { name: "James1 Thomas", status: false },
-          { name: "John Doe", status: true },
-          { name: "Jane Smith", status: false },
-          { name: "Robert Brown", status: false },
-          { name: "Emily Davis", status: true },
-          { name: "Michael Wilson", status: false },
-          { name: "Sarah Martinez", status: true },
-          { name: "David Anderson", status: false },
-          { name: "Linda Taylor", status: true },
-          { name: "James Thomas", status: false },
-          { name: "Linda1 Taylor", status: true },
-          { name: "James5 Thomas", status: false },
-          { name: "Linda4 Taylor", status: true },
-          { name: "James1 Thomas", status: false },
+          {
+            name: "John Doe",
+            status: true,
+          },
+          {
+            name: "Jane Smith",
+            status: false,
+          },
+          {
+            name: "Alice Johnson",
+            status: true,
+          },
+          {
+            name: "ALice Johnson",
+            status: true,
+          },
+          {
+            name: "Robert Brown",
+            status: false,
+          },
+          {
+            name: "Emily Davis",
+            status: true,
+          },
+          {
+            name: "Michael Wilson",
+            status: false,
+          },
+          {
+            name: "Sarah Martinez",
+            status: true,
+          },
+          {
+            name: "David Anderson",
+            status: false,
+          },
+          {
+            name: "Linda Taylor",
+            status: true,
+          },
+          {
+            name: "James Thomas",
+            status: false,
+          },
+          {
+            name: "Linda1 Taylor",
+            status: true,
+          },
+          {
+            name: "James5 Thomas",
+            status: false,
+          },
+          {
+            name: "Linda4 Taylor",
+            status: true,
+          },
+          {
+            name: "James1 Thomas",
+            status: false,
+          },
+          {
+            name: "John Doe",
+            status: true,
+          },
+          {
+            name: "Jane Smith",
+            status: false,
+          },
+          {
+            name: "Robert Brown",
+            status: false,
+          },
+          {
+            name: "Emily Davis",
+            status: true,
+          },
+          {
+            name: "Michael Wilson",
+            status: false,
+          },
+          {
+            name: "Sarah Martinez",
+            status: true,
+          },
+          {
+            name: "David Anderson",
+            status: false,
+          },
+          {
+            name: "Linda Taylor",
+            status: true,
+          },
+          {
+            name: "James Thomas",
+            status: false,
+          },
+          {
+            name: "Linda1 Taylor",
+            status: true,
+          },
+          {
+            name: "James5 Thomas",
+            status: false,
+          },
+          {
+            name: "Linda4 Taylor",
+            status: true,
+          },
+          {
+            name: "James1 Thomas",
+            status: false,
+          },
+          {
+            name: "John Doe",
+            status: true,
+          },
+          {
+            name: "Jane Smith",
+            status: false,
+          },
+          {
+            name: "ALICE Johnson",
+            status: true,
+          },
+          {
+            name: "Robert Brown",
+            status: false,
+          },
+          {
+            name: "Emily Davis",
+            status: true,
+          },
+          {
+            name: "Michael Wilson",
+            status: false,
+          },
+          {
+            name: "Sarah Martinez",
+            status: true,
+          },
+          {
+            name: "David Anderson",
+            status: false,
+          },
+          {
+            name: "Linda Taylor",
+            status: true,
+          },
+          {
+            name: "James Thomas",
+            status: false,
+          },
+          {
+            name: "Linda1 Taylor",
+            status: true,
+          },
+          {
+            name: "James5 Thomas",
+            status: false,
+          },
+          {
+            name: "Linda4 Taylor",
+            status: true,
+          },
+          {
+            name: "James1 Thomas",
+            status: false,
+          },
+          {
+            name: "John Doe",
+            status: true,
+          },
+          {
+            name: "Jane Smith",
+            status: false,
+          },
+          {
+            name: "Robert Brown",
+            status: false,
+          },
+          {
+            name: "Emily Davis",
+            status: true,
+          },
+          {
+            name: "Michael Wilson",
+            status: false,
+          },
+          {
+            name: "Sarah Martinez",
+            status: true,
+          },
+          {
+            name: "David Anderson",
+            status: false,
+          },
+          {
+            name: "Linda Taylor",
+            status: true,
+          },
+          {
+            name: "James Thomas",
+            status: false,
+          },
+          {
+            name: "Linda1 Taylor",
+            status: true,
+          },
+          {
+            name: "James5 Thomas",
+            status: false,
+          },
+          {
+            name: "Linda4 Taylor",
+            status: true,
+          },
+          {
+            name: "James1 Thomas",
+            status: false,
+          },
         ];
 
         var userToCheck = "Alice Johnson";
@@ -168,8 +374,9 @@
                 }
 
                 // Perform case-insensitive comparison
-                const matchingUsername = row.name.toLowerCase() === userToCheck.toLowerCase();
-                console.log(matchingUsername,"test")
+                const matchingUsername =
+                  row.name.toLowerCase() === userToCheck.toLowerCase();
+                console.log(matchingUsername, "test");
                 if (type === "display") {
                   return `<div class="user-name">${
                     matchingUsername ? row.name : userAsterix
