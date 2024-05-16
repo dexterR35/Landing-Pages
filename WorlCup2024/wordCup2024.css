@@ -1,0 +1,1181 @@
+
+@keyframes hideTextLeft {
+    0% {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+
+    to {
+        transform: translate3d(calc(-100% - 551px),0,0);
+        opacity: 1
+    }
+}
+
+@keyframes hideTextToRight {
+    0% {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+
+    to {
+        transform: translate3d(100%,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes revealTextFromRight {
+    0% {
+        transform: translate3d(100%,0,0);
+        opacity: 0
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes revealTextFromLeft {
+    0% {
+        transform: translate3d(calc(-100% - 551px),0,0);
+        opacity: 0
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@keyframes revealText {
+    0% {
+        transform: translate3d(0,125%,0);
+        opacity: 0
+    }
+
+    to {
+        transform: translate3d(0,0%,0);
+        opacity: 1
+    }
+}
+
+@keyframes hideText {
+    0% {
+        transform: translate3d(0,0%,0);
+        opacity: 1
+    }
+
+    to {
+        transform: translate3d(0,125%,0);
+        opacity: 1
+    }
+}
+
+@keyframes bounce {
+    0%,20%,60%,80%,to {
+        transform: translateY(0)
+    }
+
+    40% {
+        transform: translateY(-10px)
+    }
+
+    50% {
+        transform: translateY(5px)
+    }
+}
+
+@keyframes floating {
+    0%,to {
+        transform: translate(0%,-50%)
+    }
+
+    25% {
+        transform: translate(5px,calc(-50% + 15px))
+    }
+
+    50% {
+        transform: translate(10px,calc(-50% + 5px))
+    }
+
+    75% {
+        transform: translate(0%,calc(-50% + 15px))
+    }
+}
+
+@keyframes rubberBand {
+    0%,to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    3% {
+        -webkit-transform: scale3d(1.25,.75,1);
+        transform: scale3d(1.25,.75,1)
+    }
+
+    20% {
+        -webkit-transform: scale3d(.75,1.25,1);
+        transform: scale3d(.75,1.25,1)
+    }
+
+    40% {
+        -webkit-transform: scale3d(1.15,.85,1);
+        transform: scale3d(1.15,.85,1)
+    }
+
+    55% {
+        -webkit-transform: scale3d(.95,1.05,1);
+        transform: scale3d(.95,1.05,1)
+    }
+
+    75% {
+        -webkit-transform: scale3d(1.05,.95,1);
+        transform: scale3d(1.05,.95,1)
+    }
+}
+
+@keyframes heartbeat {
+    50% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background: #1abc9c
+    }
+
+    10% {
+        background: #2ecc71
+    }
+
+    20% {
+        background: #3498db
+    }
+
+    30%,80% {
+        background: #9b59b6
+    }
+
+    40% {
+        background: #e74c3c
+    }
+
+    50% {
+        background: #e67e22
+    }
+
+    60% {
+        background: #f1c40f
+    }
+
+    70% {
+        background: #2c3e50
+    }
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+body,h1 {
+    color: #000
+}
+
+body {
+    background: #000
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 8em
+}
+
+header {
+    width: 100%;
+    height: 4em;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+}
+
+.button-rainbow {
+    display: none;
+}
+
+
+.intro p,h1 {
+    font-family: 'Source Sans Pro',sans-serif
+}
+
+p.intro-line {
+    border-bottom: 4px;
+    background: #000;
+    width: 177px;
+    height: 4px
+}
+
+.intro-line-wrapper {
+    margin-bottom: 40px
+}
+
+#section1 .fp-bg,.fp-section {
+    background-size: cover;
+    background-position: 50% 100%
+}
+
+#section1 {
+    position: relative
+}
+
+.fp-section:before,.fp-slide:before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    height: 100%
+}
+
+#section1 h1 {
+    font-size: 12em
+}
+
+#section1 h2 {
+    font-size: 2.2em
+}
+
+#section1 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors1.svg)
+}
+
+.arrow-down {
+    position: fixed;
+    bottom: 23px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 24px;
+    height: 20px;
+    cursor: pointer;
+    animation: bounce 3s infinite;
+    transition: opacity 1.3s ease;
+    opacity: 1
+}
+
+.fp-viewing-3rdPage .arrow-down {
+    opacity: 0
+}
+
+.documentation {
+    margin: 17px 0 0;
+    display: block;
+    color: #245deb
+}
+
+.button-download {
+    background: #245deb;
+    margin-top: 15px;
+    color: #fff;
+    border-width: 0;
+    border-radius: 50px;
+    padding: .8rem 2rem;
+    font: 18px "Margarine",sans-serif;
+    outline: 0;
+    cursor: pointer;
+    position: relative;
+    transition: .2s ease-in-out;
+    letter-spacing: 2px;
+    display: inline-block
+}
+
+.button-download:hover {
+    animation: rainbow 3s infinite,heartbeat .6s infinite
+}
+
+#slide2-1 .fp-bg,#slide2-2 .fp-bg,#slide2-3 .fp-bg {
+    background-position: 89% 50%;
+    background-size: 52%;
+    background-repeat: no-repeat
+}
+
+.loadBg #slide2-1 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-1.svg)
+}
+
+#slide2-2 .fp-bg,#slide2-3 .fp-bg {
+    background-size: 42%
+}
+
+.loadBg #slide2-2 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-2.svg)
+}
+
+.loadBg #slide2-3 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-3.svg)
+}
+
+#section2 .fp-slide {
+    text-align: left;
+    position: relative
+}
+
+.fp-slidesNav.fp-bottom {
+    bottom: 60px
+}
+
+#section2 .fp-tableCell {
+    vertical-align: top
+}
+
+#section2 .fp-content {
+    margin: 0 auto;
+    display: inline-block;
+    width: auto;
+    padding: 0 0 0 10%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+#section2 .intro p {
+    margin-left: 0;
+    width: 100%
+}
+
+.section2-img,.slide2-2-img,.slide2-3-img {
+    max-width: 900px;
+    max-height: 683px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    transform: translate3d(15%,calc(-100% - 700px),0);
+    transition: transform 1000ms cubic-bezier(.52,.01,.16,1) 100ms
+}
+.loadBg #slide2-1 .fp-bg,.loadBg #section3 .fp-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.loadBg .section2-img {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-img.png);
+}
+
+.loadBg #slide2-1 .fp-bg,.loadBg #slide2-2 .fp-bg,.loadBg #slide2-3 .fp-bg {
+    background-image: url(./png/bg/bg-section2.jpg) !important;
+
+}
+.loadBg #section3 .fp-bg {
+    background-image: url(./png/bg/bg-section3.jpg) !important;
+}
+
+.slide2-2-img,.slide2-3-img {
+    max-height: 516px
+}
+
+.loadBg .slide2-2-img {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-2-img.png)
+}
+
+.loadBg .slide2-3-img {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-3-img.png)
+}
+
+.trainers {
+    width: 59%;
+    height: 100%;
+    background-size: contain;
+}
+
+.trainers.animate {
+    transform: translate3d(0,-50%,0);
+    transition: transform 1000ms cubic-bezier(.52,.01,.16,1) 1000ms;
+}
+
+.trainers.hide-right {
+    transform: translate3d(calc(-150% - 900px),-50%,0);
+    transition: transform 1000ms cubic-bezier(.52,.01,.16,1) 100ms;
+}
+
+.trainers.hide-left {
+    transform: translate3d(100%,-50%,0)
+}
+
+.trainers.hide-down,.trainers.hide-left,.trainers.hide-up {
+    transition: transform 1000ms cubic-bezier(.52,.01,.16,1) 100ms;
+}
+
+.trainers.hide-up {
+    transform: translate3d(0,150%,0);
+}
+
+.trainers.hide-down {
+    transform: translate3d(0,calc(-150% - 900px),0);
+}
+
+.trainers.animate2 {
+    animation-name: floating;
+    animation-delay: 1600ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+}
+
+#section3 .fp-bg,.trainers {
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
+
+body:not(.d-bg) #section3 .fp-bg {
+    /* background-size: contain;
+    background-origin: content-box; */
+    padding: 3%
+}
+
+.loadBg #section3 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-333.svg)
+}
+
+#section3 .fp-content.section3-text {
+    padding: 0 10%
+}
+
+.anim-wrapper {
+    overflow: hidden;
+    position: relative;
+    color: black;
+}
+.anim-wrapper span {
+    display: block;
+    color: red;
+}
+.anim-delay-8 p {
+    color: black;
+}
+.first_page span {
+    color: white;
+}
+
+
+.fp-moving-vertically .fp-section.active .anim-wrapper p,.fp-moving-vertically .fp-section.active .anim-wrapper span {
+    animation-timing-function: cubic-bezier(.52,.01,.16,1);
+    animation-name: revealText;
+    animation-duration: 1550ms;
+    animation-fill-mode: forwards;
+    animation-delay: 500ms;
+    opacity: 0
+}
+
+.fp-moving-vertically .fp-section:not(.active) .anim-wrapper p,.fp-moving-vertically .fp-section:not(.active) .anim-wrapper span {
+    animation-name: hideText;
+    animation-duration: 1550ms;
+    animation-delay: 0ms;
+    opacity: 1
+}
+
+.fp-section.active .fp-slide .anim-wrapper p,.fp-section.active .fp-slide .anim-wrapper span {
+    animation-timing-function: cubic-bezier(.52,.01,.16,1);
+    animation-name: revealText;
+    animation-duration: 1550ms;
+    animation-fill-mode: forwards
+}
+
+.fp-section.active .fp-slide.active .anim-wrapper p,.fp-section.active .fp-slide.active .anim-wrapper span {
+    animation-delay: 500ms
+}
+
+.fp-moving-right .fp-section.active .fp-slide.active .anim-wrapper p,.fp-moving-right .fp-section.active .fp-slide.active .anim-wrapper span {
+    animation-name: revealTextFromRight;
+    opacity: 0
+}
+
+.fp-moving-left .fp-section.active .fp-slide.active .anim-wrapper p,.fp-moving-left .fp-section.active .fp-slide.active .anim-wrapper span {
+    animation-name: revealTextFromLeft;
+    opacity: 0
+}
+
+.fp-moving-right .fp-section.active .fp-slide .anim-wrapper p,.fp-moving-right .fp-section.active .fp-slide .anim-wrapper span {
+    animation-name: hideTextLeft;
+    opacity: 1
+}
+
+.fp-moving-left .fp-section.active .fp-slide .anim-wrapper p,.fp-moving-left .fp-section.active .fp-slide .anim-wrapper span {
+    animation-name: hideTextToRight;
+    opacity: 1
+}
+
+.anim-delay-1 {
+    transition-delay: 110ms
+}
+
+.anim-delay-2 {
+    transition-delay: 210ms
+}
+
+.anim-delay-3 {
+    transition-delay: 310ms
+}
+
+.anim-delay-4 {
+    transition-delay: 410ms
+}
+
+.anim-delay-5 {
+    transition-delay: 510ms
+}
+
+.anim-delay-6 {
+    transition-delay: 610ms
+}
+
+.anim-delay-7 {
+    transition-delay: 710ms
+}
+
+.anim-delay-8 {
+    transition-delay: 810ms
+}
+
+.anim-delay-9 {
+    transition-delay: 910ms
+}
+
+.anim-delay-10 {
+    transition-delay: 1010ms
+}
+
+#settings,.settings-actions {
+    position: fixed;
+    left: 20px;
+    z-index: 999
+}
+
+#settings {
+    background: rgba(0,0,0,.3);
+    height: 43px;
+    cursor: pointer;
+    text-align: center;
+    bottom: 20px;
+    border-radius: 50%;
+    width: 43px
+}
+
+#settings:hover {
+    animation: .5s rubberBand
+}
+
+#settings svg {
+    width: 27px;
+    vertical-align: middle;
+    fill: rgba(255,255,255,.7)
+}
+
+#settings:hover svg {
+    fill: #fff
+}
+
+#settings span {
+    line-height: 42px;
+    vertical-align: middle
+}
+
+.settings-actions {
+    visibility: hidden;
+    bottom: 82px;
+    background: #000;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 13px;
+    opacity: 0;
+    transform: scale(.9);
+    transition: opacity 350ms,transform 350ms;
+    transform-origin: 50% 100%;
+    width: 185px
+}
+
+.settings-actions.active {
+    opacity: 1;
+    transform: scale(1);
+    visibility: visible
+}
+
+.settings-header {
+    border-bottom: 1px solid rgba(255,255,255,.13);
+    padding: 16px 0;
+    margin: 0 0 16px
+}
+
+.settings-header h6 {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+    margin: 0 0 10px
+}
+
+.settings-header p {
+    font-size: 13px
+}
+
+.settings-actions-toggle li {
+    background: rgba(255,255,255,.6);
+    padding: 7px 12px;
+    margin: 2px;
+    color: #000;
+    display: inline-block;
+    cursor: pointer
+}
+
+.settings-actions-toggle .active,.settings-actions-toggle li:hover {
+    color: #fff;
+    background: #3cc63b
+}
+
+.actions-option {
+    margin: 0 0 15px;
+    position: relative
+}
+
+.actions-option:last-child {
+    margin: 0
+}
+
+.preview-extensions-menu {
+    box-shadow: none;
+    top: 11px;
+    transform: translate3d(0,-100px,0);
+    transition: transform 500ms ease-in-out 500ms
+}
+
+.preview-extensions-menu.active {
+    transform: translate3d(0,0,0)
+}
+
+.preview-extensions-menu li {
+    margin: 0 10px 0 0;
+    border-radius: 4px
+}
+
+#menu li.active a:hover,#menu li:hover a,.preview-more-extensions a {
+    color: #fff
+}
+
+.preview-more-extensions {
+    background: #4884ff
+}
+
+#menu {
+    width: auto
+}
+
+#menu li {
+    background: #efefef;
+    border-radius: 4px
+}
+
+#menu li:hover {
+    background: rgba(0,0,0,.5)
+}
+
+[type=range] {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 1.5em;
+    background: 0 0;
+    font: 1em/1 arial,sans-serif
+}
+
+[type=range],[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none
+}
+
+[type=range]::-webkit-slider-runnable-track {
+    box-sizing: border-box;
+    border: 0;
+    width: 12.5em;
+    height: .25em;
+    background: #ccc
+}
+
+[type=range]::-moz-range-track {
+    box-sizing: border-box;
+    border: 0;
+    width: 12.5em;
+    height: .25em;
+    background: #ccc
+}
+
+[type=range]::-ms-track {
+    box-sizing: border-box;
+    border: 0;
+    width: 12.5em;
+    height: .25em;
+    background: #ccc
+}
+
+[type=range]::-webkit-slider-thumb {
+    margin-top: -.625em;
+    box-sizing: border-box;
+    border: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #3cc63b
+}
+
+[type=range]::-moz-range-thumb {
+    box-sizing: border-box;
+    border: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #3cc63b
+}
+
+[type=range]::-ms-thumb {
+    margin-top: 0;
+    box-sizing: border-box;
+    border: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #3cc63b
+}
+
+[type=range]::-ms-tooltip {
+    display: none
+}
+
+[for=toggleFading] {
+    margin: 9px 0
+}
+
+.toggle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0
+}
+
+.toggle,.toggle *,.toggle :after,.toggle :before,.toggle+.toggle-button,.toggle:after,.toggle:before {
+    box-sizing: border-box
+}
+
+.toggle ::-moz-selection,.toggle :after::-moz-selection,.toggle :before::-moz-selection,.toggle+.toggle-button::-moz-selection,.toggle::-moz-selection,.toggle:after::-moz-selection,.toggle:before::-moz-selection {
+    background: 0 0
+}
+
+.toggle ::selection,.toggle :after::selection,.toggle :before::selection,.toggle+.toggle-button::selection,.toggle::selection,.toggle:after::selection,.toggle:before::selection {
+    background: 0 0
+}
+
+.toggle+.toggle-button {
+    outline: 0;
+    display: block;
+    width: 3.2em;
+    height: 1.5em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: rgba(140,150,169,.5);
+    border-radius: 2em;
+    padding: 0;
+    -webkit-transition: all .4s ease;
+    transition: all .4s ease
+}
+
+.toggle+.toggle-button:after {
+    display: block
+}
+
+.toggle+.toggle-button:after,.toggle+.toggle-button:before {
+    position: relative;
+    content: "";
+    width: 1.8em;
+    height: 1.8em;
+    top: -.1em
+}
+
+.toggle+.toggle-button:after {
+    left: -10%;
+    border-radius: 50%;
+    background: #fff;
+    background: #888;
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease
+}
+
+.d-colors .fp-bg,.toggle+.toggle-button:before {
+    display: none
+}
+
+.toggle:checked+.toggle-button:after {
+    left: 60%;
+    background-color: #3cc63b
+}
+
+.toggle-light:checked+.toggle-button {
+    background: #3cc63b;
+    background: rgba(60,198,59,.5)
+}
+
+#examples {
+    position: absolute;
+    top: 16px;
+    left: 0;
+    right: 0;
+    z-index: 69;
+    text-align: center
+}
+
+#examples li {
+    color: #444;
+    display: inline-block;
+    margin: 0 20px 0 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    padding-bottom: 7px
+}
+
+#examples li.active {
+    color: #245deb;
+    cursor: auto;
+    right: 0
+}
+
+#examples li:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: #245deb;
+    height: 2px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: .4s;
+    transition-duration: .4s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out
+}
+
+#examples li.active:before,#examples li:active:before,#examples li:focus:before,#examples li:hover:before {
+    right: 0
+}
+
+.d-colors #section1:before {
+    background-color: #ffd65d!important
+}
+
+.d-colors #section2:before,.d-colors #slide2-1:before {
+    background-color: #4ec4ff!important
+}
+
+.d-colors #slide2-2:before {
+    background-color: #ff4e96!important
+}
+
+.d-colors #slide2-3:before {
+    background-color: #44ffb3!important
+}
+
+.d-colors #section3:before {
+    background-color: #ffacf0!important
+}
+
+.d-colors #examples li {
+    color: #000
+}
+
+.d-bg #examples li.active,.d-colors #examples li.active {
+    font-weight: 700
+}
+
+.d-colors #examples li:before {
+    background: #000
+}
+
+.d-bg .fp-bg {
+    background-size: cover!important
+}
+
+.d-bg #section3 .intro p {
+    text-shadow: -1px 1px 8px rgba(0,0,0,.8)
+}
+
+.d-bg #section1 .fp-bg:before,.d-bg .trainers,.mobile-only {
+    display: none
+}
+
+.d-bg #examples li,.d-bg .intro p,.d-bg h1 {
+    color: #fff
+}
+
+.d-bg #examples li:before,.d-bg #fp-nav ul li a span,.d-bg .fp-slidesNav ul li a span,.d-bg p.intro-line {
+    background: #fff
+}
+
+.d-bg h2 {
+    color: rgba(255,255,255,.7)
+}
+
+.d-bg .slider-control {
+    border: 1px solid rgba(255,255,255,.5);
+    color: #fff
+}
+
+.d-bg .slider-control:hover:after,.d-bg .slider-control:not(.disabled):after {
+    background-color: #fff
+}
+
+.d-bg .slider-control.disabled {
+    border: 1px solid rgba(255,255,255,.3);
+    color: rgba(255,255,255,.3)
+}
+
+.d-bg .slider-control.disabled:after {
+    background-color: rgba(255,255,255,.3)
+}
+
+.d-bg #section1:before {
+    background-color: #162d43!important
+}
+
+.d-bg #section2:before,.d-bg #slide2-1:before {
+    background-color: #66995e!important
+}
+
+.d-bg #slide2-2:before {
+    background-color: #a3a3a3!important
+}
+
+.d-bg #slide2-3:before {
+    background-color: #0c798e!important
+}
+
+.d-bg #section3:before {
+    background-color: #830619!important
+}
+
+.d-bg #section3 .fp-bg:before {
+    background: rgba(0,0,0,.35)
+}
+
+.d-bg #section1 .fp-bg {
+    background-image: url(./png/bg/bg.jpg) !important;
+}
+
+.loadBg #slide2-2 .fp-bg,.loadBg #slide2-1.fp-bg,.loadBg #slide2-3 .fp-bg,#section1 .fp-bg  {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.loadBg #slide2-1 .fp-bg {
+    filter: hue-rotate(107deg) !important;
+}
+
+.loadBg #slide2-2 .fp-bg{
+    filter: hue-rotate(290deg) !important;
+}
+#section1 .fp-bg {
+    background-image: url(./png/bg/bg.jpg) !important;
+ 
+}
+.d-bg #slide2-1 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-1.jpg)
+}
+
+.d-bg #slide2-2 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-2.jpeg)
+}
+
+.d-bg #slide2-3 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-3.jpg)
+}
+
+.d-bg #section3 .fp-bg {
+    background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section3.jpg)
+}
+
+.d-bg.fp-viewing-3rdPage .settings-actions,.d-bg.fp-viewing-firstPage .settings-actions {
+    background: rgba(255,255,255,.15)
+}
+
+.fp-controlArrow.fp-next {
+    right: 55px
+}
+
+.fp-controlArrow.fp-prev {
+    left: 55px
+}
+
+.slider-control {
+    width: 44px;
+    height: 44px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 7px;
+    border: 1px solid rgba(0,0,0,.4);
+    line-height: 44px;
+    color: #000;
+    font-size: .84em;
+    font-family: "courier new";
+    position: relative
+}
+
+.slider-control span {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    left: 0
+}
+
+.slider-control:not(.disabled):hover span {
+    transform: translateX(-5px)
+}
+
+.slider-control-next:not(.disabled):hover span {
+    transform: translateX(5px)
+}
+
+.slider-control span,.slider-control:not(.disabled):after {
+    transition: transform .25s cubic-bezier(.4,0,.2,1)
+}
+
+.slider-control:not(.disabled):after {
+    display: block;
+    content: '';
+    background-color: #000;
+    height: 1px;
+    width: 14px;
+    position: absolute;
+    top: 50%;
+    left: auto;
+    right: 14px;
+    transform: scaleX(0) translateX(0)
+}
+
+.slider-control:hover:after {
+    transform: scaleX(1) translateX(0)
+}
+
+.slider-control.disabled {
+    border: 1px solid rgba(0,0,0,.15);
+    color: rgba(0,0,0,.15)
+}
+
+.slider-control.disabled:after {
+    background-color: rgba(0,0,0,.15)
+}
+
+@media screen and (max-width: 1135px) {
+    body {
+        font-size:.9em
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .fp-tableCell {
+        font-size:.85em
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .trainers {
+        display:none
+    }
+
+    .fp-content {
+        width: 100%!important;
+        text-align: center;
+        padding: 0 10%!important;
+        display: -webkit-box!important;
+        display: -moz-box!important;
+        display: -ms-flexbox!important;
+        display: -webkit-flex!important;
+        display: flex!important;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column
+    }
+
+    #section2 .intro,#section2 h1 {
+        margin: 0 auto;
+        -webkit-box-ordinal-group: 2;
+        -moz-box-ordinal-group: 2;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2
+    }
+
+    #section2 h1 {
+        -webkit-box-ordinal-group: 1;
+        -moz-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1
+    }
+
+    .intro-line {
+        display: none
+    }
+
+    .intro p {
+        width: 218px
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .fp-tableCell {
+        font-size:.8em
+    }
+}
+
+@media screen and (max-width: 630px) {
+    h1 {
+        font-size:6.5em
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #section-1 h1 {
+        font-size:6em
+    }
+
+    h1 {
+        font-size: 5em
+    }
+}
+
+@media screen and (max-width: 380px) {
+    h1 {
+        font-size:3.5em
+    }
+}

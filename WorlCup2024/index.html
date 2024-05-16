@@ -368,7 +368,7 @@
               render: function (data, type, row, meta) {
                 let userAsterix = row.name;
                 if (userAsterix && userAsterix.length > 2) {
-                  const firstTwoLetters = userAsterix.slice(0, 2);
+                  const firstTwoLetters = userAsterix.slice(0, 3);
                   const asterisks = "*".repeat(userAsterix.length - 2);
                   userAsterix = firstTwoLetters + asterisks;
                 }
@@ -401,7 +401,7 @@
           lengthChange: false,
           aaSorting: false,
           responsive: true,
-          pageLength: 50,
+          pageLength: 30,
           paginate: true,
           info: true,
           searching: false,
