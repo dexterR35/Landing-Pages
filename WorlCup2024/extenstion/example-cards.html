@@ -1,263 +1,348 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Continuous Horizotal Extension - fullPage.js</title>
+    <title>NetBet WordCup 2024</title>
     <meta name="author" content="Alvaro Trigo Lopez" />
     <meta name="description" content="Continuous Horizontal Extension." />
-    <meta name="keywords"  content="fullpage,extension,carousel,addon,continuoushorizontal,infinite,infinite slider,infinite sections,endless,horizontal,continuous,plugin" />
+    <meta
+      name="keywords"
+      content="fullpage,extension,carousel,addon,continuoushorizontal,infinite,infinite slider,infinite sections,endless,horizontal,continuous,plugin"
+    />
     <meta name="Resource-type" content="Document" />
 
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://alvarotrigo.com/fullPage/examples/examples.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/fullpage.js/dist/fullpage.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
 
-    <!--[if IE]>
-        <script type="text/javascript">
-             var console = { log: function() {} };
-        </script>
-    <![endif]-->
-
-    <style type="text/css">
-        h1{
-            font-weight: 900;
-            font-size: 8em;
-            -webkit-text-shadow: 0 .3rem .9rem rgba(0,0,0,.4);
-            text-shadow: 0 0.3rem 0.9rem rgba(0,0,0,.4);
-            letter-spacing: -3px;
-        }
-        h1,
-        p{
-            color: #fff;
-            font-family: 'Source Sans Pro', sans-serif;
-        }
-
-
-        /* Docs button
-         * --------------------------------------- */
-        .button-docs {
-            background: #2ecc71;
-            margin-top:15px;
-            color: #fff;
-            border-width: 0;
-            border-radius: 50px;
-            padding: 0.8rem 2rem;
-            font: 18px "Margarine", sans-serif;
-            outline: none;
-            cursor: pointer;
-            position: relative;
-            transition: 0.2s ease-in-out;
-            letter-spacing: 2px;
-            display: inline-block;
-        }
-        .button-docs:hover{
-                animation: rainbow 3s infinite, heartbeat 0.6s infinite;
-        }
-        .button-docs .rainbow {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            margin: auto;
-            top: -40px;
-            transition: 0.5s ease;
-            opacity: 0;
-            transform: rotate(0);
-        }
-
-        @keyframes heartbeat {
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes rainbow {
-            0% {
-                background: #1abc9c;
-            }
-            10% {
-                background: #2ecc71;
-            }
-            20% {
-                background: #3498db;
-            }
-            30% {
-                background: #9b59b6;
-            }
-            40% {
-                background: #e74c3c;
-            }
-            50% {
-                background: #e67e22;
-            }
-            60% {
-                background: #f1c40f;
-            }
-            70% {
-                background: #2c3e50;
-            }
-            80% {
-                background: #9b59b6;
-            }
-        }
-
-
-        /* Configuration
-         * --------------------------------------- */
-        #actions{
-            position:fixed;
-            top: 73px;
-            left: 30px;
-            z-index: 99999;
-        }
-        #actions li{
-            background: rgba(0,0,0,0.8);
-            padding: 7px;
-            margin: 2px;
-            color: #ccc;
-            display: inline-block;
-            cursor: pointer;
-        }
-        #actions li:hover{
-            color: #000;
-            background: #fff;
-        }
-        #actions .active{
-            color: #000;
-            background: #fff;
-        }
-    </style>
-</head>
-<body>
-
-
-<ul id="actions">
-    <li id="turnOn" class="active">Turn on</li>
-    <li id="turnOff">Turn off</li>
-    <li id="fadeContentTrue">fadeContent true</li>
-    <li id="fadeContenFalse">fadeContent false</li>
-</ul>
-
-<ul id="menu">
-    <li data-menuanchor="firstPage"><a href="#firstPage">First slide</a></li>
-    <li data-menuanchor="secondPage"><a href="#secondPage">Second slide</a></li>
-    <li data-menuanchor="3rdPage"><a href="#3rdPage">Third slide</a></li>
-</ul>
-
-<div id="myContainer">
-    <div class="section">
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="fullpage">
+      <div class="section" id="section1">
+        <div class="fp-bg"></div>
         <div class="fp-content">
-            <h1>Cards</h1>
-            <p>Use the option: `cards:true`. Made easy.</p>
-            <div>
-                <a class="button-docs" href="https://github.com/alvarotrigo/fullPage.js/wiki/Extension-Cards">Documentation</a>
-            </div>
+          <h1 class="anim-wrapper">
+            <span>CARDS</span>
+          </h1>
+          <div class="players">
+            <img src="../png/elements/bottom_player.png" alt="">
+          </div>
+          <h2 class="anim-wrapper anim-delay-8">
+            <span>A unique effect for your site</span>
+          </h2>
+          <div class="button-rainbow">
+            <a class="button-download" href="#">
+              test
+              <div class="rainbow"></div>
+            </a>
+          </div>
+          <a href="#" class="btn-doc">btn</a>
         </div>
+      </div>
+      <div class="section" id="section2">
+        <div class="slide" id="slide2-1">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>Use the wow factor to impress your visitors!</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>NETBET</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev disabled" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="section2-img trainers mobile-only"></div>
+        </div>
+        <div class="slide" id="slide2-2">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>So easy that it is even scary!</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>Easy!</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="slide2-2-img trainers mobile-only"></div>
+        </div>
+        <div class="slide" id="slide2-3">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>fullPage.js is used by the biggest</p>
+              <p>companies in the planet.</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>Trusted</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next disabled" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="slide2-3-img trainers mobile-only"></div>
+        </div>
+      </div>
+      <div class="section" id="section3">
+        <div class="fp-bg"></div>
+        <div class="fp-content section3-text">
+          <h1 class="anim-wrapper">
+            <!-- <span>Responsive</span> -->
+        </h1>
+        <iframe src="../FinalGame.html" width="600" height="400" style="border:none;"></iframe>
+          <div class="intro anim-wrapper anim-delay-8">
+            <p>Turn it off whenever you need.</p>
+            <p>Make use of fullPage.js responsive options.</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="section">
-        <div class="slide">
-            <div class="fp-content">
-                <h1>Section 2.1</h1>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="fp-content">
-                <h1>Slide 2.2</h1>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="fp-content">
-                <h1>Slide 2.3</h1>
-            </div>
-        </div>
-    </div>
-    <div class="section">
-        <div class="fp-content">
-            <h1>Section 3</h1>
-        </div>
-    </div>
-    <div class="section"><h1>Section 4</h1></div>
-</div>
+    <div
+      class="section2-img trainers"
+      data-section="2"
+      data-slide="1"
+      data-animate="section2"
+    ></div>
+    <div
+      class="slide2-2-img trainers hide-left"
+      data-section="2"
+      data-slide="2"
+      data-animate="slide2-2"
+    ></div>
+    <div
+      class="slide2-3-img trainers hide-left"
+      data-section="2"
+      data-slide="3"
+      data-animate="slide2-3"
+    ></div>
+    <svg class="arrow-down">
+      <path
+        d="M12 18c-.2 0-.5-.1-.7-.3l-11-10c-.4-.4-.4-1-.1-1.4.4-.4 1-.4 1.4-.1l10.4 9.4 10.3-9.4c.4-.4 1-.3 1.4.1.4.4.3 1-.1 1.4l-11 10c-.1.2-.4.3-.6.3z"
+      />
+    </svg>
+    <input type="hidden" id="_4" value="3" />
+    <script type="text/javascript" src="fullpage.cards.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"
+    ></script>
+    <script type="text/javascript">
+      const $ = fp_utils.$;
+      const addClass = fp_utils.addClass;
+      const removeClass = fp_utils.removeClass;
+      const toggleClass = fp_utils.toggleClass;
+      const g_timeouts = {};
+      const ACTIVE = "active";
 
-<script type="text/javascript" src="fullpage.cards.min.js"></script>
-<script type="text/javascript" src="https://alvarotrigo.com/fullPage/fullpage.extensions.min.js"></script>
-
-<script type="text/javascript">
-    var fadeContent = true;
-
-    new fullpage('#myContainer', {
-        sectionsColor: ['#3a45de', '#fc6c7c', '#7BAABE'],
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage'],
-        menu: '#menu',
-        navigation: !0,
-            slidesNavigation: !0,
-            animateAnchor: !1,
-   
-        slidesNavigation: true,
-        scrollingSpeed: 1000,
-        fadingEffect: true,
-        fadingEffectKey: 'STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==',
-        //need to acquire a fullPage.js license from https://goo.gl/5x9a22
-        licenseKey: 'K6CMK-781MK-IQ9J6-N9S36-VXKNO',
-        cardsKey: 'STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==',
-        cards:true,
-
-    });
-
-
-    //action buttons
-    document.getElementById('turnOn').addEventListener('click', function(){
-        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        addClass(this, 'active');
-
-        fullpage_api.cards.init();
-    });
-
-    document.getElementById('turnOff').addEventListener('click', function(){
-        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        addClass(this, 'active');
-
-        fullpage_api.cards.destroy();
-    });
-
-    document.getElementById('fadeContentTrue').addEventListener('click', function(){
-        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        addClass(this, 'active');
-
-        fullpage_api.cards.setOption('fadeContent', true);
-    });
-
-    document.getElementById('fadeContenFalse').addEventListener('click', function(){
-        removeClass(document.getElementById('actions').querySelector('li.active'), 'active');
-        addClass(this, 'active');
-
-        fullpage_api.cards.setOption('fadeContent', false);
-    });
-
-
-    //utils
-    function removeClass(item, className){
-        if (item.classList){
-            item.classList.remove(className);
+      // Add origin animations
+      function addOriginAnimations(elements, direction) {
+        if (elements.length) {
+          elements.forEach(function (element) {
+            console.log(element);
+            element.classList.remove("animate2");
+            g_timeouts.origin = setTimeout(function () {
+              console.warn("hide-" + direction);
+              addClass(element, "hide-" + direction);
+              element.classList.remove("animate");
+            }, 100);
+          });
         }
-        else{
-            item.className = item.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
-        }
-        return item;
-    }
+      }
 
-    function addClass(item, className) {
-        if (item.classList){
-            item.classList.add(className);
+      // Add destiny animations
+      function addDestinyAnimations(element, direction) {
+        const hideClass =
+          direction === "up" || direction === "down"
+            ? "hide-down hide-up"
+            : "hide-left hide-right";
+        if (element) {
+          addClass(element, ACTIVE);
+          addClass(element, "animate");
+          removeClass(element, hideClass);
+          g_timeouts.destination = setTimeout(function () {
+            addClass(element, "animate2");
+          }, 1000);
         }
-        else{
-          item.className += ' ' + className;
+      }
+
+      // Initialize fullpage.js
+      document.addEventListener("DOMContentLoaded", function () {
+        new fullpage("#fullpage", {
+          sectionsColor: ['#3a45de', '#fc6c7c', '#7BAABE'],
+          anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
+          menu: "#menu",
+          navigation: true,
+          slidesNavigation: true,
+          animateAnchor: false,
+          cardsOptions: {
+            perspective: 150,
+            fadeContent: true,
+            fadeBackground: false,
+          },
+          scrollingSpeed: 600,
+          fadingEffect: true,
+          fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
+          licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
+          cardsKey: "YWx2YXJvdHJpZ28uY29tX0E2MFkyRnlaSE09cmI2",
+          cards: true,
+          credits: {
+            enabled: true,
+            label: "Netbet Bonus,link,something",
+            position: "right",
+          },
+
+          afterLoad: function (origin, destination, direction) {
+            addClass(destination.item, "animate");
+            console.log(
+              this,
+              "After Load",
+              destination,
+              "Direction",
+              direction
+            );
+
+            if (this.index == 2) {
+              alert("Section 3 ended loading");
+            }
+
+            if (this.anchor == "secondSlide") {
+              alert("Section 2 ended loading");
+            }
+          },
+
+          onLeave: function (origin, destination, direction) {
+            clearTimeout(g_timeouts.destination);
+
+            removeClass(
+              document.body,
+              "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up"
+            );
+
+            if (direction) {
+              addClass(document.body, "fp-moving-" + direction);
+              removeClass(document.body, "fp-moving-horizontally");
+              addClass(document.body, "fp-moving-vertically");
+            }
+
+            if (["right", "left"].indexOf(direction) === -1) {
+              const activeElement = $(
+                '.active[data-section="' + (destination.index + 1) + '"]'
+              )[0];
+              addDestinyAnimations(
+                activeElement ||
+                  $('[data-section="' + (destination.index + 1) + '"]')[0],
+                direction
+              );
+
+              const originElements = $(
+                '.active[data-section="' + (origin.index + 1) + '"]'
+              );
+              addOriginAnimations(originElements, direction);
+            }
+          },
+
+          onSlideLeave: function (section, origin, destination, direction) {
+            removeClass(
+              document.body,
+              "fp-moving-right fp-moving-left fp-moving-down fp-moving-up"
+            );
+
+            if (direction) {
+              addClass(document.body, "fp-moving-" + direction);
+              removeClass(document.body, "fp-moving-vertically");
+              addClass(document.body, "fp-moving-horizontally");
+            }
+
+            const destinationElement = $(
+              '.trainers[data-section="' +
+                (section.index + 1) +
+                '"][data-slide="' +
+                (destination.index + 1) +
+                '"]'
+            )[0];
+            console.log(destinationElement, "sfasa");
+            addDestinyAnimations(destinationElement, direction);
+
+            const activeElements = $(
+              '.trainers[data-section="' +
+                (section.index + 1) +
+                '"][data-slide="' +
+                (origin.index + 1) +
+                '"]'
+            );
+            removeClass(activeElements, ACTIVE);
+            addOriginAnimations(activeElements, direction);
+            console.log(activeElements, "Slide Leave");
+          },
+        });
+
+        // Event listeners
+        document
+          .querySelector(".arrow-down")
+          .addEventListener("click", function () {
+            fullpage_api.moveSectionDown();
+          });
+
+        document
+          .querySelectorAll(".slider-control-next")
+          .forEach(function (element) {
+            element.addEventListener("click", function (e) {
+              e.preventDefault();
+              fullpage_api.moveSlideRight();
+            });
+          });
+
+        document
+          .querySelectorAll(".slider-control-prev")
+          .forEach(function (element) {
+            element.addEventListener("click", function (e) {
+              e.preventDefault();
+              fullpage_api.moveSlideLeft();
+            });
+          });
+
+        function onLoad() {
+          addClass(document.body, "loadBg");
         }
-        return item;
-    }
-</script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon='{"rayId":"884b44e8c96698ba","version":"2024.4.1","token":"5070e21320304a1ba2b0a42ce9682840"}' crossorigin="anonymous"></script>
-</body>
+
+        window.addEventListener("load", onLoad);
+      });
+    </script>
+    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon='{"rayId":"884b44e8c96698ba","version":"2024.4.1","token":"5070e21320304a1ba2b0a42ce9682840"}' crossorigin="anonymous"></script> -->
+  </body>
 </html>

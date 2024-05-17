@@ -446,32 +446,37 @@ body:not(.d-bg) #section3 .fp-bg {
   padding: 3%;
 }
 
-.loadBg #section3 .fp-bg {
-  background-image: url(../png/bg/bg-section3.jpg);
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#section3 .fp-overflow {
-    overflow: hidden;
-}
 
-#section3 .fp-content.section3-text {
+
+
+.loadBg #section3 .fp-bg {
+    background-image: url(../png/bg/bg-section3.jpg);
     height: 100%;
-    background: red;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #section3 .fp-overflow {
+      overflow: hidden;
+      height: 100%;
+  }
+  
+  #section3 .fp-content.section3-text {
+      height: 100%;
+      /* background: red; */
+      overflow: hidden;
+      /* padding: 0 10%; */
+  }
+  #section3 .fp-content iframe {
+      width: 100%;
+      height: 100%;
+      transform: scale(0.9);
+  }
+  .anim-wrapper {
     overflow: hidden;
-    padding: 0 10%;
-}
-#section3 .fp-content iframe {
-    width: 100%;
-    height: 100%;
-}
-.anim-wrapper {
-  overflow: hidden;
-  position: relative;
-  height: 100%;
-}
+    position: relative;
+    /* height: 100%; */
+  }
 
 .anim-wrapper span {
   display: block;
