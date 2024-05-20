@@ -10,13 +10,20 @@
       content="fullpage,extension,carousel,addon,continuoushorizontal,infinite,infinite slider,infinite sections,endless,horizontal,continuous,plugin"
     />
     <meta name="Resource-type" content="Document" />
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
     <link
       rel="stylesheet"
       type="text/css"
       href="https://unpkg.com/fullpage.js/dist/fullpage.min.css"
     />
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./finalGame.css">
 
     <script
       type="text/javascript"
@@ -28,44 +35,73 @@
       <div class="section" id="section1">
         <div class="fp-bg"></div>
         <div class="fp-content">
-          <h1 class="anim-wrapper">
-            <span>CARDS</span>
-          </h1>
-          <div class="players">
-            <img src="../png/elements/bottom_player.png" alt="">
-          </div>
-          <h2 class="anim-wrapper anim-delay-8">
-            <span>A unique effect for your site</span>
-          </h2>
-          <div class="button-rainbow">
-            <a class="button-download" href="#">
-              test
+          <div class="wrapp_all">
+            <div class="offer">
+              <div class="offer-content anim-wrapper">
+                <ul>
+                  <li>pariaze pe</li>
+                  <li>euro 2024</li>
+                  <li>si castiga</li>
+                  <li>mingea momentului</li>
+                </ul>
+                <a href="http://">inregistreaza-te</a>
+              </div>
+            </div>
+            -
+            <div class="players p-s1-one">
+              <img src="./png/elements/top-player.png" alt="p1" />
+            </div>
+            <div class="players p-s1-two">
+              <img src="./png/elements/bottom_player.png" alt="p2" />
+            </div>
+            <div class="ball">
+              <img src="./png/elements/euroBall.png" alt="ball" />
+            </div>
+            <div class="anim-wrapper anim-delay-8 cotes">
+              <div class="cote-content">COTE EURO 2024</div>
+            </div>
+            <div class="button-rainbow">
+              <a class="button-download" href="#"> test </a>
               <div class="rainbow"></div>
-            </a>
+              <a href="#" class="btn-doc">btn</a>
+            </div>
           </div>
-          <a href="#" class="btn-doc">btn</a>
         </div>
       </div>
       <div class="section" id="section2">
         <div class="slide" id="slide2-1">
           <div class="fp-bg"></div>
           <div class="fp-content">
-            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
-              <p class="intro-line"></p>
-            </div>
-            <div class="intro anim-wrapper anim-delay-8">
-              <p>Use the wow factor to impress your visitors!</p>
-            </div>
-            <h1 class="anim-wrapper">
-              <span>NETBET</span>
-            </h1>
-            <div class="slider-controls">
-              <a class="slider-control slider-control-prev disabled" href="#">
-                <span> <</span>
-              </a>
-              <a class="slider-control slider-control-next" href="#">
-                <span>> </span>
-              </a>
+            <div class="wrapp_all">
+              <div class="section_2_content">
+                <div class="anim-wrapper anim-delay-8">
+                  <p class="intro-line"></p>
+                </div>
+              
+                <h1 class="anim-wrapper">
+                  <span>TITLE</span>
+                </h1>
+                <div class="intro anim-wrapper anim-delay-8">
+                  <p>Use the wow factor to impress your visitors!</p>
+                </div>
+              </div>
+              <div class="section_2_info">
+                <div class="container-info">
+                  <div class="coteMatch" id="coteMatch"></div>
+                </div>
+                
+              </div>
+              <div class="slider-controls">
+                <a
+                  class="slider-control slider-control-prev disabled"
+                  href="#"
+                >
+                  <span> <</span>
+                </a>
+                <a class="slider-control slider-control-next" href="#">
+                  <span>> </span>
+                </a>
+              </div>
             </div>
           </div>
           <div class="section2-img trainers mobile-only"></div>
@@ -104,8 +140,42 @@
               <p>companies in the planet.</p>
             </div>
             <h1 class="anim-wrapper">
-              <span>Trusted</span>
+              <span>Trusteds</span>
             </h1>
+            <div class="box">
+              <div class="text" id="collapsibleText">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque efficitur nisl non quam blandit, sit amet cursus odio consequat. Integer venenatis justo id tellus sollicitudin, at auctor orci volutpat. Praesent at volutpat nisi. Nullam ac nisl a libero hendrerit tincidunt. Sed eu nunc vel orci pharetra varius. Vestibulum venenatis augue non ipsum pharetra, nec auctor arcu scelerisque. Donec quis purus quis arcu fermentum vehicula. Fusce pretium odio ut mauris luctus, at vulputate justo facilisis. Integer efficitur dui nec urna tincidunt, eget dapibus purus malesuada. Nulla facilisi. Vivamus vestibulum orci vel nisi posuere, nec fermentum quam convallis. Sed condimentum, tortor et pellentesque malesuada, purus orci commodo lorem, ac gravida sem augue id ex.
+              </div>
+              <button id="toggleButton">Read more</button>
+          </div>
+          <style>
+            .box {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            position: relative;
+            background: crimson;
+        }
+        .text {
+            overflow: hidden;
+            max-height: 50px;
+            transition: max-height 1s ease; /* Slow animation */
+        }
+        .text.expanded {
+            max-height: 1000px; /* Arbitrary large value to ensure full expansion */
+        }
+        .overlay {
+            content: "...";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+        }
+        .hidden {
+            display: none;
+        }
+          </style>
             <div class="slider-controls">
               <a class="slider-control slider-control-prev" href="#">
                 <span> <</span>
@@ -123,8 +193,45 @@
         <div class="fp-content section3-text">
           <h1 class="anim-wrapper">
             <!-- <span>Responsive</span> -->
-        </h1>
-        <iframe src="../FinalGame.html" width="600" height="400" style="border:none;"></iframe>
+          </h1>
+          <main>
+            <div class="static">
+                <h1 class="js-heading">FOOTBALL LEAGUE</h1>
+                <p class="js-subheading">Lorem, ipsum dolor sit amet consectetur adipisicing elit.consectetur adipisicing elit. <br><span style="font-size: 11px"></span></p>
+                <div class="js-switcher switcher">
+                    <a href="#" class="js-switch disabled switch-btn">HOME</a><a href="#" class="js-switch switch-btn">AWAY</a>
+                </div>
+            </div>
+            <div class="js-stage stage texture">
+                <div class="js-world world">
+                    <div class="team js-team">
+                        <!-- Team cards / icons goes here -->
+                    </div>
+                    <div class="terrain js-terrain">
+                        <div class="field field--alt"></div>
+                        <div class="field ground">
+                            <div class="field__texture field__texture--gradient"></div>
+                            <div class="field__texture field__texture--gradient-b"></div>
+                            <div class="field__texture field__texture--grass"></div>
+                            <div class="field__line field__line--goal"></div>
+                            <div class="field__line field__line--goal field__line--goal--far"></div>
+                            <div class="field__line field__line--outline"></div>
+                            <div class="field__line field__line--penalty"></div>
+                            <div class="field__line field__line--penalty-arc"></div>
+                            <div class="field__line field__line--penalty-arc field__line--penalty-arc--far"></div>
+                            <div class="field__line field__line--mid"></div>
+                            <div class="field__line field__line--circle"></div>
+                            <div class="field__line field__line--penalty field__line--penalty--far"></div>
+                        </div>
+                        <div class="field__side field__side--front"></div>
+                        <div class="field__side field__side--left"></div>
+                        <div class="field__side field__side--right"></div>
+                        <div class="field__side field__side--back"></div>
+                    </div>
+                </div>
+                <div class="loading js-loading">PLEASE WAIT...</div>
+            </div>
+        </main>
           <div class="intro anim-wrapper anim-delay-8">
             <p>Turn it off whenever you need.</p>
             <p>Make use of fullPage.js responsive options.</p>
@@ -203,7 +310,7 @@
       // Initialize fullpage.js
       document.addEventListener("DOMContentLoaded", function () {
         new fullpage("#fullpage", {
-          sectionsColor: ['#3a45de', '#fc6c7c', '#7BAABE'],
+          sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
           anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
           menu: "#menu",
           navigation: true,
@@ -237,11 +344,11 @@
             );
 
             if (this.index == 2) {
-              alert("Section 3 ended loading");
+              // alert("Section 3 ended loading");
             }
 
-            if (this.anchor == "secondSlide") {
-              alert("Section 2 ended loading");
+            if (this.anchor == "section2") {
+              // alert("Section 2 ended loading");
             }
           },
 
@@ -336,13 +443,63 @@
             });
           });
 
+
+
+        // Function to add content
+        function addInfoCotes(matches) {
+            const htmlContent = matches.map(match => `
+                <div class="content-cote">
+                    <div class="matches-cote"><p>${match.team1}</p> <p>${match.team2}</p></div>
+                    <div class="date-cote"><p>${match.date}</p></div>
+                    <div class="number-cote">
+                        <p>1x2 ${match.cote.x1} <span>|</span></p>
+                        <p>1x2 ${match.cote.x} <span>|</span></p>
+                        <p>1x2 ${match.cote.x2} </p>
+                    </div>
+                </div>
+            `).join('');
+
+            const coteMatchElement = document.getElementById("coteMatch");
+            coteMatchElement.insertAdjacentHTML("beforeend", htmlContent);
+        }
+        const matches = [
+            { team1: "Romania", team2: "Ucraina", date: "2024-06-15", cote: { x1: 3.65, x: 3.25, x2: 2.13 } },
+            { team1: "SPANIA", team2: "CROATIA", date: "2024-06-16", cote: { x1: 2.10, x: 3.50, x2: 2.80 } },
+            { team1: "BELGIA", team2: "SLOVACIA", date: "2024-06-17", cote: { x1: 2.75, x: 3.00, x2: 2.50 } },
+            { team1: "PORTUGALIA", team2: "CEHIA", date: "2024-06-18", cote: { x1: 2.95, x: 3.20, x2: 2.10 } }
+        ];
+
+        // Add content on page load
+        addInfoCotes(matches);
         function onLoad() {
           addClass(document.body, "loadBg");
         }
 
         window.addEventListener("load", onLoad);
       });
+
+      const matches = [
+            { team1: "Romania", team2: "Ucraina", date: "2024-06-15", cote: "2.5" },
+            { team1: "France", team2: "Germany", date: "2024-06-16", cote: "1.8" },
+            { team1: "Spain", team2: "Italy", date: "2024-06-17", cote: "2.2" },
+            { team1: "England", team2: "Portugal", date: "2024-06-18", cote: "2.0" }
+        ];
+    
     </script>
+    <script>
+      const textElement = document.getElementById('collapsibleText');
+        const button = document.getElementById('toggleButton');
+
+        button.addEventListener('click', () => {
+            textElement.classList.toggle('expanded');
+            if (textElement.classList.contains('expanded')) {
+                button.textContent = 'Read less';
+            } else {
+                button.textContent = 'Read more';
+            }
+        });
+    </script>
+<script src="./Field.js"></script>
     <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon='{"rayId":"884b44e8c96698ba","version":"2024.4.1","token":"5070e21320304a1ba2b0a42ce9682840"}' crossorigin="anonymous"></script> -->
   </body>
 </html>
