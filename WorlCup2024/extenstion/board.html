@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soccer Cup Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url(./png/bg/test2.jpeg);
+        background-position: center;
+        background-size: cover;
+    }
+
+    .panel {
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 1000px;
+        padding: 30px;
+        margin: 0 auto;
+        text-align: center;
+        transition: max-height 0.8s ease-out, padding 1s ease-out;
+        max-height: 500px; /* Max height to ensure the panel is fully expanded initially */
+        overflow: hidden;
+        position: relative;
+    }
+
+    .panel.collapsed {
+        max-height: 0;
+        padding: 0;
+    }
+
+    .panel::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        background: rgba(87, 87, 87, 0.55);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.275);
+        z-index: -1;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        background: linear-gradient(to right, #b42e34, #1b82d1);
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+        border: 2px solid white;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.2em;
+        position: relative;
+    }
+
+    .team-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .header .parent {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        padding: 0 10px;
+    }
+
+    .header .team-name.red {
+        background-color: #b42e34;
+        border-radius: 10px 0 0 0;
+    }
+
+    .header .team-name.blue {
+        background-color: #1b82d1;
+    }
+
+    .header .timer {
+        flex: 1;
+        text-align: center;
+        font-size: 1.5em;
+        background-color: #000;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 5px 20px;
+        border-radius: 100% 5% 100% 5% / 0% 100% 0% 100%;
+        cursor: pointer;
+        
+    }
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 10px;
+        position: relative;
+    }
+
+    .team-logo.p1 {
+        width: 40%;
+    }
+
+    .team-logo.p2 {
+        width: 40%;
+    }
+
+    .team-logo img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .team-logo {
+        border: 1px solid rgba(173, 173, 173, 0.623);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .vs {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 0 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+    }
+    #toggle-button {
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="parent-panel" id="toggle-button">
+        <div class="header">
+            <div class="parent">
+                <div class="team-name red">Romania</div>
+            </div>
+            <div class="timer team-name" id="timer-button">
+                Apasa
+            </div>
+            <div class="parent">
+                <div class="team-name blue">Anglia</div>
+            </div>
+        </div>
+        <div class="panel" id="panel">
+            <div class="content">
+                <div class="team-logo p1">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia culpa nihil accusantium dolor error distinctio iure, atque sunt deleniti in.</p>
+                </div>
+                <div class="vs">|</div>
+                <div class="team-logo p2">
+                    <img src="../extenstion/png/bg/test.jpeg" alt="Blue Team Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('toggle-button').addEventListener('click', function () {
+            var panel = document.getElementById('panel');
+            var timerButton = document.getElementById('timer-button');
+            panel.classList.toggle('collapsed');
+            if (!panel.classList.contains('collapsed')) {
+                timerButton.textContent = 'Apasa';
+            } else {
+                timerButton.textContent = '3 : 2';
+            }
+        });
+    </script>
+</body>
+</html>
