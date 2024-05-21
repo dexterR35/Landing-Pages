@@ -131,7 +131,7 @@
     </section>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
-    <script>
+    <!-- <script>
       $(document).ready(function () {
         var data = [
           {
@@ -409,6 +409,50 @@
           order: [[0, "asc"]],
         });
       });
+    </script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://devel-api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop')
+                .then(response => response.json())
+                .then(response => {
+                    var data = response.data.data.map(function(item) {
+                        return {
+                            username: item.username,
+                            status: item.status
+                        };
+                    });
+
+                    $('#example').DataTable({
+                        data: data,
+                        columns: [
+                            { title: 'Username', data: 'username' },
+                            {
+                                title: 'Status',
+                                data: 'status',
+                                render: function(data, type, row, meta) {
+                                    return data === 0
+                                        ? '<img src="./thumb-up.png" class="thumb-icon" alt="Thumb Up">'
+                                        : '<img src="./thumb-down.png" class="thumb-icon" alt="Thumb Down">';
+                                }
+                            }
+                        ],
+                        paging: true,
+                        info: true,
+                        lengthChange: false,
+                        aaSorting: false,
+                        responsive: true,
+                        pageLength: 30,
+                        paginate: true,
+                        info: true,
+                        searching: false,
+                        language: false,
+                        order: [[0, 'asc']]
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
     </script>
   </body>
 </html>
