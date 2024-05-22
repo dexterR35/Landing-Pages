@@ -839,10 +839,6 @@
       // Add content on page load
       addInfoCotes(matches);
 
-
-
-
-
       function onLoad() {
         addClass(document.body, "loadBg");
       }
@@ -881,50 +877,53 @@
   <script>
     console.log("datatable")
 
-  
-      $.ajax({
-        url: 'https://devel-api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop',
-        method: 'GET',
-        success: function (response) {
-          var data = response.data.data.map(function (item) {
-            return {
-              username: item.username,
-              status: item.status
-            };
-          });
 
-          $('#example').DataTable({
-            data: data,
-            columns: [
-              { title: 'Username', data: 'username' },
-              {
-                title: 'Status',
-                data: 'status',
-                render: function (data, type, row, meta) {
-                  return data === 0
-                    ? '<img src="thumb-up.png" class="thumb-icon" alt="Thumb Up">'
-                    : '<img src="thumb-down.png" class="thumb-icon" alt="Thumb Down">';
-                }
+    $.ajax({
+      url: 'https://devel-api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop',
+      method: 'GET',
+      success: function (response) {
+        var data = response.data.data.map(function (item) {
+          return {
+            username: item.username,
+            status: item.status
+          };
+        });
+
+        $('#example').DataTable({
+          data: data,
+          columns: [{
+              title: 'Username',
+              data: 'username'
+            },
+            {
+              title: 'Status',
+              data: 'status',
+              render: function (data, type, row, meta) {
+                return data === 0 ?
+                  '<img src="thumb-up.png" class="thumb-icon" alt="Thumb Up">' :
+                  '<img src="thumb-down.png" class="thumb-icon" alt="Thumb Down">';
               }
-            ],
-            paging: true,
-            info: true,
-            lengthChange: false,
-            aaSorting: false,
-            responsive: true,
-            pageLength: 30,
-            paginate: true,
-            info: true,
-            searching: false,
-            language: false,
-            order: [[0, 'asc']]
-          });
-        },
-        error: function (error) {
-          console.error('Error fetching data:', error);
-        }
-      });
-    
+            }
+          ],
+          paging: true,
+          info: true,
+          lengthChange: false,
+          aaSorting: false,
+          responsive: true,
+          pageLength: 30,
+          paginate: true,
+          info: true,
+          searching: false,
+          language: false,
+          order: [
+            [0, 'asc']
+          ]
+        });
+      },
+      error: function (error) {
+        console.error('Error fetching data:', error);
+      }
+    });
   </script>
   <script>
     const textElement = document.getElementById('collapsibleText');
