@@ -4,8 +4,7 @@ const removeClass = fp_utils.removeClass;
 const toggleClass = fp_utils.toggleClass;
 const g_timeouts = {};
 const ACTIVE = "active";
-const dataBoxes = [
-  {
+const dataBoxes = [{
     text: "Este a șasea apariție a Tricolorilor la un Campionat European. Cea mai bună performanță a fost în 2000 când visele lui Hagi și co. s-au spulberat în sferturi. Acum, România vine cu forțe proaspete și încrederea la cote maxime ținând cont că și-a câștigat grupa de calificări fără să fie învinsă. ",
     image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
     title: "România",
@@ -64,8 +63,7 @@ const containerBoxes = [
   "container_boxes2-4",
   "container_boxes2-5",
 ];
-const matches = [
-  {
+const matches = [{
     team1: "Romania",
     team2: "Ucraina",
     date: "2024-06-15",
@@ -125,9 +123,9 @@ function addOriginAnimations(elements, direction) {
 // Add destiny animations
 function addDestinyAnimations(element, direction) {
   const hideClass =
-    direction === "up" || direction === "down"
-      ? "hide-down hide-up"
-      : "hide-left hide-right";
+    direction === "up" || direction === "down" ?
+    "hide-down hide-up" :
+    "hide-left hide-right";
   if (element) {
     addClass(element, ACTIVE);
     addClass(element, "animate");
@@ -140,168 +138,219 @@ function addDestinyAnimations(element, direction) {
 
 // Initialize fullpage.js
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("fullPage");
-  new fullpage("#fullpage", {
-    sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
-    anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
-    menu: "#menu",
-    navigation: true,
-    slidesNavigation: true,
-    animateAnchor: false,
-    cardsOptions: {
-      perspective: 150,
-      fadeContent: true,
-      fadeBackground: false,
-    },
-    scrollingSpeed: 600,
-    fadingEffect: true,
-    fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
-    licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
-    cardsKey: "YWx2YXJvdHJpZ28uY29tX0E2MFkyRnlaSE09cmI2",
-    cards: true,
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  const bgImages = [
+    'background1.jpg',
+    'background2.jpg',
+    'background3.jpg'
+  ];
+  let loadedImages = 0;
+  const totalImages = images.length + bgImages.length;
 
-    afterLoad: function (origin, destination, direction) {
-      addClass(destination.item, "animate");
-      // console.log(this, "After Load", destination, "Direction", direction);
-      // console.log(origin, "orighin");
-      // console.log(destination, "destination");
-      // console.log(direction, "direction");
+  function imageLoaded() {
+    loadedImages++;
+    if (loadedImages === totalImages) {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      console.log("fullPage");
+      new fullpage("#fullpage", {
+        sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
+        anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
+        menu: "#menu",
+        navigation: true,
+        slidesNavigation: true,
+        animateAnchor: false,
+        cardsOptions: {
+          perspective: 150,
+          fadeContent: true,
+          fadeBackground: false,
+        },
+        scrollingSpeed: 600,
+        fadingEffect: true,
+        fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
+        licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
+        cardsKey: "YWx2YXJvdHJpZ28uY29tX0E2MFkyRnlaSE09cmI2",
+        cards: true,
 
-      const btnActive = document.querySelectorAll(".footer-button");
-      const anchor = destination.item.getAttribute('data-anchor');
-  
-      btnActive.forEach(element => {
-        if (element.getAttribute('data-target') === anchor) {
-          addClass(element, "_active");
-          const color = element.getAttribute('data-color');
-          element.style.backgroundImage = `var(${color})`;
-          element.style.color = "white" // Apply gradient as background image
-        } else {
-          removeClass(element, "_active");
-          element.style.backgroundImage = "";
-          element.style.color = "initial"  // Reset background image
+        afterLoad: function (origin, destination, direction) {
+          addClass(destination.item, "animate");
+          // console.log(this, "After Load", destination, "Direction", direction);
+          // console.log(origin, "orighin");
+          // console.log(destination, "destination");
+          // console.log(direction, "direction");
+
+          const btnActive = document.querySelectorAll(".footer-button");
+          const anchor = destination.item.getAttribute('data-anchor');
+
+          btnActive.forEach(element => {
+            if (element.getAttribute('data-target') === anchor) {
+              addClass(element, "_active");
+              const color = element.getAttribute('data-color');
+              element.style.background = `var(${color})`;
+              element.style.color = "white" // Apply gradient as background image
+            } else {
+              removeClass(element, "_active");
+              element.style.backgroundImage = "";
+              element.style.color = "initial" // Reset background image
+            }
+          });
+
+
+        },
+
+        onLeave: function (origin, destination, direction) {
+          clearTimeout(g_timeouts.destination);
+
+          removeClass(
+            document.body,
+            "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up"
+          );
+
+          if (direction) {
+            addClass(document.body, "fp-moving-" + direction);
+            removeClass(document.body, "fp-moving-horizontally");
+            addClass(document.body, "fp-moving-vertically");
+          }
+
+          if (["right", "left"].indexOf(direction) === -1) {
+            const activeElement = $(
+              '.active[data-section="' + (destination.index + 1) + '"]'
+            )[0];
+            addDestinyAnimations(
+              activeElement ||
+              $('[data-section="' + (destination.index + 1) + '"]')[0],
+              direction
+            );
+
+            const originElements = $(
+              '.active[data-section="' + (origin.index + 1) + '"]'
+            );
+            addOriginAnimations(originElements, direction);
+          }
+          // Hide btnFloat on 4thpage
+          // if (destination.anchor === "4thpage") {
+          //   document.querySelector(".footer-bar").style.display = "none";
+          // } else {
+          //   document.querySelector(".footer-bar").style.display = "flex";
+          // }
+        },
+
+        onSlideLeave: function (section, origin, destination, direction) {
+          removeClass(
+            document.body,
+            "fp-moving-right fp-moving-left fp-moving-down fp-moving-up"
+          );
+
+          if (direction) {
+            addClass(document.body, "fp-moving-" + direction);
+            removeClass(document.body, "fp-moving-vertically");
+            addClass(document.body, "fp-moving-horizontally");
+          }
+
+          const destinationElement = $(
+            '.trainers[data-section="' +
+            (section.index + 1) +
+            '"][data-slide="' +
+            (destination.index + 1) +
+            '"]'
+          )[0];
+          console.log(destinationElement, "sfasa");
+          addDestinyAnimations(destinationElement, direction);
+
+          const activeElements = $(
+            '.trainers[data-section="' +
+            (section.index + 1) +
+            '"][data-slide="' +
+            (origin.index + 1) +
+            '"]'
+          );
+          removeClass(activeElements, ACTIVE);
+          addOriginAnimations(activeElements, direction);
+          console.log(activeElements, "Slide Leave");
+        },
+      });
+    }
+  }
+
+  if (totalImages === 0) {
+    imageLoaded();
+  } else {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const image = entry.target;
+          if (image.complete) {
+            imageLoaded();
+          } else {
+            image.addEventListener('load', imageLoaded);
+            image.addEventListener('error', imageLoaded);
+          }
+          observer.unobserve(image);
         }
       });
-  
-     
-    },
+    });
 
-    onLeave: function (origin, destination, direction) {
-      clearTimeout(g_timeouts.destination);
+    images.forEach(image => {
+      observer.observe(image);
+    });
 
-      removeClass(
-        document.body,
-        "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up"
-      );
-
-      if (direction) {
-        addClass(document.body, "fp-moving-" + direction);
-        removeClass(document.body, "fp-moving-horizontally");
-        addClass(document.body, "fp-moving-vertically");
+    bgImages.forEach(src => {
+      const img = new Image();
+      img.src = src;
+      if (img.complete) {
+        imageLoaded();
+      } else {
+        img.addEventListener('load', imageLoaded);
+        img.addEventListener('error', imageLoaded);
       }
+    });
+  }
+});
+// Event listeners
+const buttonPageMap = {
+  goOffer: "firstPage",
+  goClasament: "secondPage",
+  goCotes: "3thPage",
+  goInfoGrafic: "4thPage",
+  goTerms: "5thPage",
+};
 
-      if (["right", "left"].indexOf(direction) === -1) {
-        const activeElement = $(
-          '.active[data-section="' + (destination.index + 1) + '"]'
-        )[0];
-        addDestinyAnimations(
-          activeElement ||
-            $('[data-section="' + (destination.index + 1) + '"]')[0],
-          direction
-        );
+Object.keys(buttonPageMap).forEach((className) => {
+  document
+    .querySelector(`.${className}`)
+    .addEventListener("click", function () {
+      fullpage_api.moveTo(buttonPageMap[className]);
+    });
+});
 
-        const originElements = $(
-          '.active[data-section="' + (origin.index + 1) + '"]'
-        );
-        addOriginAnimations(originElements, direction);
-      }
-      // Hide btnFloat on 4thpage
-      // if (destination.anchor === "4thpage") {
-      //   document.querySelector(".footer-bar").style.display = "none";
-      // } else {
-      //   document.querySelector(".footer-bar").style.display = "flex";
-      // }
-    },
+document.querySelector(".arrow-down").addEventListener("click", function () {
+  fullpage_api.moveSectionDown();
+});
 
-    onSlideLeave: function (section, origin, destination, direction) {
-      removeClass(
-        document.body,
-        "fp-moving-right fp-moving-left fp-moving-down fp-moving-up"
-      );
-
-      if (direction) {
-        addClass(document.body, "fp-moving-" + direction);
-        removeClass(document.body, "fp-moving-vertically");
-        addClass(document.body, "fp-moving-horizontally");
-      }
-
-      const destinationElement = $(
-        '.trainers[data-section="' +
-          (section.index + 1) +
-          '"][data-slide="' +
-          (destination.index + 1) +
-          '"]'
-      )[0];
-      console.log(destinationElement, "sfasa");
-      addDestinyAnimations(destinationElement, direction);
-
-      const activeElements = $(
-        '.trainers[data-section="' +
-          (section.index + 1) +
-          '"][data-slide="' +
-          (origin.index + 1) +
-          '"]'
-      );
-      removeClass(activeElements, ACTIVE);
-      addOriginAnimations(activeElements, direction);
-      console.log(activeElements, "Slide Leave");
-    },
-  });
-  // Event listeners
-  const buttonPageMap = {
-    goOffer: "firstPage",
-    goClasament: "secondPage",
-    goCotes: "3thPage",
-    goInfoGrafic: "4thPage",
-    goTerms: "5thPage",
-  };
-
-  Object.keys(buttonPageMap).forEach((className) => {
-    document
-      .querySelector(`.${className}`)
-      .addEventListener("click", function () {
-        fullpage_api.moveTo(buttonPageMap[className]);
-      });
-  });
-
-  document.querySelector(".arrow-down").addEventListener("click", function () {
+document
+  .querySelector(".arrow-custom")
+  .addEventListener("click", function () {
     fullpage_api.moveSectionDown();
   });
-
-  document
-    .querySelector(".arrow-custom")
-    .addEventListener("click", function () {
-      fullpage_api.moveSectionDown();
-    });
-  document.querySelectorAll(".slider-control-next").forEach(function (element) {
-    element.addEventListener("click", function (e) {
-      e.preventDefault();
-      fullpage_api.moveSlideRight();
-    });
+document.querySelectorAll(".slider-control-next").forEach(function (element) {
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    fullpage_api.moveSlideRight();
   });
+});
 
-  document.querySelectorAll(".slider-control-prev").forEach(function (element) {
-    element.addEventListener("click", function (e) {
-      e.preventDefault();
-      fullpage_api.moveSlideLeft();
-    });
+document.querySelectorAll(".slider-control-prev").forEach(function (element) {
+  element.addEventListener("click", function (e) {
+    e.preventDefault();
+    fullpage_api.moveSlideLeft();
   });
+});
 
-  // Function to add content
-  function addInfoCotes(matches) {
-    const htmlContent = matches
-      .map(
-        (match) => `
+// Function to add content
+function addInfoCotes(matches) {
+  const htmlContent = matches
+    .map(
+      (match) => `
                 <div class="content-cote">
                     <div class="matches-cote"><p>${match.team1}</p> <p>${match.team2}</p></div>
                     <div class="date-cote"><p>${match.date}</p></div>
@@ -312,32 +361,32 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                 </div>
             `
-      )
-      .join("");
+    )
+    .join("");
 
-    const coteMatchElement = document.getElementById("coteMatch");
-    coteMatchElement.insertAdjacentHTML("beforeend", htmlContent);
-  }
+  const coteMatchElement = document.getElementById("coteMatch");
+  coteMatchElement.insertAdjacentHTML("beforeend", htmlContent);
+}
 
-  // Add content on page load
-  addInfoCotes(matches);
+// Add content on page load
+addInfoCotes(matches);
 
-  function onLoad() {
-    addClass(document.body, "loadBg");
-  }
+function onLoad() {
+  addClass(document.body, "loadBg");
+}
 
-  window.addEventListener("load", onLoad);
+window.addEventListener("load", onLoad);
 
-  dataBoxes.forEach((item, index) => {
-    const sectionIndex = Math.floor(index / 2);
-    const sectionContainer = document.getElementById(
-      containerBoxes[sectionIndex]
-    );
-    if (sectionContainer) {
-      sectionContainer.innerHTML += `
+dataBoxes.forEach((item, index) => {
+const sectionIndex = Math.floor(index / 2);
+const sectionContainer = document.getElementById(
+  containerBoxes[sectionIndex]
+);
+if (sectionContainer) {
+  sectionContainer.innerHTML += `
               <div class="boxParent${index} boxParent">
                   <div>
-                      <img src="${item.image}" alt="img" class="boxImg boxImg${index}">
+                      <img src="" alt="img" class="boxImg boxImg${index}">
                   </div>
                   <div> 
                       <p>${item.title}</p>
@@ -345,6 +394,5 @@ document.addEventListener("DOMContentLoaded", function () {
                   </div>
               </div>
             `;
-    }
-  });
+}
 });
