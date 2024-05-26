@@ -392,6 +392,13 @@ p.intro-line {
   background-repeat: no-repeat;
   background-size: cover;
 }
+@media screen and (max-width:480px) {
+  .fp-bg:not(#section1 .fp-bg) {
+
+    background-position: 2% !important;  
+  }
+
+}
 .fp-overflow {
   height: 100%;
 }
