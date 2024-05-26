@@ -431,15 +431,15 @@ div.dt-container div.dt-layout-cell.dt-end {
   transform: translatey(-8px);
 }
 
-#section1 .fp-bg {
+.loadBg #section1 .fp-bg {
   background-image: var(--bg-offer);
 }
 
-#section2 .fp-bg {
+.loadBg #section2 .fp-bg {
   background-image: var(--bg-section2);
 }
 
-#section4 .fp-bg {
+.loadBg #section4 .fp-bg {
   background-image: var(--bg-section4);
   filter: hue-rotate(332deg);
 }
@@ -456,15 +456,15 @@ div.dt-container div.dt-layout-cell.dt-end {
   will-change: transform, opacity;
 }
 
-#slide2-1 .fp-bg {
+.loadBg #slide2-1 .fp-bg {
   background-image: url(./png/bg/bg-section2.jpg);
 }
 
-#slide2-2 .fp-bg {
+.loadBg #slide2-2 .fp-bg {
   background-image: url(./png/bg/bg-section3.jpg);
 }
 
-#slide2-3 .fp-bg {
+.loadBg #slide2-3 .fp-bg {
   background-image: url(./png/bg/bg-section4.jpg);
 }
 

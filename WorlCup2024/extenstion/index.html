@@ -28,7 +28,9 @@
     <div class="nav">ul</div>
   </div> -->
 
-    <div id="loading">Loading...</div>
+    <div id="loading">
+      <p>Se incarca</p>
+    </div>
     <style>
        #loading {
             position: fixed;
@@ -41,6 +43,16 @@
             font-size: 24px;
             z-index: 9999;
             color: black;
+        }
+        #loading p {
+          color: black;
+    font-size: 1em;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #8f73ff;
         }
     </style>
     <div id="content">
