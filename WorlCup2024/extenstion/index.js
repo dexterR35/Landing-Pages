@@ -174,10 +174,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (element.getAttribute('data-target') === anchor) {
           addClass(element, "_active");
           const color = element.getAttribute('data-color');
-          element.style.backgroundImage = `var(${color})`; // Apply gradient as background image
+          element.style.backgroundImage = `var(${color})`;
+          element.style.color = "white" // Apply gradient as background image
         } else {
           removeClass(element, "_active");
-          element.style.backgroundImage = ""; // Reset background image
+          element.style.backgroundImage = "";
+          element.style.color = "initial"  // Reset background image
         }
       });
   
