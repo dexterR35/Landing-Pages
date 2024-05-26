@@ -8,11 +8,13 @@
   <meta name="author" content="Netbet" />
   <meta name="description" content="Netbet Sport" />
   <meta name="Resource-type" content="Document" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
-<script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
- <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
- 
+  <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
 
   <link rel="stylesheet" href="./index.css" />
@@ -22,6 +24,9 @@
 </head>
 
 <body>
+  <!-- <div class="header">
+    <div class="nav">ul</div>
+  </div> -->
   <div class="fullWrapp">
 
     <div id="fullpage">
@@ -51,7 +56,19 @@
               <img src="./png/elements/euroBall.png" alt="ball" />
             </div>
             <div class="anim-wrapper anim-delay-8 cotes arrow-custom">
-              <div class="cote-content intro-line ">COTE EURO 2024</div>
+              <div class="cote-content">
+                <div class="tableScore-container">
+                  <div class="tableScore-header gradientRed">
+                    <span class="group-name">GROUP A</span>
+                    <span class="column-header">P</span>
+                    <span class="column-header">W</span>
+                    <span class="column-header">D</span>
+                    <span class="column-header">L</span>
+                    <span class="column-header">PTS</span>
+                  </div>
+                  <div id="tableScore-content"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -61,24 +78,24 @@
         <div class="fp-content section2-text">
           <div class="wrapp_all">
             <div class="section_content">
-            <h1 class="anim-wrapper">
-              <span>Clasament</span>
-            </h1>
-            <div class="intro anim-wrapper anim-delay-8">
-              <p>Turn it off whenever you need.</p>
-              <p>Make use of fullPage.js responsive options.</p>
+              <h1 class="anim-wrapper">
+                <span>Clasament</span>
+              </h1>
+              <div class="intro anim-wrapper anim-delay-8">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime, beatae.</p>
+
+              </div>
             </div>
-          </div>
             <div class="section_info">
-              <table id="exampleS" class="display" style="width: 100%">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody></tbody>
-              </table>
+              <div class="infoTabel">
+                <span>
+                  <h5>Esti Eligibil</h5><img src="./png/thumbs/thumb-up.png" class="thumb-icon" alt="td">
+                </span> -
+                <a href="http://" target="_blank" rel="noopener noreferrer"> <span>
+                    <h5>Depune</h5> <img src="./png/thumbs/thumb-down.png" class="thumb-icon" alt="th">
+                  </span></a>
+              </div>
+              <table id="exampleS" class="display" style="width: 100%"></table>
             </div>
           </div>
         </div>
@@ -88,16 +105,17 @@
         <div class="fp-content section3-text">
           <div class="wrapp_all">
             <div class="section_content">
-            <h1 class="anim-wrapper">
-              <span>Cote</span>
-            </h1>
-            <div class="intro anim-wrapper anim-delay-8">
-              <p>Turn it off whenever you need.</p>
-              <p>Make use of fullPage.js responsive options.</p>
+              <h1 class="anim-wrapper">
+                <span>Cote</span>
+              </h1>
+              <div class="intro anim-wrapper anim-delay-8">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi, rerum?</p>
+                <p>Make use of fullPage.js responsive options.</p>
+              </div>
             </div>
-          </div>
             <div class="section_info">
               <div class="container-info">
+
                 <div class="coteMatch" id="coteMatch"></div>
               </div>
             </div>
@@ -110,48 +128,18 @@
           <div class="fp-content">
             <div class="wrapp_all">
               <div class="section_content">
-                <h1 class="anim-wrapper">
-                  <span>Title slide 1 default</span>
-                </h1>
-                <div class="intro anim-wrapper anim-delay-8">
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus, soluta.</p>
-                </div>
-              </div>
-              <!-- <div class="section_info">
-                <div class="container-info">
-                  <div class="coteMatch" id="coteMatch"></div>
-                </div>
-              </div> -->
-              <div class="slider-controls">
-                <span></span>
-                <a class="slider-control slider-control-prev disabled" href="#">
-                  <span>
-                    <</span> </a> <a class="slider-control slider-control-next" href="#">
-                      <span>> </span>
-                </a>
-                <span>Vezi mai mult</span>
-              </div>
-            </div>
-          </div>
-          <div class="section2-img trainers mobile-only"></div>
-        </div>
-        <div class="slide" id="slide2-2">
-          <div class="fp-bg"></div>
-          <div class="fp-content">
-            <div class="wrapp_all">
-              <div class="section_content">
                 <!-- <div class="intro-line-wrapper anim-wrapper anim-delay-8">
                 <p class="intro-line"></p>
               </div> -->
                 <h1 class="anim-wrapper">
-                  <span>title slide 2!</span>
+                  <span>title slide 1!</span>
                 </h1>
                 <div class="intro anim-wrapper anim-delay-8">
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, nihil.</p>
                 </div>
               </div>
-              <div class="section_2_info">
-                <div id="container_boxes2-2" class="containerBox"></div>
+              <div class="section_info">
+                <div id="container_boxes2-1" class="containerBox"></div>
               </div>
               <div class="slider-controls">
                 <a class="slider-control slider-control-prev" href="#">
@@ -162,9 +150,9 @@
               </div>
             </div>
           </div>
-          <div class="slide2-2-img trainers mobile-only"></div>
+          <div class="slide2-1-img trainers mobile-only"></div>
         </div>
-        <div class="slide" id="slide2-3">
+        <div class="slide" id="slide2-2">
           <div class="fp-bg"></div>
           <div class="fp-content">
             <div class="wrapp_all">
@@ -173,14 +161,14 @@
           </div> -->
               <div class="section_content">
                 <h1 class="anim-wrapper">
-                  <span>Title slide 3</span>
+                  <span>Title slide 2</span>
                 </h1>
                 <div class="intro anim-wrapper anim-delay-8">
                   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, sapiente?</p>
                 </div>
               </div>
-              <div class="section_2_info">
-                <div id="container_boxes2-3" class="containerBox"></div>
+              <div class="section_info">
+                <div id="container_boxes2-2" class="containerBox"></div>
               </div>
               <div class="slider-controls">
                 <a class="slider-control slider-control-prev" href="#">
@@ -190,15 +178,15 @@
                 </a>
               </div>
             </div>
-            <div class="slide2-3-img trainers mobile-only"></div>
+            <div class="slide2-2-img trainers mobile-only"></div>
           </div>
-          <div class="slide" id="slide2-4">
+          <div class="slide" id="slide2-3">
             <div class="fp-bg"></div>
             <div class="fp-content">
               <div class="wrapp_all">
                 <div class="section_content">
                   <h1 class="anim-wrapper">
-                    <span>Title slide 4</span>
+                    <span>Title slide 3</span>
                   </h1>
                   <div class="intro anim-wrapper anim-delay-8">
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, laboriosam?</p>
@@ -207,8 +195,8 @@
                 <!-- <div class="intro-line-wrapper anim-wrapper anim-delay-8">
             <p class="intro-line"></p>
           </div> -->
-                <div class="section_2_info">
-                  <div id="container_boxes2-4" class="containerBox"></div>
+                <div class="section_info">
+                  <div id="container_boxes2-3" class="containerBox"></div>
                 </div>
                 <div class="slider-controls">
                   <a class="slider-control slider-control-prev" href="#">
@@ -222,32 +210,63 @@
           </div>
           <div class="slide2-3-img trainers mobile-only"></div>
         </div>
+        <div class="slide" id="slide2-4">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <!-- <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+            <p class="intro-line"></p>
+          </div> -->
+            <div class="wrapp_all">
+              <div class="section_content">
+                <h1 class="anim-wrapper">
+                  <span>Title slide 4</span>
+                </h1>
+                <div class="intro anim-wrapper anim-delay-8">
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, laboriosam?</p>
+                </div>
+              </div>
+              <div class="section_info">
+                <div id="container_boxes2-4" class="containerBox"></div>
+              </div>
+              <div class="slider-controls">
+                <a class="slider-control slider-control-prev" href="#">
+                  <span>
+                    <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                      <span>> </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="slide2-4-img trainers mobile-only"></div>
+        </div>
         <div class="slide" id="slide2-5">
           <div class="fp-bg"></div>
           <div class="fp-content">
             <!-- <div class="intro-line-wrapper anim-wrapper anim-delay-8">
             <p class="intro-line"></p>
           </div> -->
-            <div class="intro anim-wrapper anim-delay-8">
-              <p>fullPage.js is used by the biggest</p>
-              <p>companies in the planet.</p>
-            </div>
-            <h1 class="anim-wrapper">
-              <span>Slde5</span>
-            </h1>
-            <div class="section_2_info">
-              <div id="container_boxes2-5" class="containerBox"></div>
-            </div>
-
-            <div class="slider-controls">
-              <a class="slider-control slider-control-prev" href="#">
-                <span>
-                  <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
-                    <span>> </span>
-              </a>
+            <div class="wrapp_all">
+              <div class="section_content">
+                <h1 class="anim-wrapper">
+                  <span>Title slide 5</span>
+                </h1>
+                <div class="intro anim-wrapper anim-delay-8">
+                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde, laboriosam?</p>
+                </div>
+              </div>
+              <div class="section_info">
+                <div id="container_boxes2-5" class="containerBox"></div>
+              </div>
+              <div class="slider-controls">
+                <a class="slider-control slider-control-prev" href="#">
+                  <span>
+                    <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                      <span>> </span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="slide2-3-img trainers mobile-only"></div>
+          <div class="slide2-5-img trainers mobile-only"></div>
         </div>
       </div>
     </div>
@@ -262,92 +281,20 @@
     <input type="hidden" id="_4" value="3" />
 
     <div class="footer-bar">
-      <button class="footer-button goClasament">Clasament</button>
-      <button class="footer-button goCotes">Cote</button>
-      <button class="footer-button goInfoGrafic">Infografic</button>
-      <button class="footer-button goTerms">Termeni și Condiții</button>
+      
+      <button class="footer-button goOffer" data-target="firstPage" data-color="--gradientRed">Oferta</button>
+<button class="footer-button goClasament" data-target="secondPage" data-color="--gradientGreen">Clasament</button>
+<button class="footer-button goCotes" data-target="3thPage" data-color="--gradientRed">Cote</button>
+<button class="footer-button goInfoGrafic" data-target="4thPage" data-color="--gradientYellow">Infografic</button>
+<button class="footer-button goTerms" data-target="5thPage" data-color="--gradientPurple">Cs</button>
     </div>
   </div>
   <script type="text/javascript" src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"></script>
   <script type="text/javascript" src="fullpage.cards.min.js"></script>
   <!-- <script type="text/javascript" src="https://unpkg.com/fullpage.js/dist/fullpage.extensions.min.js"></script> -->
 
-  <script src="./table.js" defer></script>
-<script src="./index.js" type="text/javascript"></script>
-
-  <script>
-//  console.log("datatable");
-
-// fetch('https://devel-api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop')
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     var tableData = data.data.data.map(item => {
-//       return {
-//         username: item.username,
-//         status: item.status
-//       };
-//     });
-
-//     $('#exampleS').DataTable({
-//       data: tableData,
-//       columns: [{
-//           title: 'Username',
-//           data: 'username'
-//         },
-//         {
-//           title: 'Status',
-//           data: 'status',
-//           render: function (data, type, row, meta) {
-//             return data === 0 ?
-//               '<img src="thumb-up.png" class="thumb-icon" alt="Thumb Up">' :
-//               '<img src="thumb-down.png" class="thumb-icon" alt="Thumb Down">';
-//           }
-//         }
-//       ],
-//       paging: true,
-//       info: true,
-//       lengthChange: false,
-//       aaSorting: false,
-//       responsive: true,
-//       pageLength: 30,
-//       paginate: true,
-//       info: true,
-//       searching: false,
-//       language: false,
-//       order: [
-//         [0, 'asc']
-//       ]
-//     });
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//   });
-
-  </script>
-  <script>
-    // const textElement = document.getElementById('collapsibleText');
-    // const button = document.getElementById('toggleButton');
-
-    // button.addEventListener('click', () => {
-    //   textElement.classList.toggle('expanded');
-    //   if (textElement.classList.contains('expanded')) {
-    //     button.textContent = 'Read less';
-    //   } else {
-    //     button.textContent = 'Read more';
-    //   }
-    // });
-  </script>
-  <script>
-    
-   
-  </script>
-
-  <!-- <script src="./Field.js"></script> -->
+  <script src="./table.js"></script>
+  <script src="./index.js" type="text/javascript"></script>
   <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vedd3670a3b1c4e178fdfb0cc912d969e1713874337387" integrity="sha512-EzCudv2gYygrCcVhu65FkAxclf3mYM6BCwiGUm6BEuLzSb5ulVhgokzCZED7yMIkzYVg65mxfIBNdNra5ZFNyQ==" data-cf-beacon='{"rayId":"884b44e8c96698ba","version":"2024.4.1","token":"5070e21320304a1ba2b0a42ce9682840"}' crossorigin="anonymous"></script> -->
 </body>
 
