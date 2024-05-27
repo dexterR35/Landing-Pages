@@ -22,7 +22,7 @@ function initializeDataTable(selector, data) {
     lengthChange: false,
     aaSorting: true,
     responsive: true,
-    pageLength: window.innerWidth < 991 ? 8 : 8,
+    pageLength: window.innerWidth < 991 ? 8 : 10,
     paginate: true,
     searching: false,
     order: [[0, "asc"]],
