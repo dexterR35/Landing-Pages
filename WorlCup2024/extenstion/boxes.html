@@ -94,6 +94,13 @@
                     <div id="container_boxes2-3" class="containerBox"></div>
                 </div>
             </div>
+            <div class="slide" id="slide2-4">
+                <div class="fp-bg"></div>
+                <div class="fp-content">
+                    <!-- Existing content of slide2-3 -->
+                    <div id="container_boxes2-4" class="containerBox"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -146,7 +153,18 @@
             {
                 text: "Aici lupta se dă între Kylian Mbappe și Jude Bellingham. Performanțele lor și ale naționalelor sigur vor face diferența la finalul turneului!",
                 image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
-                title:"...si cei mai valoroși jucători",
+                title:".tes",
+            },
+
+            {
+                text: "fasfasfauro. Nu stau rău nici Les Bleus cu un lot de peste un miliard de euro. La polul opus, România încheie topul cu un lot ce valorează 95 de milioane de euro.",
+                image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
+                title:"test",
+            },
+            {
+                text: "fasfas Jude Bellingham. Performanțele lor și ale naționalelor sigur vor face diferența la finalul turneului!",
+                image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
+                title:"test",
             },
         ];
 
@@ -154,13 +172,16 @@
             "container_boxes2-1",
             "container_boxes2-2",
             "container_boxes2-3",
+            "container_boxes2-4",
+            "container_boxes2-4",
         ];
 
         dataBoxes.forEach((item, index) => {
-            const sectionIndex = Math.floor(index / 2);
+            const sectionIndex = Math.floor(index / 2 );
             const sectionContainer = document.getElementById(
                 containerBoxes[sectionIndex]
             );
+            console.log(sectionContainer)
             if (sectionContainer) {
                 sectionContainer.innerHTML += `
             <div class="boxParent${index} boxParent">

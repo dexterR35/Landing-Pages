@@ -7,12 +7,12 @@ const ACTIVE = "active";
 const fullData = {
   dataBoxes: [{
       text: "Este a șasea apariție a Tricolorilor la un Campionat European. Cea mai bună performanță a fost în 2000 când visele lui Hagi și co. s-au spulberat în sferturi. Acum, România vine cu forțe proaspete și încrederea la cote maxime ținând cont că și-a câștigat grupa de calificări fără să fie învinsă.",
-      image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
+      image: "./png/_slides/slide1/romania2.png",
       title: "România",
     },
     {
       text: "Cele două echipe au trei victorii la Campionatele Europene. Ambele se luptă pentru a o obține pe a patra. Nu știm dacă vor reuși, cert este că dintre cele două, un record inedit îl dețin ibericii. Sunt singurii care au reușit să câștige două europene la rând: 2008 și 2012.",
-      image: "./png/_slides/slide1/5.-Marea-Finala---Olympiastadion.png",
+      image: "./png/_slides/slide1/spaniaGermania.png",
       title: "Spania și Germania",
     },
     {
@@ -105,8 +105,8 @@ const fullData = {
     },
   ],
   teams: [{
-      name: "Turkey",
-      flag: "https://flagcdn.com/w20/tr.png",
+      name: "Belgium",
+      flag: "https://flagcdn.com/w20/be.png",
       p: 0,
       w: 0,
       d: 0,
@@ -114,17 +114,8 @@ const fullData = {
       pts: 0,
     },
     {
-      name: "Italy",
-      flag: "https://flagcdn.com/w20/it.png",
-      p: 0,
-      w: 0,
-      d: 0,
-      l: 0,
-      pts: 0,
-    },
-    {
-      name: "Wales",
-      flag: "https://flagcdn.com/w20/gb-wls.png",
+      name: "Slovakia",
+      flag: "https://flagcdn.com/w20/sk.png",
       p: 0,
       w: 0,
       d: 0,
@@ -134,6 +125,15 @@ const fullData = {
     {
       name: "Romania",
       flag: "https://flagcdn.com/w20/ro.png",
+      p: 0,
+      w: 0,
+      d: 0,
+      l: 0,
+      pts: 0,
+    },
+    {
+      name: "Ukraine",
+      flag: "https://flagcdn.com/w20/ua.png",
       p: 0,
       w: 0,
       d: 0,
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
           element.style.color = "white";
         } else {
           removeClass(element, "_active");
-          element.style.backgroundImage = "";
+          element.style.background= "";
           element.style.color = "initial";
         }
       });

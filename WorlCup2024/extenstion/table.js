@@ -4,7 +4,7 @@ function initializeDataTable(selector, data) {
     data: data,
     columns: [
       {
-        title: "Clienti",
+        title: "Participanți",
         data: "username",
       },
       {
@@ -12,15 +12,15 @@ function initializeDataTable(selector, data) {
         data: "status",
         render: function (data, type, row, meta) {
           return data === 0
-            ? '<span><img src="./png/thumbs/thumb-up.png" class="thumb-icon" alt="Thumb Up"> ai cont</span>'
-            : '<span><img src="./png/thumbs/thumb-down.png" class="thumb-icon" alt="Thumb Down">Depune</span>';
+            ? '<span><img src="./png/thumbs/thumb-up.png" class="thumb-icon" alt="Thumb Up"> </span>'
+            : '<span><img src="./png/thumbs/thumb-down.png" class="thumb-icon" alt="Thumb Down"></span>';
         },
       },
     ],
     paging: true,
     info: true,
     lengthChange: false,
-    aaSorting: false,
+    aaSorting: true,
     responsive: true,
     pageLength: window.innerWidth < 991 ? 8 : 8,
     paginate: true,
@@ -33,7 +33,7 @@ function initializeDataTable(selector, data) {
 
 
 var dummyData = [
-  { username: "user1", status: 0 },
+  { username: "lorem4", status: 0 },
   { username: "user2", status: 1 },
   { username: "user3", status: 0 },
   { username: "user4", status: 1 },
@@ -76,9 +76,9 @@ var dummyData = [
 ];
 
 
-// Initialize the DataTable
+// // Initialize the DataTable
 initializeDataTable("#exampleS", dummyData);
-// // Function to fetch data from the API
+// // // Function to fetch data from the API
 // async function fetchData() {
 //   try {
 //     const response = await fetch("https://api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop");
