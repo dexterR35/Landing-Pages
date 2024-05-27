@@ -86,7 +86,7 @@
   --bg-section2: url(./png/bg/bg-section2.jpg);
   --bg-section3: url(./png/bg/bg-section3.jpg);
   --bg-section4: url(./png/bg/bg-section4.jpg);
-  --bg-section5: url(./png/bg/bg-section4.jpg);
+  --bg-section5: url(./png/bg/bg-section3.jpg);
   --bg-slide1: url();
   --bg-slide2: url();
   --bg-slide3: url();
@@ -478,6 +478,12 @@ div.dt-container div.dt-layout-cell.dt-end {
   background-image: url(./png/bg/bg-section4.jpg);
 }
 
+.loadBg #slide2-4 .fp-bg {
+  background-image: url(./png/bg/bg-section4.jpg);
+}
+.loadBg #slide2-5 .fp-bg {
+  background-image: url(./png/bg/bg-section4.jpg);
+}
 #section1 .fp-bg,
 .fp-section {
   background-size: cover;
