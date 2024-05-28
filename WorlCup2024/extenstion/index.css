@@ -441,6 +441,7 @@ p.intro-line {
 
 .header {
   height: 3.5em;
+  background-color: #000;
 }
 
 .wrapp_all {
@@ -1456,7 +1457,7 @@ table.dataTable td.dt-type-date {
 
 }
 .parent-tableScore-row:nth-child(3) {
-  background: #1e2f45;
+  background: #515151;
   color: white;
 }
 
@@ -2080,7 +2081,7 @@ table.dataTable > tbody > tr > td {
   } */
 
   #section1 .ball img {
-    width: 4.5vh;
+    width: 5vh;
     height: auto;
   }
 
@@ -2104,31 +2105,31 @@ table.dataTable > tbody > tr > td {
   }
 
   .p-s1-one {
-    top: 37%;
-    left: -33%;
+    top: 43%;
+    left: -14%;
   }
 
   .p-s1-one img {
-    height: 36vh;
+    height: 25vh;
   }
 
   .p-s1-two img {
-    height: 32vh;
+    height: 28vh;
   }
 
   .p-s1-two {
-    left: 15%;
-    top: 46%;
-    transform: rotate(17deg);
+    left: 43%;
+    top: 58%;
+    transform: rotate(350deg);
   }
 
   #section1 .cotes {
-    bottom: 0%;
+    bottom: -13%;
   }
 
   #section1 .ball {
-    top: 40%;
-    left: 46%;
+    top: 63%;
+    left: 44%;
   }
 
   .section_content {
