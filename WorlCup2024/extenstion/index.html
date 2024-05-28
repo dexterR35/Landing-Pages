@@ -57,9 +57,55 @@
     }
   </style>
   <div id="content">
-    <div class="header">
-      header
-    </div>
+    <header class="header">
+      <nav class="__nav_d _n">
+        <div class="__logo">
+          <img src="{$asset}/png/nbLogoWhite.png" alt="nblogo" />
+        </div>
+        <ul class="__ul _d">
+          <!-- {foreach from=$header_products key=product_name item=product_link} {if
+          $product_name == 'Sport' || $product_name == 'Cazino'} -->
+          <li>
+            <a href="{$product_link}">{$product_name}</a>
+          </li>
+          <!-- {/if} {/foreach} -->
+      
+          <li>
+            <a href="{$login_link}">LOGHEAZĂ-TE</a>
+          </li>
+        </ul>
+        <div class="___ham">
+          <div class="__ham" id="__ham">
+            <span class="_ln"></span>
+            <span class="_ln"></span>
+            <span class="_ln"></span>
+          </div>
+        </div>
+      </nav>
+      <nav class="__nav_m _n">
+        <ul>
+          <!-- {foreach from=$header_products key=product_name item=product_link} {if
+          $product_name == 'Sport' || $product_name == 'Cazino'} -->
+          <li>
+            <!-- <a href="{$product_link}">{$product_name}</a> -->
+          </li>
+          <!-- {/if} {/foreach} -->
+      
+          <li>
+            <a href="{$login_link}">LOGHEAZĂ-TE</a>
+          </li>
+        </ul>
+      </nav>
+      
+    </header>
+    <script>
+        $(".__nav_m").hide();
+  $(".___ham").click(function () {
+    $(".__ham").toggleClass("is-active");
+    $(".__nav_m").toggleClass("is-active");
+    $(".__nav_m").slideToggle();
+  });
+    </script>
     <div id="fullpage">
       <div class="section" id="section1">
         <div class="fp-bg"></div>
@@ -70,10 +116,10 @@
                 <ul>
                   <li>pariază pe</li>
                   <li>euro 2024</li>
-                  <li>si castigă</li>
+                  <li>și câștigă</li>
                   <li>mingea momentului</li>
                 </ul>
-                <a href="http://" class="_btnReg">inregistreaza-te</a>
+                <a href="http://" class="_btnReg">înregistrează-te</a>
               </div>
             </div>
             -
@@ -182,15 +228,14 @@
           <div class="fp-bg"></div>
           <div class="fp-content">
             <div class="wrapp_all">
-      
-             
+              <div class="section_content"></div>
               <div class="section_info">
                 <div id="container_boxes2-2" class="containerBox"></div>
               </div>
               <div class="slider-controls">
                 <a class="slider-control slider-control-prev" href="#">
                   <span>
-                    <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                    <</span> </a> <a class="slider-control slider-control-next" href="#">
                       <span>> </span>
                 </a>
               </div>
@@ -201,13 +246,14 @@
             <div class="fp-bg"></div>
             <div class="fp-content">
               <div class="wrapp_all">
+                <div class="section_content"></div>
                 <div class="section_info">
                   <div id="container_boxes2-3" class="containerBox"></div>
                 </div>
                 <div class="slider-controls">
                   <a class="slider-control slider-control-prev" href="#">
                     <span>
-                      <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                      <</span> </a> <a class="slider-control slider-control-next" href="#">
                         <span>> </span>
                   </a>
                 </div>
@@ -220,13 +266,14 @@
           <div class="fp-bg"></div>
           <div class="fp-content">
             <div class="wrapp_all">  
+              <div class="section_content"></div>
               <div class="section_info">
                 <div id="container_boxes2-4" class="containerBox"></div>
               </div>
               <div class="slider-controls">
                 <a class="slider-control slider-control-prev" href="#">
                   <span>
-                    <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                    <</span> </a> <a class="slider-control slider-control-next" href="#">
                       <span>> </span>
                 </a>
               </div>
@@ -237,14 +284,16 @@
         <div class="slide" id="slide2-5">
           <div class="fp-bg"></div>
           <div class="fp-content">
+            
             <div class="wrapp_all">
+              <div class="section_content"></div>
               <div class="section_info">
                 <div id="container_boxes2-5" class="containerBox"></div>
               </div>
               <div class="slider-controls">
                 <a class="slider-control slider-control-prev" href="#">
                   <span>
-                    <</span> </a> <a class="slider-control slider-control-next disabled" href="#">
+                    <</span> </a> <a class="slider-control slider-control-next" href="#">
                       <span>> </span>
                 </a>
               </div>

@@ -209,11 +209,13 @@ document.addEventListener("DOMContentLoaded", function () {
       btnActive.forEach(element => {
         if (element.getAttribute('data-target') === anchor) {
           addClass(element, "_active");
+          addClass(element, "_pulse");
+      
           const color = element.getAttribute('data-color');
           element.style.background = `var(${color})`;
           element.style.color = "white";
         } else {
-          removeClass(element, "_active");
+          removeClass(element, "_active _pulse");
           element.style.background= "";
           element.style.color = "initial";
         }
