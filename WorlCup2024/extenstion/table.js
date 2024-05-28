@@ -138,5 +138,5 @@ async function initializePage() {
   }
 }
 
-// Call the function to initialize the DataTable
+
 initializePage();
