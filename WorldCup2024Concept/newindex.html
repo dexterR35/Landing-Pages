@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body {
+        overflow: hidden;
+    }
+</style>
+<body>
+    
+<div class="app" id="app">
+   
+</div>
+
+    <script type="module">
+import * as THREE from "https://esm.sh/three";
+
+const clock = new THREE.Clock();
+const raycaster = new THREE.Raycaster();
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+  75,
+  window.innerWidth / window.innerHeight,
+  1,
+  10000
+);
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(-1, 0, 1);
+scene.add(light);
+camera.position.z = 1000;
+scene.add(camera);
+
+// Load the background texture and create a large plane
+const bgTexture = new THREE.TextureLoader().load(
+  "./png/Background-copy.jpg", // Replace with your background image URL
+  function (texture) {
+    const bgGeo = new THREE.PlaneGeometry(window.innerWidth, window.innerHeight);
+    const bgMaterial = new THREE.MeshBasicMaterial({
+      map: texture,
+      side: THREE.DoubleSide
+    });
+    const bgMesh = new THREE.Mesh(bgGeo, bgMaterial);
+    bgMesh.position.z = 375;
+    scene.add(bgMesh);
+    // Start animation only after texture is loaded
+    animate();
+  },
+  undefined,
+  function (err) {
+    console.error('An error happened loading the background texture:', err);
+  }
+);
+
+const geometry = new THREE.BoxGeometry(200, 200, 200);
+const material = new THREE.MeshLambertMaterial({
+  color: new THREE.Color("rgb(255, 255, 255)"),
+  wireframe: false
+});
+
+let cubeSineDriver = 0;
+
+const smokeTexture = new THREE.TextureLoader().load(
+  "https://s3-us-west-2.amazonaws.com/s.cdpn.io/95637/Smoke-Element.png"
+);
+
+const smokeMaterialRed = new THREE.MeshLambertMaterial({
+  color: new THREE.Color("rgb(255, 0, 0)"),
+  map: smokeTexture,
+  transparent: true
+});
+
+const smokeMaterialBlue = new THREE.MeshLambertMaterial({
+  color: new THREE.Color("rgb(100,149,237)"),
+  map: smokeTexture,
+  transparent: true
+});
+
+const smokeGeo = new THREE.PlaneGeometry(250, 350);
+const smokeParticlesRed = [];
+const smokeParticlesBlue = [];
+
+for (let p = 0; p < 50; p++) {
+  const particleRed = new THREE.Mesh(smokeGeo, smokeMaterialRed);
+  particleRed.position.set(
+    Math.random() * 120 + 140, // X position close to the left side
+    Math.random() * 100 - 100, // Y position close to the bottom
+    Math.random() * 900 - 20
+  );
+  particleRed.rotation.z = Math.random() * 360;
+  scene.add(particleRed);
+  smokeParticlesRed.push(particleRed);
+
+  const particleBlue = new THREE.Mesh(smokeGeo, smokeMaterialBlue);
+  particleBlue.position.set(
+    Math.random() * 100 + (-250), // X position close to the left side
+    Math.random() * 100 - 100, // Y position close to the bottom
+    Math.random() * 900 - 10
+  );
+  particleBlue.rotation.z = Math.random() * 360;
+  scene.add(particleBlue);
+  smokeParticlesBlue.push(particleBlue);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  evolveSmoke();
+  render();
+}
+
+function evolveSmoke() {
+  const delta = clock.getDelta();
+  for (let sp = 0; sp < smokeParticlesRed.length; sp++) {
+    smokeParticlesRed[sp].rotation.z += delta * 0.1;
+  }
+  for (let sp = 0; sp < smokeParticlesBlue.length; sp++) {
+    smokeParticlesBlue[sp].rotation.z += delta * 0.1;
+  }
+}
+
+function render() {
+  cubeSineDriver += 0.01;
+  renderer.render(scene, camera);
+}
+
+    </script>
+</body>
+</html>
