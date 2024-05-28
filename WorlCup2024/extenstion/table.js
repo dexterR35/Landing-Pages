@@ -106,8 +106,8 @@ function initializeDataTable(selector, data) {
               data: "status",
               render: function (data, type, row, meta) {
                   return data === 0
-                      ? '<span><img src="./png/thumbs/thumb-up.png" class="thumb-icon" alt="Thumb Up"> </span>'
-                      : '<span><img src="./png/thumbs/thumb-down.png" class="thumb-icon" alt="Thumb Down"></span>';
+                      ? '<span><img src="./png/thumbs/thumb-up2.png" class="thumb-icon" alt="Thumb Up"> </span>'
+                      : '<span><img src="./png/thumbs/thumb-down2.png" class="thumb-icon" alt="Thumb Down"></span>';
               },
           },
       ],

@@ -309,7 +309,7 @@ function addInfoCotes(matches) {
   coteMatchElement.insertAdjacentHTML("beforeend", htmlContent);
 }
 
-// Add content on page load
+
 addInfoCotes(fullData.matches);
 
 function onLoad() {
@@ -340,9 +340,10 @@ const tableContent = document.getElementById('tableScore-content');
 
 fullData.teams.forEach(team => {
   const row = document.createElement('div');
-  row.classList.add('tableScore-row');
+  row.classList.add('parent-tableScore-row');
 
   row.innerHTML = `
+  <div class="tableScore-row">
       <div class="team-name">
           <img class="flag" src="${team.flag}" alt="${team.name} flag">
           ${team.name}
@@ -352,6 +353,7 @@ fullData.teams.forEach(team => {
       <div class="cell">${team.d}</div>
       <div class="cell">${team.l}</div>
       <div class="cell">${team.pts}</div>
+      </div>
   `;
 
   tableContent.appendChild(row);
