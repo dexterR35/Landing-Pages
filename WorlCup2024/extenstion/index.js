@@ -178,11 +178,11 @@ function addDestinyAnimations(element, direction) {
 // Initialize fullpage.js
 document.addEventListener("DOMContentLoaded", function () {
 
-
-
   document.getElementById('loading').style.display = 'none';
   document.getElementById('content').style.display = 'flex';
+
   console.log("fullPage");
+
   new fullpage("#fullpage", {
     sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
     anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
@@ -337,11 +337,9 @@ fullData.dataBoxes.forEach((item, index) => {
 });
 
 const tableContent = document.getElementById('tableScore-content');
-
 fullData.teams.forEach(team => {
   const row = document.createElement('div');
   row.classList.add('parent-tableScore-row');
-
   row.innerHTML = `
   <div class="tableScore-row">
       <div class="team-name">
@@ -355,6 +353,5 @@ fullData.teams.forEach(team => {
       <div class="cell">${team.pts}</div>
       </div>
   `;
-
   tableContent.appendChild(row);
 });
