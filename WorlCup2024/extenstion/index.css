@@ -853,6 +853,7 @@ div.dt-container div.dt-layout-cell.dt-end {
   border-radius: 4px;
   text-transform: uppercase;
   color: white;
+  position: relative;
   text-decoration: none;
   font-weight: 900;
   font-family: "MontzExtraBold";
@@ -1023,15 +1024,15 @@ div.dt-container div.dt-layout-cell.dt-end {
   text-decoration: none;
   display: inline-block;
   height: auto;
-  font-size: 1.5em;
+  font-size: 0.4em;
   max-height: max-content;
   margin: 7px 11px;
   cursor: pointer;
   border-radius: 4px;
   letter-spacing: -0.3px;
   transition: background-color 0.3s ease;
-  flex: 1;
   max-width: 25%;
+  flex: 1;
   font-family: "MontzSemiBold";
   text-transform: capitalize;
 }
@@ -1039,28 +1040,20 @@ div.dt-container div.dt-layout-cell.dt-end {
 .footer-button._active._pulse {
   animation: shadow-pulse 1.5s infinite;
 }
-/* .footer-button._active {
-  background: green;
-  color: white;
-} */
 
-/* .footer-button:hover {
-  background-color: var(--red);
-  color: var(--white);
-} */
-
-/* Responsive design */
 @media (max-width: 768px) {
   .footer-button {
     max-width: 50%;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
   .footer-button {
     max-width: 100%;
-    padding: 10px 5px;
-    font-size: 1em;
+    font-size: 0.8em;
+    max-height: max-content;
+    margin: 2px;
+    padding: 6px;
   }
 }
 
@@ -2187,7 +2180,7 @@ table.dataTable > tbody > tr > td {
     max-width: 100%;
     width: 100%;
   }
-
+ 
   #section3 .wrapp_all {
     flex-direction: column;
     justify-content: start;
@@ -2247,16 +2240,21 @@ table.dataTable > tbody > tr > td {
     width: 100%;
     height: 100%;
   }
-
+  #section1 .wrapp_all {
+    flex-direction: column;
+  }
+  #section1 .cotes {
+    position: relative;
+  }
   .offer {
     position: relative;
     left: 0;
-    top: 4%;
+    top: 0%;
     /* background: red; */
-    height: 100%;
+    height: auto;
     width: 100%;
   }
-
+ 
   .offer-content ul li:nth-child(2) {
     font-size: 2.18em;
   }
@@ -2439,17 +2437,29 @@ table.dataTable > tbody > tr > td {
 
   #section1 .cotes {
     bottom: -13%;
+    left: 0%;
   }
 
   #section1 .ball {
     top: 63%;
     left: 44%;
   }
-
+  .tableScore-row .team-name {
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    padding: 1px 10px;
+  }
   .section_content {
     margin: 7% 0 4% 0%;
   }
-
+  .tableScore-row {
+    margin: 2px 4px;
+    padding-top: 2px;
+}
+#tableScore-content {
+  font-size: 1em;
+}
   .wrapp_all {
     gap: 0;
   }
@@ -2510,6 +2520,9 @@ table.dataTable > tbody > tr > td {
 
   #section4 .wrapp_all {
     max-height: 85vh !important;
+  }
+  #section4 .section_content {
+    height: 2em;
   }
 
   .boxParent div img {
