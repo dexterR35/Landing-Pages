@@ -2446,7 +2446,10 @@ table.dataTable > tbody > tr > td {
     justify-content: start;
   }
   #section2 .wrapp_all {
-    max-height: 85vh !important;
+    max-height: 90vh !important;
+  }
+  #section2 .intro p:nth-child(1) {
+    font-size: 0.85em;
   }
   #section4 .wrapp_all {
     padding: 0;
@@ -2459,13 +2462,13 @@ table.dataTable > tbody > tr > td {
     min-width: 100%;
     width: 100%;
     flex-direction: column;
-    gap: 15px;
+    gap: 2px;
   }
 
   #section4 .boxParent div {
     width: 100% !important;
     display: flex;
-    height: 125px;
+    height: auto;
   }
 
   #section4 .boxParent:nth-child(1) div:nth-child(1) {
@@ -2487,21 +2490,26 @@ table.dataTable > tbody > tr > td {
   }
 
   #section4 .containerBox {
-    justify-content: space-evenly;
+    justify-content: stretch;
     height: 100%;
   }
-
+  #section4 .boxParent:nth-child(1) div:nth-child(1) {
+    justify-content: center !important;
+}
   #section4 .slider-controls {
     position: relative;
-    top: -4%;
+    top: -12%;
     justify-content: space-between;
     align-items: center;
     align-self: center;
+    width: 70%;
   }
-
+  #section4 #slide2-2 .slider-controls, #section4 #slide2-4 .slider-controls {
+    align-self: center;
+}
   #section4 .wrapp_all {
-    max-height: 85vh !important;
-    top: 45%;
+    max-height: 90vh !important;
+    /* top: 45%; */
   }
   header {
     display: none;
@@ -2515,9 +2523,11 @@ table.dataTable > tbody > tr > td {
   } */
 
   #section4 .boxParent div img {
-    width: 90%;
+    width: 65%;
   }
-
+  #section4 #slide2-2 .containerBox, #section4 #slide2-4 .containerBox {
+    flex-direction: column;
+  }
   .boxParent div p {
     color: var(--dark);
     font-weight: 900;
