@@ -195,19 +195,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log("fullPage");
 
-  new fullpage("#fullpage", {
+  new fullpage("#content", {
     sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
     anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
     menu: "#menu",
     navigation: true,
-    slidesNavigation: true,
-    animateAnchor: true,
-    cardsOptions: {
-      perspective: 450,
-      fadeContent: true,
-      fadeBackground: true,
-    },
-    scrollingSpeed: 600,
+    // responsiveSlides:true,
+    // animateAnchor: true,
+    // cardsOptions: {
+    //   perspective: 950,
+    //   fadeContent: true,
+    //   fadeBackground: true,
+    // },
+    // touchSensitivity: 18,
+    // scrollingSpeed: 1000,
+    keyboardScrolling: true,
+    dragAndMove: true,
+    lazyLoading: true,
+    controlArrows: false,
     fadingEffect: true,
     fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
     licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
@@ -221,13 +226,11 @@ document.addEventListener("DOMContentLoaded", function () {
       btnActive.forEach(element => {
         if (element.getAttribute('data-target') === anchor) {
           addClass(element, "_active");
-          addClass(element, "_pulse");
-      
           const color = element.getAttribute('data-color');
           element.style.background = `var(${color})`;
           element.style.color = "white";
         } else {
-          removeClass(element, "_active _pulse");
+          removeClass(element, "_active");
           element.style.background= "";
           element.style.color = "initial";
         }
@@ -260,7 +263,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeElements = $(`.trainers[data-section="${section.index + 1}"][data-slide="${origin.index + 1}"]`);
       removeClass(activeElements, ACTIVE);
       addOriginAnimations(activeElements, direction);
-    }
+    },
+    afterResize: function(width, height){},
   });
 
 
@@ -269,19 +273,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Event listeners
-const buttonPageMap = {
-  goOffer: "firstPage",
-  goClasament: "secondPage",
-  goCotes: "3thPage",
-  goInfoGrafic: "4thPage",
-  goTerms: "5thPage",
-};
 
-Object.keys(buttonPageMap).forEach(className => {
-  document.querySelector(`.${className}`).addEventListener("click", () => {
-    fullpage_api.moveTo(buttonPageMap[className]);
-  });
-});
+
+
 
 document.querySelector(".arrow-down").addEventListener("click", () => {
   fullpage_api.moveSectionDown();
