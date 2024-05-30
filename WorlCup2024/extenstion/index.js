@@ -273,9 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Event listeners
-
-
-
+http://127.0.0.1:5500/WorlCup2024/extenstion/index.html#firstPagehttp://127.0.0.1:5500/WorlCup2024/extenstion/index.html#firstPage
 
 document.querySelector(".arrow-down").addEventListener("click", () => {
   fullpage_api.moveSectionDown();

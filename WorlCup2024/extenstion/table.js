@@ -99,7 +99,7 @@ function initializeDataTable(selector, data) {
       info: true,
       lengthChange: false,
       responsive: true,
-      pageLength: window.innerWidth < 991 ? 8 : 10,
+      pageLength: window.innerWidth < 991 ? 9 : 10,
       paginate: true,
       searching: false,
       aaSorting: false,
