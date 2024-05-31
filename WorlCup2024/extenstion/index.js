@@ -189,11 +189,19 @@ function addDestinyAnimations(element, direction) {
 
 // Initialize fullpage.js
 document.addEventListener("DOMContentLoaded", function () {
+  const loadingElement = document.getElementById('loading');
+  const contentElement = document.getElementById('content');
+  loadingElement.style.display = 'flex';
+  contentElement.style.display = 'none';
 
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('content').style.display = 'flex';
+  function hideLoadingScreen() {
+    setTimeout(() => {
+      loadingElement.style.display = 'none';
+      contentElement.style.display = 'flex';
+    }, 1000); // 1000ms = 1 second
+  }
 
-  console.log("fullPage");
+  window.addEventListener("load", hideLoadingScreen);
 
   new fullpage("#content", {
     sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
@@ -273,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Event listeners
-http://127.0.0.1:5500/WorlCup2024/extenstion/index.html#firstPagehttp://127.0.0.1:5500/WorlCup2024/extenstion/index.html#firstPage
+
 
 document.querySelector(".arrow-down").addEventListener("click", () => {
   fullpage_api.moveSectionDown();

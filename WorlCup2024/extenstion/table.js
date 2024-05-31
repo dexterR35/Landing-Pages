@@ -1,148 +1,123 @@
+// Function to fetch data from the API
+async function fetchData() {
+  try {
+    const response = await fetch("https://casino-promo.netbet.ro/scripts/utils/leaderboard_euro2024.php");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const responseData = await response.json();
+    if (responseData && responseData.status === true && responseData.data && Array.isArray(responseData.data.data)) {
+      const playerIds = responseData.data.data.map(player => player.player_id);
+      console.log(playerIds); // Log all player IDs
+      console.log(responseData.data);
+      return {
+        data: responseData.data.data,
+        playerIds: playerIds
+      };
+    } else {
+      throw new Error("Invalid response data format");
+    }
+  } catch (error) {
+    console.error("Failed to fetch data:", error);
+    return {
+      data: null,
+      playerIds: []
+    };
+  }
+}
 
-// // // Function to fetch data from the API
-// async function fetchData() {
-//   try {
-//       const response = await fetch("https://casino-promo.netbet.ro/scripts/utils/leaderboard_euro2024.php");
-//       if (!response.ok) {
-//           throw new Error(`HTTP error! status: ${response.status}`);
-//       }
-//       const data = await response.json();
-//       return data;
-//   } catch (error) {
-//       console.error("Failed to fetch data:", error);
-//       return null; // Return null if there's an error
-//   }
-// }
-
-// function initializeDataTable(selector, data) {
-//   return new DataTable(selector, {
-//       data: data,
-//       columns: [
-//           {
-//               title: "Participanți",
-//               data: "username",
-//           },
-//           {
-//               title: "Status",
-//               data: "status",
-//               render: function (data, type, row, meta) {
-//                   return data === 0
-//                       ? '<span><img src="./png/thumbs/thumb-up2.png" class="thumb-icon" alt="Thumb Up"> </span>'
-//                       : '<span><img src="./png/thumbs/thumb-down2.png" class="thumb-icon" alt="Thumb Down"></span>';
-//               },
-//           },
-//       ],
-//       paging: true,
-//       info: true,
-//       lengthChange: false,
-//       aaSorting: true,
-//       responsive: true,
-//       pageLength: window.innerWidth < 991 ? 8 : 10,
-//       paginate: true,
-//       searching: false,
-//       order: [[0, "asc"]],
-//   });
-// }
-
-// async function initializePage() {
-//   const fetchedData = await fetchData();
-
-//   if (fetchedData && fetchedData.status) {
-//       const tableData = fetchedData.data.data.map(item => ({
-//           username: item.username,
-//           status: item.status
-//       }));
-
-//       initializeDataTable("#exampleS", tableData);
-//   } else {
-//       console.log("No data available or status is false");
-//   }
-// }
-
-// initializePage();
-
+// Function to get cookie value by name
 function getCookie(name) {
-  var nameEQ = name + "=";
-  var ca = document.cookie.split(';');
-  for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+          c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) === 0) {
+          return c.substring(nameEQ.length, c.length);
+      }
   }
   return null;
 }
-
 function initializeDataTable(selector, data) {
-  return $(selector).DataTable({
-      data: data,
-      columns: [
-          {
-              title: "Participanți",
-              data: "username",
-          },
-          {
-              title: "Status",
-              data: "status",
-              render: function (data, type, row, meta) {
-                return data === 1
-                  ? '<span><img src="./png/thumbs/thumb-up2.png" class="thumb-icon" alt="Thumb Up"> </span>'
-                  : '<span><img src="./png/thumbs/thumb-down2.png" class="thumb-icon" alt="Thumb Down"></span>';
-              },
-          },
-      ],
-      createdRow: function(row, data, dataIndex) {
-          if (data.status === 1) {
-              $(row).addClass('highlight');
-          }
+  return new DataTable(selector, {
+    data: data,
+    columns: [
+      {
+        title: "Participanți",
+        data: "username",
       },
-      paging: true,
-      info: true,
-      lengthChange: false,
-      responsive: true,
-      pageLength: window.innerWidth < 991 ? 9 : 10,
-      paginate: true,
-      searching: false,
-      aaSorting: false,
-      ordering: false,
-      // order: [[2, "desc"], [0, "asc"]], 
+      {
+        title: "Status",
+        data: "status",
+        render: function (data, type, row, meta) {
+          console.log(data,"datarender")
+          if (data === 0) {
+            return '<span><img src="./png/thumbs/thumb-up2.png" class="thumb-icon" alt="Thumb Up"> </span>';
+          } else {
+            return '<span><img src="./png/thumbs/thumb-down2.png" class="thumb-icon" alt="Thumb Down"></span>';
+          }
+        },
+      },
+    ],
+    paging: true,
+    info: true,
+    lengthChange: false,
+    aaSorting: true,
+    responsive: true,
+    pageLength: window.innerWidth < 991 ? 8 : 10,
+    paginate: true,
+    searching: false,
+    order: [[0, "asc"]],
   });
 }
+async function initializePage() {
+  // Fetch data from API
+  const fetchedData = await fetchData();
 
-function initializePage() {
-  // Simulate
-  const dummyData = [
-    { username: "zAlayer3", status: 0, player_id: "789"},
-    { username: "APlayer4", status: 0, player_id: "1014"},
-    { username: "BPlayer5", status: 0, player_id: "102" },
-    { username: "CPlayer3", status: 0, player_id: "789"},
-    { username: "DPlayer4", status: 0, player_id: "1011"},
-    { username: "EPlayer5", status: 0, player_id: "102"},
-    { username: "FPlayer3", status: 0, player_id: "789"},
-    { username: "zMatei playerId== ", status: 1, player_id: "123" },
-      { username: "XzPlayer2", status: 0, player_id: "456" },
-      { username: "ZPlayer5", status: 0, player_id: "102"},
-      { username: "Player3", status: 0, player_id: "789"},
-      { username: "Baebastian playerId!=", status: 0, player_id: "101"},
-      { username: "WPlayer5", status: 0, player_id: "102" }
-  ];
+  if (fetchedData && fetchedData.data && Array.isArray(fetchedData.data)) {
+    // Extract player ID from cookies
+    let player_id = parseInt(getCookie("player_id")); // Parse the player ID as an integer
+    console.log("Player ID from cookie:", player_id); // Log player ID
 
-  // Simulated cookie
-  document.cookie = "PlayerID=123";
-
-  const playerId = getCookie("PlayerID");
-
-  console.log(playerId, "playerId");
-
-  // Add highlight flag to the data
-  const tableData = dummyData.map(item => ({
+    const tableData = fetchedData.data.map(item => ({
       ...item,
-      status: item.player_id === playerId ? 1 : 0
-  }));
- console.log(tableData, "tableData");
-  const sortingPlayers = tableData.sort((a, b) => b.status - a.status || a.username.localeCompare(b.username));
-  console.log(sortingPlayers);
+      highlight: item.player_id === player_id // Add a flag to highlight the row if player IDs match
+    }));
+    console.log("Table data:", tableData);
 
-  initializeDataTable("#exampleS", tableData);
+    // Sort data: highlighted player first, then by username
+    tableData.sort((a, b) => {
+      if (a.highlight !== b.highlight) {
+        return b.highlight - a.highlight; // Sort by highlight status (highlighted players first)
+      } else {
+        return a.username.localeCompare(b.username); // If highlight status is the same, sort by username
+      }
+    });
+
+    // Set cookie if playerId is not found in cookies
+    if (!player_id && tableData.length > 0) {
+      player_id = tableData[0].player_id;
+      document.cookie = `player_id=${player_id}`;
+    }
+
+    // Extract usernames
+    const usernames = tableData.map(item => item.username);
+    console.log("Usernames:", usernames);
+
+    // Initialize DataTable with playerId
+    const dataTable = initializeDataTable("#exampleS", tableData);
+
+    // Highlight the row corresponding to the current player
+    tableData.forEach((item, index) => {
+      if (item.highlight) {
+        dataTable.row(index).node().classList.add('highlight'); // Add a CSS class to highlight the row
+      }
+    });
+  } else {
+    console.log("No valid data available");
+  }
 }
-
 initializePage();
