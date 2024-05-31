@@ -1,0 +1,1725 @@
+<html xmlns="https://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>fullPage.js - Cards 3d Extension</title>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://alvarotrigo.com/fullPage/fullpage-v3.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://alvarotrigo.com/fullPage/examples/examples.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900"
+      rel="stylesheet"
+    />
+
+    <style type="text/css">
+      @keyframes hideTextLeft {
+        0% {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+
+        to {
+          transform: translate3d(calc(-100% - 551px), 0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes hideTextToRight {
+        0% {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+
+        to {
+          transform: translate3d(100%, 0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes revealTextFromRight {
+        0% {
+          transform: translate3d(100%, 0, 0);
+          opacity: 0;
+        }
+
+        to {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes revealTextFromLeft {
+        0% {
+          transform: translate3d(calc(-100% - 551px), 0, 0);
+          opacity: 0;
+        }
+
+        to {
+          transform: translate3d(0, 0, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes revealText {
+        0% {
+          transform: translate3d(0, 125%, 0);
+          opacity: 0;
+        }
+
+        to {
+          transform: translate3d(0, 0%, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes hideText {
+        0% {
+          transform: translate3d(0, 0%, 0);
+          opacity: 1;
+        }
+
+        to {
+          transform: translate3d(0, 125%, 0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        60%,
+        80%,
+        to {
+          transform: translateY(0);
+        }
+
+        40% {
+          transform: translateY(-10px);
+        }
+
+        50% {
+          transform: translateY(5px);
+        }
+      }
+
+      @keyframes floating {
+        0%,
+        to {
+          transform: translate(0%, -50%);
+        }
+
+        25% {
+          transform: translate(5px, calc(-50% + 15px));
+        }
+
+        50% {
+          transform: translate(10px, calc(-50% + 5px));
+        }
+
+        75% {
+          transform: translate(0%, calc(-50% + 15px));
+        }
+      }
+
+      @keyframes rubberBand {
+        0%,
+        to {
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+        }
+
+        3% {
+          -webkit-transform: scale3d(1.25, 0.75, 1);
+          transform: scale3d(1.25, 0.75, 1);
+        }
+
+        20% {
+          -webkit-transform: scale3d(0.75, 1.25, 1);
+          transform: scale3d(0.75, 1.25, 1);
+        }
+
+        40% {
+          -webkit-transform: scale3d(1.15, 0.85, 1);
+          transform: scale3d(1.15, 0.85, 1);
+        }
+
+        55% {
+          -webkit-transform: scale3d(0.95, 1.05, 1);
+          transform: scale3d(0.95, 1.05, 1);
+        }
+
+        75% {
+          -webkit-transform: scale3d(1.05, 0.95, 1);
+          transform: scale3d(1.05, 0.95, 1);
+        }
+      }
+
+      @keyframes heartbeat {
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes rainbow {
+        0% {
+          background: #1abc9c;
+        }
+
+        10% {
+          background: #2ecc71;
+        }
+
+        20% {
+          background: #3498db;
+        }
+
+        30%,
+        80% {
+          background: #9b59b6;
+        }
+
+        40% {
+          background: #e74c3c;
+        }
+
+        50% {
+          background: #e67e22;
+        }
+
+        60% {
+          background: #f1c40f;
+        }
+
+        70% {
+          background: #2c3e50;
+        }
+      }
+
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      body,
+      h1 {
+        color: #000;
+      }
+
+      body {
+        background: #000;
+      }
+
+      h1 {
+        font-weight: 900;
+        font-size: 8em;
+      }
+
+      .intro p,
+      h1 {
+        font-family: "Source Sans Pro", sans-serif;
+      }
+
+      p.intro-line {
+        border-bottom: 4px;
+        background: #000;
+        width: 177px;
+        height: 4px;
+      }
+
+      .intro-line-wrapper {
+        margin-bottom: 40px;
+      }
+
+      #section1 .fp-bg,
+      .fp-section {
+        background-size: cover;
+        background-position: 50% 100%;
+      }
+
+      #section1 {
+        position: relative;
+      }
+
+      .fp-section:before,
+      .fp-slide:before {
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -2;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        height: 100%;
+      }
+
+      #section1 h1 {
+        font-size: 12em;
+      }
+
+      #section1 h2 {
+        font-size: 2.2em;
+      }
+
+      #section1 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors1.svg);
+      }
+
+      .arrow-down {
+        position: fixed;
+        bottom: 23px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: 24px;
+        height: 20px;
+        cursor: pointer;
+        animation: bounce 3s infinite;
+        transition: opacity 1.3s ease;
+        opacity: 1;
+      }
+
+      .fp-viewing-3rdPage .arrow-down {
+        opacity: 0;
+      }
+
+      .documentation {
+        margin: 17px 0 0;
+        display: block;
+        color: #245deb;
+      }
+
+      .button-download {
+        background: #245deb;
+        margin-top: 15px;
+        color: #fff;
+        border-width: 0;
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        font: 18px "Margarine", sans-serif;
+        outline: 0;
+        cursor: pointer;
+        position: relative;
+        transition: 0.2s ease-in-out;
+        letter-spacing: 2px;
+        display: inline-block;
+      }
+
+      .button-download:hover {
+        animation: rainbow 3s infinite, heartbeat 0.6s infinite;
+      }
+
+      #slide2-1 .fp-bg,
+      #slide2-2 .fp-bg,
+      #slide2-3 .fp-bg {
+        background-position: 89% 50%;
+        background-size: 52%;
+        background-repeat: no-repeat;
+      }
+
+      .loadBg #slide2-1 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-1.svg);
+      }
+
+      #slide2-2 .fp-bg,
+      #slide2-3 .fp-bg {
+        background-size: 42%;
+      }
+
+      .loadBg #slide2-2 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-2.svg);
+      }
+
+      .loadBg #slide2-3 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-2-3.svg);
+      }
+
+      #section2 .fp-slide {
+        text-align: left;
+        position: relative;
+      }
+
+      .fp-slidesNav.fp-bottom {
+        bottom: 60px;
+      }
+
+      #section2 .fp-tableCell {
+        vertical-align: top;
+      }
+
+      #section2 .fp-content {
+        margin: 0 auto;
+        display: inline-block;
+        width: auto;
+        padding: 0 0 0 10%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      #section2 .intro p {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .section2-img,
+      .slide2-2-img,
+      .slide2-3-img {
+        max-width: 900px;
+        max-height: 683px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        bottom: 0;
+        transform: translate3d(15%, calc(-100% - 700px), 0);
+        transition: transform 1000ms cubic-bezier(0.52, 0.01, 0.16, 1) 100ms;
+      }
+
+      .loadBg .section2-img {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-img.png);
+      }
+
+      .slide2-2-img,
+      .slide2-3-img {
+        max-height: 516px;
+      }
+
+      .loadBg .slide2-2-img {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-2-img.png);
+      }
+
+      .loadBg .slide2-3-img {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-3-img.png);
+      }
+
+      .trainers {
+        width: 59%;
+        height: 100%;
+        background-size: contain;
+      }
+
+      .trainers.animate {
+        transform: translate3d(0, -50%, 0);
+        transition: transform 1000ms cubic-bezier(0.52, 0.01, 0.16, 1) 1000ms;
+      }
+
+      .trainers.hide-right {
+        transform: translate3d(calc(-150% - 900px), -50%, 0);
+        transition: transform 1000ms cubic-bezier(0.52, 0.01, 0.16, 1) 100ms;
+      }
+
+      .trainers.hide-left {
+        transform: translate3d(100%, -50%, 0);
+      }
+
+      .trainers.hide-down,
+      .trainers.hide-left,
+      .trainers.hide-up {
+        transition: transform 1000ms cubic-bezier(0.52, 0.01, 0.16, 1) 100ms;
+      }
+
+      .trainers.hide-up {
+        transform: translate3d(0, 150%, 0);
+      }
+
+      .trainers.hide-down {
+        transform: translate3d(0, calc(-150% - 900px), 0);
+      }
+
+      .trainers.animate2 {
+        animation-name: floating;
+        animation-delay: 1600ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        animation-duration: 3s;
+      }
+
+      #section3 .fp-bg,
+      .trainers {
+        background-position: 50%;
+        background-repeat: no-repeat;
+      }
+
+      body:not(.d-bg) #section3 .fp-bg {
+        background-size: contain;
+        background-origin: content-box;
+        padding: 3%;
+      }
+
+      .loadBg #section3 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/vectors-333.svg);
+      }
+
+      #section3 .fp-content.section3-text {
+        padding: 0 10%;
+      }
+
+      .anim-wrapper {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .anim-wrapper span {
+        display: block;
+      }
+
+      .fp-moving-vertically .fp-section.active .anim-wrapper p,
+      .fp-moving-vertically .fp-section.active .anim-wrapper span {
+        animation-timing-function: cubic-bezier(0.52, 0.01, 0.16, 1);
+        animation-name: revealText;
+        animation-duration: 1550ms;
+        animation-fill-mode: forwards;
+        animation-delay: 500ms;
+        opacity: 0;
+      }
+
+      .fp-moving-vertically .fp-section:not(.active) .anim-wrapper p,
+      .fp-moving-vertically .fp-section:not(.active) .anim-wrapper span {
+        animation-name: hideText;
+        animation-duration: 1550ms;
+        animation-delay: 0ms;
+        opacity: 1;
+      }
+
+      .fp-section.active .fp-slide .anim-wrapper p,
+      .fp-section.active .fp-slide .anim-wrapper span {
+        animation-timing-function: cubic-bezier(0.52, 0.01, 0.16, 1);
+        animation-name: revealText;
+        animation-duration: 1550ms;
+        animation-fill-mode: forwards;
+      }
+
+      .fp-section.active .fp-slide.active .anim-wrapper p,
+      .fp-section.active .fp-slide.active .anim-wrapper span {
+        animation-delay: 500ms;
+      }
+
+      .fp-moving-right .fp-section.active .fp-slide.active .anim-wrapper p,
+      .fp-moving-right .fp-section.active .fp-slide.active .anim-wrapper span {
+        animation-name: revealTextFromRight;
+        opacity: 0;
+      }
+
+      .fp-moving-left .fp-section.active .fp-slide.active .anim-wrapper p,
+      .fp-moving-left .fp-section.active .fp-slide.active .anim-wrapper span {
+        animation-name: revealTextFromLeft;
+        opacity: 0;
+      }
+
+      .fp-moving-right .fp-section.active .fp-slide .anim-wrapper p,
+      .fp-moving-right .fp-section.active .fp-slide .anim-wrapper span {
+        animation-name: hideTextLeft;
+        opacity: 1;
+      }
+
+      .fp-moving-left .fp-section.active .fp-slide .anim-wrapper p,
+      .fp-moving-left .fp-section.active .fp-slide .anim-wrapper span {
+        animation-name: hideTextToRight;
+        opacity: 1;
+      }
+
+      .anim-delay-1 {
+        transition-delay: 110ms;
+      }
+
+      .anim-delay-2 {
+        transition-delay: 210ms;
+      }
+
+      .anim-delay-3 {
+        transition-delay: 310ms;
+      }
+
+      .anim-delay-4 {
+        transition-delay: 410ms;
+      }
+
+      .anim-delay-5 {
+        transition-delay: 510ms;
+      }
+
+      .anim-delay-6 {
+        transition-delay: 610ms;
+      }
+
+      .anim-delay-7 {
+        transition-delay: 710ms;
+      }
+
+      .anim-delay-8 {
+        transition-delay: 810ms;
+      }
+
+      .anim-delay-9 {
+        transition-delay: 910ms;
+      }
+
+      .anim-delay-10 {
+        transition-delay: 1010ms;
+      }
+
+      #settings,
+      .settings-actions {
+        position: fixed;
+        left: 20px;
+        z-index: 999;
+      }
+
+      #settings {
+        background: rgba(0, 0, 0, 0.3);
+        height: 43px;
+        cursor: pointer;
+        text-align: center;
+        bottom: 20px;
+        border-radius: 50%;
+        width: 43px;
+      }
+
+      #settings:hover {
+        animation: 0.5s rubberBand;
+      }
+
+      #settings svg {
+        width: 27px;
+        vertical-align: middle;
+        fill: rgba(255, 255, 255, 0.7);
+      }
+
+      #settings:hover svg {
+        fill: #fff;
+      }
+
+      #settings span {
+        line-height: 42px;
+        vertical-align: middle;
+      }
+
+      .settings-actions {
+        visibility: hidden;
+        bottom: 82px;
+        background: #000;
+        border-radius: 4px;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 13px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 350ms, transform 350ms;
+        transform-origin: 50% 100%;
+        width: 185px;
+      }
+
+      .settings-actions.active {
+        opacity: 1;
+        transform: scale(1);
+        visibility: visible;
+      }
+
+      .settings-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+        padding: 16px 0;
+        margin: 0 0 16px;
+      }
+
+      .settings-header h6 {
+        font-size: 18px;
+        color: #fff;
+        font-weight: 700;
+        margin: 0 0 10px;
+      }
+
+      .settings-header p {
+        font-size: 13px;
+      }
+
+      .settings-actions-toggle li {
+        background: rgba(255, 255, 255, 0.6);
+        padding: 7px 12px;
+        margin: 2px;
+        color: #000;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .settings-actions-toggle .active,
+      .settings-actions-toggle li:hover {
+        color: #fff;
+        background: #3cc63b;
+      }
+
+      .actions-option {
+        margin: 0 0 15px;
+        position: relative;
+      }
+
+      .actions-option:last-child {
+        margin: 0;
+      }
+
+      .preview-extensions-menu {
+        box-shadow: none;
+        top: 11px;
+        transform: translate3d(0, -100px, 0);
+        transition: transform 500ms ease-in-out 500ms;
+      }
+
+      .preview-extensions-menu.active {
+        transform: translate3d(0, 0, 0);
+      }
+
+      .preview-extensions-menu li {
+        margin: 0 10px 0 0;
+        border-radius: 4px;
+      }
+
+      #menu li.active a:hover,
+      #menu li:hover a,
+      .preview-more-extensions a {
+        color: #fff;
+      }
+
+      .preview-more-extensions {
+        background: #4884ff;
+      }
+
+      #menu {
+        width: auto;
+      }
+
+      #menu li {
+        background: #efefef;
+        border-radius: 4px;
+      }
+
+      #menu li:hover {
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      [type="range"] {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 1.5em;
+        background: 0 0;
+        font: 1em/1 arial, sans-serif;
+      }
+
+      [type="range"],
+      [type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+      }
+
+      [type="range"]::-webkit-slider-runnable-track {
+        box-sizing: border-box;
+        border: 0;
+        width: 12.5em;
+        height: 0.25em;
+        background: #ccc;
+      }
+
+      [type="range"]::-moz-range-track {
+        box-sizing: border-box;
+        border: 0;
+        width: 12.5em;
+        height: 0.25em;
+        background: #ccc;
+      }
+
+      [type="range"]::-ms-track {
+        box-sizing: border-box;
+        border: 0;
+        width: 12.5em;
+        height: 0.25em;
+        background: #ccc;
+      }
+
+      [type="range"]::-webkit-slider-thumb {
+        margin-top: -0.625em;
+        box-sizing: border-box;
+        border: 0;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        background: #3cc63b;
+      }
+
+      [type="range"]::-moz-range-thumb {
+        box-sizing: border-box;
+        border: 0;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        background: #3cc63b;
+      }
+
+      [type="range"]::-ms-thumb {
+        margin-top: 0;
+        box-sizing: border-box;
+        border: 0;
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        background: #3cc63b;
+      }
+
+      [type="range"]::-ms-tooltip {
+        display: none;
+      }
+
+      [for="toggleFading"] {
+        margin: 9px 0;
+      }
+
+      .toggle {
+        position: absolute;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 0;
+      }
+
+      .toggle,
+      .toggle *,
+      .toggle :after,
+      .toggle :before,
+      .toggle + .toggle-button,
+      .toggle:after,
+      .toggle:before {
+        box-sizing: border-box;
+      }
+
+      .toggle ::-moz-selection,
+      .toggle :after::-moz-selection,
+      .toggle :before::-moz-selection,
+      .toggle + .toggle-button::-moz-selection,
+      .toggle::-moz-selection,
+      .toggle:after::-moz-selection,
+      .toggle:before::-moz-selection {
+        background: 0 0;
+      }
+
+      .toggle ::selection,
+      .toggle :after::selection,
+      .toggle :before::selection,
+      .toggle + .toggle-button::selection,
+      .toggle::selection,
+      .toggle:after::selection,
+      .toggle:before::selection {
+        background: 0 0;
+      }
+
+      .toggle + .toggle-button {
+        outline: 0;
+        display: block;
+        width: 3.2em;
+        height: 1.5em;
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: rgba(140, 150, 169, 0.5);
+        border-radius: 2em;
+        padding: 0;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+      }
+
+      .toggle + .toggle-button:after {
+        display: block;
+      }
+
+      .toggle + .toggle-button:after,
+      .toggle + .toggle-button:before {
+        position: relative;
+        content: "";
+        width: 1.8em;
+        height: 1.8em;
+        top: -0.1em;
+      }
+
+      .toggle + .toggle-button:after {
+        left: -10%;
+        border-radius: 50%;
+        background: #fff;
+        background: #888;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+      }
+
+      .d-colors .fp-bg,
+      .toggle + .toggle-button:before {
+        display: none;
+      }
+
+      .toggle:checked + .toggle-button:after {
+        left: 60%;
+        background-color: #3cc63b;
+      }
+
+      .toggle-light:checked + .toggle-button {
+        background: #3cc63b;
+        background: rgba(60, 198, 59, 0.5);
+      }
+
+      #examples {
+        position: absolute;
+        top: 16px;
+        left: 0;
+        right: 0;
+        z-index: 69;
+        text-align: center;
+      }
+
+      #examples li {
+        color: #444;
+        display: inline-block;
+        margin: 0 20px 0 0;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        padding-bottom: 7px;
+      }
+
+      #examples li.active {
+        color: #245deb;
+        cursor: auto;
+        right: 0;
+      }
+
+      #examples li:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        background: #245deb;
+        height: 2px;
+        -webkit-transition-property: right;
+        transition-property: right;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+      }
+
+      #examples li.active:before,
+      #examples li:active:before,
+      #examples li:focus:before,
+      #examples li:hover:before {
+        right: 0;
+      }
+
+      .d-colors #section1:before {
+        background-color: #ffd65d !important;
+      }
+
+      .d-colors #section2:before,
+      .d-colors #slide2-1:before {
+        background-color: #4ec4ff !important;
+      }
+
+      .d-colors #slide2-2:before {
+        background-color: #ff4e96 !important;
+      }
+
+      .d-colors #slide2-3:before {
+        background-color: #44ffb3 !important;
+      }
+
+      .d-colors #section3:before {
+        background-color: #ffacf0 !important;
+      }
+
+      .d-colors #examples li {
+        color: #000;
+      }
+
+      .d-bg #examples li.active,
+      .d-colors #examples li.active {
+        font-weight: 700;
+      }
+
+      .d-colors #examples li:before {
+        background: #000;
+      }
+
+      .d-bg .fp-bg {
+        background-size: cover !important;
+      }
+
+      .d-bg #section3 .intro p {
+        text-shadow: -1px 1px 8px rgba(0, 0, 0, 0.8);
+      }
+
+      .d-bg #section1 .fp-bg:before,
+      .d-bg .trainers,
+      .mobile-only {
+        display: none;
+      }
+
+      .d-bg #examples li,
+      .d-bg .intro p,
+      .d-bg h1 {
+        color: #fff;
+      }
+
+      .d-bg #examples li:before,
+      .d-bg #fp-nav ul li a span,
+      .d-bg .fp-slidesNav ul li a span,
+      .d-bg p.intro-line {
+        background: #fff;
+      }
+
+      .d-bg h2 {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .d-bg .slider-control {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: #fff;
+      }
+
+      .d-bg .slider-control:hover:after,
+      .d-bg .slider-control:not(.disabled):after {
+        background-color: #fff;
+      }
+
+      .d-bg .slider-control.disabled {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .d-bg .slider-control.disabled:after {
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .d-bg #section1:before {
+        background-color: #162d43 !important;
+      }
+
+      .d-bg #section2:before,
+      .d-bg #slide2-1:before {
+        background-color: #66995e !important;
+      }
+
+      .d-bg #slide2-2:before {
+        background-color: #a3a3a3 !important;
+      }
+
+      .d-bg #slide2-3:before {
+        background-color: #0c798e !important;
+      }
+
+      .d-bg #section3:before {
+        background-color: #830619 !important;
+      }
+
+      .d-bg #section3 .fp-bg:before {
+        background: rgba(0, 0, 0, 0.35);
+      }
+
+      .d-bg #section1 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section-1.jpeg);
+      }
+
+      .d-bg #slide2-1 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-1.jpg);
+      }
+
+      .d-bg #slide2-2 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-2.jpeg);
+      }
+
+      .d-bg #slide2-3 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section2-3.jpg);
+      }
+
+      .d-bg #section3 .fp-bg {
+        background-image: url(https://alvarotrigo.com/fullPage/extensions/imgs/cards/section3.jpg);
+      }
+
+      .d-bg.fp-viewing-3rdPage .settings-actions,
+      .d-bg.fp-viewing-firstPage .settings-actions {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .fp-controlArrow.fp-next {
+        right: 55px;
+      }
+
+      .fp-controlArrow.fp-prev {
+        left: 55px;
+      }
+
+      .slider-control {
+        width: 44px;
+        height: 44px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 50%;
+        margin: 7px;
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        line-height: 44px;
+        color: #000;
+        font-size: 0.84em;
+        font-family: "courier new";
+        position: relative;
+      }
+
+      .slider-control span {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 0;
+        left: 0;
+      }
+
+      .slider-control:not(.disabled):hover span {
+        transform: translateX(-5px);
+      }
+
+      .slider-control-next:not(.disabled):hover span {
+        transform: translateX(5px);
+      }
+
+      .slider-control span,
+      .slider-control:not(.disabled):after {
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .slider-control:not(.disabled):after {
+        display: block;
+        content: "";
+        background-color: #000;
+        height: 1px;
+        width: 14px;
+        position: absolute;
+        top: 50%;
+        left: auto;
+        right: 14px;
+        transform: scaleX(0) translateX(0);
+      }
+
+      .slider-control:hover:after {
+        transform: scaleX(1) translateX(0);
+      }
+
+      .slider-control.disabled {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        color: rgba(0, 0, 0, 0.15);
+      }
+
+      .slider-control.disabled:after {
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+
+      @media screen and (max-width: 1135px) {
+        body {
+          font-size: 0.9em;
+        }
+      }
+
+      @media screen and (max-width: 1050px) {
+        .fp-tableCell {
+          font-size: 0.85em;
+        }
+      }
+
+      @media screen and (max-width: 850px) {
+        .trainers {
+          display: none;
+        }
+
+        .fp-content {
+          width: 100% !important;
+          text-align: center;
+          padding: 0 10% !important;
+          display: -webkit-box !important;
+          display: -moz-box !important;
+          display: -ms-flexbox !important;
+          display: -webkit-flex !important;
+          display: flex !important;
+          -webkit-box-orient: vertical;
+          -moz-box-orient: vertical;
+          -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+          flex-direction: column;
+        }
+
+        #section2 .intro,
+        #section2 h1 {
+          margin: 0 auto;
+          -webkit-box-ordinal-group: 2;
+          -moz-box-ordinal-group: 2;
+          -ms-flex-order: 2;
+          -webkit-order: 2;
+          order: 2;
+        }
+
+        #section2 h1 {
+          -webkit-box-ordinal-group: 1;
+          -moz-box-ordinal-group: 1;
+          -ms-flex-order: 1;
+          -webkit-order: 1;
+          order: 1;
+        }
+
+        .intro-line {
+          display: none;
+        }
+
+        .intro p {
+          width: 218px;
+        }
+      }
+
+      @media screen and (max-width: 700px) {
+        .fp-tableCell {
+          font-size: 0.8em;
+        }
+      }
+
+      @media screen and (max-width: 630px) {
+        h1 {
+          font-size: 6.5em;
+        }
+      }
+
+      @media screen and (max-width: 550px) {
+        #section-1 h1 {
+          font-size: 6em;
+        }
+
+        h1 {
+          font-size: 5em;
+        }
+      }
+
+      @media screen and (max-width: 380px) {
+        h1 {
+          font-size: 3.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="examples">
+      <li class="active" data-type="default">Demo 1</li>
+      <li data-type="colors">Demo 2</li>
+      <li data-type="backgrounds">Demo 3</li>
+    </ul>
+    <ul id="menu">
+      <li data-menuanchor="firstPage">
+        <a href="#firstPage">First slide</a>
+      </li>
+      <li data-menuanchor="secondPage">
+        <a href="#secondPage">Second slide</a>
+      </li>
+      <li data-menuanchor="3rdPage">
+        <a href="#3rdPage">Third slide</a>
+      </li>
+    </ul>
+    <ul class="preview-extensions-menu">
+      <li class="preview-more-extensions">
+        <a href="https://alvarotrigo.com/fullPage/extensions/"
+          >More extensions</a
+        >
+      </li>
+      <li class="preview-buy-extension">
+        <a href="https://gum.co/fullpageCards">Download extension</a>
+      </li>
+    </ul>
+    <div id="settings">
+      <span>
+        <svg
+          version="1.1"
+          id="Capa_1"
+          xmlns="https://www.w3.org/2000/svg"
+          xmlns:xlink="https://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          viewBox="0 0 268.765 268.765"
+          style="enable-background: new 0 0 268.765 268.765"
+          xml:space="preserve"
+        >
+          <g>
+            <g>
+              <path
+                style="fill-rule: evenodd; clip-rule: evenodd"
+                d="M267.92,119.461c-0.425-3.778-4.83-6.617-8.639-6.617
+                c-12.315,0-23.243-7.231-27.826-18.414c-4.682-11.454-1.663-24.812,7.515-33.231c2.889-2.641,3.24-7.062,0.817-10.133
+                c-6.303-8.004-13.467-15.234-21.289-21.5c-3.063-2.458-7.557-2.116-10.213,0.825c-8.01,8.871-22.398,12.168-33.516,7.529
+                c-11.57-4.867-18.866-16.591-18.152-29.176c0.235-3.953-2.654-7.39-6.595-7.849c-10.038-1.161-20.164-1.197-30.232-0.08
+                c-3.896,0.43-6.785,3.786-6.654,7.689c0.438,12.461-6.946,23.98-18.401,28.672c-10.985,4.487-25.272,1.218-33.266-7.574
+                c-2.642-2.896-7.063-3.252-10.141-0.853c-8.054,6.319-15.379,13.555-21.74,21.493c-2.481,3.086-2.116,7.559,0.802,10.214
+                c9.353,8.47,12.373,21.944,7.514,33.53c-4.639,11.046-16.109,18.165-29.24,18.165c-4.261-0.137-7.296,2.723-7.762,6.597
+                c-1.182,10.096-1.196,20.383-0.058,30.561c0.422,3.794,4.961,6.608,8.812,6.608c11.702-0.299,22.937,6.946,27.65,18.415
+                c4.698,11.454,1.678,24.804-7.514,33.23c-2.875,2.641-3.24,7.055-0.817,10.126c6.244,7.953,13.409,15.19,21.259,21.508
+                c3.079,2.481,7.559,2.131,10.228-0.81c8.04-8.893,22.427-12.184,33.501-7.536c11.599,4.852,18.895,16.575,18.181,29.167
+                c-0.233,3.955,2.67,7.398,6.595,7.85c5.135,0.599,10.301,0.898,15.481,0.898c4.917,0,9.835-0.27,14.752-0.817
+                c3.897-0.43,6.784-3.786,6.653-7.696c-0.451-12.454,6.946-23.973,18.386-28.657c11.059-4.517,25.286-1.211,33.281,7.572
+                c2.657,2.89,7.047,3.239,10.142,0.848c8.039-6.304,15.349-13.534,21.74-21.494c2.48-3.079,2.13-7.559-0.803-10.213
+                c-9.353-8.47-12.388-21.946-7.529-33.524c4.568-10.899,15.612-18.217,27.491-18.217l1.662,0.043
+                c3.853,0.313,7.398-2.655,7.865-6.588C269.044,139.917,269.058,129.639,267.92,119.461z M134.595,179.491
+                c-24.718,0-44.824-20.106-44.824-44.824c0-24.717,20.106-44.824,44.824-44.824c24.717,0,44.823,20.107,44.823,44.824
+                C179.418,159.385,159.312,179.491,134.595,179.491z"
+              />
+            </g>
+          </g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+          <g></g>
+        </svg>
+      </span>
+    </div>
+    <ul class="settings-actions">
+      <div class="settings-header">
+        <h6>Settings</h6>
+        <p>Here you can define the extension settings</p>
+      </div>
+      <div class="actions-option">
+        <ul class="settings-actions-toggle">
+          <li id="turnOn" class="active">On</li>
+          <li id="turnOff">Off</li>
+        </ul>
+      </div>
+      <div class="actions-option only-if-active">
+        Cards perspective: <span class="perspective-value">100</span>
+        <input
+          data-option="perspective"
+          type="range"
+          value="100"
+          min="5"
+          max="200"
+        />
+      </div>
+      <div class="actions-option only-if-active">
+        Fade Content
+        <input
+          id="toggleFading"
+          data-option="fadeContent"
+          type="checkbox"
+          class="toggle toggle-light"
+          checked
+        />
+        <label for="toggleFading" class="toggle-button"></label>
+      </div>
+      <div class="actions-option only-if-active">
+        Fade Background
+        <input
+          id="toggleFadeBackground"
+          data-option="fadeBackground"
+          type="checkbox"
+          class="toggle toggle-light"
+          checked
+        />
+        <label for="toggleFadeBackground" class="toggle-button"></label>
+      </div>
+    </ul>
+    <div id="fullpage">
+      <div class="section" id="section1">
+        <div class="fp-bg"></div>
+        <div class="fp-content">
+          <h1 class="anim-wrapper">
+            <span>CARDS</span>
+          </h1>
+          <h2 class="anim-wrapper anim-delay-8">
+            <span>A unique effect for your site</span>
+          </h2>
+          <div class="button-rainbow">
+            <a class="button-download" href="https://gum.co/fullpageCards">
+              I want it!
+              <div class="rainbow"></div>
+            </a>
+          </div>
+          <a
+            href="https://github.com/alvarotrigo/fullPage.js/wiki/Extension-Cards"
+            class="documentation"
+            >Documentation</a
+          >
+        </div>
+      </div>
+      <div class="section" id="section2">
+        <div class="slide" id="slide2-1">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>Use the wow factor to impress your visitors!</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>NETBET</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev disabled" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="section2-img trainers mobile-only"></div>
+        </div>
+        <div class="slide" id="slide2-2">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>So easy that it is even scary!</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>Easy!</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="slide2-2-img trainers mobile-only"></div>
+        </div>
+        <div class="slide" id="slide2-3">
+          <div class="fp-bg"></div>
+          <div class="fp-content">
+            <div class="intro-line-wrapper anim-wrapper anim-delay-8">
+              <p class="intro-line"></p>
+            </div>
+            <div class="intro anim-wrapper anim-delay-8">
+              <p>fullPage.js is used by the biggest</p>
+              <p>companies in the planet.</p>
+            </div>
+            <h1 class="anim-wrapper">
+              <span>Trusted</span>
+            </h1>
+            <div class="slider-controls">
+              <a class="slider-control slider-control-prev" href="#">
+                <span> <</span>
+              </a>
+              <a class="slider-control slider-control-next disabled" href="#">
+                <span>> </span>
+              </a>
+            </div>
+          </div>
+          <div class="slide2-3-img trainers mobile-only"></div>
+        </div>
+      </div>
+      <div class="section" id="section3">
+        <div class="fp-bg"></div>
+        <div class="fp-content section3-text">
+          <h1 class="anim-wrapper">
+            <span>Responsive</span>
+          </h1>
+          <div class="intro anim-wrapper anim-delay-8">
+            <p>Turn it off whenever you need.</p>
+            <p>Make use of fullPage.js responsive options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="section2-img trainers"
+      data-section="2"
+      data-slide="1"
+      data-animate="section2"
+    ></div>
+    <div
+      class="slide2-2-img trainers hide-left"
+      data-section="2"
+      data-slide="2"
+      data-animate="slide2-2"
+    ></div>
+    <div
+      class="slide2-3-img trainers hide-left"
+      data-section="2"
+      data-slide="3"
+      data-animate="slide2-3"
+    ></div>
+    <svg class="arrow-down">
+      <path
+        d="M12 18c-.2 0-.5-.1-.7-.3l-11-10c-.4-.4-.4-1-.1-1.4.4-.4 1-.4 1.4-.1l10.4 9.4 10.3-9.4c.4-.4 1-.3 1.4.1.4.4.3 1-.1 1.4l-11 10c-.1.2-.4.3-.6.3z"
+      />
+    </svg>
+    <input type="hidden" id="_4" value="3" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Q0MF57YDRL"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-Q0MF57YDRL");
+
+      /* Adwords */
+      gtag("config", "AW-1012934304");
+    </script>
+    <script
+      type="text/javascript"
+      src="https://alvarotrigo.com/fullPage/fullpage.cards.limited.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://alvarotrigo.com/fullPage/fullpage.extensions-v3.min.js?v=222"
+    ></script>
+    <script type="text/javascript">
+      var $ = fp_utils.$,
+        addClass = fp_utils.addClass,
+        removeClass = fp_utils.removeClass,
+        toggleClass = fp_utils.toggleClass,
+        g_timeouts = {},
+        ACTIVE = "active";
+      function addOriginAnimations(e, t) {
+        e.length &&
+          e.forEach(function (e) {
+            console.log(e),
+              e.classList.remove("animate2"),
+              (g_timeouts.origin = setTimeout(function () {
+                console.warn("hide-" + t),
+                  addClass(e, "hide-" + t),
+                  e.classList.remove("animate");
+              }, 100));
+          });
+      }
+      function addDestinyAnimations(e, t) {
+        var n =
+          "up" === t || "down" === t
+            ? "hide-down hide-up"
+            : "hide-left hide-right";
+        e &&
+          (addClass(e, ACTIVE),
+          addClass(e, "animate"),
+          removeClass(e, n),
+          (g_timeouts.destination = setTimeout(function () {
+            addClass(e, "animate2");
+          }, 1e3)));
+      }
+      new fullpage("#fullpage", {
+        anchors: ["firstPage", "secondPage", "3rdPage", "4thpage"],
+        sectionsColor: ["#f2f2f2", "#4BBFC3", "#7BAABE", "whitesmoke", "#000"],
+        menu: "#menu",
+        navigation: !0,
+        slidesNavigation: !0,
+        animateAnchor: !1,
+        cards: !0,
+        loopHorizontal: !1,
+        cardsOptions: {
+          fadeContent: !0,
+          fadeBackground: !0,
+        },
+        cardsKey: "YWx2YXJvdHJpZ28uY29tX0E2MFkyRnlaSE09cmI2",
+        touchWrapper: document,
+        scrollingSpeed: 1e3,
+        afterLoad: function (e, t, n) {
+          addClass(t, "animate");
+        },
+        onLeave: function (e, t, n) {
+          clearTimeout(g_timeouts.destination);
+          var i = $(".preview-extensions-menu")[0];
+          if (
+            (toggleClass(i, ACTIVE, 0 < t.index),
+            removeClass(
+              document.body,
+              "fp-moving-right fp-moving-left fp-moving-down fp-moving-up"
+            ),
+            n &&
+              (addClass(document.body, "fp-moving-" + n),
+              removeClass(document.body, "fp-moving-horizontally"),
+              addClass(document.body, "fp-moving-vertically")),
+            -1 == ["right", "left"].indexOf(n))
+          ) {
+            var a = $('.active[data-section="' + (t.index + 1) + '"]')[0];
+            addDestinyAnimations(
+              (a =
+                a || 1 < window.location.hash.split("/").length
+                  ? a
+                  : $('[data-section="' + (t.index + 1) + '"]')[0]),
+              n
+            ),
+              addOriginAnimations(
+                $('.active[data-section="' + (e.index + 1) + '"]'),
+                n
+              );
+          }
+        },
+        onSlideLeave: function (e, t, n, i) {
+          removeClass(
+            document.body,
+            "fp-moving-right fp-moving-left fp-moving-down fp-moving-up"
+          ),
+            i &&
+              (addClass(document.body, "fp-moving-" + i),
+              removeClass(document.body, "fp-moving-vertically"),
+              addClass(document.body, "fp-moving-horizontally")),
+            addDestinyAnimations(
+              $(
+                '.trainers[data-section="' +
+                  (e.index + 1) +
+                  '"][data-slide="' +
+                  (n.index + 1) +
+                  '"]'
+              )[0],
+              i
+            );
+          var a = $(
+            '.trainers[data-section="' +
+              (e.index + 1) +
+              '"][data-slide="' +
+              (t.index + 1) +
+              '"]'
+          );
+          removeClass(a, ACTIVE), addOriginAnimations(a, i);
+        },
+      }),
+        (function () {
+          window.addEventListener("load", t),
+            $("#turnOn")[0].addEventListener("click", l),
+            $("#turnOff")[0].addEventListener("click", d),
+            $(".arrow-down")[0].addEventListener(
+              "click",
+              fullpage_api.moveSectionDown
+            ),
+            $("#settings")[0].addEventListener("click", a),
+            $(".slider-control-next").forEach(function (e) {
+              e.addEventListener("click", function (e) {
+                e.preventDefault(), fullpage_api.moveSlideRight();
+              });
+            }),
+            $(".slider-control-prev").forEach(function (e) {
+              e.addEventListener("click", function (e) {
+                e.preventDefault(), fullpage_api.moveSlideLeft();
+              });
+            }),
+            ["click", "touchstart"].forEach(function (e) {
+              document.addEventListener(e, i);
+            }),
+            $('[data-option="perspective"]')[0].addEventListener("input", c),
+            $("#examples li").forEach(function (e) {
+              e.addEventListener("click", s);
+            }),
+            $("[data-option]").forEach(function (e) {
+              e.addEventListener("change", o);
+            });
+          var e = $(".perspective-value")[0],
+            n = $(".settings-actions")[0];
+          function t() {
+            addClass(document.body, "loadBg");
+          }
+          function i(e) {
+            var t = e.target;
+            fp_utils.closest(t, ".settings-actions") ||
+              fp_utils.closest(t, "#settings") ||
+              removeClass(n, ACTIVE);
+          }
+          function a() {
+            n.classList.toggle(ACTIVE);
+          }
+          function o() {
+            fullpage_api.cards.setOption(
+              this.getAttribute("data-option"),
+              "range" !== this.type ? this.checked : this.value
+            );
+          }
+          function s() {
+            if (!fp_utils.hasClass(this, ACTIVE)) {
+              removeClass($("#examples li.active")[0], ACTIVE),
+                addClass(this, ACTIVE);
+              var e = this.getAttribute("data-type");
+              removeClass(document.body, "d-colors d-bg"),
+                "colors" === e && addClass(document.body, "d-colors"),
+                "backgrounds" === e && addClass(document.body, "d-bg");
+            }
+          }
+          function d() {
+            removeClass($("#turnOn")[0], ACTIVE),
+              addClass(this, ACTIVE),
+              fullpage_api.cards.destroy(),
+              $(".only-if-active").forEach(function (e) {
+                e.style.display = "none";
+              });
+          }
+          function l() {
+            removeClass($("#turnOff")[0], ACTIVE),
+              addClass(this, ACTIVE),
+              fullpage_api.cards.init(),
+              $(".only-if-active").forEach(function (e) {
+                e.style.display = "block";
+              });
+          }
+          function c() {
+            e.innerHTML = this.value;
+          }
+        })();
+    </script>
+    <script>
+      window.addEventListener("load", onLoad);
+
+      /* Google Analytics (Do not copy this!!)*/
+      function onLoad() {
+        /* Google Analytics (Do not copy this!!)*/
+        (function (i, s, o, g, r, a, m) {
+          i["GoogleAnalyticsObject"] = r;
+          (i[r] =
+            i[r] ||
+            function () {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          "script",
+          "https://www.google-analytics.com/analytics.js",
+          "ga"
+        );
+
+        ga("create", "UA-94005074-1", "auto");
+        ga("send", "pageview");
+      }
+    </script>
+  </body>
+</html>
