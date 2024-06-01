@@ -2,9 +2,8 @@
 // let qNetbet_id = "40123952";
 // let userLoginCheck = "logged_out";
 // let qNetbet_id = "logged_out";
-let modalIntervalId;
-let userLoginCheck = "test1686042757550";
-let qNetbet_id = "40123952";
+
+
 // Function to get cookie value by name
 function getCookie(name) {
   const nameEQ = name + "=";
@@ -20,6 +19,12 @@ function getCookie(name) {
   }
   return null;
 }
+
+
+let userLoginCheck = getCookie("39438169");
+let qNetbet_id = getCookie("test1686042757550");
+let modalIntervalId;
+
 
 // Function to fetch data from the API
 async function fetchData() {
@@ -94,8 +99,8 @@ async function initializePage() {
   // if (
   //   userLoginCheck === "logged_out" || 
   //   qNetbet_id === "logged_out" 
-  //   // userLoginCheck === null || 
-  //   // qNetbet_id === null 
+    // userLoginCheck === null || 
+    // qNetbet_id === null 
   // ) {
   //   showNotEligibleModal("please login pentru a putea vedea clasamentul");
   //   return;
@@ -114,6 +119,7 @@ async function initializePage() {
   console.log(userLoginCheck, "--userLoginCheck");
   console.log(qNetbet_id, "--qNetbet_id");
   const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
+  console.log(matchingItem, "--matchingItem");
 
   initializeDataTable("#exampleS", tableData, qNetbet_id);
 
@@ -126,7 +132,7 @@ initializePage().then((matchingItem) => {
     console.log("You are eligible",matchingItem);
   } else {
     setTimeout(() => {
-      showNotEligibleModal("You are not eligible please bet");
+      showNotEligibleModal("You are not eligible");
       console.log("start show modal when player_id not matching");
     }, 3000);
   }
@@ -152,13 +158,13 @@ function showNotEligibleModal(textContent) {
         <div class="modalContainer">
           <p>${textContent} 
           <p>Depune 50 .... to </p>
-          <button class="_btnReg" id="deposit">${
+          <button class="_btnReg" id="deposit">
+          ${
             userLoginCheck
-              ? userLoginCheck === "logged_out"
-                ? "inregistreaza-te"
-                : "make bet"
-              : "Login"
-          }</button>
+              ? (userLoginCheck === "logged_out" ? "inregistreaza-te" : "make bet")
+              : "Login2"
+          }
+        </button>
         </div>
       </div>
     </div>
