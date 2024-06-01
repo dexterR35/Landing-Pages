@@ -483,10 +483,10 @@ div.dt-container div.dt-layout-cell.dt-end {
   background-color: #fff;
   animation: shiny-btn1 3s ease-in-out infinite;
 }
-._btnReg:hover {
+/* ._btnReg:hover {
   transform: scale(1.02);
   transition: transform 0.2s ease;
-}
+} */
 
 @-webkit-keyframes shiny-btn1 {
   0% {
