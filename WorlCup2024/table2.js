@@ -1,5 +1,4 @@
-// let userLoginCheck = "test1686042757550";
-// let qNetbet_id = "40123952";
+
 // let userLoginCheck = "logged_out";
 // let qNetbet_id = "logged_out";
 
@@ -20,9 +19,10 @@ function getCookie(name) {
   return null;
 }
 
-
-let userLoginCheck = getCookie("netbet_login");
-let qNetbet_id = getCookie("netbet_id");
+let userLoginCheck = "test1686042757550";
+let qNetbet_id = "40123952";
+// let userLoginCheck = getCookie("netbet_login");
+// let qNetbet_id = getCookie("netbet_id");
 let modalIntervalId;
 
 
@@ -121,56 +121,56 @@ initializePage().then((matchingItem) => {
   if (matchingItem) {
     console.log("Found matching item:", matchingItem);
     console.log("You are eligible",matchingItem);
-  } else {
-    setTimeout(() => {
-      showNotEligibleModal("You are not eligible");
-      console.log("start show modal when player_id not matching");
-    }, 3000);
+  // } else {
+  //   setTimeout(() => {
+  //     showNotEligibleModal("You are not eligible");
+  //     console.log("start show modal when player_id not matching");
+  //   }, 3000);
   }
 });
 
-function startModalInterval() {
-  console.log("start internval show  modal");
-  modalIntervalId = setInterval(() => {
-    if (!document.getElementById("modalOverFlow")) {
-      console.log("show again the modal");
-      showNotEligibleModal("dont close ,make a bet");
-    }
-  }, 2000);
-}
+// function startModalInterval() {
+//   console.log("start internval show  modal");
+//   modalIntervalId = setInterval(() => {
+//     if (!document.getElementById("modalOverFlow")) {
+//       console.log("show again the modal");
+//       showNotEligibleModal("dont close ,make a bet");
+//     }
+//   }, 2000);
+// }
 
-function showNotEligibleModal(textContent) {
-  if (document.getElementById('modalOverFlow')) return;
-  const modal = document.createElement("div");
-  modal.innerHTML = `
-    <div class="modalOverFlow" id="modalOverFlow">
-      <div class="modalParent">
-        <button id="modalCloseButton">Close</button>
-        <div class="modalContainer">
-          <p>${textContent} 
-          <p>Depune 50 .... to </p>
-          <button class="_btnReg" id="deposit">
-          ${
-            userLoginCheck
-              ? (userLoginCheck === "logged_out" ? "inregistreaza-te" : "make bet")
-              : "Login2"
-          }
-        </button>
-        </div>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(modal);
-  document.getElementById('modalCloseButton').onclick = closeModal;
-  clearInterval(modalIntervalId);
-}
+// function showNotEligibleModal(textContent) {
+//   if (document.getElementById('modalOverFlow')) return;
+//   const modal = document.createElement("div");
+//   modal.innerHTML = `
+//     <div class="modalOverFlow" id="modalOverFlow">
+//       <div class="modalParent">
+//         <button id="modalCloseButton">Close</button>
+//         <div class="modalContainer">
+//           <p>${textContent} 
+//           <p>Depune 50 .... to </p>
+//           <button class="_btnReg" id="deposit">
+//           ${
+//             userLoginCheck
+//               ? (userLoginCheck === "logged_out" ? "inregistreaza-te" : "make bet")
+//               : "Login2"
+//           }
+//         </button>
+//         </div>
+//       </div>
+//     </div>
+//   `;
+//   document.body.appendChild(modal);
+//   document.getElementById('modalCloseButton').onclick = closeModal;
+//   clearInterval(modalIntervalId);
+// }
 
 
-function closeModal() {
-  console.log("close modal");
-  const modal = document.getElementById('modalOverFlow');
-  if (modal) {
-    modal.remove();
-  }
-  startModalInterval();
-}
+// function closeModal() {
+//   console.log("close modal");
+//   const modal = document.getElementById('modalOverFlow');
+//   if (modal) {
+//     modal.remove();
+//   }
+//   startModalInterval();
+// }
