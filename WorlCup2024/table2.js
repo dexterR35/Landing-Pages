@@ -21,8 +21,8 @@ function getCookie(name) {
 }
 
 
-let userLoginCheck = getCookie("39438169");
-let qNetbet_id = getCookie("test1686042757550");
+let userLoginCheck = getCookie("netbet_login");
+let qNetbet_id = getCookie("netbet_id");
 let modalIntervalId;
 
 
@@ -96,15 +96,6 @@ function initializeDataTable(selector, data, qNetbet_id) {
 }
 
 async function initializePage() {
-  // if (
-  //   userLoginCheck === "logged_out" || 
-  //   qNetbet_id === "logged_out" 
-    // userLoginCheck === null || 
-    // qNetbet_id === null 
-  // ) {
-  //   showNotEligibleModal("please login pentru a putea vedea clasamentul");
-  //   return;
-  // } 
   const fetchedData = await fetchData();
   if (!fetchedData) {
     console.error("No data fetched");
