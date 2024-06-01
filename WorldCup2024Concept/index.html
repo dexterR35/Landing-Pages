@@ -24,15 +24,15 @@
       /* background: blueviolet; */
       position: relative;
       background-image: url(./png/Background-copy.jpg);
+      overflow: hidden;
     }
-    body::after{
+    body::after {
       content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-     
       z-index: -1;
     }
     canvas {
@@ -65,17 +65,19 @@
       overflow: hidden;
     }
 
-    /* 
+    
   .wrapper-all {
 
-    align-items: end;
+    align-items: center;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    flex-direction: column;
     z-index: 1;
     position: relative;
-    left: 50px;
-    width: 590px;
-  } */
+    overflow: hidden;
+  
+  
+  }
 
     @media (max-width: 500px) and (orientation: portrait) {
     }
@@ -120,6 +122,7 @@
         align-items: flex-end;
         display: flex;
         width: unset;
+        overflow: hidden;
       }
 
       .cont_s {
@@ -354,150 +357,155 @@
     @media only screen and (min-device-width: 1024px) and (max-device-width: 1332px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
     }
 
-
     @import url(https://fonts.googleapis.com/css?family=Finger+Paint);
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      outline: 0;
+    }
 
-#myCanvas {
-  z-index: -1;
-}
+    #myCanvas {
+      z-index: -1;
+    }
 
-span {
-  font-size: 100px;
-  display: inline-block;
-  text-shadow: 0 0 0 whitesmoke;
-  -webkit-animation: smoky 5s 3s both;
-          animation: smoky 5s 3s both;
-}
+    span {
+      font-size: 100px;
+      display: inline-block;
+      text-shadow: 0 0 0 whitesmoke;
+      -webkit-animation: smoky 5s 3s both;
+      animation: smoky 5s 3s both;
+    }
 
-.text{
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  text-align: center;
-  color: transparent;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
+    .text {
+      position: absolute;
+      top: 30%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: center;
+      color: transparent;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
 
-span:nth-child(even) {
-  -webkit-animation-name: smoky-mirror;
-          animation-name: smoky-mirror;
-}
+    span:nth-child(even) {
+      -webkit-animation-name: smoky-mirror;
+      animation-name: smoky-mirror;
+    }
 
-@-webkit-keyframes smoky {
-  60% {
-    text-shadow: 0 0 40px whitesmoke;
-  }
-  to {
-    -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
-            transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
-    text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
+    @-webkit-keyframes smoky {
+      60% {
+        text-shadow: 0 0 40px whitesmoke;
+      }
+      to {
+        -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg)
+          skewX(70deg) scale(1.5);
+        transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg)
+          scale(1.5);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
+      }
+    }
 
-@keyframes smoky {
-  60% {
-    text-shadow: 0 0 40px whitesmoke;
-  }
-  to {
-    -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
-            transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
-    text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
-@-webkit-keyframes smoky-mirror {
-  60% {
-    text-shadow: 0 0 40px whitesmoke;
-  }
-  to {
-    -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
-            transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
-    text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
-@keyframes smoky-mirror {
-  60% {
-    text-shadow: 0 0 40px whitesmoke;
-  }
-  to {
-    -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
-            transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
-    text-shadow: 0 0 20px whitesmoke;
-    opacity: 0;
-  }
-}
-span:nth-of-type(1) {
-  -webkit-animation-delay: 3.1s;
-          animation-delay: 3.1s;
-}
+    @keyframes smoky {
+      60% {
+        text-shadow: 0 0 40px whitesmoke;
+      }
+      to {
+        -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg)
+          skewX(70deg) scale(1.5);
+        transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg)
+          scale(1.5);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes smoky-mirror {
+      60% {
+        text-shadow: 0 0 40px whitesmoke;
+      }
+      to {
+        -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg)
+          skewX(-70deg) scale(2);
+        transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg)
+          scale(2);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
+      }
+    }
+    @keyframes smoky-mirror {
+      60% {
+        text-shadow: 0 0 40px whitesmoke;
+      }
+      to {
+        -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg)
+          skewX(-70deg) scale(2);
+        transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg)
+          scale(2);
+        text-shadow: 0 0 20px whitesmoke;
+        opacity: 0;
+      }
+    }
+    span:nth-of-type(1) {
+      -webkit-animation-delay: 3.1s;
+      animation-delay: 3.1s;
+    }
 
-span:nth-of-type(2) {
-  -webkit-animation-delay: 3.2s;
-          animation-delay: 3.2s;
-}
+    span:nth-of-type(2) {
+      -webkit-animation-delay: 3.2s;
+      animation-delay: 3.2s;
+    }
 
-span:nth-of-type(3) {
-  -webkit-animation-delay: 3.3s;
-          animation-delay: 3.3s;
-}
+    span:nth-of-type(3) {
+      -webkit-animation-delay: 3.3s;
+      animation-delay: 3.3s;
+    }
 
-span:nth-of-type(4) {
-  -webkit-animation-delay: 3.4s;
-          animation-delay: 3.4s;
-}
+    span:nth-of-type(4) {
+      -webkit-animation-delay: 3.4s;
+      animation-delay: 3.4s;
+    }
 
-span:nth-of-type(5) {
-  -webkit-animation-delay: 3.5s;
-          animation-delay: 3.5s;
-}
+    span:nth-of-type(5) {
+      -webkit-animation-delay: 3.5s;
+      animation-delay: 3.5s;
+    }
 
-span:nth-of-type(6) {
-  -webkit-animation-delay: 3.6s;
-          animation-delay: 3.6s;
-}
+    span:nth-of-type(6) {
+      -webkit-animation-delay: 3.6s;
+      animation-delay: 3.6s;
+    }
 
-span:nth-of-type(7) {
-  -webkit-animation-delay: 3.7s;
-          animation-delay: 3.7s;
-}
+    span:nth-of-type(7) {
+      -webkit-animation-delay: 3.7s;
+      animation-delay: 3.7s;
+    }
 
-span:nth-of-type(8) {
-  -webkit-animation-delay: 3.8s;
-          animation-delay: 3.8s;
-}
+    span:nth-of-type(8) {
+      -webkit-animation-delay: 3.8s;
+      animation-delay: 3.8s;
+    }
 
-span:nth-of-type(9) {
-  -webkit-animation-delay: 3.9s;
-          animation-delay: 3.9s;
-}
+    span:nth-of-type(9) {
+      -webkit-animation-delay: 3.9s;
+      animation-delay: 3.9s;
+    }
 
-span:nth-of-type(10) {
-  -webkit-animation-delay: 4s;
-          animation-delay: 4s;
-}
+    span:nth-of-type(10) {
+      -webkit-animation-delay: 4s;
+      animation-delay: 4s;
+    }
 
-span:nth-of-type(11) {
-  -webkit-animation-delay: 4.1s;
-          animation-delay: 4.1s;
-}
+    span:nth-of-type(11) {
+      -webkit-animation-delay: 4.1s;
+      animation-delay: 4.1s;
+    }
 
-span:nth-of-type(12) {
-  -webkit-animation-delay: 4.2s;
-          animation-delay: 4.2s;
-}
-
-
+    span:nth-of-type(12) {
+      -webkit-animation-delay: 4.2s;
+      animation-delay: 4.2s;
+    }
   </style>
 
   <script>
@@ -538,6 +546,9 @@ span:nth-of-type(12) {
 
   <body>
     <div class="wrapper-all">
+      <div class="offerta">
+        <h2>oferta</h2>
+      </div>
       <div class="container-circle">
         <div class="cont_s">
           <div class="circle_s c1_s">
@@ -568,78 +579,132 @@ span:nth-of-type(12) {
       </div>
     </div>
     <canvas id="myCanvas"></canvas>
-    <div class="text">
-    </div>
+    <div class="text"></div>
 
-<script>
-  var camera, scene, renderer,
-    geometry, material, mesh;
- 
-init();
-animate();
- 
-function init() {
-   clock = new THREE.Clock();
+    <script>
+      var camera, scene, renderer, geometry, material, mesh;
 
-    renderer = new THREE.WebGLRenderer({
-        canvas: document.querySelector('#myCanvas')
-      });
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize( window.innerWidth, window.innerHeight );
+      init();
+      animate();
 
-    scene = new THREE.Scene();
- 
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 1000;
-    scene.add( camera );
- 
-    geometry = new THREE.CubeGeometry( 200, 200, 200 );
-    material = new THREE.MeshLambertMaterial( { color: 0xffffff, wireframe: false } );
-    mesh = new THREE.Mesh( geometry, material );
-    cubeSineDriver = 0;
- 
-    THREE.ImageUtils.crossOrigin = ''; //Need this to pull in crossdomain images from AWS
- 
-    light = new THREE.DirectionalLight(0xffffff,0.5);
-    light.position.set(-1,0,1);
-    scene.add(light);
-  
-    smokeTexture = THREE.ImageUtils.loadTexture('https://s3-us-west-2.amazonaws.com/s.cdpn.io/95637/Smoke-Element.png');
-    smokeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff, map: smokeTexture, transparent: true});
-    smokeGeo = new THREE.PlaneGeometry(300,300);
-    smokeParticles = [];
+      function init() {
+        clock = new THREE.Clock();
 
-    for (p = 0; p < 150; p++) {
-        var particle = new THREE.Mesh(smokeGeo,smokeMaterial);
-        particle.position.set(Math.random()*500-250,Math.random()*500-250,Math.random()*1000-100);
-        particle.rotation.z = Math.random() * 360;
-        scene.add(particle);
-        smokeParticles.push(particle);
-    }
-    document.body.appendChild( renderer.domElement );
-}
- 
-function animate() {
-    delta = clock.getDelta();
-    requestAnimationFrame( animate );
-    evolveSmoke();
-    render();
-}
- 
-function evolveSmoke() {
-    var sp = smokeParticles.length;
-    while(sp--) {
-        smokeParticles[sp].rotation.z += (delta * 0.2);
-    }
-}
+        renderer = new THREE.WebGLRenderer({
+          canvas: document.querySelector("#myCanvas"),
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
 
-function render() {
-    mesh.rotation.x += 0.005;
-    mesh.rotation.y += 0.01;
-    cubeSineDriver += .01;
-    mesh.position.z = 100 + (Math.sin(cubeSineDriver) * 500);
-    renderer.render( scene, camera );
-}
-</script>
+        scene = new THREE.Scene();
+
+        camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          1,
+          10000
+        );
+        camera.position.z = 1000;
+        scene.add(camera);
+
+        geometry = new THREE.CubeGeometry(200, 200, 200);
+        material = new THREE.MeshLambertMaterial({
+          color: 0xffffff,
+          wireframe: false,
+        });
+        mesh = new THREE.Mesh(geometry, material);
+        cubeSineDriver = 0;
+
+        THREE.ImageUtils.crossOrigin = ""; 
+
+        light = new THREE.DirectionalLight("#fff", 1.6);
+        light.position.set(-1,0, 1);
+        scene.add(light);
+
+        smokeTexture = THREE.ImageUtils.loadTexture(
+          "./png/Smoke-Element.png"
+        );
+
+        // Materiale pentru fum cu culori diferite
+        smokeMaterialLeft = new THREE.MeshLambertMaterial({
+          color: "red",
+          map: smokeTexture,
+          transparent: true,
+        });
+        smokeMaterialRight = new THREE.MeshLambertMaterial({
+          color: "#89CFF0",
+          map: smokeTexture,
+          transparent: true,
+        });
+
+        smokeGeo = new THREE.PlaneGeometry(400, 400);
+        smokeParticles = [];
+
+        for (p = 0; p < 75; p++) {
+          var particle = new THREE.Mesh(smokeGeo, smokeMaterialRight);
+          particle.position.set(
+            -Math.random() * 500 - 250,
+            Math.random() * 420 - 250,
+            Math.random() * 1000 - 100
+          );
+          particle.rotation.z = Math.random() * 360;
+          scene.add(particle);
+          smokeParticles.push(particle);
+        }
+
+        for (p = 0; p < 75; p++) {
+          var particle = new THREE.Mesh(smokeGeo, smokeMaterialLeft);
+          particle.position.set(
+            Math.random() * 500 + 250,
+            Math.random() * 420 - 250,
+            Math.random() * 1000 - 100
+          );
+          particle.rotation.z = Math.random() * 360;
+          scene.add(particle);
+          smokeParticles.push(particle);
+        }
+        // Fundal JPG
+        var backgroundTexture = THREE.ImageUtils.loadTexture(
+          "./png/Background-copy.jpg"
+        ); // Înlocuiește URL_CĂTRE_IMAGINEA_TA.JPG cu link-ul către imaginea ta de fundal
+        var backgroundMaterial = new THREE.MeshBasicMaterial({
+          map: backgroundTexture,
+        });
+        var backgroundGeometry = new THREE.PlaneGeometry(
+          window.innerWidth,
+          window.innerHeight
+        );
+        var backgroundMesh = new THREE.Mesh(
+          backgroundGeometry,
+          backgroundMaterial
+        );
+
+        backgroundMesh.position.z = 380;
+        scene.add(backgroundMesh);
+        document.body.appendChild(renderer.domElement);
+      }
+
+      function animate() {
+        delta = clock.getDelta();
+        requestAnimationFrame(animate);
+        evolveSmoke();
+        render();
+      }
+
+      function evolveSmoke() {
+        var sp = smokeParticles.length;
+        while (sp--) {
+          smokeParticles[sp].rotation.z += delta * 0.1;
+        }
+      }
+
+      function render() {
+        mesh.rotation.x += 0.005;
+        mesh.rotation.y += 0.01;
+        cubeSineDriver += 0.01;
+        mesh.position.z = 100 + Math.sin(cubeSineDriver) * 500;
+        renderer.render(scene, camera);
+      }
+    </script>
   </body>
 </html>
