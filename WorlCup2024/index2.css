@@ -993,14 +993,19 @@ div.dt-container div.dt-layout-cell.dt-end {
   /* background: red; */
 }
 
-/* .loadBg .slide2-3-img {
-  background-image: url(./png/elements/bottom_player.png);
-} */
+.loadBg .slide2-3-img {
+  background-image: url(./png/elements/bottom_player2.png);
+}
 
 .trainers {
   width: 59%;
-  height: 100%;
+  height: 50%;
   background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 21;
+  background-repeat: no-repeat;
 }
 
 .trainers.animate {
@@ -1333,7 +1338,7 @@ table.dataTable td.dt-type-date {
 }
 
 .mobile-only {
-  display: none;
+background-image: url(./png/8_Slide_tst.png);
 }
 
 /*tabble offer matcher*/

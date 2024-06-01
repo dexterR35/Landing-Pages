@@ -216,30 +216,16 @@ document.addEventListener("DOMContentLoaded", function () {
     cards: true,
 
     afterLoad: (origin, destination, direction) => {
-      addClass(destination.item, "animate");
-      const btnActive = document.querySelectorAll(".footer-button");
-      const anchor = destination.item.getAttribute('data-anchor');
-      btnActive.forEach(element => {
-        if (element.getAttribute('data-target') === anchor) {
-          addClass(element, "_active");
-          const color = element.getAttribute('data-color');
-          element.style.background = `var(${color})`;
-          element.style.color = "white";
-        } else {
-          removeClass(element, "_active");
-          element.style.background= "";
-          element.style.color = "initial";
-        }
-      });
+
     },
     onLeave: (origin, destination, direction) => {
       clearTimeout(g_timeouts.destination);
       removeClass(document.body, "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up");
-      if (direction) {
-        addClass(document.body, `fp-moving-${direction}`);
-        removeClass(document.body, "fp-moving-horizontally");
-        addClass(document.body, "fp-moving-vertically");
-      }
+      // if (direction) {
+      //   addClass(document.body, `fp-moving-${direction}`);
+      //   removeClass(document.body, "fp-moving-horizontally");
+      //   addClass(document.body, "fp-moving-vertically");
+      // }
       if (["right", "left"].indexOf(direction) === -1) {
         const activeElement = $(`.active[data-section="${destination.index + 1}"]`)[0];
         addDestinyAnimations(activeElement || $(`[data-section="${destination.index + 1}"]`)[0], direction);
@@ -248,29 +234,41 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     },
     onSlideLeave: (section, origin, destination, direction) => {
-      removeClass(document.body, "fp-moving-right fp-moving-left fp-moving-down fp-moving-up");
-      if (direction) {
-        addClass(document.body, `fp-moving-${direction}`);
-        removeClass(document.body, "fp-moving-vertically");
-        addClass(document.body, "fp-moving-horizontally");
-      }
-      const destinationElement = $(`.trainers[data-section="${section.index + 1}"][data-slide="${destination.index + 1}"]`)[0];
-      addDestinyAnimations(destinationElement, direction);
-      const activeElements = $(`.trainers[data-section="${section.index + 1}"][data-slide="${origin.index + 1}"]`);
-      removeClass(activeElements, ACTIVE);
-      addOriginAnimations(activeElements, direction);
+   
+ // Clear any previous movement-related classes from the body
+ removeClass(document.body, "fp-moving-right fp-moving-left fp-moving-down fp-moving-up");
+
+ // Add movement-related classes based on the direction
+ if (direction) {
+   addClass(document.body, `fp-moving-${direction}`);
+   removeClass(document.body, "fp-moving-vertically");
+   addClass(document.body, "fp-moving-horizontally");
+
+   const originId = origin.item.id;
+   if (direction === 'right' || direction === 'left') {
+     const boxParent = document.querySelectorAll(".boxParent");
+     boxParent.forEach(parent => addClass(parent, `${originId}-${direction}`));
+   }
+ }
+
+ // Handle destination animations
+ const destinationElement = document.querySelector(`.trainers[data-section="${section.index + 1}"][data-slide="${destination.index + 1}"]`);
+ if (destinationElement) {
+   addDestinyAnimations(destinationElement, direction);
+ }
+
+ // Handle origin animations and removing ACTIVE class
+ const activeElements = document.querySelectorAll(`.trainers[data-section="${section.index + 1}"][data-slide="${origin.index + 1}"]`);
+ activeElements.forEach(element => {
+   removeClass(element, ACTIVE);
+   addOriginAnimations(element, direction);
+ });
     },
     afterResize: function(width, height){},
   });
-
-
-
-
 });
 
 // Event listeners
-
-
 document.querySelector(".arrow-down").addEventListener("click", () => {
   fullpage_api.moveSectionDown();
 });
