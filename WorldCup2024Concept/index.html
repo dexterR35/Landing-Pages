@@ -1,71 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
-  </head>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      /* background: blueviolet; */
-      position: relative;
-      background-image: url(./png/Background-copy.jpg);
-      overflow: hidden;
-    }
-    body::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    canvas {
-      position: absolute;
-      top: 0;
-      z-index: 412;
-    }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.js"></script>
+</head>
 
-    .container-all {
-      position: fixed;
-      left: 72px;
-      top: 78px;
-    }
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    .container_design {
-      overflow: hidden;
-    }
+  body {
+    /* background: blueviolet; */
+    position: relative;
+    background-image: url(./png/Background-copy.jpg);
+    overflow: hidden;
+  }
 
-    .below-fold {
-      height: 100% !important;
-    }
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
-    .container-circle {
-      width: 100vw;
-      height: 100vh;
-      /* background: blue; */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+  canvas {
+    position: absolute;
+    top: 0;
+    z-index: 412;
+  }
 
-    
+  .container-all {
+    position: fixed;
+    left: 72px;
+    top: 78px;
+  }
+
+  .container_design {
+    overflow: hidden;
+  }
+
+  .below-fold {
+    height: 100% !important;
+  }
+
+  .container-circle {
+    width: 100vw;
+    height: 100vh;
+    /* background: blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+
   .wrapper-all {
 
     align-items: center;
@@ -75,163 +76,210 @@
     z-index: 1;
     position: relative;
     overflow: hidden;
-  
-  
+
+
   }
 
-   
 
-    /* TODO:     ORBIT */
 
-    .orbit-wrap {
-      height: 350px;
-      list-style: none;
-      font-size: 0.82em;
-      width: 250px;
-      position: relative;
-      /* transform: translate(0%, 0%) scale3d(1.07, 1.07, 1.07); */
-    }
+  /* TODO:     ORBIT */
 
-    /* center;
+  .orbit-wrap {
+    height: 350px;
+    list-style: none;
+    font-size: 0.82em;
+    width: 250px;
+    position: relative;
+    /* transform: translate(0%, 0%) scale3d(1.07, 1.07, 1.07); */
+  }
+
+  /* center;
  */
-    .orbit-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 5;
-      font-size: 2.35em;
-      width: 3.2em;
-      height: 3.2em;
-      line-height: 1.8em;
-      text-align: center;
-      box-shadow: 0px 0px 28px 5px #fff;
-      background: #f2f2f2 !important;
-      border: 1px solid #fff;
-      border-radius: 50%;
+  .orbit-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    font-size: 2.35em;
+    width: 3.2em;
+    height: 3.2em;
+    line-height: 1.8em;
+    text-align: center;
+    box-shadow: 0px 0px 28px 5px #fff;
+    background: #f2f2f2 !important;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+
+  .orbit-center img {
+    width: 80%;
+    position: relative;
+    top: -3px;
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg);
+      transform-origin: 0%;
     }
 
-    .orbit-center img {
-      width: 80%;
-      position: relative;
-      top: -3px;
+    100% {
+      transform: rotate(360deg);
+      transform-origin: 0% 50%;
+    }
+  }
+
+  /* TODO:    END ORBIT */
+
+  /* TODO:    ORBIT GIRL*/
+  .cont_s {
+    position: relative;
+    perspective: 700px;
+    perspective-origin: 100% 50%;
+  }
+
+  .circle_s {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 36%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    animation: spin_s 11s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+  }
+
+  .circle_s::before {
+    content: attr(textTeams);
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    color: black;
+    font-family: sans;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: #acc44e;
+    border: 2px solid black;
+    border-radius: 5px;
+  }
+
+  .circle_s::after {
+    content: attr(textTeams2);
+    position: absolute;
+  }
+
+
+  .circle_s img {
+    height: 180px;
+    /* animation: orbit 12s linear infinite; */
+  }
+
+  @keyframes spin_s {
+    0% {
+      transform: rotateY(0) translate3d(30vh, 0px, 0px) rotateY(0);
+      z-index: 0;
     }
 
-    @keyframes orbit {
-      0% {
-        transform: rotate(0deg);
-        transform-origin: 0%;
-      }
-
-      100% {
-        transform: rotate(360deg);
-        transform-origin: 0% 50%;
-      }
+    25% {
+      z-index: -20;
     }
 
-    /* TODO:    END ORBIT */
-
-    /* TODO:    ORBIT GIRL*/
-    .cont_s {
-      position: relative;
-      perspective: 700px;
-      perspective-origin: 100% 50%;
+    75% {
+      z-index: 20;
     }
 
-    .circle_s {
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      top: 36%;
-      left: 43%;
-      transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      animation: spin_s 8s linear infinite;
-      display: flex;
-      align-items: center;
-      justify-self: center;
+    100% {
+      transform: rotateY(360deg) translate3d(30vh, 0px, 0px) rotateY(-360deg);
+      z-index: 0;
+    }
+  }
+
+  .center_s img {
+    height: 25vh;
+  }
+
+  .cs_s img {
+    height: 6vh;
+  }
+
+
+  .c1_s {
+    /* background-color: red; */
+    animation-delay: 0s;
+  }
+
+  .c2_s {
+    background-color: #000000;
+    animation-delay: -1.5s;
+  }
+
+
+  .c3_s {
+    /* background-color: #000000; */
+    animation-delay: -3s;
+  }
+
+  .c4_s {
+    /* background-color: #000000; */
+    animation-delay: -4.5s;
+  }
+
+  .c5_s {
+    /* background-color: blue; */
+    animation-delay: -6s;
+  }
+
+  .c6_s {
+    /* background-color: #acc44e; */
+    animation-delay: -7.5s;
+  }
+
+  .c7_s {
+    /* background-color: #acc44e; */
+    animation-delay: -9s;
+  }
+
+  .c8_s {
+    /* background-color: #acc44e; */
+    animation-delay: -10.5s;
+  }
+
+  @media (max-width: 500px) and (orientation: portrait) {}
+
+  @media (max-width: 1800px) and (orientation: landscape) {}
+
+  @keyframes floating_items {
+    from {
+      transform: translate(0, 0px) rotate(0deg);
     }
 
-    .circle_s img {
-      height: 180px;
-      /* animation: orbit 12s linear infinite; */
+    65% {
+      transform: translate(0, 15px) rotate(40deg);
     }
 
-    .center_s img {
-      height: 75vh;
+    to {
+      transform: translate(0, -0px) rotate(-0deg);
     }
+  }
 
-    .c1_s {
-      /* background-color: #a6c4bc; */
-      animation-delay: 0s;
-    }
+  @media (min-width: 991px) {}
 
-    .c2_s {
-      /* background-color: #524656; */
-      animation-delay: -1s;
-    }
+  :root {
+    --yellow_color: #ffc107;
+  }
 
-    .cs_s img {
-      height: 6vh;
-    }
-
-    .c3_s {
-      /* background-color: #cf4747; */
-      animation-delay: -2s;
-    }
-
-    .c4_s {
-      /* background-color: #f3ad1f; */
-      animation-delay: -3s;
-    }
-
-    .c5_s {
-      /* background-color: #acc44e; */
-      animation-delay: -4s;
-    }
-
-    .c6_s {
-      /* background-color: #acc44e; */
-      animation-delay: -5s;
-    }
-
-    .c7_s {
-      /* background-color: #acc44e; */
-      animation-delay: -6s;
-    }
-
-    .c8_s {
-      /* background-color: #acc44e; */
-      animation-delay: -7s;
-    }
-    @media (max-width: 500px) and (orientation: portrait) {
-    }
-
-    @media (max-width: 1800px) and (orientation: landscape) {
-    }
-
-    @keyframes floating_items {
-      from {
-        transform: translate(0, 0px) rotate(0deg);
-      }
-
-      65% {
-        transform: translate(0, 15px) rotate(40deg);
-      }
-
-      to {
-        transform: translate(0, -0px) rotate(-0deg);
-      }
-    }
-
-    @media (min-width: 991px) {
-    }
-
-    :root {
-      --yellow_color: #ffc107;
-    }
-
-    @media (orientation: portrait) {
-      /* 
+  @media (orientation: portrait) {
+    /* 
     .container-hero {
 
       display: flex;
@@ -239,43 +287,70 @@
       align-items: flex-start;
     } */
 
-      .wrapper-all {
-        z-index: 1;
-        left: 0px;
-        position: relative;
-        align-items: flex-end;
-        display: flex;
-        width: unset;
-        overflow: hidden;
-      }
+    .wrapper-all {
+      z-index: 1;
+      left: 0px;
+      position: relative;
+      align-items: flex-end;
+      display: flex;
+      width: unset;
+      overflow: hidden;
+    }
 
-      .cont_s {
-        position: relative;
-        perspective: 1200px;
-        perspective-origin: 0% -14%;
-      }
+    .cont_s {
+      position: relative;
+      perspective: 1200px;
+      perspective-origin: 0% -14%;
+    }
 
-      .circle_s img {
-        height: 6vh;
-      }
+    .circle_s img {
+      height: 6vh;
+    }
 
-      .swirls-container {
-        position: absolute;
-        /* background: red; */
-        left: 50%;
-        height: 100%;
-        width: 100%;
-        top: 50%;
-        mix-blend-mode: screen;
+    .swirls-container {
+      position: absolute;
+      /* background: red; */
+      left: 50%;
+      height: 100%;
+      width: 100%;
+      top: 50%;
+      mix-blend-mode: screen;
 
-        /* transform: translate(-100%, -50%);
+      /* transform: translate(-100%, -50%);
       -webkit-transform: translate(-100%, -50%); */
-      }
+    }
+  }
+
+
+  @media (max-width: 480px) {
+    .center_s img {
+      height: 62vh;
+    }
+
+    .circle_s img {
+      height: 6vh;
+    }
+
+    .circle_s {
+      top: 30%;
+      left: 35%;
+    }
+
+    .cont_s {
+      position: relative;
+      perspective: 1200px;
+      perspective-origin: 0% 24%;
+    }
+
+    .orbit-wrap {
+      width: fit-content;
+      height: fit-content;
+      font-size: 1.02em;
     }
 
     @keyframes spin_s {
       0% {
-        transform: rotateY(0) translate3d(30vh, 0, 0) rotateY(0);
+        transform: rotateY(0) translate3d(160px, 0, 0) rotateY(0);
         z-index: 0;
       }
 
@@ -288,64 +363,19 @@
       }
 
       100% {
-        transform: rotateY(360deg) translate3d(30vh, 0, 0) rotateY(-360deg);
+        transform: rotateY(360deg) translate3d(160px, 0, 0) rotateY(-360deg);
         z-index: 0;
       }
     }
-    @media (max-width: 480px) {
-      .center_s img {
-        height: 62vh;
-      }
+  }
 
-      .circle_s img {
-        height: 6vh;
-      }
+  #myCanvas {
+    z-index: -1;
+  }
 
-      .circle_s {
-        top: 30%;
-        left: 35%;
-      }
 
-      .cont_s {
-        position: relative;
-        perspective: 1200px;
-        perspective-origin: 0% 24%;
-      }
 
-      .orbit-wrap {
-        width: fit-content;
-        height: fit-content;
-        font-size: 1.02em;
-      }
-
-      @keyframes spin_s {
-        0% {
-          transform: rotateY(0) translate3d(160px, 0, 0) rotateY(0);
-          z-index: 0;
-        }
-
-        25% {
-          z-index: -20;
-        }
-
-        75% {
-          z-index: 20;
-        }
-
-        100% {
-          transform: rotateY(360deg) translate3d(160px, 0, 0) rotateY(-360deg);
-          z-index: 0;
-        }
-      }
-    }
-
-    #myCanvas {
-      z-index: -1;
-    }
-
-   
-
- 
+  /*  
     span:nth-child(even) {
       -webkit-animation-name: smoky-mirror;
       animation-name: smoky-mirror;
@@ -411,205 +441,224 @@
       -webkit-animation-delay: 4.2s;
       animation-delay: 4.2s;
     }
-  </style>
+</style> */
+</style>
+<script>
+  $(document).ready(function () {
+    // var $orbitCenter = $(".orbit-wrap > li.orbit-center");
+    // var $orbitItems = $orbitCenter.nextAll().find("ul > li");
+    // console.log($orbitItems, "$orbitItems");
+    // function hoverOrbitItems() {
+    //   $orbitItems.css("transform", "translate(-10px, -30px)");
+    // }
+    // function unhoverOrbitItems() {
+    //   $orbitItems.css("transform", "");
+    // }
+    // // hover on page load
+    // setTimeout(function () {
+    //   $orbitCenter.trigger("mouseenter");
+    // }, 5000);
+    // // set interval for auto hover
+    // setInterval(function () {
+    //   $orbitCenter.trigger("mouseenter");
+    //   setTimeout(function () {
+    //     $orbitCenter.trigger("mouseleave");
+    //   }, 1000);
+    // }, 6000);
+    // // bind hover events
+    // $orbitCenter.hover(hoverOrbitItems, unhoverOrbitItems);
+  });
 
-  <script>
-    $(document).ready(function () {
-      // var $orbitCenter = $(".orbit-wrap > li.orbit-center");
-      // var $orbitItems = $orbitCenter.nextAll().find("ul > li");
-      // console.log($orbitItems, "$orbitItems");
-      // function hoverOrbitItems() {
-      //   $orbitItems.css("transform", "translate(-10px, -30px)");
-      // }
-      // function unhoverOrbitItems() {
-      //   $orbitItems.css("transform", "");
-      // }
-      // // hover on page load
-      // setTimeout(function () {
-      //   $orbitCenter.trigger("mouseenter");
-      // }, 5000);
-      // // set interval for auto hover
-      // setInterval(function () {
-      //   $orbitCenter.trigger("mouseenter");
-      //   setTimeout(function () {
-      //     $orbitCenter.trigger("mouseleave");
-      //   }, 1000);
-      // }, 6000);
-      // // bind hover events
-      // $orbitCenter.hover(hoverOrbitItems, unhoverOrbitItems);
-    });
+  //   $(document).scroll(function () {
+  //     var y = $(this).scrollTop();
+  //     if (y > 1) {
+  //       $('.img-shadow').fadeOut();
+  //     } else {
+  //       $('.img-shadow').fadeIn();
+  //     }
+  //   });
+</script>
 
-    //   $(document).scroll(function () {
-    //     var y = $(this).scrollTop();
-    //     if (y > 1) {
-    //       $('.img-shadow').fadeOut();
-    //     } else {
-    //       $('.img-shadow').fadeIn();
-    //     }
-    //   });
-  </script>
-
-  <body>
-    <div class="wrapper-all">
-      <div class="offerta">
-        <h2>oferta</h2>
-      </div>
-      <div class="container-circle">
-        <div class="cont_s">
-          <div class="circle_s c1_s">
-            <img src="./png/Italy.png" alt="c" srcset="" />
-          </div>
-          <div class="circle_s c2_s">
-            <img src="./png/Croatia.png" alt="b" srcset="" />
-          </div>
-          <div class="circle_s c3_s">
-            <img src="./png/Netherlands.png" alt="d" srcset="" />
-          </div>
-          <div class="circle_s c4_s">
-            <img src="./png/Germany.png" alt="o" srcset="" />
-          </div>
-          <div class="circle_s c5_s">
-            <img src="./png/France.png" alt="r" srcset="" />
-          </div>
-          <div class="circle_s c6_s">
-            <img src="./png/Romania.png" alt="r" srcset="" />
-          </div>
-          <div class="circle_s c7_s">
-            <img src="./png/Spain.png" alt="d" srcset="" />
-          </div>
-          <div class="circle_s c8_s">
-            <img src="./png/Poland.png" alt="d" srcset="" />
-          </div>
+<body>
+  <div class="wrapper-all">
+    <div class="offerta">
+      <h2>oferta</h2>
+    </div>
+    <div class="container-circle">
+      <div class="cont_s">
+        <div class="center_s">
+          <img src="../WorlCup2024/png/elements/euroBall.png" alt="a" srcset="" />
+        </div>
+        <div class="circle_s c1_s" textTeams="Italy" textTeams2="safas">
+          <img src="./png/Italy.png" alt="c" srcset="" />
+        </div>
+        <div class="circle_s c2_s" textTeams="Croatia">
+          <img src="./png/Croatia.png" alt="b" srcset="" />
+        </div>
+        <div class="circle_s c3_s" textTeams="Olanda">
+          <img src="./png/Netherlands.png" alt="d" srcset="" />
+        </div>
+        <div class="circle_s c4_s" textTeams="Italy">
+          <img src="./png/Germany.png" alt="o" srcset="" />
+        </div>
+        <div class="circle_s c5_s" textTeams="Italy">
+          <img src="./png/France.png" alt="r" srcset="" />
+        </div>
+        <div class="circle_s c6_s" textTeams="Italy">
+          <img src="./png/Romania.png" alt="r" srcset="" />
+        </div>
+        <div class="circle_s c7_s" textTeams="Italy">
+          <img src="./png/Spain.png" alt="d" srcset="" />
+        </div>
+        <div class="circle_s c8_s" textTeams="Italy">
+          <img src="./png/Poland.png" alt="d" srcset="" />
         </div>
       </div>
     </div>
-    <canvas id="myCanvas"></canvas>
-    <div class="text"></div>
+  </div>
+  <canvas id="myCanvas"></canvas>
+  <div class="text"></div>
 
-    <script>
-      var camera, scene, renderer, geometry, material, mesh;
+  <script>
+    var camera, scene, renderer, geometry, material, mesh;
 
-      init();
-      animate();
+    init();
+    animate();
 
-      function init() {
-        clock = new THREE.Clock();
+    function init() {
+      clock = new THREE.Clock();
 
-        renderer = new THREE.WebGLRenderer({
-          canvas: document.querySelector("#myCanvas"),
-        });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer = new THREE.WebGLRenderer({
+        canvas: document.querySelector("#myCanvas"),
+      });
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
 
-        scene = new THREE.Scene();
+      scene = new THREE.Scene();
 
-        camera = new THREE.PerspectiveCamera(
-          75,
-          window.innerWidth / window.innerHeight,
-          1,
-          10000
+      camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        1,
+        10000
+      );
+      camera.position.z = 1000;
+      scene.add(camera);
+
+      geometry = new THREE.CubeGeometry(100, 100, 100);
+      material = new THREE.MeshLambertMaterial({
+        color: "#fff",
+        wireframe: false,
+      });
+      mesh = new THREE.Mesh(geometry, material);
+      cubeSineDriver = 0;
+
+      THREE.ImageUtils.crossOrigin = "";
+
+      light = new THREE.DirectionalLight("#fff", 1.7);
+      light.position.set(-0, 0, 1);
+      scene.add(light);
+
+      smokeTexture = THREE.ImageUtils.loadTexture(
+        "./png/Smoke-Element.png"
+      );
+
+      // Materiale pentru fum cu culori diferite
+      smokeMaterialLeft = new THREE.MeshLambertMaterial({
+        color: "#DB1F48",
+        map: smokeTexture,
+        transparent: true,
+      });
+      smokeMaterialCenter = new THREE.MeshLambertMaterial({
+        color: "#fff",
+        map: smokeTexture,
+        transparent: true,
+      });
+      smokeMaterialRight = new THREE.MeshLambertMaterial({
+        color: "#89CFF0",
+        map: smokeTexture,
+        transparent: true,
+      });
+
+      smokeGeo = new THREE.PlaneGeometry(320, 320);
+      smokeParticles = [];
+
+      for (p = 0; p < 50; p++) {
+        var particle = new THREE.Mesh(smokeGeo, smokeMaterialRight);
+        particle.position.set(
+          -Math.random() * 250 - 200,
+          Math.random() * 240 - 200,
+          Math.random() * 1000 - 130
         );
-        camera.position.z = 1000;
-        scene.add(camera);
-
-        geometry = new THREE.CubeGeometry(200, 200, 200);
-        material = new THREE.MeshLambertMaterial({
-          color: 0xffffff,
-          wireframe: false,
-        });
-        mesh = new THREE.Mesh(geometry, material);
-        cubeSineDriver = 0;
-
-        THREE.ImageUtils.crossOrigin = ""; 
-
-        light = new THREE.DirectionalLight("#fff", 1.6);
-        light.position.set(-1,0, 1);
-        scene.add(light);
-
-        smokeTexture = THREE.ImageUtils.loadTexture(
-          "./png/Smoke-Element.png"
+        particle.rotation.z = Math.random() * 360;
+        scene.add(particle);
+        smokeParticles.push(particle);
+      }
+      for (p = 0; p < 30; p++) {
+        var particle = new THREE.Mesh(smokeGeo, smokeMaterialCenter);
+        particle.position.set(
+          -Math.random() * 50 - 0,
+          Math.random() * 150 - 270,
+          Math.random() * 1000 - 150
         );
-
-        // Materiale pentru fum cu culori diferite
-        smokeMaterialLeft = new THREE.MeshLambertMaterial({
-          color: "red",
-          map: smokeTexture,
-          transparent: true,
-        });
-        smokeMaterialRight = new THREE.MeshLambertMaterial({
-          color: "#89CFF0",
-          map: smokeTexture,
-          transparent: true,
-        });
-
-        smokeGeo = new THREE.PlaneGeometry(400, 400);
-        smokeParticles = [];
-
-        for (p = 0; p < 75; p++) {
-          var particle = new THREE.Mesh(smokeGeo, smokeMaterialRight);
-          particle.position.set(
-            -Math.random() * 500 - 250,
-            Math.random() * 420 - 250,
-            Math.random() * 1000 - 100
-          );
-          particle.rotation.z = Math.random() * 360;
-          scene.add(particle);
-          smokeParticles.push(particle);
-        }
-
-        for (p = 0; p < 75; p++) {
-          var particle = new THREE.Mesh(smokeGeo, smokeMaterialLeft);
-          particle.position.set(
-            Math.random() * 500 + 250,
-            Math.random() * 420 - 250,
-            Math.random() * 1000 - 100
-          );
-          particle.rotation.z = Math.random() * 360;
-          scene.add(particle);
-          smokeParticles.push(particle);
-        }
-        // Fundal JPG
-        var backgroundTexture = THREE.ImageUtils.loadTexture(
-          "./png/Background-copy.jpg"
-        ); // Înlocuiește URL_CĂTRE_IMAGINEA_TA.JPG cu link-ul către imaginea ta de fundal
-        var backgroundMaterial = new THREE.MeshBasicMaterial({
-          map: backgroundTexture,
-        });
-        var backgroundGeometry = new THREE.PlaneGeometry(
-          window.innerWidth,
-          window.innerHeight
+        particle.rotation.z = Math.random() * 220;
+        scene.add(particle);
+        smokeParticles.push(particle);
+      }
+      for (p = 0; p < 50; p++) {
+        var particle = new THREE.Mesh(smokeGeo, smokeMaterialLeft);
+        particle.position.set(
+          Math.random() * 250 + 200, // X position range: -500 to -250
+          Math.random() * 240 - 200, // Y position range: -570 to -150
+          Math.random() * 1000 - 130 // Z position range: -1000 to -100
         );
-        var backgroundMesh = new THREE.Mesh(
-          backgroundGeometry,
-          backgroundMaterial
-        );
-
-        backgroundMesh.position.z = 380;
-        scene.add(backgroundMesh);
-        document.body.appendChild(renderer.domElement);
+        particle.rotation.z = Math.random() * 360;
+        scene.add(particle);
+        smokeParticles.push(particle);
       }
+      // Fundal JPG
+      var backgroundTexture = THREE.ImageUtils.loadTexture(
+        "./png/Background-copy.jpg"
+      ); // Înlocuiește URL_CĂTRE_IMAGINEA_TA.JPG cu link-ul către imaginea ta de fundal
+      var backgroundMaterial = new THREE.MeshBasicMaterial({
+        map: backgroundTexture,
+      });
+      var backgroundGeometry = new THREE.PlaneGeometry(
+        window.innerWidth,
+        window.innerHeight
+      );
+      var backgroundMesh = new THREE.Mesh(
+        backgroundGeometry,
+        backgroundMaterial
+      );
 
-      function animate() {
-        delta = clock.getDelta();
-        requestAnimationFrame(animate);
-        evolveSmoke();
-        render();
-      }
+      backgroundMesh.position.z = 380;
+      scene.add(backgroundMesh);
+      document.body.appendChild(renderer.domElement);
+    }
 
-      function evolveSmoke() {
-        var sp = smokeParticles.length;
-        while (sp--) {
-          smokeParticles[sp].rotation.z += delta * 0.1;
-        }
-      }
+    function animate() {
+      delta = clock.getDelta();
+      requestAnimationFrame(animate);
+      evolveSmoke();
+      render();
+    }
 
-      function render() {
-        mesh.rotation.x += 0.005;
-        mesh.rotation.y += 0.01;
-        cubeSineDriver += 0.01;
-        mesh.position.z = 100 + Math.sin(cubeSineDriver) * 500;
-        renderer.render(scene, camera);
+    function evolveSmoke() {
+      var sp = smokeParticles.length;
+      while (sp--) {
+        smokeParticles[sp].rotation.z += delta * 0.1;
       }
-    </script>
-  </body>
+    }
+
+    function render() {
+      mesh.rotation.x += 0.005;
+      mesh.rotation.y += 0.01;
+      cubeSineDriver += 0.01;
+      mesh.position.z = 100 + Math.sin(cubeSineDriver) * 500;
+      renderer.render(scene, camera);
+    }
+  </script>
+</body>
+
 </html>
