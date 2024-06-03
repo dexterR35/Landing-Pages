@@ -569,11 +569,11 @@
         map: smokeTexture,
         transparent: true,
       });
-      smokeMaterialCenter = new THREE.MeshLambertMaterial({
-        color: "#fff",
-        map: smokeTexture,
-        transparent: true,
-      });
+      // smokeMaterialCenter = new THREE.MeshLambertMaterial({
+      //   color: "#fff",
+      //   map: smokeTexture,
+      //   transparent: true,
+      // });
       smokeMaterialRight = new THREE.MeshLambertMaterial({
         color: "#89CFF0",
         map: smokeTexture,
@@ -584,27 +584,51 @@
       smokeParticles = [];
 
       for (p = 0; p < 50; p++) {
+        if (window.innerWidth <= 991) { // for mobile
         var particle = new THREE.Mesh(smokeGeo, smokeMaterialRight);
         particle.position.set(
-          -Math.random() * 250 - 200,
-          Math.random() * 240 - 200,
+          Math.random() * 100 - 200,
+          Math.random() * 600 - 200,
           Math.random() * 1000 - 130
         );
+    } else  {
+      -Math.random() * 250 - 200,
+          Math.random() * 240 - 200,
+          Math.random() * 1000 - 130
+    }
         particle.rotation.z = Math.random() * 360;
         scene.add(particle);
         smokeParticles.push(particle);
       }
-      for (p = 0; p < 30; p++) {
-        var particle = new THREE.Mesh(smokeGeo, smokeMaterialCenter);
+
+      for (p = 0; p < 50; p++) {
+        if (window.innerWidth <= 991) { // for mobile
+        var particle = new THREE.Mesh(smokeGeo, smokeMaterialLeft);
         particle.position.set(
-          -Math.random() * 50 - 0,
-          Math.random() * 150 - 270,
-          Math.random() * 1000 - 150
+          -Math.random() * 100 + 200,
+          Math.random() * 600 - 200,
+          Math.random() * 1000 - 130
         );
-        particle.rotation.z = Math.random() * 220;
+    } else  {
+      Math.random() * 250 + 200, // X position range: -500 to -250
+          Math.random() * 240 - 200, // Y position range: -570 to -150
+          Math.random() * 1000 - 130 // Z position range: -1000 to -100
+    }
+        particle.rotation.z = Math.random() * 360;
         scene.add(particle);
         smokeParticles.push(particle);
       }
+      // for (p = 0; p < 30; p++) {
+      //   var particle = new THREE.Mesh(smokeGeo, smokeMaterialCenter);
+      //   particle.position.set(
+      //     -Math.random() * 50 - 0,
+      //     Math.random() * 150 - 270,
+      //     Math.random() * 1000 - 150
+      //   );
+      //   particle.rotation.z = Math.random() * 220;
+      //   scene.add(particle);
+      //   smokeParticles.push(particle);
+      // }
       for (p = 0; p < 50; p++) {
         var particle = new THREE.Mesh(smokeGeo, smokeMaterialLeft);
         particle.position.set(
