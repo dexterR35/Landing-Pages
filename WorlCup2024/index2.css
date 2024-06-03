@@ -550,20 +550,17 @@ div.dt-container div.dt-layout-cell.dt-end {
   object-fit: contain;
 }
 #section1 .ball {
-  /* grid-column: 7;
-  grid-row: 5; */
-  /* background: greenyellow; */
   z-index: 12;
   position: absolute;
   top: 55%;
-  left: 51%;
+  left: 43%;
   transform: translate(-50%, 50%);
   display: flex;
   justify-content: center;
 }
 
 #section1 .ball img {
-  width: 12vh;
+  width: 16vh;
   height: auto;
 }
 
@@ -573,7 +570,7 @@ div.dt-container div.dt-layout-cell.dt-end {
   width: 50%;
   position: absolute;
   right: 13%;
-  bottom: 23%;
+  bottom: 16%;
   max-width: 420px;
   height: fit-content;
   cursor: pointer;
