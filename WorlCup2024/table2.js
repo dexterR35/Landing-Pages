@@ -1,7 +1,7 @@
-let userLoginCheck = "netbet_login"; //test1686042757550
-let qNetbet_id = "netbet_id"; //39438169 good bet
+let userLoginCheck = "test1686042757550"; //test1686042757550  || netbet_login
+let qNetbet_id = "39438169"; //39438169 good bet
 
-// Function to get cookie value by name
+
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -29,10 +29,10 @@ async function fetchData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const responseData = await response.json();
-    console.log(responseData, "data")
+    console.log(responseData, "data fetch");
     if (
-      responseData ?.status === true &&
-      Array.isArray(responseData.data ?.data)
+      responseData?.status === true &&
+      Array.isArray(responseData.data?.data)
     ) {
       return responseData.data.data;
     } else {
@@ -44,27 +44,28 @@ async function fetchData() {
   }
 }
 let linkGo;
-let actionBtn = document.getElementById("actionBtn");
-if (userLoginCheck === "logged_out") {
-  actionBtn.href = "https://sport.netbet.ro/"; 
-  actionBtn.textContent = "Înregistrează-te"; 
-  userLoginCheck = "Înregistrează-te"
-  linkGo = "https://sport.netbet.ro/"
-} else if (userLoginCheck === "netbet_login") {
-  actionBtn.href = "https://sport.netbet.ro/"; 
-  actionBtn.textContent = "Înregistrează-te"; 
-  userLoginCheck = "Înregistrează-te"
-  linkGo = "https://sport.netbet.ro/" 
-} else if (userLoginCheck === "") {
-  actionBtn.href = "https://sport.netbet.ro/"; 
-  actionBtn.textContent = "Înregistrează-te"; 
-  userLoginCheck = "Înregistrează-te"
-  linkGo = "https://sport.netbet.ro/" 
+const actionBtn = document.getElementById("actionBtn");
+const depositBtn = document.getElementById("deposit");
+const textContentReg =
+  "Înregistrează-te sau accesează contul tău și plasează un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
+const textContentBet =
+  "Plasează acum un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
+
+const checkStatus =
+  userLoginCheck === "logged_out" ||
+  userLoginCheck === "netbet_login" ||
+  userLoginCheck === "";
+if (checkStatus) {
+
+  linkGo = "https://sport.netbet.ro/";
+  actionBtn.href = "https://sport.netbet.ro/";
+  actionBtn.textContent = "Înregistrează-te";
+
 } else {
-  userLoginCheck = "Pariază Acum"
-  linkGo = "https://sport.netbet.ro/fotbal/euro-2024/" 
-  actionBtn.href = "https://sport.netbet.ro/fotbal/euro-2024/"; 
-  actionBtn.textContent = "Pariază Acum"; 
+
+  linkGo = "https://sport.netbet.ro/fotbal/euro-2024/";
+  actionBtn.href = "https://sport.netbet.ro/fotbal/euro-2024/";
+  actionBtn.textContent = "Pariază Acum";
 }
 // Function to initialize the DataTable
 function initializeDataTable(selector, data, qNetbet_id) {
@@ -74,7 +75,8 @@ function initializeDataTable(selector, data, qNetbet_id) {
   // console.log(matchingItem,"matchingItem")
   return new DataTable(selector, {
     data: dataSorted,
-    columns: [{
+    columns: [
+      {
         title: "Participanți",
         data: "username",
       },
@@ -97,8 +99,6 @@ function initializeDataTable(selector, data, qNetbet_id) {
     searching: false,
     ordering: false,
     createdRow: function (row, rowData) {
-      console.log("rowdata", rowData.player_id);
-      console.log("qNetbet_id", qNetbet_id);
       if (rowData.player_id === parseInt(qNetbet_id)) {
         addClass(row, "highlight");
         let firstTd = row.getElementsByTagName("td")[0];
@@ -130,25 +130,25 @@ async function initializePage() {
 
   // find id
   const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
-  console.log(matchingItem, "--matchingItem");
   initializeDataTable("#tableJs", tableData, qNetbet_id);
   return matchingItem;
 }
-
 initializePage().then((matchingItem) => {
   if (matchingItem) {
     console.log("Found matching item:", matchingItem);
-    console.log("You are eligible", matchingItem);
+    actionBtn.removeAttribute("href");
+    actionBtn.textContent = "Vezi Clasamentul";
+    actionBtn.addEventListener("click", () => {
+      fullpage_api.moveSectionDown();
+    });
   } else {
     setTimeout(() => {
       showNotEligibleModal();
-      console.log("start show modal when player_id not matching");
     }, 2000);
   }
 });
 
 function startModalInterval() {
-  console.log("start internval show  modal");
   modalIntervalId = setInterval(() => {
     if (!document.getElementById("modalOverFlow")) {
       showNotEligibleModal();
@@ -156,13 +156,9 @@ function startModalInterval() {
   }, 60000); //60sec
 }
 
-
-
 function showNotEligibleModal() {
   if (document.getElementById("modalOverFlow")) return;
   const modal = document.createElement("div");
-
-
   modal.innerHTML = `
     <div class="modalOverFlow" id="modalOverFlow">
       <div class="modalParent">
@@ -170,10 +166,10 @@ function showNotEligibleModal() {
              <button id="modalCloseButton">&#10006</button>
          </div>
       <div class="modalContainer">
-          <p>${"Înregistrează-te sau accesează contul tău și plasează un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!"}</p>
+        <p>${checkStatus ? textContentReg : textContentBet} </p>
           <a href="${linkGo}" target="_blank">
           <button class="_btnReg" id="deposit">
-          ${userLoginCheck}
+          ${actionBtn.textContent}
           </button>
           </a>
       </div>
@@ -186,7 +182,6 @@ function showNotEligibleModal() {
 }
 
 function closeModal() {
-  console.log("close modal");
   const modal = document.getElementById("modalOverFlow");
   if (modal) {
     modal.remove();
