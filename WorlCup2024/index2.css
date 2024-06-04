@@ -267,8 +267,8 @@ width: clamp(300px, 40%, 500px);
 .modalContainer p {
   color: var(--dark) !important;
   text-align: justify;
-  text-indent: 20px;
-  font-size: 1em;
+  /* text-indent: 20px; */
+  font-size: 1.1em;
 }
 
 #modalCloseButton {
@@ -394,6 +394,8 @@ div.dt-container div.dt-layout-cell.dt-end {
 #section1 .wrapp_all {
   flex-direction: column;
   align-items: flex-end;
+  width: fit-content;
+  margin-right: 15vw;
 }
 
 .p-s1-one img {
@@ -410,7 +412,7 @@ position: relative;
 }
 
 .offer-content {
-  font-size: 2.5vh;
+  font-size: 2.7vh;
   display: flex;
   flex-direction: column;
   /* gap: 5px; */
@@ -584,11 +586,13 @@ background-color: #751618;
 #section1 .cotes {
   /* background: black; */
   color: white;
-  width: 50%;
+  width: 100%;
   max-width: 428px;
   height: fit-content;
   cursor: pointer;
   box-shadow: rgb(7, 8, 10) 0px 20px 30px -10px;
+  /* left: -4%; */
+  margin: 0 auto;
 }
 
 #section1 .cotes {
@@ -1756,11 +1760,11 @@ table.dataTable>tbody>tr>td {
   #section1 .cotes {
     /* max-width: 360px; */
     transform: scale(0.8);
-   
+   left: 0;
   }
-  .offer {
+  /* .offer {
     width: 420px;
-  }
+  } */
 
   table.dataTable>tbody>tr>th,
   table.dataTable>tbody>tr>td {
@@ -1816,6 +1820,10 @@ table.dataTable>tbody>tr>td {
     max-width: 100%;
     width: 100%;
     position: relative;
+ 
+  }
+  #section1 .wrapp_all {
+    margin-right: 0vw;
   }
 
   #section3 .section_content,
@@ -1914,7 +1922,9 @@ table.dataTable>tbody>tr>td {
 
   .offer-content {
     font-size: 1.9vh;
+    gap: 10px;
   }
+  
 }
 
 @media screen and (max-width: 1135px) {
@@ -2310,7 +2320,7 @@ table.dataTable>tbody>tr>td {
 
   .p-s1-one {
     top: 0;
-    left: 0;
+    left: -11%;
   }
 
   table.dataTable>tbody>tr>td,
