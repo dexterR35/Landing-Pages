@@ -182,7 +182,7 @@ a {
   background-image: var(--bg-offer);
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 992px) {
   .loadBg .section:not(#section1) .fp-bg {
     background-image: var(--bg-section);
   }
@@ -200,7 +200,7 @@ a {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 991px) {
   .section {
     height: 100vh;
   }
@@ -413,7 +413,7 @@ position: relative;
   font-size: 2.5vh;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  /* gap: 5px; */
   justify-content: center;
   align-items: center;
   /* transform: skew(352deg, 354deg);
@@ -436,25 +436,25 @@ position: relative;
 }
 
 .offer-content ul li:nth-child(1) {
-  font-size: 2.75em;
+  font-size: 2em;
 }
 
 .offer-content ul li:nth-child(2) {
-  font-size: 2.98em;
+  font-size: 2.19em;
 }
 
 .offer-content ul li:nth-child(3) {
-  font-size: 2em;
+  font-size: 2.15em;
   margin-bottom: 0.2em;
 }
 
 .offer-content ul li:nth-child(4) {
-  font-size: 1.43em;
+  font-size: 2.43em;
 }
 
-.offer-content ul li:nth-child(5) {
+/* .offer-content ul li:nth-child(5) {
   font-size: 1.6em;
-}
+} */
 
 ._btnReg {
   font-size: 1.2em;
@@ -2294,7 +2294,7 @@ table.dataTable>tbody>tr>td {
   }
 
   .boxParent div img {
-    width: 65% !important;
+    width: 60% !important;
   }
 }
 

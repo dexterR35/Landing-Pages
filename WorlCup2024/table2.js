@@ -153,7 +153,7 @@ function startModalInterval() {
     if (!document.getElementById("modalOverFlow")) {
       showNotEligibleModal();
     }
-  }, 60000); //60sec
+  }, 6000); //60sec
 }
 
 function showNotEligibleModal() {
