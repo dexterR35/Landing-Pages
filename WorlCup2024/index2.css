@@ -167,7 +167,16 @@ a {
   background: var(--highlight) !important;
   color: var(--white);
 }
+.content-cote .matches-cote p,.content-cote .number-cote p {
+  font-family: "MontzBlack";
+}
 
+.group-name,.containerBox .boxParent div:nth-child(2) p:nth-child(1),.terms_body p  {
+  font-family: "MontzBold";
+}
+.footer-button a,.slider-control span ,#tableScore-content {
+  font-family: "MontzSemiBold";
+}
 #section5 .fp-bg {
   filter: hue-rotate(102deg);
   transform: scaleX(-1);
@@ -650,7 +659,7 @@ background-color: #751618;
   height: auto;
   letter-spacing: -0.3px;
   padding: 6px 10px;
-  font-family: "MontzSemiBold";
+
   text-transform: capitalize;
 }
 
@@ -726,10 +735,11 @@ background-color: #751618;
   flex-direction: row-reverse;
 }
 
+
+
 .containerBox .boxParent div:nth-child(2) p:nth-child(1) {
   font-size: 1.6em;
   margin-bottom: 0.3em;
-  font-family: "MontzBold";
   text-transform: uppercase;
   text-align: start;
 }
@@ -922,7 +932,7 @@ background-color: #751618;
   background: var(--red);
   width: 38%;
   text-align: center;
-  font-family: "MontzBlack";
+
 }
 
 .content-cote .date-cote p {
@@ -931,9 +941,6 @@ background-color: #751618;
   padding: 0;
 }
 
-.content-cote .number-cote p {
-  font-family: "MontzBlack";
-}
 
 .content-cote .date-cote {
   text-align: center;
@@ -1393,7 +1400,7 @@ table.dataTable td.dt-type-date {
   padding: 1px 2px 3px 2px;
 }
 
-.parent-tableScore-row:nth-child(3) {
+.romania-row {
   background: var(--highlight);
   color: white;
 }
@@ -1404,9 +1411,10 @@ table.dataTable td.dt-type-date {
 }
 
 .group-name {
-  font-weight: bold;
   width: 76%;
   text-align: start;
+  text-transform: uppercase;
+
 }
 
 .column-header:nth-last-child(1) {
@@ -1415,7 +1423,7 @@ table.dataTable td.dt-type-date {
 
 .column-header,
 .cell {
-  width: 27px;
+  width:35px;
   text-align: center;
 }
 
@@ -1423,11 +1431,16 @@ table.dataTable td.dt-type-date {
   margin: 4px 6px;
   padding-top: 2px;
 }
+.tableScore-row .cell {
+  margin-right: 1.4px;
+}
+.tableScore-row .cell:nth-last-child(1){
+  text-align: end;
+}
 
 #tableScore-content {
   padding: 0 10px;
   color: #1a1a1a;
-  font-family: "MontzSemiBold";
   letter-spacing: -0.6px;
   font-size: 1em;
 }
@@ -1445,6 +1458,7 @@ table.dataTable td.dt-type-date {
   align-items: center;
   padding: 4px 10px;
   width: 81%;
+  text-transform: capitalize;
 }
 
 /*tabble offer matcher*/
@@ -1503,8 +1517,9 @@ table.dataTable td.dt-type-date {
   transform: translate(-50%, -50%);
   color: rgba(0, 0, 0, 0.4);
   font-weight: bold;
-  font-family: "MontzSemiBold";
+
 }
+
 
 /*TERMS*/
 /*TERMS*/
@@ -1715,7 +1730,6 @@ table.dataTable td.dt-type-date {
 }
 
 .terms_body p {
-  font-family: "MontzBold";
   text-transform: uppercase;
   color: #ff1c26;
   font-size: 1.4em;

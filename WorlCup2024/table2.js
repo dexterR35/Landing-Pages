@@ -1,5 +1,5 @@
-let userLoginCheck = "netbet_login"; //test1686042757550  || netbet_login
-let qNetbet_id = "netbet_id"; //39438169 good bet
+let userLoginCheck = "test1686042757550"; //test1686042757550  || netbet_login
+let qNetbet_id = "39438169"; //39438169 good bet
 
 
 function getCookie(name) {

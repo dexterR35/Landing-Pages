@@ -3,18 +3,20 @@
 <head>
   <title>Google Sheets API Example</title>
   <script src="https://apis.google.com/js/api.js"></script>
+  <link rel="stylesheet" href="./index2.css">
   <script>
-    // Your API key
+    // API key
     const API_KEY = 'AIzaSyAAfFbz11XXy1za2hcLHhiqKYcwF23kP-M';
 
     // Discovery doc URL for APIs used by the quickstart
     const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
 
     // The ID of the spreadsheet to retrieve data from.
-    const SPREADSHEET_ID = '1pt__R7igjnx-IVYYRs0bXH6wOrREYVjeIN83ZNu8zBw'; // Corrected ID
+    const SPREADSHEET_ID = '1pt__R7igjnx-IVYYRs0bXH6wOrREYVjeIN83ZNu8zBw';
 
     // The range of values to retrieve.
-    const RANGE = 'Sheet1!A1:F10'; // Adjust the range as needed
+    const RANGE = 'Sheet1!A1:F10'; 
+    const RANGE2 = 'Sheet1!J1:Q10';
 
     function gapiLoaded() {
       gapi.load('client', initializeGapiClient);
@@ -26,10 +28,11 @@
         discoveryDocs: [DISCOVERY_DOC],
       });
 
-      await fetchSpreadsheetData();
+      await fetchClassament();
+      await fetchCotesData();
     }
 
-    async function fetchSpreadsheetData() {
+    async function fetchCotesData() {
       try {
         const response = await gapi.client.sheets.spreadsheets.values.get({
           spreadsheetId: SPREADSHEET_ID,
@@ -42,7 +45,7 @@
           range.values.forEach((row) => {
             console.log(row);
           });
-          displayData(range.values);
+          displayCotes(range.values);
         } else {
           console.log('No data found.');
         }
@@ -51,20 +54,79 @@
       }
     }
 
-    function displayData(rows) {
-      const contentDiv = document.getElementById('content');
-      const htmlContent = rows.map(row => `
-        <div class="content-cote">
-          <div class="matches-cote"><p>${row[0]}</p> <p>${row[1]}</p></div>
-          <div class="date-cote"><p>${row[2]}</p></div>
-          <div class="number-cote">
-            <p> ${row[3]} <span>|</span></p>
-            <p> ${row[4]} <span>|</span></p>
-            <p> ${row[5]} </p>
+    async function fetchClassament() {
+      try {
+        const response = await gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: SPREADSHEET_ID,
+          range: RANGE2,
+        });
+
+        const range = response.result;
+        if (range.values.length) {
+          console.log('Cotes Data:');
+          range.values.forEach((row) => {
+            console.log(row);
+          });
+      
+          displatClasament(range.values);
+        } else {
+          console.log('No cotes data found.');
+        }
+      } catch (err) {
+        console.error('Error fetching cotes data:', err);
+      }
+    }
+
+    function displatClasament(rows) {
+      const tableContent = document.getElementById('tableScore-content');
+      let htmlContent = `
+        <div class="tableScore-container">
+          <div class="tableScore-header gradientRed">
+            <span class="group-name">GRUPA E</span>
+            <span class="column-header">P</span>
+            <span class="column-header">W</span>
+            <span class="column-header">D</span>
+            <span class="column-header">L</span>
+            <span class="column-header">PTS</span>
           </div>
-        </div>
-      `).join("");
-      contentDiv.innerHTML = htmlContent;
+      `;
+
+      rows.slice(1).forEach(row => {
+        htmlContent += `
+          <div class="tableScore-row">
+            <span class="column-data">${row[2]}</span>
+            <span class="column-data">${row[3]}</span>
+            <span class="column-data">${row[4]}</span>
+            <span class="column-data">${row[5]}</span>
+            <span class="column-data">${row[6]}</span>
+            <span class="column-data">${row[7]}</span>
+          </div>
+        `;
+      });
+
+      htmlContent += '</div>';
+      tableContent.innerHTML = htmlContent;
+    }
+
+    function displayCotes(rows) {
+      const cotesDiv = document.getElementById('cotes');
+      let htmlContent = '';
+
+      rows.slice(1).forEach(row => {
+        htmlContent += `
+          <div class="content-cote">
+            <div class="matches-cote"><p>${row[0]}</p> <p>${row[1]}<p></div>
+            <div class="date-cote">Date: ${row[2]}</div>
+            <div class="number-cote">
+              <p>1x2 ${row[3]}<span>|</span></p>
+              <p>1x2 ${row[4]}<span>|</span></p>
+              <p>1x2 ${row[5]}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      cotesDiv.innerHTML = htmlContent;
     }
 
     gapi.load('client:auth2', gapiLoaded);
@@ -89,7 +151,27 @@
       justify-content: space-around;
       margin-top: 5px;
     }
+    .tableScore-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .tableScore-header {
+      display: flex;
+      justify-content: space-between;
+      background-color: #ffcccc;
+      padding: 10px;
+    }
+    .tableScore-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+    }
+    .column-header, .column-data, .team-name, .group-name {
+      width: 100px;
+      text-align: center;
+    }
   </style>
-  <div id="content"></div>
+  <div id="tableScore-content"></div>
+  <div id="cotes"></div>
 </body>
 </html>

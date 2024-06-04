@@ -62,85 +62,8 @@ const fullData = {
     "container_boxes2-3",
     "container_boxes2-4",
     "container_boxes2-5",
-  ],
-  matches: [{
-      team1: "Romania",
-      team2: "Ucraina",
-      date: "2024-06-15",
-      cote: {
-        x1: 3.65,
-        x: 3.25,
-        x2: 2.13,
-      },
-    },
-    {
-      team1: "SPANIA",
-      team2: "CROATIA",
-      date: "2024-06-16",
-      cote: {
-        x1: 2.1,
-        x: 3.5,
-        x2: 2.8,
-      },
-    },
-    {
-      team1: "BELGIA",
-      team2: "SLOVACIA",
-      date: "2024-06-17",
-      cote: {
-        x1: 2.75,
-        x: 3.0,
-        x2: 2.5,
-      },
-    },
-    {
-      team1: "PORTUGALIA",
-      team2: "CEHIA",
-      date: "2024-06-18",
-      cote: {
-        x1: 2.95,
-        x: 3.2,
-        x2: 2.1,
-      },
-    },
-  ],
-  teams: [{
-      name: "Belgium",
-      flag: "https://flagcdn.com/w20/be.png",
-      p: 0,
-      w: 0,
-      d: 0,
-      l: 0,
-      pts: 0,
-    },
-    {
-      name: "Slovakia",
-      flag: "https://flagcdn.com/w20/sk.png",
-      p: 0,
-      w: 0,
-      d: 0,
-      l: 0,
-      pts: 0,
-    },
-    {
-      name: "Romania",
-      flag: "https://flagcdn.com/w20/ro.png",
-      p: 0,
-      w: 0,
-      d: 0,
-      l: 0,
-      pts: 0,
-    },
-    {
-      name: "Ukraine",
-      flag: "https://flagcdn.com/w20/ua.png",
-      p: 0,
-      w: 0,
-      d: 0,
-      l: 0,
-      pts: 0,
-    },
-  ],
+  ]
+
 };
 
 
@@ -199,23 +122,11 @@ document.addEventListener("DOMContentLoaded", function () {
     anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
     menu: "#menu",
     navigation: true,
-    // responsiveSlides:true,
-    // animateAnchor: true,
-    // cardsOptions: {
-    //   perspective: 950,
-    //   fadeContent: true,
-    //   fadeBackground: true,
-    // },
-    // touchSensitivity: 18,
-    // scrollingSpeed: 1000,
     keyboardScrolling: true,
     dragAndMove: true,
     lazyLoading: true,
     controlArrows: false,
     fadingEffect: false,
-    // fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
-  
-
     afterLoad: (origin, destination, direction) => {
 
     },
@@ -292,32 +203,6 @@ document.querySelectorAll(".slider-control-prev").forEach(element => {
   });
 });
 
-// Function to add content
-function addInfoCotes(matches) {
-  const htmlContent = matches.map(match => `
-    <div class="content-cote">
-      <div class="matches-cote"><p>${match.team1}</p> <p>${match.team2}</p></div>
-      <div class="date-cote"><p>${match.date}</p></div>
-      <div class="number-cote">
-        <p>1x2 ${match.cote.x1} <span>|</span></p>
-        <p>1x2 ${match.cote.x} <span>|</span></p>
-        <p>1x2 ${match.cote.x2} </p>
-      </div>
-    </div>
-  `).join("");
-
-  const coteMatchElement = document.getElementById("coteMatch");
-  coteMatchElement.insertAdjacentHTML("beforeend", htmlContent);
-}
-
-
-addInfoCotes(fullData.matches);
-
-function onLoad() {
-  addClass(document.body, "loadBg");
-}
-
-window.addEventListener("load", onLoad);
 
 fullData.dataBoxes.forEach((item, index) => {
   const sectionIndex = Math.floor(index / 2);
@@ -337,22 +222,8 @@ fullData.dataBoxes.forEach((item, index) => {
   }
 });
 
-const tableContent = document.getElementById('tableScore-content');
-fullData.teams.forEach(team => {
-  const row = document.createElement('div');
-  row.classList.add('parent-tableScore-row');
-  row.innerHTML = `
-  <div class="tableScore-row">
-      <div class="team-name">
-          <img class="flag" src="${team.flag}" alt="${team.name} flag">
-          ${team.name}
-      </div>
-      <div class="cell">${team.p}</div>
-      <div class="cell">${team.w}</div>
-      <div class="cell">${team.d}</div>
-      <div class="cell">${team.l}</div>
-      <div class="cell">${team.pts}</div>
-      </div>
-  `;
-  tableContent.appendChild(row);
-});
+function onLoad() {
+  addClass(document.body, "loadBg");
+}
+
+window.addEventListener("load", onLoad);
