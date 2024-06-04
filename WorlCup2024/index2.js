@@ -192,6 +192,9 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", hideLoadingScreen);
 
   new fullpage("#content", {
+    licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
+    cards: true,
+    cardsKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
     sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
     anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
     menu: "#menu",
@@ -209,11 +212,9 @@ document.addEventListener("DOMContentLoaded", function () {
     dragAndMove: true,
     lazyLoading: true,
     controlArrows: false,
-    fadingEffect: true,
-    fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
-    licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
-    cardsKey: "YWx2YXJvdHJpZ28uY29tX0E2MFkyRnlaSE09cmI2",
-    cards: true,
+    fadingEffect: false,
+    // fadingEffectKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
+  
 
     afterLoad: (origin, destination, direction) => {
 

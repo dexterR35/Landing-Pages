@@ -126,7 +126,7 @@ body {
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
-  font-family: "MontzSemiBold";
+  font-family: "MontzBold";
 }
 
 h2 {
@@ -146,6 +146,7 @@ p {
 
 a {
   color: var(--dark);
+  margin: auto;
 }
 #content {
   display: none;
@@ -252,7 +253,7 @@ p.intro-line {
   text-align: center;
   position: relative;
   user-select: none;
-width: clamp(300px, 40%, 520px);
+width: clamp(300px, 40%, 500px);
 
 }
 
@@ -271,7 +272,7 @@ width: clamp(300px, 40%, 520px);
 }
 
 #modalCloseButton {
-  margin: 16px 5px;
+  margin: 16px 0px;
   border: 0;
   outline: 0;
   background: transparent !important;
@@ -396,7 +397,7 @@ div.dt-container div.dt-layout-cell.dt-end {
 }
 
 .p-s1-one img {
-  height: 100%;
+  height: 87vh;
   max-height: 100%;
 }
 
@@ -473,7 +474,7 @@ position: relative;
   filter: drop-shadow(3px 4px 4px black);
   cursor: pointer;
   text-align: center;
-  width: 97%;
+  width:fit-content;
 }
 
 
@@ -1757,6 +1758,9 @@ table.dataTable>tbody>tr>td {
     transform: scale(0.8);
    
   }
+  .offer {
+    width: 420px;
+  }
 
   table.dataTable>tbody>tr>th,
   table.dataTable>tbody>tr>td {
@@ -1791,9 +1795,14 @@ table.dataTable>tbody>tr>td {
 /*TERMS*/
 /*TERMS*/
 @media screen and (orientation: portrait) {
-  
+  .offer {
+    padding: 10px 0;
+  }
   .fp-content {
     padding: 0 3% !important;
+  }
+  .modalContainer {
+    gap: 15px;
   }
 
  .modalOverFlow .modalContainer #deposit {
@@ -2006,7 +2015,7 @@ table.dataTable>tbody>tr>td {
 
   .p-s1-one {
     top: 0;
-    left: 0%;
+    left: -10%;
   }
 
   .p-s1-one img {
