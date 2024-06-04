@@ -1,7 +1,5 @@
-
-// let userLoginCheck = "logged_out";
-// let qNetbet_id = "logged_out";
-
+let userLoginCheck = "test1686042757550"; //test1686042757550
+let qNetbet_id = "39438169"; //139438169
 
 // Function to get cookie value by name
 function getCookie(name) {
@@ -19,12 +17,12 @@ function getCookie(name) {
   return null;
 }
 
-let userLoginCheck = "";
-let qNetbet_id = "";
+// let userLoginCheck = "";
+// let qNetbet_id = "";
 // let userLoginCheck = getCookie("netbet_login");
 // let qNetbet_id = getCookie("netbet_id");
-let modalIntervalId;
 
+let modalIntervalId;
 
 // Function to fetch data from the API
 async function fetchData() {
@@ -59,8 +57,7 @@ function initializeDataTable(selector, data, qNetbet_id) {
   // console.log(matchingItem,"matchingItem")
   return new DataTable(selector, {
     data: dataSorted,
-    columns: [
-      {
+    columns: [{
         title: "Participanți",
         data: "username",
       },
@@ -83,8 +80,9 @@ function initializeDataTable(selector, data, qNetbet_id) {
     searching: false,
     ordering: false,
     createdRow: function (row, rowData) {
-      // console.log(data,"dada")
-      if (rowData.player_id == qNetbet_id) {
+      console.log("rowdata", rowData.player_id);
+      console.log("qNetbet_id", qNetbet_id);
+      if (rowData.player_id === parseInt(qNetbet_id)) {
         addClass(row, "highlight");
         let firstTd = row.getElementsByTagName("td")[0];
         if (firstTd) {
@@ -109,23 +107,23 @@ async function initializePage() {
   console.log(tableData, "--tableData");
   console.log(userLoginCheck, "--userLoginCheck");
   console.log(qNetbet_id, "--qNetbet_id");
+
+  // find id
   const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
   console.log(matchingItem, "--matchingItem");
-
-  initializeDataTable("#exampleS", tableData, qNetbet_id);
-
+  initializeDataTable("#tableJs", tableData, qNetbet_id);
   return matchingItem;
 }
 
 initializePage().then((matchingItem) => {
   if (matchingItem) {
     console.log("Found matching item:", matchingItem);
-    console.log("You are eligible",matchingItem);
+    console.log("You are eligible", matchingItem);
   } else {
     setTimeout(() => {
-      showNotEligibleModal("You are not eligible");
+      showNotEligibleModal();
       console.log("start show modal when player_id not matching");
-    }, 3000);
+    }, 2000);
   }
 });
 
@@ -133,42 +131,44 @@ function startModalInterval() {
   console.log("start internval show  modal");
   modalIntervalId = setInterval(() => {
     if (!document.getElementById("modalOverFlow")) {
-      console.log("show again the modal");
-      showNotEligibleModal("dont close ,make a bet");
+      showNotEligibleModal();
     }
-  }, 2000);
+  }, 60000); //60sec
 }
 
-function showNotEligibleModal(textContent) {
-  if (document.getElementById('modalOverFlow')) return;
+function showNotEligibleModal() {
+  if (document.getElementById("modalOverFlow")) return;
   const modal = document.createElement("div");
   modal.innerHTML = `
     <div class="modalOverFlow" id="modalOverFlow">
       <div class="modalParent">
-        <button id="modalCloseButton">Close</button>
-        <div class="modalContainer">
-          <p>${textContent} 
-          <p>Depune 50 .... to </p>
+        <div>
+             <button id="modalCloseButton">&#10006</button>
+         </div>
+    
+      <div class="modalContainer">
+          <p>${"Înregistrează-te sau accesează contul tău și plasează un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!"}</p>
           <button class="_btnReg" id="deposit">
           ${
             userLoginCheck
-              ? (userLoginCheck === "logged_out" ? "inregistreaza-te" : "make bet")
-              : "Login2"
+              ? userLoginCheck === "logged_out"
+                ? "Înregistrează-te"
+                : "Pariază"
+              : "Înregistrează-te"
           }
         </button>
-        </div>
       </div>
     </div>
+  </div>
   `;
   document.body.appendChild(modal);
-  document.getElementById('modalCloseButton').onclick = closeModal;
+  document.getElementById("modalCloseButton").onclick = closeModal;
   clearInterval(modalIntervalId);
 }
 
-
 function closeModal() {
   console.log("close modal");
-  const modal = document.getElementById('modalOverFlow');
+  const modal = document.getElementById("modalOverFlow");
   if (modal) {
     modal.remove();
   }
