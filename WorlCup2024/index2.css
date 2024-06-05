@@ -955,7 +955,6 @@ div.dt-container div.dt-layout-cell.dt-end {
 .content-cote .matches-cote p {
   font-size: 1.3em;
   background: var(--red);
-  width: 38%;
   text-align: center;
   width: 29%;
 }
@@ -1279,7 +1278,9 @@ table.dataTable td.dt-type-date {
   justify-content: start;
   margin: auto;
 }
-
+#section5 h1 {
+  font-size: 2.5em;
+}
 #section5 .section_content {
   text-align: center;
   margin-top: 4%;
@@ -1855,7 +1856,9 @@ table.dataTable > tbody > tr > td {
   .modalContainer p:nth-child(3) {
     margin-bottom: -7px;
   }
-
+  #section5 h1 {
+    font-size: 1.5em;
+  }
   .modalOverFlow .modalContainer #deposit {
     width: 100%;
     max-width: 320px;
@@ -1924,7 +1927,7 @@ table.dataTable > tbody > tr > td {
 
   .content-cote .matches-cote p {
     font-size: 1.2em;
-    /* width: 42%; */
+    width: 30%;
   }
 
   .content-cote .number-cote {
@@ -2044,9 +2047,11 @@ table.dataTable > tbody > tr > td {
     justify-content: flex-start;
     gap: 0;
   }
-
+  .content-cote .matches-cote p {
+width: 100%;
+  }
   h1 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     padding: 0 5px;
   }
 

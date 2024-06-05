@@ -57,9 +57,9 @@
 
       const range = response.result;
       if (range.values.length) {
-        console.log('Cotes Data:');
+        // console.log('Cotes Data:');
         range.values.forEach((row) => {
-          console.log(row);
+          // console.log(row);
         });
     
         displayClasament(range.values);
