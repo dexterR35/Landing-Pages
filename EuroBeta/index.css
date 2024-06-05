@@ -2201,7 +2201,7 @@ table.dataTable>tbody>tr>td {
   }
 
   #section2 .wrapp_all {
-    top: 3%;
+    top: 5%;
     gap: 5px;
   }
 
@@ -2275,6 +2275,7 @@ table.dataTable>tbody>tr>td {
 
   #section4 .wrapp_all {
     max-height: 90vh !important;
+    top: 52%;
   }
 
   #section4 .section_content {
@@ -2311,7 +2312,7 @@ table.dataTable>tbody>tr>td {
     height: 100%;
     justify-content: start !important;
     max-height: 100% !important;
-    top: 3%;
+    top: 8%;
   }
 
   .slider-control {
