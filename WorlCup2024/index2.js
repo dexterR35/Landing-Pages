@@ -64,6 +64,8 @@ const fullData = {
     "container_boxes2-5",
   ]
 
+
+
 };
 
 
@@ -185,9 +187,7 @@ document.querySelector(".arrow-down").addEventListener("click", () => {
   fullpage_api.moveSectionDown();
 });
 
-document.querySelector(".arrow-custom").addEventListener("click", () => {
-  fullpage_api.moveSectionDown();
-});
+
 
 document.querySelectorAll(".slider-control-next").forEach(element => {
   element.addEventListener("click", e => {

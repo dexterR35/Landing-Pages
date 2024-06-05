@@ -8,7 +8,7 @@
   const SPREADSHEET_ID = '1pt__R7igjnx-IVYYRs0bXH6wOrREYVjeIN83ZNu8zBw';
 
   // The range of values to retrieve.
-  const RANGE = 'Sheet1!A1:F10'; 
+  const RANGE = 'Sheet1!A1:G10'; 
   const RANGE2 = 'Sheet1!J1:Q10';
 
   function gapiLoaded() {
@@ -103,6 +103,8 @@ const groupName = rows[0][1];
   
   }
 
+ 
+
   function displayCotes(rows) {
     const cotesDiv = document.getElementById('coteMatch');
     let htmlContent = '';
@@ -110,10 +112,10 @@ const groupName = rows[0][1];
     rows.slice(1).forEach(row => {
       htmlContent += `
         <div class="content-cote">
-          <div class="matches-cote"><p>${row[0]}</p> <p>${row[1]}</p></div>
+        <a href="${row[6]}" target="_blank"> <div class="matches-cote"><p>${row[0]}</p><p>1x2</p><p>${row[1]}</p></div></a>
           <div class="date-cote"><p>${row[2]}</p></div>
           <div class="number-cote">
-            <p>${row[3]} <span>|</span></p>
+           <p>${row[3]} <span>|</span></p>  
             <p>${row[4]} <span>|</span></p>
             <p>${row[5]} </p>
           </div>

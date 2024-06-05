@@ -1,5 +1,5 @@
-let userLoginCheck = "test1686042757550"; //test1686042757550  || netbet_login
-let qNetbet_id = "39438169"; //39438169 good bet
+let userLoginCheck = "netbet_login"; //test1686042757550  || netbet_login
+let qNetbet_id = "netbet_id"; //39438169 good bet
 
 
 function getCookie(name) {
@@ -57,8 +57,8 @@ const checkStatus =
   userLoginCheck === "";
 if (checkStatus) {
 
-  linkGo = "https://sport.netbet.ro/";
-  actionBtn.href = "https://sport.netbet.ro/";
+  linkGo = "https://sport.netbet.ro/?register=1";
+  actionBtn.href = "https://sport.netbet.ro/?register=1";
   actionBtn.textContent = "Înregistrează-te";
 
 } else {
@@ -153,7 +153,7 @@ function startModalInterval() {
     if (!document.getElementById("modalOverFlow")) {
       showNotEligibleModal();
     }
-  }, 6000); //60sec
+  }, 300000); //5 min in milisec
 }
 
 function showNotEligibleModal() {
@@ -172,14 +172,24 @@ function showNotEligibleModal() {
           ${actionBtn.textContent}
           </button>
           </a>
+          <p class="arrow-custom">Termeni și Condiții</p>
       </div>
     </div>
   </div>
   `;
   document.body.appendChild(modal);
+
+document.querySelector(".arrow-custom").addEventListener("click", () => {
+  fullpage_api.moveTo('5thPage');
+  closeModal();
+});
   document.getElementById("modalCloseButton").onclick = closeModal;
   clearInterval(modalIntervalId);
 }
+
+
+
+
 
 function closeModal() {
   const modal = document.getElementById("modalOverFlow");
