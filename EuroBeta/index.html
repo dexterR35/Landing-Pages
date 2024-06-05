@@ -155,6 +155,289 @@
       }
     }
   </style>
+  <header id="headerId">
+  <nav class="__nav_d _n">
+    <div class="__logo">
+      <img src="./png/elements/nbLogoWhite.png" alt="nblogo" />
+    </div>
+    <ul class="__ul _d">
+      <li>
+        <a href="#">Înregistrare</a>
+      </li>
+      <li>
+        <a href="#">Conectare</a>
+      </li>
+    </ul>
+    <div class="___ham">
+      <div class="__ham" id="__ham">
+        <span class="_ln"></span>
+        <span class="_ln"></span>
+        <span class="_ln"></span>
+      </div>
+    </div>
+  </nav>
+  <nav class="__nav_m _n">
+    <ul>
+      <li>
+        <a href="#">Înregistrare</a>
+      </li>
+      <li>
+        <a href="#">LOGHEAZĂ-TE</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+  <style>
+
+  /*header style*/
+  /*header style*/
+  /*header style*/
+  header {
+    width: 100%;
+    height: 2.5em;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    color: var(--white);
+    background: #69010114;
+    z-index: 100;
+
+  }
+  header ul li a {
+    font-family: "MontzBold";
+  }
+
+  header .__logo img,
+  header .__nav_d,
+  ._bdropfilter_,
+  ._n ul li a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  header .__logo {
+    flex-basis: calc(130px + 2%);
+    margin-left: 6%;
+  }
+
+  .__ul._d {
+    margin-right: 6%;
+  }
+
+  header .__nav_d,
+  header .__nav_d ul,
+  .__nav_m ul li a,
+  .__nav_m li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  header .__nav_d {
+    margin: auto;
+    justify-content: space-between !important;
+  }
+
+  header .__logo img {
+    object-fit: contain;
+    max-height: 80px;
+    filter: drop-shadow(1px 1px 1px black);
+  }
+
+  ._n {
+    background: #e6ebe92e;
+    backdrop-filter: blur(5px);
+  }
+
+  ._n li a {
+    color: #202020;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+
+  }
+
+  .__nav_d ul {
+    gap: 8px;
+  }
+
+  .__nav_d ul li {
+    padding: 5px 30px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+
+
+  .___ham {
+    flex-basis: calc(72px + 2%);
+  }
+
+  .___ham .__ham ._ln {
+    width: 27px;
+    height: 3px;
+    background-color: var(--white);
+    display: block;
+    margin: 6px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .__ham:hover {
+    cursor: pointer;
+  }
+
+  #__ham.is-active ._ln:nth-child(2) {
+    opacity: 0;
+  }
+
+  #__ham.is-active ._ln:nth-child(1) {
+    -webkit-transform: translateY(9px) rotate(45deg);
+    -ms-transform: translateY(9px) rotate(45deg);
+    -o-transform: translateY(9px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  #__ham.is-active ._ln:nth-child(3) {
+    -webkit-transform: translateY(-9px) rotate(-45deg);
+    -ms-transform: translateY(-9px) rotate(-45deg);
+    -o-transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  /*mobile nav*/
+  .__nav_m {
+    z-index: 3000;
+    font-weight: bold;
+    font-size: 0.8em;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    background: #ffffffcf;
+    display: none;
+  }
+
+  .__nav_d ul li a {
+    color: var(--white);
+  }
+
+  .__nav_m ul {
+    background-color: #e6ebe926;
+  }
+
+  .__nav_m li:nth-child(1) {
+    border-top: #e1e1e1d0 1px solid;
+  }
+
+  .__nav_m li {
+    height: 5em;
+    border-bottom: #e1e1e1d0 1px solid;
+  }
+
+  /*mobile nav*/
+  #headerId ul li {
+    list-style: none;
+    border-radius: 50px;
+  }
+  .__nav_d ul li {
+    background: var(--gradientRed);
+    color: var(--white);
+  }
+  .__nav_m li:nth-child(2){
+    background: var(--gradientRed);
+ 
+  }
+  .__nav_m li:nth-child(2) a {
+    color: var(--white);
+  }
+  #headerId .__nav_m ul li {
+      border-radius: 0;
+    }
+
+  .__nav_d ul li:nth-child(2),
+  .__nav_m ul li:nth-child(2):hover a {
+    background: var(--gradientRed);
+    color: var(--white);
+  }
+
+  .__nav_d ul li:nth-child(3),
+  .__nav_m ul li:nth-child(3) {
+    background-image: var(--button_color);
+  }
+
+  .__nav_m ul li:nth-child(3) a {
+    color: var(--white);
+  }
+
+  @media (orientation: portrait) {
+    header {
+      height: 2.5em !important;
+      position: absolute;
+    }
+   
+    
+  }
+
+  @media (min-width: 1024px) {
+    header .__nav_d {
+      max-width: 100%;
+    }
+
+    .___ham,
+    .__nav_m {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    header .__nav_d {
+      max-width: 100%;
+    }
+    ._n li a {
+      font-size: 1.3em;
+    }
+    header .__logo {
+      margin-left: 3%;
+    }
+
+    .__nav_d ul._d {
+      display: none;
+    }
+
+    /* .__nav_m {
+      display: block;
+    } */
+  }
+
+  @media (max-width: 678px) {
+    header .__logo {
+      /* flex-basis: calc(11vw + 11vh); */
+      flex-basis: calc(110px + 2%);
+    }
+  }
+  </style>
+  <script>
+       document.addEventListener("DOMContentLoaded", function() {
+      var hamButton = document.querySelector(".___ham");
+      var hamIcon = document.querySelector(".__ham");
+      var navMenu = document.querySelector(".__nav_m");
+
+      hamButton.addEventListener("click", function() {
+        hamIcon.classList.toggle("is-active");
+        navMenu.classList.toggle("is-active");
+        
+        if (navMenu.style.display === "block") {
+          navMenu.style.display = "none";
+        } else {
+          navMenu.style.display = "block";
+        }
+      });
+    });
+  </script>
   <div id="content">
     <div id="fullpage">
       <div class="section" id="section1">
@@ -241,18 +524,18 @@
               <div class="intro anim-wrapper anim-delay-8">
                 <p>Urmărește acum cotele celor mai importante meciuri.</p>
               </div>
+              </div>
             </a>
-            </div>
+          
             <div class="section_info">
               <div class="container-info">
                 <div class="coteMatch" id="coteMatch"></div>
               </div>
               <div class="smallText">*Cotele din oferta de pariuri pot suferi modificări în decursul timpului și de asemenea evenimentele pot fi suspendate din oferta de pariere și redeschise ulterior sau chiar blocate înainte de ora de începere.</div>
             </div>
-       
-          </div>
         </div>
-      </div>
+          </div>
+        </div>   
       <div class="section" id="section4">
         <div class="slide" id="slide2-1">
           <div class="fp-bg"></div>
@@ -403,7 +686,6 @@
                           <li>Oferta este limitată la o singură utilizare per adresă domiciliu/calculator/adresă IP.
                           </li>
                         </ul>
-
                         <p><b>CARE ESTE PREMIUL MEU?</b></p>
                         <ul>
                           <li>
@@ -414,9 +696,7 @@
                             Promoția este compatibilă cu altă ofertă de Bun-Venit.
                           </li>
                         </ul>
-
                         <p><b>Cum funcționează?</b></p>
-
                         <ul>
                           <li>
                             Înregistrează-te sau Conectează-te pe NetBet Sport.
@@ -457,8 +737,8 @@
                           </li>
                           <li>Reține că premiul nu poate fi schimbat cu valoarea sa în bani reali, Freebet-uri sau alte bonusuri. </li>
                           <li>Un jucător poate câștiga un singur premiu pe durata campaniei.</li>
+                        </ul>
                         <p><b>Ce altceva trebuie să știu?</b></p>
-
                         <ul>
                           <li>Această ofertă respectă <a
                               href="https://sport.netbet.ro/help/terms-and-conditions/terms-conditions{$url_postfix|escape:"
@@ -574,7 +854,7 @@
     </div>
   </div>
   <ul id="myMenu" class="footer-bar"">
-    <li class=" footer-button" data-menuanchor="firstPage" class="active" data-color="--gradientRed"><a
+    <li class="footer-button" data-menuanchor="firstPage" class="active" data-color="--gradientRed"><a
       href="#firstPage">Ofertă</a></li>
     <li class="footer-button" data-menuanchor="secondPage" data-color="--gradientGreen"><a
         href="#secondPage">Clasament</a></li>

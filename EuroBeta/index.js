@@ -220,6 +220,7 @@ fullData.dataBoxes.forEach((item, index) => {
       </div>
     `;
   }
+
 });
 
 function onLoad() {
@@ -227,3 +228,4 @@ function onLoad() {
 }
 
 window.addEventListener("load", onLoad);
+

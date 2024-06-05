@@ -3,6 +3,11 @@
 let userLoginCheck = getCookie("netbet_login") ; //test1686042757550  || netbet_login
 let qNetbet_id = getCookie("netbet_id"); //39438169 good bet
 
+
+// let userLoginCheck = "test1686042757550"; //test1686042757550  || netbet_login
+// let qNetbet_id = "39438169"; //39438169 good bet
+
+
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -24,7 +29,9 @@ let modalIntervalId;
 async function fetchData() {
   try {
     const response = await fetch(
-      "https://api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop"
+      "https://casino-promo.netbet.ro/scripts/utils/leaderboard_euro2024.php"  
+   
+      //https://api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

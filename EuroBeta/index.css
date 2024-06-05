@@ -266,6 +266,7 @@ p.intro-line {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modalParent {
@@ -2112,11 +2113,11 @@ table.dataTable>tbody>tr>td {
   }
 
   .p-s1-one img {
-    height: 100%;
+    height: 80%;
   }
 
   #section1 .cotes {
-    bottom: 15%;
+    bottom: 20%;
     left: 0%;
     transform: scale(0.8);
   }
@@ -2193,7 +2194,10 @@ table.dataTable>tbody>tr>td {
   }
 
   #section1 .wrapp_all {
-    max-height: 80vh;
+    max-height: 100%;
+  }
+  #section1 .wrapp_all {
+    top: 11%;
   }
 
   #section2 .wrapp_all {
@@ -2392,7 +2396,7 @@ table.dataTable>tbody>tr>td {
   }
 
   #section1 .cotes {
-    bottom: 18%;
+    bottom: 20%;
     left: 0%;
   }
 
