@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+*,*::after,*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-family: sans;
+}
+
+
+
+    .wrapper_all {
+        width: 70%;
+        max-width: 800px;
+        min-width: 270px;
+        /* background: black; */
+        margin: auto;
+        height: 150px;
+    }
+
+
+    .container-Game {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .team {
+        /* display: flex; */
+        width: 100%;
+        height: 100%;
+        /* background: red; */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .team:nth-child(1),
+    .team:nth-child(3) {
+        height: 55%;
+      
+    }
+
+    .team_center {
+        background: rgb(134, 211, 10);
+        height: 100%;
+        width: 50%;
+    }
+
+    .team p {
+    background: blueviolet;
+    width: 100%;
+    height: 80%;
+    font-size: 1.5em;
+    margin: 0 auto;
+    font-weight: bold;
+    text-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.team p:not(.timeGame) {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+
+    .middleContainer {
+        border: 2px solid black;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 30%;
+    }
+    .middleGame {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .middleGame img {
+        width: 50%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .middleGame p {
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+
+    .imgFlag {
+        border-radius: 60%;
+        border: 2px solid red;
+        overflow: hidden;
+        width: 80px;
+        height: 80px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .imgFlagLeft {
+        left: 0%;
+    }
+
+    .imgFlagRight {
+        left: 100%;
+    }
+
+    .imgFlag img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    align-self: end;
+    }
+</style>
+
+<body>
+    <div class="wrapper_all" id="currentGame">
+        <div class="container-Game">
+            <div class="team team_left" id="homeTeam">
+                <!-- <p id="homeTeamName">${game.home_team}</p> -->
+                <p id="homeTeamName">ROMANIA</p>
+                <div class="imgFlag imgFlagLeft"><img src="https://flagcdn.com/w20/ua.png" alt="flag"></div>
+            </div>
+            <div class="middleContainer team team_center">
+                
+                <div class="middleGame">
+                
+                    <p>Time</p>
+                    <p class="timeGame" id="timeGame">17:00</p>
+                    <img src="./png/elements/nbLogoWhite.png">
+                </div>
+            </div>
+            <div class="team team_right" id="awayTeam">
+                <!-- <p id="awayTeamName">${game.away_team}</p> -->
+                <p id="awayTeamName">UCRAINA</p>
+                <div class="imgFlag imgFlagRight"><img src="https://flagcdn.com/w20/ro.png" alt="flag"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div id="currentGame" class="wrapper_all">
+        <div class="container-Game">
+            <div class="team team_left" id="homeTeam">
+                <div class="imgFlag imgFlagLeft"><img src="https://flagcdn.com/w20/ua.png" alt="flag"></div>
+                <p id="homeTeamName">${game.home_team}</p>
+            </div>
+            <div class="middleContainer team team_center">
+                <div class="middleGame">
+                    <p>Time</p>
+                    <p class="timeGame" id="timeGame">${game.starts_at.split(' ')[1]}</p>
+                    <img src="./png/elements/nbLogoWhite.png" />
+                </div>
+            </div>
+            <div class="team team_right" id="awayTeam">
+                <p id="awayTeamName">${game.away_team}</p>
+                <div class="imgFlag"><img src="#" alt="flag"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

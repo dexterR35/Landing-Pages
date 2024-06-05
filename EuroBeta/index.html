@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="author" content="Netbet" />
   <meta name="description" content="Netbet Sport" />
   <meta name="Resource-type" content="Document" />
@@ -19,7 +18,6 @@
   <link rel="stylesheet" href="./index.css" />
   <title>NetBet Euro 2024</title>
 </head>
-
 
 <body>
   <div id="loading">
@@ -269,8 +267,6 @@
     font-weight: bold;
   }
 
-
-
   .___ham {
     flex-basis: calc(72px + 2%);
   }
@@ -364,14 +360,6 @@
     color: var(--white);
   }
 
-  /* .__nav_d ul li:nth-child(3),
-  .__nav_m ul li:nth-child(3) {
-    background-image: var(--button_color);
-  } */
-
-  /* .__nav_m ul li:nth-child(3) a {
-    color: var(--white);
-  } */
 
   @media (orientation: portrait) {
     header {
@@ -408,28 +396,23 @@
       display: none;
     }
 
-    /* .__nav_m {
-      display: block;
-    } */
+  
   }
 
   @media (max-width: 678px) {
     header .__logo {
-      /* flex-basis: calc(11vw + 11vh); */
       flex-basis: calc(110px + 2%);
     }
   }
   </style>
   <script>
-       document.addEventListener("DOMContentLoaded", function() {
-      var hamButton = document.querySelector(".___ham");
-      var hamIcon = document.querySelector(".__ham");
-      var navMenu = document.querySelector(".__nav_m");
-
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamButton = document.querySelector(".___ham");
+      const hamIcon = document.querySelector(".__ham");
+      const navMenu = document.querySelector(".__nav_m");
       hamButton.addEventListener("click", function() {
         hamIcon.classList.toggle("is-active");
         navMenu.classList.toggle("is-active");
-        
         if (navMenu.style.display === "block") {
           navMenu.style.display = "none";
         } else {
@@ -459,16 +442,10 @@
             <div class="players p-s1-one">
               <img data-src="./png/elements/Players.png" alt="p1" loading="lazy" />
             </div>
-            <!-- <div class="players p-s1-two">
-              <img data-src="./png/elements/bottom_player2.png" alt="p2" loading="lazy" />
-            </div> -->
             <div class="ball">
               <img data-src="./png/elements/euroBall.png" alt="ball" loading="lazy" />
             </div>
             <div class="anim-wrapper anim-delay-8 cotes"  >
-          
-
-             
               <div class="tableScore-container">
                 <div class="tableScore-header gradientRed">
                   <span class="group-name">GRUPA E</span>
@@ -526,7 +503,6 @@
               </div>
               </div>
             </a>
-          
             <div class="section_info">
               <div class="container-info">
                 <div class="coteMatch" id="coteMatch"></div>
@@ -558,7 +534,6 @@
               </div>
             </div>
           </div>
-      
         </div>
         <div class="slide" id="slide2-2">
           <div class="fp-bg"></div>
@@ -580,7 +555,6 @@
                 </div>
               </div>
             </div>
-       
           </div>
           <div class="slide" id="slide2-3">
             <div class="fp-bg"></div>
@@ -604,7 +578,6 @@
               </div>
             </div>
           </div>
-        
         </div>
         <div class="slide" id="slide2-4">
           <div class="fp-bg"></div>
@@ -627,12 +600,10 @@
               </div>
             </div>
           </div>
-         
         </div>
         <div class="slide" id="slide2-5">
           <div class="fp-bg"></div>
           <div class="fp-content">
-
             <div class="wrapp_all">
               <div class="section_content"></div>
               <div class="section_info">
@@ -651,7 +622,6 @@
               </div>
             </div>
           </div>
-       
         </div>
       </div>
       <div class="section fp-noscroll fp-auto-height-responsive fp-no-scrollOverflowReset" id="section5">

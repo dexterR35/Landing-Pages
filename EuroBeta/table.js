@@ -1,12 +1,4 @@
 
-
-let userLoginCheck = getCookie("netbet_login") ; 
-let qNetbet_id = getCookie("netbet_id"); 
-
-// let userLoginCheck = "test1686042757550"; //test1686042757550  user  || netbet_login
-// let qNetbet_id = "39438169"; //39438169 good bet  || netbet_id
-
-
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -23,6 +15,9 @@ function getCookie(name) {
 }
 
 let modalIntervalId;
+let userLoginCheck = getCookie("netbet_login") ; 
+let qNetbet_id = getCookie("netbet_id"); 
+
 
 // Function to fetch data from the API
 async function fetchData() {
@@ -36,7 +31,7 @@ async function fetchData() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const responseData = await response.json();
-    console.log(responseData, "data fetch");
+    // console.log(responseData.status, "Status");
     if (
       responseData?.status === true &&
       Array.isArray(responseData.data?.data)
@@ -57,19 +52,16 @@ const textContentReg =
   "Înregistrează-te sau accesează contul tău și plasează un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
 const textContentBet =
   "Plasează acum un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
-
 const checkStatus =
   userLoginCheck === "logged_out" ||
   userLoginCheck === "netbet_login" ||
-  userLoginCheck === "";
+  userLoginCheck === "" || 
+  userLoginCheck === null
 if (checkStatus) {
-
   linkGo = "https://sport.netbet.ro/?register=1";
   actionBtn.href = "https://sport.netbet.ro/?register=1";
   actionBtn.textContent = "Înregistrează-te";
-
 } else {
-
   linkGo = "https://sport.netbet.ro/fotbal/euro-2024/";
   actionBtn.href = "https://sport.netbet.ro/fotbal/euro-2024/";
   actionBtn.textContent = "Pariază Acum";
@@ -101,7 +93,7 @@ function initializeDataTable(selector, data, qNetbet_id) {
     lengthChange: false,
     aaSorting: true,
     responsive: true,
-    pageLength: window.innerWidth < 991 ? 8 : 10,
+    pageLength: window.innerWidth < 991 ? 8 : 9,
     paginate: true,
     searching: false,
     ordering: false,
@@ -119,22 +111,16 @@ function initializeDataTable(selector, data, qNetbet_id) {
 
 async function initializePage() {
   const fetchedData = await fetchData();
-
   if (!fetchedData) {
     console.error("No data fetched");
     return null;
   }
-
   const tableData = fetchedData.map((item) => ({
     username: item.username,
     status: item.status,
     player_id: item.player_id,
   }));
-
-  console.log(tableData, "--tableData");
-  console.log(userLoginCheck, "--userLoginCheck");
-  console.log(qNetbet_id, "--qNetbet_id");
-
+  console.log( userLoginCheck ,"--Login" );
   // find id
   const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
   initializeDataTable("#tableJs", tableData, qNetbet_id);
