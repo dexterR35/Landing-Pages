@@ -1,0 +1,229 @@
+const $ = fp_utils.$;
+const addClass = fp_utils.addClass;
+const removeClass = fp_utils.removeClass;
+const toggleClass = fp_utils.toggleClass;
+const g_timeouts = {};
+const ACTIVE = "active";
+const fullData = {
+  dataBoxes: [{
+      text: "Este a șasea apariție a Tricolorilor la un Campionat European. Cea mai bună performanță a fost în 2000 când visele lui Hagi și co. s-au spulberat în sferturi. Acum, România vine cu forțe proaspete și încrederea la cote maxime ținând cont că și-a câștigat grupa de calificări fără să fie învinsă.",
+      image: "./png/_slides/slide1/romania2.png",
+      title: "România",
+    },
+    {
+      text: "Cele două echipe au trei victorii la Campionatele Europene. Ambele se luptă pentru a o obține pe a patra. Nu știm dacă vor reuși, cert este că dintre cele două, un record inedit îl dețin ibericii. Sunt singurii care au reușit să câștige două europene la rând: 2008 și 2012.",
+      image: "./png/_slides/slide1/spaniaGermania.png",
+      title: "Spania și Germania",
+    },
+    {
+      text: "Pe locul doi la victorii, Franța și Italia speră să ajungă în clubul select din care fac parte rivalele Spania și Germania. Gli Azzuri sunt campionii en-titre, iar Cocoșii galici au câștigat mondialul din 2018 și au ajuns în finală în 2022, așa că toată lumea este cu ochii pe ei!",
+      image: "./png/_slides/slide2/franceItaly.png",
+      title: "Franța și Italia",
+    },
+    {
+      text: "FUSSBALLIEBE este mingea oficială a Campionatului European. “Dragostea pentru fotbal” se regăsește în cel mai mic detaliu, de la culorile ce reprezintă fiecare națiune, la inovația tehnologică folosită pentru construcția sa.",
+      image: "./png/_slides/slide2/euroBall.png",
+      title: "Uniți prin fotbal",
+    },
+    {
+      text: "Din cele 10 stadioane alese pentru acest turneu, doar unul poate face față unei finale de așa anvergură. Vorbim, desigur, de Olympiastadion din Berlin. Încă nu știm ce echipe se vor duela pe 14 iulie, dar un lucru este cert: cei 70,000 de spectatori vor avea parte de o atmosferă incendiară!",
+      image: "./png/_slides/slide3/grandFinal.png",
+      title: "Marea finală",
+    },
+    {
+      text: "Știai că din cele 24 de echipe participante la EURO 2024, Portugalia este singura care a câștigat fiecare meci din calificări? Cu 36 de goluri înscrise și doar 2 încasate, colegele sale de grupă Cehia, Turcia și Georgia au o misiune grea.",
+      image: "./png/_slides/slide3/winWhite.png",
+      title: "Victorie în alb",
+    },
+    {
+      text: "Cristiano Ronaldo! Legendarul jucător portughez se află (probabil) la ultima sa apariție la un turneu final. Cea de-a 6 ediție de EURO este un adevărat record, fiind singurul jucător care a reușit o asemenea performanță.",
+      image: "./png/_slides/slide4/ronaldo.png",
+      title: "Nu există EURO fără....",
+    },
+    {
+      text: "Michel Platini a fost omul de bază al francezilor la campionatul din ’84. O adevărată legendă, ținând cont că recordul său de 9 goluri date la o singură ediție de EURO este încă în picioare. Să fie oare acesta Europeanul în care se va doborî recordul său?",
+      image: "./png/_slides/slide4/platini.png",
+      title: "Recorduri personale",
+    },
+    {
+      text: "Încă o dată, englezii sunt în frunte, cu un lot ce valorează 1,67 miliarde de euro. Nu stau rău nici Les Bleus cu un lot de peste un miliard de euro. La polul opus, România încheie topul cu un lot ce valorează 95 de milioane de euro.",
+      image: "./png/_slides/slide5/angliaFranta.png",
+      title: "Cel mai valoros lot",
+    },
+    {
+      text: "Aici lupta se dă între Kylian Mbappe și Jude Bellingham. Performanțele lor și ale naționalelor sigur vor face diferența la finalul turneului!",
+      image: "./png/_slides/slide5/frantaAnglia.png",
+      title: "...si cei mai valoroși jucători",
+    },
+  ],
+  containerBoxes: [
+    "container_boxes2-1",
+    "container_boxes2-2",
+    "container_boxes2-3",
+    "container_boxes2-4",
+    "container_boxes2-5",
+  ]
+
+
+
+};
+
+
+// Add origin animations
+function addOriginAnimations(elements, direction) {
+  if (elements.length) {
+    elements.forEach(function (element) {
+      console.log(element);
+      element.classList.remove("animate2");
+      g_timeouts.origin = setTimeout(function () {
+        console.warn("hide-" + direction);
+        addClass(element, "hide-" + direction);
+        element.classList.remove("animate");
+      }, 100);
+    });
+  }
+}
+
+// Add destiny animations
+function addDestinyAnimations(element, direction) {
+  const hideClass =
+    direction === "up" || direction === "down" ?
+    "hide-down hide-up" :
+    "hide-left hide-right";
+  if (element) {
+    addClass(element, ACTIVE);
+    addClass(element, "animate");
+    removeClass(element, hideClass);
+    g_timeouts.destination = setTimeout(function () {
+      addClass(element, "animate2");
+    }, 1000);
+  }
+}
+
+// Initialize fullpage.js
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingElement = document.getElementById('loading');
+  const contentElement = document.getElementById('content');
+  loadingElement.style.display = 'flex';
+  contentElement.style.display = 'none';
+
+  function hideLoadingScreen() {
+    setTimeout(() => {
+      loadingElement.style.display = 'none';
+      contentElement.style.display = 'flex';
+    }, 1000); // 1000ms = 1 second
+  }
+
+  window.addEventListener("load", hideLoadingScreen);
+
+  new fullpage("#content", {
+    licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
+    cards: true,
+    cardsKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
+    sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
+    anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
+    menu: "#menu",
+    navigation: true,
+    keyboardScrolling: true,
+    dragAndMove: true,
+    lazyLoading: true,
+    controlArrows: false,
+    fadingEffect: false,
+    afterLoad: (origin, destination, direction) => {
+
+    },
+    onLeave: (origin, destination, direction) => {
+      clearTimeout(g_timeouts.destination);
+      removeClass(document.body, "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up");
+      // if (direction) {
+      //   addClass(document.body, `fp-moving-${direction}`);
+      //   removeClass(document.body, "fp-moving-horizontally");
+      //   addClass(document.body, "fp-moving-vertically");
+      // }
+      if (["right", "left"].indexOf(direction) === -1) {
+        const activeElement = $(`.active[data-section="${destination.index + 1}"]`)[0];
+        addDestinyAnimations(activeElement || $(`[data-section="${destination.index + 1}"]`)[0], direction);
+        const originElements = $(`.active[data-section="${origin.index + 1}"]`);
+        addOriginAnimations(originElements, direction);
+      }
+    },
+    onSlideLeave: (section, origin, destination, direction) => {
+   
+ // Clear any previous movement-related classes from the body
+ removeClass(document.body, "fp-moving-right fp-moving-left fp-moving-down fp-moving-up");
+
+ // Add movement-related classes based on the direction
+ if (direction) {
+   addClass(document.body, `fp-moving-${direction}`);
+   removeClass(document.body, "fp-moving-vertically");
+   addClass(document.body, "fp-moving-horizontally");
+
+   const originId = origin.item.id;
+   if (direction === 'right' || direction === 'left') {
+     const boxParent = document.querySelectorAll(".boxParent");
+     boxParent.forEach(parent => addClass(parent, `${originId}-${direction}`));
+   }
+ }
+
+ // Handle destination animations
+ const destinationElement = document.querySelector(`.trainers[data-section="${section.index + 1}"][data-slide="${destination.index + 1}"]`);
+ if (destinationElement) {
+   addDestinyAnimations(destinationElement, direction);
+ }
+
+ // Handle origin animations and removing ACTIVE class
+ const activeElements = document.querySelectorAll(`.trainers[data-section="${section.index + 1}"][data-slide="${origin.index + 1}"]`);
+ activeElements.forEach(element => {
+   removeClass(element, ACTIVE);
+   addOriginAnimations(element, direction);
+ });
+    },
+    afterResize: function(width, height){},
+  });
+});
+
+// Event listeners
+document.querySelector(".arrow-down").addEventListener("click", () => {
+  fullpage_api.moveSectionDown();
+});
+
+
+
+document.querySelectorAll(".slider-control-next").forEach(element => {
+  element.addEventListener("click", e => {
+    e.preventDefault();
+    fullpage_api.moveSlideRight();
+  });
+});
+
+document.querySelectorAll(".slider-control-prev").forEach(element => {
+  element.addEventListener("click", e => {
+    e.preventDefault();
+    fullpage_api.moveSlideLeft();
+  });
+});
+
+
+fullData.dataBoxes.forEach((item, index) => {
+  const sectionIndex = Math.floor(index / 2);
+  const sectionContainer = document.getElementById(fullData.containerBoxes[sectionIndex]);
+  if (sectionContainer) {
+    sectionContainer.innerHTML += `
+      <div class="boxParent${index} boxParent">
+        <div>
+          <img src="${item.image}" alt="img" class="boxImg boxImg${index}">
+        </div>
+        <div>
+          <p>${item.title}</p>
+          <p class="boxText boxText${index}">${item.text}</p>
+        </div>
+      </div>
+    `;
+  }
+});
+
+function onLoad() {
+  addClass(document.body, "loadBg");
+}
+
+window.addEventListener("load", onLoad);
