@@ -59,31 +59,21 @@
     var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 10px,
     var(--textShadow) 0px 0px 19px, var(--textShadow) 0px 0px 22px,
     2px 3px 0px rgba(206, 206, 206, 0);
-  --gradientGreen: linear-gradient(
-    280deg,
-    rgb(97 177 0) 0%,
-    rgb(10 123 50) 86%
-  );
-  --gradientBlue: linear-gradient(
-    280deg,
-    rgb(0 102 255) 0%,
-    rgb(0 153 204) 86%
-  );
-  --gradientRed: linear-gradient(
-    225deg,
-    hsla(0, 89%, 42%, 1) 0%,
-    rgb(153, 18, 25) 70%
-  );
-  --gradientOrange: linear-gradient(
-    280deg,
-    rgb(255, 60, 0) 0%,
-    rgb(255, 123, 0) 86%
-  );
-  --gradientPurple: linear-gradient(
-    280deg,
-    rgb(128 0 128) 0%,
-    rgb(204 0 204) 86%
-  );
+  --gradientGreen: linear-gradient(280deg,
+      rgb(97 177 0) 0%,
+      rgb(10 123 50) 86%);
+  --gradientBlue: linear-gradient(280deg,
+      rgb(0 102 255) 0%,
+      rgb(0 153 204) 86%);
+  --gradientRed: linear-gradient(225deg,
+      hsla(0, 89%, 42%, 1) 0%,
+      rgb(153, 18, 25) 70%);
+  --gradientOrange: linear-gradient(280deg,
+      rgb(255, 60, 0) 0%,
+      rgb(255, 123, 0) 86%);
+  --gradientPurple: linear-gradient(280deg,
+      rgb(128 0 128) 0%,
+      rgb(204 0 204) 86%);
   --bg-offer: url(./png/bg/bg-desktop.jpg);
   --bg-section: url(./png/bg/bg-section-green.jpg);
   --bg-section-red: url(./png/bg/bg-section-red.jpg);
@@ -97,14 +87,17 @@ body {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
+
 body {
   font-size: clamp(16px, 4vw, 20px);
 }
+
 .section:not(#section5) {
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
 }
+
 /* 
 @media (min-width: 768px) {
   body {
@@ -157,6 +150,7 @@ a {
   margin: auto;
   text-decoration: none;
 }
+
 #content {
   display: none;
 }
@@ -176,6 +170,7 @@ a {
   background: var(--highlight) !important;
   color: var(--white);
 }
+
 .content-cote .matches-cote p,
 .content-cote .number-cote p {
   font-family: "MontzBlack";
@@ -186,11 +181,13 @@ a {
 .terms_body p {
   font-family: "MontzBold";
 }
+
 .footer-button a,
 .slider-control span,
 #tableScore-content {
   font-family: "MontzSemiBold";
 }
+
 #section5 .fp-bg {
   filter: hue-rotate(102deg);
   transform: scaleX(-1);
@@ -200,6 +197,7 @@ a {
 #section3 .fp-bg {
   filter: hue-rotate(329deg);
 }
+
 #section3 .wrapp_all a {
   margin: 0 !important;
 }
@@ -294,6 +292,7 @@ p.intro-line {
   /* text-indent: 20px; */
   font-size: 1.1em;
 }
+
 .modalContainer p:nth-child(3) {
   color: var(--red) !important;
   margin: 0 auto;
@@ -318,9 +317,11 @@ p.intro-line {
   font-size: 0.8em;
   /* background-color: red; */
 }
+
 .modalContainer ._btnReg {
   margin: 0;
 }
+
 .modalParent div {
   width: 100%;
   text-align: end;
@@ -431,6 +432,7 @@ div.dt-container div.dt-layout-cell.dt-end {
 #section1 .ball img {
   animation: SlowMo 20s linear infinite alternate;
 }
+
 #section1 .wrapp_all {
   flex-direction: column;
   align-items: flex-end;
@@ -938,7 +940,7 @@ div.dt-container div.dt-layout-cell.dt-end {
   text-transform: uppercase;
 }
 
-.content-cote > div {
+.content-cote>div {
   margin-bottom: 0.3em;
 }
 
@@ -1005,6 +1007,7 @@ div.dt-container div.dt-layout-cell.dt-end {
   flex-direction: column;
   justify-content: center;
 }
+
 .smallText {
   width: 50%;
   margin: 0 auto;
@@ -1278,9 +1281,11 @@ table.dataTable td.dt-type-date {
   justify-content: start;
   margin: auto;
 }
+
 #section5 h1 {
   font-size: 2.5em;
 }
+
 #section5 .section_content {
   text-align: center;
   margin-top: 4%;
@@ -1289,6 +1294,7 @@ table.dataTable td.dt-type-date {
 .anime-wrapper ul li {
   list-style: none;
 }
+
 .anim-wrapper span {
   display: block;
 }
@@ -1462,9 +1468,11 @@ table.dataTable td.dt-type-date {
   margin: 4px 6px;
   padding-top: 2px;
 }
+
 .tableScore-row .cell {
   margin-right: 1.4px;
 }
+
 .tableScore-row .cell:nth-last-child(1) {
   text-align: end;
 }
@@ -1776,15 +1784,15 @@ table.dataTable td.dt-type-date {
   padding: 0.5em 3em;
 }
 
-table.dataTable > tbody > tr > td:nth-child(2) span {
+table.dataTable>tbody>tr>td:nth-child(2) span {
   display: flex;
   justify-content: start;
   align-items: center;
   gap: 5px;
 }
 
-table.dataTable > tbody > tr > th,
-table.dataTable > tbody > tr > td {
+table.dataTable>tbody>tr>th,
+table.dataTable>tbody>tr>td {
   padding: 5px 10px;
 }
 
@@ -1801,17 +1809,19 @@ table.dataTable > tbody > tr > td {
     transform: scale(0.8);
     left: 0;
     margin-top: -4%;
-    
+
   }
+
   .offer-content {
     margin-top: 7%;
   }
+
   .smallText {
     width: 62%;
   }
 
-  table.dataTable > tbody > tr > th,
-  table.dataTable > tbody > tr > td {
+  table.dataTable>tbody>tr>th,
+  table.dataTable>tbody>tr>td {
     padding: 5px 10px;
   }
 
@@ -1846,19 +1856,24 @@ table.dataTable > tbody > tr > td {
   .offer {
     padding: 10px 0;
   }
+
   .fp-content {
     padding: 0 3% !important;
   }
+
   .modalContainer {
     gap: 12px;
-    
+
   }
+
   .modalContainer p:nth-child(3) {
     margin-bottom: -7px;
   }
+
   #section5 h1 {
     font-size: 1.5em;
   }
+
   .modalOverFlow .modalContainer #deposit {
     width: 100%;
     max-width: 320px;
@@ -1871,6 +1886,7 @@ table.dataTable > tbody > tr > td {
     width: 100%;
     position: relative;
   }
+
   #section1 .wrapp_all {
     margin-right: 0vw;
   }
@@ -1888,6 +1904,7 @@ table.dataTable > tbody > tr > td {
     max-height: 70%;
     max-width: 95%;
   }
+
   .smallText {
     width: 90%;
   }
@@ -2047,15 +2064,17 @@ table.dataTable > tbody > tr > td {
     justify-content: flex-start;
     gap: 0;
   }
+
   .content-cote .matches-cote p {
-width: 100%;
+    width: 100%;
   }
+
   h1 {
     font-size: 1.4em;
     padding: 0 5px;
   }
 
-  table.dataTable > tbody > tr > td,
+  table.dataTable>tbody>tr>td,
   table.dataTable thead th,
   table.dataTable tfoot th {
     font-size: 1em;
@@ -2150,8 +2169,8 @@ width: 100%;
     margin-bottom: 0.2em;
   }
 
-  table.dataTable > tbody > tr > th,
-  table.dataTable > tbody > tr > td {
+  table.dataTable>tbody>tr>th,
+  table.dataTable>tbody>tr>td {
     padding: 4px 9px;
   }
 
@@ -2341,7 +2360,7 @@ width: 100%;
     align-self: start !important;
   }
 
-  .boxParent > div {
+  .boxParent>div {
     width: 100% !important;
   }
 
@@ -2369,15 +2388,66 @@ width: 100%;
     left: -11%;
   }
 
-  table.dataTable > tbody > tr > td,
+  table.dataTable>tbody>tr>td,
   table.dataTable thead th,
   table.dataTable tfoot th {
     font-size: 0.9em;
   }
 
-  table.dataTable > tbody > tr > th,
-  table.dataTable > tbody > tr > td {
+  table.dataTable>tbody>tr>th,
+  table.dataTable>tbody>tr>td {
     padding: 4px 9px;
+  }
+}
+
+@media (orientation: portrait) and (min-aspect-ratio: 500 / 736) and (min-width: 500px) {
+  #section1 .wrapp_all {
+    top: 2%;
+  }
+
+  .p-s1-one img {
+    height: 100%;
+  }
+
+  #section1 .cotes {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+  }
+
+  #section1 .wrapp_all {
+    justify-content: start !important;
+  }
+
+  #section1 .ball {
+    top: 60%;
+    left: 84%;
+  }
+
+  .smallText {
+    font-size: 0.9em;
+  }
+
+  #section1 .ball img {
+    width: 11vh;
+  }
+
+  #section5 .section_content h1 {
+    text-align: center;
+    font-size: 2.1em;
+  }
+  #section5 .terms_body {
+    padding: 0;
+    text-align: start;
+  }
+  .terms_content {
+    width: 100%;
+  }
+  .terms_body ul li {
+    font-size: 1.2em;
+  }
+  .terms_body p {
+    font-size: 1.6em;
   }
 }
 
@@ -2399,6 +2469,7 @@ width: 100%;
     right: -27%;
     bottom: 26%;
   }
+ 
 }
 
 @keyframes hideTextLeft {
@@ -2474,6 +2545,7 @@ width: 100%;
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   60%,
@@ -2492,6 +2564,7 @@ width: 100%;
 }
 
 @keyframes SlowMo {
+
   0%,
   100% {
     transform: translateY(0) translateX(0) scale(1);
@@ -2510,6 +2583,7 @@ width: 100%;
 }
 
 @keyframes SlowMo-reverse {
+
   0%,
   100% {
     transform: translateY(0) translateX(0) scale(1);
@@ -2534,6 +2608,7 @@ width: 100%;
 
 @media screen and (max-width: 991px) {
   @keyframes SlowMo {
+
     0%,
     100% {
       transform: translateY(0) translateX(0) scale(1);
@@ -2551,6 +2626,7 @@ width: 100%;
   }
 
   @keyframes SlowMo-reverse {
+
     0%,
     100% {
       transform: translateY(0) translateX(0) scale(1);
