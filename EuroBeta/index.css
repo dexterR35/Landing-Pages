@@ -1210,6 +1210,9 @@ table.dataTable td.dt-type-date {
   flex-direction: column;
   padding: 0 3em;
   max-width: 80%;
+  top: 2%;
+  position: relative;
+  gap: 0;
 }
 
 #section4 .boxParent {
@@ -1669,7 +1672,7 @@ table.dataTable td.dt-type-date {
   align-items: start;
   flex-direction: column;
   justify-content: start;
-  gap: 5px;
+  /* gap: 5px; */
   padding: 0 10%;
   overflow: auto;
   border-radius: 12px;
@@ -1770,7 +1773,7 @@ table.dataTable td.dt-type-date {
   text-transform: uppercase;
   color: #ff1c26;
   font-size: 1.4em;
-  margin: 0.5vh 0;
+  margin: 10px 0;
   width: 100%;
 }
 
@@ -1813,6 +1816,9 @@ table.dataTable>tbody>tr>td {
     margin-top: -4%;
 
   }
+  #section4 .wrapp_all {
+    max-height: 85%;
+  }
 
   .offer-content {
     margin-top: 7%;
@@ -1848,6 +1854,8 @@ table.dataTable>tbody>tr>td {
 @media screen and (orientation: landscape) and (min-width: 991px) and (max-height: 760px) {
   #section4 .wrapp_all {
     transform: scale(0.9);
+    top: 3%;
+    position: relative;
   }
 
   .thumb-icon {
@@ -1911,7 +1919,7 @@ table.dataTable>tbody>tr>td {
 
   #section3 .wrapp_all {
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: start;
     gap: 12px;
     max-height: 70%;
     max-width: 95%;
@@ -1934,6 +1942,10 @@ table.dataTable>tbody>tr>td {
 
     text-align: start;
   }
+  #section2 .wrapp_all,#section3 .wrapp_all {
+    top: 5%;
+    gap: 5px;
+  }
 
   .coteMatch {
     width: 100%;
@@ -1943,7 +1955,7 @@ table.dataTable>tbody>tr>td {
   }
 
   .content-cote {
-    font-size: 1.4vh;
+    font-size: 1.6vh;
   }
 
   .content-cote .matches-cote {
@@ -1951,11 +1963,11 @@ table.dataTable>tbody>tr>td {
   }
 
   .number-cote p {
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
   }
 
   .content-cote .matches-cote p {
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
     width: 30%;
   }
 
@@ -2048,7 +2060,7 @@ table.dataTable>tbody>tr>td {
 @media screen and (max-width: 768px) {
   .terms_body p {
     font-size: 1.3em;
-    margin: 0vh 0;
+    /* margin: 0vh 0; */
  
   }
 
@@ -2084,7 +2096,7 @@ table.dataTable>tbody>tr>td {
   }
 
   h1 {
-    font-size: 1.4em;
+    font-size: 1.6em;
     padding: 0 5px;
   }
 
@@ -2108,7 +2120,7 @@ table.dataTable>tbody>tr>td {
   }
 
   .p-s1-one {
-    top: 0;
+    top: -3%;
     left: -10%;
   }
 
@@ -2117,14 +2129,14 @@ table.dataTable>tbody>tr>td {
   }
 
   #section1 .cotes {
-    bottom: 20%;
+    bottom: 23%;
     left: 0%;
     transform: scale(0.8);
   }
 
   #section1 .ball {
-    top: 46%;
-    left: 46%;
+    top: 44%;
+    left: 70%;
   }
 
   #section1 .ball img {
@@ -2156,6 +2168,8 @@ table.dataTable>tbody>tr>td {
     transform: translateX(3%);
     -webkit-transform: translateX(3%);
     margin-top: 0;
+    width: 70%;
+    margin: 0 auto;
   }
 
   .offer {
@@ -2168,7 +2182,7 @@ table.dataTable>tbody>tr>td {
   }
 
   .offer-content {
-    font-size: calc(0.8vh + 1.8vw);
+    /* font-size: calc(0.8vh + 1.8vw); */
     -webkit-transform: none;
     transform: none;
   }
@@ -2200,10 +2214,6 @@ table.dataTable>tbody>tr>td {
     top: 11%;
   }
 
-  #section2 .wrapp_all {
-    top: 5%;
-    gap: 5px;
-  }
 
   #section4 .wrapp_all {
     padding: 0;
@@ -2275,7 +2285,7 @@ table.dataTable>tbody>tr>td {
 
   #section4 .wrapp_all {
     max-height: 90vh !important;
-    top: 52%;
+    top: 50%;
   }
 
   #section4 .section_content {
@@ -2290,6 +2300,10 @@ table.dataTable>tbody>tr>td {
   #section4 #slide2-2 .containerBox,
   #section4 #slide2-4 .containerBox {
     flex-direction: column;
+  }
+
+  #section5 .section_content {
+    margin: 0;
   }
 
   .boxParent div p {
@@ -2397,12 +2411,12 @@ table.dataTable>tbody>tr>td {
   }
 
   #section1 .cotes {
-    bottom: 20%;
+    bottom: 21%;
     left: 0%;
   }
 
   .p-s1-one {
-    top: 0;
+    top: -3%;
     left: -11%;
   }
 

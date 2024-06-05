@@ -1,11 +1,10 @@
 
 
-let userLoginCheck = getCookie("netbet_login") ; //test1686042757550  || netbet_login
-let qNetbet_id = getCookie("netbet_id"); //39438169 good bet
+let userLoginCheck = getCookie("netbet_login") ; 
+let qNetbet_id = getCookie("netbet_id"); 
 
-
-// let userLoginCheck = "test1686042757550"; //test1686042757550  || netbet_login
-// let qNetbet_id = "39438169"; //39438169 good bet
+// let userLoginCheck = "test1686042757550"; //test1686042757550  user  || netbet_login
+// let qNetbet_id = "39438169"; //39438169 good bet  || netbet_id
 
 
 function getCookie(name) {
