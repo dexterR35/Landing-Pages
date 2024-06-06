@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     cards: true,
     cardsKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
     sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
-    anchors: ["firstPage", "secondPage", "3thPage", "4thPage", "5thPage"],
+    anchors: ["oferta", "clasament", "cote", "infografic", "tcs"],
     menu: "#menu",
     navigation: true,
     keyboardScrolling: true,
