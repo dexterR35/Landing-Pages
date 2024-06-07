@@ -1,5 +1,3 @@
-
-
 <?php
 
 $qsa = '';
@@ -16,7 +14,8 @@ if (!empty($qsa))
 	$qsa = '?'.substr($qsa, 1);
 }
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="ro">
 
 <head>
@@ -34,7 +33,7 @@ if (!empty($qsa))
   <script src="https://apis.google.com/js/api.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
-  <link rel="stylesheet" href="./index.css" />
+  <link rel="stylesheet" href="./index3.css" />
   <title>NetBet Euro 2024</title>
 </head>
 
@@ -174,280 +173,287 @@ if (!empty($qsa))
     }
   </style>
   <header id="headerId">
-  <nav class="__nav_d _n">
-    <div class="__logo">
-      <img src="./png/elements/nbLogoWhite.png" alt="nblogo" />
-    </div>
-    <ul class="__ul _d">
-      <li>
-        <a href="https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>" target="_blank">Înregistrare</a>
-      </li>
-      <li>
-        <a href="https://sport.netbet.ro/<?php echo $qsa; ?>" target="_blank">Conectare</a>
-      </li>
-    </ul>
-    <div class="___ham">
-      <div class="__ham" id="__ham">
-        <span class="_ln"></span>
-        <span class="_ln"></span>
-        <span class="_ln"></span>
+    <nav class="__nav_d _n">
+      <div class="__logo">
+        <img src="./png/elements/nbLogoWhite.png" alt="nblogo" />
       </div>
-    </div>
-  </nav>
-  <nav class="__nav_m _n">
-    <ul>
-      <li>
-        <a href="https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>" target="_blank">Înregistrare</a>
-      </li>
-      <li>
-        <a href="https://sport.netbet.ro/<?php echo $qsa; ?>" target="_blank">Conectare</a>
-      </li>
-    </ul>
-  </nav>
-</header>
+      <ul class="__ul _d">
+        <li>
+          <a href="https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>" target="_blank">Înregistrare</a>
+        </li>
+        <li>
+          <a href="https://sport.netbet.ro/<?php echo $qsa; ?>" target="_blank">Conectare</a>
+        </li>
+      </ul>
+      <div class="___ham">
+        <div class="__ham" id="__ham">
+          <span class="_ln"></span>
+          <span class="_ln"></span>
+          <span class="_ln"></span>
+        </div>
+      </div>
+    </nav>
+    <nav class="__nav_m _n">
+      <ul>
+        <li>
+          <a href="https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>" target="_blank">Înregistrare</a>
+        </li>
+        <li>
+          <a href="https://sport.netbet.ro/<?php echo $qsa; ?>" target="_blank">Conectare</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
   <style>
+    /*header style*/
+    /*header style*/
+    /*header style*/
+    header {
+      width: 100%;
+      height: 2.5em;
+      max-height: 100%;
+      position: absolute;
+      top: 0;
+      color: var(--white);
+      background: #69010114;
+      z-index: 100;
 
-  /*header style*/
-  /*header style*/
-  /*header style*/
-  header {
-    width: 100%;
-    height: 2.5em;
-    max-height: 100%;
-    position: absolute;
-    top: 0;
-    color: var(--white);
-    background: #69010114;
-    z-index: 100;
+    }
 
-  }
-  header ul li a {
-    font-family: "MontzBold";
-  }
+    header ul li a {
+      font-family: "MontzBold";
+    }
 
-  header .__logo img,
-  header .__nav_d,
-  ._bdropfilter_,
-  ._n ul li a {
-    width: 100%;
-    height: 100%;
-    display: flex;
-  }
+    header .__logo img,
+    header .__nav_d,
+    ._bdropfilter_,
+    ._n ul li a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
 
-  header .__logo {
-    flex-basis: calc(130px + 2%);
-    margin-left: 6%;
-  }
+    header .__logo {
+      flex-basis: calc(130px + 2%);
+      margin-left: 6%;
+    }
 
-  .__ul._d {
-    margin-right: 6%;
-  }
+    .__ul._d {
+      margin-right: 6%;
+    }
 
-  header .__nav_d,
-  header .__nav_d ul,
-  .__nav_m ul li a,
-  .__nav_m li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+    header .__nav_d,
+    header .__nav_d ul,
+    .__nav_m ul li a,
+    .__nav_m li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-  header .__nav_d {
-    margin: auto;
-    justify-content: space-between !important;
-  }
+    header .__nav_d {
+      margin: auto;
+      justify-content: space-between !important;
+    }
 
-  header .__logo img {
-    object-fit: contain;
-    max-height: 80px;
-    filter: drop-shadow(1px 1px 1px black);
-  }
+    header .__logo img {
+      object-fit: contain;
+      max-height: 80px;
+      filter: drop-shadow(1px 1px 1px black);
+    }
 
-  ._n {
-    background: #e6ebe92e;
-    backdrop-filter: blur(5px);
-  }
+    ._n {
+      background: #e6ebe92e;
+      backdrop-filter: blur(5px);
+    }
 
-  ._n li a {
-    color: #202020;
-    font-size: 0.8em;
-    font-weight: bold;
-    text-transform: uppercase;
+    ._n li a {
+      color: #202020;
+      font-size: 0.8em;
+      font-weight: bold;
+      text-transform: uppercase;
 
-  }
+    }
 
-  .__nav_d ul {
-    gap: 8px;
-  }
+    .__nav_d ul {
+      gap: 8px;
+    }
 
-  .__nav_d ul li {
-    padding: 5px 30px;
-    cursor: pointer;
-    font-weight: bold;
-  }
+    .__nav_d ul li {
+      padding: 5px 30px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
 
 
-  .___ham {
-    flex-basis: calc(72px + 2%);
-  }
+    .___ham {
+      flex-basis: calc(72px + 2%);
+    }
 
-  .___ham .__ham ._ln {
-    width: 27px;
-    height: 3px;
-    background-color: var(--white);
-    display: block;
-    margin: 6px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
+    .___ham .__ham ._ln {
+      width: 27px;
+      height: 3px;
+      background-color: var(--white);
+      display: block;
+      margin: 6px auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      -o-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
 
-  .__ham:hover {
-    cursor: pointer;
-  }
+    .__ham:hover {
+      cursor: pointer;
+    }
 
-  #__ham.is-active ._ln:nth-child(2) {
-    opacity: 0;
-  }
+    #__ham.is-active ._ln:nth-child(2) {
+      opacity: 0;
+    }
 
-  #__ham.is-active ._ln:nth-child(1) {
-    -webkit-transform: translateY(9px) rotate(45deg);
-    -ms-transform: translateY(9px) rotate(45deg);
-    -o-transform: translateY(9px) rotate(45deg);
-    transform: translateY(9px) rotate(45deg);
-  }
+    #__ham.is-active ._ln:nth-child(1) {
+      -webkit-transform: translateY(9px) rotate(45deg);
+      -ms-transform: translateY(9px) rotate(45deg);
+      -o-transform: translateY(9px) rotate(45deg);
+      transform: translateY(9px) rotate(45deg);
+    }
 
-  #__ham.is-active ._ln:nth-child(3) {
-    -webkit-transform: translateY(-9px) rotate(-45deg);
-    -ms-transform: translateY(-9px) rotate(-45deg);
-    -o-transform: translateY(-9px) rotate(-45deg);
-    transform: translateY(-9px) rotate(-45deg);
-  }
+    #__ham.is-active ._ln:nth-child(3) {
+      -webkit-transform: translateY(-9px) rotate(-45deg);
+      -ms-transform: translateY(-9px) rotate(-45deg);
+      -o-transform: translateY(-9px) rotate(-45deg);
+      transform: translateY(-9px) rotate(-45deg);
+    }
 
-  /*mobile nav*/
-  .__nav_m {
-    z-index: 3000;
-    font-weight: bold;
-    font-size: 0.8em;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    text-align: center;
-    background: #ffffffcf;
-    display: none;
-  }
+    /*mobile nav*/
+    .__nav_m {
+      z-index: 3000;
+      font-weight: bold;
+      font-size: 0.8em;
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      text-align: center;
+      background: #ffffffcf;
+      display: none;
+    }
 
-  .__nav_d ul li a {
-    color: var(--white);
-  }
+    .__nav_d ul li a {
+      color: var(--white);
+    }
 
-  .__nav_m ul {
-    background-color: #e6ebe926;
-  }
+    .__nav_m ul {
+      background-color: #e6ebe926;
+    }
 
-  .__nav_m li:nth-child(1) {
-    border-top: #e1e1e1d0 1px solid;
-  }
+    .__nav_m li:nth-child(1) {
+      border-top: #e1e1e1d0 1px solid;
+    }
 
-  .__nav_m li {
-    height: 5em;
-    border-bottom: #e1e1e1d0 1px solid;
-  }
+    .__nav_m li {
+      height: 5em;
+      border-bottom: #e1e1e1d0 1px solid;
+    }
 
-  /*mobile nav*/
-  #headerId ul li {
-    list-style: none;
-    border-radius: 50px;
-  }
-  .__nav_d ul li {
-    background: var(--gradientRed);
-    color: var(--white);
-  }
-  .__nav_m li:nth-child(2){
-    background: var(--gradientRed);
- 
-  }
-  .__nav_m li:nth-child(2) a {
-    color: var(--white);
-  }
-  #headerId .__nav_m ul li {
+    /*mobile nav*/
+    #headerId ul li {
+      list-style: none;
+      border-radius: 50px;
+    }
+
+    .__nav_d ul li {
+      background: var(--gradientRed);
+      color: var(--white);
+    }
+
+    .__nav_m li:nth-child(2) {
+      background: var(--gradientRed);
+
+    }
+
+    .__nav_m li:nth-child(2) a {
+      color: var(--white);
+    }
+
+    #headerId .__nav_m ul li {
       border-radius: 0;
     }
 
-  .__nav_d ul li:nth-child(2),
-  .__nav_m ul li:nth-child(2):hover a {
-    background: var(--gradientRed);
-    color: var(--white);
-  }
+    .__nav_d ul li:nth-child(2),
+    .__nav_m ul li:nth-child(2):hover a {
+      background: var(--gradientRed);
+      color: var(--white);
+    }
 
-  /* .__nav_d ul li:nth-child(3),
+    /* .__nav_d ul li:nth-child(3),
   .__nav_m ul li:nth-child(3) {
     background-image: var(--button_color);
   } */
 
-  /* .__nav_m ul li:nth-child(3) a {
+    /* .__nav_m ul li:nth-child(3) a {
     color: var(--white);
   } */
 
-  @media (orientation: portrait) {
-    header {
-      height: 2.5em !important;
-      position: absolute;
-    }
-   
-    
-  }
+    @media (orientation: portrait) {
+      header {
+        height: 2.5em !important;
+        position: absolute;
+      }
 
-  @media (min-width: 1024px) {
-    header .__nav_d {
-      max-width: 100%;
+
     }
 
-    .___ham,
-    .__nav_m {
-      display: none !important;
-    }
-  }
+    @media (min-width: 1024px) {
+      header .__nav_d {
+        max-width: 100%;
+      }
 
-  @media (max-width: 1023px) {
-    header .__nav_d {
-      max-width: 100%;
-    }
-    ._n li a {
-      font-size: 1.3em;
-    }
-    header .__logo {
-      margin-left: 3%;
+      .___ham,
+      .__nav_m {
+        display: none !important;
+      }
     }
 
-    .__nav_d ul._d {
-      display: none;
-    }
+    @media (max-width: 1023px) {
+      header .__nav_d {
+        max-width: 100%;
+      }
 
-    /* .__nav_m {
+      ._n li a {
+        font-size: 1.3em;
+      }
+
+      header .__logo {
+        margin-left: 3%;
+      }
+
+      .__nav_d ul._d {
+        display: none;
+      }
+
+      /* .__nav_m {
       display: block;
     } */
-  }
-
-  @media (max-width: 678px) {
-    header .__logo {
-      /* flex-basis: calc(11vw + 11vh); */
-      flex-basis: calc(110px + 2%);
     }
-  }
+
+    @media (max-width: 678px) {
+      header .__logo {
+        /* flex-basis: calc(11vw + 11vh); */
+        flex-basis: calc(110px + 2%);
+      }
+    }
   </style>
+
   <script>
-       document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
       var hamButton = document.querySelector(".___ham");
       var hamIcon = document.querySelector(".__ham");
       var navMenu = document.querySelector(".__nav_m");
 
-      hamButton.addEventListener("click", function() {
+      hamButton.addEventListener("click", function () {
         hamIcon.classList.toggle("is-active");
         navMenu.classList.toggle("is-active");
-        
+
         if (navMenu.style.display === "block") {
           navMenu.style.display = "none";
         } else {
@@ -458,7 +464,7 @@ if (!empty($qsa))
   </script>
   <div id="content">
     <div id="fullpage">
-      <div class="section" id="section1" data-anchor="oferta">
+      <div class="section" id="section1">
         <div class="fp-bg"></div>
         <div class="fp-content">
           <div class="wrapp_all">
@@ -480,7 +486,7 @@ if (!empty($qsa))
             <div class="ball">
               <img data-src="./png/elements/euroBall.png" alt="ball" loading="lazy" />
             </div>
-            <div class="anim-wrapper anim-delay-8 cotes"  >
+            <div class="anim-wrapper anim-delay-8 cotes">
               <div class="tableScore-container">
                 <div class="tableScore-header gradientRed">
                   <span class="group-name">GRUPA E</span>
@@ -496,7 +502,7 @@ if (!empty($qsa))
           </div>
         </div>
       </div>
-      <div class="section" id="section2" data-anchor="clasament">
+      <div class="section" id="section2">
         <div class="fp-bg"></div>
         <div class="fp-content section2-text">
           <div class="wrapp_all">
@@ -514,7 +520,7 @@ if (!empty($qsa))
                   <h5>Esti Eligibil</h5><img data-src="./png/thumbs/thumb-up2.png" class="thumb-icon" alt="td"
                     loading="lazy">
                 </span> -
-                <a href="http://" target="_blank" rel="noopener noreferrer"> <span>
+                <a href="#" target="_blank" rel="noopener noreferrer"> <span>
                     <h5>Depune</h5> <img data-src="./png/thumbs/thumb-down2.png" class="thumb-icon" alt="th"
                       loading="lazy">
                   </span></a>
@@ -524,30 +530,33 @@ if (!empty($qsa))
           </div>
         </div>
       </div>
-      <div class="section" id="section3" data-anchor="cote">
+      <div class="section" id="section3">
         <div class="fp-bg"></div>
         <div class="fp-content section3-text">
-          <a href="https://sport.netbet.ro/fotbal/euro-2024/<?php echo $qsa; ?>" target="_blank">
-            <div class="section_content">
-              <h1 class="anim-wrapper">
-                <span>Cote Euro 2024</span>
-              </h1>
-              <div class="intro anim-wrapper anim-delay-8">
-                <p>Urmărește acum cotele celor mai importante meciuri.</p>
-              </div>
+          <div class="wrapp_all">
+            <a href="https://sport.netbet.ro/fotbal/euro-2024/<?php echo $qsa; ?>" target="_blank">
+              <div class="section_content">
+                <h1 class="anim-wrapper">
+                  <span>Cote Euro 2024</span>
+                </h1>
+                <div class="intro anim-wrapper anim-delay-8">
+                  <p>Urmărește acum cotele celor mai importante meciuri.</p>
+                </div>
               </div>
             </a>
-          
+
             <div class="section_info">
               <div class="container-info">
                 <div class="coteMatch" id="coteMatch"></div>
               </div>
-              <div class="smallText">*Cotele din oferta de pariuri pot suferi modificări în decursul timpului și de asemenea evenimentele pot fi suspendate din oferta de pariere și redeschise ulterior sau chiar blocate înainte de ora de începere.</div>
+              <div class="smallText">*Cotele din oferta de pariuri pot suferi modificări în decursul timpului și de
+                asemenea evenimentele pot fi suspendate din oferta de pariere și redeschise ulterior sau chiar blocate
+                înainte de ora de începere.</div>
             </div>
-        </div>
           </div>
-        </div>   
-      <div class="section" id="section4" data-anchor="infografic">
+        </div>
+      </div>
+      <div class="section" id="section4">
         <div class="slide" id="slide2-1">
           <div class="fp-bg"></div>
           <div class="fp-content">
@@ -569,7 +578,7 @@ if (!empty($qsa))
               </div>
             </div>
           </div>
-      
+
         </div>
         <div class="slide" id="slide2-2">
           <div class="fp-bg"></div>
@@ -591,7 +600,7 @@ if (!empty($qsa))
                 </div>
               </div>
             </div>
-       
+
           </div>
           <div class="slide" id="slide2-3">
             <div class="fp-bg"></div>
@@ -615,7 +624,7 @@ if (!empty($qsa))
               </div>
             </div>
           </div>
-        
+
         </div>
         <div class="slide" id="slide2-4">
           <div class="fp-bg"></div>
@@ -638,7 +647,7 @@ if (!empty($qsa))
               </div>
             </div>
           </div>
-         
+
         </div>
         <div class="slide" id="slide2-5">
           <div class="fp-bg"></div>
@@ -662,10 +671,10 @@ if (!empty($qsa))
               </div>
             </div>
           </div>
-       
+
         </div>
       </div>
-      <div class="section fp-noscroll fp-auto-height-responsive " id="section5" data-anchor="tcs"> 
+      <div class="section fp-noscroll fp-auto-height-responsive " id="section5">
         <div class="fp-bg"></div>
         <div class="fp-content section5-text">
           <div class="wrapp_all">
@@ -683,13 +692,18 @@ if (!empty($qsa))
                         <p><b>Cine este eligibil?</b></p>
                         <ul>
                           <li>
-                            Campania se adresează atât jucătorilor noi înregistrați, cât și jucătorilor existenți pe platforma NetBet Sport. Pentru a fi eligibili, jucătorii trebuie să plaseze un pariu pre-live single sau combi de <b>minimum 50 RON</b> pe orice meci de la <b>EURO 2024</b>,<b>cu o cotă de minimum 1.40 per selecție.</b>
+                            Campania se adresează atât jucătorilor noi înregistrați, cât și jucătorilor existenți pe
+                            platforma NetBet Sport. Pentru a fi eligibili, jucătorii trebuie să plaseze un pariu
+                            pre-live single sau combi de <b>minimum 50 RON</b> pe orice meci de la <b>EURO 2024</b>, <b>
+                              cu o cotă de minimum 1.40 per selecție.</b>
                           </li>
                           <li>
-                            <b>Atenție!</b> Pariurile Cashout sunt excluse de la această campanie. 
+                            <b>Atenție!</b> Pariurile Cashout sunt excluse de la această campanie.
                           </li>
                           <li>
-                            În plus față de cele menționate anterior, jucătorii noi trebuie să introducă codul bonus EUR2024 în ultimul pas al înregistrării pe NetBet Sport și să finalizeze procesul de verificare a identității în termenii prevăzuți de lege.
+                            În plus față de cele menționate anterior, jucătorii noi trebuie să introducă codul bonus
+                            EUR2024 în ultimul pas al înregistrării pe NetBet Sport și să finalizeze procesul de
+                            verificare a identității în termenii prevăzuți de lege.
                           </li>
                           <li>
                             Promoția se desfășoară în perioada 05.06.2024, ora 00:00 EEST – 15.07.2024, ora 23:59 EEST.
@@ -700,7 +714,10 @@ if (!empty($qsa))
                         <p><b>CARE ESTE PREMIUL MEU?</b></p>
                         <ul>
                           <li>
-                            Jucătorii eligibili au șansa de a câștiga una dintre cele <b>100 de mingi oficiale FUSSBALLIEBE</b> cu o valoare totală de 50.000 RON. Valoarea unitară pentru fiecare premiu a fost stabilită la suma de 500 RON. Cei 100 de jucători câștigători vor fi aleși prin intermediul site-ului random.org la finalul perioadei promoționale.
+                            Jucătorii eligibili au șansa de a câștiga una dintre cele <b>100 de mingi oficiale
+                              FUSSBALLIEBE</b> cu o valoare totală de 50.000 RON. Valoarea unitară pentru fiecare premiu
+                            a fost stabilită la suma de 500 RON. Cei 100 de jucători câștigători vor fi aleși prin
+                            intermediul site-ului random.org la finalul perioadei promoționale.
                           </li>
                           <li>Pentru aceasta promoție, este necesar un pariu eligibil de 50 RON.</li>
                           <li>
@@ -713,24 +730,28 @@ if (!empty($qsa))
                             Înregistrează-te sau Conectează-te pe NetBet Sport.
                           </li>
                           <li>
-                            Pentru jucătorii noi: introdu codul <b>EUR2024</b> în secțiunea Cod Bonus (opțional) din ultimul pas al înregistrării pe NetBet Sport și validează contul în termenii prevăzuți de lege.
+                            Pentru jucătorii noi: introdu codul <b>EUR2024</b> în secțiunea Cod Bonus (opțional) din
+                            ultimul pas al înregistrării pe NetBet Sport și validează contul în termenii prevăzuți de
+                            lege.
                           </li>
                           <li>
-                            Completează cerințele promoției: plasează un pariu pre-live single sau combi de minimum 50 RON pe meciurile de la EURO 2024, la o cotă de minimum 1.40 per selecție.
+                            Completează cerințele promoției: plasează un pariu pre-live single sau combi de minimum 50
+                            RON pe meciurile de la EURO 2024, la o cotă de minimum 1.40 per selecție.
                           </li>
 
                           <p>
                             <b>Clasament</b>
                           </p>
                           <li>
-                            Pentru această promoție, se ia în considerare doar primul pariu eligibil stabilit, indiferent dacă este câștigat sau pierdut. 
+                            Pentru această promoție, se ia în considerare doar primul pariu eligibil stabilit,
+                            indiferent dacă este câștigat sau pierdut.
                           </li>
                           <li>
-                            Sunt luate în considerare doar pariurile plasate din balanța reală. 
+                            Sunt luate în considerare doar pariurile plasate din balanța reală.
                           </li>
 
                           <li>
-                            Jucătorii pot consulta statutul de eligibilitate în clasamentul afișat în pagina promoției. 
+                            Jucătorii pot consulta statutul de eligibilitate în clasamentul afișat în pagina promoției.
                           </li>
                           <li>
                             Câștigurile rezultate în urma utilizării Rundelor Gratuite vor fi
@@ -738,33 +759,50 @@ if (!empty($qsa))
                             fost epuizate.
                           </li>
                           <li>
-                            La finalul perioadei promoționale, câștigătorii vor fi aleși prin intermediul site-ului random.org și vor fi contactați de echipa de Asistență Clienți în vederea stabilirii detaliilor de livrare.
+                            La finalul perioadei promoționale, câștigătorii vor fi aleși prin intermediul site-ului
+                            random.org și vor fi contactați de echipa de Asistență Clienți în vederea stabilirii
+                            detaliilor de livrare.
                           </li>
                           <li>
-                            Jucătorii câștigători vor fi anunțați pe 16.06.2024 prin intermediul canalelor oficiale NetBet.
+                            Jucătorii câștigători vor fi anunțați pe 16.06.2024 prin intermediul canalelor oficiale
+                            NetBet.
                           </li>
                           <li>
-                            În cazul în care unul sau mai mulți jucători nu pot fi contactați/refuză să ofere detaliile necesare livrării premiului în termen de 7 zile de la data încheierii promoției, atunci, NetBet nu va face o altă extragere, iar premiul va fi anulat.
+                            În cazul în care unul sau mai mulți jucători nu pot fi contactați/refuză să ofere detaliile
+                            necesare livrării premiului în termen de 7 zile de la data încheierii promoției, atunci,
+                            NetBet nu va face o altă extragere, iar premiul va fi anulat.
                           </li>
-                          <li>Reține că premiul nu poate fi schimbat cu valoarea sa în bani reali, Freebet-uri sau alte bonusuri. </li>
+                          <li>Reține că premiul nu poate fi schimbat cu valoarea sa în bani reali, Freebet-uri sau alte
+                            bonusuri. </li>
                           <li>Un jucător poate câștiga un singur premiu pe durata campaniei.</li>
                         </ul>
                         <p><b>Ce altceva trebuie să știu?</b></p>
                         <ul>
                           <li>Această ofertă respectă <a
-                            href="https://sport.netbet.ro/help/terms-and-conditions/terms-conditions<?php echo $qsa; ?>" style="display:inline-block;font-size: 0.9em;">Termenii și Condițiile NetBet
-                            Cazino</a>.</li>
-                        <li>
-                            NetBet își rezervă dreptul de a anula sau de a modifica condițiile acestei promoții fără notificare prealabilă.
+                              href="https://sport.netbet.ro/help/terms-and-conditions/terms-conditions<?php echo $qsa; ?>"
+                              style="display:inline-block;font-size: 0.9em;">Termenii și Condițiile NetBet
+                              Cazino</a>.</li>
+                          <li>
+                            NetBet își rezervă dreptul de a anula sau de a modifica condițiile acestei promoții fără
+                            notificare prealabilă.
                           </li>
                           <li>
-                            NetBet își rezervă dreptul de a exclude jucătorii care participă la această promoție folosind mai multe conturi de utilizator. În cazul în care avem motive să credem că un cont sau un grup de conturi operează sistematic, de exemplu, folosind tehnici de pariere specifice sau pariuri în grup, atunci NetBet își rezervă dreptul de a bloca sau de a închide permanent toate conturile. În aceste circumstanțe, conturile vor fi excluse automat de la participarea la promoțiile viitoare, chiar dacă jucătorii au început deja procesul de depunere sau de pariere.
+                            NetBet își rezervă dreptul de a exclude jucătorii care participă la această promoție
+                            folosind mai multe conturi de utilizator. În cazul în care avem motive să credem că un cont
+                            sau un grup de conturi operează sistematic, de exemplu, folosind tehnici de pariere
+                            specifice sau pariuri în grup, atunci NetBet își rezervă dreptul de a bloca sau de a închide
+                            permanent toate conturile. În aceste circumstanțe, conturile vor fi excluse automat de la
+                            participarea la promoțiile viitoare, chiar dacă jucătorii au început deja procesul de
+                            depunere sau de pariere.
                           </li>
                           <li>
-                            NetBet își rezervă dreptul de a descalifica jucătorii în caz de coluziune, joc necinstit sau în cazul în care se consideră că au abuzat de promoție. În acest caz, orice câștig rezultat din urma utilizării bonusului va fi anulat.
+                            NetBet își rezervă dreptul de a descalifica jucătorii în caz de coluziune, joc necinstit sau
+                            în cazul în care se consideră că au abuzat de promoție. În acest caz, orice câștig rezultat
+                            din urma utilizării bonusului va fi anulat.
                           </li>
                           <li>
-                            Pentru a putea juca pe NetBet, este necesar să ai peste 18 ani și să nu ai interdicție de a participa la activități de jocuri de noroc din orice motiv.
+                            Pentru a putea juca pe NetBet, este necesar să ai peste 18 ani și să nu ai interdicție de a
+                            participa la activități de jocuri de noroc din orice motiv.
                           </li>
                           <li>NetBet : Licența nr. L1160651W000195 emisă de Comitetul de Supraveghere ONJN pentru NetBet
                             Enterprises
@@ -864,14 +902,12 @@ if (!empty($qsa))
     </div>
   </div>
   <ul id="myMenu" class="footer-bar"">
-    <li class="footer-button"  class="active" data-color="--gradientRed"><a
-      href="#oferta">Ofertă</a></li>
-    <li class="footer-button" data-color="--gradientGreen"><a
-        href="#clasament">Clasament</a></li>
-    <li class="footer-button"  data-color="--button_color"><a href="#cote">Cote</a></li>
-    <li class="footer-button"  data-color="--gradientBlue"><a href="#infografic">InfoGrafic</a>
+    <li class=" footer-button" class="active" data-color="--gradientRed"><a href="#oferta">Ofertă</a></li>
+    <li class="footer-button" data-color="--gradientGreen"><a href="#clasament">Clasament</a></li>
+    <li class="footer-button" data-color="--button_color"><a href="#cote">Cote</a></li>
+    <li class="footer-button" data-color="--gradientBlue"><a href="#infografic">InfoGrafic</a>
     </li>
-    <li class="footer-button"  data-color="--gradientBlue"><a href="#tcs">T&Cs</a></li>
+    <li class="footer-button" data-color="--gradientBlue"><a href="#tcs">T&Cs</a></li>
   </ul>
   <svg class="arrow-down">
     <path
@@ -879,10 +915,210 @@ if (!empty($qsa))
   </svg>
   <input type="hidden" id="_4" value="3" />
   <script type="text/javascript" src="./fullpage.cards.min.js"></script>
-  
+
   <script type="text/javascript" src="https://unpkg.com/fullpage.js@4.0.22/dist/fullpage.extensions.min.js"></script>
-  <script src="./index.js" type="text/javascript"></script>
-  <script src="./fetchDataSheets.js"></script>
-  <script src="./table.js"></script>
+  <script src="./index3.js" type="text/javascript"></script>
+  <script src="./fetchDataSheets3.js"></script>
+
+  <!-- <script src="./table3.js" type="text/javascript"></script> -->
+
+  <script>
+    let userLoginCheck = getCookie("netbet_login");
+    let qNetbet_id = getCookie("netbet_id");
+
+    function getCookie(name) {
+      const nameEQ = name + "=";
+      const ca = document.cookie.split(";");
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === " ") {
+          c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) === 0) {
+          return c.substring(nameEQ.length, c.length);
+        }
+      }
+      return null;
+    }
+
+    let modalIntervalId;
+
+    // Function to fetch data from the API
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          "https://api.netbet.com/leaderboard/euro2024?website=casino&lang=eu&device=desktop"
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const responseData = await response.json();
+        console.log(responseData, "data fetch");
+        if (
+          responseData?.status === true &&
+          Array.isArray(responseData.data?.data)
+        ) {
+          return responseData.data.data;
+        } else {
+          throw new Error("Invalid response data format");
+        }
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+        return null;
+      }
+    }
+    let linkGo;
+    const actionBtn = document.getElementById("actionBtn");
+    const depositBtn = document.getElementById("deposit");
+    const textContentReg =
+      "Înregistrează-te sau accesează contul tău și plasează un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
+    const textContentBet =
+      "Plasează acum un pariu eligibil pentru a fi inclus în tragerea la sorți ce oferă mingea momentului!";
+    const checkStatus =
+      userLoginCheck === "logged_out" ||
+      userLoginCheck === "netbet_login" ||
+      userLoginCheck === null ||
+      userLoginCheck === "";
+    if (checkStatus) {
+      linkGo = "https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>";
+      actionBtn.href = "https://sport.netbet.ro/?register=1<?php echo $qsa_with_end; ?>";
+      actionBtn.textContent = "Înregistrează-te";
+    } else {
+      linkGo = "https://sport.netbet.ro/fotbal/euro-2024/<?php echo $qsa; ?>";
+      actionBtn.href = "https://sport.netbet.ro/fotbal/euro-2024/<?php echo $qsa; ?>";
+      actionBtn.textContent = "Pariază Acum";
+    }
+    // Function to initialize the DataTable
+    function initializeDataTable(selector, data, qNetbet_id) {
+      const dataSorted = data.sort((a, b) =>
+        a.player_id == qNetbet_id ? -1 : b.player_id == qNetbet_id ? 1 : 0
+      ); // for {user with auth to be first}
+      // console.log(matchingItem,"matchingItem")
+      return new DataTable(selector, {
+        data: dataSorted,
+        columns: [{
+            title: "Participanți",
+            data: "username",
+          },
+          {
+            title: "Status",
+            data: "status",
+            render: (data) => {
+              const thumbIcon = data === 0 ? "thumb-up2.png" : "thumb-down2.png";
+              return `<span><img src="./png/thumbs/${thumbIcon}" class="thumb-icon" alt="Thumb Icon"></span>`;
+            },
+          },
+        ],
+        paging: true,
+        info: true,
+        lengthChange: false,
+        aaSorting: true,
+        responsive: true,
+        pageLength: window.innerWidth < 991 ? 8 : 10,
+        paginate: true,
+        searching: false,
+        ordering: false,
+        createdRow: function (row, rowData) {
+          if (rowData.player_id === parseInt(qNetbet_id)) {
+            addClass(row, "highlight");
+            let firstTd = row.getElementsByTagName("td")[0];
+            if (firstTd) {
+              firstTd.textContent = userLoginCheck;
+            }
+          }
+        },
+      });
+    }
+
+    async function initializePage() {
+      const fetchedData = await fetchData();
+
+      if (!fetchedData) {
+        console.error("No data fetched");
+        return null;
+      }
+
+      const tableData = fetchedData.map((item) => ({
+        username: item.username,
+        status: item.status,
+        player_id: item.player_id,
+      }));
+
+      // console.log(tableData, "--tableData");
+      // console.log(userLoginCheck, "--userLoginCheck");
+      console.log(qNetbet_id, "--qNetbet_id");
+
+      // find id
+      const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
+      initializeDataTable("#tableJs", tableData, qNetbet_id);
+      return matchingItem;
+    }
+    initializePage().then((matchingItem) => {
+      if (matchingItem) {
+        // console.log("Found matching item:", matchingItem);
+        actionBtn.removeAttribute("href");
+        actionBtn.textContent = "Vezi Clasamentul";
+        actionBtn.addEventListener("click", () => {
+          fullpage_api.moveSectionDown();
+        });
+      } else {
+        setTimeout(() => {
+          showNotEligibleModal();
+        }, 2000);
+      }
+    });
+
+    function startModalInterval() {
+      modalIntervalId = setInterval(() => {
+        if (!document.getElementById("modalOverFlow")) {
+          showNotEligibleModal();
+        }
+      }, 300000); //5 min in milisec
+    }
+
+    function showNotEligibleModal() {
+      if (document.getElementById("modalOverFlow")) return;
+      const modal = document.createElement("div");
+      modal.innerHTML = `
+    <div class="modalOverFlow" id="modalOverFlow">
+      <div class="modalParent">
+        <div>
+             <button id="modalCloseButton">&#10006</button>
+         </div>
+      <div class="modalContainer">
+        <p>${checkStatus ? textContentReg : textContentBet} </p>
+          <a href="${linkGo}" target="_blank">
+          <button class="_btnReg" id="deposit">
+          ${actionBtn.textContent}
+          </button>
+          </a>
+          <p class="arrow-custom">Termeni și Condiții</p>
+      </div>
+    </div>
+  </div>
+  `;
+      document.body.appendChild(modal);
+
+      document.querySelector(".arrow-custom").addEventListener("click", () => {
+        fullpage_api.moveTo('tcs');
+        closeModal();
+      });
+      document.getElementById("modalCloseButton").onclick = closeModal;
+      clearInterval(modalIntervalId);
+    }
+
+
+
+
+
+    function closeModal() {
+      const modal = document.getElementById("modalOverFlow");
+      if (modal) {
+        modal.remove();
+      }
+      startModalInterval();
+    }
+  </script>
 </body>
+
 </html>
