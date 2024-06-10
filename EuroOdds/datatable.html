@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTable Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+</head>
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Player ID</th>
+                <th>Full Name</th>
+                <th>Bet ID</th>
+                <th>Purchase AI ID</th>
+                <th>Registered At</th>
+                <th>Status</th>
+                <th>Removed At</th>
+            </tr>
+        </thead>
+    </table>
+    <script>
+        $(document).ready(function() {
+            fetch('https://casino-promo.netbet.ro/scripts/utils/leaderboard_euro2024.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data || !data.data || !data.data.data) {
+                        throw new Error('Unexpected data format');
+                    }
+
+                    let players = data.data.data;
+                    console.log(players, "pls");
+
+                    let tableData = players.map(player => {
+                        return [
+                            player.player_id,
+                            player.username,
+                            player.bet_id,
+                            player.purchase_ai_id,
+                            player.registered_at,
+                            player.status,
+                            player.removed_at
+                        ];
+                    });
+
+                    // Initialize DataTable
+                    $('#example').DataTable({
+                        data: tableData,
+                        columns: [
+                            { title: "Player ID" },
+                            { title: "Full Name" },
+                            { title: "Bet ID" },
+                            { title: "Purchase AI ID" },
+                            { title: "Registered At" },
+                            { title: "Status" },
+                            { title: "Removed At" }
+                        ],
+                        paging: true,
+                        info: true,
+                        lengthChange: true,
+                        aaSorting: true,
+                        responsive: true,
+                        pageLength: 20,
+                        paginate: true,
+                        searching: true,
+                        ordering: true,
+                        createdRow: function (row, rowData) {
+                            // Custom row creation logic if needed
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing data:', error);
+                });
+        });
+    </script>
+</body>
+</html>

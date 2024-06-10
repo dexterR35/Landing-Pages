@@ -1,0 +1,1280 @@
+{
+    "items": {
+      "144": {
+        "competition_id": 82789,
+        "id": "1-23608620",
+        "name": "Germany vs Scotland",
+        "home_team": "Germany",
+        "away_team": "Scotland",
+        "starts_at": "2024-06-14 19:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608620,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.28,
+              "odds_fractional": "7/25",
+              "odds_american": "-357.14",
+              "id": 4220655392
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 5.8,
+              "odds_fractional": "24/5",
+              "odds_american": "+480",
+              "id": 4220655391
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 11,
+              "odds_fractional": "10/1",
+              "odds_american": "+1000",
+              "id": 4220655390
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.67,
+              "odds_fractional": "2/3",
+              "odds_american": "-149.25",
+              "id": 4220655357
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 2.07,
+              "odds_fractional": "15/14",
+              "odds_american": "+107",
+              "id": 4220655356
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.05,
+              "odds_fractional": "1/19",
+              "odds_american": "-2000",
+              "id": 4220673500
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.14,
+              "odds_fractional": "1/7",
+              "odds_american": "-714.29",
+              "id": 4220673498
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 3.47,
+              "odds_fractional": "37/15",
+              "odds_american": "+247",
+              "id": 4220673495
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.23,
+              "odds_fractional": "16/13",
+              "odds_american": "+123",
+              "id": 4220672674
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.58,
+              "odds_fractional": "7/12",
+              "odds_american": "-172.41",
+              "id": 4220672673
+            }
+          ]
+        }
+      },
+      "163": {
+        "competition_id": 82789,
+        "id": "1-23608617",
+        "name": "Hungary vs Switzerland",
+        "home_team": "Hungary",
+        "away_team": "Switzerland",
+        "starts_at": "2024-06-15 13:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608617,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 3.5,
+              "odds_fractional": "5/2",
+              "odds_american": "+250",
+              "id": 4220655385
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.16,
+              "odds_fractional": "54/25",
+              "odds_american": "+216",
+              "id": 4220655383
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 2.24,
+              "odds_fractional": "31/25",
+              "odds_american": "+124",
+              "id": 4220655382
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 2.17,
+              "odds_fractional": "7/6",
+              "odds_american": "+117",
+              "id": 4220655367
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.61,
+              "odds_fractional": "11/18",
+              "odds_american": "-163.93",
+              "id": 4220655365
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.61,
+              "odds_fractional": "11/18",
+              "odds_american": "-163.93",
+              "id": 4220673818
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.34,
+              "odds_fractional": "16/47",
+              "odds_american": "-294.12",
+              "id": 4220673817
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.3,
+              "odds_fractional": "3/10",
+              "odds_american": "-333.33",
+              "id": 4220673816
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.87,
+              "odds_fractional": "7/8",
+              "odds_american": "-114.94",
+              "id": 4220672737
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.83,
+              "odds_fractional": "5/6",
+              "odds_american": "-120.48",
+              "id": 4220672736
+            }
+          ]
+        }
+      },
+      "168": {
+        "competition_id": 82789,
+        "id": "1-23608618",
+        "name": "Spain vs Croatia",
+        "home_team": "Spain",
+        "away_team": "Croatia",
+        "starts_at": "2024-06-15 16:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608618,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.9,
+              "odds_fractional": "9/10",
+              "odds_american": "-111.11",
+              "id": 4220655378
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.47,
+              "odds_fractional": "37/15",
+              "odds_american": "+247",
+              "id": 4220655376
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 4.2,
+              "odds_fractional": "16/5",
+              "odds_american": "+320",
+              "id": 4220655374
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 2.04,
+              "odds_fractional": "25/24",
+              "odds_american": "+104",
+              "id": 4220655343
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.69,
+              "odds_fractional": "9/13",
+              "odds_american": "-144.93",
+              "id": 4220655342
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.23,
+              "odds_fractional": "3/13",
+              "odds_american": "-434.78",
+              "id": 4220673611
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.3,
+              "odds_fractional": "3/10",
+              "odds_american": "-333.33",
+              "id": 4220673610
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.87,
+              "odds_fractional": "7/8",
+              "odds_american": "-114.94",
+              "id": 4220673609
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.89,
+              "odds_fractional": "8/9",
+              "odds_american": "-112.36",
+              "id": 4220672638
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.81,
+              "odds_fractional": "13/16",
+              "odds_american": "-123.46",
+              "id": 4220672636
+            }
+          ]
+        }
+      },
+      "170": {
+        "competition_id": 82789,
+        "id": "1-23608619",
+        "name": "Italy vs Albania",
+        "home_team": "Italy",
+        "away_team": "Albania",
+        "starts_at": "2024-06-15 19:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608619,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.39,
+              "odds_fractional": "7/18",
+              "odds_american": "-256.41",
+              "id": 4220655352
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.6,
+              "odds_fractional": "18/5",
+              "odds_american": "+360",
+              "id": 4220655351
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 8.9,
+              "odds_fractional": "79/10",
+              "odds_american": "+790",
+              "id": 4220655350
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.95,
+              "odds_fractional": "19/20",
+              "odds_american": "-105.26",
+              "id": 4220655373
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.75,
+              "odds_fractional": "3/4",
+              "odds_american": "-133.33",
+              "id": 4220655372
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.08,
+              "odds_fractional": "1/12",
+              "odds_american": "-1250",
+              "id": 4220677941
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.19,
+              "odds_fractional": "3/16",
+              "odds_american": "-526.32",
+              "id": 4220677940
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 2.99,
+              "odds_fractional": "199/100",
+              "odds_american": "+199",
+              "id": 4220677939
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.35,
+              "odds_fractional": "23/17",
+              "odds_american": "+135",
+              "id": 4220677486
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.53,
+              "odds_fractional": "8/15",
+              "odds_american": "-188.68",
+              "id": 4220677485
+            }
+          ]
+        }
+      },
+      "206": {
+        "competition_id": 82789,
+        "id": "1-24397271",
+        "name": "Poland vs Netherlands",
+        "home_team": "Poland",
+        "away_team": "Netherlands",
+        "starts_at": "2024-06-16 13:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 24397271,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 5.3,
+              "odds_fractional": "43/10",
+              "odds_american": "+430",
+              "id": 4512358627
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.92,
+              "odds_fractional": "35/12",
+              "odds_american": "+292",
+              "id": 4512358626
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 1.65,
+              "odds_fractional": "11/17",
+              "odds_american": "-153.85",
+              "id": 4512358625
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.85,
+              "odds_fractional": "17/20",
+              "odds_american": "-117.65",
+              "id": 4512358624
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.85,
+              "odds_fractional": "17/20",
+              "odds_american": "-117.65",
+              "id": 4512358623
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 2.13,
+              "odds_fractional": "9/8",
+              "odds_american": "+113",
+              "id": 4512363279
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.25,
+              "odds_fractional": "1/4",
+              "odds_american": "-400",
+              "id": 4512363278
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.16,
+              "odds_fractional": "3/19",
+              "odds_american": "-625",
+              "id": 4512363277
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.86,
+              "odds_fractional": "6/7",
+              "odds_american": "-116.28",
+              "id": 4512363109
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.84,
+              "odds_fractional": "21/25",
+              "odds_american": "-119.05",
+              "id": 4512363108
+            }
+          ]
+        }
+      },
+      "211": {
+        "competition_id": 82789,
+        "id": "1-23608616",
+        "name": "Slovenia vs Denmark",
+        "home_team": "Slovenia",
+        "away_team": "Denmark",
+        "starts_at": "2024-06-16 16:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608616,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 5.1,
+              "odds_fractional": "41/10",
+              "odds_american": "+410",
+              "id": 4220655381
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.61,
+              "odds_fractional": "47/18",
+              "odds_american": "+261",
+              "id": 4220655380
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 1.74,
+              "odds_fractional": "17/23",
+              "odds_american": "-135.14",
+              "id": 4220655379
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 2.13,
+              "odds_fractional": "9/8",
+              "odds_american": "+113",
+              "id": 4220655347
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.63,
+              "odds_fractional": "5/8",
+              "odds_american": "-158.73",
+              "id": 4220655345
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 2.01,
+              "odds_fractional": "101/100",
+              "odds_american": "+101",
+              "id": 4220673212
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.28,
+              "odds_fractional": "7/25",
+              "odds_american": "-357.14",
+              "id": 4220673211
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.17,
+              "odds_fractional": "1/6",
+              "odds_american": "-588.24",
+              "id": 4220673210
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.02,
+              "odds_fractional": "50/49",
+              "odds_american": "+102",
+              "id": 4220672172
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.7,
+              "odds_fractional": "7/10",
+              "odds_american": "-142.86",
+              "id": 4220672169
+            }
+          ]
+        }
+      },
+      "213": {
+        "competition_id": 82789,
+        "id": "1-23608614",
+        "name": "Serbia vs England",
+        "home_team": "Serbia",
+        "away_team": "England",
+        "starts_at": "2024-06-16 19:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608614,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 7.4,
+              "odds_fractional": "32/5",
+              "odds_american": "+640",
+              "id": 4220655369
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.5,
+              "odds_fractional": "7/2",
+              "odds_american": "+350",
+              "id": 4220655368
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 1.45,
+              "odds_fractional": "9/20",
+              "odds_american": "-222.22",
+              "id": 4220655366
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.8,
+              "odds_fractional": "4/5",
+              "odds_american": "-125",
+              "id": 4220655348
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.9,
+              "odds_fractional": "9/10",
+              "odds_american": "-111.11",
+              "id": 4220655344
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 2.76,
+              "odds_fractional": "44/25",
+              "odds_american": "+176",
+              "id": 4220665527
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.2,
+              "odds_fractional": "1/5",
+              "odds_american": "-500",
+              "id": 4220665526
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.1,
+              "odds_fractional": "1/10",
+              "odds_american": "-1000",
+              "id": 4220665525
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.01,
+              "odds_fractional": "101/100",
+              "odds_american": "+101",
+              "id": 4220665046
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.71,
+              "odds_fractional": "5/7",
+              "odds_american": "-140.85",
+              "id": 4220665044
+            }
+          ]
+        }
+      },
+      "223": {
+        "competition_id": 82789,
+        "id": "1-24397272",
+        "name": "Romania vs Ukraine",
+        "home_team": "Romania",
+        "away_team": "Ukraine",
+        "starts_at": "2024-06-17 13:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 24397272,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 3.87,
+              "odds_fractional": "23/8",
+              "odds_american": "+287",
+              "id": 4512359048
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.4,
+              "odds_fractional": "12/5",
+              "odds_american": "+240",
+              "id": 4512359047
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 2.01,
+              "odds_fractional": "101/100",
+              "odds_american": "+101",
+              "id": 4512359046
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 2.07,
+              "odds_fractional": "15/14",
+              "odds_american": "+107",
+              "id": 4512359045
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.67,
+              "odds_fractional": "2/3",
+              "odds_american": "-149.25",
+              "id": 4512359044
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.74,
+              "odds_fractional": "17/23",
+              "odds_american": "-135.14",
+              "id": 4512369345
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.31,
+              "odds_fractional": "4/13",
+              "odds_american": "-322.58",
+              "id": 4512369344
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.26,
+              "odds_fractional": "6/23",
+              "odds_american": "-384.62",
+              "id": 4512369343
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.88,
+              "odds_fractional": "7/8",
+              "odds_american": "-113.64",
+              "id": 4512369117
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.82,
+              "odds_fractional": "9/11",
+              "odds_american": "-121.95",
+              "id": 4512369116
+            }
+          ]
+        }
+      },
+      "225": {
+        "competition_id": 82789,
+        "id": "1-23608615",
+        "name": "Belgium vs Slovakia",
+        "home_team": "Belgium",
+        "away_team": "Slovakia",
+        "starts_at": "2024-06-17 16:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608615,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.46,
+              "odds_fractional": "6/13",
+              "odds_american": "-217.39",
+              "id": 4220655424
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.5,
+              "odds_fractional": "7/2",
+              "odds_american": "+350",
+              "id": 4220655423
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 6.8,
+              "odds_fractional": "29/5",
+              "odds_american": "+580",
+              "id": 4220655422
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.71,
+              "odds_fractional": "5/7",
+              "odds_american": "-140.85",
+              "id": 4220655421
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 2.01,
+              "odds_fractional": "101/100",
+              "odds_american": "+101",
+              "id": 4220655420
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.11,
+              "odds_fractional": "1/9",
+              "odds_american": "-909.09",
+              "id": 4220673815
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.2,
+              "odds_fractional": "1/5",
+              "odds_american": "-500",
+              "id": 4220673814
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 2.68,
+              "odds_fractional": "37/22",
+              "odds_american": "+168",
+              "id": 4220673813
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.88,
+              "odds_fractional": "7/8",
+              "odds_american": "-113.64",
+              "id": 4220672714
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.82,
+              "odds_fractional": "9/11",
+              "odds_american": "-121.95",
+              "id": 4220672713
+            }
+          ]
+        }
+      },
+      "227": {
+        "competition_id": 82789,
+        "id": "1-23608635",
+        "name": "Austria vs France",
+        "home_team": "Austria",
+        "away_team": "France",
+        "starts_at": "2024-06-17 19:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608635,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 6,
+              "odds_fractional": "5/1",
+              "odds_american": "+500",
+              "id": 4220655360
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.5,
+              "odds_fractional": "7/2",
+              "odds_american": "+350",
+              "id": 4220655359
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 1.51,
+              "odds_fractional": "25/49",
+              "odds_american": "-196.08",
+              "id": 4220655358
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.65,
+              "odds_fractional": "11/17",
+              "odds_american": "-153.85",
+              "id": 4220655341
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 2.1,
+              "odds_fractional": "11/10",
+              "odds_american": "+110",
+              "id": 4220655339
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 2.44,
+              "odds_fractional": "13/9",
+              "odds_american": "+144",
+              "id": 4220673964
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.2,
+              "odds_fractional": "1/5",
+              "odds_american": "-500",
+              "id": 4220673962
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.13,
+              "odds_fractional": "1/8",
+              "odds_american": "-769.23",
+              "id": 4220673961
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.79,
+              "odds_fractional": "15/19",
+              "odds_american": "-126.58",
+              "id": 4220672940
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.91,
+              "odds_fractional": "10/11",
+              "odds_american": "-109.89",
+              "id": 4220672939
+            }
+          ]
+        }
+      },
+      "229": {
+        "competition_id": 82789,
+        "id": "1-24397285",
+        "name": "Turkey vs Georgia",
+        "home_team": "Turkey",
+        "away_team": "Georgia",
+        "starts_at": "2024-06-18 16:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 24397285,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.78,
+              "odds_fractional": "7/9",
+              "odds_american": "-128.21",
+              "id": 4512368234
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.53,
+              "odds_fractional": "38/15",
+              "odds_american": "+253",
+              "id": 4512368233
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 4.9,
+              "odds_fractional": "39/10",
+              "odds_american": "+390",
+              "id": 4512368232
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 2.13,
+              "odds_fractional": "9/8",
+              "odds_american": "+113",
+              "id": 4512368176
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.63,
+              "odds_fractional": "5/8",
+              "odds_american": "-158.73",
+              "id": 4512368175
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.17,
+              "odds_fractional": "1/6",
+              "odds_american": "-588.24",
+              "id": 4512367086
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.29,
+              "odds_fractional": "2/7",
+              "odds_american": "-344.83",
+              "id": 4512367085
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 2.02,
+              "odds_fractional": "50/49",
+              "odds_american": "+102",
+              "id": 4512367084
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.01,
+              "odds_fractional": "101/100",
+              "odds_american": "+101",
+              "id": 4512366813
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.71,
+              "odds_fractional": "5/7",
+              "odds_american": "-140.85",
+              "id": 4512366812
+            }
+          ]
+        }
+      },
+      "231": {
+        "competition_id": 82789,
+        "id": "1-23608613",
+        "name": "Portugal vs Czech Republic",
+        "home_team": "Portugal",
+        "away_team": "Czech Republic",
+        "starts_at": "2024-06-18 19:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 23608613,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.53,
+              "odds_fractional": "8/15",
+              "odds_american": "-188.68",
+              "id": 4220655332
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.3,
+              "odds_fractional": "33/10",
+              "odds_american": "+330",
+              "id": 4220655331
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 6.2,
+              "odds_fractional": "26/5",
+              "odds_american": "+520",
+              "id": 4220655330
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.75,
+              "odds_fractional": "3/4",
+              "odds_american": "-133.33",
+              "id": 4220655377
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.95,
+              "odds_fractional": "19/20",
+              "odds_american": "-105.26",
+              "id": 4220655375
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.13,
+              "odds_fractional": "1/8",
+              "odds_american": "-769.23",
+              "id": 4220673361
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.22,
+              "odds_fractional": "2/9",
+              "odds_american": "-454.55",
+              "id": 4220673360
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 2.48,
+              "odds_fractional": "34/23",
+              "odds_american": "+148",
+              "id": 4220673359
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.86,
+              "odds_fractional": "6/7",
+              "odds_american": "-116.28",
+              "id": 4220672222
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.84,
+              "odds_fractional": "21/25",
+              "odds_american": "-119.05",
+              "id": 4220672221
+            }
+          ]
+        }
+      },
+      "233": {
+        "competition_id": 82789,
+        "id": "1-24646082",
+        "name": "Croatia vs Albania",
+        "home_team": "Croatia",
+        "away_team": "Albania",
+        "starts_at": "2024-06-19 13:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 24646082,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 1.51,
+              "odds_fractional": "25/49",
+              "odds_american": "-196.08",
+              "id": 4612453714
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 4.2,
+              "odds_fractional": "16/5",
+              "odds_american": "+320",
+              "id": 4612453713
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 6.7,
+              "odds_fractional": "57/10",
+              "odds_american": "+570",
+              "id": 4612453712
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.95,
+              "odds_fractional": "19/20",
+              "odds_american": "-105.26",
+              "id": 4612453683
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.75,
+              "odds_fractional": "3/4",
+              "odds_american": "-133.33",
+              "id": 4612453682
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 1.12,
+              "odds_fractional": "1/8",
+              "odds_american": "-833.33",
+              "id": 4612451395
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.22,
+              "odds_fractional": "2/9",
+              "odds_american": "-454.55",
+              "id": 4612451394
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 2.44,
+              "odds_fractional": "13/9",
+              "odds_american": "+144",
+              "id": 4612451393
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 2.12,
+              "odds_fractional": "9/8",
+              "odds_american": "+112",
+              "id": 4612450384
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.64,
+              "odds_fractional": "7/11",
+              "odds_american": "-156.25",
+              "id": 4612450383
+            }
+          ]
+        }
+      },
+      "244": {
+        "competition_id": 82789,
+        "id": "1-24764724",
+        "name": "Georgia vs Czech Republic",
+        "home_team": "Georgia",
+        "away_team": "Czech Republic",
+        "starts_at": "2024-06-22 13:00:00",
+        "provider_competition_id": 1855,
+        "provider_event_id": 24764724,
+        "provider_sport_id": 1,
+        "markets": {
+          "match_result": [
+            {
+              "name": "Home",
+              "odds_decimal": 4.9,
+              "odds_fractional": "39/10",
+              "odds_american": "+390",
+              "id": 4660938987
+            },
+            {
+              "name": "Draw",
+              "odds_decimal": 3.76,
+              "odds_fractional": "69/25",
+              "odds_american": "+276",
+              "id": 4660938986
+            },
+            {
+              "name": "Away",
+              "odds_decimal": 1.72,
+              "odds_fractional": "13/18",
+              "odds_american": "-138.89",
+              "id": 4660938985
+            }
+          ],
+          "total_goals": [
+            {
+              "name": "Over (2.5)",
+              "odds_decimal": 1.92,
+              "odds_fractional": "11/12",
+              "odds_american": "-108.7",
+              "id": 4660283921
+            },
+            {
+              "name": "Under (2.5)",
+              "odds_decimal": 1.78,
+              "odds_fractional": "7/9",
+              "odds_american": "-128.21",
+              "id": 4660283920
+            }
+          ],
+          "double_chance": [
+            {
+              "name": "1X",
+              "odds_decimal": 2.03,
+              "odds_fractional": "34/33",
+              "odds_american": "+103",
+              "id": 4660937748
+            },
+            {
+              "name": "12",
+              "odds_decimal": 1.26,
+              "odds_fractional": "6/23",
+              "odds_american": "-384.62",
+              "id": 4660937747
+            },
+            {
+              "name": "X2",
+              "odds_decimal": 1.17,
+              "odds_fractional": "1/6",
+              "odds_american": "-588.24",
+              "id": 4660937746
+            }
+          ],
+          "btts": [
+            {
+              "name": "Yes",
+              "odds_decimal": 1.88,
+              "odds_fractional": "7/8",
+              "odds_american": "-113.64",
+              "id": 4660937624
+            },
+            {
+              "name": "No",
+              "odds_decimal": 1.82,
+              "odds_fractional": "9/11",
+              "odds_american": "-121.95",
+              "id": 4660937623
+            }
+          ]
+        }
+      }
+    },
+    "total": 14,
+    "status": true
+  }
