@@ -38,7 +38,7 @@ if (!empty($qsa))
     })(window,document,'script','dataLayer',"GTM-T96S3P");</script>
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
-  <link rel="stylesheet" href="./index4.css" />
+  <link rel="stylesheet" href="./index5.css" />
   <title>NetBet Euro 2024</title>
 </head>
 
