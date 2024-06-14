@@ -21,24 +21,30 @@ if (!empty($qsa))
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta name="author" content="Netbet" />
   <meta name="description" content="Netbet Sport" />
   <meta name="Resource-type" content="Document" />
+  <meta name="robots" content="noindex,follow" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.7/js/dataTables.min.js"></script>
   <script src="https://apis.google.com/js/api.js"></script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer',"GTM-T96S3P");</script>
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/fullpage.js/dist/fullpage.min.css" />
-  <link rel="stylesheet" href="./index3.css" />
+  <link rel="stylesheet" href="./index4.css" />
   <title>NetBet Euro 2024</title>
 </head>
 
-
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T96S3P"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div id="loading">
     <p>Se Încarcă</p>
     <div class="loader">
@@ -547,7 +553,10 @@ if (!empty($qsa))
 
             <div class="section_info">
               <div class="container-info">
-                <div class="coteMatch" id="coteMatch"></div>
+              <table id="tableJsBets" class="display ">
+                  <tbody></tbody>
+                </table>
+                <!-- <div class="coteMatch" id="coteMatch"></div> -->
               </div>
               <div class="smallText">*Cotele din oferta de pariuri pot suferi modificări în decursul timpului și de
                 asemenea evenimentele pot fi suspendate din oferta de pariere și redeschise ulterior sau chiar blocate
@@ -674,7 +683,7 @@ if (!empty($qsa))
 
         </div>
       </div>
-      <div class="section fp-noscroll fp-auto-height-responsive " id="section5">
+      <div class="section " id="section5">
         <div class="fp-bg"></div>
         <div class="fp-content section5-text">
           <div class="wrapp_all">
@@ -706,7 +715,7 @@ if (!empty($qsa))
                             verificare a identității în termenii prevăzuți de lege.
                           </li>
                           <li>
-                            Promoția se desfășoară în perioada 05.06.2024, ora 00:00 EEST – 15.07.2024, ora 23:59 EEST.
+                            Promoția se desfășoară în perioada 07.06.2024, ora 00:00 EEST – 15.07.2024, ora 23:59 EEST.
                           </li>
                           <li>Oferta este limitată la o singură utilizare per adresă domiciliu/calculator/adresă IP.
                           </li>
@@ -715,7 +724,7 @@ if (!empty($qsa))
                         <ul>
                           <li>
                             Jucătorii eligibili au șansa de a câștiga una dintre cele <b>100 de mingi oficiale
-                              FUSSBALLIEBE</b> cu o valoare totală de 50.000 RON. Valoarea unitară pentru fiecare premiu
+                              FUSSBALLLIEBE</b> cu o valoare totală de 50.000 RON. Valoarea unitară pentru fiecare premiu
                             a fost stabilită la suma de 500 RON. Cei 100 de jucători câștigători vor fi aleși prin
                             intermediul site-ului random.org la finalul perioadei promoționale.
                           </li>
@@ -764,7 +773,7 @@ if (!empty($qsa))
                             detaliilor de livrare.
                           </li>
                           <li>
-                            Jucătorii câștigători vor fi anunțați pe 16.06.2024 prin intermediul canalelor oficiale
+                            Jucătorii câștigători vor fi anunțați pe 16.07.2024 prin intermediul canalelor oficiale
                             NetBet.
                           </li>
                           <li>
@@ -902,10 +911,10 @@ if (!empty($qsa))
     </div>
   </div>
   <ul id="myMenu" class="footer-bar"">
-    <li class=" footer-button" class="active" data-color="--gradientRed"><a href="#oferta">Ofertă</a></li>
-    <li class="footer-button" data-color="--gradientGreen"><a href="#clasament">Clasament</a></li>
-    <li class="footer-button" data-color="--button_color"><a href="#cote">Cote</a></li>
-    <li class="footer-button" data-color="--gradientBlue"><a href="#infografic">InfoGrafic</a>
+    <li class=" footer-button" data-menuanchor="oferta" class="active" data-color="--gradientRed"><a href="#oferta">Ofertă</a></li>
+    <li class="footer-button" data-menuanchor="clasament" data-color="--gradientGreen"><a href="#clasament">Clasament</a></li>
+    <li class="footer-button" data-menuanchor="cote" data-color="--button_color"><a href="#cote">Cote</a></li>
+    <li class="footer-button" data-menuanchor="infografic" data-color="--gradientBlue"><a href="#infografic">InfoGrafic</a>
     </li>
     <li class="footer-button" data-color="--gradientBlue"><a href="#tcs">T&Cs</a></li>
   </ul>
@@ -915,13 +924,234 @@ if (!empty($qsa))
   </svg>
   <input type="hidden" id="_4" value="3" />
   <script type="text/javascript" src="./fullpage.cards.min.js"></script>
-
   <script type="text/javascript" src="https://unpkg.com/fullpage.js@4.0.22/dist/fullpage.extensions.min.js"></script>
-  <script src="./index3.js" type="text/javascript"></script>
-  <script src="./fetchDataSheets3.js"></script>
 
-  <!-- <script src="./table3.js" type="text/javascript"></script> -->
+<script>
+      console.log("--start script");
+  const $ = fp_utils.$;
+const addClass = fp_utils.addClass;
+const removeClass = fp_utils.removeClass;
+const toggleClass = fp_utils.toggleClass;
+const g_timeouts = {};
+const ACTIVE = "active";
+const fullData = {
+  dataBoxes: [{
+      text: "Este a șasea apariție a Tricolorilor la un Campionat European. Cea mai bună performanță a fost în 2000 când visele lui Hagi și co. s-au spulberat în sferturi. Acum, România vine cu forțe proaspete și încrederea la cote maxime ținând cont că și-a câștigat grupa de calificări fără să fie învinsă.",
+      image: "./png/_slides/slide1/romania2.png",
+      title: "România",
+    },
+    {
+      text: "Cele două echipe au trei victorii la Campionatele Europene. Ambele se luptă pentru a o obține pe a patra. Nu știm dacă vor reuși, cert este că dintre cele două, un record inedit îl dețin ibericii. Sunt singurii care au reușit să câștige două europene la rând: 2008 și 2012.",
+      image: "./png/_slides/slide1/spaniaGermania.png",
+      title: "Spania și Germania",
+    },
+    {
+      text: "Pe locul doi la victorii, Franța și Italia speră să ajungă în clubul select din care fac parte rivalele Spania și Germania. Gli Azzuri sunt campionii en-titre, iar Cocoșii galici au câștigat mondialul din 2018 și au ajuns în finală în 2022, așa că toată lumea este cu ochii pe ei!",
+      image: "./png/_slides/slide2/franceItaly.png",
+      title: "Franța și Italia",
+    },
+    {
+      text: "FUSSBALLIEBE este mingea oficială a Campionatului European. “Dragostea pentru fotbal” se regăsește în cel mai mic detaliu, de la culorile ce reprezintă fiecare națiune, la inovația tehnologică folosită pentru construcția sa.",
+      image: "./png/_slides/slide2/euroBall.png",
+      title: "Uniți prin fotbal",
+    },
+    {
+      text: "Din cele 10 stadioane alese pentru acest turneu, doar unul poate face față unei finale de așa anvergură. Vorbim, desigur, de Olympiastadion din Berlin. Încă nu știm ce echipe se vor duela pe 14 iulie, dar un lucru este cert: cei 70,000 de spectatori vor avea parte de o atmosferă incendiară!",
+      image: "./png/_slides/slide3/grandFinal.png",
+      title: "Marea finală",
+    },
+    {
+      text: "Știai că din cele 24 de echipe participante la EURO 2024, Portugalia este singura care a câștigat fiecare meci din calificări? Cu 36 de goluri înscrise și doar 2 încasate, colegele sale de grupă Cehia, Turcia și Georgia au o misiune grea.",
+      image: "./png/_slides/slide3/winWhite.png",
+      title: "Victorie în alb",
+    },
+    {
+      text: "Cristiano Ronaldo! Legendarul jucător portughez se află (probabil) la ultima sa apariție la un turneu final. Cea de-a 6 ediție de EURO este un adevărat record, fiind singurul jucător care a reușit o asemenea performanță.",
+      image: "./png/_slides/slide4/ronaldo.png",
+      title: "Nu există EURO fără....",
+    },
+    {
+      text: "Michel Platini a fost omul de bază al francezilor la campionatul din ’84. O adevărată legendă, ținând cont că recordul său de 9 goluri date la o singură ediție de EURO este încă în picioare. Să fie oare acesta Europeanul în care se va doborî recordul său?",
+      image: "./png/_slides/slide4/platini.png",
+      title: "Recorduri personale",
+    },
+    {
+      text: "Încă o dată, englezii sunt în frunte, cu un lot ce valorează 1,67 miliarde de euro. Nu stau rău nici Les Bleus cu un lot de peste un miliard de euro. La polul opus, România încheie topul cu un lot ce valorează 95 de milioane de euro.",
+      image: "./png/_slides/slide5/angliaFranta.png",
+      title: "Cel mai valoros lot",
+    },
+    {
+      text: "Aici lupta se dă între Kylian Mbappe și Jude Bellingham. Performanțele lor și ale naționalelor sigur vor face diferența la finalul turneului!",
+      image: "./png/_slides/slide5/frantaAnglia.png",
+      title: "...si cei mai valoroși jucători",
+    },
+  ],
+  containerBoxes: [
+    "container_boxes2-1",
+    "container_boxes2-2",
+    "container_boxes2-3",
+    "container_boxes2-4",
+    "container_boxes2-5",
+  ]
 
+};
+
+// Add origin animations
+function addOriginAnimations(elements, direction) {
+  if (elements.length) {
+    elements.forEach(function (element) {
+      // console.log(element);
+      element.classList.remove("animate2");
+      g_timeouts.origin = setTimeout(function () {
+        console.warn("hide-" + direction);
+        addClass(element, "hide-" + direction);
+        element.classList.remove("animate");
+      }, 100);
+    });
+  }
+}
+
+// Add destiny animations
+function addDestinyAnimations(element, direction) {
+  const hideClass =
+    direction === "up" || direction === "down" ?
+    "hide-down hide-up" :
+    "hide-left hide-right";
+  if (element) {
+    addClass(element, ACTIVE);
+    addClass(element, "animate");
+    removeClass(element, hideClass);
+    g_timeouts.destination = setTimeout(function () {
+      addClass(element, "animate2");
+    }, 1000);
+  }
+}
+
+// Initialize fullpage.js
+document.addEventListener("DOMContentLoaded", function () {
+  const loadingElement = document.getElementById('loading');
+  const contentElement = document.getElementById('content');
+  loadingElement.style.display = 'flex';
+  contentElement.style.display = 'none';
+
+  function hideLoadingScreen() {
+    setTimeout(() => {
+      loadingElement.style.display = 'none';
+      contentElement.style.display = 'flex';
+    }, 1500); // 1000ms = 1 second
+  }
+
+  window.addEventListener("load", hideLoadingScreen);
+
+  new fullpage("#content", {
+    licenseKey: "K6CMK-781MK-IQ9J6-N9S36-VXKNO",
+    cards: true,
+    cardsKey: "STdibVYwWW1WMExuSnZLOF8yZnRZMkZ5WkhNPU9NTw==",
+    // sectionsColor: ["#3a45de", "#fc6c7c", "#7BAABE"],
+    anchors: ["oferta", "clasament", "cote", "infografic", "tcs"],
+    menu: "#myMenu",
+    navigation: true,
+    keyboardScrolling: true,
+    dragAndMove: true,
+    lazyLoading: true,
+    controlArrows: false,
+    fadingEffect: false,
+    afterLoad: (origin, destination, direction) => {
+
+    },
+    onLeave: (origin, destination, direction) => {
+      clearTimeout(g_timeouts.destination);
+      removeClass(document.body, "fp-moving-right fp-moving-vertically fp-moving-left fp-moving-down fp-moving-up");
+      // if (direction) {
+      //   addClass(document.body, `fp-moving-${direction}`);
+      //   removeClass(document.body, "fp-moving-horizontally");
+      //   addClass(document.body, "fp-moving-vertically");
+      // }
+      if (["right", "left"].indexOf(direction) === -1) {
+        const activeElement = $(`.active[data-section="${destination.index + 1}"]`)[0];
+        addDestinyAnimations(activeElement || $(`[data-section="${destination.index + 1}"]`)[0], direction);
+        const originElements = $(`.active[data-section="${origin.index + 1}"]`);
+        addOriginAnimations(originElements, direction);
+      }
+    },
+    onSlideLeave: (section, origin, destination, direction) => {
+   
+ // Clear any previous movement-related classes from the body
+ removeClass(document.body, "fp-moving-right fp-moving-left fp-moving-down fp-moving-up");
+
+ // Add movement-related classes based on the direction
+ if (direction) {
+   addClass(document.body, `fp-moving-${direction}`);
+   removeClass(document.body, "fp-moving-vertically");
+   addClass(document.body, "fp-moving-horizontally");
+
+   const originId = origin.item.id;
+   if (direction === 'right' || direction === 'left') {
+     const boxParent = document.querySelectorAll(".boxParent");
+     boxParent.forEach(parent => addClass(parent, `${originId}-${direction}`));
+   }
+ }
+
+ // Handle destination animations
+ const destinationElement = document.querySelector(`.trainers[data-section="${section.index + 1}"][data-slide="${destination.index + 1}"]`);
+ if (destinationElement) {
+   addDestinyAnimations(destinationElement, direction);
+ }
+
+ // Handle origin animations and removing ACTIVE class
+ const activeElements = document.querySelectorAll(`.trainers[data-section="${section.index + 1}"][data-slide="${origin.index + 1}"]`);
+ activeElements.forEach(element => {
+   removeClass(element, ACTIVE);
+   addOriginAnimations(element, direction);
+ });
+    },
+    afterResize: function(width, height){},
+  });
+});
+
+// Event listeners
+document.querySelector(".arrow-down").addEventListener("click", () => {
+  fullpage_api.moveSectionDown();
+});
+
+document.querySelectorAll(".slider-control-next").forEach(element => {
+  element.addEventListener("click", e => {
+    e.preventDefault();
+    fullpage_api.moveSlideRight();
+  });
+});
+
+document.querySelectorAll(".slider-control-prev").forEach(element => {
+  element.addEventListener("click", e => {
+    e.preventDefault();
+    fullpage_api.moveSlideLeft();
+  });
+});
+
+fullData.dataBoxes.forEach((item, index) => {
+  const sectionIndex = Math.floor(index / 2);
+  const sectionContainer = document.getElementById(fullData.containerBoxes[sectionIndex]);
+  if (sectionContainer) {
+    sectionContainer.innerHTML += `
+      <div class="boxParent${index} boxParent">
+        <div>
+          <img src="${item.image}" alt="img" class="boxImg boxImg${index}">
+        </div>
+        <div>
+          <p>${item.title}</p>
+          <p class="boxText boxText${index}">${item.text}</p>
+        </div>
+      </div>
+    `;
+  }
+
+});
+function onLoad() {
+  addClass(document.body, "loadBg");
+}
+window.addEventListener("load", onLoad);
+
+</script>
   <script>
     let userLoginCheck = getCookie("netbet_login");
     let qNetbet_id = getCookie("netbet_id");
@@ -953,7 +1183,7 @@ if (!empty($qsa))
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const responseData = await response.json();
-        console.log(responseData, "data fetch");
+        // console.log(responseData, "data fetch");
         if (
           responseData?.status === true &&
           Array.isArray(responseData.data?.data)
@@ -1043,16 +1273,12 @@ if (!empty($qsa))
         status: item.status,
         player_id: item.player_id,
       }));
-
-      // console.log(tableData, "--tableData");
-      // console.log(userLoginCheck, "--userLoginCheck");
-      console.log(qNetbet_id, "--qNetbet_id");
-
       // find id
       const matchingItem = tableData.find((item) => item.player_id == qNetbet_id);
       initializeDataTable("#tableJs", tableData, qNetbet_id);
       return matchingItem;
     }
+
     initializePage().then((matchingItem) => {
       if (matchingItem) {
         // console.log("Found matching item:", matchingItem);
@@ -1103,13 +1329,10 @@ if (!empty($qsa))
         fullpage_api.moveTo('tcs');
         closeModal();
       });
+
       document.getElementById("modalCloseButton").onclick = closeModal;
       clearInterval(modalIntervalId);
     }
-
-
-
-
 
     function closeModal() {
       const modal = document.getElementById("modalOverFlow");
@@ -1118,7 +1341,227 @@ if (!empty($qsa))
       }
       startModalInterval();
     }
-  </script>
-</body>
+</script>
+<script>
+    // API key
+const API_KEY = 'AIzaSyAAfFbz11XXy1za2hcLHhiqKYcwF23kP-M';
+// Discovery doc URL for APIs used by the quickstart
+const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+// The ID of the spreadsheet to retrieve data from.
+const SPREADSHEET_ID = '1pt__R7igjnx-IVYYRs0bXH6wOrREYVjeIN83ZNu8zBw';
+// The range of values to retrieve.
+const RANGE = 'Sheet1!A1:G10'; 
+const RANGE2 = 'Sheet1!J1:Q10';
 
+function gapiLoaded() {
+  gapi.load('client', initializeGapiClient);
+}
+
+async function initializeGapiClient() {
+  await gapi.client.init({
+    apiKey: API_KEY,
+    discoveryDocs: [DISCOVERY_DOC],
+  });
+  await fetchClassament();
+}
+
+async function fetchClassament() {
+  try {
+    const response = await gapi.client.sheets.spreadsheets.values.get({
+      spreadsheetId: SPREADSHEET_ID,
+      range: RANGE2,
+      includeGridData: true,
+    });
+
+    const range = response.result;
+    if (range.values.length) {
+      // console.log('Cotes Data:');
+      range.values.forEach((row) => {
+        // console.log(row);
+      });
+  
+      displayClasament(range.values);
+    } else {
+      console.log('No cotes data found.');
+    }
+  } catch (err) {
+    console.error('Error fetching cotes data:', err);
+  }
+}
+
+function displayClasament(rows) {
+  const groupName = rows[0][1]; 
+  const groupNameElement = document.querySelector('.tableScore-header .group-name');
+  groupNameElement.textContent = groupName;
+    const tableContent = document.getElementById('tableScore-content');
+    let htmlContent = '';
+    rows.slice(1).forEach(row => {
+      const teamName = row[2];
+      const isRomania = teamName.toLowerCase() === 'romania';
+      const className = isRomania ? 'romania-row' : '';
+      htmlContent += `
+        <div class="parent-tableScore-row ${className}">
+          <div class="tableScore-row">
+            <div class="team-name">
+              <img class="flag" src="${row[1]}" alt="${row[2]} flag">
+              ${row[2]}
+            </div>
+            <div class="cell">${row[3]}</div>
+            <div class="cell">${row[4]}</div>
+            <div class="cell">${row[5]}</div>
+            <div class="cell">${row[6]}</div>
+            <div class="cell">${row[7]}</div>
+          </div>
+        </div>
+      `;
+    });
+
+    tableContent.innerHTML = htmlContent;
+}
+
+gapi.load('client:auth2', gapiLoaded);
+
+async function fetchOddsData() {
+        try {
+          const response = await fetch("https://casino-promo.netbet.ro/scripts/utils/event_feed_euro2024.php?lang=RO&provider_competition_id=1855");
+          const data = await response.json();
+          return data.items;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          return [];
+        }
+      }
+
+      function translateTeamName(teamName) {
+        const translations = {
+          Germany: "Germania",
+          "Czech Republic": "Cehia",
+          Hungary: "Ungaria",
+          Switzerland: "Elveția",
+          Spain: "Spania",
+          Poland: "Polonia",
+          Slovenia: "Slovenia",
+          Denmark: "Danemarca",
+          Netherlands: "Olanda",
+          Albania: "Albania",
+          Croatia: "Croația",
+          Serbia: "Serbia",
+          England: "Anglia",
+          Slovakia: "Slovacia",
+          Georgia: "Georgia",
+          Portugal: "Portugalia",
+          Italy: "Italia",
+          Scotland: "Scoția",
+          Ukraine: "Ucraina",
+          France: "Franța",
+          Belgium: "Belgia",
+          Turkey: "Turcia",
+          Austria: "Austria",
+        };
+        return translations[teamName] || teamName;
+      }
+
+      function formatOdds(odds) {
+        return Number.isInteger(parseFloat(odds))
+          ? `${odds}.00`
+          : parseFloat(odds).toFixed(2);
+      }
+
+      function formatDate(dateString) {
+        const [year, month, day] = dateString.split("-");
+        return `${day}-${month}-${year}`;
+      }
+
+      async function fetchAndParseOddsData() {
+        const rawData = await fetchOddsData();
+
+        const parsedData = Object.values(rawData)
+          .filter((item) => item.provider_competition_id === 1855)
+          .map((item) => {
+            if (!item.markets || !item.markets.match_result) {
+              return null;
+            }
+            return {
+              home_team: translateTeamName(item.home_team),
+              away_team: translateTeamName(item.away_team),
+              starts_at: formatDate(item.starts_at.split(" ")[0]),
+              home_odds: formatOdds(item.markets.match_result[0].odds_decimal),
+              draw_odds: formatOdds(item.markets.match_result[1].odds_decimal),
+              away_odds: formatOdds(item.markets.match_result[2].odds_decimal),
+              id: item.id.replace("1-", ""),
+              name: item.name,
+            };
+          })
+          .filter((item) => item !== null);
+
+        return parsedData;
+      }
+
+      function initTableOdds(selector, parsedData) {
+        dataTableOdds(selector, parsedData);
+      }
+
+      // Fetch and parse the data, then initialize the table
+      fetchAndParseOddsData().then((parsedData) => {
+        initTableOdds("#tableJsBets", parsedData);
+      });
+
+      function generateLink(name, id) {
+        const parts = name.split(" vs ");
+        const translatedParts = parts.map((team) => translateTeamName(team));
+        const translatedName = translatedParts.join(" vs ");
+        const formattedName = translatedName.toLowerCase().replace(/\s+/g, "-");
+        return `https://sport.netbet.ro/fotbal/european-championship/${formattedName}-${id}<?php echo $qsa; ?>`;
+      }
+
+      function dataTableOdds(selector, data) {
+        return new DataTable(selector, {
+          data: data,
+          columns: [
+            {
+              title: "Echipe",
+              data: null,
+              render: function (data, type, row) {
+                const [date] = row.starts_at.split(" ");
+                return `
+                  <div class="content-cote">
+                    <div class="matches-cote">
+                      <p>${row.home_team}</p> <p>1x2</p> <p>${row.away_team}</p>
+                    </div>
+                    <div class="date-cote"><p>${date}</p></div>
+                    <div class="number-cote">
+                      <p>${row.home_odds}<span>|</span></p>
+                      <p>${row.draw_odds}<span>|</span></p>
+                      <p>${row.away_odds}</p>
+                    </div>
+                  </div>
+                `;
+              },
+            },
+          ],
+          paging: true,
+          info: false,
+          lengthChange: false,
+          responsive: false,
+          pageLength: window.innerWidth < 991 ? 4 : 4,
+          searching: false,
+          ordering: false,
+          pagingType: "first_last_numbers",
+          createdRow: function (row, data) {
+            const link = generateLink(data.name, data.id);
+            row.addEventListener("click", function () {
+              let a = document.createElement("a");
+              a.href = link;
+              a.target = "_blank";
+              a.rel = "noopener "; //  security // -- noreferrer !tracking
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            });
+          },
+        });
+      }
+
+</script>
+</body>
 </html>
