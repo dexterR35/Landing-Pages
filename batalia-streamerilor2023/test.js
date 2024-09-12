@@ -9,63 +9,38 @@ function getCookie(name) {
   return null;
 }
 
-  // userToCheck = "teststep"; //teststep
-  userToCheck = getCookie("teststep");
-  let userToVote = null;
-  let isVotingAllowed = false;
+// userToCheck = "teststep"; //teststep
+userToCheck = "testcozmin2";
+let userToVote = null;
+let isVotingAllowed = false;
 
-  const scrollContainer = document.querySelector("#fullpage");
-  
-  $(document).ready(function () {
+const scrollContainer = document.querySelector("#fullpage");
 
-  
-  const apiEndpoint_check_user =
-    "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
-    userToCheck;
-  const apiEndpoint_clasament_streamers =
-    "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=clasament_streamers";
-  const apiEndpoint_optin_user =
-    "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=optin_user&user=" +
-    userToCheck;
+$(document).ready(function () {
 
+  // Mock data that replaces the API responses
+  const mockDataUser = [
+    {
+      optin: "true",
+      voted: "no",
+      clasament: [
+        { username: "teststep", points: 12000, ranking: 5 },
+        { username: "user2", points: 11500, ranking: 6 },
+        { username: "user3", points: 11000, ranking: 7 },
+        { username: "user4", points: 9500, ranking: 8 },
+      ],
+    },
+  ];
 
-
-
-  let tableDataUser = $("#bodyUser");
-  let tableDataStreamer = $("#bodyStreamer");
-
-
-  let voted = null;
-  // console.log("1")
-
-
-
-  if ($(window).width() <= 1024) {
-    $(".btn._mobile").addClass("w-100");
-    $(".btn._desktop").css({
-      display: "none"
-    });
-    $(".btn._mobile").css({
-      display: "block"
-    });
-
-    $(".table-responsive").css({
-      "overflow-y": "unset",
-      height: "fit-content",
-    });
-  } else {
-    $(".btn._mobile").removeClass("w-100");
-    $(".btn._desktop").css({
-      display: "block"
-    });
-    $(".btn._mobile").css({
-      display: "none"
-    });
-  }
-
+  const mockDataStreamers = [
+    { username: "testpacanela", points: 120000, votes: 50, ranking: 1, status: "YOUTUBE_ID_1" },
+    { username: "casinosro", points: 110000, votes: 100, ranking: 2, status: "YOUTUBE_ID_2" },
+    { username: "dumis423435", points: 90000, votes: 80, ranking: 3, status: "YOUTUBE_ID_3" },
+    { username: "cazino265ro", points: 60000, votes: -1, ranking: 4, status: "test4" },
+    { username: "anna", points: 50000, votes: 1, ranking: 1, status: "test2" },
+  ];
 
   const dataObject = {
-
     gamesArray: [
       "10189-the-sword-and-the-grail__2",
       "11877-sky-queen__4",
@@ -91,22 +66,44 @@ function getCookie(name) {
       'url("./_bg/bg_pacanela.jpg")',
       'url("./_bg/bg_princess.jpg")',
     ],
-  }
+  };
 
   const gamesArray = [...dataObject.gamesArray];
   const backgroundImages = [...dataObject.backgroundImages];
 
+  let tableDataUser = $("#bodyUser");
+  let tableDataStreamer = $("#bodyStreamer");
 
-  // let isVoted = null;
+  let voted = null;
+
+  if ($(window).width() <= 1024) {
+    $(".btn._mobile").addClass("w-100");
+    $(".btn._desktop").css({
+      display: "none"
+    });
+    $(".btn._mobile").css({
+      display: "block"
+    });
+
+    $(".table-responsive").css({
+      "overflow-y": "unset",
+      height: "fit-content",
+    });
+  } else {
+    $(".btn._mobile").removeClass("w-100");
+    $(".btn._desktop").css({
+      display: "block"
+    });
+    $(".btn._mobile").css({
+      display: "none"
+    });
+  }
+
   let cardData = $("#dynamicCardBody");
   let cardChallenge = $("#dynamicChallenge");
 
-  // const apiEndpoint_optout_user =
-  //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
-  //   userToCheck;
   const actionButton = $("#actionButton");
   let userPosition = null;
-
 
   const imagesToLazyLoad = document.querySelectorAll('img[data-src]');
 
@@ -124,7 +121,6 @@ function getCookie(name) {
   imagesToLazyLoad.forEach(img => {
     observer.observe(img);
   });
-
 
   function formatPoints(pointsf) {
     if (pointsf >= 1000000) {
@@ -144,126 +140,94 @@ function getCookie(name) {
     }
   }
 
-  // Make a GET request to the API for CHECK USER
+  // Use mock data for user
   async function fetchDataUser() {
-    fetch(apiEndpoint_check_user)
     try {
-      const response = await fetch(apiEndpoint_check_user);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const data = await response.json();
-
+      const data = mockDataUser;
+  
       let optin = null;
-      voted = null; // Default value if "voted" is not in the response
+      let voted = null;
       let clasament = null;
-
-
-      // Iterate over the array and assign values to optin, voted, and clasament
+  
+      // Retrieve opt-in status, voted status, and rankings (clasament)
       data.forEach((item) => {
-        // console.log(data)
-        if ("optin" in item) {
-          optin = item.optin === "true"; // Convert string to boolean
-        } else if ("voted" in item) {
-          voted = item.voted; // Assign the string value to voted
-          // console.log(item.voted, "aaa");
-        } else if ("clasament" in item) {
-          clasament = item.clasament;
-          // console.log(clasament, "aaa");
-        }
-
+        optin = item.optin === "true";
+        voted = item.voted;
+        clasament = item.clasament;
       });
-
+  
+      // Update button behavior based on user opt-in and voting status
       updateButtonBehavior(optin, voted);
-
-      // console.log(`User ${userToCheck}, voted: ${voted}`, "optin is:", optin);
-      // Check if optin and clasament have been assigned values
-      if (optin !== null && clasament !== null) {
-        tableDataUser.empty();
-        // Find the user's ranking
-        clasament.forEach((item) => {
-          if (item.username === userToCheck) {
-            userPosition = item.ranking;
-          }
-          item.points = formatPoints(item.points);
-        });
-        if (userPosition <= 10) {
-          clasament.slice(0, 10).forEach((item) => {
-            tableDataUser.append(createTableUsers(item, userPosition));
-          });
-        } else if (userPosition > 10 && userPosition <= 200) {
-          if (clasament.length == 17) {
-            clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-            clasament.slice(10, 17).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-          } else {
-            clasament.slice(0, 6).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-            clasament
-              .slice(clasament.length - 4, clasament.length)
-              .forEach((item) => {
-                tableDataUser.append(createTableUsers(item, userPosition));
-              });
-          }
-        } else if (userPosition > 200) {
-          if (clasament.length == 20) {
-            clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-            clasament.slice(10, 13).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-
-            clasament.slice(14, 18).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-          } else {
-            clasament.slice(0, 3).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-
-            clasament.slice(10, 13).forEach((item) => {
-              tableDataUser.append(createTableUsers(item, userPosition));
-            });
-            clasament
-              .slice(clasament.length - 4, clasament.length)
-              .forEach((item) => {
-                tableDataUser.append(createTableUsers(item, userPosition));
-              });
-          }
+  
+      // Clear any existing table data
+      tableDataUser.empty();
+  
+      // Variable to store if user is in the top 10
+      let userFoundInTop10 = false;
+  
+      // Process the top 10 users in the ranking
+      clasament.slice(0, 10).forEach((item) => {
+        // Highlight the user if it's the one we're checking
+        if (item.username === userToCheck) {
+          userPosition = item.ranking;
+          userFoundInTop10 = true; // Mark that the user is found in the top 10
         }
-      } else {
-        console.error("Invalid response structure:", data);
+        item.points = formatPoints(item.points);
+      });
+  
+      // If user is found in the top 10, append the data with highlight
+      clasament.slice(0, 10).forEach((item) => {
+        tableDataUser.append(createTableUsers(item, userPosition));
+      });
+  
+      // If the user is not found in the top 10, we still need to display their row at the bottom
+      if (!userFoundInTop10) {
+        const userOutsideTop10 = clasament.find((item) => item.username === userToCheck);
+  
+        if (userOutsideTop10) {
+          userOutsideTop10.points = formatPoints(userOutsideTop10.points);
+          tableDataUser.append(createTableUsers(userOutsideTop10, userOutsideTop10.ranking));
+        }
       }
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error("Error with mock data:", error);
     }
   }
+  
 
+  const streamersTableOptions = {
+    aaSorting: false,
+    responsive: false,
+    pageLength: 5,
+    paginate: true,
+    info: false,
+    lengthChange: false,
+    searching: false,
+    columnDefs: [{
+        width: "5%",
+        targets: 0
+      },
+      {
+        width: "60%",
+        targets: 1
+      },
+      {
+        width: "10%",
+        targets: 2
+      },
+    ],
+  };
+  // Use mock data for streamers
+  async function fetchDataStreamers() {
+    try {
+      const data = mockDataStreamers; 
 
-
-  let imgSrc = "";
-  let linkVideo;
-  fetch(apiEndpoint_clasament_streamers)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      // console.log(data, "streamer streamer");
       tableDataStreamer.empty();
       data.forEach((streamer, index) => {
-
         if (streamer.votes != -1) {
           isVotingAllowed = true;
-          // console.log("isVotingAllowed", isVotingAllowed);
         }
+
         switch (streamer.username) {
           case "testpacanela":
             streamer.username = "PĂCĂNELA";
@@ -281,90 +245,56 @@ function getCookie(name) {
             streamer.username = "DUDY";
             imgSrc = "./_avatar/dudy.png";
             break;
-          case "cazinoz":
-            streamer.username = "NARCIS";
-            imgSrc = "./_avatar/narcis.png";
-            break;
-          case "ster0iaBanii":
-            streamer.username = "STERO";
-            imgSrc = "./_avatar/stero.png";
-            break;
-          case "Annuskaa":
-            streamer.username = "ANNA";
-            imgSrc = "./_avatar/anna.png";
-            break;
-          case "supercazino1":
-            streamer.username = "FRATIIJONSON";
-            imgSrc = "./_avatar/fratiijonson.png";
-            break;
-          case "supercazino2":
-            streamer.username = "PACANEDY";
-            imgSrc = "./_avatar/pacanedy.png";
-            break;
-          case "supercazino3":
-            streamer.username = "PRINCESS";
-            imgSrc = "./_avatar/princess.png";
-            break;
         }
+
         const bgImage = backgroundImages[index % backgroundImages.length];
         tableDataStreamer.append(createTableStreamers(streamer, imgSrc));
-        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted, linkVideo));
+        cardData.append(generateModalCard(streamer, imgSrc, bgImage, voted));
       });
 
       $("#streamersTable").DataTable(streamersTableOptions);
-
-    })
-    .catch((error) => {
-      console.error("Fetch error:", error);
-    });
-
-
+    } catch (error) {
+      console.error("Error with mock data:", error);
+    }
+  }
 
   function createTableUsers(item, userPosition) {
     let userAsterix = item.username;
-    if (userAsterix && userAsterix.length > 2) {
+    if (userAsterix.length > 2) {
       const firstTwoLetters = userAsterix.slice(0, 2);
-      const asterisks = '*'.repeat(userAsterix.length - 2);
+      const asterisks = "*".repeat(userAsterix.length - 2);
       userAsterix = firstTwoLetters + asterisks;
-      userPosition = item.ranking;
     }
+
     const matchingUsername = item.username === userToCheck;
-    const tableAHtml = `<tr class="parent-table ${userPosition<=10 ? '_t3' : `${userPosition<=200 ? '_t10 ' : '' }`}${matchingUsername ? '_hl' : ''}">
+    return `
+      <tr class="parent-table ${userPosition <= 10 ? "_t3" : ""}${matchingUsername ? "_hl" : ""}">
         <td class="parent-position ps">#${item.ranking}</td>
-        <td>
-                <div class="parent-name">
-                    <p class="mb-0 ps">${matchingUsername ? item.username : userAsterix}</p>
-                </div>
-        </td>
-        <td class="parent-points ps">${item.points}</td>  
-    </tr>`;
-    return tableAHtml;
+        <td><p class="mb-0 ps">${matchingUsername ? item.username : userAsterix}</p></td>
+        <td class="parent-points ps">${item.points}</td>
+      </tr>`;
   }
 
   function createTableStreamers(streamer, imgSrc) {
     streamer.points = formatPoints(streamer.points);
-    const tableHtml = `<tr class="parent-table">
-     <td class="parent-position ps">#${streamer.ranking}</td>
-     <td>
-     <div class="d-flex align-items-center parent-avatar">
-         <div class="avatar-table avatar-blue">
-             <img src="${imgSrc}" alt="pict_table" class="pict_table">
-         </div>
-         <div class="parent-name">
-         <p class="mb-0 ps">${streamer.username} <span class="${false ? 'badge-success' : 'badge-danger'}">${false ? '&#10004' : '&#10006'}</span></p> 
-             <p class="text-muted mb-0">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</p>
-         </div>
-     </div>
- </td>
-     <td class="parent-points ps">${streamer.points}</td>
-     </tr>;
-   `;
-    return tableHtml;
+    return `
+      <tr class="parent-table">
+        <td class="parent-position ps">#${streamer.ranking}</td>
+        <td>
+          <div class="d-flex align-items-center parent-avatar">
+            <div class="avatar-table avatar-blue">
+              <img src="${imgSrc}" alt="pict_table" class="pict_table">
+            </div>
+            <div class="parent-name">
+              <p class="mb-0 ps">${streamer.username} <span class="${false ? 'badge-success' : 'badge-danger'}">${false ? '&#10004' : '&#10006'}</span></p>
+              <p class="text-muted mb-0">${streamer.votes === -1 ? "Nu se poate vota" : `Voturi: ${streamer.votes}`}</p>
+            </div>
+          </div>
+        </td>
+        <td class="parent-points ps">${streamer.points}</td>
+      </tr>`;
   }
 
-  ///MODAL CARD WITH STREAMERS FOR VOTING AND STUFF
-
-  // generate modal card if voting allowed is true or false
   function generateModalCard(streamer, imgSrc, bgImage) {
     let customContent = '';
 
@@ -374,10 +304,10 @@ function getCookie(name) {
 
       if (streamer.status !== "" && streamer.status !== "false") {
         customContent = `
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
-                  <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
-              </svg>
-              <h4>PLAY</h4>`;
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red" class="bi bi-youtube" viewBox="0 0 16 16">
+            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+          </svg>
+          <h4>PLAY</h4>`;
         let iframeSrc = `https://www.youtube.com/embed/${streamer.status}`;
         $("#youtubeVideo").attr("src", iframeSrc);
       }
@@ -423,7 +353,6 @@ function getCookie(name) {
       $card.find(".card-custom.voted-no").css("pointer-events", "none; !important");
 
       $card.click(function (e) {
-        console.log(userToCheck, "click user")
         $("#messageContainer").empty();
         if (streamer.votes <= -1 && streamer.status !== "false") {
 
@@ -447,50 +376,48 @@ function getCookie(name) {
           voteForStreamer($card, streamer);
           e.preventDefault();
         }
-
-
       });
       return $card;
     }
-
-
   }
 
-
-   function updateButtonBehavior(optin, voted) {
-    if (!userToCheck || userToCheck == "logged_out") {
-      actionButton.text("Înregistrează-te");
-      actionButton.click(function () {
-        window.parent.location.href = "https://casino.netbet.ro/inregistrare";
-      });
-    } else {
-      if (!optin) {
-        actionButton.text("Intră în luptă");
-        actionButton.click(function (e) {
-          optIn();
-          e.preventDefault();
+  function updateButtonBehavior(optin, voted) {
+    if (!userToCheck) {
+        // Case 1: No user logged in, show "Înregistrează-te"
+        actionButton.text("Înregistrează-te");
+        actionButton.off('click').on('click', function () {
+            window.parent.location.href = "https://casino.netbet.ro/inregistrare";
         });
-
-      } else {
-        if (voted == "yes" || !isVotingAllowed) {
-          actionButton.text("Vezi Challenge");
-          actionButton.attr("data-bs-toggle", "modal");
-          actionButton.attr("data-bs-target", "#cardsModal");
-          actionButton.removeAttr("onclick");
+    } else if (userToCheck === "testCozmin2") {
+        // Case 3: User logged in but not opted in (e.g., testCozmin2), show "Intră în luptă"
+        if (!optin) {
+            actionButton.text("Intră în luptă");
+            actionButton.off('click').on('click', function (e) {
+                optIn(); // Call the opt-in functionality
+                e.preventDefault();
+            });
         } else {
-          actionButton.attr("data-bs-toggle", "modal");
-          actionButton.attr("data-bs-target", "#cardsModal");
-          actionButton.text("Votează Streamerul");
-          actionButton.removeAttr("onclick");
+          actionButton.text("Intră în luptă");
         }
-      }
+    } else if (userToCheck === "testCozmin") {
+        // Case 2: User is "testCozmin", show "Votează Streamerul" or "Vezi Challenge"
+        if (voted === "yes" || !isVotingAllowed) {
+            actionButton.text("Vezi Challenge");
+            actionButton.attr("data-bs-toggle", "modal");
+            actionButton.attr("data-bs-target", "#cardsModal");
+            actionButton.off('click'); // Remove any onClick function
+        } else {
+            actionButton.text("Votează Streamerul");
+            actionButton.attr("data-bs-toggle", "modal");
+            actionButton.attr("data-bs-target", "#cardsModal");
+            actionButton.off('click'); // Remove any onClick function
+        }
     }
-  }
-
+}
   fetchDataUser();
+  fetchDataStreamers();
 
   function showMessage(message, item, imgSrc) {
-
     if (!isVotingAllowed) {
       const messageHtml = `
 <div class="card-message col-lg-4 col-md-8 col-sm-8">
@@ -558,11 +485,48 @@ function getCookie(name) {
 `;
       return $("#messageContainer").append(messageHtml);
     }
-
   }
-
+  async function voteStreamer() {
+    if (userToVote !== null) {
+      // Simulate updating the mock data for the streamer that was voted for
+      let votedStreamer = mockDataStreamers.find(streamer => streamer.username.toLowerCase() === userToVote.toLowerCase());
+  
+      if (votedStreamer) {
+        // Increment the vote count for the selected streamer
+        if (votedStreamer.votes >= 0) {
+          votedStreamer.votes += 1;
+        } else {
+          // If voting is disabled for this streamer (votes == -1), prevent voting
+          console.error("Voting is not allowed for this streamer.");
+          return;
+        }
+  
+        // Simulate updating the "voted" status of the user
+        let user = mockDataUser[0];
+        user.voted = "yes"; // Update the user status as having voted
+  
+        // Log the vote action to the console
+        console.log(`Vote recorded for streamer: ${votedStreamer.username}`);
+        console.log(`Updated votes for ${votedStreamer.username}: ${votedStreamer.votes}`);
+  
+        // Update the UI to show that the user has voted and disable further voting
+        $(".card-wrapp").addClass("voted");
+        $(".card-wrapp").not(`.card-wrapp[data-streamer="${userToVote}"]`).css("filter", "grayscale(1)");
+        alert(`You voted for ${votedStreamer.username}!`);
+  
+        // Optionally, reload or refresh the UI to reflect changes
+        setTimeout(() => {
+          window.location.reload(); // Simulate refreshing the page or UI
+        }, 1500);
+      } else {
+        console.error("Streamer not found in mock data.");
+      }
+    } else {
+      console.error("userToVote is null. Set a valid user to vote for.");
+    }
+  }
+  
   function voteForStreamer($card, streamer) {
-    // console.log(streamer, "cardddd");
     $("#messageContainer").show();
     $("#yes-button").on("click", () => {
       switch (streamer.username) {
@@ -599,63 +563,19 @@ function getCookie(name) {
       }
 
       voteStreamer(userToVote);
-      // selectedUser.voted = true;
-      // userVoted.text("Da");
       $card.addClass("selected");
       $(".card-wrapp").not($card).css("filter", "grayscale(1)");
       $card.find(".card-custom").addClass("voted")
-      // const $voteElement = $card.find(".streamerVote");
       $("#messageContainer").hide();
       setTimeout(() => {
         window.location.reload();
       }, 1500);
-
     });
     $("#no-button").on("click", () => {
-      // alert("Ai anulat votul.");
       $("#messageContainer").hide();
     });
   }
 
-  async function optIn() {
-
-    await fetch(apiEndpoint_optin_user)
-      .then((response) => {
-        // Check if the request was successful
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json(); // Parse the JSON from the response
-      })
-      .catch((error) => {
-        // Log any errors that occurred during the fetch
-        console.error("Fetch error:", error);
-      });
-     window.location.reload();
-  }
-
-  async function voteStreamer() {
-    const apiEndpoint_vote = "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=vote_user&user=" + userToCheck + "&vote=" + userToVote;
-
-    if (userToVote !== null) {
-      await fetch(apiEndpoint_vote)
-        .then(response => {
-          // Check if the request was successful
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json(); // Parse the JSON from the response
-        })
-        .catch(error => {
-          // Log any errors that occurred during the fetch
-          console.error("Fetch error:", error);
-        });
-    } else {
-      console.error("userToVote is null. Set a valid user to vote for.");
-    }
-  }
-
-  // Function append bg card ,pos, name for swipper
   function generetaDataSlider() {
     $(".slide-streamer").each(function (index) {
       let boxSlideBottom = $(
@@ -670,18 +590,16 @@ function getCookie(name) {
         "background-repeat": "no-repeat",
       });
       $(this).attr("loading", "lazy")
-      // $(this).prepend(boxSlideTop);
     });
   }
 
   generetaDataSlider();
 
-  // generate games from link and slice
   function generateGames(allGames) {
     const gameImagesContainer = $("#gameImages");
     const isDesktop = window.innerWidth > 480;
     const maxGamesToShow = isDesktop ? (allGames.length) : 12;
-    // Loop through the games and display up to maxGamesToShow
+
     allGames.slice(0, maxGamesToShow).forEach((gameName) => {
       const img = $("<img>")
         .attr("src", `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E`)
@@ -695,33 +613,8 @@ function getCookie(name) {
     });
   }
   generateGames(gamesArray);
-  // Options for the "streamersTable"
 
 
-  const streamersTableOptions = {
-    aaSorting: false,
-    responsive: false,
-    pageLength: 5,
-    paginate: true,
-    info: false,
-    lengthChange: false,
-    searching: false, // Disable search
-    columnDefs: [{
-        width: "5%",
-        targets: 0
-      },
-      {
-        width: "60%",
-        targets: 1
-      },
-      {
-        width: "10%",
-        targets: 2
-      },
-    ],
-  };
-
-  // Options for the "usersTable"
   const usersTableOptions = {
     autoWidth: false,
     aaSorting: false,
@@ -729,7 +622,7 @@ function getCookie(name) {
     pageLength: 5,
     paginate: false,
     info: false,
-    searching: false, // Disable search
+    searching: false,
     language: false,
     columnDefs: [{
         width: "10%",
@@ -746,10 +639,8 @@ function getCookie(name) {
     ],
   };
 
-
   $("#usersTable").DataTable(usersTableOptions);
 
-  // // Customize search input (if needed)
   $(".dataTables_filter input")
     .attr("placeholder", "Search here...")
     .css({
@@ -760,7 +651,6 @@ function getCookie(name) {
       outline: "none"
     });
 
-  // Add tooltips (if needed)
   $('[data-toggle="tooltip"]').tooltip();
 
   $("#openModalButton").click(openYoutubeModal);
@@ -783,18 +673,13 @@ function getCookie(name) {
     const videoSrc = videoIframe.attr("src");
     videoIframe.attr("src", videoSrc.replace("&autoplay=1", ""));
   }
-
-
 });
 
-
-// Call the function again on window resize
 $(window).resize(function () {
-  gameImagesContainer.empty(); // Clear the container
+  gameImagesContainer.empty();
   updateContent();
-  generateGames(objData); // Re-generate the games based on the new screen size
+  generateGames(objData);
 });
-//   SWIPER FOR STREAMERS
 
 const swiperStr = new Swiper(".stream-slider", {
   effect: "coverflow",
@@ -809,21 +694,14 @@ const swiperStr = new Swiper(".stream-slider", {
   cache: true,
   centeredSlides: true,
   coverflowEffect: {
-    rotate: 5, // (Rotate of the prev and next slides);
-    depth: 30, // (Depth of the prev and next slides);
-    stretch: 5, // (Space between the slides);
-    modifier: 2, // (Multiply the values of rotate, depth, and stretch);
-    slideShadows: true, // (Presence of shadow on the surfaces of the prev and next slides);
+    rotate: 5,
+    depth: 30,
+    stretch: 5,
+    modifier: 2,
+    slideShadows: true,
   },
-  // breakpoints: {
-  //   320: { slidesPerView: 2 },
-  //   640: { slidesPerView: 4 },
-  //   1024: { slidesPerView: 4 },
-  //   1440: { slidesPerView: "auto" },
-  // },
 });
 
-// swiperStr.autoplay.stop();
 swiperStr.el.addEventListener("mouseover", function () {
   swiperStr.autoplay.stop();
 });
@@ -831,8 +709,6 @@ swiperStr.el.addEventListener("mouseover", function () {
 swiperStr.el.addEventListener("mouseleave", function () {
   swiperStr.autoplay.start();
 });
-
-
 
 function updateContent() {
   var screenWidth = $(window).width();
@@ -843,5 +719,3 @@ function updateContent() {
     netbetSpan.text('În stânga');
   }
 }
-// updateContent()
-

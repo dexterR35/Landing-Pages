@@ -1,16 +1,4 @@
 {
-<<<<<<< HEAD
-  "items": {
-    "67": {
-      "competition_id": 82789,
-      "id": "1-23608620",
-      "name": "Germany vs Scotland",
-      "home_team": "Germany",
-      "away_team": "Scotland",
-      "starts_at": "2024-06-14 19:00:00",
-      "provider_competition_id": 1855,
-      "provider_event_id": 23608620,
-=======
   "items": [
     {
       "competition_id": 85847,
@@ -21,32 +9,11 @@
       "starts_at": "2024-06-12 11:00:00",
       "provider_competition_id": 6126,
       "provider_event_id": 24895897,
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "provider_sport_id": 1,
       "markets": {
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 1.27,
-            "odds_fractional": "3/11",
-            "odds_american": "-370.37",
-            "id": 4220655392
-          },
-          {
-            "name": "Draw",
-            "odds_decimal": 5.9,
-            "odds_fractional": "49/10",
-            "odds_american": "+490",
-            "id": 4220655391
-          },
-          {
-            "name": "Away",
-            "odds_decimal": 10,
-            "odds_fractional": "9/1",
-            "odds_american": "+900",
-            "id": 4220655390
-=======
             "odds_decimal": 1.63,
             "odds_fractional": "5/8",
             "odds_american": "-158.73",
@@ -65,56 +32,21 @@
             "odds_fractional": "11/4",
             "odds_american": "+275",
             "id": 4714165593
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.63,
-            "odds_fractional": "5/8",
-            "odds_american": "-158.73",
-            "id": 4220655357
-          },
-          {
-            "name": "Under (2.5)",
-            "odds_decimal": 2.13,
-            "odds_fractional": "9/8",
-            "odds_american": "+113",
-            "id": 4220655356
-=======
             "id": 4714165600
           },
           {
             "name": "Under (2.5)",
             "id": 4714165598
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.06,
-            "odds_fractional": "1/16",
-            "odds_american": "-1666.67",
-            "id": 4220673500
-          },
-          {
-            "name": "12",
-            "odds_decimal": 1.13,
-            "odds_fractional": "1/8",
-            "odds_american": "-769.23",
-            "id": 4220673498
-          },
-          {
-            "name": "X2",
-            "odds_decimal": 3.72,
-            "odds_fractional": "49/18",
-            "odds_american": "+272",
-            "id": 4220673495
-=======
             "id": 4714165123
           },
           {
@@ -124,38 +56,20 @@
           {
             "name": "X2",
             "id": 4714165121
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.17,
-            "odds_fractional": "7/6",
-            "odds_american": "+117",
-            "id": 4220672674
-          },
-          {
-            "name": "No",
-            "odds_decimal": 1.61,
-            "odds_fractional": "11/18",
-            "odds_american": "-163.93",
-            "id": 4220672673
-=======
             "id": 4714164574
           },
           {
             "name": "No",
             "id": 4714164573
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "237": {
-=======
     {
       "competition_id": 85847,
       "id": "1-24896059",
@@ -19443,7 +19357,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608617",
       "name": "Hungary vs Switzerland",
@@ -19457,146 +19370,83 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.55,
-            "odds_fractional": "28/11",
-            "odds_american": "+255",
-=======
             "odds_decimal": 3.41,
             "odds_fractional": "41/17",
             "odds_american": "+241",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655385
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.17,
-            "odds_fractional": "13/6",
-            "odds_american": "+217",
-=======
             "odds_decimal": 3.14,
             "odds_fractional": "15/7",
             "odds_american": "+214",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655383
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 2.21,
-            "odds_fractional": "23/19",
-            "odds_american": "+121",
-=======
             "odds_decimal": 2.28,
             "odds_fractional": "23/18",
             "odds_american": "+128",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655382
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.17,
-            "odds_fractional": "7/6",
-            "odds_american": "+117",
-=======
             "odds_decimal": 2.15,
             "odds_fractional": "23/20",
             "odds_american": "+115",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655367
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.61,
-            "odds_fractional": "11/18",
-            "odds_american": "-163.93",
-=======
             "odds_decimal": 1.62,
             "odds_fractional": "5/8",
             "odds_american": "-161.29",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655365
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.65,
-            "odds_fractional": "11/17",
-            "odds_american": "-153.85",
-=======
             "odds_decimal": 1.61,
             "odds_fractional": "11/18",
             "odds_american": "-163.93",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673818
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.34,
-            "odds_fractional": "16/47",
-            "odds_american": "-294.12",
-=======
             "odds_decimal": 1.35,
             "odds_fractional": "6/17",
             "odds_american": "-285.71",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673817
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.29,
-            "odds_fractional": "2/7",
-            "odds_american": "-344.83",
-=======
             "odds_decimal": 1.31,
             "odds_fractional": "4/13",
             "odds_american": "-322.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673816
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.88,
-            "odds_fractional": "7/8",
-            "odds_american": "-113.64",
-=======
             "odds_decimal": 1.86,
             "odds_fractional": "6/7",
             "odds_american": "-116.28",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672737
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.82,
-            "odds_fractional": "9/11",
-            "odds_american": "-121.95",
-=======
             "odds_decimal": 1.84,
             "odds_fractional": "21/25",
             "odds_american": "-119.05",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672736
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "269": {
-=======
     {
       "competition_id": 84098,
       "id": "1-24743371",
@@ -20307,7 +20157,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608618",
       "name": "Spain vs Croatia",
@@ -20321,28 +20170,16 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 1.93,
-            "odds_fractional": "13/14",
-            "odds_american": "-107.53",
-=======
             "odds_decimal": 1.92,
             "odds_fractional": "11/12",
             "odds_american": "-108.7",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655378
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.35,
-            "odds_fractional": "40/17",
-            "odds_american": "+235",
-=======
             "odds_decimal": 3.36,
             "odds_fractional": "26/11",
             "odds_american": "+236",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655376
           },
           {
@@ -20356,43 +20193,25 @@
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.07,
-            "odds_fractional": "15/14",
-            "odds_american": "+107",
-=======
             "odds_decimal": 2.05,
             "odds_fractional": "21/20",
             "odds_american": "+105",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655343
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.67,
-            "odds_fractional": "2/3",
-            "odds_american": "-149.25",
-=======
             "odds_decimal": 1.68,
             "odds_fractional": "17/25",
             "odds_american": "-147.06",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655342
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.22,
-            "odds_fractional": "2/9",
-            "odds_american": "-454.55",
-=======
             "odds_decimal": 1.21,
             "odds_fractional": "4/19",
             "odds_american": "-476.19",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673611
           },
           {
@@ -20404,15 +20223,9 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.85,
-            "odds_fractional": "17/20",
-            "odds_american": "-117.65",
-=======
             "odds_decimal": 1.81,
             "odds_fractional": "13/16",
             "odds_american": "-123.46",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673609
           }
         ],
@@ -20434,9 +20247,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "276": {
-=======
     {
       "competition_id": 82865,
       "id": "1-24840886",
@@ -20731,7 +20541,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608619",
       "name": "Italy vs Albania",
@@ -20752,56 +20561,32 @@
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 4.7,
-            "odds_fractional": "37/10",
-            "odds_american": "+370",
-=======
             "odds_decimal": 4.6,
             "odds_fractional": "18/5",
             "odds_american": "+360",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655351
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 8.3,
-            "odds_fractional": "73/10",
-            "odds_american": "+730",
-=======
             "odds_decimal": 8.4,
             "odds_fractional": "37/5",
             "odds_american": "+740",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655350
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2,
-            "odds_fractional": "1/1",
-            "odds_american": "+100",
-=======
             "odds_decimal": 1.97,
             "odds_fractional": "32/33",
             "odds_american": "-103.09",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655373
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.72,
-            "odds_fractional": "13/18",
-            "odds_american": "-138.89",
-=======
             "odds_decimal": 1.73,
             "odds_fractional": "8/11",
             "odds_american": "-136.99",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655372
           }
         ],
@@ -20822,51 +20607,30 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2.8,
-            "odds_fractional": "9/5",
-            "odds_american": "+180",
-=======
             "odds_decimal": 2.94,
             "odds_fractional": "31/16",
             "odds_american": "+194",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220677939
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.39,
-            "odds_fractional": "25/18",
-            "odds_american": "+139",
-=======
             "odds_decimal": 2.37,
             "odds_fractional": "11/8",
             "odds_american": "+137",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220677486
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.51,
-            "odds_fractional": "25/49",
-            "odds_american": "-196.08",
-=======
             "odds_decimal": 1.52,
             "odds_fractional": "12/23",
             "odds_american": "-192.31",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220677485
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "362": {
-=======
     {
       "competition_id": 82458,
       "id": "1-24807823",
@@ -26154,7 +25918,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24397271",
       "name": "Poland vs Netherlands",
@@ -26168,15 +25931,9 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 6.4,
-            "odds_fractional": "27/5",
-            "odds_american": "+540",
-=======
             "odds_decimal": 6.2,
             "odds_fractional": "26/5",
             "odds_american": "+520",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512358627
           },
           {
@@ -26188,58 +25945,34 @@
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.55,
-            "odds_fractional": "11/20",
-            "odds_american": "-181.82",
-=======
             "odds_decimal": 1.56,
             "odds_fractional": "5/9",
             "odds_american": "-178.57",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512358625
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.95,
-            "odds_fractional": "19/20",
-            "odds_american": "-105.26",
-=======
             "odds_decimal": 1.9,
             "odds_fractional": "9/10",
             "odds_american": "-111.11",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512358624
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.75,
-            "odds_fractional": "3/4",
-            "odds_american": "-133.33",
-=======
             "odds_decimal": 1.8,
             "odds_fractional": "4/5",
             "odds_american": "-125",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512358623
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 2.33,
-            "odds_fractional": "4/3",
-            "odds_american": "+133",
-=======
             "odds_decimal": 2.31,
             "odds_fractional": "17/13",
             "odds_american": "+131",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512363279
           },
           {
@@ -26251,51 +25984,30 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.12,
-            "odds_fractional": "1/8",
-            "odds_american": "-833.33",
-=======
             "odds_decimal": 1.13,
             "odds_fractional": "1/8",
             "odds_american": "-769.23",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512363277
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.04,
-            "odds_fractional": "25/24",
-            "odds_american": "+104",
-=======
             "odds_decimal": 1.97,
             "odds_fractional": "32/33",
             "odds_american": "-103.09",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512363109
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.69,
-            "odds_fractional": "9/13",
-            "odds_american": "-144.93",
-=======
             "odds_decimal": 1.73,
             "odds_fractional": "8/11",
             "odds_american": "-136.99",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512363108
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "379": {
-=======
     {
       "competition_id": 84098,
       "id": "1-24751166",
@@ -27059,7 +26771,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608616",
       "name": "Slovenia vs Denmark",
@@ -27073,97 +26784,55 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 5,
-            "odds_fractional": "4/1",
-            "odds_american": "+400",
-=======
             "odds_decimal": 5.1,
             "odds_fractional": "41/10",
             "odds_american": "+410",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655381
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.55,
-            "odds_fractional": "28/11",
-            "odds_american": "+255",
-=======
             "odds_decimal": 3.59,
             "odds_fractional": "44/17",
             "odds_american": "+259",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655380
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.76,
-            "odds_fractional": "19/25",
-            "odds_american": "-131.58",
-=======
             "odds_decimal": 1.74,
             "odds_fractional": "17/23",
             "odds_american": "-135.14",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655379
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.15,
-            "odds_fractional": "23/20",
-            "odds_american": "+115",
-=======
             "odds_decimal": 2.1,
             "odds_fractional": "11/10",
             "odds_american": "+110",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655347
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.62,
-            "odds_fractional": "5/8",
-            "odds_american": "-161.29",
-=======
             "odds_decimal": 1.65,
             "odds_fractional": "11/17",
             "odds_american": "-153.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655345
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 2.04,
-            "odds_fractional": "25/24",
-            "odds_american": "+104",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673212
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.29,
-            "odds_fractional": "2/7",
-            "odds_american": "-344.83",
-=======
             "odds_decimal": 1.28,
             "odds_fractional": "7/25",
             "odds_american": "-357.14",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673211
           },
           {
@@ -27177,36 +26846,21 @@
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.02,
-            "odds_fractional": "50/49",
-            "odds_american": "+102",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672172
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.7,
-            "odds_fractional": "7/10",
-            "odds_american": "-142.86",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672169
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "385": {
-=======
     {
       "competition_id": 82865,
       "id": "1-24846724",
@@ -27501,7 +27155,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608614",
       "name": "Serbia vs England",
@@ -27515,15 +27168,9 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 7.2,
-            "odds_fractional": "31/5",
-            "odds_american": "+620",
-=======
             "odds_decimal": 7.3,
             "odds_fractional": "63/10",
             "odds_american": "+630",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655369
           },
           {
@@ -27535,71 +27182,41 @@
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.46,
-            "odds_fractional": "6/13",
-            "odds_american": "-217.39",
-=======
             "odds_decimal": 1.45,
             "odds_fractional": "9/20",
             "odds_american": "-222.22",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655366
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.85,
-            "odds_fractional": "17/20",
-            "odds_american": "-117.65",
-=======
             "odds_decimal": 1.81,
             "odds_fractional": "13/16",
             "odds_american": "-123.46",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655348
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.85,
-            "odds_fractional": "17/20",
-            "odds_american": "-117.65",
-=======
             "odds_decimal": 1.89,
             "odds_fractional": "8/9",
             "odds_american": "-112.36",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655344
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 2.7,
-            "odds_fractional": "17/10",
-            "odds_american": "+170",
-=======
             "odds_decimal": 2.59,
             "odds_fractional": "27/17",
             "odds_american": "+159",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220665527
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.21,
-            "odds_fractional": "4/19",
-            "odds_american": "-476.19",
-=======
             "odds_decimal": 1.2,
             "odds_fractional": "1/5",
             "odds_american": "-500",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220665526
           },
           {
@@ -27613,36 +27230,21 @@
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.05,
-            "odds_fractional": "21/20",
-            "odds_american": "+105",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220665046
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.68,
-            "odds_fractional": "17/25",
-            "odds_american": "-147.06",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220665044
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "408": {
-=======
     {
       "competition_id": 82669,
       "id": "1-24781485",
@@ -29036,7 +28638,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24397272",
       "name": "Romania vs Ukraine",
@@ -29050,84 +28651,48 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.98,
-            "odds_fractional": "146/49",
-            "odds_american": "+298",
-=======
             "odds_decimal": 3.92,
             "odds_fractional": "35/12",
             "odds_american": "+292",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512359048
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.37,
-            "odds_fractional": "19/8",
-            "odds_american": "+237",
-=======
             "odds_decimal": 3.39,
             "odds_fractional": "43/18",
             "odds_american": "+239",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512359047
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.99,
-            "odds_fractional": "98/99",
-            "odds_american": "-101.01",
-=======
             "odds_decimal": 2,
             "odds_fractional": "1/1",
             "odds_american": "+100",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512359046
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.12,
-            "odds_fractional": "9/8",
-            "odds_american": "+112",
-=======
             "odds_decimal": 2.1,
             "odds_fractional": "11/10",
             "odds_american": "+110",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512359045
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.64,
-            "odds_fractional": "7/11",
-            "odds_american": "-156.25",
-=======
             "odds_decimal": 1.65,
             "odds_fractional": "11/17",
             "odds_american": "-153.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512359044
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.8,
-            "odds_fractional": "4/5",
-            "odds_american": "-125",
-=======
             "odds_decimal": 1.79,
             "odds_fractional": "15/19",
             "odds_american": "-126.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512369345
           },
           {
@@ -29139,15 +28704,9 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.24,
-            "odds_fractional": "5/21",
-            "odds_american": "-416.67",
-=======
             "odds_decimal": 1.25,
             "odds_fractional": "1/4",
             "odds_american": "-400",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512369343
           }
         ],
@@ -29169,9 +28728,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "411": {
-=======
     {
       "competition_id": 80540,
       "id": "1-24856770",
@@ -29232,7 +28788,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608615",
       "name": "Belgium vs Slovakia",
@@ -29269,28 +28824,16 @@
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.74,
-            "odds_fractional": "17/23",
-            "odds_american": "-135.14",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655421
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.96,
-            "odds_fractional": "23/24",
-            "odds_american": "-104.17",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655420
           }
         ],
@@ -29311,51 +28854,30 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2.65,
-            "odds_fractional": "28/17",
-            "odds_american": "+165",
-=======
             "odds_decimal": 2.66,
             "odds_fractional": "83/50",
             "odds_american": "+166",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673813
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.91,
-            "odds_fractional": "10/11",
-            "odds_american": "-109.89",
-=======
             "odds_decimal": 1.86,
             "odds_fractional": "6/7",
             "odds_american": "-116.28",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672714
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.77,
-            "odds_fractional": "10/13",
-            "odds_american": "-129.87",
-=======
             "odds_decimal": 1.8,
             "odds_fractional": "4/5",
             "odds_american": "-125",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220672713
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "414": {
-=======
     {
       "competition_id": 82755,
       "id": "1-24885425",
@@ -29539,7 +29061,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608635",
       "name": "Austria vs France",
@@ -29553,110 +29074,62 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 5.8,
-            "odds_fractional": "24/5",
-            "odds_american": "+480",
-=======
             "odds_decimal": 6,
             "odds_fractional": "5/1",
             "odds_american": "+500",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655360
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 4.33,
-            "odds_fractional": "10/3",
-            "odds_american": "+333",
-=======
             "odds_decimal": 4.5,
             "odds_fractional": "7/2",
             "odds_american": "+350",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655359
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.55,
-            "odds_fractional": "11/20",
-            "odds_american": "-181.82",
-=======
             "odds_decimal": 1.51,
             "odds_fractional": "25/49",
             "odds_american": "-196.08",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655358
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.68,
-            "odds_fractional": "17/25",
-            "odds_american": "-147.06",
-=======
             "odds_decimal": 1.65,
             "odds_fractional": "11/17",
             "odds_american": "-153.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655341
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.05,
-            "odds_fractional": "21/20",
-            "odds_american": "+105",
-=======
             "odds_decimal": 2.1,
             "odds_fractional": "11/10",
             "odds_american": "+110",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655339
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 2.35,
-            "odds_fractional": "23/17",
-            "odds_american": "+135",
-=======
             "odds_decimal": 2.44,
             "odds_fractional": "13/9",
             "odds_american": "+144",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673964
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.21,
-            "odds_fractional": "4/19",
-            "odds_american": "-476.19",
-=======
             "odds_decimal": 1.2,
             "odds_fractional": "1/5",
             "odds_american": "-500",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673962
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.14,
-            "odds_fractional": "1/7",
-            "odds_american": "-714.29",
-=======
             "odds_decimal": 1.13,
             "odds_fractional": "1/8",
             "odds_american": "-769.23",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673961
           }
         ],
@@ -29678,9 +29151,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "421": {
-=======
     {
       "competition_id": 82669,
       "id": "1-24781492",
@@ -29864,7 +29334,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24397285",
       "name": "Turkey vs Georgia",
@@ -29901,105 +29370,60 @@
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.12,
-            "odds_fractional": "9/8",
-            "odds_american": "+112",
-=======
             "odds_decimal": 2.13,
             "odds_fractional": "9/8",
             "odds_american": "+113",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512368176
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.64,
-            "odds_fractional": "7/11",
-            "odds_american": "-156.25",
-=======
             "odds_decimal": 1.63,
             "odds_fractional": "5/8",
             "odds_american": "-158.73",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512368175
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.17,
-            "odds_fractional": "1/6",
-            "odds_american": "-588.24",
-=======
             "odds_decimal": 1.18,
             "odds_fractional": "2/11",
             "odds_american": "-555.56",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512367086
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.29,
-            "odds_fractional": "2/7",
-            "odds_american": "-344.83",
-=======
             "odds_decimal": 1.28,
             "odds_fractional": "7/25",
             "odds_american": "-357.14",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512367085
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2,
-            "odds_fractional": "1/1",
-            "odds_american": "+100",
-=======
             "odds_decimal": 1.99,
             "odds_fractional": "98/99",
             "odds_american": "-101.01",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512367084
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.01,
-            "odds_fractional": "101/100",
-            "odds_american": "+101",
-=======
             "odds_decimal": 2.02,
             "odds_fractional": "50/49",
             "odds_american": "+102",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512366813
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.71,
-            "odds_fractional": "5/7",
-            "odds_american": "-140.85",
-=======
             "odds_decimal": 1.7,
             "odds_fractional": "7/10",
             "odds_american": "-142.86",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4512366812
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "424": {
-=======
     {
       "competition_id": 80540,
       "id": "1-24856771",
@@ -30060,7 +29484,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-23608613",
       "name": "Portugal vs Czech Republic",
@@ -30074,15 +29497,9 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 1.52,
-            "odds_fractional": "12/23",
-            "odds_american": "-192.31",
-=======
             "odds_decimal": 1.53,
             "odds_fractional": "8/15",
             "odds_american": "-188.68",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220655332
           },
           {
@@ -30126,28 +29543,16 @@
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.22,
-            "odds_fractional": "2/9",
-            "odds_american": "-454.55",
-=======
             "odds_decimal": 1.21,
             "odds_fractional": "4/19",
             "odds_american": "-476.19",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673360
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2.4,
-            "odds_fractional": "7/5",
-            "odds_american": "+140",
-=======
             "odds_decimal": 2.45,
             "odds_fractional": "16/11",
             "odds_american": "+145",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4220673359
           }
         ],
@@ -30169,9 +29574,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "431": {
-=======
     {
       "competition_id": 82867,
       "id": "1-24859291",
@@ -30446,7 +29848,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646082",
       "name": "Croatia vs Albania",
@@ -30506,64 +29907,37 @@
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.22,
-            "odds_fractional": "2/9",
-            "odds_american": "-454.55",
-=======
             "odds_decimal": 1.23,
             "odds_fractional": "3/13",
             "odds_american": "-434.78",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451394
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2.44,
-            "odds_fractional": "13/9",
-            "odds_american": "+144",
-=======
             "odds_decimal": 2.43,
             "odds_fractional": "10/7",
             "odds_american": "+143",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451393
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.17,
-            "odds_fractional": "7/6",
-            "odds_american": "+117",
-=======
             "odds_decimal": 2.15,
             "odds_fractional": "23/20",
             "odds_american": "+115",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612450384
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.61,
-            "odds_fractional": "11/18",
-            "odds_american": "-163.93",
-=======
             "odds_decimal": 1.62,
             "odds_fractional": "5/8",
             "odds_american": "-161.29",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612450383
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "434": {
-=======
     {
       "competition_id": 80540,
       "id": "1-24856772",
@@ -30624,7 +29998,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646100",
       "name": "Germany vs Hungary",
@@ -30661,28 +30034,16 @@
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.72,
-            "odds_fractional": "13/18",
-            "odds_american": "-138.89",
-=======
             "odds_decimal": 1.73,
             "odds_fractional": "8/11",
             "odds_american": "-136.99",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612457584
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2,
-            "odds_fractional": "1/1",
-            "odds_american": "+100",
-=======
             "odds_decimal": 1.97,
             "odds_fractional": "32/33",
             "odds_american": "-103.09",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612457583
           }
         ],
@@ -30727,11 +30088,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "441": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646098",
       "name": "Scotland vs Switzerland",
@@ -30745,15 +30102,9 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.64,
-            "odds_fractional": "29/11",
-            "odds_american": "+264",
-=======
             "odds_decimal": 3.81,
             "odds_fractional": "45/16",
             "odds_american": "+281",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454040
           },
           {
@@ -30765,15 +30116,9 @@
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 2.07,
-            "odds_fractional": "15/14",
-            "odds_american": "+107",
-=======
             "odds_decimal": 2.02,
             "odds_fractional": "50/49",
             "odds_american": "+102",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454038
           }
         ],
@@ -30796,15 +30141,9 @@
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.73,
-            "odds_fractional": "8/11",
-            "odds_american": "-136.99",
-=======
             "odds_decimal": 1.77,
             "odds_fractional": "10/13",
             "odds_american": "-129.87",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451601
           },
           {
@@ -30816,15 +30155,9 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.28,
-            "odds_fractional": "7/25",
-            "odds_american": "-357.14",
-=======
             "odds_decimal": 1.26,
             "odds_fractional": "6/23",
             "odds_american": "-384.62",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451599
           }
         ],
@@ -30846,9 +30179,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "448": {
-=======
     {
       "competition_id": 88045,
       "id": "1-24914095",
@@ -31285,7 +30615,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646097",
       "name": "Slovenia vs Serbia",
@@ -31306,28 +30635,16 @@
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.51,
-            "odds_fractional": "123/49",
-            "odds_american": "+251",
-=======
             "odds_decimal": 3.5,
             "odds_fractional": "5/2",
             "odds_american": "+250",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454092
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.9,
-            "odds_fractional": "9/10",
-            "odds_american": "-111.11",
-=======
             "odds_decimal": 1.91,
             "odds_fractional": "10/11",
             "odds_american": "-109.89",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454091
           }
         ],
@@ -31357,15 +30674,9 @@
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.29,
-            "odds_fractional": "2/7",
-            "odds_american": "-344.83",
-=======
             "odds_decimal": 1.3,
             "odds_fractional": "3/10",
             "odds_american": "-333.33",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451411
           },
           {
@@ -31394,11 +30705,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "449": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646096",
       "name": "Denmark vs England",
@@ -31489,11 +30796,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "451": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24646099",
       "name": "Spain vs Italy",
@@ -31507,146 +30810,83 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 2.25,
-            "odds_fractional": "5/4",
-            "odds_american": "+125",
-=======
             "odds_decimal": 2.22,
             "odds_fractional": "11/9",
             "odds_american": "+122",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454133
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.34,
-            "odds_fractional": "117/50",
-            "odds_american": "+234",
-=======
             "odds_decimal": 3.35,
             "odds_fractional": "40/17",
             "odds_american": "+235",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454132
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 3.27,
-            "odds_fractional": "25/11",
-            "odds_american": "+227",
-=======
             "odds_decimal": 3.32,
             "odds_fractional": "51/22",
             "odds_american": "+232",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454131
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.95,
-            "odds_fractional": "19/20",
-            "odds_american": "-105.26",
-=======
             "odds_decimal": 1.96,
             "odds_fractional": "23/24",
             "odds_american": "-104.17",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454003
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.75,
-            "odds_fractional": "3/4",
-            "odds_american": "-133.33",
-=======
             "odds_decimal": 1.74,
             "odds_fractional": "17/23",
             "odds_american": "-135.14",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612454002
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.33,
-            "odds_fractional": "1/3",
-            "odds_american": "-303.03",
-=======
             "odds_decimal": 1.32,
             "odds_fractional": "8/25",
             "odds_american": "-312.5",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451613
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.32,
-            "odds_fractional": "8/25",
-            "odds_american": "-312.5",
-=======
             "odds_decimal": 1.31,
             "odds_fractional": "4/13",
             "odds_american": "-322.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451612
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.6,
-            "odds_fractional": "3/5",
-            "odds_american": "-166.67",
-=======
             "odds_decimal": 1.64,
             "odds_fractional": "7/11",
             "odds_american": "-156.25",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612451611
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.76,
-            "odds_fractional": "19/25",
-            "odds_american": "-131.58",
-=======
             "odds_decimal": 1.77,
             "odds_fractional": "10/13",
             "odds_american": "-129.87",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612450730
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.94,
-            "odds_fractional": "15/16",
-            "odds_american": "-106.38",
-=======
             "odds_decimal": 1.93,
             "odds_fractional": "13/14",
             "odds_american": "-107.53",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4612450729
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "454": {
-=======
     {
       "competition_id": 85997,
       "id": "1-24393084",
@@ -31798,7 +31038,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24675674",
       "name": "Slovakia vs Ukraine",
@@ -31812,15 +31051,9 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.74,
-            "odds_fractional": "63/23",
-            "odds_american": "+274",
-=======
             "odds_decimal": 3.7,
             "odds_fractional": "27/10",
             "odds_american": "+270",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624387228
           },
           {
@@ -31832,15 +31065,9 @@
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 2.05,
-            "odds_fractional": "21/20",
-            "odds_american": "+105",
-=======
             "odds_decimal": 2.06,
             "odds_fractional": "17/16",
             "odds_american": "+106",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624387226
           }
         ],
@@ -31863,15 +31090,9 @@
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.72,
-            "odds_fractional": "13/18",
-            "odds_american": "-138.89",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624386611
           },
           {
@@ -31907,11 +31128,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "455": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24675683",
       "name": "Poland vs Austria",
@@ -31925,41 +31142,23 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.64,
-            "odds_fractional": "29/11",
-            "odds_american": "+264",
-=======
             "odds_decimal": 3.62,
             "odds_fractional": "21/8",
             "odds_american": "+262",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624396178
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.5,
-            "odds_fractional": "5/2",
-            "odds_american": "+250",
-=======
             "odds_decimal": 3.47,
             "odds_fractional": "37/15",
             "odds_american": "+247",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624396177
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 2.05,
-            "odds_fractional": "21/20",
-            "odds_american": "+105",
-=======
             "odds_decimal": 2.06,
             "odds_fractional": "17/16",
             "odds_american": "+106",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624396176
           }
         ],
@@ -31982,15 +31181,9 @@
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.72,
-            "odds_fractional": "13/18",
-            "odds_american": "-138.89",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624395818
           },
           {
@@ -32026,11 +31219,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "456": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24675731",
       "name": "Netherlands vs France",
@@ -32121,9 +31310,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "458": {
-=======
     {
       "competition_id": 85997,
       "id": "1-23813077",
@@ -32240,7 +31426,6 @@
       "markets": null
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24764724",
       "name": "Georgia vs Czech Republic",
@@ -32261,28 +31446,16 @@
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.63,
-            "odds_fractional": "21/8",
-            "odds_american": "+263",
-=======
             "odds_decimal": 3.62,
             "odds_fractional": "21/8",
             "odds_american": "+262",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4660938986
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.81,
-            "odds_fractional": "13/16",
-            "odds_american": "-123.46",
-=======
             "odds_decimal": 1.82,
             "odds_fractional": "9/11",
             "odds_american": "-121.95",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4660938985
           }
         ],
@@ -32343,9 +31516,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "460": {
-=======
     {
       "competition_id": 80540,
       "id": "1-24856786",
@@ -32406,7 +31576,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24675669",
       "name": "Turkey vs Portugal",
@@ -32427,84 +31596,48 @@
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 4.33,
-            "odds_fractional": "10/3",
-            "odds_american": "+333",
-=======
             "odds_decimal": 4.3,
             "odds_fractional": "33/10",
             "odds_american": "+330",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398465
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.56,
-            "odds_fractional": "5/9",
-            "odds_american": "-178.57",
-=======
             "odds_decimal": 1.57,
             "odds_fractional": "4/7",
             "odds_american": "-175.44",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398464
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.68,
-            "odds_fractional": "17/25",
-            "odds_american": "-147.06",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398461
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 2.05,
-            "odds_fractional": "21/20",
-            "odds_american": "+105",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398460
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 2.32,
-            "odds_fractional": "29/22",
-            "odds_american": "+132",
-=======
             "odds_decimal": 2.3,
             "odds_fractional": "13/10",
             "odds_american": "+130",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398023
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.21,
-            "odds_fractional": "4/19",
-            "odds_american": "-476.19",
-=======
             "odds_decimal": 1.22,
             "odds_fractional": "2/9",
             "odds_american": "-454.55",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624398022
           },
           {
@@ -32518,38 +31651,22 @@
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.76,
-            "odds_fractional": "19/25",
-            "odds_american": "-131.58",
-=======
             "odds_decimal": 1.79,
             "odds_fractional": "15/19",
             "odds_american": "-126.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624397659
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.94,
-            "odds_fractional": "15/16",
-            "odds_american": "-106.38",
-=======
             "odds_decimal": 1.91,
             "odds_fractional": "10/11",
             "odds_american": "-109.89",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624397658
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "461": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24675682",
       "name": "Belgium vs Romania",
@@ -32616,15 +31733,9 @@
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 2.55,
-            "odds_fractional": "17/11",
-            "odds_american": "+155",
-=======
             "odds_decimal": 2.65,
             "odds_fractional": "28/17",
             "odds_american": "+165",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4624386655
           }
         ],
@@ -32646,9 +31757,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "464": {
-=======
     {
       "competition_id": 85997,
       "id": "1-23813074",
@@ -32844,7 +31952,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24798123",
       "name": "Scotland vs Hungary",
@@ -32935,11 +32042,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "465": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24798122",
       "name": "Switzerland vs Germany",
@@ -33030,9 +32133,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "468": {
-=======
     {
       "competition_id": 85997,
       "id": "1-23813076",
@@ -33216,7 +32316,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24803807",
       "name": "Albania vs Spain",
@@ -33307,11 +32406,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "469": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24803806",
       "name": "Croatia vs Italy",
@@ -33402,9 +32497,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "472": {
-=======
     {
       "competition_id": 85997,
       "id": "1-23813075",
@@ -33588,7 +32680,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24809364",
       "name": "France vs Poland",
@@ -33664,38 +32755,22 @@
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.97,
-            "odds_fractional": "32/33",
-            "odds_american": "-103.09",
-=======
             "odds_decimal": 2,
             "odds_fractional": "1/1",
             "odds_american": "+100",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712756951
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.73,
-            "odds_fractional": "8/11",
-            "odds_american": "-136.99",
-=======
             "odds_decimal": 1.72,
             "odds_fractional": "13/18",
             "odds_american": "-138.89",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712756950
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "473": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24809365",
       "name": "Netherlands vs Austria",
@@ -33786,11 +32861,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "474": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24809366",
       "name": "England vs Slovenia",
@@ -33881,11 +32952,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "475": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24809367",
       "name": "Denmark vs Serbia",
@@ -33899,41 +32966,23 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 2.51,
-            "odds_fractional": "74/49",
-            "odds_american": "+151",
-=======
             "odds_decimal": 2.33,
             "odds_fractional": "4/3",
             "odds_american": "+133",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762447
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.32,
-            "odds_fractional": "51/22",
-            "odds_american": "+232",
-=======
             "odds_decimal": 3.37,
             "odds_fractional": "19/8",
             "odds_american": "+237",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762446
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 2.86,
-            "odds_fractional": "13/7",
-            "odds_american": "+186",
-=======
             "odds_decimal": 3.08,
             "odds_fractional": "25/12",
             "odds_american": "+208",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762445
           }
         ],
@@ -33956,41 +33005,23 @@
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.4,
-            "odds_fractional": "2/5",
-            "odds_american": "-250",
-=======
             "odds_decimal": 1.36,
             "odds_fractional": "4/11",
             "odds_american": "-277.78",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762121
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.32,
-            "odds_fractional": "8/25",
-            "odds_american": "-312.5",
-=======
             "odds_decimal": 1.31,
             "odds_fractional": "4/13",
             "odds_american": "-322.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762120
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.5,
-            "odds_fractional": "1/2",
-            "odds_american": "-200",
-=======
             "odds_decimal": 1.59,
             "odds_fractional": "10/17",
             "odds_american": "-169.49",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712762119
           }
         ],
@@ -34012,9 +33043,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "486": {
-=======
     {
       "competition_id": 85997,
       "id": "1-24774641",
@@ -34198,7 +33226,6 @@
       }
     },
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24815904",
       "name": "Slovakia vs Romania",
@@ -34289,11 +33316,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "487": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24815903",
       "name": "Ukraine vs Belgium",
@@ -34307,148 +33330,84 @@
         "match_result": [
           {
             "name": "Home",
-<<<<<<< HEAD
-            "odds_decimal": 3.77,
-            "odds_fractional": "36/13",
-            "odds_american": "+277",
-=======
             "odds_decimal": 4.2,
             "odds_fractional": "16/5",
             "odds_american": "+320",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766373
           },
           {
             "name": "Draw",
-<<<<<<< HEAD
-            "odds_decimal": 3.65,
-            "odds_fractional": "45/17",
-            "odds_american": "+265",
-=======
             "odds_decimal": 3.73,
             "odds_fractional": "30/11",
             "odds_american": "+273",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766372
           },
           {
             "name": "Away",
-<<<<<<< HEAD
-            "odds_decimal": 1.96,
-            "odds_fractional": "23/24",
-            "odds_american": "-104.17",
-=======
             "odds_decimal": 1.84,
             "odds_fractional": "21/25",
             "odds_american": "-119.05",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766371
           }
         ],
         "total_goals": [
           {
             "name": "Over (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.81,
-            "odds_fractional": "13/16",
-            "odds_american": "-123.46",
-=======
             "odds_decimal": 1.79,
             "odds_fractional": "15/19",
             "odds_american": "-126.58",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712765291
           },
           {
             "name": "Under (2.5)",
-<<<<<<< HEAD
-            "odds_decimal": 1.89,
-            "odds_fractional": "8/9",
-            "odds_american": "-112.36",
-=======
             "odds_decimal": 1.91,
             "odds_fractional": "10/11",
             "odds_american": "-109.89",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712765290
           }
         ],
         "double_chance": [
           {
             "name": "1X",
-<<<<<<< HEAD
-            "odds_decimal": 1.83,
-            "odds_fractional": "5/6",
-            "odds_american": "-120.48",
-=======
             "odds_decimal": 1.89,
             "odds_fractional": "8/9",
             "odds_american": "-112.36",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766354
           },
           {
             "name": "12",
-<<<<<<< HEAD
-            "odds_decimal": 1.28,
-            "odds_fractional": "7/25",
-            "odds_american": "-357.14",
-=======
             "odds_decimal": 1.27,
             "odds_fractional": "3/11",
             "odds_american": "-370.37",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766353
           },
           {
             "name": "X2",
-<<<<<<< HEAD
-            "odds_decimal": 1.26,
-            "odds_fractional": "6/23",
-            "odds_american": "-384.62",
-=======
             "odds_decimal": 1.22,
             "odds_fractional": "2/9",
             "odds_american": "-454.55",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712766352
           }
         ],
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 1.7,
-            "odds_fractional": "7/10",
-            "odds_american": "-142.86",
-=======
             "odds_decimal": 1.72,
             "odds_fractional": "13/18",
             "odds_american": "-138.89",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712764358
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 2.02,
-            "odds_fractional": "50/49",
-            "odds_american": "+102",
-=======
             "odds_decimal": 2,
             "odds_fractional": "1/1",
             "odds_american": "+100",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712764357
           }
         ]
       }
     },
-<<<<<<< HEAD
-    "488": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24815905",
       "name": "Czech Republic vs Turkey",
@@ -34539,11 +33498,7 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "489": {
-=======
     {
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
       "competition_id": 82789,
       "id": "1-24815902",
       "name": "Georgia vs Portugal",
@@ -34619,37 +33574,20 @@
         "btts": [
           {
             "name": "Yes",
-<<<<<<< HEAD
-            "odds_decimal": 2.02,
-            "odds_fractional": "50/49",
-            "odds_american": "+102",
-=======
             "odds_decimal": 2.01,
             "odds_fractional": "101/100",
             "odds_american": "+101",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712768598
           },
           {
             "name": "No",
-<<<<<<< HEAD
-            "odds_decimal": 1.7,
-            "odds_fractional": "7/10",
-            "odds_american": "-142.86",
-=======
             "odds_decimal": 1.71,
             "odds_fractional": "5/7",
             "odds_american": "-140.85",
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
             "id": 4712768597
           }
         ]
       }
-<<<<<<< HEAD
-    }
-  },
-  "total": 36,
-=======
     },
     {
       "competition_id": 85997,
@@ -36090,6 +35028,5 @@
     }
   ],
   "total": 454,
->>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
   "status": true
 }

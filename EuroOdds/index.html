@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odds Table</title>
+<<<<<<< HEAD
     <link
       rel="stylesheet"
       href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css"
     />
+=======
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
     <style>
       :root {
         --red: #dc143c;
@@ -282,6 +286,7 @@
           ? `${odds}.00`
           : parseFloat(odds).toFixed(2);
       }
+<<<<<<< HEAD
 
       function formatDate(dateString) {
         const [year, month, day] = dateString.split("-");
@@ -293,6 +298,40 @@
 
         const parsedData = Object.values(rawData)
           .filter((item) => item.provider_competition_id === 1855)
+=======
+      function translateTeamName(teamName) {
+  const translations = {
+    "Germany": "Germania",
+    "Czech Republic": "Cehia",
+    "Hungary":"Ungaria",
+    "Switzerland":"Elveția",
+    "Spain":"Spania",
+    "Poland":"Polonia",
+    "Slovenia":"Slovenia",
+    "Denmark":"Danemarca",
+    "Netherlands":"Olanda",
+    "Albania":"Albania",
+    "Croatia":"Croația",
+    "Serbia":"Serbia",
+    "England":"Anglia",
+    "Slovakia":"Slovacia",
+    "Georgia":"Georgia",
+    "Portugal":"Portugalia",
+    "Italy":"Italia",
+    "Scotland":"Scoția",
+    "Ukraine":"Ucraina",
+    "France":"Franța",
+    "Belgium":"Belgia",
+    "Turkey":"Turcia",
+    "Austria":"Austria",
+
+  };
+  return translations[teamName] || teamName;
+}
+      function parseOddsData(data) {
+        return Object.values(data)
+          .filter((item) => item.provider_competition_id === 1855) // Filter by provider_competition_id
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           .map((item) => {
             if (!item.markets || !item.markets.match_result) {
               return null;
@@ -300,6 +339,7 @@
             return {
               home_team: translateTeamName(item.home_team),
               away_team: translateTeamName(item.away_team),
+<<<<<<< HEAD
               starts_at: formatDate(item.starts_at.split(" ")[0]),
               home_odds: formatOdds(item.markets.match_result[0].odds_decimal),
               draw_odds: formatOdds(item.markets.match_result[1].odds_decimal),
@@ -321,6 +361,19 @@
       fetchAndParseOddsData().then((parsedData) => {
         initTableOdds("#tableJsBets", parsedData);
       });
+=======
+              starts_at: item.starts_at,
+              home_odds: formatOdds(item.markets.match_result[0].odds_decimal),
+              draw_odds: formatOdds(item.markets.match_result[1].odds_decimal),
+              away_odds: formatOdds(item.markets.match_result[2].odds_decimal),
+              id: item.id.replace("1-", ""), // Remove the '1-' prefix from id
+              name: item.name,
+            };
+          })
+          .filter((item) => item !== null); 
+      }
+    
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
 
       function generateLink(name, id) {
         const parts = name.split(" vs ");
@@ -331,15 +384,31 @@
         return `https://sport.netbet.ro/fotbal/european-championship/${formattedName}-${id}/`;
       }
 
+<<<<<<< HEAD
       function dataTableOdds(selector, data) {
         return new DataTable(selector, {
+=======
+      async function initializeOddsTable(selector) {
+        const rawData = await fetchOddsData();
+        const parsedData = parseOddsData(rawData);
+        initializeDataTableOdd(selector, parsedData);
+      }
+
+      function initializeDataTableOdd(selector, data) {
+        $(selector).DataTable({
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           data: data,
           columns: [
             {
               title: "Echipe",
               data: null,
               render: function (data, type, row) {
+<<<<<<< HEAD
                 const [date] = row.starts_at.split(" ");
+=======
+
+                const [date, time] = row.starts_at.split(" ");
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
                 return `
                   <div class="content-cote">
                     <div class="matches-cote">
@@ -360,12 +429,17 @@
           info: false,
           lengthChange: false,
           responsive: false,
+<<<<<<< HEAD
           pageLength: window.innerWidth < 991 ? 4 : 5,
+=======
+          pageLength: window.innerWidth < 991 ? 4 : 6,
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           searching: false,
           ordering: false,
           pagingType: "first_last_numbers",
           createdRow: function (row, data) {
             const link = generateLink(data.name, data.id);
+<<<<<<< HEAD
             row.addEventListener("click", function () {
               let a = document.createElement("a");
               a.href = link;
@@ -375,6 +449,11 @@
               a.click();
               document.body.removeChild(a);
             });
+=======
+            $(row).attr("onclick", `window.open('${link}', '_blank')`);
+      
+            $(row).css("cursor", "pointer");
+>>>>>>> c8f805b7bd8b4999498143f76936375a535d4f85
           },
         });
       }
