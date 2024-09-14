@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Custom Tailwind CSS with Vanilla JS</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+
+    <script>
+      // Configuration (theme for spacing, colors, breakpoints, typography, etc.)
+      const config = {
+        theme: {
+          spacing: {
+            0: "0px",
+            1: "4px",
+            2: "8px",
+            3: "12px",
+            4: "16px",
+            5: "20px",
+            6: "24px",
+            8: "32px",
+            10: "40px",
+            12: "48px",
+            16: "64px",
+          },
+          colors: {
+            primary: "#1D4ED8",
+            secondary: "#9333EA",
+            white: "#FFFFFF",
+            black: "#000000",
+            gray: "#6B7280",
+            red: "#EF4444",
+            green: "#10B981",
+            yellow: "#F59E0B",
+          },
+          typography: {
+            xs: "12px",
+            sm: "14px",
+            base: "16px",
+            lg: "18px",
+            xl: "20px",
+            "2xl": "24px",
+            "3xl": "30px",
+            "4xl": "36px",
+            "5xl": "48px",
+          },
+          fontWeights: {
+            thin: "100",
+            light: "300",
+            normal: "400",
+            bold: "700",
+            black: "900",
+          },
+          breakpoints: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            xl: "1280px",
+          },
+        },
+      };
+
+      // Utility Generator Functions
+      function generateSpacingUtilities(spacing) {
+        let css = "";
+        for (const key in spacing) {
+          css += `.p-${key} { padding: ${spacing[key]}; }\n`;
+          css += `.m-${key} { margin: ${spacing[key]}; }\n`;
+          css += `.pt-${key} { padding-top: ${spacing[key]}; }\n`;
+          css += `.pb-${key} { padding-bottom: ${spacing[key]}; }\n`;
+          css += `.pl-${key} { padding-left: ${spacing[key]}; }\n`;
+          css += `.pr-${key} { padding-right: ${spacing[key]}; }\n`;
+          css += `.mt-${key} { margin-top: ${spacing[key]}; }\n`;
+          css += `.mb-${key} { margin-bottom: ${spacing[key]}; }\n`;
+          css += `.ml-${key} { margin-left: ${spacing[key]}; }\n`;
+          css += `.mr-${key} { margin-right: ${spacing[key]}; }\n`;
+        }
+        return css;
+      }
+
+      function generateColorUtilities(colors) {
+        let css = "";
+        for (const color in colors) {
+          css += `.text-${color} { color: ${colors[color]}; }\n`;
+          css += `.bg-${color} { background-color: ${colors[color]}; }\n`;
+          css += `.border-${color} { border-color: ${colors[color]}; }\n`;
+        }
+        return css;
+      }
+
+      function generateTypographyUtilities(typography, fontWeights) {
+        let css = "";
+        for (const size in typography) {
+          css += `.text-${size} { font-size: ${typography[size]}; }\n`;
+        }
+        for (const weight in fontWeights) {
+          css += `.font-${weight} { font-weight: ${fontWeights[weight]}; }\n`;
+        }
+        return css;
+      }
+
+      function generateLayoutUtilities() {
+        return `
+        .flex { display: flex; }
+        .inline-flex { display: inline-flex; }
+        .grid { display: grid; }
+        .flex-row { flex-direction: row; }
+        .flex-col { flex-direction: column; }
+        .flex-wrap { flex-wrap: wrap; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .gap-1 { gap: 4px; }
+        .gap-2 { gap: 8px; }
+        .gap-3 { gap: 12px; }
+        .gap-4 { gap: 16px; }
+      `;
+      }
+
+      function generateResponsiveUtilities(breakpoints, spacing) {
+        let css = "";
+        for (const point in breakpoints) {
+          css += `@media (min-width: ${breakpoints[point]}) {\n`;
+          for (const key in spacing) {
+            css += `  .${point}\\:p-${key} { padding: ${spacing[key]}; }\n`;
+            css += `  .${point}\\:m-${key} { margin: ${spacing[key]}; }\n`;
+          }
+          css += `}\n`;
+        }
+        return css;
+      }
+
+      function generateVariantUtilities() {
+        return `
+        .hover\\:text-primary:hover { color: #1D4ED8; }
+        .hover\\:bg-secondary:hover { background-color: #9333EA; }
+        .focus\\:bg-primary:focus { background-color: #1D4ED8; }
+      `;
+      }
+
+      // Combine all the utilities
+      function generateUtilities(config) {
+        const spacingCSS = generateSpacingUtilities(config.theme.spacing);
+        const colorCSS = generateColorUtilities(config.theme.colors);
+        const typographyCSS = generateTypographyUtilities(
+          config.theme.typography,
+          config.theme.fontWeights
+        );
+        const layoutCSS = generateLayoutUtilities();
+        const responsiveCSS = generateResponsiveUtilities(
+          config.theme.breakpoints,
+          config.theme.spacing
+        );
+        const variantCSS = generateVariantUtilities();
+
+        return (
+          spacingCSS +
+          colorCSS +
+          typographyCSS +
+          layoutCSS +
+          responsiveCSS +
+          variantCSS
+        );
+      }
+
+      // Inject CSS into the DOM
+      function injectCSS(css) {
+        const style = document.createElement("style");
+        style.innerHTML = css;
+        document.head.appendChild(style);
+      }
+
+      // Minify CSS for better performance
+      function minifyCSS(css) {
+        return css.replace(/\s+/g, " ").trim();
+      }
+
+      // Main function to run when the page loads
+      function main() {
+        // Get the generated CSS from the utility generator
+        const utilitiesCSS = generateUtilities(config);
+
+        // Minify and inject the generated CSS into the DOM
+        injectCSS(minifyCSS(utilitiesCSS));
+      }
+
+      // Run the main function after the page has loaded
+      window.onload = main;
+    </script>
+  </head>
+  <body>
+    <!-- Flexbox Example -->
+    <div
+      class="flex justify-center items-center p-6 bg-primary text-white"
+      style="height: 100vh"
+    >
+      <div class="flex-col p-4 bg-secondary text-white">
+        <p class="text-lg font-bold">This is a flexbox container.</p>
+        <p class="text-base font-light">It is centered with flex utilities!</p>
+      </div>
+    </div>
+
+    <!-- Grid Example -->
+    <div class="grid grid-cols-3 gap-4 p-6 bg-gray text-white">
+      <div class="bg-primary p-4 text-white">Grid Item 1</div>
+      <div class="bg-primary p-4 text-white">Grid Item 2</div>
+      <div class="bg-primary p-4 text-white">Grid Item 3</div>
+    </div>
+
+    <!-- Hover Example -->
+    <div class="p-6 bg-red text-white hover:bg-secondary hover:text-primary">
+      Hover over me to see color change!
+    </div>
+  </body>
+</html>
