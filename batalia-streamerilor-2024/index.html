@@ -4,35 +4,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./settings.css">
+    <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="./settings.css">
+    <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <!-- <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" /> -->
+
 
   <title>batalia 2024</title>
+
+
 </head>
 
-<body class="gray">
+<body>
   <main>
-    <section class="section s1 d-flex-center flex-col" id="section1">
-      <div class="offer red h-half">offerta</div>
-      <div class="carousel green">carousel</div>
+    <section class="section s1 d-flex-center flex-col" style="overflow-x: hidden;" id="section1">
+      <h2>First Page</h2>
+      <div class="offer h-full">INFO</div>
+      <div class="carousel" >
+        <div class="blaze-slider">
+          <div class="blaze-container">
+            <div class="blaze-track-container">
+              <div class="blaze-track"><!-- sliders js --></div>  
+          </div>
+        </div>
+      </div>
     </section>
-    <section class="section s2 max-w-1400" id="section2">Info</section>
+    <section class="section s2 max-w-1400" id="section2">
+      <h2>INformation Games</h2>
+    </section>
     <section class="section s3" id="section3">
+      <h2>Tables</h2>
       <div class="container-table">
-        <div id="tableStreamers" class="t-streamers"></div>
-        <div id="tableUsers" class="t-users"></div>
+        <div class="table-responsive">
+          <h2 class="text-center">Clasament Streameri</h2>
+          <table id="streamersTable" style="background: red; width: 100%;">
+            <thead class="table-dark">
+              <tr>
+                <th>#</th>
+                <th>Streamer</th>
+                <th>PCTs</th>
+              </tr>
+            </thead>
+            <tbody class="table-body" id="bodyStreamer"></tbody>
+            <tfoot class="table-dark">test</tfoot>
+          </table>
+        </div>
+        <div class="table-responsive">
+          <h2 class="text-center">Clasament Jucători</h2>
+          <table id="usersTable">
+            <thead class="table-dark">
+              <tr>
+                <th>#</th>
+                <th>nume</th>
+                <th>pct</th>
+              </tr>
+            </thead>
+            <tbody class="table-body" id="bodyUser"></tbody>
+            <tfoot class="table-dark"></tfoot>
+          </table>
+        </div>
+ 
       </div>
     </section>
   </main>
-  <footer class="max-w-1400">
-    <div class="terms-container max-w-1400px">
+  <footer>
+    <div class="terms-container max-w-1400">
       <h2 class="">TERMENI ȘI CONDIȚII</h2>
-      <button id="toggleButton" class="toggleButton btn-NB-large z-3">
-              Termeni și Condiții
-            </button>
+
       <div id="termsAndConditionsS" class="hidden tc">
         <p><b>Cine este eligibil?</b></p>
         <ul>
@@ -215,86 +270,8 @@
               </tr>
             </tbody>
           </table>
+          <br />
         </ul>
-
-        <p><b>Care sunt condițiile premiilor?</b></p>
-
-        <ul>
-          <li style="font-weight: bold">Premii cash:</li>
-          <ul style="list-style: none">
-            <li>
-              Premiile în bani reali vor fi acordate jucătorilor în baza
-              scorului final afișat în clasament la încheierea
-              turneului.
-            </li>
-            <li>
-              Premiile vor fi creditate în conturile jucătorilor NetBet
-              în termen de 72h (3 zile lucrătoare) de la încheierea
-              promoției ca sume cash. Acestea nu sunt supuse niciunei
-              condiții de rulaj și vor putea fi retrase în orice moment.
-            </li>
-          </ul>
-
-          <li style="font-weight: bold">Pachete cadou:</li>
-          <ul style="list-style: none">
-            <li>
-              Pachetele cadou sunt oferite primilor 200 de jucători din
-              clasament de către furnizorii parteneri ai campaniei, în
-              funcție de locul ocupat în clasament.
-            </li>
-            <li>
-              Pachetele cadou vor fi acordate jucătorilor după
-              finalizarea campaniei (după 10 zile de la finalizare) și
-              vor fi contactați de un reprezentant NetBet pentru a oferi
-              datele de contact și adresa de livrare.
-            </li>
-          </ul>
-          <li style="font-weight: bold">Runde Gratuite:</li>
-          <ul style="list-style: none">
-            <li>
-              Orice jucător care a obținut minimum 50 de puncte în
-              clasament va primi garantat 77 de Runde Gratuite care vor
-              putea fi folosite la slotul
-              <b>Zeus vs. Hades</b> de la Pragmatic Play (atât pe
-              desktop, cât și pe versiunea mobilă, dacă aceasta este
-              disponibilă), la valoarea minimă a unei fise.
-            </li>
-            <li>
-              Jucătorii clasați în primele 200 de locuri în clasament,
-              vor primi, după finalizarea campaniei, Runde Gratuite la
-              jocurile unuia dintre furnizorii parteneri. În acest caz,
-              jucătorii vor beneficia de premiu la toate jocurile ce
-              provin de la unul din cei 6 furnizori.
-            </li>
-            <li>
-              Rundele Gratuite vor fi creditate instant în maxim 72 (3
-              zile lucrătoare) în contul jucătorilor și sunt active 3
-              zile de la momentul creditării.
-            </li>
-            <li>
-              Câștigurile obținute în urma rulajului rundelor gratuite
-              vor fi creditate în balanța jucătorilor sub formă de bonus
-              de îndată ce toate rundele acordate au fost epuizate.
-            </li>
-            <li>
-              Bonusul este supus unei condiții de mizare de 40x
-              (playthrough 40x) înainte ca balanța bonus să fie
-              convertită în fonduri cash. Orice cerere de retragere
-              efectuată înainte de îndeplinirea condițiilor de mizare va
-              rezulta în pierderea automată a tuturor sumelor bonus și a
-              câștigurilor în așteptare derivate din acestea.
-            </li>
-            <li>
-              Bonusul are valabilitate 7 zile de la data emiterii, cu
-              excepția cazului în care se specifică altfel. La finalul
-              acestei perioade, toate bonusurile neutilizate, bonusurile
-              ale căror condiții de mizare nu au fost îndeplinite și
-              câștigurile în așteptare derivate din acestea vor fi
-              deduse automat din contul jucătorului.
-            </li>
-          </ul>
-        </ul>
-
         <p><b>Ce altceva trebuie să știi?</b></p>
         <ul>
           <li>Această ofertă respectă <a
@@ -341,7 +318,7 @@
             orice motiv.
           </li>
         </ul>
-        <br />
+  
 
 
         <style>
@@ -393,6 +370,8 @@
       </div>
     </div>
   </footer>
+<script src="./tables.js"></script>
+  <script src="./carousel.js"></script>
 </body>
 
 

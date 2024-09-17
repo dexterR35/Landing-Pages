@@ -1,38 +1,141 @@
-.d-flex-center {
+.carousel {
+  width: 100%;
+  height: auto;
+}
+.blaze-track > * {
+  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  border-radius: 6px;
+  color: white;
 }
 
-.flex-row {
+/* .blaze-pagination {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.blaze-pagination button {
+  font-size: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background: hsl(0deg, 0%, 15%);
+  cursor: pointer;
+  transition: transform 200ms ease, background-color 300ms ease;
+} */
+
+/* .blaze-pagination button.active {
+  background: white;
+  transform: scale(1.3);
+} */
+
+/* .blaze-slider.start .blaze-prev,
+.blaze-slider.end .blaze-next {
+  opacity: 0.5;
+  cursor: not-allowed;
+} */
+
+.container-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
 }
-
-.flex-col {
-  flex-direction: column;
+.table-responsive {
+  width: 50%;
+  max-width: 90%;
+  /* margin: 0 auto; */
+  border: 2px solid black;
+  border-radius: 10px;
 }
 
-.max-w-1400 {
-  max-width: 1400px;
-  margin: 0 auto;
+#usersTable tbody .parent-table {
+  height: 40px;
 }
 
-.h-screen {
-  height: 100vh;
+div.dataTables_wrapper div.dataTables_paginate {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  /* display: none !important; */
 }
 
-.h-full {
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  color: var(--color-white);
+  background: #c8d9f1;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 2em;
+  padding: 0.1em 0.5em;
+  margin-left: 2px;
+  text-align: center;
+  cursor: pointer;
+  color: inherit !important;
+  border: 1px solid #c3c1c1;
+  border-radius: 2px;
+}
+
+.avatar-table {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  font-size: 1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 4;
+  overflow: hidden;
+}
+.avatar-blue img {
+  width: 100%;
   height: 100%;
+  object-fit: contain;
+}
+.avatar-blue::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #8dbcf1;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  opacity: 0.4;
 }
 
-.h-half {
-  height: 50%;
+.parent-table .ps {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+#usersTable .parent-table > td {
+  padding: 4.1px;
 }
 
-.red {
-  background: red;
+.parent-avatar {
+  gap: 10px;
+}
+.parent-name {
+  line-height: 1.2;
 }
 
-.green {
-  background: green;
+
+
+.blaze-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

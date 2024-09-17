@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css" /> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.min.js"></script> -->
+
+  <link rel="stylesheet" href="./index.css" />
+  <title>Document</title>
+</head>
+
+<style></style>
+
+<body>
+  <header class="header-top d-flex justify-content-center align-items-center" style="
+        background: black;
+        width: 100%;
+        height: 5em;
+        position: absolute;
+        top: 0;
+        text-transform: uppercase;
+        color: white;
+        z-index: 31;
+      ">
+
+    <input type="text" id="cookieInput" placeholder="Introduceți numele">
+    <button id="setCookieButton">Set Cookie</button>
+  </header>
+  <div class="wrapper">
+    <div class="container-modal">
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl">
+          <!-- Use modal-xl for larger modal -->
+          <div class="modal-content pos">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">
+                Provoacă streamerul favorit pentru chalenge-ul de azi!
+              </h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeModal"></button>
+            </div>
+            <div class="modal-body px-4">
+              <div class="subTitle text-center">
+                Voturile pentru acest challenge se vor reseta la data de
+                12.10.2023
+              </div>
+              <div class="row d-flex justify-content-lg-start justify-content-sm-center" id="dynamicCardBody">
+                <!-- Cards will be generated here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="fullpage" class="overflow-hidden">
+      <div class="section _s1" >
+        <div class="bgD" id="background_p"></div>
+        <div class="spikes" id="spike_p"></div>
+        <div class="row section_one">
+          <div class="col-12" style="z-index: 50">
+            <div class="container-stuff container mt-4">
+              <div class="content-elements mx-auto">
+                <div class="col-2 s-providers">
+                  <a href="#">
+                    <div>
+                      <img src="./_providers/pragmatic.png" class="_prov_transf_bottom_r" alt="pragmatic" />
+                    </div>
+                  </a>
+                  <a href="#">
+                    <div>
+                      <img src="./_providers/skywind.png" class="_prov_transf_top_r" alt="playtech" />
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-7 col-md-4 bg-img">
+                  <img src="./_bg/title_generic.png" alt="title_generic" />
+                </div>
+                <div class="col-2 s-providers s-providers_left">
+                  <div>
+                    <a href="#">
+                      <img src="./_providers/playtech.png" class="_prov_transf_bottom_l" alt="playtech" /></a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <img src="./_providers/playngo.png" class="_prov_transf_center_r" alt="playngo" /></a>
+                  </div>
+                  <div>
+                    <a href="#">
+                      <img src="./_providers/7777gaming.png" class="_prov_transf_top_l" alt="gaming" /></a>
+                  </div>
+                </div>
+              </div>
+              <div class="container-btn">
+                <a id="actionButton" class="btn btn-primary">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 container-swiper">
+            <div class="swipers stream-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_anna.png"></div>
+                  <img src="./_avatar/anna.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_dudy.png"></div>
+                  <img src="./_avatar/dudy.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_dumisninja.png"></div>
+                  <img src="./_avatar/dumisninja.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_fratiijonson.png"></div>
+                  <img src="./_avatar/fratiijonson.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_narcis.png"></div>
+                  <img src="./_avatar/dumisninja.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_pacanedy.png"></div>
+                  <img src="./_avatar/narcis.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_pacanela.png"></div>
+                  <img src="./_avatar/pacanela.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_princess.png"></div>
+                  <img src="./_avatar/princess.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_quikanu.png"></div>
+                  <img src="./_avatar/quikanu.png" />
+                </div>
+                <div class="swiper-slide slide-streamer">
+                  <div class="top_swiper_box" data-swiper-parallax="10"><img src="./_name/name_stero.png"></div>
+                  <img src="./_avatar/stero.png" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section _s2">
+        <div class="clouds-bottom">
+          <img src="./_bg/norisori2.png" alt="">
+        </div>
+        <div class="container container-section section_two justify-content-evenly flex-column h-100">
+          <div class="row">
+            <h2 class="text text-center mx-auto title_s2">
+              Participă la Bătălia streamerilor și câștigă premii fabuloase.
+            </h2>
+          </div>
+          <div class="row py-4">
+
+            <h4 class="text text-center mx-auto">
+              Intră pe NetBet în perioada 1 - 31 noiembrie, aduna puncte
+              jucând orice slot participant la promotie iar primii 500 de
+              jucători vor fi premiați cu pachete cadou si premii surpriză!
+            </h4>
+          </div>
+          <div class="row">
+
+            <div class="col-lg-4 col-md-12 container-stuff">
+              <h2 class="text-center text-dark">Jocuri eligibile</h2>
+              <div class="paragraph mb-3">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                nisl risus, euismod eget augue finibus, auctor laoreet
+                justo. Aenean tempor tempor quam sed sollicitudin. Curabitur
+                sodales euismod vulputate. Integer auctor neque vitae sem
+                fringilla dictum. Aliquam aliquam dictum pulvinar. Aliquam
+                maximus turpis et sapien cursus, et volutpat arcu maximus.
+                Proin interdum placerat lacus ac mattis. Praesent sagittis
+                justo non augue auctor, in finibus nibh convallis. Etiam eu
+                eros viverra, accumsan ipsum eu, pretium dui. Duis aliquet
+                ac massa sed lacinia.
+              </div>
+              <button type="button" class="btn btn-NetBet-normal w-85 _desktop">
+                vezi toate jocurile
+              </button>
+            </div>
+            <div class="col-lg-8 col-md-12 d-flex justify-content-center align-items-center">
+              <div class="table-responsive">
+                <table class="tables scroll-container" id="gameImages"></table>
+                <button type="button" class="btn btn-NetBet-normal w-75 _mobile">
+                  vezi toate jocurile
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mx-auto s2_providers">
+            <div class="cols">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/pragmatic.png" /></a>
+            </div>
+            <div class="cols">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/skywind.png" /></a>
+            </div>
+
+            <div class="cols">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playtech.png" /></a>
+            </div>
+
+            <div class="cols">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/7777gaming.png" /></a>
+            </div>
+
+            <div class="cols">
+              <a href="https://casino.netbet.ro/7777-gaming"><img src="./_providers/playngo.png" /></a>
+            </div>
+
+
+          </div>
+
+        </div>
+        <div class="clouds-bottom">
+          <img src="./_bg/norisori2.png" alt="">
+        </div>
+      </div>
+      <div class="section _s3 h-100">
+        <div class="container container-section section_three py-5 w-100 flex-column">
+          <br>
+          <br>
+          <h2 class="text-center py-3 mb-3 title_s3 z-2">Clasamente</h2>
+          <div class="row w-100 z-3">
+            <div class="col pb-5 table-title">
+              <div class="table-responsive">
+                <table id="streamersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>Streamer</th>
+                      <th>Voturi</th>
+                      <th>Puncte</th>
+                      <th>Challenge</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body" id="table"></tbody>
+                  <tfoot class="table-dark"></tfoot>
+                </table>
+              </div>
+            </div>
+            <div class="col pb-5 table-title">
+              <div class="table-responsive">
+                <table id="usersTable" class="tableData table table-hover responsive nowrap" style="width: 100%">
+                  <thead class="table-dark">
+                    <tr>
+                      <th>#</th>
+                      <th>nume</th>
+                      <th>?</th>
+                      <th>pct</th>
+                      <th>ch</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body"></tbody>
+                  <tfoot class="table-dark"></tfoot>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section _s4">
+        <div class="container container-section section_four w-100 py-4">
+          <div class="col text-center position-relative flex-column">
+            <h2 class="text-center">TERMENI SI CONDITII</h2>
+            <h4 class="text-center text my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, aut!</h4>
+            <!-- <button id="toggleButton" class="toggleButton btn-NetBet-large z-3">
+              Termeni și Condiții
+            </button> -->
+
+            <div id="termsAndConditionsS" class="hidden termsAndConditions">
+              <p><b>Cine este eligibil?</b></p>
+              <ul>
+                <li>
+                  Această ofertă se adresează exclusiv jucătorilor din România
+                  care completează ultimul pas din înregistrare cu codul
+                  500ROTIRI și completează procesul de verificare a
+                  identității în termen de 14 zile de la înregistrare.
+                </li>
+                <li>
+                  Oferta este limitată la o singură utilizare per adresă
+                  domiciliu/calculator/adresă IP.
+                </li>
+                <li>
+                  <b><span style="color: #fe7332">Documentul necesar pentru validarea/ verificarea
+                      contului este buletinul sau actul de indentitate</span></b>
+                </li>
+              </ul>
+
+              <p><b>Cum funcționează?</b></p>
+              <ul>
+                <li>
+                  Jucătorii pot beneficia de accesul la widget-ul Roata
+                  Rundelor Gratis DOAR dacă în timpul procesului de
+                  înregistrare au introdus codul 500ROTIRI și au validat
+                  contul în termen de 14 zile de la înregistrare.
+                </li>
+                <li>
+                  Accesul la widget-ul Roata Rundelor Gratis este limitat la o
+                  singură participare, în ziua în care procesul de verificare
+                  a fost completat.
+                </li>
+                <li>
+                  Roata Rundelor Gratis va fi disponibilă în contul de jucător
+                  după verificarea documentului (buletinul sau actul de
+                  identitate) și confirmarea procesării cu succes a acestuia
+                  și este disponibilă timp de 24 de ore din momentul
+                  activării.
+                </li>
+                <li>
+                  Jucătorii eligibili trebuie să acceseze și să revendice
+                  rundele din secțiunea ”Oferte disponibile” accesând butonul
+                  ”Joacă acum”, odată ce au îndeplinit toate condițiile. La
+                  accesarea butonului ”Joacă acum”, un pop-up cu Roata
+                  Rundelor Gratis va apărea pe ecran. Jucătorii pot învârti
+                  Roata Rundelor Gratis accesând butonul ”ÎNVÂRTE”. Dacă Roata
+                  Rundelor Gratuite nu este folosită imediat, va rămâne activă
+                  și poate fi accesată în secțiunea Oferte Speciale din contul
+                  de jucător. Premiul va fi creditat instant în contul
+                  jucătorului de cazino, odată ce Roata Rundelor Gratis a fost
+                  folosită.
+                </li>
+              </ul>
+
+              <p><b>Ce pot câștiga?</b></p>
+              <ul>
+                <li>
+                  Poți câștiga unul dintre cele 5 premii, care constau în până
+                  la 500 Runde Gratuite, conform premiilor afișate pe roată și
+                  enumerate mai jos:
+                </li>
+                <ul style="list-style: disc">
+                  <li>
+                    100 Runde Gratuite la Rich Wilde and the Tome of Madness
+                  </li>
+                  <li>200 Runde Gratuite la Big Bass Bonanza</li>
+                  <li>300 Runde Gratuite la Eye of Cleopatra</li>
+                  <li>400 Runde Gratuite la Starlight Princess</li>
+                  <li>500 Runde Gratuite la Hot 4 Cash</li>
+                </ul>
+                <li>
+                  Rundele Gratuite vor fi creditate automat și se pot juca la
+                  jocurile indicate cu valoarea minimă a unei runde.
+                </li>
+                <li>
+                  Odată emise, rundele gratuite sunt valabile timp de 3 zile.
+                </li>
+              </ul>
+
+              <p><b>Ce altceva trebuie să știu?</b></p>
+              <ul>
+                <li>
+                  Conturile care beneficiază de această ofertă vor fi excluse
+                  de la alte promoții de bun venit.
+                </li>
+                <li>
+                  Câștigurile în bani reali rezultate din rulajul bonusului
+                  sunt limitate la 300 RON.
+                </li>
+                <li>
+                  Câștigurile obținute în timpul rundelor gratuite vor fi
+                  creditate în balanța jucătorilor sub formă de bonus, de
+                  îndată ce toate rundele acordate sunt epuizate.
+                </li>
+                <li>
+                  Acest Bonus (echivalentul câștigurilor) este valabil timp de
+                  7 zile de la data acordării și are playthrough standard x40
+                  (trebuie mizat de 40 de ori pentru a fi transformat în bani
+                  reali). După această perioadă, toate bonusurile neutilizate,
+                  bonusurile cu playthrough necompletat sau câștigurile în
+                  așteptare derivate din acestea vor fi deduse automat din
+                  balanța contului de jucător.
+                </li>
+                <!-- <li>Această ofertă respectă <a href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions{$url_postfix|escape:"html"}" style="display:inline-block;">Termenii și Condițiile NetBet Cazino</a>.</li> -->
+                <li>
+                  NetBet își rezervă dreptul de a anula sau de a modifica
+                  condițiile acestei promoții fără notificare prealabilă.
+                </li>
+                <li>
+                  NetBet își rezervă dreptul de a exclude jucătorii care
+                  participă la promoții cu mai multe conturi.
+                </li>
+                <li>
+                  NetBet își rezervă dreptul de a descalifica jucătorii în caz
+                  de coluziune, joc incorect sau în cazul în care consideră că
+                  au abuzat de promoție.
+                </li>
+
+                <li>END</li>
+              </ul>
+              <br />
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>

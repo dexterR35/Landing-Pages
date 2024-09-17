@@ -10,7 +10,7 @@ function getCookie(name) {
 }
 
   // userToCheck = "teststep"; //teststep
-  userToCheck = getCookie("teststep");
+
   let userToVote = null;
   let isVotingAllowed = false;
 
@@ -18,7 +18,7 @@ function getCookie(name) {
   
   $(document).ready(function () {
 
-  
+    userToCheck = getCookie("netbet_login");
   const apiEndpoint_check_user =
     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
     userToCheck;
@@ -29,11 +29,8 @@ function getCookie(name) {
     userToCheck;
 
 
-
-
   let tableDataUser = $("#bodyUser");
   let tableDataStreamer = $("#bodyStreamer");
-
 
   let voted = null;
   // console.log("1")
@@ -102,8 +99,8 @@ function getCookie(name) {
   let cardChallenge = $("#dynamicChallenge");
 
   // const apiEndpoint_optout_user =
-  //   "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
-  //   userToCheck;
+    "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=delete_user&user=" +
+    userToCheck;
   const actionButton = $("#actionButton");
   let userPosition = null;
 
@@ -153,12 +150,10 @@ function getCookie(name) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
-
+      // console.log(data)
       let optin = null;
-      voted = null; // Default value if "voted" is not in the response
+      let voted = null; // Default value if "voted" is not in the response
       let clasament = null;
-
-
       // Iterate over the array and assign values to optin, voted, and clasament
       data.forEach((item) => {
         // console.log(data)
@@ -169,14 +164,10 @@ function getCookie(name) {
           // console.log(item.voted, "aaa");
         } else if ("clasament" in item) {
           clasament = item.clasament;
-          // console.log(clasament, "aaa");
+          // console.log(clasament, "bbb");
         }
-
       });
-
       updateButtonBehavior(optin, voted);
-
-      // console.log(`User ${userToCheck}, voted: ${voted}`, "optin is:", optin);
       // Check if optin and clasament have been assigned values
       if (optin !== null && clasament !== null) {
         tableDataUser.empty();
@@ -618,7 +609,6 @@ function getCookie(name) {
   }
 
   async function optIn() {
-
     await fetch(apiEndpoint_optin_user)
       .then((response) => {
         // Check if the request was successful

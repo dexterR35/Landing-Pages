@@ -12,10 +12,26 @@ html {
 }
 
 :root {
-  --bg-desktop: "";
+  --bg-desktop: url(./assets/bg-desktop.webp);
   --bg-mobile: "";
 
   --cta_color: "";
+
+
+    --__sport: rgb(100, 176, 0);
+    --__casino: transparent linear-gradient(312deg, #1F71AD 0%, #00C0FA 100%) 0% 0% no-repeat padding-box;
+    --__sport_hover: linear-gradient(135deg, #90e000, #64b000);
+    --button_color: linear-gradient(to right, #ff1c26, #a81c1f);
+    --button_color-hover: linear-gradient(to left, #ff1c26, #a81c1f);
+    --color_blue: #c5e6ff;
+    --color_red: #ff0000;
+    --color_white: #fff;
+    --color_softGray: #bfbfbf;
+    --header_color: #141C33;
+    --footer_color: #010718;
+    --textShadowFull: var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 5px, var(--textShadow) 0px 0px 16px;
+    --textShadow: #ff0000;
+    --textShadowSmooth: var(--textShadow) 0px 0px 0px, var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 2px, var(--textShadow) 0px 0px 6px;
 }
 
 a {
@@ -24,6 +40,12 @@ a {
 
 li {
   list-style: none;
+}
+
+h2 {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 30px 0;
 }
 
 /* settings */
@@ -49,7 +71,10 @@ li {
   margin: 0 auto;
 }
 
-.max-w-1600px {}
+.max-w-1600 {
+  max-width: 1400;
+  margin: 0 auto;
+}
 
 .h-screen {
   height: 100vh;
@@ -94,15 +119,15 @@ li {
 
 .section {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   border: 2px solid red;
 }
 
-section:nth-child(1) {
-  height: 100dvh;
-  max-height: 100dvh;
-  background: blueviolet;
+.section:nth-child(1), .section:nth-child(2), .section:nth-child(3) {
+  height: 100vh;
 }
+
+
 
 /* end sections */
 /* end sections */
@@ -113,7 +138,7 @@ section:nth-child(1) {
 /* terms css */
 
 .tc ul li {
-  margin: 10px 0;
+
 }
 
 .tc p b {
@@ -124,6 +149,75 @@ section:nth-child(1) {
   color: red;
 }
 
+
+footer {
+  background: var(--header_color);
+}
+
+.terms-container {
+  background: white;
+  padding: 20px;
+}
+
+.terms-container h2 {
+  text-align: center;
+  margin: 25px 0;
+}
+.tc p b {
+  font-size: 1.3em;
+}
+
+.tc ul li {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
 /* terms css */
 /* terms css */
 /* terms css */
+
+
+
+
+
+/* section1 */
+/* section1 */
+/* section1 */
+
+.section.s1 {
+  background-image: var(--bg-desktop);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+/* Offer */
+/* Offer */
+/* Offer */
+
+.offer {
+  display: grid;
+  place-content: center;
+  color: white;
+}
+
+
+
+
+
+
+/* end Offer */
+/* end Offer */
+/* end Offer */
+
+
+
+
+
+/* end section 1 */
+/* end section 1 */
+/* end section 1 */
+
+
