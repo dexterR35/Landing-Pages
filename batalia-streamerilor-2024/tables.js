@@ -69,13 +69,13 @@ const dummyUserData = [
     const tableHtml = `<tr class="parent-table">
      <td class="parent-position ps">#${streamer.ranking}</td>
      <td>
-     <div class="d-flex align-items-center parent-avatar">
+     <div class="d-flex-start flex-row parent-avatar">
          <div class="avatar-table avatar-blue">
-             <img src="${imgSrc}" alt="pict_table" class="pict_table">
+             <img src="" alt="pict_table" class="pict_table">
          </div>
          <div class="parent-name">
          <p class="mb-0 ps">${streamer.username} <span class="${streamer.stars > 0 ? 'badge-success' : 'badge-danger'}">${streamer.stars > 0 ? '&#10004' : '&#10006'}</span></p> 
-             <p class="mb-0">Stars: <span style="color:orangered;" >***</span>**</p>
+             <p class="mb-0">Stars: <span style="color:orangered;">***</span>**</p>
          </div>
      </div>
   </td>
@@ -143,5 +143,63 @@ const dummyUserData = [
   // Call generateTables function on document ready
   $(document).ready(function () {
     generateTables();
+    fetchGames();
   });
   
+
+ async function fetchGames() {
+    try {
+        const response = await fetch('./games.json');
+        const data = await response.json();
+        
+        if (data.status && data.data && data.data.games) {
+            // List of specific game names you want to display (up to 20 games)
+            const selectedGames = [
+              "Gates of Olympus",
+              "Sweet Bonanza",
+              "The Dog House",
+              "Wolf Gold",
+              "Big Bass Bonanza",
+              "Spartan King",
+              "Madame Destiny Megaways",
+              "Great Rhino Megaways",
+              "Wild West Gold",
+              "Power of Thor Megaways",
+              "Buffalo King Megaways",
+              "Hot Fiesta",
+              "Chilli Heat",
+              "Aztec Gems",
+              "Curse of the Werewolf Megaways",
+       
+                // Add more game names here...
+            ];
+
+            // Filter games by provider PragmaticPlay and specific game names
+            const pragmaticPlayGames = data.data.games.filter(game => 
+                game.provider === "pragmaticplay" && selectedGames.includes(game.name)
+            );
+
+            // Display games
+            const gamesContainer = document.getElementById('games-container');
+            pragmaticPlayGames.forEach(game => {
+                // Fix image URL by subtracting 1 from the game ID
+                const fixedImageUrl = game.image_url.replace(game.id, game.id - 1);
+                const gameElement = document.createElement('div');
+                gameElement.classList.add("games")
+                gameElement.innerHTML = `
+                    <a href="${game.game_url}" target="_blank">
+                        <img src="${fixedImageUrl}" alt="${game.name}">
+                    </a>
+               
+                `;
+                gamesContainer.appendChild(gameElement);
+            });
+        } else {
+            console.log('No games found or API returned an error');
+        }
+    } catch (error) {
+        console.error('Error fetching games:', error);
+    }
+}
+
+// Call the function to fetch and display the games

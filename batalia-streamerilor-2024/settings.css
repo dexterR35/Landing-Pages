@@ -1,9 +1,14 @@
 .carousel {
   width: 100%;
   height: auto;
+  position: absolute;
+  bottom: 0%;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  /* background: #4d67c21f; */
 }
 .blaze-track > * {
-  min-height: 300px;
+  min-height: 60%;
+  /* background-color: rgba(128, 128, 128, 0.055); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,37 +16,32 @@
   font-size: 30px;
   border-radius: 6px;
   color: white;
+  /* border: 2px solid black; */
 }
-
-/* .blaze-pagination {
-  padding: 10px;
+.blaze-track div {
+ transform:scale(0.8);
+}
+.blaze-track div a {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
 }
 
-.blaze-pagination button {
-  font-size: 0;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  outline: none;
-  border: none;
-  background: hsl(0deg, 0%, 15%);
-  cursor: pointer;
-  transition: transform 200ms ease, background-color 300ms ease;
-} */
+.blaze-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
-/* .blaze-pagination button.active {
-  background: white;
-  transform: scale(1.3);
-} */
+.blaze-track {
+  will-change: transform;
+  touch-action: pan-y;
+  display: flex;
+  gap: 0;
+  --slide-width: calc((100% -(var(--slides-to-show) - 1)* var(--slide-gap)) / var(--slides-to-show));
+  box-sizing: border-box;
 
-/* .blaze-slider.start .blaze-prev,
-.blaze-slider.end .blaze-next {
-  opacity: 0.5;
-  cursor: not-allowed;
-} */
+}
 
 .container-table {
   display: flex;
@@ -49,12 +49,32 @@
   align-items: center;
   flex-direction: row;
 }
+
+
+@media screen and (max-width:768px) {
+  .container-table {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .blaze-track img {
+    width: 95%;
+    height: 95%;
+  }
+}
+
 .table-responsive {
   width: 50%;
   max-width: 90%;
-  /* margin: 0 auto; */
   border: 2px solid black;
   border-radius: 10px;
+  padding: 10px;
+}
+
+@media (orientation:portrait) {
+  .table-responsive {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 #usersTable tbody .parent-table {
@@ -121,6 +141,7 @@ div.dataTables_wrapper div.dataTables_paginate {
   font-weight: bold;
   text-transform: capitalize;
 }
+
 #usersTable .parent-table > td {
   padding: 4.1px;
 }
@@ -132,10 +153,3 @@ div.dataTables_wrapper div.dataTables_paginate {
   line-height: 1.2;
 }
 
-
-
-.blaze-track img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}

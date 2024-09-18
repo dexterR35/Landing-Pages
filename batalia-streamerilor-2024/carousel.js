@@ -30,6 +30,41 @@ document.addEventListener('DOMContentLoaded', () => {
         alt: 'Landscape Image', 
         link: 'https://example.com/landscape' 
       },
+      { 
+        src: './assets/test.png', 
+        alt: 'Nature Image', 
+        link: 'https://example.com/nature' 
+      },
+      { 
+        src: './assets/test.png', 
+        alt: 'City Image', 
+        link: 'https://example.com/city' 
+      },
+      { 
+        src: './assets/test.png', 
+        alt: 'Water Image', 
+        link: 'https://example.com/water' 
+      },
+      { 
+        src: './assets/test.png', 
+        alt: 'Forest Image', 
+        link: 'https://example.com/forest' 
+      },
+      { 
+        src: './assets/test.png',  
+        alt: 'Architecture Image', 
+        link: 'https://example.com/architecture' 
+      },
+      { 
+        src: './assets/test.png', 
+        alt: 'Landscape Image', 
+        link: 'https://example.com/landscape' 
+      },
+      { 
+        src: './assets/test.png', 
+        alt: 'Landscape Image', 
+        link: 'https://example.com/landscape' 
+      }
     ];
   
     const blazeTrack = document.querySelector('.blaze-track');
@@ -59,12 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     // Initialize BlazeSlider after dynamically adding slides
+
     new BlazeSlider(document.querySelector('.blaze-slider'), {
       all: {
         enableAutoplay: true,
         autoplayInterval: 1800,
         transitionDuration: 500,
-        slidesToShow: 5,
+        slidesToShow: 10,
       },
       '(max-width: 900px)': {
         slidesToShow: 3,
@@ -73,4 +109,9 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesToShow: 2,
       },
     });
+
+    
+
+    // Initialize BlazeSlider after dynamically adding slides
+
   });

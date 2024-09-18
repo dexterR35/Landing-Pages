@@ -12,27 +12,67 @@ html {
 }
 
 :root {
-  --bg-desktop: url(./assets/bg-desktop.webp);
+  --bg-desktop: url(./assets/integrat.webp);
   --bg-mobile: "";
-
   --cta_color: "";
-
-
-    --__sport: rgb(100, 176, 0);
-    --__casino: transparent linear-gradient(312deg, #1F71AD 0%, #00C0FA 100%) 0% 0% no-repeat padding-box;
-    --__sport_hover: linear-gradient(135deg, #90e000, #64b000);
-    --button_color: linear-gradient(to right, #ff1c26, #a81c1f);
-    --button_color-hover: linear-gradient(to left, #ff1c26, #a81c1f);
-    --color_blue: #c5e6ff;
-    --color_red: #ff0000;
-    --color_white: #fff;
-    --color_softGray: #bfbfbf;
-    --header_color: #141C33;
-    --footer_color: #010718;
-    --textShadowFull: var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 5px, var(--textShadow) 0px 0px 16px;
-    --textShadow: #ff0000;
-    --textShadowSmooth: var(--textShadow) 0px 0px 0px, var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 2px, var(--textShadow) 0px 0px 6px;
+  --__sport: rgb(100, 176, 0);
+  --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
+    0% no-repeat padding-box;
+  --__sport_hover: linear-gradient(135deg, #90e000, #64b000);
+  --button_color: linear-gradient(to right, #ff1c26, #a81c1f);
+  --button_color-hover: linear-gradient(to left, #ff1c26, #a81c1f);
+  --color_blue: #c5e6ff;
+  --color_red: #ff0000;
+  --color_white: #fff;
+  --color_softGray: #bfbfbf;
+  --header_color: #141c33;
+  --footer_color: #010718;
+  --textShadowFull: var(--textShadow) 0px 0px 10px,
+    var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 5px,
+    var(--textShadow) 0px 0px 16px;
+  --textShadow: #ff0000;
+  --textShadowSmooth: var(--textShadow) 0px 0px 0px,
+    var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 2px,
+    var(--textShadow) 0px 0px 6px;
 }
+
+
+@font-face {
+  font-family: 'montBlack';
+  src: url('./fonts/montserrat-black-webfont.woff2') format('woff2'),
+       url('./fonts/montserrat-black-webfont.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'montBold';
+  src: url('./fonts/montserrat-bold-webfont.woff2') format('woff2'),
+       url('./fonts/montserrat-bold-webfont.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'montSemiBold';
+  src: url('./fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+       url('./fonts/montserrat-semibold-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'montRegular';
+  src: url('./fonts/montserrat-regular-webfont.woff2') format('woff2'),
+       url('./fonts/montserrat-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 a {
   text-decoration: none;
@@ -45,23 +85,51 @@ li {
 h2 {
   font-size: 1.2em;
   text-align: center;
-  margin: 30px 0;
+  margin: 10px 0;
+}
+button {
+  padding: 1em;
+  border-radius: 7px;
+border: none;
+outline: none;
+background: var(--button_color);
+color: white;
+font-family: 'montBold';
+text-transform: uppercase;
+font-size: 1em;
+  cursor: pointer;
+}
+/* settings */
+/* settings */
+/* settings */
+.d-flex-center,
+.d-flex-start {
+  display: flex;
+  align-items: center;
 }
 
-/* settings */
-/* settings */
-/* settings */
-
 .d-flex-center {
-  display: flex;
   justify-content: center;
-  align-items: center;
+}
+
+.d-flex-start {
+  justify-content: start;
+}
+.flex-stretch {
+  align-items: stretch !important;
 }
 
 .flex-row {
   flex-direction: row;
 }
-
+@media (orientation: portrait) and (max-width: 991px) {
+  .m-flex-col {
+    flex-direction: column;
+  }
+  .m-flex-row {
+    flex-direction: row;
+  }
+}
 .flex-col {
   flex-direction: column;
 }
@@ -72,23 +140,24 @@ h2 {
 }
 
 .max-w-1600 {
-  max-width: 1400;
+  max-width: 1600px;
   margin: 0 auto;
 }
-
+.h-screen,
+.h-full,
+.h-half {
+  width: 100%;
+}
 .h-screen {
   height: 100vh;
-  width: 100%;
 }
 
 .h-full {
-  width: 100%;
   height: 100%;
 }
 
 .h-half {
   height: 50%;
-  width: 100%;
 }
 
 .gray {
@@ -102,6 +171,8 @@ h2 {
 .green {
   background: green;
 }
+
+
 
 /* end settings */
 /* end settings */
@@ -117,17 +188,51 @@ h2 {
   padding: 22px;
 }
 
-.section {
-  width: 100%;
-  height: 100%;
-  border: 2px solid red;
+
+.section.s1 {
+  overflow-x: hidden;
 }
 
-.section:nth-child(1), .section:nth-child(2), .section:nth-child(3) {
+.section,
+footer,
+.left-side,
+.right-side {
+  width: 100%;
+  height: 100%;
+}
+.main-section {
+  width: 100%;
+  height: 100%;
+}
+.section:not(.section.s1),
+footer {
+  /* border: 2px solid red; */
+  padding: 15px;
+}
+
+.section:nth-child(1)
+ {
   height: 100vh;
 }
 
+.section.s2 , .section.s3, footer{
+  margin: 1.5em 0;
+}
+@media (orientation: portrait) {
+  .section:nth-child(3) {
+    height: 100%;
+  }
+}
 
+body {
+  background: rgb(19, 42, 105);
+  background: radial-gradient(
+    circle,
+    rgba(19, 42, 105, 1) 0%,
+    rgba(16, 23, 70, 1) 50%,
+    rgba(8, 14, 33, 1) 100%
+  );
+}
 
 /* end sections */
 /* end sections */
@@ -138,7 +243,6 @@ h2 {
 /* terms css */
 
 .tc ul li {
-
 }
 
 .tc p b {
@@ -148,7 +252,6 @@ h2 {
 .tc li b span {
   color: red;
 }
-
 
 footer {
   background: var(--header_color);
@@ -161,10 +264,10 @@ footer {
 
 .terms-container h2 {
   text-align: center;
-  margin: 25px 0;
+  margin: 20px 0;
 }
 .tc p b {
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 .tc ul li {
@@ -176,10 +279,6 @@ footer {
 /* terms css */
 /* terms css */
 
-
-
-
-
 /* section1 */
 /* section1 */
 /* section1 */
@@ -189,9 +288,9 @@ footer {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  justify-content: start;
+  align-items: start;
 }
-
-
 
 /* Offer */
 /* Offer */
@@ -203,21 +302,145 @@ footer {
   color: white;
 }
 
+.offer {
+  font-size: 2.7vh;
+  text-align: center;
+}
+
+.line-0 {
+  font-size: 2.45em;
+  text-align: center;
+  width: 100%;
+  text-shadow: var(--textShadowFull);
+  color: var(--color_white);
+}
+
+.line-0,
+.line-4,
+.line-6 .bottom {
+  font-family: 'montBlack';
+}
+
+.line-1,
+.line-2 {
+  font-family: 'montBold';
+}
+
+.line-1 {
+  font-size: 2.24em;
+  margin-top: -0.05em;
+  color: var(--color_white);
+  text-shadow: var(--textShadowFull);
+}
+
+.line-2 {
+  font-size: 1.6em;
+  color: var(--color_white);
+  color: var(--color_blue);
+  margin-top: -0.3em;
+}
+
+.line-4 {
+  font-size: 3.9em;
+  margin-top: -0.15em;
+  text-shadow: var(--textShadowFull);
+  color: var(--color_white);
+}
+
+.line-3 {
+  color: var(--color_white);
+  font-size: 1.65em;
+  margin-top: -0.3em;
+
+}
 
 
+.container-s2 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+}
 
+@media (orientation: portrait) {
+  .container-s2 {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+}
 
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.2em;
+  place-items: center;
+  margin: 0;
+}
+
+.games-container div a img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.games-container .games {
+  width: 90% !important;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.games-container .info-games {
+  padding: 5px 0;
+}
+
+.games-container .info-games p:nth-child(1) {
+  font-size: 10px;
+}
+.games-container .info-games p:nth-child(2) {
+  font-size: 14px;
+}
 
 /* end Offer */
 /* end Offer */
 /* end Offer */
-
-
-
-
 
 /* end section 1 */
 /* end section 1 */
 /* end section 1 */
 
 
+.main-section .left-side  img {
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
+}
+
+main {
+  overflow-x: hidden;
+}
+.section.s1 {
+  position: relative;
+}
+
+.section.s2 {
+  background: white;
+}
+.section.s3 {
+  /* color: white; */
+  background: white;
+}
+
+
+.pragmatic-logo {
+  position: absolute;
+  top: 13%;
+  left: 52%;
+  width: 12%;
+  height: auto;
+  object-fit: contain;
+}

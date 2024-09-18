@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="./settings.css">
-    <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./settings.css">
+  <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+  <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
     integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
@@ -25,8 +25,6 @@
     integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" /> -->
-
-
   <title>batalia 2024</title>
 
 
@@ -35,52 +33,79 @@
 <body>
   <main>
     <section class="section s1 d-flex-center flex-col" style="overflow-x: hidden;" id="section1">
-      <h2>First Page</h2>
-      <div class="offer h-full">INFO</div>
-      <div class="carousel" >
+      <div class="main-section d-flex-center flex-row m-flex-col">
+        <div class="left-side d-flex-center"></div>
+        <div class="right-side d-flex-center">
+          <div class="offer h-full">
+            <img src="./assets/pragmatic.png" class="pragmatic-logo" alt="pragm">
+            <div class="offer-html">
+              <div class="offer-content">
+                <div class="line-0">250 RUNDE</div>
+                <div class="line-4">GRATIS</div>
+                <div class="line-2">SHINING CROWN</div>
+              </div>
+            </div>
+            <button>button,optin etc</button>
+          </div>
+        </div>
+      </div>
+      <div class="carousel">
         <div class="blaze-slider">
           <div class="blaze-container">
             <div class="blaze-track-container">
-              <div class="blaze-track"><!-- sliders js --></div>  
+              <div class="blaze-track"><!-- sliders js --></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section s2 max-w-1400" id="section2">
+    <section class="section s2" id="section2">
       <h2>INformation Games</h2>
+      <div class="container-s2 max-w-1600 h-full">
+        <div class="left-side">
+          <div class="games-container" id="games-container"></div>
+        </div>
+        <div class="right-side d-flex-center flex-col">
+          <div class="text-games">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque exercitationem neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor recusandae dolores tenetur.</div>
+          <button>button games</button>
+        </div>
+      </div>
+
     </section>
     <section class="section s3" id="section3">
-      <h2>Tables</h2>
-      <div class="container-table">
-        <div class="table-responsive">
-          <h2 class="text-center">Clasament Streameri</h2>
-          <table id="streamersTable" style="background: red; width: 100%;">
-            <thead class="table-dark">
-              <tr>
-                <th>#</th>
-                <th>Streamer</th>
-                <th>PCTs</th>
-              </tr>
-            </thead>
-            <tbody class="table-body" id="bodyStreamer"></tbody>
-            <tfoot class="table-dark">test</tfoot>
-          </table>
+      <div class="container-s3 max-w-1600 h-full d-flex-center flex-stretch flex-col">
+        <h2>Tables</h2>
+        <div class="container-table">
+          <div class="table-responsive">
+            <h2 class="text-center">Clasament Streameri</h2>
+            <table id="streamersTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Streamer</th>
+                  <th>PCTs</th>
+                </tr>
+              </thead>
+              <tbody class="table-body" id="bodyStreamer"></tbody>
+              <tfoot>test</tfoot>
+            </table>
+          </div>
+          <div class="table-responsive">
+            <h2 class="text-center">Clasament Jucători</h2>
+            <table id="usersTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>nume</th>
+                  <th>pct</th>
+                </tr>
+              </thead>
+              <tbody class="table-body" id="bodyUser"></tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+
         </div>
-        <div class="table-responsive">
-          <h2 class="text-center">Clasament Jucători</h2>
-          <table id="usersTable">
-            <thead class="table-dark">
-              <tr>
-                <th>#</th>
-                <th>nume</th>
-                <th>pct</th>
-              </tr>
-            </thead>
-            <tbody class="table-body" id="bodyUser"></tbody>
-            <tfoot class="table-dark"></tfoot>
-          </table>
-        </div>
- 
       </div>
     </section>
   </main>
@@ -318,7 +343,7 @@
             orice motiv.
           </li>
         </ul>
-  
+
 
 
         <style>
@@ -370,7 +395,7 @@
       </div>
     </div>
   </footer>
-<script src="./tables.js"></script>
+  <script src="./tables.js"></script>
   <script src="./carousel.js"></script>
 </body>
 

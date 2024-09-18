@@ -684,6 +684,7 @@ function getCookie(name) {
       gameImagesContainer.append(link);
     });
   }
+  
   generateGames(gamesArray);
   // Options for the "streamersTable"
 
