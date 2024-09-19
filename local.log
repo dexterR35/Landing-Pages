@@ -4,10 +4,10 @@
  will not be shown, you would have to be root to see it all.)
 (Not all processes could be identified, non-owned process info
  will not be shown, you would have to be root to see it all.)
-Thu Sep 12 2024 17:33:22:676 GMT+0300 (EEST) -- Starting configuration console on http://localhost:45454
-Thu Sep 12 2024 17:33:23:264 GMT+0300 (EEST) -- [INFO] Started the BrowserStack Binary server on 45691, PID: 1900868
-Thu Sep 12 2024 17:33:23:470 GMT+0300 (EEST) -- [SUCCESS] You can now access your local server(s) in our remote browser
+Thu Sep 19 2024 14:36:56:249 GMT+0300 (EEST) -- Starting configuration console on http://localhost:45454
+Thu Sep 19 2024 14:36:56:732 GMT+0300 (EEST) -- [INFO] Started the BrowserStack Binary server on 45691, PID: 3118355
+Thu Sep 19 2024 14:36:56:933 GMT+0300 (EEST) -- [SUCCESS] You can now access your local server(s) in our remote browser
 
-Thu Sep 12 2024 17:33:23:625 GMT+0300 (EEST) -- Press Ctrl-C to exit
+Thu Sep 19 2024 14:36:57:119 GMT+0300 (EEST) -- Press Ctrl-C to exit
 
 

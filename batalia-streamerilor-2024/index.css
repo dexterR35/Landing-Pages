@@ -8,12 +8,17 @@
 
 body,
 html {
-  font-family: sans-serif;
+  font-family: "montSemiBold";
+  height: 100%;
+  scroll-behavior: smooth; /* Enable smooth scrolling for anchor links */
+  overflow-x: hidden;
+  background: white;
 }
 
 :root {
   --bg-desktop: url(./assets/integrat.webp);
-  --bg-mobile: "";
+
+  --bg-mobile: url(./assets/stero3_mob.webp);
   --cta_color: "";
   --__sport: rgb(100, 176, 0);
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
@@ -36,43 +41,41 @@ html {
     var(--textShadow) 0px 0px 6px;
 }
 
-
 @font-face {
-  font-family: 'montBlack';
-  src: url('./fonts/montserrat-black-webfont.woff2') format('woff2'),
-       url('./fonts/montserrat-black-webfont.woff') format('woff');
+  font-family: "montBlack";
+  src: url("./fonts/montserrat-black-webfont.woff2") format("woff2"),
+    url("./fonts/montserrat-black-webfont.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'montBold';
-  src: url('./fonts/montserrat-bold-webfont.woff2') format('woff2'),
-       url('./fonts/montserrat-bold-webfont.woff') format('woff');
+  font-family: "montBold";
+  src: url("./fonts/montserrat-bold-webfont.woff2") format("woff2"),
+    url("./fonts/montserrat-bold-webfont.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'montSemiBold';
-  src: url('./fonts/montserrat-semibold-webfont.woff2') format('woff2'),
-       url('./fonts/montserrat-semibold-webfont.woff') format('woff');
+  font-family: "montSemiBold";
+  src: url("./fonts/montserrat-semibold-webfont.woff2") format("woff2"),
+    url("./fonts/montserrat-semibold-webfont.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'montRegular';
-  src: url('./fonts/montserrat-regular-webfont.woff2') format('woff2'),
-       url('./fonts/montserrat-regular-webfont.woff') format('woff');
+  font-family: "montRegular";
+  src: url("./fonts/montserrat-regular-webfont.woff2") format("woff2"),
+    url("./fonts/montserrat-regular-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
 
 a {
   text-decoration: none;
@@ -87,18 +90,7 @@ h2 {
   text-align: center;
   margin: 10px 0;
 }
-button {
-  padding: 1em;
-  border-radius: 7px;
-border: none;
-outline: none;
-background: var(--button_color);
-color: white;
-font-family: 'montBold';
-text-transform: uppercase;
-font-size: 1em;
-  cursor: pointer;
-}
+
 /* settings */
 /* settings */
 /* settings */
@@ -172,26 +164,24 @@ font-size: 1em;
   background: green;
 }
 
-
-
+body {
+  background: rgb(19, 42, 105);
+  background: radial-gradient(
+    circle,
+    rgba(19, 42, 105, 1) 0%,
+    rgba(16, 23, 70, 1) 50%,
+    rgba(8, 14, 33, 1) 100%
+  );
+}
 /* end settings */
 /* end settings */
 /* end settings */
 
 /* --------------- */
 
-/* sections */
-/* sections */
-/* sections */
-
-.main {
-  padding: 22px;
-}
-
-
-.section.s1 {
-  overflow-x: hidden;
-}
+/* GENERAL */
+/* GENERAL */
+/* GENERAL */
 
 .section,
 footer,
@@ -210,12 +200,22 @@ footer {
   padding: 15px;
 }
 
-.section:nth-child(1)
- {
+.main {
+  padding: 22px;
+  overflow-x: hidden;
+}
+
+.section.s1 {
+  overflow-x: hidden;
+}
+
+.section:nth-child(1) {
   height: 100vh;
 }
 
-.section.s2 , .section.s3, footer{
+.section.s2,
+.section.s3,
+footer {
   margin: 1.5em 0;
 }
 @media (orientation: portrait) {
@@ -224,60 +224,56 @@ footer {
   }
 }
 
-body {
-  background: rgb(19, 42, 105);
-  background: radial-gradient(
-    circle,
-    rgba(19, 42, 105, 1) 0%,
-    rgba(16, 23, 70, 1) 50%,
-    rgba(8, 14, 33, 1) 100%
-  );
+.main-section .left-side img {
+  width: 80%;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* end sections */
-/* end sections */
-/* end sections */
-
-/* terms css */
-/* terms css */
-/* terms css */
-
-.tc ul li {
+button {
+  padding: 1em;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+  background: var(--button_color);
+  color: white;
+  font-family: "montBold";
+  text-transform: uppercase;
+  font-size: 1em;
+  cursor: pointer;
 }
 
-.tc p b {
-  font-size: 1.2em;
+.section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.tc li b span {
-  color: red;
+.section.visible,
+footer.visible {
+  opacity: 1;
 }
 
-footer {
-  background: var(--header_color);
+.container-text {
+  margin-bottom: 4em;
 }
-
-.terms-container {
-  background: white;
-  padding: 20px;
+.section h2 {
+  font-size: 2em;
 }
-
-.terms-container h2 {
+.section_title {
+  font-size: 1.4em;
+  width: 70%;
   text-align: center;
-  margin: 20px 0;
-}
-.tc p b {
-  font-size: 1.2em;
+  margin: 0 auto;
 }
 
-.tc ul li {
-  font-size: 16px;
-  margin: 5px 0;
-}
-
-/* terms css */
-/* terms css */
-/* terms css */
+/* END GENERAL */
+/* END GENERAL */
+/* END GENERAL */
 
 /* section1 */
 /* section1 */
@@ -290,6 +286,12 @@ footer {
   background-repeat: no-repeat;
   justify-content: start;
   align-items: start;
+}
+
+@media (max-width: 991px) {
+  .section.s1 {
+    background-image: var(--bg-mobile);
+  }
 }
 
 /* Offer */
@@ -318,12 +320,12 @@ footer {
 .line-0,
 .line-4,
 .line-6 .bottom {
-  font-family: 'montBlack';
+  font-family: "montBlack";
 }
 
 .line-1,
 .line-2 {
-  font-family: 'montBold';
+  font-family: "montBold";
 }
 
 .line-1 {
@@ -351,7 +353,51 @@ footer {
   color: var(--color_white);
   font-size: 1.65em;
   margin-top: -0.3em;
+}
 
+
+@media (orientation: portrait) {
+  .container-s2 {
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+}
+
+/* end Offer */
+/* end Offer */
+/* end Offer */
+
+.section.s1 {
+  position: relative;
+}
+
+/* end section 1 */
+/* end section 1 */
+/* end section 1 */
+
+.pragmatic-logo {
+  position: absolute;
+  top: 13%;
+  left: 52%;
+  width: 12%;
+  height: auto;
+  object-fit: contain;
+}
+
+.section.s2 {
+  background-color: #ffffff;
+}
+
+/* section2  */
+/* section2  */
+/* section2  */
+
+.section.s2 {
+  background: white;
+  justify-content: space-around;
+  min-height: 100%;
+  padding: 5em 15px !important;
 }
 
 
@@ -362,31 +408,37 @@ footer {
   justify-content: center;
 }
 
-@media (orientation: portrait) {
-  .container-s2 {
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-  }
+.container-s2 .right-side {
+  max-width: 70%;
+  padding: 0 20px;
+  width: 70%;
 }
 
+.container-s2 .right-side .text-games {
+  margin-bottom: 1em;
+}
+
+/* end section2 */
+/* end section2 */
+/* end section2 */
+
+/* section 3 */
+/* section 3 */
+/* section 3 */
+.section.s3 {
+  background-color: #f0f0f0;
+}
 .games-container {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 0.2em;
+  gap: 0.3em;
   place-items: center;
-  margin: 0;
+  margin: 0 auto;
 }
 
-.games-container div a img {
+.games-container .game {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-.games-container .games {
-  width: 90% !important;
+  position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -394,53 +446,119 @@ footer {
   flex-direction: column;
 }
 
-.games-container .info-games {
-  padding: 5px 0;
+.games-container .game a {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.games-container .info-games p:nth-child(1) {
-  font-size: 10px;
-}
-.games-container .info-games p:nth-child(2) {
-  font-size: 14px;
-}
-
-/* end Offer */
-/* end Offer */
-/* end Offer */
-
-/* end section 1 */
-/* end section 1 */
-/* end section 1 */
-
-
-.main-section .left-side  img {
-  width: 80%;
+.games-container .game img {
+  width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-main {
-  overflow-x: hidden;
-}
-.section.s1 {
-  position: relative;
+.games-container .game:hover img {
+  filter: grayscale(100%);
+  transform: scale(1.02);
 }
 
-.section.s2 {
-  background: white;
-}
-.section.s3 {
-  /* color: white; */
-  background: white;
-}
-
-
-.pragmatic-logo {
+.games-container .hover-overlay {
   position: absolute;
-  top: 13%;
-  left: 52%;
-  width: 12%;
-  height: auto;
-  object-fit: contain;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background:#071754c9;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  transition: bottom 0.5s ease;
+  font-size: 16px;
+  pointer-events: none; 
+  font-family: "montRegular";
 }
+
+.games-container .game:hover .hover-overlay {
+  bottom: 0; 
+}
+
+
+/* end section 3 */
+/* end section 3 */
+/* end section 3 */
+
+/* footer */
+/* footer */
+/* footer */
+footer {
+  background: var(--header_color);
+  padding: 20px;
+  color: var(--color_white);
+  text-align: center;
+  scroll-snap-align: start;
+  position: relative;
+  color: black;
+}
+
+/* terms css */
+/* terms css */
+/* terms css */
+
+.tc ul li {
+}
+
+.tc p b {
+  font-size: 1.2em;
+}
+
+.tc li b span {
+  color: red;
+}
+
+footer {
+  opacity: 1;
+  background: var(--header_color);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.terms-container {
+  background: white;
+  padding: 20px;
+}
+
+.terms-container h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+.tc p b {
+  font-size: 1.2em;
+}
+
+.tc ul li {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+#scrollToTop {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1f71ad;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  position: absolute;
+}
+
+#scrollToTop:hover {
+  background-color: #145a8a;
+}
+
+/* terms css */
+/* terms css */
+/* terms css */
+
+/* end Footer */
+/* end Footer */
+/* end Footer */

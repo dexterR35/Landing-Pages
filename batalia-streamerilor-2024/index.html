@@ -25,13 +25,15 @@
     integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" /> -->
+
   <title>batalia 2024</title>
 
 
 </head>
 
 <body>
-  <main>
+  <!-- <header>bara</header> -->
+  <main class="panelWrap">
     <section class="section s1 d-flex-center flex-col" style="overflow-x: hidden;" id="section1">
       <div class="main-section d-flex-center flex-row m-flex-col">
         <div class="left-side d-flex-center"></div>
@@ -59,22 +61,34 @@
         </div>
       </div>
     </section>
-    <section class="section s2" id="section2">
-      <h2>INformation Games</h2>
+    <section class="section s2 d-flex-start flex-col" id="section2">
+      <div class="container-text">
+        <h2>INformation Games</h2>
+        <p class="section_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe maxime
+          incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
+
+      </div>
       <div class="container-s2 max-w-1600 h-full">
         <div class="left-side">
           <div class="games-container" id="games-container"></div>
         </div>
         <div class="right-side d-flex-center flex-col">
-          <div class="text-games">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque exercitationem neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor recusandae dolores tenetur.</div>
+          <div class="text-games">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque exercitationem
+            neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam
+            voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor
+            recusandae dolores tenetur.</div>
           <button>button games</button>
+          <img src="./assets/pragmatic.png" alt="logo">
         </div>
       </div>
-
     </section>
     <section class="section s3" id="section3">
       <div class="container-s3 max-w-1600 h-full d-flex-center flex-stretch flex-col">
-        <h2>Tables</h2>
+        <div class="container-text">
+          <h2>INformation Games</h2>
+          <p class="section_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe
+            maxime incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
+        </div>
         <div class="container-table">
           <div class="table-responsive">
             <h2 class="text-center">Clasament Streameri</h2>
@@ -110,8 +124,13 @@
     </section>
   </main>
   <footer>
+    <div id="scrollToTop">push</div>
     <div class="terms-container max-w-1400">
-      <h2 class="">TERMENI ȘI CONDIȚII</h2>
+      <div class="container-text">
+        <h2>tc</h2>
+        <p class="section_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe maxime
+          incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
+      </div>
 
       <div id="termsAndConditionsS" class="hidden tc">
         <p><b>Cine este eligibil?</b></p>
@@ -393,14 +412,11 @@
         <p>&copy; @2024 Netbet. All rights reserved.</p>
         <hr />
       </div>
+
     </div>
   </footer>
   <script src="./tables.js"></script>
   <script src="./carousel.js"></script>
 </body>
-
-
-
-
 
 </html>

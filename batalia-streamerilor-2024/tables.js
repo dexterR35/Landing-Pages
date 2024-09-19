@@ -143,56 +143,71 @@ const dummyUserData = [
   // Call generateTables function on document ready
   $(document).ready(function () {
     generateTables();
-    fetchGames();
+ 
   });
   
 
- async function fetchGames() {
+  async function fetchGames() {
     try {
         const response = await fetch('./games.json');
         const data = await response.json();
-        
+
         if (data.status && data.data && data.data.games) {
-            // List of specific game names you want to display (up to 20 games)
             const selectedGames = [
-              "Gates of Olympus",
-              "Sweet Bonanza",
-              "The Dog House",
-              "Wolf Gold",
-              "Big Bass Bonanza",
-              "Spartan King",
-              "Madame Destiny Megaways",
-              "Great Rhino Megaways",
-              "Wild West Gold",
-              "Power of Thor Megaways",
-              "Buffalo King Megaways",
-              "Hot Fiesta",
-              "Chilli Heat",
-              "Aztec Gems",
-              "Curse of the Werewolf Megaways",
-       
-                // Add more game names here...
+                "Gates osasaf Olympus2",
+                "Sweet Bonanza",
+                "The Dog House",
+                "Wolf Gold",
+                "Big Bass Bonanza",
+                "Spartan King",
+                "Madame Destiny Megaways",
+                "Great Rhino Megaways",
+                "Wild West Gold",
+                "Power of Thor Megaways",
+                "Buffalo King Megaways",
+                "Hot Fiesta",
+                "Chilli Heat",
+                "Aztec Gems",
+                "Curse of the Werewolf Megaways",
+                "Money Train 2",
+                "Deadwood",
+                "John Hunter and the Tomb of the Scarab Queen",
+                "Release the Kraken",
+                "Starz Megaways",
+                "Book of Tut",
+                "Wild Walker",
+                "Pirate Gold",
+                "Gates of Olympus",
+                "Wisdom of Athena",
             ];
 
-            // Filter games by provider PragmaticPlay and specific game names
             const pragmaticPlayGames = data.data.games.filter(game => 
                 game.provider === "pragmaticplay" && selectedGames.includes(game.name)
             );
 
-            // Display games
+            const limitedGames = pragmaticPlayGames.slice(0, 21);
+
             const gamesContainer = document.getElementById('games-container');
-            pragmaticPlayGames.forEach(game => {
-                // Fix image URL by subtracting 1 from the game ID
-                const fixedImageUrl = game.image_url.replace(game.id, game.id - 1);
-                const gameElement = document.createElement('div');
-                gameElement.classList.add("games")
-                gameElement.innerHTML = `
-                    <a href="${game.game_url}" target="_blank">
-                        <img src="${fixedImageUrl}" alt="${game.name}">
-                    </a>
-               
-                `;
-                gamesContainer.appendChild(gameElement);
+            if (!gamesContainer) {
+                console.error('Element with ID "games-container" not found.');
+                return;
+            }
+
+            limitedGames.forEach(game => {
+                const fixedImageUrl = game.image_url ? game.image_url.replace(game.id, game.id - 1) : '';
+                if (fixedImageUrl && game.game_url) {
+                    const gameElement = document.createElement('div');
+                    gameElement.classList.add("game");
+                    gameElement.innerHTML = `
+                        <a href="${game.game_url}" target="_blank">
+                            <img src="${fixedImageUrl}" alt="${game.name}">
+                        </a>
+                        <div class="hover-overlay">${game.name}</div> <!-- Add hover overlay -->
+                    `;
+                    gamesContainer.appendChild(gameElement);
+                } else {
+                    console.warn(`Missing URL for game: ${game.name}`);
+                }
             });
         } else {
             console.log('No games found or API returned an error');
@@ -201,5 +216,8 @@ const dummyUserData = [
         console.error('Error fetching games:', error);
     }
 }
+
+fetchGames();
+
 
 // Call the function to fetch and display the games
