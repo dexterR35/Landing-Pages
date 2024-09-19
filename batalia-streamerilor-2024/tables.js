@@ -199,10 +199,16 @@ const dummyUserData = [
                     const gameElement = document.createElement('div');
                     gameElement.classList.add("game");
                     gameElement.innerHTML = `
+                    <div class="parent-game>
                         <a href="${game.game_url}" target="_blank">
                             <img src="${fixedImageUrl}" alt="${game.name}">
                         </a>
-                        <div class="hover-overlay">${game.name}</div> <!-- Add hover overlay -->
+                        <div class="hover-overlay">Joaca Acum</div> <!-- Add hover overlay -->
+                        <div class="footer-game">
+                        <p>${game.provider}</p>
+                        <p>${game.name}</p>
+                        </div> 
+                      </div>
                     `;
                     gamesContainer.appendChild(gameElement);
                 } else {

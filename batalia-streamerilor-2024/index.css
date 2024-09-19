@@ -17,7 +17,6 @@ html {
 
 :root {
   --bg-desktop: url(./assets/integrat.webp);
-
   --bg-mobile: url(./assets/stero3_mob.webp);
   --cta_color: "";
   --__sport: rgb(100, 176, 0);
@@ -114,6 +113,10 @@ h2 {
 .flex-row {
   flex-direction: row;
 }
+.flex-col {
+  flex-direction: column;
+}
+
 @media (orientation: portrait) and (max-width: 991px) {
   .m-flex-col {
     flex-direction: column;
@@ -392,12 +395,7 @@ footer.visible {
   padding: 5em 15px !important;
 }
 
-.container-s2 {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-}
+
 
 .container-s2 .right-side {
   max-width: 70%;
@@ -421,11 +419,16 @@ footer.visible {
   background-color: #f0f0f0;
 }
 .games-container {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  /* display: grid; */
+  /* grid-template-columns: repeat(7, 1fr); */
   gap: 0.3em;
   place-items: center;
   margin: 0 auto;
+  background: red;
 }
 
 .games-container .game {
@@ -436,6 +439,17 @@ footer.visible {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background: black;
+  min-height: 100px;
+}
+
+
+.games-container .footer-game {
+  background: green;
+  height: 75.5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .games-container .game a {
