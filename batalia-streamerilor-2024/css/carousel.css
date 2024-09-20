@@ -1,0 +1,228 @@
+.carousel:not(:nth-child(1)) {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0%;
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+    /* background: #4d67c21f; */
+  }
+
+  .blaze-track div a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-carousel .blaze-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  
+  /* carousel section2 */
+  /* carousel section2 */
+  /* carousel section2 */
+  
+
+  .blaze-track .game  {
+    /* background-color: green; */
+    max-width: 100%;
+    color: black;
+    background: rgb(70,90,58) ;
+    color: var(--color_white);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .blaze-track .game img {
+    width:100%;
+    height: 100%;
+    object-fit: contain;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+    mask: var(--mask);
+  
+  }
+  
+  .blaze-track .game .footer-game {
+    max-height: 25%;
+    min-height: 100px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 45%);
+  
+    width: 100%;
+  }
+  
+  .blaze-track .game .footer-game p {
+    padding: 3px 10px;
+  }
+  .blaze-track .game .footer-text p:nth-child(1){
+    font-size: 13px;
+  
+  }
+  .blaze-track .game .footer-text p:nth-child(2){
+    font-size: 16px;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+  }
+  .play-overlay{
+    top: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 0.5em;
+    background: rgba(6, 137, 160, 0.685);
+    color: var(--color_white);
+    padding: 10px;
+    border-bottom-left-radius: 10px;
+  
+  }
+  .footer-text {
+    max-height: 45px;
+    height: 100%;
+    /* background: rgb(177, 8, 8); */
+  }
+  .footer-game {
+    background: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+  }
+  
+  /* end carousel section2 */
+  /* end carousel section2 */
+  /* end carousel section2 */
+  
+  
+  
+  
+  
+  .blaze-track > * {
+    min-height: 100%;
+    /* background-color: rgba(128, 128, 128, 0.055); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+    border-radius: 6px;
+    color: white;
+    /* border: 2px solid black; */
+  }
+  .blaze-track div {
+   /* transform:scale(0.8); */
+  }
+  .blaze-track div a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blaze-track img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  /* .blaze-track {
+    will-change: transform;
+    touch-action: pan-y;
+    display: flex;
+    gap: 0;
+    --slide-width: calc((100% -(var(--slides-to-show) - 1)* var(--slide-gap)) / var(--slides-to-show));
+    box-sizing: border-box;
+  
+  }
+   */
+  
+  
+  
+  /* Define the default styles for the carousel */
+#image-carousel .blaze-slider .game,#games-carousel .blaze-slider {
+  --slides-to-show: 7 !important; 
+  --slide-gap: 20px;
+  direction: ltr;
+}
+
+.blaze-container{
+  z-index: 2;
+}
+/* .blaze-container::after{
+  width: 30vh;
+  height: 40vh;
+  background-color: rgba(8, 96, 136, 0.637);
+  filter: blur(3px);
+  border: 2px solid black;
+filter:hue-rotate(25deg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  content: '';
+  z-index: -1;
+} */
+/* Responsive settings */
+.blaze-slider {
+  position: relative;
+}
+
+.blaze-slider .controls {
+  /* background: red; */
+  position: absolute;
+  z-index: 2;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.blaze-slider .controls button {
+  padding: 10px 20px;
+}
+.blaze-slider .controls .blaze-prev {
+  position: relative;
+  left: -5%;
+}
+.blaze-slider .controls .blaze-next {
+  position: relative;
+  left: 5%;
+}
+
+@media (max-width: 900px) {
+  #image-carousel .blaze-slider {
+      --slides-to-show: 3; 
+  }
+}
+
+@media (max-width: 600px) {
+  #image-carousel .blaze-slider {
+      --slides-to-show: 2; 
+  }
+}
+
+/* Similar styles for games carousel */
+#games-carousel .blaze-slider {
+  --slides-to-show: 6;
+  --slide-gap: 20px;
+  direction: ltr;
+}
+
+@media (max-width: 900px) {
+  #games-carousel .blaze-slider {
+      --slides-to-show: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  #games-carousel .blaze-slider {
+      --slides-to-show: 1;
+  }
+}
+  
+  
+  
