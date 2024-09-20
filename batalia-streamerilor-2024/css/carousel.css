@@ -1,151 +1,189 @@
 .carousel:not(:nth-child(1)) {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    bottom: 0%;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-    /* background: #4d67c21f; */
-  }
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0%;
+  /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+  /* background: #4d67c21f; */
+}
 
-  .blaze-track div a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .image-carousel .blaze-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+.blaze-track div a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* carousel section2 */
+/* carousel section2 */
+/* carousel section2 */
+.play-overlay {
+  top: 0;
+  right: 0;
+  z-index: 20;
+  font-size: 0.8em;
+  background: rgba(3, 18, 68, 0.985);
+  color: var(--color_white);
+  padding: 10px;
+  border-bottom-left-radius: 10px;
+  border: 2px solid #1976ed;
+  border-top: 0;
+  border-right: 0;
 
-  
-  /* carousel section2 */
-  /* carousel section2 */
-  /* carousel section2 */
-  
+}
+.blaze-track .game {
+  max-width: 100%;
+  color: black;
+  color: var(--color_white);
+  overflow: hidden;
+  border-radius: 7px;
+}
 
-  .blaze-track .game  {
-    /* background-color: green; */
-    max-width: 100%;
-    color: black;
-    background: rgb(70,90,58) ;
-    color: var(--color_white);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .blaze-track .game img {
-    width:100%;
-    height: 100%;
-    object-fit: contain;
-    -webkit-user-drag: none;
-    user-select: none;
-    pointer-events: none;
-    mask: var(--mask);
-  
-  }
-  
-  .blaze-track .game .footer-game {
-    max-height: 25%;
-    min-height: 100px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 45%);
-  
-    width: 100%;
-  }
-  
-  .blaze-track .game .footer-game p {
-    padding: 3px 10px;
-  }
-  .blaze-track .game .footer-text p:nth-child(1){
-    font-size: 13px;
-  
-  }
-  .blaze-track .game .footer-text p:nth-child(2){
-    font-size: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden; 
-    white-space: nowrap;
-  }
-  .play-overlay{
-    top: 0;
-    right: 0;
-    z-index: 2;
-    font-size: 0.5em;
-    background: rgba(6, 137, 160, 0.685);
-    color: var(--color_white);
-    padding: 10px;
-    border-bottom-left-radius: 10px;
-  
-  }
-  .footer-text {
-    max-height: 45px;
-    height: 100%;
-    /* background: rgb(177, 8, 8); */
-  }
-  .footer-game {
-    background: green;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
-  }
-  
-  /* end carousel section2 */
-  /* end carousel section2 */
-  /* end carousel section2 */
-  
-  
-  
-  
-  
-  .blaze-track > * {
-    min-height: 100%;
-    /* background-color: rgba(128, 128, 128, 0.055); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 30px;
-    border-radius: 6px;
-    color: white;
-    /* border: 2px solid black; */
-  }
-  .blaze-track div {
-   /* transform:scale(0.8); */
-  }
-  .blaze-track div a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .blaze-track img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-  
-  /* .blaze-track {
-    will-change: transform;
-    touch-action: pan-y;
-    display: flex;
-    gap: 0;
-    --slide-width: calc((100% -(var(--slides-to-show) - 1)* var(--slide-gap)) / var(--slides-to-show));
-    box-sizing: border-box;
-  
-  }
-   */
-  
-  
-  
-  /* Define the default styles for the carousel */
-#image-carousel .blaze-slider .game,#games-carousel .blaze-slider {
-  --slides-to-show: 7 !important; 
-  --slide-gap: 20px;
+.blaze-track .game .parent-game {
+  z-index: 2;
+  border-radius: 7px;
+  overflow: hidden;  border: 2px solid #1976ed;
+ 
+}
+
+.blaze-track .game img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  mask: var(--mask);
+}
+
+.blaze-track .game .footer-game {
+  max-height: 25%;
+  min-height: 100px;
+  width: 100%;
+  height: 100%;
+}
+
+.blaze-track .game .footer-game p {
+  padding: 4px 10px;
+
+}
+.blaze-track .game .footer-text p:nth-child(1) {
+  font-size: 13px;
+}
+.blaze-track .game .footer-text p:nth-child(2) {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.blaze-track .game .footer-game .footer-text {
+  max-height: 45px;
+  height: 100%;
+  /* background: red; */
+}
+.footer-game {
+  /* background: green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#image-carousel .blaze-slider .game,
+#games-carousel .blaze-slider {
+  --slides-to-show: 7 !important;
+  --slide-gap: 12px !important;
   direction: ltr;
 }
 
-.blaze-container{
+/* .blaze-track .parent-game::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  position: absolute;
+  width: calc(100% + 2%);
+  height: calc(100% + 2%);
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #03a5b1,  #1976ed, rgb(2, 59, 133),  #f30ec1d9);
+  background-image: conic-gradient(rgba(0,0,0,0), #1976ed,#13ff13, rgba(0,0,0,0) 65%);
+  z-index: 0;
+  width: calc(100% + 100%);
+  height: calc(100% + 100%);
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    #1976ed,
+    rgba(0, 0, 0, 0) 25%
+  );
+
+  animation: rotate 10s ease infinite;
+  animation: glower 10s ease infinite alternate;
+} */
+
+
+.blaze-track div {
+  z-index: 2;
+}
+.blaze-track div a img  {
+  z-index: 10;
+  opacity: 1;
+}
+.blaze-track .game .footer-game {
+  z-index: 6;
+  /* background: rgb(2, 15, 56); */
+
+  /* mask: var(--mask-reverse); */
+}
+.blaze-track .game .footer-game::after {
+  mask: var(--mask-reverse);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  /* background: rgb(4, 76, 94); */
+}
+[data-index="0"] .parent-game .footer-game::after {
+  background: #ae7c3e;
+}
+[data-index="1"] .parent-game .footer-game::after {
+  background: #7f4537;
+}
+[data-index="2"] .parent-game .footer-game::after {
+  background: #1d637a;
+}
+[data-index="3"] .parent-game .footer-game::after {
+  background: #a97a93;
+}
+[data-index="4"] .parent-game .footer-game::after {
+  background: #cba59f;
+}
+
+@keyframes glower {
+  0% {
+    background-position: 0 0;
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  50% {
+    background-position: 200% 0;
+    transform: translate(-50%, -50%) rotate(11turn);
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+@keyframes rotate {
+  100% {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+.blaze-container {
   z-index: 2;
 }
 /* .blaze-container::after{
@@ -168,7 +206,6 @@ filter:hue-rotate(25deg);
 }
 
 .blaze-slider .controls {
-  /* background: red; */
   position: absolute;
   z-index: 2;
   height: fit-content;
@@ -178,7 +215,7 @@ filter:hue-rotate(25deg);
   align-items: center;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
 .blaze-slider .controls button {
@@ -195,13 +232,13 @@ filter:hue-rotate(25deg);
 
 @media (max-width: 900px) {
   #image-carousel .blaze-slider {
-      --slides-to-show: 3; 
+    --slides-to-show: 3;
   }
 }
 
 @media (max-width: 600px) {
   #image-carousel .blaze-slider {
-      --slides-to-show: 2; 
+    --slides-to-show: 2;
   }
 }
 
@@ -214,15 +251,12 @@ filter:hue-rotate(25deg);
 
 @media (max-width: 900px) {
   #games-carousel .blaze-slider {
-      --slides-to-show: 2;
+    --slides-to-show: 2;
   }
 }
 
 @media (max-width: 600px) {
   #games-carousel .blaze-slider {
-      --slides-to-show: 1;
+    --slides-to-show: 1;
   }
 }
-  
-  
-  

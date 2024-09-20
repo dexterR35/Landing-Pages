@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance2) {
         sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
           all: {
-            enableAutoplay: true,
+            enableAutoplay: false,
             autoplayInterval: 2000,
             // transitionDuration: 500,
             transitionTimingFunction: "ease",
