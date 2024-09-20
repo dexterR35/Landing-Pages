@@ -34,11 +34,57 @@
 
 <body>
   <!-- <header>bara</header> -->
+  <!-- <div class="slot-container" id="slot-container"> -->
+
+    <!-- Slots will be generated here -->
+  </div>
+  <style>
+    .slot-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 200;
+      background: var(--footer_color);
+      background-position: center;
+      background-size: cover;
+    }
+
+    .slot {
+      width: 75px;
+      padding: 20px;
+      height: 100px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 7px;
+      border: 1px solid var(--color_white);
+      margin: 0 5px;
+      position: relative;
+    }
+
+    .slot-letter {
+      font-size: var(--f-size-3xxl);
+      color: var(--color_white);
+      text-shadow: var(--textShadowSmooth);
+      font-family: 'montBlack';
+      animation: spin 0.4s ease-in-out infinite;
+    }
+  </style>
+  <!-- <script src="./loading/loading.js"> -->
+
+  </script>
+
   <main class="panelWrap">
-    <section class="section s1 d-flex-center flex-col" style="overflow-x: hidden;" id="section1">
-      <div class="main-section d-flex-center flex-row m-flex-col">
-        <div class="left-side d-flex-center"></div>
-        <div class="right-side d-flex-center flex-col">
+    <section class="section s1"  id="section1">
+      <div class="main-section">
+        <div class="left-side"></div>
+        <div class="right-side">
           <div class="offer h-full">
             <img src="./assets/logo/pragmatic.webp" class="pragmatic-logo" alt="pragm">
             <div class="offer-html">
@@ -65,14 +111,13 @@
         </div>
       </div>
     </section>
-    <section class="section s2 d-flex-start flex-col" id="section2">
-    
-      <div class="container-s2 max-w-1600 h-full d-flex-center flex-col flex-between">
-        <div class="container-text">
+    <section class="section s2" id="section2">
+      <div class="parent">
+        <div class="section_title mb-4">
           <h2>INformation Games</h2>
-          <p class="section_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe maxime
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe
+            maxime
             incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
-  
         </div>
         <div class="left-side">
           <div class="carousel">
@@ -92,29 +137,28 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="right-side d-flex-center flex-col">
-          <div class="section_title w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque exercitationem
-            neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam
-            voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor
-            recusandae dolores tenetur.neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam
-            voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor
-            recusandae dolores tenetur.</div>
-            <!-- <img src="./assets/logo/pragmatic.webp" class="pragmatic-logo _second" alt="logo"> -->
-        
-       
-        </div>
+        </div>  
+          <div class="section_title m-4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+              exercitationem
+              neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint sunt et modi aperiam
+              voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor
+              recusandae dolores tenetur.neque veritatis minus molestiae impedit aspernatur itaque, ratione dolorum sint
+              sunt et modi aperiam
+              voluptatibus beatae iusto, quo, voluptatum magnam. Officiis velit assumenda repellat nisi, consequatur dolor
+              recusandae dolores tenetur.</p>
+          </div>
         <button>Check games</button>
       </div>
     </section>
     <section class="section s3" id="section3">
-      <div class="container-s3 max-w-1600 h-full d-flex-center flex-stretch flex-col">
-        <div class="container-text">
+      <div class="parent">
+        <div class="section_title mb-4">
           <h2>INformation Games</h2>
-          <p class="section_title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe
             maxime incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
         </div>
-        <div class="container-table">
+        <div class="container-table left-side">
           <div class="table-responsive">
             <h2 class="text-center">Clasament Streameri</h2>
             <table id="streamersTable">
@@ -145,6 +189,10 @@
           </div>
 
         </div>
+          <div class="section_title mt-4">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe
+              maxime incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
+          </div>
       </div>
     </section>
   </main>
@@ -440,6 +488,7 @@
 
     </div>
   </footer>
+
   <script src="./games.js"></script>
   <script src="./tables.js"></script>
   <script src="./carousel.js"></script>
