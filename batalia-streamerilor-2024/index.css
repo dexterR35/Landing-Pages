@@ -278,9 +278,9 @@ button {
 footer.visible {
   opacity: 1;
 }
-.section{
+/* .section{
   opacity: 1;
-}
+} */
 .section h2 {
   font-size: 2em;
 }

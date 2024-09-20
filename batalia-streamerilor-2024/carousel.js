@@ -19,12 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
       { src: './assets/png/stero2.webp', alt: 'City Image', link: 'https://example.com/city' },
       { src: './assets/png/sorin2.webp', alt: 'Nature Image', link: 'https://example.com/nature' },
       { src: './assets/png/stero2.webp', alt: 'City Image', link: 'https://example.com/city' },
-      { src: './assets/png/sorin2.webp', alt: 'Nature Image', link: 'https://example.com/nature' },
-      { src: './assets/png/stero2.webp', alt: 'City Image', link: 'https://example.com/city' },
-      { src: './assets/png/sorin2.webp', alt: 'Nature Image', link: 'https://example.com/nature' },
-      { src: './assets/png/stero2.webp', alt: 'City Image', link: 'https://example.com/city' },
-      // Add more static images as needed...
+      // ... Add more static images as needed ...
     ];
+
     // Populate the first carousel with images
     function populateFirstCarousel() {
       const $blazeTrack1 = $('#image-carousel .blaze-track');
@@ -183,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Observer options
+    // Observer options for carousels
     const observerOptions = {
       root: null,
       threshold: 0.5,
@@ -232,6 +229,39 @@ document.addEventListener('DOMContentLoaded', () => {
     // Observe the carousels
     firstCarouselObserver.observe(document.querySelector('#image-carousel'));
     secondCarouselObserver.observe(document.querySelector('#games-carousel'));
+
+    // **Add Observer for Sections and Footer Here**
+
+    // Observer options for sections and footer
+    const sectionObserverOptions = {
+      root: null,
+      threshold: 0.1, // Adjust the threshold as needed
+    };
+
+    // Callback function for section observer
+    function handleSectionVisibility(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }
+
+    // Create the observer for sections and footer
+    const sectionObserver = new IntersectionObserver(handleSectionVisibility, sectionObserverOptions);
+
+    // Observe all sections with the 'section' class
+    document.querySelectorAll('.section').forEach(section => {
+      sectionObserver.observe(section);
+    });
+
+    // Observe the footer
+    const footer = document.querySelector('footer');
+    if (footer) {
+      sectionObserver.observe(footer);
+    }
 
     // Scroll to Top button functionality
     $('#scrollToTop').on('click', function () {
