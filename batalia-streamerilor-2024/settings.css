@@ -1,4 +1,4 @@
-.carousel {
+.carousel:not(:nth-child(1)) {
   width: 100%;
   height: auto;
   position: absolute;
@@ -7,10 +7,10 @@
   /* background: #4d67c21f; */
 }
 .blaze-track > * {
-  min-height: 60%;
+  min-height: 100%;
   /* background-color: rgba(128, 128, 128, 0.055); */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   font-size: 30px;
@@ -18,16 +18,17 @@
   color: white;
   /* border: 2px solid black; */
 }
-.blaze-track div {
+
+/* .blaze-track div {
  transform:scale(0.8);
-}
+} */
 .blaze-track div a {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.blaze-track img {
+.image-carousel .blaze-track img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -42,6 +43,99 @@
   box-sizing: border-box;
 
 }
+
+
+
+
+/* carousel section2 */
+/* carousel section2 */
+/* carousel section2 */
+
+.blaze-track .game  {
+  /* background-color: green; */
+  max-width: 240px;
+  color: black;
+  background: rgb(70,90,58) ;
+  color: var(--color_white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.blaze-track .game img {
+  width:100%;
+  height: 100%;
+  object-fit: contain;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+  mask: var(--mask);
+
+}
+
+.blaze-track .game .footer-game {
+  max-height: 25%;
+  min-height: 100px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 45%);
+
+  width: 100%;
+}
+
+.blaze-track .game .footer-game p {
+  padding: 3px 10px;
+}
+.blaze-track .game .footer-text p:nth-child(1){
+  font-size: 13px;
+
+}
+.blaze-track .game .footer-text p:nth-child(2){
+  font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  white-space: nowrap;
+}
+.play-overlay{
+  top: 0;
+  right: 0;
+  z-index: 2;
+  font-size: 0.5em;
+  background: #052fa173;
+  color: var(--color_white);
+  padding: 10px 15px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+
+}
+.footer-text {
+  max-height: 45px;
+  height: 100%;
+  /* background: rgb(177, 8, 8); */
+}
+.footer-game {
+  background: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+/* end carousel section2 */
+/* end carousel section2 */
+/* end carousel section2 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container-table {
   display: flex;
