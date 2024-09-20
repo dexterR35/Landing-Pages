@@ -1,33 +1,68 @@
 
-
-
-
-
 .container-table {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: stretch;
     flex-direction: row;
+    position: relative;
   }
-  
-  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .table-responsive {
+    color: var(--color-white);
+  }
+
+  .sorting {
+    text-align: start;
+    padding-bottom: 0.5em;
+    font-size: var(--f-size-lg);
+  }
+.sorting:nth-child(3),.sorting:nth-child(1){
+  text-align: center;
+}
+  .text-center {
+    font-size: var(--f-size-xxl) !important;
+    padding: 20px 0;
+    background: var(--header_color);
+  }
+
+  #streamersTable_wrapper {
+    padding: 13px;
+    background: var(--header_color);
+  }
+
+  .parent-avatar {
+    margin: 7px 0;
+  }
+
+  .parent-table {
+    font-size: calc(var(--f-size-lg) - 0.1em);
+    cursor: pointer;
+  }
+
+  .ps {
+    text-align: center;
+    padding-right: 10px;
+  }
+
   @media screen and (max-width:768px) {
     .container-table {
       flex-direction: column;
       gap: 20px;
     }
-    .blaze-track img {
-      width: 95%;
-      height: 95%;
-    }
   }
   
   .table-responsive {
-    width: 50%;
-    max-width: 90%;
+    width: 48%;
+    max-width: 100%;
     border: 2px solid black;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
+    min-height: 560px;
   }
   
   @media (orientation:portrait) {
@@ -38,19 +73,33 @@
   }
   
   #usersTable tbody .parent-table {
-    height: 40px;
+    height: 55px;
+    /* background: red; */
+  }
+  .parent-table:hover {
+    background:white;
+    color: black;
+    transition: all 0.3s ease;
+  }
+  .table-responsive {
+    color: white;
+    background: #110f2e;
   }
   
   div.dataTables_wrapper div.dataTables_paginate {
-    position: relative;
-    bottom: 0;
+    position: absolute;
+    bottom: -6%;
+    left: 0;
+    background: var(--header_color);
+  }
+ .table-responsive:nth-child(2) .dataTables_wrapper div.dataTables_paginate {
     right: 0;
-    /* display: none !important; */
+    left: unset;
   }
   
   .dataTables_wrapper .dataTables_paginate .paginate_button.current {
     color: var(--color-white);
-    background: #c8d9f1;
+    background: var(--color_red);
   }
   
   .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -62,13 +111,15 @@
     text-align: center;
     cursor: pointer;
     color: inherit !important;
-    border: 1px solid #c3c1c1;
-    border-radius: 2px;
+    border:none;
+    outline: none;
+    border-radius: 4px;
+    padding: 8px 15px;
   }
-  
+
   .avatar-table {
-    width: 2rem;
-    height: 2rem;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     position: relative;
     text-align: center;
@@ -80,12 +131,14 @@
     z-index: 4;
     overflow: hidden;
   }
-  .avatar-blue img {
+
+  .avatar-table img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
-  .avatar-blue::after {
+
+  .avatar-table::after {
     content: "";
     position: absolute;
     width: 100%;
@@ -97,20 +150,7 @@
     opacity: 0.4;
   }
   
-  .parent-table .ps {
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-  
-  #usersTable .parent-table > td {
-    padding: 4.1px;
-  }
-  
   .parent-avatar {
     gap: 10px;
   }
-  .parent-name {
-    line-height: 1.2;
-  }
-  
-  
+ 

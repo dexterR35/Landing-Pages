@@ -74,7 +74,7 @@ const dummyUserData = [
              <img src="" alt="pict_table" class="pict_table">
          </div>
          <div class="parent-name">
-         <p class="mb-0 ps">${streamer.username} <span class="${streamer.stars > 0 ? 'badge-success' : 'badge-danger'}">${streamer.stars > 0 ? '&#10004' : '&#10006'}</span></p> 
+         <p class="mb-0">${streamer.username}</p> 
              <p class="mb-0">Stars: <span style="color:orangered;">***</span>**</p>
          </div>
      </div>

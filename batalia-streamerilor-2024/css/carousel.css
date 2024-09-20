@@ -162,8 +162,16 @@
 }
 
 .blaze-slider .controls button {
-  padding: 10px 20px;
+  position: relative;
+  background: transparent;
+  font-size: 4em;
+  color: white;
+  padding: 10px 26px;
+  border-radius: 100%;
+  background: #0f1f5d;
+  box-shadow: 5px 2px 14px #115bb7, 37px 37px 74px #030b16
 }
+
 .blaze-slider .controls .blaze-prev {
   position: relative;
   left: -5%;

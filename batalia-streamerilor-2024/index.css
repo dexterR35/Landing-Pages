@@ -57,13 +57,14 @@ html {
     100% 0% / 100% 100% repeat-x;
 
   --f-size-small: 13px;
-  --f-size-medium: 16px;
-  --f-size-large: 1em;
+  --f-size-m: 16px;
+  --f-size-lg: 1em;
   --f-size-xxl: 1.2em;
   --f-size-2xxl: 2.2em;
   --f-size-3xxl: 3.2em;
 
   --max-w-1600: 1600px;
+  --max-w-1400: 1400px;
 }
 
 @font-face {
@@ -237,8 +238,31 @@ button:not(.controls button) {
   color: white;
   font-family: "montBold";
   text-transform: uppercase;
-  font-size: var(--f-size-large);
+  font-size: var(--f-size-lg);
   cursor: pointer;
+}
+button:not(.controls button) {
+  position: relative;
+  border: none;
+  background: var(--button_color);
+  color: var(--text-color);
+  padding: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: 0.2s;
+  border-radius: 5px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  box-shadow: #c0392b 0px 7px 2px, #000 0px 8px 5px;
+}
+
+button:not(.controls button):hover {
+  opacity: 1;
+}
+
+button:not(.controls button):active {
+  top: 4px;
+  box-shadow: #c0392b 0px 3px 2px,#000 0px 3px 5px;
 }
 button.sm {
   width: 150px !important;
@@ -251,6 +275,73 @@ button.lg {
     width: fit-content !important;
   }
 }
+
+.button_special {
+  cursor: pointer;
+  font-size: 1.4rem;
+  border-radius: 16px;
+  border: none;
+  padding: 2px;
+  width: 250px;
+  background: radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b);
+  position: relative; 
+  text-align: center;
+  margin: 0 auto;
+}
+.button_special::after {
+  content: "";
+  position: absolute;
+  width: 65%;
+  height: 60%;
+  border-radius: 120px;
+  top: 0;
+  right: 0;
+  box-shadow: 0 0 20px #ffffff38;
+  z-index: -1;
+}
+
+.blob1 {
+  position: absolute;
+  width: 70px;
+  height: 100%;
+  border-radius: 16px;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(
+    circle 60px at 0% 100%,
+    #3fe9ff,
+    #0000ff80,
+    transparent
+  );
+  box-shadow: -10px 10px 30px #0051ff2d;
+}
+
+.inner {
+  padding: 14px 25px;
+  border-radius: 14px;
+  color: #fff;
+  z-index: 3;
+  position: relative;
+  background: radial-gradient(circle 80px at 80% -50%, #777777, #000025);
+}
+.inner::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 14px;
+  background: radial-gradient(
+    circle 60px at 0% 100%,
+    #ff1e001a,
+    #ff330011,
+    transparent
+  );
+  position: absolute;
+}
+
+
+
 
 .section {
   display: flex;
@@ -300,7 +391,7 @@ footer.visible {
 }
 
 .section .parent {
-  max-width: var(--max-w-1600);
+  max-width: var(--max-w-1400);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -439,8 +530,8 @@ footer.visible {
 /* section 3 */
 /* section 3 */
 .section.s3 {
-  background-color: #f0f0f0;
-  max-height: 1080px;
+  background: #f0f0f0;
+  color: black;
 }
 /* end section 3 */
 /* end section 3 */
@@ -470,7 +561,7 @@ footer {
 }
 
 .terms-container {
-  background: var(--color_white);
+  color: var(--color_white);
   padding: 20px;
 }
 
