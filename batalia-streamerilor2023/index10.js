@@ -9,8 +9,8 @@ function getCookie(name) {
   return null;
 }
 
-  // userToCheck = "teststep"; //teststep
-
+userToCheck = getCookie("netbet_login");
+  userToCheck = "testcozminn"; //teststep
   let userToVote = null;
   let isVotingAllowed = false;
 
@@ -18,7 +18,7 @@ function getCookie(name) {
   
   $(document).ready(function () {
 
-    userToCheck = getCookie("netbet_login");
+
   const apiEndpoint_check_user =
     "https://casino-promo.netbet.ro/scripts/streamers/get.php?srv=check_user&user=" +
     userToCheck;
