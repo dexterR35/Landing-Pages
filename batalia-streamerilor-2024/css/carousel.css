@@ -80,7 +80,7 @@
 .blaze-slider {
   position: relative;
 }
-#image-carousel .blaze-track-container::after{
+/* #image-carousel .blaze-track-container::after{
   content: "";
   position: absolute;
   top: 0;
@@ -90,7 +90,7 @@
   background: linear-gradient(to bottom, rgb(11 24 72), rgb(4 12 37) 105%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 0) 100% 0% / 100% 100% repeat-x;
   mask: var(--mask-reverse);
   z-index: -1;
-}
+} */
 .blaze-track-container {
   position: relative;
   z-index: 1;

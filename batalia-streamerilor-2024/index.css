@@ -16,8 +16,15 @@ html {
 }
 
 :root {
+
   --bg-desktop: url(./assets/integrat.webp);
   --bg-mobile: url(./assets/stero3_mob.webp);
+  --bg-sect1:url(./assets/bg/sect1.webp);
+  --bg-sect2:url(./assets/bg/sect2.webp);
+  --bg-sect3:url(./assets/bg/sect3.webp);
+  --bg-sect4:url(./assets/bg/sect4.webp);
+
+
   --cta_color: "";
   --__sport: rgb(100, 176, 0);
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
@@ -210,8 +217,8 @@ footer {
   overflow-x: hidden;
 }
 
-.section:nth-child(1) {
-  height: 100vh;
+.section:nth-child(1),.section:nth-child(2) {
+  height: 100dvh;
 }
 
 @media (orientation: portrait) {
@@ -395,9 +402,32 @@ footer.visible {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
 }
+
+.terms-container {
+  max-width: 1400px;
+margin: 0 auto;
+text-align: start;
+}
+/* .section.s2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./assets/papper.jpeg);
+  background-position: center;
+  background-size: 140%;
+  background-repeat: no-repeat;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  transform: rotate(180deg);
+ 
+} */
+
 
 
 #scrollToTop {
@@ -421,13 +451,18 @@ footer.visible {
 /* section1 */
 /* section1 */
 /* section1 */
-
-.section.s1 {
-  background-image: var(--bg-desktop);
+.section.s1,.section.s2,.section.s3,footer{
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  mask: var(--mask);
+}
+.section.s1 {
+  background-image: var(--bg-sect1);
+  /* mask: var(--mask); */
+}
+.carousel:not(:nth-child(1)) {
+/* display: none; */
+
 }
 
 @media (max-width: 991px) {
@@ -436,6 +471,20 @@ footer.visible {
   }
 }
 
+.section.s2  {
+  position: relative;
+background-image: var(--bg-sect4);
+}
+.section.s3 {
+  position: relative;
+  background-image:var(--bg-sect2);
+  color: white;
+}
+
+footer {
+  position: relative;
+  background-image: url(./assets/bg/sect3.webp) !important;
+}
 /* Offer */
 /* Offer */
 /* Offer */
@@ -530,7 +579,7 @@ footer.visible {
 /* section 3 */
 /* section 3 */
 .section.s3 {
-  background: #f0f0f0;
+  /* background: #f0f0f0; */
   color: black;
 }
 /* end section 3 */
@@ -541,7 +590,7 @@ footer.visible {
 /* footer */
 /* footer */
 footer {
-  background: var(--header_color);
+  /* background: var(--header_color); */
   padding: 20px;
   color: var(--color_white);
   text-align: center;
