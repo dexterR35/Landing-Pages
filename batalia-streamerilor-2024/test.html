@@ -1,362 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Player Opt-In/Opt-Out</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <style>
+      #user-info {
+        margin: 20px;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Player Opt-In/Opt-Out</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
-  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-  <style>
-    #user-info {
-      margin: 20px;
-    }
+      .loading {
+        display: none;
+        font-style: italic;
+        color: gray;
+      }
 
-    .loading {
-      display: none;
-      font-style: italic;
-      color: gray;
-    }
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
 
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
+      table.dataTable tbody tr.top3 {
+        font-weight: bold;
+        background-color: #d4efdf;
+      }
 
-    table.dataTable tbody tr.top3 {
-      font-weight: bold;
-      background-color: #d4efdf;
-    }
+      table.dataTable tbody tr.current-user {
+        background-color: #ffffcc;
+      }
 
-    table.dataTable tbody tr.current-user {
-      background-color: #ffffcc;
-    }
+      table.dataTable tbody tr.last4 {
+        background-color: #f9ebea;
+      }
+    </style>
+  </head>
 
-    table.dataTable tbody tr.last4 {
-      background-color: #f9ebea;
-    }
-  </style>
-</head>
+  <body>
+    <div id="user-info">
+      <p class="loading">Loading data...</p>
+      <button id="optin-btn">Opt-In Player</button>
+      <button id="optout-btn" disabled>Opt-Out Player</button>
+      <p id="message"></p>
+    </div>
+    <table id="playerTable" class="display" style="width: 100%">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      const token = "2f97bb641f2096c1e98a723c249a6ece";
+      const url = "https://qaadmin.livepartners.com/api/streaming/";
+      let username = "testmarian2024"; // Specify the username you want to check
 
-<body>
-  <div id="user-info">
-    <p class="loading">Loading data...</p>
-    <button id="optin-btn">Opt-In Player</button>
-    <button id="optout-btn" disabled>Opt-Out Player</button>
-    <p id="message"></p>
-  </div>
-  <table id="playerTable" class="display" style="width: 100%">
-    <thead>
-      <tr>
-        <th>Ranking</th>
-        <th>Username</th>
-        <th>Points</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-  <script>
-    const token = "2f97bb641f2096c1e98a723c249a6ece";
-    const url = "https://qaadmin.livepartners.com/api/streaming/";
-    let username = "testmarian2024"; // Specify the username you want to check
+      // Debounce function to limit the rate of function execution
+      function debounce(func, delay) {
+        let debounceTimer;
+        return function (...args) {
+          clearTimeout(debounceTimer);
+          return new Promise((resolve, reject) => {
+            debounceTimer = setTimeout(() => {
+              Promise.resolve(func.apply(this, args))
+                .then(resolve)
+                .catch(reject);
+            }, delay);
+          });
+        };
+      }
 
-    // Debounce function to limit the rate of function execution
-    function debounce(func, delay) {
-      let debounceTimer;
-      return function (...args) {
-        clearTimeout(debounceTimer);
+      // Function to format points
+      function formatPoints(points) {
+        // Ensure the points value is a number
+        points = Number(points);
+
+        if (isNaN(points)) {
+          return "0"; // Return 0 if the points cannot be converted to a number
+        }
+
+        if (points < 1000) {
+          return points.toFixed(0); // Display as is if less than 1000
+        } else if (points < 1000000) {
+          return (points / 1000).toFixed(0) + "k"; // Format in 'k' for thousands
+        } else {
+          return (points / 1000000).toFixed(0) + "M"; // Format in 'M' for millions
+        }
+      }
+
+      // Function to check if a player exists in the table
+      function checkIfPlayerExists(username) {
         return new Promise((resolve, reject) => {
-          debounceTimer = setTimeout(() => {
-            Promise.resolve(func.apply(this, args))
-              .then(resolve)
-              .catch(reject);
-          }, delay);
+          $.ajax({
+            url: url + "check/" + username,
+            type: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+            success: function (response) {
+              if (typeof response === "boolean") {
+                resolve(response);
+              } else if (response && response.exists !== undefined) {
+                resolve(response.exists);
+              } else {
+                resolve(false);
+              }
+            },
+            error: function (xhr, status, error) {
+              console.error("Error checking if player exists:", error);
+              reject(error);
+            },
+          });
         });
-      };
-    }
-    
-    // Function to format points
-    function formatPoints(points) {
-      // Ensure the points value is a number
-      points = Number(points);
-
-      if (isNaN(points)) {
-        return "0"; // Return 0 if the points cannot be converted to a number
       }
 
-      if (points < 1000) {
-        return points.toFixed(0); // Display as is if less than 1000
-      } else if (points < 1000000) {
-        return (points / 1000).toFixed(0) + 'k'; // Format in 'k' for thousands
-      } else {
-        return (points / 1000000).toFixed(0) + 'M'; // Format in 'M' for millions
-      }
-    }
+      // Debounced version of checkIfPlayerExists
+      const debouncedCheckIfPlayerExists = debounce(checkIfPlayerExists, 300); // ms
 
-    // Function to check if a player exists in the table
-    function checkIfPlayerExists(username) {
-      return new Promise((resolve, reject) => {
-        $.ajax({
-          url: url + "check/" + username,
-          type: "GET",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          success: function (response) {
-            if (typeof response === "boolean") {
+      function optInPlayer(username) {
+        console.log(username);
+        return new Promise((resolve, reject) => {
+          disableButtons(true);
+          $(".loading").show();
+          $.ajax({
+            url: url + "optin/" + username,
+            type: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+            success: function (response) {
+              $("#message").text(
+                `Player ${username} has been successfully added to the table.`
+              );
+              reloadTable().then(() => {
+                $("#optin-btn").prop("disabled", true);
+                $("#optout-btn").prop("disabled", false);
+              });
               resolve(response);
-            } else if (response && response.exists !== undefined) {
-              resolve(response.exists);
-            } else {
-              resolve(false);
-            }
-          },
-          error: function (xhr, status, error) {
-            console.error("Error checking if player exists:", error);
-            reject(error);
-          },
-        });
-      });
-    }
-
-    // Debounced version of checkIfPlayerExists
-    const debouncedCheckIfPlayerExists = debounce(checkIfPlayerExists, 300); // ms
-
-    function optInPlayer(username) {
-      console.log(username);
-      return new Promise((resolve, reject) => {
-        disableButtons(true);
-        $(".loading").show();
-        $.ajax({
-          url: url + "optin/" + username,
-          type: "POST",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          success: function (response) {
-            $("#message").text(
-              `Player ${username} has been successfully added to the table.`
-            );
-            reloadTable().then(() => {
-              $("#optin-btn").prop("disabled", true);
-              $("#optout-btn").prop("disabled", false);
-            });
-            resolve(response);
-          },
-          error: function (xhr, status, error) {
-            if (xhr.status === 409) {
-              $("#message").text(
-                `Player ${username} already exists in the table. Cannot opt-in again.`
-              );
-            } else {
-              $("#message").text(
-                "Error adding player. Please try again later."
-              );
-            }
-            reject(error);
-          },
-          complete: function () {
-            $(".loading").hide();
-            // disableButtons(false);
-          },
-        }).always(() => {
-          disableButtons(false); // Enable buttons after completion
-        });
-      });
-    }
-
-    function optOutPlayer(username) {
-      console.log(username);
-      return new Promise((resolve, reject) => {
-        disableButtons(true);
-        $(".loading").show();
-        $.ajax({
-          url: url + "optout/" + username,
-          type: "DELETE",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          success: function (response) {
-            $("#message").text(
-              `Player ${username} has been successfully removed from the table.`
-            );
-            reloadTable().then(() => {
-              $("#optin-btn").prop("disabled", false);
-              $("#optout-btn").prop("disabled", true);
-            });
-            resolve(response);
-          },
-          error: function (xhr, status, error) {
-            $("#message").text(
-              "Error removing player. Please try again later."
-            );
-            reject(error);
-          },
-          complete: function () {
-            $(".loading").hide();
-            disableButtons(false);
-          },
-        }),
-          always(() => {
+            },
+            error: function (xhr, status, error) {
+              if (xhr.status === 409) {
+                $("#message").text(
+                  `Player ${username} already exists in the table. Cannot opt-in again.`
+                );
+              } else {
+                $("#message").text(
+                  "Error adding player. Please try again later."
+                );
+              }
+              reject(error);
+            },
+            complete: function () {
+              $(".loading").hide();
+              // disableButtons(false);
+            },
+          }).always(() => {
             disableButtons(false); // Enable buttons after completion
           });
-      });
-    }
+        });
+      }
 
-    // Debounced versions of optInPlayer and optOutPlayer
-    const debouncedOptInPlayer = debounce(optInPlayer, 300); // 300ms delay
-    const debouncedOptOutPlayer = debounce(optOutPlayer, 300); // 300ms delay
 
-    // enable or disable buttons
-    function disableButtons(disable) {
-      $("#optin-btn, #optout-btn").prop("disabled", disable);
-    }
+      // Enable buttons after completion
+      function optOutPlayer(username) {
+        console.log(username);
+        return new Promise((resolve, reject) => {
+          disableButtons(true);
+          $(".loading").show();
+          $.ajax({
+            url: url + "optout/" + username,
+            type: "DELETE",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+            success: function (response) {
+              $("#message").text(
+                `Player ${username} has been successfully removed from the table.`
+              );
+              reloadTable().then(() => {
+                $("#optin-btn").prop("disabled", false);
+                $("#optout-btn").prop("disabled", true);
+              });
+              resolve(response);
+            },
+            error: function (xhr, status, error) {
+              $("#message").text(
+                "Error removing player. Please try again later."
+              );
+              reject(error);
+            },
+            complete: function () {
+              $(".loading").hide();
+              disableButtons(false);
+            },
+          }).always(() => {
+            disableButtons(false); // Enable buttons after completion
+          });
+        });
+      }
+      
 
-    // Fetch data from API and populate the DataTable
-    function fetchData() {
-      return new Promise((resolve, reject) => {
-        $(".loading").show();
+      // Debounced versions of optInPlayer and optOutPlayer
+      const debouncedOptInPlayer = debounce(optInPlayer, 300); // 300ms delay
+      const debouncedOptOutPlayer = debounce(optOutPlayer, 300); // 300ms delay
+
+      // enable or disable buttons
+      function disableButtons(disable) {
+        $("#optin-btn, #optout-btn").prop("disabled", disable);
+      }
+
+      // Fetch data from API and populate the DataTable
+      function fetchData() {
+        return new Promise((resolve, reject) => {
+          $(".loading").show();
+          $.ajax({
+            url: url + "data/0", // Fetch all player data
+            type: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+            success: function (response) {
+              console.log("response:", response);
+              // Check if current user exists in the response data
+              let userExists = response.data.some(
+                (player) => player.username === username
+              );
+
+              // Update UI based on user existence
+              $("#optin-btn").prop("disabled", userExists);
+              $("#optout-btn").prop("disabled", !userExists);
+
+              populateTable(response.data);
+              resolve(); // Resolve the promise when data is successfully fetched and table is populated
+            },
+            error: function (xhr, status, error) {
+              console.error("Error fetching player data:", error);
+              reject(error); // Reject the promise in case of error
+            },
+            complete: function () {
+              $(".loading").hide();
+            },
+          });
+        });
+      }
+      function fetchDataTest(username) {
         $.ajax({
-          url: url + "data/0", // Return all stats not filtered for cash_bet > 0 remove /0
+          url: url + "get/" + username, //To check 1 player all fields in our DB
+          //url: url + 'get/', //Without username return all records in DB
           type: "GET",
           headers: {
             Authorization: "Bearer " + token,
           },
           success: function (response) {
             console.log("response:", response);
-            populateTable(response.data);
-            resolve(); // Resolve the promise when data is successfully fetched and table is populated
           },
           error: function (xhr, status, error) {
-            console.error("Error fetching player data:", error);
-            reject(error); // Reject the promise in case of error
+            console.log("response:", error);
           },
-          complete: function () {
+        });
+      }
+
+      // Populate the DataTable and implement ranking logic
+      function populateTable(data) {
+        let playerData = [];
+        console.log(data, "data");
+        data.forEach((player, index) => {
+          playerData.push({
+            ranking: index + 1,
+            username: player.username,
+            points: formatPoints(player.points),
+          });
+        });
+
+        let playerTable = $("#playerTable").DataTable({
+          data: playerData,
+          columns: [
+            { data: "ranking" },
+            { data: "username" },
+            { data: "points" },
+          ],
+          //   pageLength: 50, // Show all rows on a single page
+          destroy: true, // Allow re-initialization
+          ordering: false, // Disable ordering since it's already sorted
+          createdRow: function (row, data, dataIndex) {
+            // Highlight the top 3 players
+            if (data.ranking <= 3) {
+              $(row).addClass("top3");
+            }
+
+            // Highlight current player
+            if (data.username === username) {
+              $(row).addClass("current-user");
+            }
+
+            // Highlight last 4 players
+            if (data.ranking > playerData.length - 4) {
+              $(row).addClass("last4");
+            }
+          },
+        });
+
+        // Enable or disable the opt-out button based on the presence of the current user
+        const userInTable = playerData.some(
+          (player) => player.username === username
+        );
+        console.log(username);
+        $("#optout-btn").prop("disabled", !userInTable);
+        $("#optin-btn").prop("disabled", userInTable);
+      }
+
+      // Reload the table after an opt-in/opt-out action
+      function reloadTable() {
+        return new Promise((resolve, reject) => {
+          $("#playerTable").DataTable().clear().destroy();
+          fetchData()
+            .then(() => resolve()) // Resolve the promise after fetchData is completed
+            .catch((error) => reject(error)); // Propagate the error if fetchData fails
+        });
+      }
+
+      // Initial check and UI setup
+      $(document).ready(function () {
+        $(".loading").show();
+        // Check if current user exists and update the UI accordingly
+        debouncedCheckIfPlayerExists(username)
+          .then((exists) => {
+            if (!exists) {
+              // If the user doesn't exist, enable opt-in button and disable opt-out button
+              $("#optin-btn").prop("disabled", false);
+              $("#optout-btn").prop("disabled", true);
+            } else {
+              // If the user exists, enable opt-out button and disable opt-in button
+              $("#optin-btn").prop("disabled", true);
+              $("#optout-btn").prop("disabled", false);
+            }
+          })
+          .catch((error) => {
+            console.error(
+              "An error occurred while checking player existence:",
+              error
+            );
+            $("#user-info").html(
+              "<p>Failed to check player existence. Please try again later.</p>"
+            );
+          })
+          .finally(() => {
             $(".loading").hide();
-          },
-        });
-      });
-    }
+          });
 
-    function fetchDataTest(username) {
-      $.ajax({
-        url: url + "get/" + username, //To check 1 player all fields in our DB
-        //url: url + 'get/', //Without username return all records in DB
-        type: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-        success: function (response) {
-          console.log("response:", response);
-        },
-        error: function (xhr, status, error) {
-          console.log("response:", error);
-        },
-      });
-    }
-
-    // Populate the DataTable and implement ranking logic
-    function populateTable(data) {
-      let playerData = [];
-      console.log(data, "data");
-      data.forEach((player, index) => {
-        playerData.push({
-          ranking: index + 1,
-          username: player.username,
-          points: formatPoints(player.points),
-        });
-      });
-
-      let playerTable = $("#playerTable").DataTable({
-        data: playerData,
-        columns: [
-          { data: "ranking" },
-          { data: "username" },
-          { data: "points" },
-        ],
-        //   pageLength: 50, // Show all rows on a single page
-        destroy: true, // Allow re-initialization
-        ordering: false, // Disable ordering since it's already sorted
-        createdRow: function (row, data, dataIndex) {
-          // Highlight the top 3 players
-          if (data.ranking <= 3) {
-            $(row).addClass("top3");
-          }
-
-          // Highlight current player
-          if (data.username === username) {
-            $(row).addClass("current-user");
-          }
-
-          // Highlight last 4 players
-          if (data.ranking > playerData.length - 4) {
-            $(row).addClass("last4");
-          }
-        },
-      });
-
-      // Enable or disable the opt-out button based on the presence of the current user
-      const userInTable = playerData.some(
-        (player) => player.username === username
-      );
-      console.log(username);
-      $("#optout-btn").prop("disabled", !userInTable);
-      $("#optin-btn").prop("disabled", userInTable);
-    }
-
-    // Reload the table after an opt-in/opt-out action
-    function reloadTable() {
-      return new Promise((resolve, reject) => {
-        $("#playerTable").DataTable().clear().destroy();
-        fetchData()
-          .then(() => resolve()) // Resolve the promise after fetchData is completed
-          .catch((error) => reject(error)); // Propagate the error if fetchData fails
-      });
-    }
-
-    // Initial check and UI setup
-    $(document).ready(function () {
-      $(".loading").show();
-      // Check if current user exists and update the UI accordingly
-      debouncedCheckIfPlayerExists(username)
-        .then((exists) => {
-          if (!exists) {
-            // If the user doesn't exist, enable opt-in button and disable opt-out button
-            $("#optin-btn").prop("disabled", false);
-            $("#optout-btn").prop("disabled", true);
-          } else {
-            // If the user exists, enable opt-out button and disable opt-in button
-            $("#optin-btn").prop("disabled", true);
-            $("#optout-btn").prop("disabled", false);
-          }
-        })
-        .catch((error) => {
-          console.error(
-            "An error occurred while checking player existence:",
-            error
-          );
-          $("#user-info").html(
-            "<p>Failed to check player existence. Please try again later.</p>"
-          );
-        })
-        .finally(() => {
-          $(".loading").hide();
+        // Fetch and populate the table
+        fetchData();
+        fetchDataTest(username);
+        // Set up click events for opt-in and opt-out buttons
+        $("#optin-btn").click(function () {
+          debouncedOptInPlayer(username);
         });
 
-      // Fetch and populate the table
-      fetchData();
-      fetchDataTest(username);
-      // Set up click events for opt-in and opt-out buttons
-      $("#optin-btn").click(function () {
-        debouncedOptInPlayer(username);
+        $("#optout-btn").click(function () {
+          debouncedOptOutPlayer(username);
+        });
       });
-
-      $("#optout-btn").click(function () {
-        debouncedOptOutPlayer(username);
-      });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
