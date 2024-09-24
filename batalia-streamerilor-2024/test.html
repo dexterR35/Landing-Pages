@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player Opt-In/Opt-Out</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #user-info {
+            margin: 20px;
+        }
+        .loading {
+            display: none;
+            font-style: italic;
+            color: gray;
+        }
+    </style>
 </head>
 <body>
     <div id="user-info">
+        <p class="loading">Loading player data...</p>
         <!-- Player info and opt-in/opt-out button will be displayed here -->
     </div>
     <script>
         const token = '2f97bb641f2096c1e98a723c249a6ece';
         const url = 'https://qaadmin.livepartners.com/api/streaming/';
-        const username = 'testmarian2024'; // Specify the username you want to check
+        const username = 'testcozminn'; // Specify the username you want to check
 
         // Function to check if a player exists in the table
         function checkIfPlayerExists(username) {
@@ -44,6 +55,7 @@
 
         // Function to add a new player to the table
         function optInPlayer(username) {
+            $('.loading').show();
             $.ajax({
                 url: url + 'optin/' + username,
                 type: 'POST',
@@ -52,21 +64,26 @@
                 },
                 success: function(response) {
                     console.log('Opt-In Response:', response);
-                    $('#user-info').html(`<p>Player ${username} has been successfully added to the table.</p>`);
+                    $('#message').text(`Player ${username} has been successfully added to the table.`);
+                    updateUI(true); // Update UI to reflect opt-out state
                 },
                 error: function(xhr, status, error) {
                     if (xhr.status === 409) {
-                        $('#user-info').html(`<p>Player ${username} already exists in the table. Cannot opt-in again.</p>`);
+                        $('#message').text(`Player ${username} already exists in the table. Cannot opt-in again.`);
                     } else {
                         console.error('Error opting in player:', error);
-                        $('#user-info').append('<p>Error adding player. Please try again later.</p>');
+                        $('#message').text('Error adding player. Please try again later.');
                     }
+                },
+                complete: function() {
+                    $('.loading').hide();
                 }
             });
         }
 
         // Function to remove a player from the table
         function optOutPlayer(username) {
+            $('.loading').show();
             $.ajax({
                 url: url + 'optout/' + username,
                 type: 'DELETE',
@@ -75,51 +92,55 @@
                 },
                 success: function(response) {
                     console.log('Opt-Out Response:', response);
-                    $('#user-info').html(`<p>Player ${username} has been successfully removed from the table.</p>`);
+                    $('#message').text(`Player ${username} has been successfully removed from the table.`);
+                    updateUI(false); // Update UI to reflect opt-in state
                 },
                 error: function(xhr, status, error) {
                     console.error('Error opting out player:', error);
-                    $('#user-info').append('<p>Error removing player. Please try again later.</p>');
+                    $('#message').text('Error removing player. Please try again later.');
+                },
+                complete: function() {
+                    $('.loading').hide();
                 }
             });
         }
 
-        // Function to display the opt-in button
-        function displayOptInButton() {
-            $('#user-info').html(`
-                <p>Player ${username} does not exist in the table.</p>
-                <button id="optin-btn">Opt-In Player</button>
-            `);
-
-            // Attach click event to the opt-in button
-            $('#optin-btn').click(function() {
-                optInPlayer(username);
-            });
-        }
-
-        // Function to display the opt-out button
-        function displayOptOutButton() {
-            $('#user-info').html(`
-                <p>Player ${username} already exists in the table.</p>
-                <button id="optout-btn">Opt-Out Player</button>
-            `);
-
-            // Attach click event to the opt-out button
-            $('#optout-btn').click(function() {
-                optOutPlayer(username);
-            });
-        }
-
-        // Check if the player exists and display the appropriate UI
-        checkIfPlayerExists(username).then(exists => {
-            if (exists) {
-                displayOptOutButton();
+        // Function to update the UI based on player state
+        function updateUI(playerExists) {
+            if (playerExists) {
+                // Player exists, show opt-out button
+                $('#user-info').html(`
+                    <p>Player ${username} already exists in the table.</p>
+                    <button id="optout-btn">Opt-Out Player</button>
+                    <p id="message"></p>
+                `);
+                $('#optout-btn').click(function() {
+                    optOutPlayer(username);
+                });
             } else {
-                displayOptInButton();
+                // Player does not exist, show opt-in button
+                $('#user-info').html(`
+                    <p>Player ${username} does not exist in the table.</p>
+                    <button id="optin-btn">Opt-In Player</button>
+                    <p id="message"></p>
+                `);
+                $('#optin-btn').click(function() {
+                    optInPlayer(username);
+                });
             }
-        }).catch(error => {
-            console.error('An error occurred while checking player existence:', error);
-            $('#user-info').html('<p>Failed to check player existence. Please try again later.</p>');
+        }
+
+        // Initial check and UI setup
+        $(document).ready(function() {
+            $('.loading').show();
+            checkIfPlayerExists(username).then(exists => {
+                updateUI(exists);
+            }).catch(error => {
+                console.error('An error occurred while checking player existence:', error);
+                $('#user-info').html('<p>Failed to check player existence. Please try again later.</p>');
+            }).finally(() => {
+                $('.loading').hide();
+            });
         });
     </script>
 </body>
