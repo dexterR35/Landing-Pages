@@ -1,80 +1,78 @@
-const token = '2f97bb641f2096c1e98a723c249a6ece'
-const url = 'https://qaadmin.livepartners.com/api/streaming/'
-const username = 'testcozmin'
+const token = '2f97bb641f2096c1e98a723c249a6ece';
+const url = 'https://qaadmin.livepartners.com/api/streaming/';
+const username = 'TestCristianPa'; // Specify the username you want to check
 
-//Add new player to table, on second request error if exist or error if not exist in Netbet DB
-$.ajax({
-    url: url + 'optin/' + username,
-    type: 'POST',
-    headers: {
-        'Authorization': 'Bearer ' + token
-    },
-    success: function(response) {
-        console.log('response:', response);
-    },
-    error: function(xhr, status, error) {
-        console.log('response:', error);
+// Function to check if a player exists in the table
+function checkIfPlayerExists(username) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: url + 'check/' + username,
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                console.log('Check Player Exists Response:', response);
+                // Assuming response contains a property 'exists' or similar that is true/false
+                if (response && response.exists !== undefined) {
+                    resolve(response.exists);
+                } else {
+                    resolve(false); // Default to false if response is not structured as expected
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error checking if player exists:', error);
+                reject(error);
+            }
+        });
+    });
+}
+
+// Function to get all stats
+function getAllStats(filtered = true) {
+    const requestUrl = filtered ? url + 'data' : url + 'data/0';
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url: requestUrl,
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
+            success: function(response) {
+                console.log('Stats Response:', response);
+                resolve(response); // Return the response data
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching stats:', error);
+                reject(error);
+            }
+        });
+    });
+}
+
+// Example usage:
+
+// Check if player exists
+checkIfPlayerExists(username).then(exists => {
+    if (exists) {
+        console.log(`Player ${username} exists in the table.`);
+    } else {
+        console.log(`Player ${username} does not exist in the table.`);
     }
+}).catch(error => {
+    console.error('An error occurred while checking player existence:', error);
 });
 
-//Delete player from table, on second request error or error if player not exist, else empty response with code 204
-$.ajax({
-    url: url + 'optout/' + username,
-    type: 'DELETE',
-    headers: {
-        'Authorization': 'Bearer ' + token
-    },
-    success: function(response) {
-        console.log('response:', response);
-    },
-    error: function(xhr, status, error) {
-        console.log('response:', error);
-    }
+// Get all stats (filtered by cash_bet > 0)
+getAllStats(true).then(stats => {
+    console.log('Filtered Stats:', stats);
+}).catch(error => {
+    console.error('An error occurred while fetching stats:', error);
 });
 
-//Check if player exist in table, return true/false
-$.ajax({
-    url: url + 'check/' + username,
-    type: 'GET',
-    headers: {
-        'Authorization': 'Bearer ' + token
-    },
-    success: function(response) {
-        console.log('response:', response);
-    },
-    error: function(xhr, status, error) {
-        console.log('response:', error);
-    }
-});
-
-//Return all stats that you need for table + time when last time cron executed to update stats
-$.ajax({
-    url: url + 'data', //Return stats that you need but I filtered only cash_bet > 0
-    //url: url + 'data/0', //Return all stats not filtered
-    type: 'GET',
-    headers: {
-        'Authorization': 'Bearer ' + token
-    },
-    success: function(response) {
-        console.log('response:', response);
-    },
-    error: function(xhr, status, error) {
-        console.log('response:', error);
-    }
-});
-
-//TEST route to check in DB if all is correct, we will delete it after testing
-$.ajax({
-    url: url + 'get/' + username, //To check 1 player all fields in our DB
-    //url: url + 'get/', //Without username return all records in DB
-    type: 'GET',
-    headers: {
-        'Authorization': 'Bearer ' + token
-    },
-    success: function(response) {
-        console.log('response:', response);
-    },
-    error: function(xhr, status, error) {
-        console.log('response:', error);
-    }
+// Get all stats (unfiltered)
+getAllStats(false).then(stats => {
+    console.log('Unfiltered Stats:', stats);
+}).catch(error => {
+    console.error('An error occurred while fetching stats:', error);
 });

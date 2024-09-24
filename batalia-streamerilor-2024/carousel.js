@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         if (data.status && data.data && data.data.games) {
           gamesData = data.data.games.map((game) => ({
             ...game,
