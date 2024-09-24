@@ -1,129 +1,134 @@
 <!DOCTYPE html>
 <html lang="ro">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Document</title>
-</head>
-<body>
-    
-
+  </head>
+  <body>
     <button id="actionButton">Inregistreaza-te</button>
 
-
     <script>
-        // Define the API base URL and token
-const token = '2f97bb641f2096c1e98a723c249a6ece';
-const url = 'https://qaadmin.livepartners.com/api/streaming/';
+      // Define the API base URL and token
+      const token = "2f97bb641f2096c1e98a723c249a6ece";
+      const url = "https://qaadmin.livepartners.com/api/streaming/";
 
-// Function to get the cookie value by name
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
+      // Function to get the cookie value by name
+      function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(";");
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) === " ") c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0)
+            return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
 
-// Get the username from the cookie
-let username = getCookie("netbet_login");
+      // Get the username from the cookie
+      let username = getCookie("netbet_login");
 
-// Check if the user is logged in
-if (!username) {
-    console.log('User is not logged in.');
-    // You can update the button text to "Inregistreaza-te" here
-    $('#actionButton').text('Inregistreaza-te');
-} else {
-    console.log('User is logged in:', username);
-    
-    // Check if the user is registered in the Netbet DB
-    $.ajax({
-        url: url + 'check/' + username,
-        type: 'GET',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        },
-        success: function(response) {
-            console.log('User check response:', response);
+      // Check if the user is logged in
+      if (!username) {
+        console.log("User is not logged in.");
+        // You can update the button text to "Inregistreaza-te" here
+        $("#actionButton").text("Inregistreaza-te");
+      } else {
+        console.log("User is logged in:", username);
+
+        // Check if the user is registered in the Netbet DB
+        $.ajax({
+          url: url + "check/" + username,
+          type: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+          success: function (response) {
+            console.log("User check response:", response);
 
             if (response.exists) {
-                console.log('User is registered. Show Opt-in button.');
-                // You can update the button text to "Opt In" here
-                $('#actionButton').text('Opt In');
+              console.log("User is registered. Show Opt-in button.");
+              // You can update the button text to "Opt In" here
+              $("#actionButton").text("Opt In");
 
-                // Event handler for Opt-in button click
-                $('#actionButton').off('click').on('click', function() {
-                    $.ajax({
-                        url: url + 'optin/' + username,
-                        type: 'POST',
-                        headers: {
-                            'Authorization': 'Bearer ' + token
-                        },
-                        success: function(optInResponse) {
-                            console.log('User opted in successfully:', optInResponse);
-                        },
-                        error: function(xhr, status, error) {
-                            console.log('Opt-in error:', error);
-                        }
-                    });
+              // Event handler for Opt-in button click
+              $("#actionButton")
+                .off("click")
+                .on("click", function () {
+                  $.ajax({
+                    url: url + "optin/" + username,
+                    type: "POST",
+                    headers: {
+                      Authorization: "Bearer " + token,
+                    },
+                    success: function (optInResponse) {
+                      console.log("User opted in successfully:", optInResponse);
+                    },
+                    error: function (xhr, status, error) {
+                      console.log("Opt-in error:", error);
+                    },
+                  });
                 });
             } else {
-                console.log('User is not registered. Show Inregistreaza-te button.');
-                // You can update the button text to "Inregistreaza-te" here
-                $('#actionButton').text('Inregistreaza-te');
+              console.log(
+                "User is not registered. Show Inregistreaza-te button."
+              );
+              // You can update the button text to "Inregistreaza-te" here
+              $("#actionButton").text("Inregistreaza-te");
             }
-        },
-        error: function(xhr, status, error) {
-            console.log('User check error:', error);
-        }
-    });
-}
+          },
+          error: function (xhr, status, error) {
+            console.log("User check error:", error);
+          },
+        });
+      }
 
-// Event handler for Opt-out button click
-$('#optOutButton').off('click').on('click', function() {
-    $.ajax({
-        url: url + 'optout/' + username,
-        type: 'DELETE',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        },
-        success: function(optOutResponse) {
-            console.log('User opted out successfully:', optOutResponse);
-        },
-        error: function(xhr, status, error) {
-            console.log('Opt-out error:', error);
-        }
-    });
-});
+      // Event handler for Opt-out button click
+      $("#optOutButton")
+        .off("click")
+        .on("click", function () {
+          $.ajax({
+            url: url + "optout/" + username,
+            type: "DELETE",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+            success: function (optOutResponse) {
+              console.log("User opted out successfully:", optOutResponse);
+            },
+            error: function (xhr, status, error) {
+              console.log("Opt-out error:", error);
+            },
+          });
+        });
 
-// Get all users data (streamers and users)
-function getAllUsersData() {
-    $.ajax({
-        url: url + 'data',
-        type: 'GET',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        },
-        success: function(response) {
-            console.log('All users data:', response);
+      // Get all users data (streamers and users)
+      function getAllUsersData() {
+        $.ajax({
+          url: url + "data",
+          type: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+          success: function (response) {
+            console.log("All users data:", response);
             // Here you can separate streamers and users into two tables later
-        },
-        error: function(xhr, status, error) {
-            console.log('Get all users data error:', error);
-        }
-    });
-}
+          },
+          error: function (xhr, status, error) {
+            console.log("Get all users data error:", error);
+          },
+        });
+      }
 
-// Call the function to get all users data
-getAllUsersData();
-
-
+      // Call the function to get all users data
+      getAllUsersData();
     </script>
-</body>
+  </body>
 </html>
