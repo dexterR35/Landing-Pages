@@ -4,6 +4,39 @@
   position: absolute;
   bottom: 0%;
 }
+.carousel::after {
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* mask: var(--mask-reverse); */
+  /* background: #020b0f94; */
+ z-index: -1;
+}
+.section.s2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse);
+  background: #031024c9;
+  z-index: 1;
+}
+.section.s3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  background: #030424c4;
+  z-index: 1;
+}
 
 .blaze-track div a {
   display: flex;
@@ -15,7 +48,6 @@
   top: 0;
   right: 0;
   z-index: 20;
-  font-size: var(--f-size-medium);
   background: rgba(3, 18, 68, 0.985);
   color: var(--color_white);
   padding: 10px;
@@ -57,11 +89,8 @@
 .blaze-track .footer-game p {
   padding: 4px 10px;
 }
-.blaze-track .footer-text p:nth-child(1) {
-  font-size: var(--f-size-small);
-}
+
 .blaze-track .footer-text p:nth-child(2) {
-  font-size: var(--f-size-medium);
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
@@ -80,31 +109,29 @@
 .blaze-slider {
   position: relative;
 }
-/* #image-carousel .blaze-track-container::after{
+
+#image-carousel .blaze-track-container::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgb(11 24 72), rgb(4 12 37) 105%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0) 0) 100% 0% / 100% 100% repeat-x;
+  background: linear-gradient(
+      to bottom,
+      rgb(11 24 72),
+      rgb(4 12 37) 105%,
+      rgba(0, 0, 0, 0) 100%,
+      rgba(0, 0, 0, 0) 0
+    )
+    100% 0% / 100% 100% repeat-x;
   mask: var(--mask-reverse);
   z-index: -1;
-} */
+}
+
 .blaze-track-container {
   position: relative;
   z-index: 1;
-}
-
-#games-carousel .blaze-slider {
-  --slides-to-show: 7 !important;
-  --slide-gap: 12px !important;
-  direction: ltr;
-}
-#image-carousel .blaze-slider {
-  --slides-to-show: 7 !important;
-  --slide-gap: 12px !important;
-  direction: ltr;
 }
 
 .blaze-track div {
@@ -144,10 +171,34 @@
 [data-index="4"] .footer-game::after {
   background: #cba59f;
 }
-
-
+[data-index="5"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="6"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="7"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="8"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="9"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="10"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="11"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="12"] .footer-game::after {
+  background: #cba59f;
+}
+[data-index="13"] .footer-game::after {
+  background: #cba59f;
+}
 /* controls */
-
 .blaze-slider .controls {
   position: absolute;
   z-index: 2;
@@ -164,12 +215,12 @@
 .blaze-slider .controls button {
   position: relative;
   background: transparent;
-  font-size: 4em;
+  font-size: 2.5rem;
   color: white;
   padding: 10px 26px;
   border-radius: 100%;
   background: #0f1f5d;
-  box-shadow: 5px 2px 14px #115bb7, 37px 37px 74px #030b16
+  box-shadow: 5px 2px 14px #115bb7, 37px 37px 74px #030b16;
 }
 
 .blaze-slider .controls .blaze-prev {
@@ -181,33 +232,66 @@
   left: 5%;
 }
 
-@media (max-width: 900px) {
-  #image-carousel .blaze-slider {
-    --slides-to-show: 3;
-  }
-}
-
-@media (max-width: 600px) {
-  #image-carousel .blaze-slider {
-    --slides-to-show: 2;
-  }
-}
-
-/* Similar styles for games carousel */
-#games-carousel .blaze-slider {
-  --slides-to-show: 6;
-  --slide-gap: 20px;
+#games-carousel .blaze-slider,
+#image-carousel .blaze-slider {
   direction: ltr;
+  --slide-gap: 12px !important;
+}
+
+@media (min-width: 1441px) {
+  #games-carousel .blaze-slider {
+    --slides-to-show: 7 !important;
+  }
+
+  #image-carousel .blaze-slider {
+    --slides-to-show: 7 !important;
+  }
+}
+
+@media (max-width: 1440px) {
+  #games-carousel .blaze-slider {
+    --slides-to-show: 7 !important;
+  }
+  #image-carousel .blaze-slider {
+    --slides-to-show: 7 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #games-carousel .blaze-slider {
+    --slides-to-show: 5 !important;
+  }
+  #image-carousel .blaze-slider {
+    --slides-to-show: 5 !important;
+  }
 }
 
 @media (max-width: 900px) {
   #games-carousel .blaze-slider {
-    --slides-to-show: 2;
+    --slides-to-show: 4 !important;
+  }
+  #image-carousel .blaze-slider {
+    --slides-to-show: 4 !important;
   }
 }
 
 @media (max-width: 600px) {
   #games-carousel .blaze-slider {
-    --slides-to-show: 1;
+    --slides-to-show: 3 !important;
+  }
+  #image-carousel .blaze-slider {
+    --slides-to-show: 3 !important;
   }
 }
+
+@media (max-width: 480px) {
+  #games-carousel .blaze-slider {
+    --slides-to-show: 2 !important;
+  }
+  #image-carousel .blaze-slider {
+    --slides-to-show: 2 !important;
+  }
+}
+
+
+

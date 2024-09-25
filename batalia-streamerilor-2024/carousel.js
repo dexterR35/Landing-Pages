@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Observer options for sections and footer
     const sectionObserverOptions = {
       root: null,
-      threshold: 0.1, // Adjust the threshold as needed
+      threshold: 0.15, // Adjust the threshold as needed
     };
 
     // Callback function for section observer
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // Observe all sections with the 'section' class
-    document.querySelectorAll(".section").forEach((section) => {
+    document.querySelectorAll(".section .parent").forEach((section) => {
       sectionObserver.observe(section);
     });
 
