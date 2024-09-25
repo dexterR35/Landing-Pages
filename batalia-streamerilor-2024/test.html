@@ -39,6 +39,9 @@
       table.dataTable tbody tr.last4 {
         background-color: #f9ebea;
       }
+      table.dataTable tbody tr.highlight-row {
+        background-color: #f7dc6f !important; /* Highlight row style */
+      }
     </style>
   </head>
 
@@ -53,6 +56,7 @@
       <thead>
         <tr>
           <th>Ranking</th>
+          <th>ID</th>
           <th>Username</th>
           <th>Points</th>
         </tr>
@@ -62,8 +66,9 @@
     <script>
       const token = "2f97bb641f2096c1e98a723c249a6ece";
       const url = "https://qaadmin.livepartners.com/api/streaming/";
-      let username = "testmarian2024"; // Specify the username you want to check
 
+      let username = "testmarian2024"; // Specify the username you want to check
+      let netbet_id = 40302497;
       // Debounce function to limit the rate of function execution
       function debounce(func, delay) {
         let debounceTimer;
@@ -77,6 +82,10 @@
             }, delay);
           });
         };
+      }
+      // Function enable or disable buttons
+      function disableButtons(disable) {
+        $("#optin-btn, #optout-btn").prop("disabled", disable);
       }
 
       // Function to format points
@@ -123,9 +132,12 @@
         });
       }
 
-      // Debounced version of checkIfPlayerExists
+      // Debounced of checkIfPlayerExists
       const debouncedCheckIfPlayerExists = debounce(checkIfPlayerExists, 300); // ms
-
+      // Debounced of optInPlayer and optOutPlayer
+      const debouncedOptInPlayer = debounce(optInPlayer, 300); //ms
+      const debouncedOptOutPlayer = debounce(optOutPlayer, 300);
+      // optin
       function optInPlayer(username) {
         console.log(username);
         return new Promise((resolve, reject) => {
@@ -161,16 +173,14 @@
             },
             complete: function () {
               $(".loading").hide();
-              // disableButtons(false);
             },
           }).always(() => {
-            disableButtons(false); // Enable buttons after completion
+            disableButtons(false);
           });
         });
       }
 
-
-      // Enable buttons after completion
+      //optout
       function optOutPlayer(username) {
         console.log(username);
         return new Promise((resolve, reject) => {
@@ -203,22 +213,12 @@
               disableButtons(false);
             },
           }).always(() => {
-            disableButtons(false); // Enable buttons after completion
+            disableButtons(false);
           });
         });
       }
-      
 
-      // Debounced versions of optInPlayer and optOutPlayer
-      const debouncedOptInPlayer = debounce(optInPlayer, 300); // 300ms delay
-      const debouncedOptOutPlayer = debounce(optOutPlayer, 300); // 300ms delay
-
-      // enable or disable buttons
-      function disableButtons(disable) {
-        $("#optin-btn, #optout-btn").prop("disabled", disable);
-      }
-
-      // Fetch data from API and populate the DataTable
+      // Fetch data API and populate the DataTable
       function fetchData() {
         return new Promise((resolve, reject) => {
           $(".loading").show();
@@ -252,23 +252,13 @@
           });
         });
       }
-      function fetchDataTest(username) {
-        $.ajax({
-          url: url + "get/" + username, //To check 1 player all fields in our DB
-          //url: url + 'get/', //Without username return all records in DB
-          type: "GET",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          success: function (response) {
-            console.log("response:", response);
-          },
-          error: function (xhr, status, error) {
-            console.log("response:", error);
-          },
-        });
-      }
 
+
+
+
+
+
+      
       // Populate the DataTable and implement ranking logic
       function populateTable(data) {
         let playerData = [];
@@ -276,6 +266,7 @@
         data.forEach((player, index) => {
           playerData.push({
             ranking: index + 1,
+            id: player.id, // Added id here
             username: player.username,
             points: formatPoints(player.points),
           });
@@ -285,30 +276,20 @@
           data: playerData,
           columns: [
             { data: "ranking" },
+            { data: "id" },
             { data: "username" },
             { data: "points" },
           ],
-          //   pageLength: 50, // Show all rows on a single page
+            pageLength: 10, // Show all rows on a single page
           destroy: true, // Allow re-initialization
           ordering: false, // Disable ordering since it's already sorted
           createdRow: function (row, data, dataIndex) {
-            // Highlight the top 3 players
-            if (data.ranking <= 3) {
-              $(row).addClass("top3");
-            }
-
-            // Highlight current player
-            if (data.username === username) {
-              $(row).addClass("current-user");
-            }
-
-            // Highlight last 4 players
-            if (data.ranking > playerData.length - 4) {
-              $(row).addClass("last4");
+            // Highlight the row if id matches netbet_id
+            if (data.id === netbet_id) {
+              $(row).addClass("highlight-row");
             }
           },
         });
-
         // Enable or disable the opt-out button based on the presence of the current user
         const userInTable = playerData.some(
           (player) => player.username === username
@@ -359,7 +340,6 @@
 
         // Fetch and populate the table
         fetchData();
-        fetchDataTest(username);
         // Set up click events for opt-in and opt-out buttons
         $("#optin-btn").click(function () {
           debouncedOptInPlayer(username);
