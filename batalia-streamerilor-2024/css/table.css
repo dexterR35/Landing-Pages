@@ -11,8 +11,6 @@ table {
   table-layout: fixed;
 }
 
-
-
 .sorting {
   text-align: start;
   padding-bottom: 0.5em;
@@ -25,7 +23,8 @@ table {
 
 #streamersTable_wrapper {
   padding: 13px;
-  background: var(--header_color);
+  /* background: var(--header_color); */
+  height: 100%;
 }
 
 .parent-avatar {
@@ -34,6 +33,13 @@ table {
 
 .parent-table {
   cursor: pointer;
+}
+
+.t-table {
+  background: var(--button_color);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 6%;
 }
 
 .ps {
@@ -51,11 +57,43 @@ table {
 .table-responsive {
   width: 48%;
   max-width: 100%;
-  border: 2px solid black;
+  /* overflow: hidden; */
   border-radius: 10px;
   padding: 20px;
   min-height: 560px;
   position: relative;
+}
+
+/* test */
+
+.blob1 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  z-index: -1;
+  border-radius: 19px;
+  height: 100%;
+  background: rgb(3 8 28 / 78%);
+  box-shadow: -10px 10px 30px #ffffff5c;
+}
+
+.blob2 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  z-index: -1;
+  border-radius: 19px;
+  height: 100%;
+  background: rgb(3 8 28 / 78%);
+  border: 1px solid #a7c1ff;
 }
 
 @media (orientation: portrait) {
@@ -75,15 +113,21 @@ table {
   transition: all 0.3s ease;
 }
 
-.table-responsive::after{
+.table-responsive::after {
+  /* background: radial-gradient(circle 80px at 80% -50%, #777777, #18182e); */
+}
+.dataTables_wrapper {
+  background: #00000014;
+}
+.table-responsive::before {
   content: "";
   position: absolute;
+  width: 45%;
+  height: 45%;
+  border-radius: 12px;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:rgb(190, 190, 190);
-  mask: var(--mask-reverse2);
+  right: 0;
+  box-shadow: 10px -10px 24px #ffffff38;
   z-index: -1;
 }
 
@@ -93,6 +137,7 @@ div.dataTables_wrapper div.dataTables_paginate {
   left: 0;
   background: var(--header_color);
 }
+
 .table-responsive:nth-child(2) .dataTables_wrapper div.dataTables_paginate {
   right: 0;
   left: unset;
@@ -100,7 +145,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
   color: var(--color-white);
-  background: var(--color_red);
+  background: var(--button_color);
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {

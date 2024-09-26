@@ -30,8 +30,8 @@ html {
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
     0% no-repeat padding-box;
 
-  --button_color: linear-gradient(to left, #ff1c26, #a81c1f);
-  --button_color-hover: linear-gradient(to right, #ff1c26, #a81c1f);
+  --button_color: linear-gradient(90deg, #ff1c26, #a81c1f);
+  --button_color-hover: linear-gradient(50deg, #ff1c26, #a81c1f);
 
   --color_blue: #c5e6ff;
   --color_red: #ff0000;
@@ -70,6 +70,24 @@ html {
       rgba(0, 0, 0, 1) 0,
       rgba(0, 0, 0, 1) 47%,
       rgba(0, 0, 0, 0) 100%,
+      rgba(0, 0, 0, 0) 0%
+    )
+    100% 0% / 100% 100% repeat-x;
+
+    --mask-section: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 0) 29%,
+      rgba(0, 0, 0, 0) 0%
+    )
+    100% 0% / 100% 100% repeat-x;
+
+    --mask-section-reverse: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0,
+      rgba(0, 0, 0, 1) 15%,
+      rgba(0, 0, 0, 0) 50%,
       rgba(0, 0, 0, 0) 0%
     )
     100% 0% / 100% 100% repeat-x;
@@ -133,9 +151,17 @@ h2 {
   margin: 10px 0;
 }
 
-p {
+h3 {
+  font-size: clamp(1.3rem, 1vw + 1.2rem, 1.4rem);
+  text-align: center;
+  margin: 10px 0;
+}
+
+p:not(p.font-tabel){
   font-size: clamp(1rem, 1vw + 1rem, 1.2rem);
 }
+
+
 /* settings */
 /* settings */
 /* settings */
@@ -226,8 +252,8 @@ footer,
 
 button:not(.controls button) {
   width: fit-content;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+  margin: 1% auto;
+  padding: 1rem 4rem;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -236,6 +262,7 @@ button:not(.controls button) {
   font-family: "montBold";
   text-transform: uppercase;
   cursor: pointer;
+  font-size: 100%;
 }
 
 .section {
@@ -243,17 +270,45 @@ button:not(.controls button) {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height:100%;
   opacity: 1;
   position: relative;
-  padding: 5rem 15px !important;
+  padding: 4rem 15px !important;
   color: var(--color_white);
+  z-index: 15;
+}
 
+.section.s2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-section);
+  background: #05090d4a;
   z-index: 1;
 }
+.section.s3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-section-reverse);
+  background: #03060aa8;
+  z-index: 1;
+}
+
 .section .parent {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+}
+
+.section.s3 .parent {
+  margin: 1rem 15px 4rem 15px !important;
 }
 
 .section .parent.visible,
@@ -306,7 +361,11 @@ footer .parent.visible {
   color: white;
   border: none;
   border-radius: 5px;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
+  bottom: 6%;
+  right: 6%;
+  z-index: 10;
 }
 
 #scrollToTop:hover {
@@ -315,9 +374,7 @@ footer .parent.visible {
 
 footer {
   position: relative;
-  background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
+height: auto;
 }
 
 /* END GENERAL */
@@ -363,10 +420,23 @@ footer {
   background-image: var(--bg-sect2);
 }
 
-footer {
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   background-image: url(./assets/bg/sect3.webp) ;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-
+footer .parent {
+  z-index: 1;
+  position: relative;
+}
 /* Offer */
 /* Offer */
 /* Offer */
@@ -380,7 +450,7 @@ footer {
   margin-top: -2rem;
 }
 .offer-content {
-  font-size: 2rem;
+  font-size: 4rem;
   margin-bottom: 0.5em;
 }
 
@@ -479,13 +549,43 @@ footer {
 
 footer {
   opacity: 1;
-  background: var(--header_color);
+  /* background: var(--header_color); */
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
+footer::after {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  mask: var(--mask-section);
+    background: #01172b3d;
+}
 
+#termsAndConditionsS {
+  padding: 3rem;
+  position: relative;
+}
 .terms-container {
   color: var(--color_white);
-  padding: 20px;
+  padding: 4rem 1;
+  border-radius: 10px;
+  position: relative;
+  margin: 0 auto;
+
+
+}
+
+#termsAndConditionsS::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  background: rgb(3 8 28 / 78%);
+  z-index: -1;
 }
 
 .terms-container h2 {

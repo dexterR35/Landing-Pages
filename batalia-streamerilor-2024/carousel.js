@@ -12,52 +12,52 @@ document.addEventListener("DOMContentLoaded", () => {
     // Data for the first carousel (static images)
     const slidesData = [
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/stero.webp",
         alt: "Nature Image",
         link: "https://example.com/nature",
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/icons_streamers/sorin.webp",
         alt: "City Image",
         link: "https://example.com/city",
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/razvan.webp",
         alt: "Nature Image",
         link: "https://example.com/nature",
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/icons_streamers/quikanu.webp",
         alt: "City Image",
         link: "https://example.com/city",
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/pacanela.webp",
         alt: "Nature Image",
         link: "https://example.com/nature",
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/icons_streamers/edi.webp",
         alt: "City Image",
         link: "https://example.com/city",
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/danutu.webp",
         alt: "Nature Image",
         link: "https://example.com/nature",
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/icons_streamers/cosmina.webp",
         alt: "City Image",
         link: "https://example.com/city",
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/anna.webp",
         alt: "Nature Image",
         link: "https://example.com/nature",
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/icons_streamers/alexmihai.webp",
         alt: "City Image",
         link: "https://example.com/city",
       },
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance1) {
         sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 1800,
             // transitionDuration: 500,
             autoplayDirection: "to left",
@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance2) {
         sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 2000,
             // transitionDuration: 500,
             transitionTimingFunction: "ease",
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </a>
                 <div class="footer-game">
                   <div class="footer-text">
-                    <p>${game.provider}</p>
+                    <p>PragmaticPlay</p>
                     <p><strong>${game.name}</strong></p>
                   </div>
                 </div>

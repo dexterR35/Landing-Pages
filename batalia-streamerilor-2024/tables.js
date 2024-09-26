@@ -56,7 +56,7 @@ const dummyUserData = [
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
-                    <p class="mb-0 ps">${userAsterix}</p>
+                    <p class="ps">${userAsterix}</p>
                 </div>
         </td>
         <td class="parent-points ps">${formatPoints(item.points)}</td>  
@@ -74,8 +74,8 @@ const dummyUserData = [
              <img src="" alt="pict_table" class="pict_table">
          </div>
          <div class="parent-name">
-         <p class="mb-0">${streamer.username}</p> 
-             <p class="mb-0">Stars: <span style="color:orangered;">***</span>**</p>
+         <p class="font-tabel">${streamer.username}</p> 
+             <p class="font-tabel">Stars: <span style="color:orangered;">***</span>**</p>
          </div>
      </div>
   </td>

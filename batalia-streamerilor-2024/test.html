@@ -64,8 +64,6 @@
       <tbody></tbody>
     </table>
     <script>
-
-      
       const token = "2f97bb641f2096c1e98a723c249a6ece";
       const url = "https://qaadmin.livepartners.com/api/streaming/";
 
@@ -255,12 +253,6 @@
         });
       }
 
-
-
-
-
-
-      
       // Populate the DataTable and implement ranking logic
       function populateTable(data) {
         let playerData = [];
@@ -282,7 +274,7 @@
             { data: "username" },
             { data: "points" },
           ],
-            pageLength: 10, // Show all rows on a single page
+          pageLength: 10, // Show all rows on a single page
           destroy: true, // Allow re-initialization
           ordering: false, // Disable ordering since it's already sorted
           createdRow: function (row, data, dataIndex) {
