@@ -29,6 +29,13 @@ const dummyUserData = [
     { username: "DUMISNINJA", points: 400000, stars: 7, ranking: 3 },
     { username: "DUDY", points: 350000, stars: 6, ranking: 4 },
     { username: "NARCIS", points: 300000, stars: 8, ranking: 5 },
+    { username: "PĂCĂNELA", points: 500000, stars: 10, ranking: 1 },
+    { username: "QUIKANU", points: 450000, stars: 5, ranking: 2 },
+    { username: "DUMISNINJA", points: 400000, stars: 7, ranking: 3 },
+    { username: "DUDY", points: 350000, stars: 6, ranking: 4 },
+    { username: "NARCIS", points: 300000, stars: 8, ranking: 5 },
+
+
   ];
   
   // Function to format points
@@ -127,7 +134,7 @@ const dummyUserData = [
       autoWidth: false,
       aaSorting: false,
       responsive: false,
-      pageLength: 5,
+      pageLength: 7,
       paginate: true,
       info: false,
       lengthChange: false,

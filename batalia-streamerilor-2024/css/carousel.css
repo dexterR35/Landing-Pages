@@ -230,6 +230,61 @@
   --slide-gap: 12px !important;
 }
 
+
+
+
+
+
+/* next prev */
+#games-carousel .controls button {
+  color: transparent;
+  display: block;
+  margin: 1rem;
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+cursor: pointer;
+  transition: all 150ms ease-out;
+}
+#games-carousel .controls button::before, #games-carousel .controls button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #606060;
+  transition: all 150ms ease-out;
+}
+#games-carousel .controls button::before {
+  width: 75%;
+  height: 25%;
+}
+#games-carousel .controls button::after {
+  width: 25%;
+  height: 75%;
+}
+#games-carousel .controls button:hover, #games-carousel .controls button:focus {
+  background-color: rgba(0, 0, 0, .1);
+}
+#games-carousel .controls button:hover::before, #games-carousel .controls button:focus::before, #games-carousel .controls button:hover::after, #games-carousel .controls button:focus::after {
+  background-color: #404040;
+}
+.btn-arrow.btn-arrow-left::before, .btn-arrow.btn-arrow-right::before, .btn-arrow.btn-arrow-left::after, .btn-arrow.btn-arrow-right::after {
+  top: 12.5%;
+  left: 12.5%;
+}
+#games-carousel .blaze-prev {
+  transform: rotate(-45deg);
+}
+#games-carousel .blaze-next {
+  transform: rotate(135deg);
+}
+
+
+
+
+
+
 @media (min-width: 1441px) {
   #games-carousel .blaze-slider {
     --slides-to-show: 7 !important;
