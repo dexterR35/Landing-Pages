@@ -12,66 +12,71 @@ document.addEventListener("DOMContentLoaded", () => {
     // Data for the first carousel (static images)
     const slidesData = [
       {
-        src: "./assets/icons_streamers/stero.webp",
-        alt: "Nature Image",
-        link: "https://example.com/nature",
-      },
-      {
-        src: "./assets/icons_streamers/sorin.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
       },
       {
-        src: "./assets/icons_streamers/razvan.webp",
-        alt: "Nature Image",
-        link: "https://example.com/nature",
-      },
-      {
-        src: "./assets/icons_streamers/quikanu.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
       },
       {
-        src: "./assets/icons_streamers/pacanela.webp",
-        alt: "Nature Image",
-        link: "https://example.com/nature",
-      },
-      {
-        src: "./assets/icons_streamers/edi.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
       },
       {
-        src: "./assets/icons_streamers/danutu.webp",
-        alt: "Nature Image",
-        link: "https://example.com/nature",
-      },
-      {
-        src: "./assets/icons_streamers/cosmina.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
       },
       {
-        src: "./assets/icons_streamers/anna.webp",
-        alt: "Nature Image",
-        link: "https://example.com/nature",
-      },
-      {
-        src: "./assets/icons_streamers/alexmihai.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
+      },
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
+      },
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
+      },
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
+      },
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
+      },
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
       },
       {
         src: "./assets/png/sorin2.webp",
         alt: "Nature Image",
-        link: "https://example.com/nature",
+  
       },
       {
-        src: "./assets/png/stero2.webp",
+        src: "./assets/png/sorin2.webp",
         alt: "City Image",
-        link: "https://example.com/city",
+    
       },
-      // ... Add more static images as needed ...
+      {
+        src: "./assets/png/sorin2.webp",
+        alt: "City Image",
+    
+      },
+   
     ];
 
     // Populate the first carousel with images
@@ -84,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const $imgElement = $("<img>");
         $imgElement.attr("src", slide.src);
         $imgElement.attr("alt", slide.alt);
-        $linkElement.attr("href", slide.link);
+        // $linkElement.attr("href", slide.link);
         $linkElement.attr("target", "_blank");
         $linkElement.append($imgElement);
         $slideDiv.append($linkElement);
@@ -97,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance1) {
         sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
           all: {
-            enableAutoplay: true,
+            enableAutoplay: false,
             autoplayInterval: 1800,
             // transitionDuration: 500,
             autoplayDirection: "to left",
@@ -205,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (game.image_url && game.game_url) {
           const gameElement = `
             <div class="game relative" data-index="${index}">
-              <a href="${game.game_url}" target="_blank" class="play-overlay absolute">Play</a>
+              <a href="${game.game_url}" target="_blank" class="play-overlay absolute"><p>Play</p></a>
               <div class="parent-game d-flex-center flex-between flex-col h-full">
                 <a href="${game.game_url}" target="_blank">
                   <img src="${game.image_url}" alt="${game.name}">

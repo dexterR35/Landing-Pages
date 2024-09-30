@@ -109,6 +109,15 @@ html {
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "montExtraBold";
+  src: url("./fonts/montserrat-extrabold-webfont.woff2") format("woff2"),
+    url("./fonts/montserrat-extrabold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @font-face {
   font-family: "montBold";
@@ -146,9 +155,10 @@ li {
 }
 
 h2 {
-  font-size: clamp(1.5rem, 1vw + 2rem, 2.2rem);
+  font-size: clamp(1.5rem, 1vw + 2rem, 2rem);
   text-align: center;
-  margin: 10px 0;
+  margin: 0 auto 2rem;
+  font-family: 'montExtraBold';
 }
 
 h3 {
@@ -158,9 +168,12 @@ h3 {
 }
 
 p:not(p.font-tabel){
-  font-size: clamp(1rem, 1vw + 1rem, 1.2rem);
+  font-size: clamp(1rem, 0.8vw + 1rem, 1.1rem);
 }
 
+p {
+  font-family: 'montSemiBold';
+}
 
 /* settings */
 /* settings */
@@ -252,8 +265,8 @@ footer,
 
 button:not(.controls button) {
   width: fit-content;
-  margin: 1% auto;
-  padding: 1rem 4rem;
+  /* margin: 1% auto; */
+  padding: 1rem 3rem;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -273,9 +286,10 @@ button:not(.controls button) {
   height:100%;
   opacity: 1;
   position: relative;
-  padding: 4rem 15px !important;
+  padding: 2rem 15px !important;
   color: var(--color_white);
   z-index: 15;
+  /* margin-bottom: 2%; */
 }
 
 .section.s2::before {
@@ -308,7 +322,7 @@ button:not(.controls button) {
 }
 
 .section.s3 .parent {
-  margin: 1rem 15px 4rem 15px !important;
+  margin: 1rem 15px 10% 15px !important;
 }
 
 .section .parent.visible,
@@ -454,6 +468,21 @@ footer .parent {
   margin-bottom: 0.5em;
 }
 
+@media (max-width:991px) {
+  .offer-content {
+
+    font-size: 3rem;
+  }
+}
+
+
+@media (max-width:480px) {
+  .offer-content {
+
+    font-size: 2rem;
+  }
+}
+
 .line-0 {
   /* font-size: 1.9em; */
   text-align: center;
@@ -510,10 +539,27 @@ footer .parent {
 /* section2  */
 /* section2  */
 /* section2  */
-
+/* .section.s2 {
+  height: 100vh !important;
+} */
 .section.s2 .left-side {
   height: auto;
   max-width: 100%;
+}
+.section.s2 .section_title:nth-child(1){
+  margin: 2% auto;
+}
+
+.section.s2 .section_title:nth-child(2){
+  margin: 0 auto;
+}
+
+.section.s2 .carousel {
+  margin: 2% 0;
+}
+
+.section.s2 .section_title p {
+  text-align: justify;
 }
 
 /* end section2 */
@@ -523,7 +569,6 @@ footer .parent {
 /* section 3 */
 /* section 3 */
 /* section 3 */
-
 
 
 /* end section 3 */

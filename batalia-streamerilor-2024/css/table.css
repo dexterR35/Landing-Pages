@@ -24,7 +24,7 @@ table {
 #streamersTable_wrapper {
   padding: 13px;
   /* background: var(--header_color); */
-  height: 100%;
+  height: auto;
 }
 
 .parent-avatar {
@@ -37,9 +37,9 @@ table {
 
 .t-table {
   background: var(--button_color);
-  padding: 12px;
+  padding: 10px;
   border-radius: 6px;
-  margin-bottom: 6%;
+  margin-bottom: 2%;
 }
 
 .ps {
@@ -59,8 +59,8 @@ table {
   max-width: 100%;
   /* overflow: hidden; */
   border-radius: 10px;
-  padding: 20px;
-  min-height: 560px;
+  padding: 20px 20px 0;
+  /* min-height: 560px; */
   position: relative;
 }
 
