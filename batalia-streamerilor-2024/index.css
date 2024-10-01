@@ -201,7 +201,7 @@ li {
 
 body,html {
 
-  cursor: url('./assets/cursor.png') 16 16 auto;
+  cursor: url('./assets/cursor.png'),auto;
 }
 h2 {
   font-size: 2.2rem;
