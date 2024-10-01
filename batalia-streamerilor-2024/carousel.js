@@ -9,77 +9,71 @@ document.addEventListener("DOMContentLoaded", () => {
     let gamesData = [];
     let slidesDataFetched = false;
 
-    // Data for the first carousel (static images)
+
     const slidesData = [
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/stero.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/sorin.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/razvan.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/quikanu.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/pacanela.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/gamblers.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/fury.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/cosmina.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/anna.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/andyvip.webp",
         alt: "City Image",
     
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/alexmihai.webp",
         alt: "Nature Image",
   
       },
       {
-        src: "./assets/png/sorin2.webp",
+        src: "./assets/icons_streamers/danutu.webp",
         alt: "City Image",
-    
       },
-      {
-        src: "./assets/png/sorin2.webp",
-        alt: "City Image",
-    
-      },
-   
+  
     ];
 
-    // Populate the first carousel with images
+    // Populate the first carousel
     function populateFirstCarousel() {
       const $blazeTrack1 = $("#image-carousel .blaze-track");
       $blazeTrack1.empty();
@@ -119,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Manually pause autoplay if needed
     function stopAutoplay(sliderInstance) {
       if (sliderInstance && sliderInstance.pause) {
-        sliderInstance.pause(); // Pause the autoplay manually
+        sliderInstance.pause(); 
         console.log("Autoplay paused manually.");
       }
     }
@@ -150,8 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loop: true,
           },
         });
-        console.log("Second carousel initialized.");
-
+       
         sliderInstance2.onSlide(
           (pageIndex, firstVisibleSlideIndex, lastVisibleSlideIndex) => {
             console.log({
@@ -162,12 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         );
       }
+      console.log("Second carousel initialized.");
     }
 
     // Destroy the second carousel
     function destroySecondCarousel() {
       if (sliderInstance2) {
-        stopAutoplay(sliderInstance2); // Pause autoplay before destroying
+        stopAutoplay(sliderInstance2); 
         sliderInstance2.destroy();
         sliderInstance2 = null;
         isCarousel2Visible = false;
@@ -175,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Fetch and display all games in the second carousel
+    // Fetch games in the second carousel
     async function fetchGames() {
       try {
         const response = await fetch("./games_new.json");
@@ -205,12 +199,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function populateSecondCarousel() {
       const $blazeTrack2 = $("#games-carousel .blaze-track");
       $blazeTrack2.empty();
-
       gamesData.forEach(function (game, index) {
         if (game.image_url && game.game_url) {
           const gameElement = `
             <div class="game relative" data-index="${index}">
-              <a href="${game.game_url}" target="_blank" class="play-overlay absolute"><p>Play</p></a>
               <div class="parent-game d-flex-center flex-between flex-col h-full">
                 <a href="${game.game_url}" target="_blank">
                   <img src="${game.image_url}" alt="${game.name}">

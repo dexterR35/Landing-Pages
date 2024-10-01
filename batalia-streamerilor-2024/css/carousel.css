@@ -1,11 +1,11 @@
 .carousel:not(:nth-child(1)) {
   width: 100%;
   height: auto;
-  position: absolute;
+  position: relative;
   bottom: 0%;
 }
 
-.caro .section.s1 .carousel::after {
+ .section.s1 .carousel::after {
   content: "";
   position: absolute;
   top: 0;
@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .play-overlay {
@@ -96,7 +97,6 @@
 }
 
 .blaze-track .footer-game .footer-text {
-  /* max-height: 45px; */
   height: 100%;
 }
 .footer-game {
