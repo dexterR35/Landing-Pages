@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance1) {
         sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 1800,
             // transitionDuration: 500,
             autoplayDirection: "to left",
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance2) {
         sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 2000,
             // transitionDuration: 500,
             transitionTimingFunction: "ease",
@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     // Observe all sections with the 'section' class
-    document.querySelectorAll(".section .parent").forEach((section) => {
+    document.querySelectorAll("._page").forEach((section) => {
       sectionObserver.observe(section);
     });
 

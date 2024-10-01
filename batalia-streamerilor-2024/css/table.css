@@ -1,6 +1,6 @@
 .container-table {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: stretch;
   flex-direction: row;
   position: relative;
@@ -21,10 +21,9 @@ table {
   text-align: center;
 }
 
-#streamersTable_wrapper {
+#streamersTable_wrapper, #usersTable_wrapper{
   padding: 13px;
-  /* background: var(--header_color); */
-  height: auto;
+  height: 450px;
 }
 
 .parent-avatar {
@@ -55,7 +54,7 @@ table {
 }
 
 .table-responsive {
-  width: 48%;
+  width: 40%;
   max-width: 100%;
   /* overflow: hidden; */
   border-radius: 10px;
@@ -104,7 +103,7 @@ table {
 }
 
 #usersTable tbody .parent-table {
-  height: 55px;
+  height: 35px;
 }
 
 .parent-table:hover {
@@ -113,9 +112,10 @@ table {
   transition: all 0.3s ease;
 }
 
-.table-responsive::after {
-  /* background: radial-gradient(circle 80px at 80% -50%, #777777, #18182e); */
+.parent-name .ps {
+  font-size: 120%;
 }
+
 .dataTables_wrapper {
   background: #00000014;
 }
@@ -131,24 +131,26 @@ table {
   z-index: -1;
 }
 
-div.dataTables_wrapper div.dataTables_paginate {
-  position: absolute;
-  bottom: -6%;
-  left: 0;
+.dataTables_paginate {
+  position: relative;
+  bottom: -5%;
+  left: -3.5%;
+  width: fit-content;
   background: var(--header_color);
 }
 
-.table-responsive:nth-child(2) .dataTables_wrapper div.dataTables_paginate {
+.table-responsive:nth-child(2) .dataTables_paginate {
   right: 0;
   left: unset;
+  float: right;
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+.dataTables_paginate .paginate_button.current {
   color: var(--color-white);
   background: var(--button_color);
 }
 
-.dataTables_wrapper .dataTables_paginate .paginate_button {
+.dataTables_paginate .paginate_button {
   box-sizing: border-box;
   display: inline-block;
   min-width: 2em;
@@ -199,4 +201,8 @@ div.dataTables_wrapper div.dataTables_paginate {
   gap: 10px;
 }
 
+
+.font-tabel,.ps {
+  font-size: 100%;
+}
 

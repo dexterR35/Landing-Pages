@@ -15,6 +15,97 @@ const dummyUserData = [
     { username: "user3", points: 85000, ranking: 3 },
     { username: "user4", points: 82000, ranking: 4 },
     { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+    { username: "user1", points: 100000, ranking: 1 },
+    { username: "user2", points: 90000, ranking: 2 },
+    { username: "user3", points: 85000, ranking: 3 },
+    { username: "user4", points: 82000, ranking: 4 },
+    { username: "user5", points: 80000, ranking: 5 },
+
   ];
   
   // Dummy data for streamers
@@ -33,9 +124,6 @@ const dummyUserData = [
     { username: "QUIKANU", points: 450000, stars: 5, ranking: 2 },
     { username: "DUMISNINJA", points: 400000, stars: 7, ranking: 3 },
     { username: "DUDY", points: 350000, stars: 6, ranking: 4 },
-    { username: "NARCIS", points: 300000, stars: 8, ranking: 5 },
-
-
   ];
   
   // Function to format points
@@ -111,8 +199,10 @@ const dummyUserData = [
       const streamerRow = createTableStreamers(streamer, `./_avatar/${streamer.username.toLowerCase()}.png`);
       tableDataStreamer.append(streamerRow);
     });
-  
+    $.fn.DataTable.ext.pager.numbers_length = 5; 
+
     // Initialize DataTables for users and streamers
+
     $('#usersTable').DataTable({
       autoWidth: false,
       aaSorting: false,
@@ -123,11 +213,13 @@ const dummyUserData = [
       searching: false,
       lengthChange: false,
       language: false,
+      pagingType: "simple_numbers",
       columnDefs: [
         { width: "10%", targets: 0 },
         { width: "60%", targets: 1 },
         { width: "15%", targets: 2 },
       ],
+        dom: 'lfrtip'
     });
   
     $('#streamersTable').DataTable({
@@ -145,6 +237,8 @@ const dummyUserData = [
         { width: "10%", targets: 2 },
       ],
     });
+      $("#usersTable_paginate").detach().appendTo("._users");
+      $("#streamersTable_paginate").detach().appendTo("._streamers");
   }
   
   // Call generateTables function on document ready
