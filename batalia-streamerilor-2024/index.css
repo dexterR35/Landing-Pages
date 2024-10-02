@@ -199,19 +199,22 @@ li {
   list-style: none;
 }
 
-body,html {
-
-  cursor: url('./assets/cursor.png'),auto;
+html {
+  cursor: url("./assets/cursor4.webp") 40 40, auto;
+}
+.container-btn button:hover {
+  cursor: url("./assets/cursor5.webp") 40 40, auto; /* Specify the custom cursor image */
 }
 h2 {
   font-size: 2.2rem;
   text-align: center;
-  margin: 4% auto 1%;
+  margin: 1% auto 1%;
   font-family: "montExtraBold";
   max-width: 75%;
   text-transform: uppercase;
   line-height: 1.2;
   text-shadow: var(--textShadowFull);
+  user-select: none;
 }
 
 h3 {
@@ -226,6 +229,14 @@ p:not(p.font-tabel) {
 p {
   font-family: "montSemiBold";
   font-size: 1.2rem;
+}
+img,
+p,
+h2,
+h3,
+table,
+.offer {
+  user-select: none;
 }
 
 /* @media (max-width:1280px){
@@ -333,7 +344,6 @@ button:not(.controls button) {
   color: white;
   font-family: "montExtraBold";
   text-transform: uppercase;
-  cursor: pointer;
   font-size: 1.3rem;
 }
 
@@ -350,7 +360,7 @@ button:not(.controls button) {
   height: 100%;
   opacity: 1;
   position: relative;
-  padding: 4rem 15px 1rem !important;
+  padding: 0rem 15px 0rem !important;
   color: var(--color_white);
   z-index: 15;
   /* margin-bottom: 2%; */
@@ -384,11 +394,9 @@ button:not(.controls button) {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.section.s3 .parent {
-  margin: 1rem 15px 10% 15px !important;
-}
 
- ._page.visible,
+
+._page.visible,
 footer ._page.visible {
   opacity: 1;
 }
@@ -418,7 +426,7 @@ footer ._page.visible {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 @media (max-width: 1280px) {
@@ -446,12 +454,10 @@ footer ._page.visible {
 
 #scrollToTop {
   padding: 10px 20px;
-  cursor: pointer;
   background-color: #1f71ad;
   color: white;
   border: none;
   border-radius: 5px;
-  /* position: absolute; */
   position: fixed;
   bottom: 6%;
   right: 6%;
@@ -608,7 +614,7 @@ footer .parent {
 /* section2  */
 
 .section.s2 .left-side {
-  height: 100%;
+  height: auto;
   max-width: 100%;
   /* background: chartreuse; */
 }
@@ -631,6 +637,9 @@ footer .parent {
   color: var(--color_blue);
 }
 
+.section.s2  {
+  height: 100vh;
+}
 
 .section.s1 .carousel {
   position: relative;
@@ -648,13 +657,12 @@ footer .parent {
   background: #79b2de80;
 } */
 
-
 .container-btn {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px 0;
+  margin: 20px auto;
 }
 
 /* end section2 */
@@ -664,7 +672,16 @@ footer .parent {
 /* section 3 */
 /* section 3 */
 /* section 3 */
+.section.s3 {
+  height: 100vh;
+}
 
+.section.s3 .left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
 /* end section 3 */
 /* end section 3 */
 /* end section 3 */

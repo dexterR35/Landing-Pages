@@ -13,7 +13,7 @@
   width: 100%;
   height: 100%;
   mask: var(--mask-section);
-  background: #01050642;
+  background: #18162942;
   z-index: -1;
 }
 
@@ -254,10 +254,10 @@ cursor: pointer;
 }
 #games-carousel .controls button::before {
   width: 75%;
-  height: 15%;
+  height: 10%;
 }
 #games-carousel .controls button::after {
-  width: 15%;
+  width: 10%;
   height: 75%;
 }
 

@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const slidesData = [
       {
+        src: "./assets/icons_streamers/aps2.webp",
+        alt: "City Image",
+      },
+    
+      {
         src: "./assets/icons_streamers/stero.webp",
         alt: "City Image",
     
@@ -70,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         src: "./assets/icons_streamers/danutu.webp",
         alt: "City Image",
       },
-  
+     
     ];
 
     // Populate the first carousel
@@ -324,6 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     });
 
+    
     // Show/Hide Scroll to Top Button Based on Scroll Position
     $(window).scroll(function () {
       if ($(this).scrollTop() > 200) {
