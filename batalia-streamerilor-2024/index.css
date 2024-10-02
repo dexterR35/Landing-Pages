@@ -65,9 +65,9 @@ html {
   }
 }
 :root {
-  --bg-desktop: url(./assets/integrat.webp);
+  --bg-desktop: url(./assets/desktop_principal\ copy.webp);
   --bg-mobile: url(./assets/stero3_mob.webp);
-  --bg-sect1: url(./assets/bg/sect1.webp);
+  --bg-sect1: url(./assets/desktop_principal\ copy.webp);
   --bg-sect2: url(./assets/bg/sect2.webp);
   --bg-sect3: url(./assets/bg/sect3.webp);
   --bg-sect4: url(./assets/bg/sect4.webp);

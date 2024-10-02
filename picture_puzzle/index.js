@@ -11,7 +11,7 @@ $(document).ready(function() {
 		mm = 0,
 		ss = 0,
 		upIMG,
-		images = ["https://go-testing.netbet.ro/lp-asset/netbetro/casino/250stero/test.webp","https://preview.ibb.co/kWOEt6/minion.png","https://preview.ibb.co/e0Rv0m/ab.jpg"]
+		images = ["./AdobeStock_831312342.jpeg","https://preview.ibb.co/kWOEt6/minion.png","https://preview.ibb.co/e0Rv0m/ab.jpg"]
 		img = 0;
 
 
