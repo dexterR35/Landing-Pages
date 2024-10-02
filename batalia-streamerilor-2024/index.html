@@ -109,17 +109,18 @@
               <button class="btn"><span></span>vezi toate jocurile</button>
             </div>
           </div>
-   
-          <svg class="arrows">
-            <path class="a1" d="M0 0 L30 32 L60 0"></path>
-            <path class="a2" d="M0 20 L30 52 L60 20"></path>
-            <path class="a3" d="M0 40 L30 72 L60 40"></path>
-          </svg>
- 
-       
-       
+          <div class="box-arrow">
+            <svg class="arrows">
+              <path class="a1" d="M0 0 L30 32 L60 0"></path>
+              <path class="a2" d="M0 20 L30 52 L60 20"></path>
+              <path class="a3" d="M0 40 L30 72 L60 40"></path>
+            </svg>
+          </div>
+
+
+
         </div>
-   
+
       </section>
       <section class="section s3 _b" id="section3">
         <div class="_page">
@@ -466,20 +467,35 @@
   </div>
 
   <style>
-    .arrows {
-      width: 60px;
-      height: 72px;
+    .box-arrow {
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
       bottom: 20px;
-      z-index: 2;
+      background: red;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arrows {
+      width: 60px;
+      height: 80px;
+
+    }
+
+    @media (max-width:991px) {
+      .box-arrow {
+        position: relative;
+        bottom: 50%;
+      }
     }
 
     .arrows path {
       stroke: #fff;
       fill: transparent;
-      stroke-width: 2px;
+      stroke-width: 4px;
       animation: arrow 2s infinite;
       -webkit-animation: arrow 2s infinite;
     }
@@ -551,48 +567,48 @@
     }
   </style>
   <script>
-$('#target').on('click touchstart', '._b', function (e) {
-  if ($('#target .bullet-hole').length >= 10) {
-    return;
-  }
-  if ($(e.target).is('button, input, textarea, select, a, p, h2') || 
-      $(e.target).closest('.table-responsive').length ||
-      $(e.target).closest('.offer-content').length || 
-      $(e.target).closest('.carousel').length || 
-      $(e.target).closest('.arrows').length) {
-    return;
-  }
+    $('#target').on('click touchstart', '._b', function (e) {
+      if ($('#target .bullet-hole').length >= 10) {
+        return;
+      }
+      if ($(e.target).is('button, input, textarea, select, a, p, h2') ||
+        $(e.target).closest('.table-responsive').length ||
+        $(e.target).closest('.offer-content').length ||
+        $(e.target).closest('.carousel').length ||
+        $(e.target).closest('.arrows').length) {
+        return;
+      }
 
-  // For touch, use touches[0] to get coordinates.
-  let isTouch = e.type === 'touchstart';
-  let pageX = isTouch ? e.originalEvent.touches[0].pageX : e.pageX;
-  let pageY = isTouch ? e.originalEvent.touches[0].pageY : e.pageY;
-  
-  let sectionOffset = $(this).offset();
-  
-  let bulletHoleX = pageX - sectionOffset.left;
-  let bulletHoleY = pageY - sectionOffset.top;
-  
-  // Create the bullet hole element
-  let bulletHole = $('<div />').addClass('bullet-hole').appendTo($(this));
-  
-  // Get bullet hole dimensions
-  let bulletHoleWidth = bulletHole.outerWidth();
-  let bulletHoleHeight = bulletHole.outerHeight();
-  
-  bulletHole.css({
-    top: bulletHoleY - bulletHoleHeight / 2,
-    left: bulletHoleX - bulletHoleWidth / 2
-  });
+      // For touch, use touches[0] to get coordinates.
+      let isTouch = e.type === 'touchstart';
+      let pageX = isTouch ? e.originalEvent.touches[0].pageX : e.pageX;
+      let pageY = isTouch ? e.originalEvent.touches[0].pageY : e.pageY;
 
-  setTimeout(removeBulletHole, 1500);
-});
+      let sectionOffset = $(this).offset();
 
-function removeBulletHole() {
-  $('#target .bullet-hole:not(:animated):first').fadeOut(function () {
-    $(this).remove();
-  });
-}
+      let bulletHoleX = pageX - sectionOffset.left;
+      let bulletHoleY = pageY - sectionOffset.top;
+
+      // Create the bullet hole element
+      let bulletHole = $('<div />').addClass('bullet-hole').appendTo($(this));
+
+      // Get bullet hole dimensions
+      let bulletHoleWidth = bulletHole.outerWidth();
+      let bulletHoleHeight = bulletHole.outerHeight();
+
+      bulletHole.css({
+        top: bulletHoleY - bulletHoleHeight / 2,
+        left: bulletHoleX - bulletHoleWidth / 2
+      });
+
+      setTimeout(removeBulletHole, 1500);
+    });
+
+    function removeBulletHole() {
+      $('#target .bullet-hole:not(:animated):first').fadeOut(function () {
+        $(this).remove();
+      });
+    }
 
   </script>
 

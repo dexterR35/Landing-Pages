@@ -331,11 +331,11 @@ cursor: pointer;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   #games-carousel .blaze-slider {
-    --slides-to-show: 3 !important;
+    --slides-to-show: 2 !important;
   }
   #image-carousel .blaze-slider {
-    --slides-to-show: 4 !important;
+    --slides-to-show: 2 !important;
   }
 }

@@ -11,11 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const slidesData = [
+   
       {
-        src: "./assets/icons_streamers/aps2.webp",
+        src: "./assets/icons_streamers/pacanela.webp",
         alt: "City Image",
-      },
     
+      },
       {
         src: "./assets/icons_streamers/stero.webp",
         alt: "City Image",
@@ -36,11 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alt: "City Image",
     
       },
-      {
-        src: "./assets/icons_streamers/pacanela.webp",
-        alt: "City Image",
     
-      },
       {
         src: "./assets/icons_streamers/gamblers.webp",
         alt: "City Image",
@@ -55,6 +52,10 @@ document.addEventListener("DOMContentLoaded", () => {
         src: "./assets/icons_streamers/cosmina.webp",
         alt: "City Image",
     
+      },
+      {
+        src: "./assets/icons_streamers/aps2.webp",
+        alt: "City Image",
       },
       {
         src: "./assets/icons_streamers/anna.webp",
@@ -101,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance1) {
         sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 1800,
             // transitionDuration: 500,
             autoplayDirection: "to left",
@@ -139,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance2) {
         sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
           all: {
-            enableAutoplay: false,
+            enableAutoplay: true,
             autoplayInterval: 2000,
             // transitionDuration: 500,
             transitionTimingFunction: "ease",

@@ -61,7 +61,7 @@ html {
 
 @media (max-width: 767px) {
   html {
-    font-size: 65%;
+    font-size: 80%;
   }
 }
 :root {
@@ -215,6 +215,13 @@ h2 {
   line-height: 1.2;
   text-shadow: var(--textShadowFull);
   user-select: none;
+}
+
+@media  (orientation:portrait) and (max-width:991px) {
+  h2 {
+    max-width: 90%;
+    font-size: 150%;
+  }
 }
 
 h3 {
@@ -491,6 +498,15 @@ footer {
 @media (max-width: 991px) {
   .section.s1::after {
     background-image: var(--bg-mobile);
+  }
+  .section:nth-child(1) .parent {
+    flex-direction: column-reverse !important;
+  }
+  .section:nth-child(1) .parent .left-side {
+    height: auto;
+  }
+  .section.s2, .section.s3 {
+    height: 100% !important;
   }
 }
 
