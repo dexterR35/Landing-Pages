@@ -13,7 +13,7 @@ table {
 }
 
 .sorting {
-  text-align: start;
+  text-align: center;
   padding-bottom: 0.5em;
 }
 
@@ -46,7 +46,9 @@ table {
   text-align: center;
   padding-right: 10px;
 }
-
+.parent-points {
+  text-align: end;
+}
 @media screen and (max-width: 768px) {
   .container-table {
     flex-direction: column;
@@ -181,7 +183,13 @@ width: 100%;
   border-radius: 4px;
   padding: 8px 15px;
 }
+table.dataTable td.dt-center {
+  text-align: center;
+}
 
+table.dataTable td.dt-right {
+  text-align: right;
+}
 .avatar-table {
   width: 3rem;
   height: 3rem;

@@ -1,337 +1,184 @@
 document.addEventListener("DOMContentLoaded", () => {
-  $(document).ready(function () {
-    let currentSlideIndex = 0;
-    let sliderInstance1 = null;
-    let sliderInstance2 = null;
-    let isCarousel1Visible = false;
-    let isCarousel2Visible = false;
-    let gamesDataFetched = false;
-    let gamesData = [];
-    let slidesDataFetched = false;
+  let gamesDataFetched = false; // Moved to outer scope
+  let gamesData = []; // Moved to outer scope
 
+  $(document).ready(init);
 
-    const slidesData = [
-   
-      {
-        src: "./assets/icons_streamers/testpacanela.webp",
-        alt: "City Imagesss",
-    
-      },
-      {
-        src: "./assets/icons_streamers/stero.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/sorin.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/razvan.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/quikanu.webp",
-        alt: "City Image",
-    
-      },
-    
-      {
-        src: "./assets/icons_streamers/gamblers.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/fury.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/cosmina.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/aps2.webp",
-        alt: "City Image",
-      },
-      {
-        src: "./assets/icons_streamers/anna.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/andyvip.webp",
-        alt: "City Image",
-    
-      },
-      {
-        src: "./assets/icons_streamers/alexmihai.webp",
-        alt: "Nature Image",
-  
-      },
-      {
-        src: "./assets/icons_streamers/danutu.webp",
-        alt: "City Image",
-      },
-     
+  // Initialization function
+  function init() {
+    const slidesData = getSlidesData(); // Images for the first carousel
+
+    // Initialize first carousel
+    populateFirstCarousel(slidesData);
+    initializeCarousel("#image-carousel", getFirstCarouselOptions());
+
+    // Fetch and populate second carousel images
+    fetchGames().then((games) => {
+      gamesData = games;
+      populateSecondCarousel(gamesData);
+      initializeCarousel("#games-carousel", getSecondCarouselOptions());
+    });
+
+    // Setup Scroll to Top button functionality
+    setupScrollToTop();
+
+    // Observe visibility of sections and footer
+    observeSections();
+  }
+
+  // Function to handle visibility of sections
+  function handleSectionVisibility(entries) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting || entry.target.getBoundingClientRect().top < window.innerHeight) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }
+
+  // Observer to track visibility of sections
+  function observeSections() {
+    const sectionObserver = new IntersectionObserver(handleSectionVisibility, {
+      root: null,
+      threshold: 0.25,
+    });
+
+    document.querySelectorAll("._page").forEach((section) => sectionObserver.observe(section));
+    const footer = document.querySelector("footer");
+    if (footer) sectionObserver.observe(footer);
+  }
+
+  // Function to get predefined slide data for the first carousel
+  function getSlidesData() {
+    return [
+      { src: "./assets/icons_streamers/testpacanela.webp", alt: "pacanela" },
+      { src: "./assets/icons_streamers/stero.webp", alt: "stero" },
+      { src: "./assets/icons_streamers/sorin.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/razvan.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/quikanu.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/gamblers.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/fury.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/cosmina.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/aps2.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/anna.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/andyvip.webp", alt: "City Image" },
+      { src: "./assets/icons_streamers/alexmihai.webp", alt: "Nature Image" },
+      { src: "./assets/icons_streamers/danutu.webp", alt: "City Image" },
     ];
+  }
 
-    // Populate the first carousel
-    function populateFirstCarousel() {
-      const $blazeTrack1 = $("#image-carousel .blaze-track");
-      $blazeTrack1.empty();
-      slidesData.forEach(function (slide) {
-        const $slideDiv = $("<div>");
-        const $linkElement = $("<a>");
-        const $imgElement = $("<img>");
-        $imgElement.attr("src", slide.src);
-        $imgElement.attr("alt", slide.alt);
-        // $linkElement.attr("href", slide.link);
-        $linkElement.attr("target", "_blank");
-        $linkElement.append($imgElement);
-        $slideDiv.append($linkElement);
-        $blazeTrack1.append($slideDiv);
-      });
-    }
+  // Function to populate the first carousel
+  function populateFirstCarousel(slidesData) {
+    const $blazeTrack1 = $("#image-carousel .blaze-track");
+    $blazeTrack1.empty();
+    slidesData.forEach((slide) => {
+      const $slideDiv = $("<div>");
+      const $linkElement = $("<a>");
+ const $imgElement = $("<img>").attr({ src: slide.src, alt: slide.alt, loading: "lazy" });
+      $linkElement.attr("target", "_blank").append($imgElement);
+      $slideDiv.append($linkElement);
+      $blazeTrack1.append($slideDiv);
+    });
+  }
 
-    // Initialize the first carousel
-    function initializeFirstCarousel() {
-      if (!sliderInstance1) {
-        sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
-          all: {
-            enableAutoplay: false,
-            autoplayInterval: 1800,
-            // transitionDuration: 500,
-            autoplayDirection: "to left",
-            transitionTimingFunction: "ease",
-            slidesToScroll: 1,
-            stopAutoplayOnInteraction: true,
-            loop: true,
-          },
-        });
-        console.log("First carousel initialized.");
+  // Function to fetch games data asynchronously
+  async function fetchGames() {
+    if (gamesDataFetched) return gamesData;
+
+    try {
+      const response = await fetch("./games_new.json");
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      const data = await response.json();
+      if (data.status && data.data && data.data.games) {
+        gamesDataFetched = true;
+        return data.data.games.map((game) => ({
+          ...game,
+          image_url: game.image_url ? game.image_url.replace(game.id, game.id - 1) : "",
+        }));
+      } else {
+        console.log("No games found or API returned an error.");
+        return [];
       }
+    } catch (error) {
+      console.error("Error fetching games:", error);
+      return [];
     }
+  }
 
-    // Manually pause autoplay if needed
-    function stopAutoplay(sliderInstance) {
-      if (sliderInstance && sliderInstance.pause) {
-        sliderInstance.pause(); 
-        console.log("Autoplay paused manually.");
-      }
-    }
-
-    // Destroy the first carousel
-    function destroyFirstCarousel() {
-      if (sliderInstance1) {
-        stopAutoplay(sliderInstance1); // Pause autoplay before destroying
-        sliderInstance1.destroy();
-        sliderInstance1 = null;
-        isCarousel1Visible = false;
-        console.log("First carousel destroyed.");
-      }
-    }
-
-    // Initialize the second carousel
-    function initializeSecondCarousel() {
-      if (!sliderInstance2) {
-        sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
-          all: {
-            enableAutoplay: false,
-            autoplayInterval: 2000,
-            // transitionDuration: 500,
-            transitionTimingFunction: "ease",
-            autoplayDirection: "to right",
-            slidesToScroll: 1,
-            stopAutoplayOnInteraction: true,
-            loop: true,
-          },
-        });
-       
-        sliderInstance2.onSlide(
-          (pageIndex, firstVisibleSlideIndex, lastVisibleSlideIndex) => {
-            console.log({
-              pageIndex,
-              firstVisibleSlideIndex,
-              lastVisibleSlideIndex,
-            });
-          }
-        );
-      }
-      console.log("Second carousel initialized.");
-    }
-
-    // Destroy the second carousel
-    function destroySecondCarousel() {
-      if (sliderInstance2) {
-        stopAutoplay(sliderInstance2); 
-        sliderInstance2.destroy();
-        sliderInstance2 = null;
-        isCarousel2Visible = false;
-        console.log("Second carousel destroyed.");
-      }
-    }
-
-    // Fetch games in the second carousel
-    async function fetchGames() {
-      try {
-        const response = await fetch("./games_new.json");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        // console.log(data);
-        if (data.status && data.data && data.data.games) {
-          gamesData = data.data.games.map((game) => ({
-            ...game,
-            image_url: game.image_url
-              ? game.image_url.replace(game.id, game.id - 1) // -1 img id from api !
-              : "",
-          }));
-          gamesDataFetched = true;
-          populateSecondCarousel();
-        } else {
-          console.log("No games found or API returned an error.");
-        }
-      } catch (error) {
-        console.error("Error fetching games:", error);
-      }
-    }
-
-    // Populate the second carousel with all games data
-    function populateSecondCarousel() {
-      const $blazeTrack2 = $("#games-carousel .blaze-track");
-      $blazeTrack2.empty();
-      gamesData.forEach(function (game, index) {
-        if (game.image_url && game.game_url) {
-          const gameElement = `
-            <div class="game relative" data-index="${index}">
-              <div class="parent-game d-flex-center flex-between flex-col h-full">
-                <a href="${game.game_url}" target="_blank">
-                  <img src="${game.image_url}" alt="${game.name}">
-                </a>
-                <div class="footer-game">
-                  <div class="footer-text">
-                    <p>PragmaticPlay</p>
-                    <p><strong>${game.name}</strong></p>
-                  </div>
+  // Function to populate the second carousel
+  function populateSecondCarousel(gamesData) {
+    const $blazeTrack2 = $("#games-carousel .blaze-track");
+    $blazeTrack2.empty();
+  
+    gamesData.forEach((game, index) => {
+      if (game.image_url && game.game_url) {
+        const gameElement = `
+          <div class="game relative" data-index="${index}">
+            <div class="parent-game d-flex-center flex-between flex-col h-full">
+              <a href="${game.game_url}" target="_blank">
+                <!-- Adding loading="lazy" attribute to the image -->
+                <img src="${game.image_url}" alt="${game.name}" loading="lazy">
+              </a>
+              <div class="footer-game">
+                <div class="footer-text">
+                  <p>PragmaticPlay</p>
+                  <p><strong>${game.name}</strong></p>
                 </div>
               </div>
-            </div>`;
-          $blazeTrack2.append(gameElement);
-        } else {
-          console.warn(`Missing URL for game: ${game.name}`);
-        }
-      });
-
-      initializeSecondCarousel();
-
-      // Store current slide index on click
-      $("#games-carousel .game").on("click", function () {
-        currentSlideIndex = $(this).data("index");
-      });
-    }
-
-    // Observer options for carousels
-    const observerOptions = {
-      root: null,
-      threshold: 0.5,
-    };
-
-    // Function to handle visibility changes for a carousel
-    function handleCarouselVisibility(entries, carousel) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (carousel === "first" && !isCarousel1Visible) {
-            destroySecondCarousel();
-            if (!slidesDataFetched) {
-              populateFirstCarousel();
-              slidesDataFetched = true;
-            }
-            initializeFirstCarousel();
-            isCarousel1Visible = true;
-          } else if (carousel === "second" && !isCarousel2Visible) {
-            destroyFirstCarousel();
-            if (!gamesDataFetched) {
-              fetchGames();
-            } else {
-              populateSecondCarousel();
-            }
-            isCarousel2Visible = true;
-          }
-        } else {
-          if (carousel === "first" && isCarousel1Visible) {
-            destroyFirstCarousel();
-          } else if (carousel === "second" && isCarousel2Visible) {
-            destroySecondCarousel();
-          }
-        }
-      });
-    }
-
-    // Create observers for each carousel
-    const firstCarouselObserver = new IntersectionObserver((entries) => {
-      handleCarouselVisibility(entries, "first");
-    }, observerOptions);
-
-    const secondCarouselObserver = new IntersectionObserver((entries) => {
-      handleCarouselVisibility(entries, "second");
-    }, observerOptions);
-
-    // Observe the carousels
-    firstCarouselObserver.observe(document.querySelector("#image-carousel"));
-    secondCarouselObserver.observe(document.querySelector("#games-carousel"));
-
-    // Observer options for sections and footer
-    const sectionObserverOptions = {
-      root: null,
-      threshold: 0.15, // Adjust the threshold as needed
-    };
-
-    // Callback function for section observer
-    function handleSectionVisibility(entries) {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
-        }
-      });
-    }
-
-    // Create the observer for sections and footer
-    const sectionObserver = new IntersectionObserver(
-      handleSectionVisibility,
-      sectionObserverOptions
-    );
-
-    // Observe all sections with the 'section' class
-    document.querySelectorAll("._page").forEach((section) => {
-      sectionObserver.observe(section);
+            </div>
+          </div>`;
+        $blazeTrack2.append(gameElement);
+      }
     });
+  }
+  
 
-    // Observe the footer
-    const footer = document.querySelector("footer");
-    if (footer) {
-      sectionObserver.observe(footer);
+  // Function to initialize a BlazeSlider carousel
+  function initializeCarousel(selector, options) {
+    const sliderElement = $(selector)[0];
+    if (sliderElement) {
+      new BlazeSlider(sliderElement, options);
     }
-    console.log(footer);
+  }
 
-    // Scroll to Top button functionality
+  // Get the first carousel configuration options
+  function getFirstCarouselOptions() {
+    return {
+      all: {
+        enableAutoplay: false,
+        autoplayInterval: 1800,
+        autoplayDirection: "to left",
+        transitionTimingFunction: "ease",
+        slidesToScroll: 1,
+        stopAutoplayOnInteraction: true,
+        loop: true,
+      },
+    };
+  }
+
+  // Get the second carousel configuration options
+  function getSecondCarouselOptions() {
+    return {
+      all: {
+        enableAutoplay: false,
+        autoplayInterval: 2000,
+        transitionTimingFunction: "ease",
+        autoplayDirection: "to right",
+        slidesToScroll: 1,
+        stopAutoplayOnInteraction: true,
+        loop: true,
+      },
+    };
+  }
+
+  // Setup Scroll to Top button
+  function setupScrollToTop() {
     $("#scrollToTop").on("click", function () {
-      $("html, body").animate(
-        {
-          scrollTop: $("#section1").offset().top,
-        },
-        "slow"
-      );
+      $("html, body").animate({ scrollTop: $("#section1").offset().top }, "slow");
     });
 
-    
-    // Show/Hide Scroll to Top Button Based on Scroll Position
     $(window).scroll(function () {
       if ($(this).scrollTop() > 200) {
         $("#scrollToTop").fadeIn();
@@ -339,10 +186,5 @@ document.addEventListener("DOMContentLoaded", () => {
         $("#scrollToTop").fadeOut();
       }
     });
-
-    // Initial fetch of games data if not already fetched
-    if (!gamesDataFetched) {
-      fetchGames();
-    }
-  });
+  }
 });

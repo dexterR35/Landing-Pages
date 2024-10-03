@@ -1,8 +1,9 @@
 // Configuration Variables
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
-const username = "TestCristianP";
-const netbet_id = 37857769;
+
+const username = "testcozminn";
+const netbet_id = 39356008;
 
 // jQuery Selectors
 const $loading = $(".loading");
@@ -36,6 +37,8 @@ function debounce(func, delay) {
 // Function to create table rows for users
 function createTableUsers(item, userPosition) {
   const highlightClass = item.id === netbet_id ? "highlight-row" : "";
+  console.log(item.id !== netbet_id, "test alina");
+
   const tableAHtml = `<tr class="parent-table ${highlightClass}">
         <td class="parent-position ps">#${userPosition}</td>
         <td class="parent-id ps">${item.id}</td>
@@ -63,8 +66,10 @@ const streamerImages = {
   quikanu: "./assets/icons_table/quikanu.webp",
   aparatepacaneleslots: "./assets/icons_table/aps.webp",
   fury: "./assets/icons_table/fury.webp",
-  stero:"./assets/icons_table/stero.webp"
+  stero: "./assets/icons_table/stero.webp",
 };
+
+
 
 // case for names
 function createTableStreamers(streamer) {
@@ -103,63 +108,33 @@ function createTableStreamers(streamer) {
     case "takemyfury":
       displayName = "fury";
       break;
-      case "ster0iabanii":
-        displayName = "stero";
-        break;
-        case "annuskaa":
-          displayName = "anna";
-          break;
+    case "ster0iabanii":
+      displayName = "stero";
+      break;
+    case "annuskaa":
+      displayName = "anna";
+      break;
     default:
-      displayName = streamer.username;
+      displayName = "noName";
   }
 
-  function convertFormattedPoints(points) {
-    if (typeof points === "string") {
-      let value = parseFloat(points); // Extract the numeric part
-      if (points.includes("K")) {
-        value *= 1000; // Convert from K to a number
-      } else if (points.includes("M")) {
-        value *= 1000000; // Convert from M to a number
-      } else if (points.includes("B")) {
-        value *= 1000000000; // Convert from B to a number
-      }
-      return value;
-    }
-    return points;
-  }
 
-  function generateStars(points) {
-    // Convert formatted points to numeric form
-    const numericPoints = convertFormattedPoints(points);
-    
-    if (numericPoints >= 1000000) { // 1M and above gets 5 stars
-      return "★★★★★"; 
-    } else if (numericPoints >= 500000) { // 500K to 1M gets 4 stars
-      return "★★★★";
-    } else if (numericPoints >= 100000) { // 100K to 500K gets 3 stars
-      return "★★★";
-    } else if (numericPoints >= 50000) { // 50K to 100K gets 2 stars
-      return "★★";
-    } else {
-      return "★"; // Below 50K gets 1 star
-    }
-  }
 
   const normalizedDisplayName = displayName.toLowerCase().replace(/\s/g, "");
   imgSrc = streamerImages[normalizedDisplayName];
- // Generate stars based on points
- const stars = generateStars(streamer.points);
+  // Generate stars based on points
+  // const stars = streamer.points;
   const highlightClass = streamer.id === netbet_id ? "highlight-row" : "";
   const tableHtml = `<tr class="parent-table ${highlightClass}">
           <td class="parent-position ps">#${streamer.ranking}</td>
           <td>
             <div class="d-flex-start flex-row parent-avatar">
               <div class="avatar-table avatar-blue">
-                <img src="${imgSrc}" alt="pict_table" class="pict_table">
+                <img data-src="${imgSrc}" alt="pict_table" class="pict_table">
               </div>
               <div class="parent-name">
                 <p class="font-tabel">${displayName}</p> 
-                <p class="font-tabel stars">${stars}</p>
+                <p class="font-tabel stars"></p>
               </div>
             </div>
           </td>
@@ -188,7 +163,7 @@ function formatPoints(points) {
     return (points / 1000000000).toFixed(1) + "B";
   }
 }
-// Function to generate stars based on points
+
 
 // Generate tables and populate with API data
 
@@ -225,10 +200,10 @@ function generateTables(userData, streamerData) {
     language: false,
     pagingType: "simple_numbers",
     columnDefs: [
-      { width: "10%", targets: 0 },
+      { width: "10%", targets: 0, className: "dt-center" },
       //   { width: "15%", targets: 1 }, // ID column width
-      { width: "45%", targets: 2 },
-      { width: "30%", targets: 3 },
+      { width: "45%", targets: 2, className: "dt-center" },
+      { width: "30%", targets: 3, className: "dt-right" },
     ],
     destroy: true,
   });
@@ -244,7 +219,7 @@ function generateTables(userData, streamerData) {
     info: false,
     searching: false,
     columnDefs: [
-      { width: "5%", targets: 0 },
+      { width: "8%", targets: 0 },
       { width: "60%", targets: 1 },
       { width: "10%", targets: 2 },
     ],
@@ -369,7 +344,6 @@ async function reloadUserTable() {
 // Initialize tables on document ready
 $(document).ready(function () {
   reloadUserTable();
-
   // Set up click events for opt-in and opt-out buttons
   $optInBtn.click(debounce(() => optInPlayer(username), 300));
   $optOutBtn.click(debounce(() => optOutPlayer(username), 300));

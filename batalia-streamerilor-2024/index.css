@@ -144,6 +144,7 @@ html {
   --f-size-3xxl: 3.2rem;
   --max-w-1600: 1600px;
   --max-w-1400: 1400px;
+  --medium:calc(1.3vh + 1.3vw);
 }
 
 @font-face {
@@ -206,7 +207,7 @@ html {
   cursor: url("./assets/cursor5.webp") 40 40, auto; /* Specify the custom cursor image */
 }
 h2 {
-  font-size: 2.2rem;
+  font-size: var(--medium);
   text-align: center;
   margin: 1% auto 1%;
   font-family: "montExtraBold";
@@ -290,24 +291,14 @@ table,
 
 body {
   background: rgb(19, 42, 105);
-  background: radial-gradient(
-    circle,
-    rgba(19, 42, 105, 1) 0%,
-    rgba(16, 23, 70, 1) 50%,
-    rgba(8, 14, 33, 1) 100%
-  );
+  background: linear-gradient(to top, rgb(2 21 44) 0%, rgb(1 9 20) 50%, rgb(36 50 93) 100%)
 }
-/* end settings */
-/* end settings */
-/* end settings */
 
+/* end settings */
+/* end settings */
+/* end settings */
 /* --------------- */
 
-.right-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 /* GENERAL */
 /* GENERAL */
@@ -334,7 +325,16 @@ footer,
     height: 100%;
   }
 }
-
+.right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width:1025px){
+  .right-side {
+    width: 70%;
+  } 
+}
 .main-section .left-side img {
   width: 80%;
   height: 100%;
@@ -373,7 +373,7 @@ button:not(.controls button) {
   /* margin-bottom: 2%; */
 }
 
-/* .section.s2::before {
+.section.s2::before {
   content: "";
   position: absolute;
   top: 0;
@@ -383,8 +383,8 @@ button:not(.controls button) {
   mask: var(--mask-section);
   background: #05090d4a;
   z-index: 1;
-} */
-/* .section.s3::before {
+}
+.section.s3::before {
   content: "";
   position: absolute;
   top: 0;
@@ -394,14 +394,12 @@ button:not(.controls button) {
   mask: var(--mask-section-reverse);
   background: #03060aa8;
   z-index: 1;
-} */
+}
 
 .section ._page {
   opacity: 0;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
-
 
 ._page.visible,
 footer ._page.visible {
@@ -425,9 +423,11 @@ footer ._page.visible {
   z-index: 1;
   position: relative;
 }
+
 .section ._page .parent:not(.section.s1 ._page .parent) {
   max-width: var(--max-w-1400);
 }
+
 .section ._page .parent {
   display: flex;
   height: 100%;
@@ -437,6 +437,7 @@ footer ._page.visible {
   justify-content:center;
   align-items: center;
 }
+
 @media (max-width: 1280px) {
   .section .parent {
     max-width: 1200px;
@@ -488,6 +489,7 @@ footer {
 /* section1 */
 /* section1 */
 /* section1 */
+
 .section.s1 {
   flex-direction: column;
 }
@@ -548,10 +550,14 @@ footer::before {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+
 footer .parent {
   z-index: 1;
   position: relative;
 }
+
+
 /* Offer */
 /* Offer */
 /* Offer */
@@ -663,7 +669,7 @@ footer .parent {
   position: relative;
 }
 
-/* .section.s1 .carousel::after {
+.section.s1 .carousel::after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -673,7 +679,7 @@ footer .parent {
   height: 100%;
   mask: var(--mask-reverse);
   background: #79b2de80;
-} */
+}
 
 .container-btn {
   width: 100%;
