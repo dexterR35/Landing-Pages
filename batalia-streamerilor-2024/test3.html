@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users and Streamers Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./css/table.css">
+    <link rel="stylesheet" href="./css/carousel.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <style>
+      #user-info {
+        margin: 20px;
+      }
+
+      .loading {
+        display: none;
+        font-style: italic;
+        color: gray;
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .parent-table {
+        font-size: 14px;
+      }
+      .parent-position {
+        width: 10%;
+      }
+      .parent-id {
+        width: 15%;
+      }
+      .parent-name {
+        width: 45%;
+      }
+      .parent-points {
+        width: 30%;
+      }
+
+      .highlight-row {
+        background-color: yellow !important;
+      }
+
+      ._users, ._streamers {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="user-info">
+      <p class="loading">Loading data...</p>
+      <button id="optin-btn">Opt-In Player</button>
+      <button id="optout-btn" disabled>Opt-Out Player</button>
+      <p id="message"></p>
+    </div>
+
+    <div class="table-responsive _streamers">
+    <table id="streamersTable" class="display" style="width: 100%; margin-top: 30px">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody id="bodyStreamer"></tbody>
+    </table>
+</div>
+
+<div class="table-responsive _users"></div>
+    <table id="usersTable" class="display" style="width: 100%">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody id="bodyUser"></tbody>
+    </table>
+</div>
+
+<script src="./test3.js"></script>
+
+  </body>
+</html>

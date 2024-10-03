@@ -1,10 +1,11 @@
 .container-table {
   display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
+  justify-content: space-around;
+  align-items: center;
   flex-direction: row;
   position: relative;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -23,7 +24,7 @@ table {
 
 #streamersTable_wrapper, #usersTable_wrapper{
   padding: 13px;
-  height: 450px;
+  height: 520px;
 }
 
 .parent-avatar {
@@ -56,15 +57,12 @@ table {
 .table-responsive {
   width: 40%;
   max-width: 100%;
-  /* overflow: hidden; */
   border-radius: 10px;
   padding: 20px 20px 0;
-  /* min-height: 560px; */
   position: relative;
 }
 
-/* test */
-
+/* fade table */
 .blob1 {
   content: "";
   position: absolute;
@@ -110,6 +108,10 @@ table {
   background: white;
   color: black;
   transition: all 0.3s ease;
+}
+
+.font-tabel, .ps {
+  font-size: 100%;
 }
 
 .parent-name .ps {
@@ -166,8 +168,8 @@ table {
 }
 
 .avatar-table {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   position: relative;
   text-align: center;
@@ -185,24 +187,8 @@ table {
   object-fit: contain;
 }
 
-.avatar-table::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #8dbcf1;
-  left: 0;
-  top: 0;
-  z-index: -1;
-  opacity: 0.4;
-}
-
 .parent-avatar {
-  gap: 10px;
+  gap: 15px;
 }
 
-
-.font-tabel,.ps {
-  font-size: 100%;
-}
 

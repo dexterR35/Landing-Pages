@@ -65,9 +65,9 @@ html {
   }
 }
 :root {
-  --bg-desktop: url(./assets/desktop_principal\ copy.webp);
-  --bg-mobile: url(./assets/stero3_mob.webp);
-  --bg-sect1: url(./assets/desktop_principal\ copy.webp);
+  /* --bg-desktop: url(./assets/desktop_principal\ copy.webp); */
+  --bg-mobile: url(./assets/bg/bg-full-mobile.webp);
+  --bg-sect1: url(./assets/bg/bg-full.webp);
   --bg-sect2: url(./assets/bg/sect2.webp);
   --bg-sect3: url(./assets/bg/sect3.webp);
   --bg-sect4: url(./assets/bg/sect4.webp);
@@ -425,9 +425,10 @@ footer ._page.visible {
   z-index: 1;
   position: relative;
 }
-
-.section ._page .parent {
+.section ._page .parent:not(.section.s1 ._page .parent) {
   max-width: var(--max-w-1400);
+}
+.section ._page .parent {
   display: flex;
   height: 100%;
   width: 100%;
@@ -502,6 +503,7 @@ footer {
   .section:nth-child(1) .parent {
     flex-direction: column-reverse !important;
   }
+  
   .section:nth-child(1) .parent .left-side {
     height: auto;
   }

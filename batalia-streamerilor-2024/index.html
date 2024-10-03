@@ -13,18 +13,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
     integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
-    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
-    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-  <!-- <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
-    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" /> -->
 
+
+
+  
   <title>batalia 2024</title>
 
   <link rel="stylesheet" href="./index.css">
@@ -472,7 +464,6 @@
       left: 50%;
       transform: translate(-50%, -50%);
       bottom: 20px;
-      background: red;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -565,6 +556,10 @@
       position: absolute;
       z-index: 1;
     }
+
+    .highlight-row {
+        background-color: rgb(255, 0, 0) !important;
+      }
   </style>
   <script>
     $('#target').on('click touchstart', '._b', function (e) {
@@ -612,8 +607,9 @@
 
   </script>
 
-  <script src="./tables.js"></script>
+  <!-- <script src="./tables.js"></script> -->
   <script src="./carousel.js"></script>
+  <script src="./test3.js"></script>
   <!-- <script src="./api.js"></script> -->
 
 </body>

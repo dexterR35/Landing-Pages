@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const slidesData = [
    
       {
-        src: "./assets/icons_streamers/pacanela.webp",
-        alt: "City Image",
+        src: "./assets/icons_streamers/testpacanela.webp",
+        alt: "City Imagesss",
     
       },
       {
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance1) {
         sliderInstance1 = new BlazeSlider($("#image-carousel")[0], {
           all: {
-            enableAutoplay: true,
+            enableAutoplay: false,
             autoplayInterval: 1800,
             // transitionDuration: 500,
             autoplayDirection: "to left",
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!sliderInstance2) {
         sliderInstance2 = new BlazeSlider($("#games-carousel")[0], {
           all: {
-            enableAutoplay: true,
+            enableAutoplay: false,
             autoplayInterval: 2000,
             // transitionDuration: 500,
             transitionTimingFunction: "ease",

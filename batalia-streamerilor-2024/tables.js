@@ -139,19 +139,12 @@ const dummyUserData = [
   
   // Function to create table rows for users
   function createTableUsers(item, userPosition) {
-    console.log(item,"items")
-    let userAsterix = item.username;
-    if (userAsterix && userAsterix.length > 2) {
-      const firstTwoLetters = userAsterix.slice(0, 2);
-      const asterisks = '*'.repeat(userAsterix.length - 2);
-      userAsterix = firstTwoLetters + asterisks;
-      userPosition = item.ranking;
-    }
+
     const tableAHtml = `<tr class="parent-table">
         <td class="parent-position ps">#${item.ranking}</td>
         <td>
                 <div class="parent-name">
-                    <p class="ps">${userAsterix}</p>
+                    <p class="ps">${item.username}</p>
                 </div>
         </td>
         <td class="parent-points ps">${formatPoints(item.points)}</td>  
