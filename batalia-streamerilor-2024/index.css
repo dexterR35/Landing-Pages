@@ -69,7 +69,7 @@ html {
   --bg-mobile: url(./assets/bg/bg-full-mobile.webp);
   --bg-sect1: url(./assets/bg/bg-full.webp);
   --bg-sect2: url(./assets/bg/sect2.webp);
-  --bg-sect3: url(./assets/bg/sect3.webp);
+  --bg-sect3: url(./assets/bg/tnc2.webp);
   --bg-sect4: url(./assets/bg/sect4.webp);
 
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
@@ -543,9 +543,9 @@ footer::before {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background-image: url(./assets/bg/sect3.webp);
+  background-image: var(--bg-sect3);
   background-position: top;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 footer .parent {

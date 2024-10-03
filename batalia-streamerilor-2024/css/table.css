@@ -105,19 +105,34 @@ table {
 }
 
 .parent-table:hover {
-  background: white;
-  color: black;
+  background: var(--button_color);
+  color: var(--color-white);
   transition: all 0.3s ease;
 }
 
 .font-tabel, .ps {
   font-size: 100%;
 }
-
+.parent-name {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  height: 100%;
+  /* gap: 10px; */
+  /* background-color: red; */
+  flex-direction: column;
+}
 .parent-name .ps {
   font-size: 120%;
 }
-
+.parent-name p:nth-child(1) {
+  text-transform: capitalize;
+}
+.parent-name p:nth-child(2) {
+font-size: 1.2rem;
+width: 100%;
+/* background: cyan; */
+}
 .dataTables_wrapper {
   background: #00000014;
 }
