@@ -2,14 +2,14 @@
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
 
-const username = "testcozminnou";
-const netbet_id = 39183753;
+const username = "lo";
+const netbet_id = 35151267;
 
 const $loading = $(".loading");
 const $optInBtn = $("#optin-btn");
 const $optOutBtn = $("#optout-btn");
 const $message = $("#message");
-
+const $actionButton = $(".btn.desktop");
 const streamerImages = {
   pacanela: "./assets/icons_table/pacanela.webp",
   gamblers: "./assets/icons_table/gamblers.webp",
@@ -47,7 +47,35 @@ function debounce(func, delay) {
     });
   };
 }
-
+// Update button logic
+function updateActionButton(userExists) {
+  if (!username || !netbet_id) {
+    // Case 1: No username or netbet_id - "ÎNREGISTREAZĂ-TE"
+    $actionButton.replaceWith(`
+      <a href="https://casino.ro/auth">
+        <button class="btn desktop shape pointer">
+          <span></span>ÎNREGISTREAZĂ-TE
+        </button>
+      </a>
+    `);
+  } else if (username && netbet_id && !userExists) {
+    // Case 2: Username and netbet_id exist, but user not in table - "Joacă Acum"
+    $actionButton.replaceWith(`
+      <a href="https://casino.ro/play">
+        <button class="btn desktop shape pointer">
+          <span></span>Joaca si Castiga Puncte
+        </button>
+      </a>
+    `);
+  } else if (userExists) {
+    // Case 3: User exists in table - "Vezi Tabel"
+    $actionButton.replaceWith(`
+      <button class="btn desktop shape pointer">
+        <span></span>urmareste tabelul
+      </button>
+    `);
+  }
+}
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
@@ -180,70 +208,102 @@ async function fetchDataUsers() {
     }
 
     const totalUsers = response.data.length;
-    console.log(totalUsers,"total users")
+    console.log(totalUsers, "total users");
     const currentUserIndex = response.data.findIndex(
       (player) => player.id === netbet_id
     );
-    console.log(currentUserIndex,"currentUserIndex")
+
+    console.log(currentUserIndex, "currentUserIndex");
     const isUserInTable = currentUserIndex !== -1;
-    console.log(isUserInTable,"isUserInTable")
-
-    const top8 = response.data.slice(0, 8);
-    const top3 = response.data.slice(0, 3);
-
-    const last2 = response.data.slice(-2);
+    console.log(isUserInTable, "isUserInTable");
+    console.log(response, "repsone");
+    const top7 = response.data.slice(0, 7);
+    const top4 = response.data.slice(0, 4);
+    const last3 = response.data.slice(-3);
     const last4 = response.data.slice(-4);
 
     let combinedUsers = [];
 
-    if (currentUserIndex === 0) {
-      // Case 1: User in the first place
-      combinedUsers = [
-        ...response.data.slice(currentUserIndex, currentUserIndex + 1), //firsr place
-        ...response.data.slice(1, 8), 
-        ...last2, 
-      ];
-    } else if (currentUserIndex > 0 && currentUserIndex <= 2) {
-      // Case 2: User in the top 3
-      combinedUsers = [
-        ...top8, 
-        ...last2, 
-      ];
-    } else if (currentUserIndex === totalUsers - 1) {
-      // Case 3: User in last place
-      const neighbors = response.data.slice(
-        Math.max(0, currentUserIndex - 1),
-        currentUserIndex + 1
-      );
-      combinedUsers = [
-        ...top8, 
-        ...neighbors,
-        ...last2, 
-      ];
-    } else if (!isUserInTable) {
-      // Case 4: User is not in the table
-      combinedUsers = [
-        ...top8, 
-        ...last2, 
-      ];
-    } else {
-      // Case 5: General case (user somewhere in the middle)
-      const neighbors = response.data.slice(
-        Math.max(0, currentUserIndex - 1),
-        currentUserIndex + 2
-      );
-      combinedUsers = [
-        ...top3, 
-        ...neighbors, 
-        ...last4, 
-      ];
-    }
-    // Remove duplicates Set and map back to objects
+ // Case 1: User in the first place
+ if (currentUserIndex === 0) {
+  console.log("1");
+  combinedUsers = [
+    ...response.data.slice(currentUserIndex, currentUserIndex + 1), // first place
+    ...response.data.slice(1, 8),
+    ...last3,
+  ];
+
+// Case 2: User in the top 3
+} else if (currentUserIndex > 0 && currentUserIndex <= 2) {
+  console.log("2");
+  combinedUsers = [...top7, ...last3];
+
+// Case 3: User in the second-to-last position
+} else if (currentUserIndex === totalUsers - 2) {
+  console.log("3");
+  combinedUsers = [...top7, ...last3];
+
+// Case 4: User in the last place
+} else if (currentUserIndex === totalUsers - 1) {
+  console.log("4");
+  const neighbors = response.data.slice(
+    Math.max(0, currentUserIndex),
+    currentUserIndex
+  );
+  combinedUsers = [...top7, ...neighbors, ...last3];
+
+// Case 5: User in the last 3 (including last 2 or last)
+} else if (currentUserIndex >= totalUsers - 3) {
+  console.log("5");
+  combinedUsers = [...top7, ...last3];
+
+// Case 6: User in the middle but near the top (4th to 10th place)
+} else if (currentUserIndex >= 3 && currentUserIndex <= 10) {
+  console.log("6");
+  const neighbors = response.data.slice(
+    Math.max(0, currentUserIndex - 1),
+    currentUserIndex + 2
+  );
+  combinedUsers = [
+    ...response.data.slice(0, 3), // Top 3
+    ...neighbors,                 // User and neighbors
+    ...last3,                     // Last 3
+  ];
+
+// Case 7: User in the middle but near the bottom (11th to 3rd-to-last)
+} else if (currentUserIndex > 10 && currentUserIndex < totalUsers - 3) {
+  console.log("7");
+  const neighbors = response.data.slice(
+    Math.max(0, currentUserIndex - 1),
+    currentUserIndex + 2
+  );
+  combinedUsers = [
+    ...response.data.slice(0, 4), // Top 3
+    ...neighbors,                 // User and neighbors
+    ...last4,                     // Last 4
+  ];
+
+// Case 8: User is not in the table, but part of a special group (e.g., VIP)
+} else if (!isUserInTable) {
+  console.log("8");
+  const neighbors = response.data.slice(1, 4);
+  combinedUsers = [...response.data.slice(0, 1), ...neighbors, ...last3];
+
+// General Case: User somewhere in the middle
+} else {
+  console.log("9");
+  const neighbors = response.data.slice(
+    Math.max(0, currentUserIndex - 1),
+    currentUserIndex + 2
+  );
+  combinedUsers = [...top7, ...neighbors, ...last3];
+}
     combinedUsers = [...new Set(combinedUsers)];
     console.log(combinedUsers);
     const userExists = response.data.some((player) => player.id === netbet_id);
     toggleButtons(userExists);
-    console.log(userExists,"userExists");
+    console.log(userExists, "userExists");
+    updateActionButton(userExists);
     return combinedUsers.map((player) => {
       const actualRanking =
         response.data.findIndex((p) => p.id === player.id) + 1;
@@ -356,7 +416,6 @@ function generateTables(userData, streamerData) {
   let tableDataStreamer = $("#bodyStreamer");
   tableDataUser.empty();
   tableDataStreamer.empty();
-
   userData.forEach((user, index) => {
     const userRow = createTableUsers(user, index + 1);
     tableDataUser.append(userRow);

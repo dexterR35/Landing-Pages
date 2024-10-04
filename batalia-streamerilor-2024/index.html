@@ -112,8 +112,7 @@
                     }
                   </style>
                   <div class="container-btn">
-
-                    <button class="btn desktop shape blaze-next pointer"><span></span>ÎNREGISTREAZĂ-TE</button>
+                    <button id="actionButton" class="btn desktop shape pointer"><span></span></button>
                   </div>
                 </div>
               </div>
@@ -162,7 +161,6 @@
                   </div>
                 </div>
               </div>
-
             </div>
             <div class="container-btn">
               <button class="btn shape pointer"><span></span>vezi toate jocurile</button>
@@ -175,7 +173,6 @@
               </svg>
             </div>
           </div>
-
         </div>
       </section>
       <section class="section s3 _b" id="section3">
@@ -196,7 +193,6 @@
                       </tr>
                     </thead>
                     <tbody class="table-body" id="bodyStreamer"></tbody>
-                    <!-- <tfoot>test</tfoot> -->
                   </table>
                 </div>
                 <div class="table-responsive _users ">
@@ -217,13 +213,11 @@
                 </div>
               </div>
             </div>
-            <!-- <button class="btn desktop shape"><span></span>ÎNREGISTREAZĂ-TE</button> -->
           </div>
         </div>
       </section>
     </main>
     <footer>
-    
       <div class="_page _b">
         <div class="parent">
           <div class="terms-container">
@@ -560,19 +554,6 @@
     }
 
 
-    #target {
-      z-index: 1;
-    }
-
-    .bullet-hole {
-      width: 70px;
-      height: 70px;
-      background-image: url('./assets/holeblue.webp');
-      background-size: cover;
-      background-position: center;
-      position: absolute;
-      z-index: 1;
-    }
   </style>
   <script>
     $('#target').on('click touchstart', '._b', function (e) {
