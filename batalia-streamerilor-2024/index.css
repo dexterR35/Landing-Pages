@@ -203,7 +203,7 @@ li {
 html {
   cursor: url("./assets/cursor4.webp") 40 40, auto;
 }
-.container-btn button:hover {
+.container-btn button:hover,.dataTables_paginate:hover a ,.tc a:hover ,tr:hover, button:hover::after,button:hover::before{
   cursor: url("./assets/cursor5.webp") 40 40, auto; /* Specify the custom cursor image */
 }
 h2 {
@@ -416,14 +416,9 @@ footer ._page.visible {
   flex-direction: row;
 }
 
-.terms-container {
-  max-width: var(--max-w-1400);
-  width: 100%;
-  margin: 0 auto;
-  text-align: start;
-}
 
-#scrollToTop {
+
+/* #scrollToTop {
   padding: 10px 20px;
   background-color: #1f71ad;
   color: white;
@@ -437,7 +432,7 @@ footer ._page.visible {
 
 #scrollToTop:hover {
   background-color: #145a8a;
-}
+} */
 
 
 /* END GENERAL */
@@ -702,7 +697,7 @@ footer .section_title {
 .tc p b {
   font-size: 150%;
 }
-.tc p:nth-last-child(1){
+.tc p:nth-last-child(2){
 text-align: center;
 color: gray;
 }
@@ -710,6 +705,16 @@ color: gray;
   margin: 10px 0;
   font-family: 'montRegular';
   line-height: 1.2;
+}
+.tc a {
+  color: var(--color_blue);
+  text-decoration: underline;
+}
+.terms-container {
+  max-width: var(--max-w-1400);
+  width: 100%;
+  margin: 0 auto;
+  text-align: start;
 }
 hr {
   border-color: gray;
