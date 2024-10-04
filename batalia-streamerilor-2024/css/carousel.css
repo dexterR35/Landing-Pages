@@ -109,6 +109,9 @@
   mask: var(--mask-section);
   z-index: -1;
 }
+#games-carousel .blaze-track {
+  flex-wrap: wrap;
+}
 
 .blaze-track-container {
   position: relative;
@@ -206,12 +209,12 @@
 }
 
 .blaze-slider .controls .blaze-prev {
-  position: relative;
-  left: -5%;
+ 
+  left: -8%;
 }
 .blaze-slider .controls .blaze-next {
-  position: relative;
-  left: 5%;
+
+  left: 8%;
 }
 
 #games-carousel .blaze-slider,
@@ -226,9 +229,8 @@
 #games-carousel .controls button {
   color: transparent;
   display: block;
-  position: relative;
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
 cursor: pointer;
   transition: all 150ms ease-out;
 }

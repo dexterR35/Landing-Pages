@@ -49,11 +49,11 @@ function generateStars(ranking) {
   } else {
     stars = 1;
   }
-  if (ranking === 1) {
-    return "⭐".repeat(stars);
-  }
+  // if (ranking === 1) {
+  //   return "<span><img src='./assets/star-icon-png-8.jpg'></span>".repeat(stars);
+  // }
   // Create star icons dynamically
-  return "⭐".repeat(stars);
+  return "&#9733;".repeat(stars);
 }
 
 // Function to create table rows for users

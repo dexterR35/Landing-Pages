@@ -316,20 +316,23 @@ footer,
 
 button:not(.controls button) {
   width: fit-content;
-  padding: 1.1rem 3rem;
+  padding: 1.5rem 3rem;
   border-radius: 10px;
   border: none;
   outline: none;
   background: var(--button_color);
-  background: linear-gradient(180deg, #d10808 10%, rgb(41 2 17) 100%);
-  border: 2px solid #5c3f04;
   filter: drop-shadow(2px 3px 3px black);
-  color: #f5e7cc;
+  color: #fff;
   font-family: "montExtraBold";
   text-transform: uppercase;
-  font-size: 110%;
-
+  font-size: 130%;
   border-bottom: 1px solid #643316;
+
+}
+
+button:not(.controls button):hover{
+  background: var(--button_color-hover);
+
 }
 
 .section.s2 .container-btn button {
@@ -359,7 +362,7 @@ button:not(.controls button) {
   width: 100%;
   height: 100%;
 }
-.section.s2::before {
+/* .section.s2::before {
   mask: var(--mask-section);
   background: #0b1118a8;
   z-index: 1;
@@ -368,7 +371,7 @@ button:not(.controls button) {
   mask: var(--mask-reverse2);
   background: #0b11185d;
   z-index: 1;
-}
+} */
 
 .section ._page {
   opacity: 0;
@@ -560,10 +563,18 @@ footer ._page.visible {
   height: auto;
   max-width: 100%;
 }
+.section.s2,.section.s3{
+  height: 100%;
+}
 .section.s2 .section_title p {
   text-align: center;
   text-shadow: 2px 2px 6px black;
-  margin: 3px 0;
+  margin: 6px 0;
+  font-size: 115%;
+}
+
+.stars img {
+  width: 5%;
 }
 
 .section.s2 .section_title p span {
@@ -573,8 +584,8 @@ footer ._page.visible {
 
 .section.s2 .section_title p:nth-last-child(1) {
   font-family: "montBlack";
-  font-size: 1.2rem;
-  margin: 1% auto 0%;
+  font-size: 2rem;
+  margin: 2% auto 1%;
   color: var(--color_blue);
 }
 
@@ -599,10 +610,13 @@ footer ._page.visible {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 2% auto;
 }
 .section:nth-child(2) ._page .parent{
-  margin: 10% 0 6%;
+  margin: 8% 0 2%;
+  height: 85%;
+  /* background: red; */
+  justify-content: space-evenly;
 }
 
 /* end section2 */
@@ -613,7 +627,7 @@ footer ._page.visible {
 /* section 3 */
 /* section 3 */
 .section.s3 {
-  height: 100vh;
+  height: 100%;
 }
 
 .section.s3 .left-side {
@@ -623,7 +637,7 @@ footer ._page.visible {
 }
 
 .section.s3 ._page .parent {
-  margin: 0% 0;
+  margin: 5% 0 18%;
 }
 /* end section 3 */
 /* end section 3 */
@@ -681,7 +695,7 @@ footer::before {
 footer .parent {
   z-index: 1;
   position: relative;
-  padding: 5% 1%;
+  padding: 1%;
 }
 footer .section_title {
   width: 50%;
@@ -689,6 +703,13 @@ footer .section_title {
     margin: 2% auto;
     text-align: center;
     font-size: 110%;
+}
+@media (orientation:portrait) {
+  footer .section_title {
+    width: 90%;
+    margin: 2% auto;
+  }
+    
 }
 .tc p {
   margin: 2% 0;
@@ -864,6 +885,9 @@ hr {
   }
   .font-tabel, .ps{
     font-size: 111%;
+  }
+  #termsAndConditionsS {
+    padding:2rem 1rem;
   }
 }
 

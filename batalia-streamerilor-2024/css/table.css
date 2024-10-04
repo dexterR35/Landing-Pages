@@ -30,12 +30,6 @@ table {
   min-height: 480px;
   max-height: 600px;
 }
-/* #streamersTable_wrapper .parent-points {
-  text-align: start;
-  justify-content: start;
-  vertical-align: baseline;
-  padding: 10px 0;
-} */
 
 
 .t-table {
@@ -95,7 +89,7 @@ table {
   border-radius: 19px;
   height: 100%;
   background: rgb(3 8 28 / 78%);
-  border: 1px solid #a7c1ff;
+  border: 1px solid rgb(59, 197, 252);
 }
 
 @media (orientation: portrait) {
@@ -110,10 +104,8 @@ table {
 }
 
 .parent-table:hover {
-  background: var(--button_color);
   color: var(--color-white);
   transition: all 0.3s ease;
-
 }
 
 .font-tabel, .ps {
@@ -127,8 +119,7 @@ table {
   justify-content: space-around;
   align-items: start;
   height: 100%;
-  gap: 5px;
-  /* background-color: red; */
+  gap: 0px;
   flex-direction: column;
 }
 
@@ -136,8 +127,9 @@ table {
   text-transform: capitalize;
 }
 .parent-name p:nth-child(2) {
-font-size: 1rem;
-width: 100%;
+  font-size: 1.2rem;
+  width: 100%;
+  color: #ffbe47;
 }
 .dataTables_wrapper {
   background: #00000014;
@@ -145,12 +137,12 @@ width: 100%;
 .table-responsive::before {
   content: "";
   position: absolute;
-  width: 45%;
-  height: 45%;
-  border-radius: 12px;
+  width: 90%;
+  height: 38%;
+  border-radius: 30px;
   top: 0;
   right: 0;
-  box-shadow: 10px -10px 24px #ffffff38;
+  box-shadow: 6px -8px 16px #ffffff33;
   z-index: -1;
 }
 
@@ -206,7 +198,7 @@ table.dataTable td.dt-right {
   user-select: none;
   z-index: 4;
   overflow: hidden;
-  border: 2px solid wheat;
+  border: 1px solid var(--color_blue);
 box-shadow:2px 2px 5px #020d24;
 }
 
@@ -246,6 +238,8 @@ box-shadow:2px 2px 5px #020d24;
 }
 
 
-.highlight-row {
-  background: var(--button_color)!important;
+.highlight-row,.parent-table:hover  {
+  background: #a2b8d238!important;
+  
 }
+
