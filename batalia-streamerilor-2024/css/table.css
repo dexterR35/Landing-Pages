@@ -43,6 +43,17 @@ table.tableNetBet thead th {
   text-align: start;
   padding-bottom: 0.5em;
 }
+.parent-avatar {
+  position: relative;
+}
+
+.stars img {
+  position: absolute;
+  top: -10%;
+  width: fit-content;
+  left: 70%;
+  height: 120%;
+}
 
 .sorting:nth-child(1) {
   text-align: center;

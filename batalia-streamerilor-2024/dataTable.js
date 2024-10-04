@@ -32,7 +32,6 @@ const streamerImages = {
 function debounce(func, delay) {
   let debounceTimer;
   let rejectLastPromise;
-
   return function (...args) {
     if (debounceTimer) {
       clearTimeout(debounceTimer);
@@ -48,6 +47,7 @@ function debounce(func, delay) {
     });
   };
 }
+
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
@@ -67,6 +67,7 @@ function formatPoints(points) {
     return (points / 1000000000).toFixed(1) + "B";
   }
 }
+
 // Generate stars based on ranking
 function generateStars(ranking) {
   let stars;
@@ -81,9 +82,7 @@ function generateStars(ranking) {
   } else {
     stars = 1;
   }
-
   let starIcons = "&#9733;".repeat(stars);
-
   if (ranking === 1) {
     return starIcons + "<span><img src='./assets/wanted.webp'></span>";
   }
@@ -181,50 +180,51 @@ async function fetchDataUsers() {
     }
 
     const totalUsers = response.data.length;
+    console.log(totalUsers,"total users")
     const currentUserIndex = response.data.findIndex(
       (player) => player.id === netbet_id
     );
+    console.log(currentUserIndex,"currentUserIndex")
     const isUserInTable = currentUserIndex !== -1;
+    console.log(isUserInTable,"isUserInTable")
 
-    // Top 8 users
     const top8 = response.data.slice(0, 8);
     const top3 = response.data.slice(0, 3);
-    // Last 2 users
+
     const last2 = response.data.slice(-2);
-    const last3 = response.data.slice(-3);
+    const last4 = response.data.slice(-4);
 
     let combinedUsers = [];
 
-    // Handle specific cases based on user position
     if (currentUserIndex === 0) {
-      // Case 1: User is in the first place
+      // Case 1: User in the first place
       combinedUsers = [
-        ...response.data.slice(currentUserIndex, currentUserIndex + 1), // User at first place
-        ...response.data.slice(1, 8), // Top 8 excluding the first user
-        ...last2, // Last 2 users
+        ...response.data.slice(currentUserIndex, currentUserIndex + 1), //firsr place
+        ...response.data.slice(1, 8), 
+        ...last2, 
       ];
     } else if (currentUserIndex > 0 && currentUserIndex <= 2) {
-      // Case 2: User is in the top 3
+      // Case 2: User in the top 3
       combinedUsers = [
-        ...top8, // Top 8 users
-        ...last2, // Last 2 users
+        ...top8, 
+        ...last2, 
       ];
     } else if (currentUserIndex === totalUsers - 1) {
-      // Case 3: User is in the last place
+      // Case 3: User in last place
       const neighbors = response.data.slice(
         Math.max(0, currentUserIndex - 1),
         currentUserIndex + 1
       );
       combinedUsers = [
-        ...top8, // Top 8 users
-        ...neighbors, // User and neighbors at the bottom
-        ...last2, // Last 2 users
+        ...top8, 
+        ...neighbors,
+        ...last2, 
       ];
     } else if (!isUserInTable) {
       // Case 4: User is not in the table
       combinedUsers = [
-        ...top8, // Top 8 users
-        ...last2, // Last 2 users
+        ...top8, 
+        ...last2, 
       ];
     } else {
       // Case 5: General case (user somewhere in the middle)
@@ -233,24 +233,22 @@ async function fetchDataUsers() {
         currentUserIndex + 2
       );
       combinedUsers = [
-        ...top3, // Top 8 users
-        ...neighbors, // User and neighbors
-        ...last3, // Last 2 users
+        ...top3, 
+        ...neighbors, 
+        ...last4, 
       ];
     }
-
-    // Remove duplicates using Set and map back to objects
+    // Remove duplicates Set and map back to objects
     combinedUsers = [...new Set(combinedUsers)];
     console.log(combinedUsers);
     const userExists = response.data.some((player) => player.id === netbet_id);
     toggleButtons(userExists);
-
-    // Return the filtered users with their actual ranking from the full list
+    console.log(userExists,"userExists");
     return combinedUsers.map((player) => {
       const actualRanking =
         response.data.findIndex((p) => p.id === player.id) + 1;
       return {
-        ranking: actualRanking, // Actual position from full list
+        ranking: actualRanking,
         id: player.id,
         username: player.id === netbet_id ? username : player.username,
         points: formatPoints(player.points),
@@ -351,8 +349,8 @@ async function reloadUserTable() {
     console.error("Error reloading user table:", error);
   }
 }
-// Enable or Disable Buttons based on player existence
 
+// Enable or Disable Buttons based on player existence
 function generateTables(userData, streamerData) {
   let tableDataUser = $("#bodyUser");
   let tableDataStreamer = $("#bodyStreamer");
@@ -377,7 +375,7 @@ function generateTables(userData, streamerData) {
     pageLength: 10,
     paginate: true,
     info: false,
-    searching: true,
+    searching: false,
     lengthChange: false,
     language: false,
     pagingType: "simple_numbers",
@@ -411,26 +409,6 @@ function generateTables(userData, streamerData) {
   $("#usersTable_paginate").detach().appendTo("._users");
   $("#streamersTable_paginate").detach().appendTo("._streamers");
 }
-
-// Reload the User Table
-
-//                function addStreamers(username) {
-//   $.ajax({
-//     url: url + 'streamer/' + username + '/' + 1,
-//     type: 'POST',
-//     headers: {
-//         'Authorization': 'Bearer ' + token
-//     },
-//     success: function(response) {
-//         console.log('response stre:', response);
-//     },
-//     error: function(xhr, status, error) {
-//         console.log('response:', error);
-//     }
-// });
-//  }
-
-//  addStreamers(username);
 function toggleButtons(isOptedIn) {
   $optInBtn.prop("disabled", isOptedIn);
   $optOutBtn.prop("disabled", !isOptedIn);
