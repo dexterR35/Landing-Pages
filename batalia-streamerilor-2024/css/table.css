@@ -1,6 +1,6 @@
 .container-table {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
   position: relative;
@@ -11,7 +11,34 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
 }
+table.tableNetBet {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
 
+table.tableNetBet td,
+table.tableNetBet th {
+  border: 1px solid #000000;
+  padding: 10px 4px;
+}
+
+table.tableNetBet tbody td {
+  font-size: 0.9rem;
+}
+
+table.tableNetBet thead {
+  background: var(--button_color);
+
+  border-bottom: 3px solid #000000;
+}
+
+table.tableNetBet thead th {
+  font-size: 1rem;
+  color: var(--color_white) !important;
+  text-align: center;
+ 
+}
 .sorting {
   text-align: start;
   padding-bottom: 0.5em;
@@ -34,7 +61,7 @@ table {
 
 .t-table {
   background: var(--button_color);
-  padding: 14px 0;
+  padding: 18px 0;
   border-radius: 6px;
   margin-bottom: 2%;
 }
@@ -129,7 +156,8 @@ table {
 .parent-name p:nth-child(2) {
   font-size: 1.2rem;
   width: 100%;
-  color: #ffbe47;
+  color: rgb(255 165 0);
+  text-shadow: 1px 1px 9px rgb(230 157 25 / 56%);
 }
 .dataTables_wrapper {
   background: #00000014;
@@ -149,9 +177,9 @@ table {
 .dataTables_paginate {
   position: relative;
   bottom: -5%;
-  left: -3.5%;
+  left: 0%;
   width: fit-content;
-  background: var(--header_color);
+  /* background: var(--header_color); */
 }
 
 .table-responsive:nth-child(2) .dataTables_paginate {
@@ -198,7 +226,7 @@ table.dataTable td.dt-right {
   user-select: none;
   z-index: 4;
   overflow: hidden;
-  border: 1px solid var(--color_blue);
+  border: 2px solid rgb(255 165 0);
 box-shadow:2px 2px 5px #020d24;
 }
 
@@ -239,7 +267,7 @@ box-shadow:2px 2px 5px #020d24;
 
 
 .highlight-row,.parent-table:hover  {
-  background: #a2b8d238!important;
+  background: #3b4e63cc!important;
   
 }
 
