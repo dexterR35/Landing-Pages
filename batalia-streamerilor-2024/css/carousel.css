@@ -123,15 +123,18 @@ box-shadow: 2px 5px 12px black;
 .blaze-track div {
   z-index: 2;
 }
+
 .blaze-track div a img {
   z-index: 10;
   opacity: 1;
-  width: 85%;
+  width: 100%;
   height: auto;
   object-fit: contain;
   filter:drop-shadow(0px 0px 4px #89ccff)
 }
-
+#image-carousel .blaze-track div a img {
+  width: 85%;
+}
 .blaze-track .footer-game::after {
   mask: var(--mask-reverse);
   content: "";

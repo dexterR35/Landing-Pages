@@ -2,8 +2,8 @@
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
 
-const username = "lo";
-const netbet_id = 35151267;
+const username = "testmar";
+const netbet_id = 35115686;
 
 const $loading = $(".loading");
 const $optInBtn = $("#optin-btn");
