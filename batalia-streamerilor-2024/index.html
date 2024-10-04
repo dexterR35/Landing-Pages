@@ -16,9 +16,9 @@
 
   <title>batalia 2024</title>
 
-  <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./css/carousel.css">
   <link rel="stylesheet" href="./css/table.css">
+  <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
@@ -39,13 +39,66 @@
                     <img src="./assets/logo/pragmatic.webp" class="pragmatic-logo" alt="pragm">
                   </div>
                   <div class="offer-content">
-                    <div class="line-0">50.000 RON</div>
-                    <div class="line-1">premii cash</div>
+                    <div class="line-0">5.000 R<span class="flicker-super-slow">o</span>N</div>
+                    <div class="line-1">p<span class="flicker-fast">r</span>emii cash</div>
                     <div class="line-2">+ 99.999 runde</div>
                     <div class="line-3">gratuite</div>
                   </div>
+                  <style>
+
+
+.flicker-super-slow{
+  animation: flicker 8s linear infinite;
+}
+
+
+
+.flicker-fast{
+  animation: flicker 3s linear infinite;
+}
+
+@keyframes flicker {
+	0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+		/* text-shadow: none; */
+    opacity: .99;
+		
+	}
+	20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+		opacity: 0.4;
+	}
+}
+.container-btn{
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+}
+.button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-200%, -50%) rotate(-60deg);
+    width: 50%;
+    height: 90%;
+    background: rgba(255, 14, 6, 0.781);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    animation: slide-before 3s 0.6s ease infinite;
+}
+@keyframes slide-before {
+  0% {
+    transform: translateX(-200%) rotate(-60deg);
+}
+
+100% {
+    transform: translateX(100%) rotate(-60deg);
+}
+}
+
+                  </style>
                   <div class="container-btn">
-                    <button class="btn desktop cta-border"><span></span>ÎNREGISTREAZĂ-TE</button>
+                    
+                    <button class="btn desktop cta-border button"><span></span>ÎNREGISTREAZĂ-TE</button>
                   </div>
                 </div>
               </div>
@@ -99,19 +152,16 @@
             <div class="container-btn">
               <button class="btn"><span></span>vezi toate jocurile</button>
             </div>
+            <div class="box-arrow">
+              <svg class="arrows">
+                <path class="a1" d="M0 0 L30 32 L60 0"></path>
+                <path class="a2" d="M0 20 L30 52 L60 20"></path>
+                <path class="a3" d="M0 40 L30 72 L60 40"></path>
+              </svg>
+            </div>
           </div>
-          <div class="box-arrow">
-            <svg class="arrows">
-              <path class="a1" d="M0 0 L30 32 L60 0"></path>
-              <path class="a2" d="M0 20 L30 52 L60 20"></path>
-              <path class="a3" d="M0 40 L30 72 L60 40"></path>
-            </svg>
-          </div>
-
-
-
+         
         </div>
-
       </section>
       <section class="section s3 _b" id="section3">
         <div class="_page">
@@ -150,10 +200,8 @@
                     <tfoot></tfoot>
                   </table>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -168,7 +216,6 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquam labore saepe maxime
                 incidunt eveniet vel eligendi! Corrupti, dolorem libero.</p>
             </div>
-
             <div id="termsAndConditionsS" class="hidden tc">
               <p><b>Cine este eligibil?</b></p>
               <ul>
@@ -459,10 +506,10 @@
 
   <style>
     .box-arrow {
-      position: absolute;
+      position: relative;
       left: 50%;
-      transform: translate(-50%, -50%);
-      bottom: 20px;
+      transform: translate(-50%, 0%);
+      bottom: 0;
       width: 100%;
       display: flex;
       justify-content: center;
@@ -556,9 +603,7 @@
       z-index: 1;
     }
 
-    .highlight-row {
-        background-color: rgb(255, 0, 0) !important;
-      }
+  
   </style>
   <script>
     $('#target').on('click touchstart', '._b', function (e) {
@@ -608,7 +653,7 @@
 
 
   <script src="./carousel.js"></script>
-  <script src="./dataTable.js"></script>/
+  <!-- <script src="./dataTable.js"></script> -->
 
 <!-- <script src="./test.js"></script> -->
 </body>

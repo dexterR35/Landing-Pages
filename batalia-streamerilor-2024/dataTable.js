@@ -2,8 +2,8 @@
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
 
-const username = "testcozminn";
-const netbet_id = 39356008;
+const username = "testmar";
+const netbet_id = 35115686;
 
 // jQuery Selectors
 const $loading = $(".loading");
@@ -34,21 +34,43 @@ function debounce(func, delay) {
   };
 }
 
+// Generate stars based on ranking
+function generateStars(ranking) {
+  let stars;
+
+  if (ranking === 1) {
+    stars = 5;
+  } else if (ranking <= 5) {
+    stars = 4;
+  } else if (ranking <= 9) {
+    stars = 3;
+  } else if (ranking <= 13) {
+    stars = 2;
+  } else {
+    stars = 1;
+  }
+  if (ranking === 1) {
+    return "⭐".repeat(stars);
+  }
+  // Create star icons dynamically
+  return "⭐".repeat(stars);
+}
+
 // Function to create table rows for users
 function createTableUsers(item, userPosition) {
   const highlightClass = item.id === netbet_id ? "highlight-row" : "";
-  console.log(item.id !== netbet_id, "test alina");
 
-  const tableAHtml = `<tr class="parent-table ${highlightClass}">
+  const tableAHtml = `
+    <tr class="parent-table ${highlightClass}">
         <td class="parent-position ps">#${userPosition}</td>
-        <td class="parent-id ps">${item.id}</td>
+       
         <td>
           <div class="parent-name">
             <p class="ps">${item.username}</p>
           </div>
         </td>
         <td class="parent-points ps">${item.points}</td>  
-      </tr>`;
+    </tr>`;
   return tableAHtml;
 }
 
@@ -67,11 +89,10 @@ const streamerImages = {
   aparatepacaneleslots: "./assets/icons_table/aps.webp",
   fury: "./assets/icons_table/fury.webp",
   stero: "./assets/icons_table/stero.webp",
+  sorin: "./assets/icons_table/sorin.webp",
 };
 
-
-
-// case for names
+// Function to create table rows for streamers with star ratings
 function createTableStreamers(streamer) {
   let displayName;
   switch (streamer.username.toLowerCase()) {
@@ -114,33 +135,34 @@ function createTableStreamers(streamer) {
     case "annuskaa":
       displayName = "anna";
       break;
+      case "sisha1487":
+        displayName = "sorin";
+        break;
     default:
       displayName = "noName";
   }
 
-
-
   const normalizedDisplayName = displayName.toLowerCase().replace(/\s/g, "");
-  imgSrc = streamerImages[normalizedDisplayName];
-  // Generate stars based on points
-  // const stars = streamer.points;
+  const imgSrc = streamerImages[normalizedDisplayName];
+  const stars = generateStars(streamer.ranking);
   const highlightClass = streamer.id === netbet_id ? "highlight-row" : "";
-  const tableHtml = `<tr class="parent-table ${highlightClass}">
-          <td class="parent-position ps">#${streamer.ranking}</td>
-          <td>
-            <div class="d-flex-start flex-row parent-avatar">
-              <div class="avatar-table avatar-blue">
-                <img data-src="${imgSrc}" alt="pict_table" class="pict_table">
-              </div>
-              <div class="parent-name">
-                <p class="font-tabel">${displayName}</p> 
-                <p class="font-tabel stars"></p>
-              </div>
-            </div>
-          </td>
-          <td class="parent-points ps">${streamer.points}</td>
-        </tr>`;
 
+  const tableHtml = `
+    <tr class="parent-table ${highlightClass}">
+        <td class="parent-position ps">#${streamer.ranking}</td>
+        <td>
+          <div class="d-flex-start flex-row parent-avatar">
+            <div class="avatar-table">
+              <img src="${imgSrc}" alt="pict_table" class="pict_table">
+            </div>
+            <div class="parent-name">
+              <p class="font-tabel">${displayName}</p> 
+              <p class="font-tabel stars">${stars}</p> 
+            </div>
+          </div>
+        </td>
+        <td class="parent-points ps">${streamer.points}</td>
+    </tr>`;
   return tableHtml;
 }
 
@@ -164,26 +186,23 @@ function formatPoints(points) {
   }
 }
 
-
 // Generate tables and populate with API data
-
 function generateTables(userData, streamerData) {
   let tableDataUser = $("#bodyUser");
   let tableDataStreamer = $("#bodyStreamer");
-  // Clear
+  // Clear previous data
   tableDataUser.empty();
   tableDataStreamer.empty();
+  
   // Populate user data
   userData.forEach((user, index) => {
     const userRow = createTableUsers(user, index + 1);
     tableDataUser.append(userRow);
   });
-  // Populate streamer data
-  streamerData.forEach((streamer, index) => {
-    const streamerRow = createTableStreamers(
-      streamer,
-      `./_avatar/${streamer.username.toLowerCase()}.png`
-    );
+
+  // Populate streamer data with stars
+  streamerData.forEach((streamer) => {
+    const streamerRow = createTableStreamers(streamer);
     tableDataStreamer.append(streamerRow);
   });
 
@@ -201,9 +220,8 @@ function generateTables(userData, streamerData) {
     pagingType: "simple_numbers",
     columnDefs: [
       { width: "10%", targets: 0, className: "dt-center" },
-      //   { width: "15%", targets: 1 }, // ID column width
-      { width: "45%", targets: 2, className: "dt-center" },
-      { width: "30%", targets: 3, className: "dt-right" },
+      { width: "45%", targets: 1, className: "dt-center" },
+      { width: "30%", targets: 2, className: "dt-right" },
     ],
     destroy: true,
   });
@@ -221,7 +239,7 @@ function generateTables(userData, streamerData) {
     columnDefs: [
       { width: "8%", targets: 0 },
       { width: "60%", targets: 1 },
-      { width: "10%", targets: 2 },
+      { width: "14%", targets: 2 },
     ],
     destroy: true,
   });
@@ -242,14 +260,11 @@ async function fetchDataUsers() {
       },
     });
 
-    // Check if the current user (TestCristianP) exists in the table
     const userExists = response.data.some((player) => player.id === netbet_id);
     toggleButtons(userExists); // Enable/disable buttons based on user's existence
-    console.log(userExists, "test");
-    console.log(response, "fasfa");
     return response.data.map((player, index) => ({
       ranking: index + 1,
-      id: player.id, // Add the player ID
+      id: player.id,
       username: player.id === netbet_id ? username : player.username,
       points: formatPoints(player.points),
     }));
@@ -257,7 +272,23 @@ async function fetchDataUsers() {
     console.error("Error fetching player data:", error);
   }
 }
+//                function addStreamers(username) {
+//   $.ajax({
+//     url: url + 'streamer/' + username + '/' + 1,
+//     type: 'POST',
+//     headers: {
+//         'Authorization': 'Bearer ' + token
+//     },
+//     success: function(response) {
+//         console.log('response stre:', response);
+//     },
+//     error: function(xhr, status, error) {
+//         console.log('response:', error);
+//     }
+// });
+//  }
 
+//  addStreamers(username);
 // Fetch Streamer Data
 async function fetchStreamerData() {
   try {
@@ -268,7 +299,6 @@ async function fetchStreamerData() {
         Authorization: "Bearer " + token,
       },
     });
-    console.log(response, "streamers");
     return response.data.map((streamer, index) => ({
       ranking: index + 1,
       id: streamer.id,

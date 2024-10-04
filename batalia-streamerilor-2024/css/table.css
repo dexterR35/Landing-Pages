@@ -13,31 +13,29 @@ table {
 }
 
 .sorting {
-  text-align: center;
+  text-align: start;
   padding-bottom: 0.5em;
 }
 
-.sorting:nth-child(3),
 .sorting:nth-child(1) {
   text-align: center;
+}
+.sorting:nth-child(3) {
+  text-align: end;
 }
 
 #streamersTable_wrapper, #usersTable_wrapper{
   padding: 13px;
-  height: 520px;
+  height: 540px;
+  min-height: 480px;
+  max-height: 600px;
 }
 
-.parent-avatar {
-  margin: 7px 0;
-}
 
-.parent-table {
-  cursor: pointer;
-}
 
 .t-table {
   background: var(--button_color);
-  padding: 10px;
+  padding: 14px 0;
   border-radius: 6px;
   margin-bottom: 2%;
 }
@@ -57,7 +55,7 @@ table {
 }
 
 .table-responsive {
-  width: 40%;
+  width: 44%;
   max-width: 100%;
   border-radius: 10px;
   padding: 20px 20px 0;
@@ -103,24 +101,28 @@ table {
 }
 
 #usersTable tbody .parent-table {
-  height: 35px;
+  height: 46px;
 }
 
 .parent-table:hover {
   background: var(--button_color);
   color: var(--color-white);
   transition: all 0.3s ease;
+
 }
 
 .font-tabel, .ps {
   font-size: 100%;
+}
+.font-tabel {
+  text-shadow: 0px 0px 2px #020d24;
 }
 .parent-name {
   display: flex;
   justify-content: space-around;
   align-items: start;
   height: 100%;
-  /* gap: 10px; */
+  gap: 5px;
   /* background-color: red; */
   flex-direction: column;
 }
@@ -131,9 +133,8 @@ table {
   text-transform: capitalize;
 }
 .parent-name p:nth-child(2) {
-font-size: 1.2rem;
+font-size: 1rem;
 width: 100%;
-/* background: cyan; */
 }
 .dataTables_wrapper {
   background: #00000014;
@@ -202,6 +203,12 @@ table.dataTable td.dt-right {
   user-select: none;
   z-index: 4;
   overflow: hidden;
+  border: 2px solid wheat;
+box-shadow:2px 2px 5px #020d24;
+}
+
+.avatar-table, .parent-position, .parent-points {
+  text-shadow: 1px 1px 1px #020d24;
 }
 
 .avatar-table img {
@@ -210,8 +217,24 @@ table.dataTable td.dt-right {
   object-fit: contain;
 }
 
+
 .parent-avatar {
+  margin: 2px 0;
+  width: 100%;
+  padding: 5px;
   gap: 15px;
+}
+.parent-position {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.parent-points {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 
+.highlight-row {
+  background: var(--button_color)!important;
+}
