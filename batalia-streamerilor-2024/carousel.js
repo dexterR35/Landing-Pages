@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Setup Scroll to Top button functionality
-    setupScrollToTop();
+    // setupScrollToTop();
 
     // Observe visibility of sections and footer
     observeSections();
@@ -174,17 +174,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Setup Scroll to Top button
-  function setupScrollToTop() {
-    $("#scrollToTop").on("click", function () {
-      $("html, body").animate({ scrollTop: $("#section1").offset().top }, "slow");
-    });
+  // function setupScrollToTop() {
+  //   $("#scrollToTop").on("click", function () {
+  //     $("html, body").animate({ scrollTop: $("#section1").offset().top }, "slow");
+  //   });
 
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 200) {
-        $("#scrollToTop").fadeIn();
-      } else {
-        $("#scrollToTop").fadeOut();
-      }
-    });
-  }
+  //   $(window).scroll(function () {
+  //     if ($(this).scrollTop() > 200) {
+  //       $("#scrollToTop").fadeIn();
+  //     } else {
+  //       $("#scrollToTop").fadeOut();
+  //     }
+  //   });
+  // }
 });

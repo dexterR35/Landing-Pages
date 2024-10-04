@@ -67,7 +67,8 @@
   height: 100%;
 }
 
-.footer-game p {
+.footer-game.footer-game p:nth-child(1) {
+  font-size: 0.8rem;
 }
 
 .footer-game p:nth-child(2) {
@@ -324,6 +325,6 @@ cursor: pointer;
     --slides-to-show: 2 !important;
   }
   #image-carousel .blaze-slider {
-    --slides-to-show: 2 !important;
+    --slides-to-show: 3 !important;
   }
 }

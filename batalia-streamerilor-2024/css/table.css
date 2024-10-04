@@ -30,7 +30,12 @@ table {
   min-height: 480px;
   max-height: 600px;
 }
-
+/* #streamersTable_wrapper .parent-points {
+  text-align: start;
+  justify-content: start;
+  vertical-align: baseline;
+  padding: 10px 0;
+} */
 
 
 .t-table {
@@ -112,7 +117,7 @@ table {
 }
 
 .font-tabel, .ps {
-  font-size: 100%;
+  font-size: 105%;
 }
 .font-tabel {
   text-shadow: 0px 0px 2px #020d24;
@@ -126,9 +131,7 @@ table {
   /* background-color: red; */
   flex-direction: column;
 }
-.parent-name .ps {
-  font-size: 120%;
-}
+
 .parent-name p:nth-child(1) {
   text-transform: capitalize;
 }
@@ -182,7 +185,7 @@ width: 100%;
   border: none;
   outline: none;
   border-radius: 4px;
-  padding: 8px 15px;
+  padding: 10px 15px;
 }
 table.dataTable td.dt-center {
   text-align: center;
@@ -217,6 +220,9 @@ box-shadow:2px 2px 5px #020d24;
   object-fit: contain;
 }
 
+#streamersTable_wrapper .parent-points {
+  text-align: end;
+}
 
 .parent-avatar {
   margin: 2px 0;
@@ -224,11 +230,16 @@ box-shadow:2px 2px 5px #020d24;
   padding: 5px;
   gap: 15px;
 }
+
 .parent-position {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
+  font-size: 1.1rem;
 }
 
+.parent-points {
+  font-size: 1.1rem;
+}
 .parent-points {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
