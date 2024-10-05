@@ -736,12 +736,7 @@ footer .section_title {
     display: grid;
     grid-template-rows: 1fr 50vh;
   }
-  .section:nth-child(2) .parent,
-  .section:nth-child(3) .parent {
-    padding: 20% 0px 3rem;
-    height: 100%;
-    justify-content: space-evenly;
-  }
+ 
   .section_title {
     margin: 2% auto;
   }
@@ -768,6 +763,14 @@ footer .section_title {
     padding: 1rem 2rem;
     font-size: 100%;
   }
+  .section:nth-child(2) .parent
+{
+    padding: 20% 0px 2rem;
+
+  }
+  .section:nth-child(3) .parent {
+    padding: 5% 0px 0rem;
+  }
 
   h2 {
     font-size: calc(100% + 2.5vw);
@@ -789,8 +792,8 @@ footer .section_title {
     height: 87vh;
   }
 
-  .section.s2 {
-    height: 100%;
+  .section.s2 ,.section.s3 {
+    height: 100% !important;
   }
 
   .section.s3 {

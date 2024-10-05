@@ -11,16 +11,8 @@ function getCookie(name) {
   return null;
 }
 
-// userToCheck = getCookie("netbet_login");
-
-
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
-
-
-// const username = "testcozminn";  
-// const netbet_id = 35115686;
-
 
 // 39356008	testcozminn	
 // 40302497	testmarian2024	
@@ -28,10 +20,12 @@ const url = "https://qaadmin.livepartners.com/api/streaming/";
 // 39438169	test1686042757550	
 // 35115686	testmar	
 // 39183753	testcozminnou	
-const username = "Sisha1487";
-const netbet_id = 36877890;
+// const username = getCookie('netbet_login');
+// const netbet_id = getCookie("netbet_id");
 
-// Now you can safely use username and netbet_id
+const username = String("testcozminn");  
+const netbet_id = Number("39356008");
+
 console.log("Final Username:", username);
 console.log("Final NetBet ID:", netbet_id);
 console.log(typeof(username), typeof(netbet_id), username, netbet_id);   // Should output: testuser 12345
@@ -65,7 +59,7 @@ function showModal(type, title, message, callback) {
   const modalHtml = `
     <div class="modal">
       <div class="modal-content">
-        <h2>${title}</h2>
+        <h3>${title}</h3>
         <p>${message}</p>
         <div class="modal-buttons">
         ${
@@ -95,7 +89,7 @@ function showModal(type, title, message, callback) {
     });
   }
 }
-
+showModal("succes","OptOut","message","trrue")
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
@@ -559,40 +553,27 @@ function toggleButtons(isOptedIn) {
 
 async function reloadUserTable() {
   try {
-    const userData = await fetchDataUsers();  // Fetch user data
-    const streamerData = await fetchStreamerData();  // Fetch streamer data
+    const userData = await fetchDataUsers();
+    const streamerData = await fetchStreamerData();
     
     // Check if the streamer exists in the streamerData list
     const streamerExists = streamerData.some(
       (streamer) => streamer.id === netbet_id
     );
-    console.log("Is Streamer:", streamerExists);
-
-    // Check if the user exists in the userData list
+    console.log(streamerExists,"streamerExists")
+    // Check if the user exists in the user data list
     const userExists = userData.some(
       (user) => user.id === netbet_id
     );
-    console.log("Is User:", userExists);
-
-    let filteredUserData = userData;
-
-    // If the current user is a streamer, show only the top 10 users
-    if (streamerExists) {
-      console.log("User is a streamer, displaying top 10 users.");
-      filteredUserData = userData.slice(0, 10); // Get the top 10 users
-    }
-
-    // Update the action button based on whether the user or streamer exists
+    console.log(userExists,"userExists")
+    // Pass both userExists and streamerExists to the updateActionButton function
     updateActionButton(userExists, streamerExists);
-    
-    // Generate tables with filtered user data (top 10 if streamer)
-    generateTables(filteredUserData, streamerData);
+    generateTables(userData, streamerData);
     
   } catch (error) {
     console.error("Error reloading user table:", error);
   }
 }
-
 
 $(document).ready(function () {
   reloadUserTable();

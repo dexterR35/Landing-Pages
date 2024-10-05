@@ -59,3 +59,27 @@
     background: rgb(3 8 28 / 78%);
     z-index: -1;
   }
+
+  @media screen and (max-width: 991px) {
+    .container-table {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .t-table {
+      padding: 0.8rem 0;
+    }
+    #termsAndConditionsS {
+      padding: 2rem 1.5rem;
+    }
+    footer {
+      padding: 1rem 10px;
+    }
+    footer .parent{
+      padding: 0;
+      margin: 20% 0px;
+    }
+    .tc p {
+      margin: 8% 0;
+  }
+  }
+  

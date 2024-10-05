@@ -291,7 +291,7 @@ table.dataTable td.dt-right {
   }
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1440px) and (orientation:landscape) {
   .table-responsive {
     transform: scale(0.9);
     -webkit-transform: scale(0.9);
@@ -321,9 +321,7 @@ table.dataTable td.dt-right {
   .ps {
     font-size: 111%;
   }
-  #termsAndConditionsS {
-    padding: 2rem 1rem;
-  }
+
   .table-responsive {
     padding: 20px 12px 0;
   }
