@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./src/css/carousel.css">
   <link rel="stylesheet" href="./src/css/table.css">
+  <link rel="stylesheet" href="./src/css/tnc.css">
+  <link rel="stylesheet" href="./src/css/modal.css">
   <title>Batalia Streamerilor Sezonul 3</title>
 </head>
 
 <body>
-  <button id="optin-btn" class="btn">Opt-In</button>
-  <button id="optout-btn" class="btn" disabled>Opt-Out</button>
   <div id="message"></div>
   </script>
   <div class="targetShoot" id="target">
@@ -69,9 +69,7 @@
                     }
 
                   </style>
-                  <div class="container-btn">
-                    <button id="actionButton" class="btn desktop shape pointer"><span></span></button>
-                  </div>
+                  <div class="container-btn" id="actionButton"></div>
                 </div>
               </div>
             </div>
@@ -414,6 +412,7 @@
                   să nu ai interdicție de a participa la jocuri de noroc din
                   orice motiv.
                 </li>
+                <button id="optout-btn" class="optout-btn btn pointer">Opt-Out</button>
               </ul>
               <br />
               <p>&copy;2024 Netbet. All rights reserved.</p>
@@ -511,14 +510,13 @@
     }
 
   </style>
-
-
 <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
   integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./index.js"></script>
   <script src="./src/js/carousel.js"></script>
-  <script src="./src/js/dataTable.js"></script>
+  <script src="./src/js/dataTable.js" ></script>
   <script>
     $('#target').on('click touchstart', '._b', function (e) {
       if ($('#target .bullet-hole').length >= 10) {

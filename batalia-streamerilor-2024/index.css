@@ -330,6 +330,7 @@ button {
   overflow: hidden;
 }
 
+
 button:not(.controls button) {
   width: fit-content;
   padding: 1.4rem 2rem;
@@ -352,6 +353,15 @@ button:not(.controls button):hover {
 .section.s2 .container-btn button {
   font-size: 1rem;
   padding: 1rem 2rem;
+}
+.optout-btn {
+  width: fit-content;
+  padding: 0.5rem 0.7rem !important;
+  border-radius: 5px !important;
+  background: gray !important;
+  font-size: 70% !important;
+  border: none !important;
+  outline: none !important;
 }
 
 .section {
@@ -821,11 +831,11 @@ footer .section_title {
 }
 
 
-
+/* 
 #optin-btn,
 #optout-btn {
   display: none;
-}
+} */
 
 /* terms css */
 /* terms css */

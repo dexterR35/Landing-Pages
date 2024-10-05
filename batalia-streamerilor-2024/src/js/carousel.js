@@ -1,21 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
   let gamesDataFetched = false;
-  let gamesData = []; 
+  let gamesData = [];
+  let carouselsInitialized = false;
 
-  $(document).ready(init);
+  // Directly call init without $(document).ready()
+  init();
+
   function init() {
     const slidesData = getSlidesData();
-    // Init first carousel
-    populateFirstCarousel(slidesData);
-    initializeCarousel("#image-carousel", getFirstCarouselOptions());
-    // Fetch and populate second carousel images
-    fetchGames().then((games) => {
-      gamesData = games;
-      populateSecondCarousel(gamesData);
-      initializeCarousel("#games-carousel", getSecondCarouselOptions());
-    });
-    // Observe visibility of sections and footer
-    observeSections();
+
+    if (!carouselsInitialized) {
+      // Initialize the first carousel with static slides data
+      populateFirstCarousel(slidesData);
+      initializeCarousel("#image-carousel", getFirstCarouselOptions());
+
+      // Fetch game data and initialize the second carousel
+      fetchGames().then((games) => {
+        gamesData = games;
+        populateSecondCarousel(gamesData);
+        initializeCarousel("#games-carousel", getSecondCarouselOptions());
+      });
+
+      carouselsInitialized = true; 
+    }
   }
 
   function getSlidesData() {
@@ -35,34 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
   }
 
-  // handle visibility of sections
-  function handleSectionVisibility(entries) {
-    entries.forEach((entry) => {
-      if (
-        entry.isIntersecting ||
-        entry.target.getBoundingClientRect().top < window.innerHeight
-      ) {
-        entry.target.classList.add("visible");
-      } else {
-        entry.target.classList.remove("visible");
-      }
-    });
-  }
-  // Observer to track visibility of sections
-  function observeSections() {
-    const sectionObserver = new IntersectionObserver(handleSectionVisibility, {
-      root: null,
-      threshold: 0.25,
-    });
-    document
-      .querySelectorAll("._page")
-      .forEach((section) => sectionObserver.observe(section));
-    const footer = document.querySelector("footer");
-    if (footer) sectionObserver.observe(footer);
-  }
-
-
-  // populate first carousel
+  // Populate the first carousel with the slide data
   function populateFirstCarousel(slidesData) {
     const $blazeTrack1 = $("#image-carousel .blaze-track");
     $blazeTrack1.empty();
@@ -80,20 +60,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //  fetch games data 
+  // Fetch games for second carousel
   async function fetchGames() {
-    if (gamesDataFetched) return gamesData;
+    if (gamesDataFetched) return gamesData; // If already fetched, return cached data
     try {
       const response = await fetch("./src/games_new.json");
       if (!response.ok) throw new Error("Network response was not ok");
+
       const data = await response.json();
       if (data.status && data.data && data.data.games) {
         gamesDataFetched = true;
         return data.data.games.map((game) => ({
           ...game,
-          image_url: game.image_url
-            ? game.image_url.replace(game.id, game.id - 1)
-            : "",
+          image_url: game.image_url ? game.image_url.replace(game.id, game.id - 1) : "",
         }));
       } else {
         console.log("No games found or API returned an error.");
@@ -105,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // populate second carousel
+  // Populate the second carousel with games data
   function populateSecondCarousel(gamesData) {
     const $blazeTrack2 = $("#games-carousel .blaze-track");
     $blazeTrack2.empty();
@@ -115,7 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="game relative" data-index="${index}">
             <div class="parent-game d-flex-center flex-between flex-col h-full">
               <a href="${game.game_url}" target="_blank" class="pointer">
-                <!-- Adding loading="lazy" attribute to the image -->
                 <img src="${game.image_url}" alt="${game.name}" loading="lazy">
               </a>
               <div class="footer-game pointer">
@@ -131,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // initialize BlazeSlider carousel
+  // Initialize the carousels with BlazeSlider
   function initializeCarousel(selector, options) {
     const sliderElement = $(selector)[0];
     if (sliderElement) {
@@ -139,13 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // first carousel config options
+  // Options for the first carousel
   function getFirstCarouselOptions() {
     return {
       all: {
-        enableAutoplay: false,
-        autoplayInterval: 1800,
-        autoplayDirection: "to left",
+        enableAutoplay: true,
+        autoplayInterval: 1500,
+        autoplayDirection: "to right",
         transitionTimingFunction: "ease",
         slidesToScroll: 1,
         stopAutoplayOnInteraction: true,
@@ -154,14 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // second carousel config options
+  // Options for the second carousel
   function getSecondCarouselOptions() {
     return {
       all: {
-        enableAutoplay: false,
-        autoplayInterval: 2000,
+        enableAutoplay: true,
+        autoplayInterval: 1500,
         transitionTimingFunction: "ease",
-        autoplayDirection: "to right",
+        autoplayDirection: "to left",
         slidesToScroll: 1,
         stopAutoplayOnInteraction: true,
         loop: true,
