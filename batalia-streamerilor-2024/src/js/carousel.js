@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   $(document).ready(init);
   function init() {
-    const slidesData = getSlidesData(); // Images for the first carousel
-    // Initialize first carousel
+    const slidesData = getSlidesData();
+    // Init first carousel
     populateFirstCarousel(slidesData);
     initializeCarousel("#image-carousel", getFirstCarouselOptions());
     // Fetch and populate second carousel images
@@ -17,6 +17,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // Observe visibility of sections and footer
     observeSections();
   }
+
+  function getSlidesData() {
+    return [
+      { src: "./assets/icons_streamers/testpacanela.webp", alt: "testpacanela" },
+      { src: "./assets/icons_streamers/stero.webp", alt: "stero" },
+      { src: "./assets/icons_streamers/sorin.webp", alt: "sorin" },
+      { src: "./assets/icons_streamers/razvan.webp", alt: "razvan" },
+      { src: "./assets/icons_streamers/gamblers.webp", alt: "gamblers" },
+      { src: "./assets/icons_streamers/fury.webp", alt: "fury" },
+      { src: "./assets/icons_streamers/cosmina.webp", alt: "cosmina" },
+      { src: "./assets/icons_streamers/aps2.webp", alt: "aps2" },
+      { src: "./assets/icons_streamers/anna.webp", alt: "anna" },
+      { src: "./assets/icons_streamers/andyvip.webp", alt: "andyvip" },
+      { src: "./assets/icons_streamers/alexmihai.webp", alt: "alexmihai" },
+      { src: "./assets/icons_streamers/danutu.webp", alt: "danutu" },
+    ];
+  }
+
   // handle visibility of sections
   function handleSectionVisibility(entries) {
     entries.forEach((entry) => {
@@ -43,25 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footer) sectionObserver.observe(footer);
   }
 
-  function getSlidesData() {
-    return [
-      { src: "./assets/icons_streamers/testpacanela.webp", alt: "pacanela" },
-      { src: "./assets/icons_streamers/stero.webp", alt: "stero" },
-      { src: "./assets/icons_streamers/sorin.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/razvan.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/quikanu.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/gamblers.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/fury.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/cosmina.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/aps2.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/anna.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/andyvip.webp", alt: "City Image" },
-      { src: "./assets/icons_streamers/alexmihai.webp", alt: "Nature Image" },
-      { src: "./assets/icons_streamers/danutu.webp", alt: "City Image" },
-    ];
-  }
 
-  // populate the first carousel
+  // populate first carousel
   function populateFirstCarousel(slidesData) {
     const $blazeTrack1 = $("#image-carousel .blaze-track");
     $blazeTrack1.empty();
@@ -79,11 +80,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  //  fetch games data asynchronously
+  //  fetch games data 
   async function fetchGames() {
     if (gamesDataFetched) return gamesData;
     try {
-      const response = await fetch("./games_new.json");
+      const response = await fetch("./src/games_new.json");
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
       if (data.status && data.data && data.data.games) {
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // populate the second carousel
+  // populate second carousel
   function populateSecondCarousel(gamesData) {
     const $blazeTrack2 = $("#games-carousel .blaze-track");
     $blazeTrack2.empty();

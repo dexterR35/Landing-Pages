@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
-    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-  <title>batalia 2024</title>
-
-  <link rel="stylesheet" href="./css/carousel.css">
-  <link rel="stylesheet" href="./css/table.css">
+  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
   <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./src/css/carousel.css">
+  <link rel="stylesheet" href="./src/css/table.css">
+  <title>Batalia Streamerilor Sezonul 3</title>
 </head>
 
 <body>
@@ -26,7 +19,7 @@
   <button id="optout-btn" class="btn" disabled>Opt-Out</button>
   <div id="message"></div>
   </script>
-  <div class="test" id="target">
+  <div class="targetShoot" id="target">
     <main class="panelWrap">
       <section class="section s1 _b" id="section1">
         <div class="_page">
@@ -36,7 +29,7 @@
               <div class="offer">
                 <div class="offer-html">
                   <div class="logo">
-                    <img src="./assets/logo/pragmatic.webp" class="pragmatic-logo" alt="pragm">
+                    <img src="./assets/stuff/pragmatic.webp" class="pragmatic-logo" alt="pragm">
                   </div>
                   <div class="offer-content">
                     <div class="line-0">5.000 R<span class="flicker-super-slow">o</span>N</div>
@@ -75,41 +68,6 @@
                       }
                     }
 
-                    .container-btn {
-                      position: relative;
-                      overflow: hidden;
-                      width: fit-content;
-                      border-radius: 10px;
-                    }
-
-                    button {
-                      overflow: hidden;
-                    }
-
-                    .shape::before {
-                      content: '';
-                      position: absolute;
-                      top: 50%;
-                      left: 50%;
-                      overflow: hidden;
-                      transform: translate(-200%, -50%) rotate(-60deg);
-                      width: 60%;
-                      height: 90%;
-                      background: rgba(218, 218, 218, 0.322);
-                      /* mix-blend-mode: difference; */
-                      pointer-events: none;
-                      animation: slide-before 3s 0.6s ease infinite;
-                    }
-
-                    @keyframes slide-before {
-                      0% {
-                        transform: translateX(-200%) rotate(-60deg);
-                      }
-
-                      100% {
-                        transform: translateX(100%) rotate(-60deg);
-                      }
-                    }
                   </style>
                   <div class="container-btn">
                     <button id="actionButton" class="btn desktop shape pointer"><span></span></button>
@@ -183,7 +141,7 @@
                 <div class="table-responsive _streamers">
                   <div class="blob1"></div>
                   <div class="blob2"></div>
-                  <h3 class="t-table"><img src="./assets/holeblue.webp" alt="">Clasament Streameri</h3>
+                  <h3 class="t-table"><img src="./assets/stuff/holeblue.webp" alt="">Clasament Streameri</h3>
                   <table id="streamersTable">
                     <thead>
                       <tr>
@@ -221,7 +179,6 @@
       <div class="_page _b">
         <div class="parent">
           <div class="terms-container">
-   
             <div id="termsAndConditionsS" class="hidden tc">
               <h2>Termeni si Conditii</h2>
               <div class="section_title">
@@ -553,8 +510,15 @@
       -webkit-animation-delay: 0s;
     }
 
-
   </style>
+
+
+<script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+  integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./src/js/carousel.js"></script>
+  <script src="./src/js/dataTable.js"></script>
   <script>
     $('#target').on('click touchstart', '._b', function (e) {
       if ($('#target .bullet-hole').length >= 10) {
@@ -567,7 +531,6 @@
         $(e.target).closest('.arrows').length) {
         return;
       }
-
       // For touch, use touches[0] to get coordinates.
       let isTouch = e.type === 'touchstart';
       let pageX = isTouch ? e.originalEvent.touches[0].pageX : e.pageX;
@@ -600,12 +563,6 @@
     }
 
   </script>
-
-
-  <script src="./carousel.js"></script>
-  <script src="./dataTable.js"></script>
-
-  <!-- <script src="./test.js"></script> -->
 </body>
 
 </html>

@@ -112,7 +112,7 @@ function generateStars(ranking) {
   }
   let starIcons = "&#9733;".repeat(stars);
   if (ranking === 1) {
-    return starIcons + "<span><img src='./assets/wanted.webp'></span>";
+    return starIcons + "<span><img src='./assets/stuff/wanted.webp'></span>";
   }
   return starIcons;
 }
@@ -191,7 +191,7 @@ function createTableStreamers(streamer) {
   return tableHtml;
 }
 
-// Fetch User Data and Check if the Player Exists
+// Fetch User Data and Check if Player Exists
 async function fetchDataUsers() {
   try {
     const response = await $.ajax({
@@ -224,7 +224,7 @@ async function fetchDataUsers() {
 
     let combinedUsers = [];
 
- // Case 1: User in the first place
+ // Case 1: User in first place
  if (currentUserIndex === 0) {
   console.log("1");
   combinedUsers = [
@@ -475,7 +475,6 @@ function toggleButtons(isOptedIn) {
 // Initialize on document ready
 $(document).ready(function () {
   reloadUserTable();
-
   $optInBtn.click(debounce(() => optInPlayer(username), 400));
   $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
 });

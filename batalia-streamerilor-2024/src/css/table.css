@@ -11,6 +11,7 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
 }
+/* table terms */
 table.tableNetBet {
   width: 100%;
   text-align: center;
@@ -37,22 +38,11 @@ table.tableNetBet thead th {
   font-size: 1rem;
   color: var(--color_white) !important;
   text-align: center;
- 
 }
+/* end table terms */
 .sorting {
   text-align: start;
   padding-bottom: 0.5em;
-}
-.parent-avatar {
-  position: relative;
-}
-
-.stars img {
-  position: absolute;
-  top: -10%;
-  width: fit-content;
-  left: 70%;
-  height: 120%;
 }
 
 .sorting:nth-child(1) {
@@ -62,13 +52,13 @@ table.tableNetBet thead th {
   text-align: end;
 }
 
-#streamersTable_wrapper, #usersTable_wrapper{
+#streamersTable_wrapper,
+#usersTable_wrapper {
   padding: 13px;
   height: 540px;
   min-height: 480px;
   max-height: 600px;
 }
-
 
 .t-table {
   background: var(--button_color);
@@ -77,19 +67,16 @@ table.tableNetBet thead th {
   margin-bottom: 2%;
 }
 
-.ps {
-  text-align: center;
-  padding-right: 10px;
+
+.stars img {
+  position: absolute;
+  top: -10%;
+  width: fit-content;
+  left: 70%;
+  height: 120%;
 }
-.parent-points {
-  text-align: end;
-}
-@media screen and (max-width: 768px) {
-  .container-table {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
+
+
 
 .table-responsive {
   width: 44%;
@@ -130,13 +117,6 @@ table.tableNetBet thead th {
   border: 1px solid rgb(59, 197, 252);
 }
 
-@media (orientation: portrait) {
-  .table-responsive {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-
 #usersTable tbody .parent-table {
   height: 46px;
 }
@@ -146,12 +126,25 @@ table.tableNetBet thead th {
   transition: all 0.3s ease;
 }
 
-.font-tabel, .ps {
+.font-tabel,
+.ps {
   font-size: 105%;
+}
+.ps {
+  text-align: center;
+  padding-right: 10px;
 }
 .font-tabel {
   text-shadow: 0px 0px 2px #020d24;
 }
+.parent-avatar {
+  position: relative;
+}
+.parent-points {
+  text-align: end;
+}
+
+
 .parent-name {
   display: flex;
   justify-content: space-around;
@@ -170,9 +163,33 @@ table.tableNetBet thead th {
   color: rgb(255 165 0);
   text-shadow: 1px 1px 9px rgb(230 157 25 / 56%);
 }
-.dataTables_wrapper {
-  background: #00000014;
+.avatar-table,
+.parent-position,
+.parent-points {
+  text-shadow: 1px 1px 1px #020d24;
 }
+
+.parent-avatar {
+  margin: 2px 0;
+  width: 100%;
+  padding: 5px;
+  gap: 15px;
+}
+
+.parent-position {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.parent-points {
+  font-size: 1.1rem;
+}
+.parent-points {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 .table-responsive::before {
   content: "";
   position: absolute;
@@ -185,18 +202,21 @@ table.tableNetBet thead th {
   z-index: -1;
 }
 
+.table-responsive:nth-child(2) .dataTables_paginate {
+  right: 0;
+  left: unset;
+  float: right;
+}
+
+.dataTables_wrapper {
+  background: #00000014;
+}
 .dataTables_paginate {
   position: relative;
   bottom: -5%;
   left: 0%;
   width: fit-content;
   /* background: var(--header_color); */
-}
-
-.table-responsive:nth-child(2) .dataTables_paginate {
-  right: 0;
-  left: unset;
-  float: right;
 }
 
 .dataTables_paginate .paginate_button.current {
@@ -238,12 +258,9 @@ table.dataTable td.dt-right {
   z-index: 4;
   overflow: hidden;
   border: 2px solid rgb(255 165 0);
-box-shadow:2px 2px 5px #020d24;
+  box-shadow: 2px 2px 5px #020d24;
 }
 
-.avatar-table, .parent-position, .parent-points {
-  text-shadow: 1px 1px 1px #020d24;
-}
 
 .avatar-table img {
   width: 100%;
@@ -255,30 +272,85 @@ box-shadow:2px 2px 5px #020d24;
   text-align: end;
 }
 
-.parent-avatar {
-  margin: 2px 0;
-  width: 100%;
-  padding: 5px;
-  gap: 15px;
+
+.t-table img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10%;
 }
 
-.parent-position {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  font-size: 1.1rem;
+.highlight-row,
+.parent-table:hover {
+  background: rgba(41, 192, 219, 0.637) !important;
+}
+@media (orientation: portrait) {
+  .table-responsive {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
-.parent-points {
-  font-size: 1.1rem;
+@media (max-width: 1440px) {
+  .table-responsive {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+  }
 }
-.parent-points {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
+
+@media (max-width: 991px) {
+  #usersTable tbody .parent-table {
+    height: 35px;
+  }
+
+  #streamersTable_wrapper,
+  #usersTable_wrapper {
+    height: 450px;
+    min-height: 450px;
+    max-height: 500px;
+  }
+
+  .dataTables_paginate {
+    left: 0;
+  }
+
+  .sorting {
+    padding-bottom: 1rem;
+  }
+  .font-tabel,
+  .ps {
+    font-size: 111%;
+  }
+  #termsAndConditionsS {
+    padding: 2rem 1rem;
+  }
+  .table-responsive {
+    padding: 20px 12px 0;
+  }
+  #streamersTable_wrapper,
+  #usersTable_wrapper {
+    padding: 13px 0px;
+  }
+  .parent-avatar {
+    gap: 9px;
+  }
 }
 
 
-.highlight-row,.parent-table:hover  {
-  background: #3b4e63cc!important;
-  
+@media screen and (max-width: 768px) {
+  .container-table {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
+@media (min-width: 992px) and (max-height: 767px) and (orientation: landscape) {
+  .table-responsive {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+  }
+  .font-tabel,
+  .ps {
+    font-size: 115%;
+  }
+}
