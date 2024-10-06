@@ -23,8 +23,8 @@ const url = "https://qaadmin.livepartners.com/api/streaming/";
 // const username = getCookie('netbet_login');
 // const netbet_id = getCookie("netbet_id");
 
-const username = String("testcozminn");  
-const netbet_id = Number("39356008");
+let username = "testcozminn"; 
+let netbet_id = 39356008;
 
 console.log("Final Username:", username);
 console.log("Final NetBet ID:", netbet_id);
@@ -89,7 +89,7 @@ function showModal(type, title, message, callback) {
     });
   }
 }
-showModal("succes","OptOut","message","trrue")
+// showModal("succes","OptOut","message","trrue");
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
