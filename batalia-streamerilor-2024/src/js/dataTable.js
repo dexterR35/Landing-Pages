@@ -14,37 +14,29 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://qaadmin.livepartners.com/api/streaming/";
 
-// 39356008	testcozminn	
-// 40302497	testmarian2024	
-// 37857769	TestCristianP	
-// 39438169	test1686042757550	
-// 35115686	testmar	
-// 39183753	testcozminnou	
 // const username = getCookie('netbet_login');
 // const netbet_id = getCookie("netbet_id");
 
 let username = 'test1686042757550'; 
 let netbet_id = parseInt("39438169");
 
-console.log("Final Username:", username);
-console.log("Final NetBet ID:", netbet_id);
-console.log(typeof(username), typeof(netbet_id), username, netbet_id);   // Should output: testuser 12345
+
+// console.log(typeof(username), typeof(netbet_id), username, netbet_id);  
 let isLoading = false;
 
 const $loading = $(".loading");
-// const $optInBtn = $("#optin-btn");
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
-  pacanela: "./assets/icons_table/pacanela.webp",
+  păcănela: "./assets/icons_table/pacanela.webp",
   gamblers: "./assets/icons_table/gamblers.webp",
   andyvip: "./assets/icons_table/andyvip.webp",
   quikanu: "./assets/icons_table/quikanu.webp",
   alexmihai: "./assets/icons_table/alexmihai.webp",
   cosmina: "./assets/icons_table/cosmina.webp",
   edi: "./assets/icons_table/edi.webp",
-  danutu: "./assets/icons_table/danutu.webp",
-  razvan: "./assets/icons_table/razvan.webp",
+  dănuțu: "./assets/icons_table/danutu.webp",
+  răzvan: "./assets/icons_table/razvan.webp",
   anna: "./assets/icons_table/anna.webp",
   aparatepacaneleslots: "./assets/icons_table/aps.webp",
   fury: "./assets/icons_table/fury.webp",
@@ -194,7 +186,7 @@ function createTableStreamers(streamer) {
   let displayName;
   switch (streamer.username.toLowerCase()) {
     case "testpacanela":
-      displayName = "pacanela";
+      displayName = "păcănela";
       break;
     case "florian95954":
       displayName = "gambler s";
@@ -215,10 +207,10 @@ function createTableStreamers(streamer) {
       displayName = "edi";
       break;
     case "supercazino3":
-      displayName = "danutu";
+      displayName = "dănuțu";
       break;
     case "supercazino4":
-      displayName = "razvan";
+      displayName = "răzvan";
       break;
     case "testdenisc19":
       displayName = "aparate pacanele slots";
@@ -278,18 +270,16 @@ async function fetchDataUsers() {
       return [];
     }
     const totalUsers = response.data.length;
-    console.log(totalUsers, "totalUsers");
-    console.log(response.data, "response.data");
+    // console.log(totalUsers, "totalUsers");
+    // console.log(response.data, "response.data");
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
       (player) => Number(player.id) === Number(netbet_id)
     );
     // Check if the user exists in the data (not equal to -1)
     const isUserInTable = currentUserIndex !== -1;
-    console.log(isUserInTable, "isuserintable");
-    // Log the position of the current user (+1 for ranking system)
-    console.log(currentUserIndex + 1, "currentUserIndex + 1");
-
+    // console.log(isUserInTable, "isuserintable");
+    // console.log(currentUserIndex + 1, "currentUserIndex + 1");
     const top3 = response.data.slice(0, 3); 
     const top4 = response.data.slice(0, 4);  
     const top7 = response.data.slice(0, 7);  
@@ -299,11 +289,11 @@ async function fetchDataUsers() {
     let combinedUsers = [];  
     // Case 1: If the user is in the top 4, show the top 7 and last 3
     if (currentUserIndex >= 0 && currentUserIndex <= 3) {
-      console.log("Case 1: User is in the top 4");
+      // console.log("Case 1: User is in the top 4");
       combinedUsers = [...top7, ...last3];
     // Case 2: If the user is between 7th and the last 4th user
     } else if (currentUserIndex >= 3 && currentUserIndex < totalUsers - 4) {
-      console.log("Case 2: User is between 7th and last 4");
+      // console.log("Case 2: User is between 7th and last 4");
       const neighbors = response.data.slice(
         currentUserIndex - 1,
         currentUserIndex + 2
@@ -311,16 +301,16 @@ async function fetchDataUsers() {
       combinedUsers = [...top3, ...neighbors, ...last4];
     // Case 3: If the user is in the last 3, show top 7 and last 3
     } else if (currentUserIndex >= totalUsers - 3) {
-      console.log("Case 3: User is in the last 3");
+      // console.log("Case 3: User is in the last 3");
       combinedUsers = [...top7, ...last3];
     // Case 4: If the user is within the last 6 users from the total length
     } else if (!isUserInTable) {
-      console.log("case6");
+      // console.log("case6 If the user is not found in the table");
       // Case 6: If the user is not found in the table, include top 10 users by default
       combinedUsers = [...top7, ...last3];
     }
      else {
-      console.log("Default case");
+      console.log("Default case , top7, neighbors, last3");
       const neighbors = response.data.slice(
         currentUserIndex - 1,
         currentUserIndex + 2
@@ -329,7 +319,7 @@ async function fetchDataUsers() {
     }
     // Remove any duplicate users from the combined list
     combinedUsers = [...new Set(combinedUsers)];
-    console.log(combinedUsers, "combinedUsers");
+
     updateActionButton(isUserInTable);
     return combinedUsers.map((player) => {
       // Find actual ranking of the player in the list
@@ -376,7 +366,6 @@ async function fetchStreamerData() {
       console.error("Invalid streamer data");
       return [];
     }
-    console.log(response,"streamers")
     return response.data.map((streamer, index) => ({
       ranking: index + 1,
       id: streamer.id,
@@ -403,7 +392,7 @@ async function optInPlayer(username) {
     });
  
     updateActionButton(true);
-    console.log("succes added player")
+    console.log("succes added player");
   } catch (error) {
     if (error.status === 409) {
       showModal(
@@ -530,18 +519,14 @@ async function reloadUserTable() {
   try {
     const userData = await fetchDataUsers();
     const streamerData = await fetchStreamerData();
-    
-    // Check if the streamer exists in the streamerData list
+    // Check if the streamer exists 
     const streamerExists = streamerData.some(
       (streamer) => streamer.id === netbet_id
     );
-    console.log(streamerExists,"streamerExists")
-    // Check if the user exists in the user data list
+    // Check if the user exists 
     const userExists = userData.some(
       (user) => user.id === netbet_id
     );
-    console.log(userExists,"userExists")
-    // Pass both userExists and streamerExists to the updateActionButton function
     updateActionButton(userExists, streamerExists);
     generateTables(userData, streamerData);
     

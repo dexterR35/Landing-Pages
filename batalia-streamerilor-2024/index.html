@@ -13,11 +13,39 @@
   <link rel="stylesheet" href="./src/css/table.css">
   <link rel="stylesheet" href="./src/css/tnc.css">
   <link rel="stylesheet" href="./src/css/modal.css">
+  <style>
+      #slot-container {
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      font-family: 'montExtraBold';
+      width: 100%;
+      height: 100%;
+      background: var(--footer_color);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999; 
+    
+  }
+    .slot {
+      display: inline-block;
+      margin: 0 5px;
+      color: white;
+      
+    }
+    .slot-letter {
+      display: inline-block;
+    }
+ 
+  </style>
   <title>Batalia Streamerilor Sezonul 3</title>
 </head>
 
 <body>
-  <div id="message"></div>
+  <div id="slot-container"></div>
+
   </script>
   <div class="targetShoot" id="target">
     <main class="panelWrap">
@@ -32,7 +60,7 @@
                     <img src="./assets/stuff/pragmatic.webp" class="pragmatic-logo" alt="pragm">
                   </div>
                   <div class="offer-content">
-                    <div class="line-0">5.000 R<span>o</span>N</div>
+                    <div class="line-0">50.000 R<span>o</span>N</div>
                     <div class="line-1">p<span>r</span>emii cash</div>
                     <div class="line-2">+ 99.999 runde</div>
                     <div class="line-3">gratuite</div>
@@ -62,7 +90,7 @@
             <h2>BĂTĂLIA STREAMERILOR REVINE CU <br> PREMII FABULOASE!</h2>
             <div class="section_title">
               <p>
-                Joacă pe NetBet și adună puncte în perioada <span>7 octombrie – 7 noiembrie</span> și câștigi garantat
+                Joacă pe NetBet și adună puncte în perioada <span>7 octombrie – 22 noiembrie</span> și câștigi garantat
                 unul din premiile puse la bătaie! </p>
               <p>Luptă-te pentru top 200 și vei avea parte de extra surprize – premii cash și pachete cadou by Pragmatic
                 Play.</p>
@@ -149,7 +177,7 @@
             <div id="termsAndConditionsS" class="hidden tc">
               <h2>TERMENI ȘI CONDIȚII</h2>
               <div class="section_title">
-                <p>BĂTĂLIA STREAMERILOR 2024</p>
+                <p></p>
               </div>
               <p><b>Cine este eligibil?</b></p>
               <ul>
@@ -176,11 +204,8 @@
                 <li>
                   Pentru a urca în clasament, jucătorii trebuie să depună și să joace cu bani reali la sloturile din colecția NetBet. Toate sloturile (cu excepția celor enumerate mai sus) contribuie la acumularea punctelor, dar dacă jucătorii aleg să parieze pe jocurile furnizorului partener al campaniei, punctele acumulate de aceștia vor fi duble.
                 </li>
-                <li>Furnizorii parteneri ai campaniei sunt:</li>
-                <ul>
-                  <li><b>Pragmatic Play.</b></li>
-                
-                </ul>
+                <li>Furnizorul partener al campaniei este: <b> Pragmatic Play.</b></li>
+             
                 <li>
                   Orice miză plasată va contribui la scorul total al unui jucător. Scorul va fi afișat în clasament și va fi calculat la un interval de 5 minute
                 </li>
@@ -461,6 +486,7 @@
     }
 
   </style>
+  
 <script src="https://unpkg.com/blaze-slider@latest/dist/blaze-slider.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
   integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="

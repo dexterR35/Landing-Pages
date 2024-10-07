@@ -358,12 +358,14 @@ button:not(.controls button):hover {
 }
 .optout-btn {
   width: fit-content;
-  padding: 0.5rem 0.7rem !important;
+  background: var(--button_color);
+  padding: 0.3em !important;
   border-radius: 5px !important;
-  background: gray !important;
-  font-size: 70% !important;
   border: none !important;
   outline: none !important;
+  font-size: 80% !important;
+  line-height: 1;
+  text-transform:uppercase;
 }
 
 .section {
@@ -573,7 +575,7 @@ footer ._page.visible {
 }
 
 .line-0 {
-  font-size: 1.76em;
+  font-size: 1.56em;
   text-align: center;
   width: 100%;
 }
