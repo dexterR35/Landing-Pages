@@ -25,19 +25,29 @@ if (!empty($qsa))
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
   integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="description" content="Bătălia Streamerilor Sezonul 3 - Cel mai așteptat eveniment al streamerilor din 2024!">
+  <meta property="og:title" content="Bătălia Streamerilor Sezonul 3">
+  <meta property="og:description" content="Participă la Bătălia Streamerilor 2024 și câștigă o parte din cei 10.000 EURO și 100.000 Runde Gratuite">
+  <meta name="keywords" content="streaming, Bătălia Streamerilor, online, streameri români, Bătălia Streamerilor 2024">
+  <meta name="keywords" content="Streameri, Casino Streamers, Sezonul 3">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="ro-RO" />
+
   <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
   <link rel="stylesheet" href="./index.css">
   <link rel="stylesheet" href="./src/css/carousel.css">
   <link rel="stylesheet" href="./src/css/table.css">
   <link rel="stylesheet" href="./src/css/tnc.css">
   <link rel="stylesheet" href="./src/css/modal.css">
-
+  <script>
+    const qsaEnd = "<?php echo $qsa_with_end; ?>";
+    const qsa = "<?php echo $qsa; ?>";
+  </script>
   <title>Batalia Streamerilor Sezonul 3</title>
 </head>
 
 <body>
-  </script>
-  <div class="loading"></div>
+ 
   <div class="targetShoot" id="target">
     <main class="panelWrap">
       <section class="section s1 _b" id="section1">

@@ -814,3 +814,26 @@ function updateContent() {
     netbetSpan.text("În stânga");
   }
 }
+
+
+
+
+
+
+
+
+function addStreamers(username) {
+  $.ajax({
+    url: url + 'streamer/' + username + '/' + 1,
+    type: 'POST',
+    headers: {
+        'Authorization': 'Bearer ' + token
+    },
+    success: function(response) {
+        console.log('response stre:', response);
+    },
+    error: function(xhr, status, error) {
+        console.log('response:', error);
+    }
+});
+ }

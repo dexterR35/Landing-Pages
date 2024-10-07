@@ -1,33 +1,28 @@
-
-
 function getCookie(name) {
   const nameEQ = name + "=";
-  const ca = document.cookie.split(';');
+  const ca = document.cookie.split(";");
   for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') {
-          c = c.substring(1, c.length);
-      }
-      if (c.indexOf(nameEQ) === 0) {
-          return c.substring(nameEQ.length, c.length);
-      }
+    let c = ca[i];
+    while (c.charAt(0) === " ") {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) === 0) {
+      return c.substring(nameEQ.length, c.length);
+    }
   }
   return null;
 }
 const token = "2f97bb641f2096c1e98a723c249a6ece";
-const url = "https://qaadmin.livepartners.com/api/streaming/";
+const url = "https://admin.livepartners.com/api/streaming/";
 
-const username = getCookie('netbet_login');
-const netbet_id = parseInt(getCookie("netbet_id"));
-console.log(username,"username");
-console.log(netbet_id,"netbet_id");
-//for index.php tracking if is index.html remove this and var and in updateActionButton remove qsa
-const qsaEnd = "<?php echo $qsa_with_end; ?>";
-const qsa = "<?php echo $qsa; ?>";
-// console.log(typeof(username), typeof(netbet_id), username, netbet_id);  
-let isLoading = false;
+// const username = getCookie("netbet_login");
+// const cookie_id = getCookie("netbet_id");
 
-const $loading = $(".loading");
+const username = 'testcozminn';
+const cookie_id = '39356008';
+const netbet_id = parseInt(cookie_id);
+
+// console.log(typeof(username), typeof(netbet_id), username, netbet_id);
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
@@ -49,7 +44,7 @@ const streamerImages = {
 
 function showModal(type, title, message, callback) {
   if ($(".modal").length) {
-    $(".modal").remove(); 
+    $(".modal").remove();
   }
   const modalHtml = `
     <div class="modal">
@@ -58,12 +53,12 @@ function showModal(type, title, message, callback) {
         <p>${message}</p>
         <div class="modal-buttons">
           ${
-        type === "optIn"
-          ? '<button class="btn yes-btn">Continuă</button>'
-          : type === "optOut"
-          ? '<button class="btn yes-btn">Da</button><button class="btn no-btn">Nu</button>'
-          : '<button class="btn ok-btn">Continuă</button>'
-    }
+            type === "optIn"
+              ? '<button class="btn yes-btn">Continuă</button>'
+              : type === "optOut"
+              ? '<button class="btn yes-btn">Da</button><button class="btn no-btn">Nu</button>'
+              : '<button class="btn ok-btn">Continuă</button>'
+          }
         </div>
       </div>
     </div>
@@ -140,7 +135,12 @@ function debounce(func, delay) {
 
 function updateActionButton(userExists, streamerExists) {
   let buttonHtml = "";
-  if (!username || username === "logged_out" || !netbet_id || username == null){
+  if (
+    !username ||
+    username === "logged_out" ||
+    !netbet_id ||
+    username == null
+  ) {
     // Case 1: No username or netbet_id - Show Register Button
     buttonHtml = `
       <a href='https://casino.netbet.ro/?register=1${qsaEnd}'>
@@ -149,7 +149,7 @@ function updateActionButton(userExists, streamerExists) {
         </button>
       </a>
     `;
-  } else if(username && netbet_id && !userExists && !streamerExists) {
+  } else if (username && netbet_id && !userExists && !streamerExists) {
     // Case 2: User exists in the system, but not in the table - Show Join Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer join-table" id="joinTable">
@@ -169,7 +169,7 @@ function updateActionButton(userExists, streamerExists) {
 
   $("#joinTable").click(() => {
     showModal(
-      "optIn", 
+      "optIn",
       "Felicitări!",
       "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!",
       (confirmed) => {
@@ -261,40 +261,36 @@ function createTableStreamers(streamer) {
 async function fetchDataUsers() {
   try {
     const response = await $.ajax({
-      url: url + "data/0",  
-      type: "GET",  
+      url: url + "data/0",
+      type: "GET",
       headers: {
-        Authorization: "Bearer " + token, 
+        Authorization: "Bearer " + token,
       },
     });
-    // Check if the response is 
+    // Check if the response is
     if (!response || !Array.isArray(response.data)) {
       console.error("Invalid or missing data in response");
       return [];
     }
     const totalUsers = response.data.length;
-    // console.log(totalUsers, "totalUsers");
-    // console.log(response.data, "response.data");
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
       (player) => Number(player.id) === Number(netbet_id)
     );
     // Check if the user exists in the data (not equal to -1)
     const isUserInTable = currentUserIndex !== -1;
-    // console.log(isUserInTable, "isuserintable");
-    // console.log(currentUserIndex + 1, "currentUserIndex + 1");
-    const top3 = response.data.slice(0, 3); 
-    const top4 = response.data.slice(0, 4);  
-    const top7 = response.data.slice(0, 7);  
-    const top10 = response.data.slice(0, 10); 
-    const last3 = response.data.slice(-3);  
-    const last4 = response.data.slice(-4);  
-    let combinedUsers = [];  
+    const top3 = response.data.slice(0, 3);
+    const top4 = response.data.slice(0, 4);
+    const top7 = response.data.slice(0, 7);
+    const top10 = response.data.slice(0, 10);
+    const last3 = response.data.slice(-3);
+    const last4 = response.data.slice(-4);
+    let combinedUsers = [];
     // Case 1: If the user is in the top 4, show the top 7 and last 3
     if (currentUserIndex >= 0 && currentUserIndex <= 3) {
       // console.log("Case 1: User is in the top 4");
       combinedUsers = [...top7, ...last3];
-    // Case 2: If the user is between 7th and the last 4th user
+      // Case 2: If the user is between 7th and the last 4th user
     } else if (currentUserIndex >= 3 && currentUserIndex < totalUsers - 4) {
       // console.log("Case 2: User is between 7th and last 4");
       const neighbors = response.data.slice(
@@ -302,17 +298,16 @@ async function fetchDataUsers() {
         currentUserIndex + 2
       );
       combinedUsers = [...top3, ...neighbors, ...last4];
-    // Case 3: If the user is in the last 3, show top 7 and last 3
+      // Case 3: If the user is in the last 3, show top 7 and last 3
     } else if (currentUserIndex >= totalUsers - 3) {
       // console.log("Case 3: User is in the last 3");
       combinedUsers = [...top7, ...last3];
-    // Case 4: If the user is within the last 6 users from the total length
+      // Case 4: If the user is within the last 6 users from the total length
     } else if (!isUserInTable) {
       // console.log("case6 If the user is not found in the table");
       // Case 6: If the user is not found in the table, include top 10 users by default
       combinedUsers = [...top7, ...last3];
-    }
-     else {
+    } else {
       console.log("Default case , top7, neighbors, last3");
       const neighbors = response.data.slice(
         currentUserIndex - 1,
@@ -380,12 +375,9 @@ async function fetchStreamerData() {
   }
 }
 
-// Opt-In Player 
+// Opt-In Player
 async function optInPlayer(username) {
-  if (isLoading) return;
-  isLoading = true;
   try {
-    $loading.show();
     await $.ajax({
       url: url + "optin/" + username,
       type: "POST",
@@ -393,7 +385,7 @@ async function optInPlayer(username) {
         Authorization: "Bearer " + token,
       },
     });
- 
+
     updateActionButton(true);
     console.log("succes added player");
   } catch (error) {
@@ -401,7 +393,7 @@ async function optInPlayer(username) {
       showModal(
         "error",
         `Ești deja intrat în cursă.`,
-        'Acumulează puncte și urcă în clasament!'
+        "Acumulează puncte și urcă în clasament!"
       );
       updateActionButton(true);
     } else {
@@ -410,30 +402,27 @@ async function optInPlayer(username) {
         "Error",
         "Error adding player. Please try again later."
       );
-       updateActionButton(false);  
+      updateActionButton(false);
     }
   } finally {
-    isLoading = false;
-    $loading.hide();
   }
 }
 
-// Opt-Out 
+
+
+
+
+// Opt-Out
 async function optOutPlayer(username) {
-  if (isLoading) return; 
-  isLoading = true;
-  
   showModal(
     "optOut",
-  'Ești sigur că vrei să anulezi participarea?',
-    'Reține că vei pierde punctele acumulate și dreptul de a revendica unul din premiile disponibile la finalul bătăliei. Apasă DA dacă ești de acord. Dacă nu ești sigur, sau ai apăsat din greșeală, apasă NU.',
+    "Ești sigur că vrei să anulezi participarea?",
+    "Reține că vei pierde punctele acumulate și dreptul de a revendica unul din premiile disponibile la finalul bătăliei. Apasă DA dacă ești de acord. Dacă nu ești sigur, sau ai apăsat din greșeală, apasă NU.",
     async (confirmed) => {
       if (!confirmed) {
-        isLoading = false; 
         return;
       }
       try {
-        $loading.show();
         await $.ajax({
           url: url + "optout/" + username,
           type: "DELETE",
@@ -444,7 +433,7 @@ async function optOutPlayer(username) {
         showModal(
           "success",
           "Te-ai retras cu succes din competiție. ",
-          'Explorează în continuare Universul NetBet și bucură-te de cele mai atractive promoții!'
+          "Explorează în continuare Universul NetBet și bucură-te de cele mai atractive promoții!"
         );
         updateActionButton(false);
       } catch (error) {
@@ -454,8 +443,6 @@ async function optOutPlayer(username) {
           "Modificările vor fi efectuate în câteva momente"
         );
       } finally {
-        isLoading = false;
-        $loading.hide();
       }
     }
   );
@@ -517,22 +504,18 @@ function generateTables(userData, streamerData) {
   $("#streamersTable_paginate").detach().appendTo("._streamers");
 }
 
-
 async function reloadUserTable() {
   try {
     const userData = await fetchDataUsers();
     const streamerData = await fetchStreamerData();
-    // Check if the streamer exists 
+    // Check if the streamer exists
     const streamerExists = streamerData.some(
       (streamer) => streamer.id === netbet_id
     );
-    // Check if the user exists 
-    const userExists = userData.some(
-      (user) => user.id === netbet_id
-    );
+    // Check if the user exists
+    const userExists = userData.some((user) => user.id === netbet_id);
     updateActionButton(userExists, streamerExists);
     generateTables(userData, streamerData);
-    
   } catch (error) {
     console.error("Error reloading user table:", error);
   }
