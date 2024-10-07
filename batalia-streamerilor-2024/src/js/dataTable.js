@@ -23,8 +23,8 @@ const url = "https://qaadmin.livepartners.com/api/streaming/";
 // const username = getCookie('netbet_login');
 // const netbet_id = getCookie("netbet_id");
 
-let username = "testcozminn"; 
-let netbet_id = 39356008;
+let username = "testmarian2024"; 
+let netbet_id = Number('40302497');
 
 console.log("Final Username:", username);
 console.log("Final NetBet ID:", netbet_id);
@@ -64,8 +64,8 @@ function showModal(type, title, message, callback) {
         <div class="modal-buttons">
         ${
             type === "optOut" || type === "optIn"
-              ? '<button class="btn yes-btn">Yes</button><button class="btn no-btn">No</button>'
-              : '<button class="btn ok-btn">OK</button>'
+              ? '<button class="btn yes-btn">Da</button><button class="btn no-btn">Nu</button>'
+              : '<button class="btn ok-btn">Continuă</button>'
           }
         </div>
       </div>
@@ -144,9 +144,11 @@ function debounce(func, delay) {
 function updateActionButton(userExists, streamerExists) {
   let buttonHtml = "";
   if (!username && !netbet_id){
+
+    //case4 if is logget out
     // Case 1: No username or netbet_id - Show Register Button
     buttonHtml = `
-      <a href="https://casino.netbet.ro/auth">
+      <a href="https://casino.netbet.ro/inregistrare">
         <button class="btn desktop shape pointer">
           <span></span>ÎNREGISTREAZĂ-TE
         </button>
@@ -156,14 +158,14 @@ function updateActionButton(userExists, streamerExists) {
     // Case 2: User exists in the system, but not in the table - Show Join Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer join-table" id="joinTable">
-        <span></span>Joacă și Câștigă Puncte
+        <span></span>Intră în cursă!
       </button>
     `;
   } else if (userExists || streamerExists) {
     // Case 3: User exists in the table - Show View Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer view-table" id="viewTable">
-        <span></span>Urmărește Tabelul
+        <span></span>Vezi Clasamentul
       </button>
     `;
   }
@@ -174,15 +176,13 @@ function updateActionButton(userExists, streamerExists) {
   $("#joinTable").click(() => {
     // Show confirmation modal
     showModal(
-      "optIn", // You can name this type as optIn for differentiation
+      "optIn", 
       "Join Table",
       "Do you want to join the table and start earning points?",
       (confirmed) => {
         if (confirmed) {
-          // If "Yes" clicked, opt-in player
           optInPlayer(username);
         }
-        // If "No" clicked or modal closed, do nothing and modal will be closed automatically
       }
     );
   });
@@ -329,7 +329,7 @@ async function fetchDataUsers() {
         currentUserIndex - 1,
         currentUserIndex + 2
       );
-      combinedUsers = [...top4, ...neighbors, ...last3];
+      combinedUsers = [...top3, ...neighbors, ...last4];
     } else if (!isUserInTable) {
       console.log("case6");
       // Case 6: If the user is not found in the table, include top 10 users by default
@@ -429,8 +429,8 @@ async function optInPlayer(username) {
     if (error.status === 409) {
       showModal(
         "error",
-        "Player Exists",
-        `Player ${username} is already in the table.`
+        `Ești deja intrat în cursă.`,
+        'Acumulează puncte și urcă în clasament!'
       );
       updateActionButton(true);
     } else {
@@ -454,8 +454,8 @@ async function optOutPlayer(username) {
   
   showModal(
     "optOut",
-    "Opt-Out",
-    `Are you sure you want to remove player ${username}?`,
+  `${username} <br> ești sigur că vrei să anulezi participarea?`,
+    'Reține că vei pierde punctele acumulate și dreptul de a revendica unul din premiile disponibile la finalul bătăliei. Apasă DA dacă ești de acord. Dacă nu ești sigur, sau ai apăsat din greșeală, apasă NU.',
     async (confirmed) => {
       if (!confirmed) {
         isLoading = false; 
