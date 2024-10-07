@@ -375,7 +375,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0px 2em;
-  height: 4em;
+  height: 3.5em;
   position: absolute;
   top: 0;
   left: 0;
@@ -626,13 +626,15 @@ footer ._page.visible {
   font-size: 4.5vh;
   position: relative;
   width: fit-content;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
 }
 
 .line-0 {
   font-size: 1.56em;
   text-align: center;
   width: 100%;
+  margin-bottom: -0.15em;
 }
 .line-0,
 .line-1 {
@@ -649,6 +651,11 @@ footer ._page.visible {
 
 .line-1 {
   font-size: 1.4em;
+  /* margin-bottom: -0.15em; */
+}
+
+.line-2 {
+  margin-bottom: -0.15em;
 }
 
 .line-2,
