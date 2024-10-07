@@ -15,6 +15,7 @@
   margin: 10px 0;
   font-family: "montRegular";
   line-height: 1.2;
+  list-style: inherit;
 }
 .logos {
   display: flex;
@@ -132,7 +133,7 @@ hr {
     padding: 0.8rem 0;
   }
   #termsAndConditionsS {
-    padding: 2rem 0.5rem;
+    padding: 2rem 1rem;
   }
   footer {
     padding: 1rem 10px;

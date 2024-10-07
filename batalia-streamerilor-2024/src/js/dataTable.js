@@ -472,7 +472,7 @@ function generateTables(userData, streamerData) {
     info: false,
     searching: false,
     lengthChange: false,
-    language: false,
+language:false,
     pagingType: "simple_numbers",
     columnDefs: [
       { width: "10%", targets: 0, className: "dt-center" },

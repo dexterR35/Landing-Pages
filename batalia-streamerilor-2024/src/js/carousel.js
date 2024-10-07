@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Fetch games for second carousel
   async function fetchGames() {
-    if (gamesDataFetched) return gamesData; // If already fetched, return cached data
+    if (gamesDataFetched) return gamesData; 
     try {
       const response = await fetch("./src/games_new.json");
       if (!response.ok) throw new Error("Network response was not ok");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const gameElement = `
           <div class="game relative" data-index="${index}">
             <div class="parent-game d-flex-center flex-between flex-col h-full">
-              <a href="${game.game_url}" target="_blank" class="pointer">
+              <a href="${game.game_url}${qsa}" target="_blank" class="pointer">
                 <img src="${game.image_url}" alt="${game.name}" loading="lazy">
               </a>
               <div class="footer-game pointer">

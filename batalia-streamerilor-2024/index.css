@@ -209,14 +209,16 @@ html {
   cursor: url("./assets/stuff/cursor5.webp") 40 40, auto;
 }
 
-.dataTables_paginate , a{
+.dataTables_paginate , a, .btnheader , button:not(.controls button){
   cursor: url("./assets/stuff/cursor5.webp") 40 40, auto !important;
 }
 
 #target {
   z-index: 1;
 }
-
+#usersTable_paginate {
+  visibility: hidden !important;
+}
 .bullet-hole {
   width: 70px;
   height: 70px;
@@ -379,7 +381,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 30;
-  background: rgb(76 82 106 / 24%);
+  background:#2b7da43d;
 }
 
 
@@ -519,9 +521,11 @@ footer ._page.visible {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 #actionButton {
   margin: 5% auto 2%;
+  overflow: hidden;
 }
 .right-side {
   display: flex;
@@ -872,9 +876,10 @@ footer .section_title {
   }
 
   .section.s2 .section_title p {
-    text-align: start;
-    font-size: 110%;
+    text-align: center;
+    font-size: 115%;
     width: 100%;
+    padding: 0 5px;
     margin: 8px auto;
   }
 
@@ -890,6 +895,9 @@ footer .section_title {
   }
 
 
+}
+.tableNetBet tr {
+  font-size: 90%;
 }
 @media (min-width: 992px) and (max-height: 767px) and (orientation: landscape) {
   .section:nth-child(2) .parent {
@@ -908,19 +916,14 @@ footer .section_title {
     max-width: 90%;
   }
 
+  .section.s2 .section_title p {
+    font-size: 140%;
+  }
+  .section .parent:not(.section.s1 .parent),.terms-container {
+    max-width: var(--max-w-1600)  !important;
+  }
+  .tc ul li,.tableNetBet tr ,p {
+    font-size: 110%;
+  }
 }
 
-
-/* 
-#optin-btn,
-#optout-btn {
-  display: none;
-} */
-
-/* terms css */
-/* terms css */
-/* terms css */
-
-/* end Footer */
-/* end Footer */
-/* end Footer */

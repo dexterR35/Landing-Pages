@@ -1,20 +1,4 @@
-<?php
 
-$qsa = '';
-$qsa_with_end = '';
-if (count($_GET) > 0)
-{
-	while (list($name, $value) = each($_GET))
-		$qsa .= '&'.$name.'='.$value;	
-}
-
-if (!empty($qsa))
-{
-	$qsa_with_end = $qsa;
-	$qsa = '?'.substr($qsa, 1);
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="ro">

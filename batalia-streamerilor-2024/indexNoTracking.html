@@ -1,4 +1,20 @@
+<!-- <?php
 
+$qsa = '';
+$qsa_with_end = '';
+if (count($_GET) > 0)
+{
+	while (list($name, $value) = each($_GET))
+		$qsa .= '&'.$name.'='.$value;	
+}
+
+if (!empty($qsa))
+{
+	$qsa_with_end = $qsa;
+	$qsa = '?'.substr($qsa, 1);
+}
+
+?> -->
 
 <!DOCTYPE html>
 <html lang="ro">
@@ -33,7 +49,7 @@
 <body>
   <header>
       <div class="logoHeader"><img src="./assets/stuff/netbet-logo.webp" alt="netbet"></div>
-      <a href="https://casino.netbet.ro/?register=1<?php echo $qsa; ?>"><button>ÎNREGISTREAZĂ-TE</button></a>
+      <a href="https://casino.netbet.ro/?register=1<?php echo $qsa_with_end; ?>" target="_blank" class="btnheader"><button>ÎNREGISTREAZĂ-TE</button></a>
   </header>
   <div class="targetShoot" id="target">
     <main class="panelWrap">
@@ -77,7 +93,7 @@
             <h2>BĂTĂLIA STREAMERILOR REVINE CU <br> PREMII FABULOASE!</h2>
             <div class="section_title">
               <p>
-                Joacă pe NetBet și adună puncte în perioada <span>7 octombrie – 22 noiembrie</span> și câștigi garantat
+                Joacă pe NetBet și adună puncte în perioada <span>8 octombrie – 22 noiembrie</span> și câștigi garantat
                 unul din premiile puse la bătaie! </p>
               <p>Luptă-te pentru top 200 și vei avea parte de extra surprize – premii cash și pachete cadou by Pragmatic
                 Play.</p>
@@ -103,7 +119,7 @@
               </div>
             </div>
             <div class="container-btn">
-              <a href="https://casino.netbet.ro/pragmatic" target="_blank">
+              <a href="https://casino.netbet.ro/pragmatic<?php echo $qsa; ?>" target="_blank">
                 <button class="btn shape pointer"><span></span>vezi toate jocurile</button>
               </a>
             </div>
@@ -344,7 +360,7 @@
               <p><b>Ce altceva trebuie să știi?</b></p>
               <ul>
                 <li>Această ofertă respectă <a
-                    href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions" style="display:inline-block;">Termenii și Condițiile NetBet</a>.</li>
+                    href="https://casino.netbet.ro/help/terms-and-conditions/terms-conditions<?php echo $qsa; ?>" style="display:inline-block;">Termenii și Condițiile NetBet</a>.</li>
                 <li>
                   Streamerii nu sunt eligibili pentru a beneficia de premii,  aceștia având un clasament separat față de jucători. 
                 </li>
@@ -382,20 +398,20 @@
               <div class="logos">
                 <!-- Div for ONJN and GambleAware logos -->
                 <div class="logos-group">
-                  <a href="https://onjn.gov.ro" target="_blank">
+                  <a href="https://onjn.gov.ro<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/onjn-white.png" alt="onjn" class="onjn lozad" />
                   </a>
-                  <a href="https://www.begambleaware.org" target="_blank">
+                  <a href="https://www.begambleaware.org<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets//stuff/icons/gambleaware_white.png" alt="gambleaware"
                       class="gambleaware lozad" />
                   </a>
                 </div>
                 <!-- Div for GamCare and Logo Clinica logos -->
                 <div class="logos-group">
-                  <a href="https://www.gamcare.org.uk" target="_blank">
+                  <a href="https://www.gamcare.org.uk<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/gamcare.png" alt="gamcare" class="gamcare lozad" />
                   </a>
-                  <a href="https://clinica-aliat.ro/jocuri-de-noroc" target="_blank">
+                  <a href="https://clinica-aliat.ro/jocuri-de-noroc<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/clinica_logo_white.png" alt="logo_clinica"
                       class="logo_clinica lozad" />
                   </a>

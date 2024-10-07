@@ -27,7 +27,7 @@ table.tableNetBet th {
 }
 
 table.tableNetBet tbody td {
-  font-size: 0.9rem;
+  font-size: 100%;
 }
 
 table.tableNetBet thead {
@@ -72,12 +72,17 @@ table.tableNetBet thead th {
 
 .stars img {
   position: absolute;
-  top: -10%;
-  width: fit-content;
-  left: 70%;
+  width: auto;
   height: 120%;
+  top: -10%;
+  left: 75%;
 }
-
+@media (max-width:991px) {
+  .stars img {
+    top: 12%;
+    height: 104%;
+  }
+}
 
 
 .table-responsive {
