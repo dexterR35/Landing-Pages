@@ -70,8 +70,8 @@ html {
   --bg-sect1: url(./assets/bg/bg-full.webp);
   --bg-sect2: url(./assets/bg/sect2.webp);
   --bg-sect3: url(./assets/bg/tnc2.webp);
+  --bg-sect3-mob: url(./assets/bg/tnc2-mob.webp);
   --bg-sect4: url(./assets/bg/sect4_new.webp);
-
   --bg-sect4-mob: url(./assets/bg/section4_mob.webp);
 
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
@@ -450,7 +450,7 @@ footer ._page.visible {
 }
 
 .pragmatic-logo {
-  width: 66%;
+  width: 80%;
   height: auto;
   object-fit: contain;
 }
@@ -719,6 +719,12 @@ footer::before {
   background-repeat: no-repeat;
 }
 
+@media (max-width:1025px) {
+  footer::before {
+    background-image: var( --bg-sect3-mob);
+  }
+}
+
 footer .parent {
   z-index: 1;
   position: relative;
@@ -827,6 +833,7 @@ footer .section_title {
 @media (min-width: 992px) and (max-height: 767px) and (orientation: landscape) {
   .section:nth-child(2) .parent {
     height: 100%;
+    gap: 0%;
   }
   .section.s3 {
     height: 100% !important;
@@ -839,6 +846,7 @@ footer .section_title {
   .section .parent {
     max-width: 90%;
   }
+
 }
 
 

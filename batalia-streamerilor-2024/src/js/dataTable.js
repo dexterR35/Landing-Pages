@@ -23,8 +23,8 @@ const url = "https://qaadmin.livepartners.com/api/streaming/";
 // const username = getCookie('netbet_login');
 // const netbet_id = getCookie("netbet_id");
 
-let username = "test1686042757550"; 
-let netbet_id = Number('39438169');
+let username = 'test1686042757550'; 
+let netbet_id = parseInt("39438169");
 
 console.log("Final Username:", username);
 console.log("Final NetBet ID:", netbet_id);
@@ -145,8 +145,7 @@ function debounce(func, delay) {
 
 function updateActionButton(userExists, streamerExists) {
   let buttonHtml = "";
-  if (!username && !netbet_id){
-    //case4 if is logget out
+  if (!username || username === "logged_out" || !netbet_id || username == null){
     // Case 1: No username or netbet_id - Show Register Button
     buttonHtml = `
       <a href="https://casino.netbet.ro/inregistrare">
@@ -173,9 +172,7 @@ function updateActionButton(userExists, streamerExists) {
 
   $actionButton.html(buttonHtml);
 
-  // Add functionality to buttons
   $("#joinTable").click(() => {
-    // Show confirmation modal
     showModal(
       "optIn", 
       "Felicitări!",
@@ -246,7 +243,6 @@ function createTableStreamers(streamer) {
   const imgSrc = streamerImages[normalizedDisplayName];
   const stars = generateStars(streamer.ranking);
   const highlightClass = streamer.id === netbet_id ? "highlight-row" : "";
-
   const tableHtml = `
     <tr class="parent-table ${highlightClass} pointer">
         <td class="parent-position ps">#${streamer.ranking}</td>
@@ -273,7 +269,7 @@ async function fetchDataUsers() {
       url: url + "data/0",  
       type: "GET",  
       headers: {
-        Authorization: "Bearer " + token,  // Authorization header with bearer token
+        Authorization: "Bearer " + token, 
       },
     });
     // Check if the response is 
@@ -281,7 +277,6 @@ async function fetchDataUsers() {
       console.error("Invalid or missing data in response");
       return [];
     }
-
     const totalUsers = response.data.length;
     console.log(totalUsers, "totalUsers");
     console.log(response.data, "response.data");
@@ -302,42 +297,30 @@ async function fetchDataUsers() {
     const last3 = response.data.slice(-3);  
     const last4 = response.data.slice(-4);  
     let combinedUsers = [];  
-    // Different cases 
-    if (currentUserIndex === 0) {
-      console.log("case1");
-      // Case 1: If the user is at the top (index 0), include the top 10 users
-      combinedUsers = [...top10];
-    } else if (currentUserIndex > 0 && currentUserIndex <= 2) {
-      console.log("case2");
-      // Case 2: If the user is within the top 3, include the top 7 and last 3 users
+    // Case 1: If the user is in the top 4, show the top 7 and last 3
+    if (currentUserIndex >= 0 && currentUserIndex <= 3) {
+      console.log("Case 1: User is in the top 4");
       combinedUsers = [...top7, ...last3];
-    } else if (currentUserIndex >= totalUsers - 2) {
-      console.log("case3");
-      // Case 3: If the user is near the bottom (last 2), include the top 7 and last 3 users
-      combinedUsers = [...top7, ...last3];
-    } else if (currentUserIndex >= 3 && currentUserIndex <= 10) {
-      console.log("case4");
-      // Case 4: If the user is between 4th and 10th place, include top 3, neighbors, and last 3 users
-      const neighbors = response.data.slice(
-        currentUserIndex - 1,
-        currentUserIndex + 2
-      );
-      combinedUsers = [...top3, ...neighbors, ...last3];
-    } else if (currentUserIndex > 10 && currentUserIndex < totalUsers - 3) {
-      console.log("case5");
-      // Case 5: If the user is beyond 10th place but not near the bottom, include top 4, neighbors, and last 3 users
+    // Case 2: If the user is between 7th and the last 4th user
+    } else if (currentUserIndex >= 3 && currentUserIndex < totalUsers - 4) {
+      console.log("Case 2: User is between 7th and last 4");
       const neighbors = response.data.slice(
         currentUserIndex - 1,
         currentUserIndex + 2
       );
       combinedUsers = [...top3, ...neighbors, ...last4];
+    // Case 3: If the user is in the last 3, show top 7 and last 3
+    } else if (currentUserIndex >= totalUsers - 3) {
+      console.log("Case 3: User is in the last 3");
+      combinedUsers = [...top7, ...last3];
+    // Case 4: If the user is within the last 6 users from the total length
     } else if (!isUserInTable) {
       console.log("case6");
       // Case 6: If the user is not found in the table, include top 10 users by default
       combinedUsers = [...top7, ...last3];
-    } else {
-      console.log("case7 default");
-      // Default case: Include top 7, neighbors, and last 3 users
+    }
+     else {
+      console.log("Default case");
       const neighbors = response.data.slice(
         currentUserIndex - 1,
         currentUserIndex + 2
@@ -347,13 +330,11 @@ async function fetchDataUsers() {
     // Remove any duplicate users from the combined list
     combinedUsers = [...new Set(combinedUsers)];
     console.log(combinedUsers, "combinedUsers");
-    // Update action button 
     updateActionButton(isUserInTable);
     return combinedUsers.map((player) => {
       // Find actual ranking of the player in the list
       const actualRanking =
         response.data.findIndex((p) => p.id === player.id) + 1;
-      // Map player details, replace username if it's the current user, format points
       return {
         ranking: actualRanking,
         id: player.id,
@@ -545,10 +526,6 @@ function generateTables(userData, streamerData) {
 }
 
 
-function toggleButtons(isOptedIn) {
-  $optOutBtn.prop("disabled", !isOptedIn);
-}
-
 async function reloadUserTable() {
   try {
     const userData = await fetchDataUsers();
@@ -577,4 +554,3 @@ $(document).ready(function () {
   reloadUserTable();
   $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
 });
-console.log(document.cookie,);
