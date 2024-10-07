@@ -209,6 +209,10 @@ html {
   cursor: url("./assets/stuff/cursor5.webp") 40 40, auto;
 }
 
+.dataTables_paginate , a{
+  cursor: url("./assets/stuff/cursor5.webp") 40 40, auto !important;
+}
+
 #target {
   z-index: 1;
 }
@@ -365,7 +369,8 @@ button:not(.controls button):hover {
   outline: none !important;
   font-size: 80% !important;
   line-height: 1;
-  text-transform:uppercase;
+  text-transform:lowercase !important;
+  border-radius: 2px !important;
 }
 
 .section {
@@ -822,14 +827,22 @@ footer .section_title {
 
   .section.s2 .section_title p {
     text-align: start;
-    font-size: 107%;
-    width: 92%;
+    font-size: 110%;
+    width: 100%;
     margin: 8px auto;
   }
 
   .section.s2 .section_title p:nth-last-child(1) {
     text-align: center !important;
   }
+  .section .parent:not(.section.s1 .parent) {
+    padding: 10% 0px;
+  }
+  .section.s2 .section_title p:nth-last-child(1){
+    font-size: 1.3rem;
+    margin: 8px 0 0;
+  }
+
 
 }
 @media (min-width: 992px) and (max-height: 767px) and (orientation: landscape) {

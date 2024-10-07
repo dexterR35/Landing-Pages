@@ -322,7 +322,7 @@ table.dataTable td.dt-right {
   }
 
   .table-responsive {
-    padding: 20px 12px 0;
+    padding: 20px 9px 0;
   }
   #streamersTable_wrapper,
   #usersTable_wrapper {
@@ -331,13 +331,18 @@ table.dataTable td.dt-right {
   .parent-avatar {
     gap: 9px;
   }
+  .dataTables_paginate {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+  }
 }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .container-table {
     flex-direction: column;
-    gap: 20px;
+    gap: 45px;
   }
 }
 

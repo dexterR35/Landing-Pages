@@ -3,24 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let gamesData = [];
   let carouselsInitialized = false;
 
-  // Directly call init without $(document).ready()
   init();
-
   function init() {
     const slidesData = getSlidesData();
-
     if (!carouselsInitialized) {
       // Initialize the first carousel with static slides data
       populateFirstCarousel(slidesData);
       initializeCarousel("#image-carousel", getFirstCarouselOptions());
-
       // Fetch game data and initialize the second carousel
       fetchGames().then((games) => {
         gamesData = games;
         populateSecondCarousel(gamesData);
         initializeCarousel("#games-carousel", getSecondCarouselOptions());
       });
-
       carouselsInitialized = true; 
     }
   }
@@ -35,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
       { src: "./assets/icons_streamers/fury.webp", alt: "fury" },
       { src: "./assets/icons_streamers/cosmina.webp", alt: "cosmina" },
       { src: "./assets/icons_streamers/aps2.webp", alt: "aps2" },
+      { src: "./assets/icons_streamers/quikanu.webp", alt: "quikanu" },
       { src: "./assets/icons_streamers/anna.webp", alt: "anna" },
       { src: "./assets/icons_streamers/andyvip.webp", alt: "andyvip" },
       { src: "./assets/icons_streamers/alexmihai.webp", alt: "alexmihai" },
@@ -42,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
   }
 
-  // Populate the first carousel with the slide data
+  // Populate first carousel data
   function populateFirstCarousel(slidesData) {
     const $blazeTrack1 = $("#image-carousel .blaze-track");
     $blazeTrack1.empty();
@@ -84,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Populate the second carousel with games data
+  // Populate second carousel with games data
   function populateSecondCarousel(gamesData) {
     const $blazeTrack2 = $("#games-carousel .blaze-track");
     $blazeTrack2.empty();
@@ -109,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initialize the carousels with BlazeSlider
+  // Initialize BlazeSlider
   function initializeCarousel(selector, options) {
     const sliderElement = $(selector)[0];
     if (sliderElement) {
@@ -117,11 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Options for the first carousel
+  // Options first carousel
   function getFirstCarouselOptions() {
     return {
       all: {
-        enableAutoplay: false,
+        enableAutoplay: true,
         autoplayInterval: 1500,
         autoplayDirection: "to right",
         transitionTimingFunction: "ease",
@@ -132,11 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Options for the second carousel
+  // Options second carousel
   function getSecondCarouselOptions() {
     return {
       all: {
-        enableAutoplay: false,
+        enableAutoplay: true,
         autoplayInterval: 1500,
         transitionTimingFunction: "ease",
         autoplayDirection: "to left",
