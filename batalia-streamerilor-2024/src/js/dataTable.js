@@ -23,8 +23,8 @@ const url = "https://qaadmin.livepartners.com/api/streaming/";
 // const username = getCookie('netbet_login');
 // const netbet_id = getCookie("netbet_id");
 
-let username = "testmarian2024"; 
-let netbet_id = Number('40302497');
+let username = "test1686042757550"; 
+let netbet_id = Number('39438169');
 
 console.log("Final Username:", username);
 console.log("Final NetBet ID:", netbet_id);
@@ -62,11 +62,13 @@ function showModal(type, title, message, callback) {
         <h3>${title}</h3>
         <p>${message}</p>
         <div class="modal-buttons">
-        ${
-            type === "optOut" || type === "optIn"
-              ? '<button class="btn yes-btn">Da</button><button class="btn no-btn">Nu</button>'
-              : '<button class="btn ok-btn">Continuă</button>'
-          }
+          ${
+        type === "optIn"
+          ? '<button class="btn yes-btn">Continuă</button>'
+          : type === "optOut"
+          ? '<button class="btn yes-btn">Da</button><button class="btn no-btn">Nu</button>'
+          : '<button class="btn ok-btn">Continuă</button>'
+    }
         </div>
       </div>
     </div>
@@ -89,7 +91,7 @@ function showModal(type, title, message, callback) {
     });
   }
 }
-// showModal("succes","OptOut","message","trrue");
+
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
@@ -144,7 +146,6 @@ function debounce(func, delay) {
 function updateActionButton(userExists, streamerExists) {
   let buttonHtml = "";
   if (!username && !netbet_id){
-
     //case4 if is logget out
     // Case 1: No username or netbet_id - Show Register Button
     buttonHtml = `
@@ -177,8 +178,8 @@ function updateActionButton(userExists, streamerExists) {
     // Show confirmation modal
     showModal(
       "optIn", 
-      "Join Table",
-      "Do you want to join the table and start earning points?",
+      "Felicitări!",
+      "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!",
       (confirmed) => {
         if (confirmed) {
           optInPlayer(username);
@@ -286,7 +287,7 @@ async function fetchDataUsers() {
     console.log(response.data, "response.data");
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
-      (player) => Number(player.id) === netbet_id
+      (player) => Number(player.id) === Number(netbet_id)
     );
     // Check if the user exists in the data (not equal to -1)
     const isUserInTable = currentUserIndex !== -1;
@@ -419,12 +420,9 @@ async function optInPlayer(username) {
         Authorization: "Bearer " + token,
       },
     });
-    showModal(
-      "succes",
-      "Player New added",
-      `Player ${username} added ok`
-    );
+ 
     updateActionButton(true);
+    console.log("succes added player")
   } catch (error) {
     if (error.status === 409) {
       showModal(
@@ -454,7 +452,7 @@ async function optOutPlayer(username) {
   
   showModal(
     "optOut",
-  `${username} <br> ești sigur că vrei să anulezi participarea?`,
+  'Ești sigur că vrei să anulezi participarea?',
     'Reține că vei pierde punctele acumulate și dreptul de a revendica unul din premiile disponibile la finalul bătăliei. Apasă DA dacă ești de acord. Dacă nu ești sigur, sau ai apăsat din greșeală, apasă NU.',
     async (confirmed) => {
       if (!confirmed) {
@@ -472,15 +470,15 @@ async function optOutPlayer(username) {
         });
         showModal(
           "success",
-          "Success",
-          `Player ${username} has been successfully removed.`
+          "Te-ai retras cu succes din competiție. ",
+          'Explorează în continuare Universul NetBet și bucură-te de cele mai atractive promoții!'
         );
         updateActionButton(false);
       } catch (error) {
         showModal(
           "error",
-          "Error",
-          "Error removing player. Please try again later."
+          "Te-ai retras deja din competiție.",
+          "Modificările vor fi efectuate în câteva momente"
         );
       } finally {
         isLoading = false;

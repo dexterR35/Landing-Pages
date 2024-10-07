@@ -114,7 +114,7 @@ table.tableNetBet thead th {
   border-radius: 19px;
   height: 100%;
   background: rgb(3 8 28 / 78%);
-  border: 1px solid rgb(59, 197, 252);
+  border: 1px solid #a8deff;
 }
 
 #usersTable tbody .parent-table {
@@ -122,6 +122,7 @@ table.tableNetBet thead th {
 }
 
 .parent-table:hover {
+  background: rgb(156 173 187 / 32%) !important;
   color: var(--color-white);
   transition: all 0.3s ease;
 }
@@ -134,9 +135,7 @@ table.tableNetBet thead th {
   text-align: center;
   padding-right: 10px;
 }
-.font-tabel {
-  text-shadow: 0px 0px 2px #020d24;
-}
+
 .parent-avatar {
   position: relative;
 }
@@ -160,8 +159,7 @@ table.tableNetBet thead th {
 .parent-name p:nth-child(2) {
   font-size: 1.2rem;
   width: 100%;
-  color: rgb(255 165 0);
-  text-shadow: 1px 1px 9px rgb(230 157 25 / 56%);
+  color: rgb(254 189 20);
 }
 .avatar-table,
 .parent-position,
@@ -257,7 +255,7 @@ table.dataTable td.dt-right {
   user-select: none;
   z-index: 4;
   overflow: hidden;
-  border: 2px solid rgb(255 165 0);
+  border: 2px solid rgb(176 212 215 / 76%);
   box-shadow: 2px 2px 5px #020d24;
 }
 
@@ -280,10 +278,11 @@ table.dataTable td.dt-right {
   width: 10%;
 }
 
-.highlight-row,
-.parent-table:hover {
-  background: rgba(41, 192, 219, 0.637) !important;
+.highlight-row,.highlight-row:hover
+ {
+  background: var(--button_color) !important;
 }
+
 @media (orientation: portrait) {
   .table-responsive {
     width: 100%;

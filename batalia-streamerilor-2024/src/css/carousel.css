@@ -189,10 +189,10 @@
 }
 
 .blaze-slider .controls .blaze-prev {
-  left: -8%;
+  left: -6%;
 }
 .blaze-slider .controls .blaze-next {
-  left: 8%;
+  left: 6%;
 }
 
 #games-carousel .blaze-slider,
@@ -249,6 +249,7 @@ box-shadow: 2px 5px 12px black;
   left: 0;
   background: var(--color_white);
   transition: all 150ms ease-out;
+  border-radius: 10px;
 }
 #games-carousel .controls button::before {
   width: 65%;
@@ -345,6 +346,6 @@ box-shadow: 2px 5px 12px black;
     --slides-to-show: 2 !important;
   }
   #image-carousel .blaze-slider {
-    --slides-to-show: 3 !important;
+    --slides-to-show: 2 !important;
   }
 }

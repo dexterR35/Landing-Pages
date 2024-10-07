@@ -72,11 +72,13 @@ html {
   --bg-sect3: url(./assets/bg/tnc2.webp);
   --bg-sect4: url(./assets/bg/sect4_new.webp);
 
+  --bg-sect4-mob: url(./assets/bg/section4_mob.webp);
+
   --__casino: transparent linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0%
     0% no-repeat padding-box;
 
   --button_color: linear-gradient(90deg, #ff1c26, #a81c1f);
-  --button_color-hover: linear-gradient(50deg, #ff1c26, #a81c1f);
+  --button_color-hover: linear-gradient(50deg, #a81c1f, #ff1c26);
 
   --color_blue: #c5e6ff;
   --color_red: #ff0000;
@@ -452,16 +454,21 @@ footer ._page.visible {
   height: auto;
   object-fit: contain;
 }
-
+@media (max-width:1025px) {
+  .pragmatic-logo {
+    display: none !important;
+  }
+  
+}
 .container-btn {
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  overflow: hidden;
-  width: fit-content;
-  margin: 2% auto;
+}
+#actionButton {
+  margin: 5% auto 2%;
 }
 .right-side {
   display: flex;
@@ -633,9 +640,10 @@ footer ._page.visible {
 }
 
 .section:nth-child(2) .parent {
-  margin: 1% 0 0%;
-  height: 65%;
-  justify-content: space-evenly;
+  margin: 2% 0 0%;
+  height: 100%;
+  justify-content: center;
+  gap: 3%;
 }
 .section.s2::after {
   background-image: var(--bg-sect4);

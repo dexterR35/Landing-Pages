@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getFirstCarouselOptions() {
     return {
       all: {
-        enableAutoplay: true,
+        enableAutoplay: false,
         autoplayInterval: 1500,
         autoplayDirection: "to right",
         transitionTimingFunction: "ease",
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function getSecondCarouselOptions() {
     return {
       all: {
-        enableAutoplay: true,
+        enableAutoplay: false,
         autoplayInterval: 1500,
         transitionTimingFunction: "ease",
         autoplayDirection: "to left",
