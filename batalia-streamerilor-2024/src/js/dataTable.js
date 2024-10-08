@@ -167,7 +167,7 @@ function updateActionButton(userExists, streamerExists) {
 
   $actionButton.html(buttonHtml);
 
-  $("#joinTable").click(() => {
+  $("#joinTable").click(debounce(() => {
     showModal(
       "optIn",
       "Felicitări!",
@@ -178,7 +178,7 @@ function updateActionButton(userExists, streamerExists) {
         }
       }
     );
-  });
+  },400));
   $("#viewTable").click(() =>
     $("body").animate({ scrollTop: $("#section3").offset().top }, 500)
   );
@@ -409,9 +409,6 @@ async function optInPlayer(username) {
 }
 
 
-
-
-
 // Opt-Out
 async function optOutPlayer(username) {
   showModal(
@@ -521,7 +518,16 @@ async function reloadUserTable() {
   }
 }
 
-$(document).ready(function () {
-  reloadUserTable();
-  $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
+$(document).ready(async function () {
+  try {
+    await reloadUserTable(); 
+
+    if ($optOutBtn.length) {
+      $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
+    }
+
+  } catch (error) {
+    console.error("An error occurred during document ready initialization:", error);
+    showModal("error", "Initialization Error", "There was an error initializing the page. Please try again later.");
+  }
 });
