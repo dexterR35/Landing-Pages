@@ -15,11 +15,9 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
-// const username = getCookie("netbet_login");
-// const cookie_id = getCookie("netbet_id");
 
-const username = 'testmar';
-const cookie_id = '35115686';
+const username = getCookie("netbet_login");
+const cookie_id = getCookie("netbet_id");
 const netbet_id = parseInt(cookie_id);
 
 // console.log(typeof(username), typeof(netbet_id), username, netbet_id);
@@ -387,6 +385,7 @@ async function optInPlayer(username) {
     });
 
     updateActionButton(true);
+
     console.log("succes added player");
   } catch (error) {
     if (error.status === 409) {

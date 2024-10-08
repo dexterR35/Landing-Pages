@@ -1,5 +1,18 @@
+<?php
+$qsa = '';
+$qsa_with_end = '';
+if (count($_GET) > 0)
+{
+	while (list($name, $value) = each($_GET))
+		$qsa .= '&'.$name.'='.$value;	
+}
 
-
+if (!empty($qsa))
+{
+	$qsa_with_end = $qsa;
+	$qsa = '?'.substr($qsa, 1);
+}
+?>
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -18,11 +31,11 @@
   <meta name="language" content="ro-RO" />
 
   <link rel="stylesheet" href="https://unpkg.com/blaze-slider@latest/dist/blaze.css">
-  <link rel="stylesheet" href="./index.css">
-  <link rel="stylesheet" href="./src/css/carousel.css">
-  <link rel="stylesheet" href="./src/css/table.css">
-  <link rel="stylesheet" href="./src/css/tnc.css">
-  <link rel="stylesheet" href="./src/css/modal.css">
+  <link rel="stylesheet" href="./index1.css">
+  <link rel="stylesheet" href="./src/css/carousel1.css">
+  <link rel="stylesheet" href="./src/css/table1.css">
+  <link rel="stylesheet" href="./src/css/tnc1.css">
+  <link rel="stylesheet" href="./src/css/modal1.css">
   <script>
     const qsaEnd = "<?php echo $qsa_with_end; ?>";
     const qsa = "<?php echo $qsa; ?>";
@@ -31,7 +44,6 @@
 </head>
 
 <body>
- 
   <div class="targetShoot" id="target">
     <main class="panelWrap">
       <section class="section s1 _b" id="section1">
@@ -73,11 +85,12 @@
           <div class="parent">
             <h2>BĂTĂLIA STREAMERILOR REVINE CU <br> PREMII FABULOASE!</h2>
             <div class="section_title">
-              <p>
-                Joacă pe NetBet și adună puncte în perioada <span>7 octombrie – 22 noiembrie</span> și câștigi garantat
-                unul din premiile puse la bătaie! </p>
+              <p> Joacă pe NetBet și adună puncte </p> 
+              <p>în perioada <span>8 octombrie – 22 noiembrie</span> și câștigi garantat unul din premiile puse la bătaie! </p>
+             
               <p>Luptă-te pentru top 200 și vei avea parte de extra surprize – premii cash și pachete cadou by Pragmatic
                 Play.</p>
+             
               <p>Alătură-te streamerilor și joacă sloturile tale preferate, dar nu uita că cele de la <span>Pragmatic
                   Play</span> îți asigură:</p>
               <p>★★★ PUNCTE DUBLE ★★★</p>
@@ -379,20 +392,20 @@
               <div class="logos">
                 <!-- Div for ONJN and GambleAware logos -->
                 <div class="logos-group">
-                  <a href="https://onjn.gov.ro<?php echo $qsa; ?>" target="_blank">
+                  <a href="https://onjn.gov.ro<?php echo $qsa;?>" target="_blank">
                     <img src="./assets/stuff/icons/onjn-white.png" alt="onjn" class="onjn lozad" />
                   </a>
-                  <a href="https://www.begambleaware.org<?php echo $qsa; ?>" target="_blank">
+                  <a href="https://www.begambleaware.org<?php echo $qsa;?>" target="_blank">
                     <img src="./assets//stuff/icons/gambleaware_white.png" alt="gambleaware"
                       class="gambleaware lozad" />
                   </a>
                 </div>
                 <!-- Div for GamCare and Logo Clinica logos -->
                 <div class="logos-group">
-                  <a href="https://www.gamcare.org.uk<?php echo $qsa; ?>" target="_blank">
+                  <a href="https://www.gamcare.org.uk<?php echo $qsa;?>" target="_blank">
                     <img src="./assets/stuff/icons/gamcare.png" alt="gamcare" class="gamcare lozad" />
                   </a>
-                  <a href="https://clinica-aliat.ro/jocuri-de-noroc<?php echo $qsa; ?>" target="_blank">
+                  <a href="https://clinica-aliat.ro/jocuri-de-noroc<?php echo $qsa;?>" target="_blank">
                     <img src="./assets/stuff/icons/clinica_logo_white.png" alt="logo_clinica"
                       class="logo_clinica lozad" />
                   </a>
@@ -411,7 +424,7 @@
 
   <style>
     .box-arrow {
-      position: absolute;
+      position: relative;
       left: 50%;
       transform: translate(-50%, 0%);
       bottom: 0;

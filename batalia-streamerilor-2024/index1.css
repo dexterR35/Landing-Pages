@@ -333,16 +333,12 @@ footer,
 .section:nth-child(1) {
   height: calc(100vh - 110px);
 }
-header {
-  height: 70px;
-}
+
 @media (min-width: 1025px) {
   .section:nth-child(1) {
     height: calc(100vh - 110px);
   }
-  header {
-    height: 90px;
-  }
+
 }
 
 .main-section .left-side img {
