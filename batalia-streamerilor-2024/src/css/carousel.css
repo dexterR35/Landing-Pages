@@ -298,7 +298,9 @@
    -webkit-transform: scale(0.9);
   }
 } */
-
+.footer-game.footer-game p:nth-child(2) {
+  font-family: 'montBold';
+}
 @media (max-width: 1024px) {
   #games-carousel .blaze-slider {
     --slides-to-show: 5 !important;
@@ -307,10 +309,11 @@
     --slides-to-show: 5 !important;
   }
   .footer-game.footer-game p:nth-child(1) {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .footer-game.footer-game p:nth-child(2) {
     font-size: 1.1rem;
+  
   }
   #games-carousel .blaze-slider {
     margin-top: -10px;

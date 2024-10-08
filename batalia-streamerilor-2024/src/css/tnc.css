@@ -108,7 +108,7 @@ hr {
 
 .terms-container {
   color: var(--color_white);
-  padding: 4rem 1;
+  padding: 4rem 1rem;
   border-radius: 10px;
   position: relative;
   margin: 0 auto;

@@ -12,7 +12,7 @@ function handleSectionVisibility(entries) {
   function observeSections() {
     const sectionObserver = new IntersectionObserver(handleSectionVisibility, {
       root: null,
-      threshold: 0.25,
+      threshold: 0.1,
     });
     document.querySelectorAll("._page").forEach((section) => sectionObserver.observe(section));
   

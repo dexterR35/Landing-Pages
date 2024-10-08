@@ -18,8 +18,8 @@ const url = "https://admin.livepartners.com/api/streaming/";
 // const username = getCookie("netbet_login");
 // const cookie_id = getCookie("netbet_id");
 
-const username = 'testcozminn';
-const cookie_id = '39356008';
+const username = 'testmar';
+const cookie_id = '35115686';
 const netbet_id = parseInt(cookie_id);
 
 // console.log(typeof(username), typeof(netbet_id), username, netbet_id);
