@@ -22,7 +22,7 @@ table.tableNetBet {
 
 table.tableNetBet td,
 table.tableNetBet th {
-  border: 1px solid #000000;
+  border: 1px solid #a8dff4;
   padding: 10px 4px;
 }
 
@@ -32,8 +32,6 @@ table.tableNetBet tbody td {
 
 table.tableNetBet thead {
   background: var(--button_color);
-
-  border-bottom: 3px solid #000000;
 }
 
 table.tableNetBet thead th {
