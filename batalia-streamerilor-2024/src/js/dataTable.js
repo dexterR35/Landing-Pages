@@ -16,8 +16,8 @@ const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
 
-const username = getCookie("netbet_login");
-const cookie_id = getCookie("netbet_id");
+const username = '';
+const cookie_id = "";
 const netbet_id = parseInt(cookie_id);
 
 // console.log(typeof(username), typeof(netbet_id), username, netbet_id);
@@ -141,7 +141,7 @@ function updateActionButton(userExists, streamerExists) {
   ) {
     // Case 1: No username or netbet_id - Show Register Button
     buttonHtml = `
-      <a href='https://casino.netbet.ro/?register=1${qsaEnd}'>
+      <a href='https://casino.netbet.ro/?register=1${qsaEnd}' id="button1">
         <button class="btn desktop shape pointer">
           <span></span>ÎNREGISTREAZĂ-TE
         </button>
@@ -177,6 +177,7 @@ function updateActionButton(userExists, streamerExists) {
       }
     );
   },400));
+  
   $("#viewTable").click(() =>
     $("body").animate({ scrollTop: $("#section3").offset().top }, 500)
   );
@@ -269,7 +270,9 @@ async function fetchDataUsers() {
     if (!response || !Array.isArray(response.data)) {
       console.error("Invalid or missing data in response");
       return [];
+      
     }
+    console.log(response,"")
     const totalUsers = response.data.length;
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
