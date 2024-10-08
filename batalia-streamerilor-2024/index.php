@@ -392,20 +392,20 @@ if (!empty($qsa))
               <div class="logos">
                 <!-- Div for ONJN and GambleAware logos -->
                 <div class="logos-group">
-                  <a href="https://onjn.gov.ro<?php echo $qsa;?>" target="_blank">
+                  <a href="https://onjn.gov.ro<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/onjn-white.png" alt="onjn" class="onjn lozad" />
                   </a>
-                  <a href="https://www.begambleaware.org<?php echo $qsa;?>" target="_blank">
+                  <a href="https://www.begambleaware.org<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets//stuff/icons/gambleaware_white.png" alt="gambleaware"
                       class="gambleaware lozad" />
                   </a>
                 </div>
                 <!-- Div for GamCare and Logo Clinica logos -->
                 <div class="logos-group">
-                  <a href="https://www.gamcare.org.uk<?php echo $qsa;?>" target="_blank">
+                  <a href="https://www.gamcare.org.uk<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/gamcare.png" alt="gamcare" class="gamcare lozad" />
                   </a>
-                  <a href="https://clinica-aliat.ro/jocuri-de-noroc<?php echo $qsa;?>" target="_blank">
+                  <a href="https://clinica-aliat.ro/jocuri-de-noroc<?php echo $qsa; ?>" target="_blank">
                     <img src="./assets/stuff/icons/clinica_logo_white.png" alt="logo_clinica"
                       class="logo_clinica lozad" />
                   </a>
