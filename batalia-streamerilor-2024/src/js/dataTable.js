@@ -15,12 +15,46 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
-
-const username = '';
-const cookie_id = "";
+const username = getCookie("netbet_login");
+const cookie_id = getCookie("netbet_id");
+// const username = "testcozminn";
+// const cookie_id = "39356008";
 const netbet_id = parseInt(cookie_id);
+// Get session true
+let hasRefreshed = sessionStorage.getItem('refreshed') === 'true'; 
+const xtremepushData = JSON.parse(localStorage.getItem('xtremepush.Data'));
 
-// console.log(typeof(username), typeof(netbet_id), username, netbet_id);
+console.log(xtremepushData,"data object");
+const localStorageUserId = xtremepushData ? xtremepushData.user_id : null; 
+console.log(localStorageUserId,"localStorageUserId ===" ,netbet_id,"netbet_id" );
+
+function checkLogin() {
+  // Check if the user is logged in and both netbet_id and localStorageUserId match
+  if (username && username !== 'logged_out' && !isNaN(netbet_id) && netbet_id > 0 && localStorageUserId && localStorageUserId === netbet_id) {
+    // If the user is logged in and the page hasn't refreshed yet
+    if (!hasRefreshed) {
+      console.log('user is logged in and user_id === localStorageUserId matches. Page will reload in 3 seconds.');
+      hasRefreshed = true;
+      sessionStorage.setItem('refreshed', 'true');
+      setTimeout(() => {
+        location.reload(); 
+      }, 2000);
+      // Stop the login check interval after the page refresh has been triggered
+      clearInterval(loginCheckInterval);
+    }
+  } else {
+    console.log('user is not logged in or user_id does not match, check repeating... every 2 seconds');
+    sessionStorage.setItem('refreshed', 'false');
+    if ((username === 'logged_out' || !username) && (isNaN(netbet_id) || netbet_id <= 0)) {
+      // Clear xtremepushData from localStorage
+      localStorage.removeItem('xtremepush.Data');
+    }
+  }
+}
+const loginCheckInterval = setInterval(checkLogin, 2000);
+console.log('refreshed state:', sessionStorage.getItem('refreshed'));
+// end Check login 
+
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
@@ -140,13 +174,7 @@ function updateActionButton(userExists, streamerExists) {
     username == null
   ) {
     // Case 1: No username or netbet_id - Show Register Button
-    buttonHtml = `
-      <a href='https://casino.netbet.ro/?register=1${qsaEnd}' id="button1">
-        <button class="btn desktop shape pointer">
-          <span></span>ÎNREGISTREAZĂ-TE
-        </button>
-      </a>
-    `;
+    buttonHtml = '';
   } else if (username && netbet_id && !userExists && !streamerExists) {
     // Case 2: User exists in the system, but not in the table - Show Join Table Button
     buttonHtml = `
@@ -272,7 +300,7 @@ async function fetchDataUsers() {
       return [];
       
     }
-    console.log(response,"")
+
     const totalUsers = response.data.length;
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
