@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users and Streamers Table</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
+    />
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"/>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <style>
+      #user-info {
+        margin: 20px;
+      }
+
+      .loading {
+        display: none;
+        font-style: italic;
+        color: gray;
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      table.dataTable tbody tr.top3 {
+        font-weight: bold;
+        background-color: #d4efdf;
+      }
+
+      table.dataTable tbody tr.current-user {
+        background-color: #ffffcc;
+      }
+
+      table.dataTable tbody tr.last4 {
+        background-color: #f9ebea;
+      }
+
+      table.dataTable tbody tr.highlight-row {
+        background-color: #f7dc6f !important; /* Highlight row style */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="user-info">
+      <p class="loading">Loading data...</p>
+      <button id="optin-btn">Opt-In Player</button>
+      <button id="optout-btn" disabled>Opt-Out Player</button>
+      <p id="message"></p>
+    </div>
+    <table id="playerTable" class="display" style="width: 100%">
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <table
+      id="streamerTable"
+      class="display"
+      style="width: 100%; margin-top: 30px"
+    >
+      <thead>
+        <tr>
+          <th>Ranking</th>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      // Configuration Variables
+      const token = "2f97bb641f2096c1e98a723c249a6ece";
+      const url = "https://admin.livepartners.com/api/streaming/"; 
+
+      const username = "TestCristianP";
+      const netbet_id = 37857769;
+
+      // jQuery Selectors
+      const $loading = $(".loading");
+      const $optInBtn = $("#optin-btn");
+      const $optOutBtn = $("#optout-btn");
+      const $message = $("#message");
+
+      // Debounce Function to prevent multiple rapid API calls
+      function debounce(func, delay) {
+        let debounceTimer;
+        let rejectLastPromise;
+
+        return function (...args) {
+          if (debounceTimer) {
+            clearTimeout(debounceTimer);
+          }
+          if (rejectLastPromise) {
+            rejectLastPromise("Debounced");
+          }
+
+          return new Promise((resolve, reject) => {
+            rejectLastPromise = reject;
+
+            debounceTimer = setTimeout(() => {
+              func.apply(this, args).then(resolve).catch(reject);
+            }, delay);
+          });
+        };
+      }
+
+
+      function createTableUsers(item, userPosition) {
+        const tableAHtml = `<tr class="parent-table">
+          <td class="parent-position ps">#${item.ranking}</td>
+          <td>
+            <div class="parent-name">
+              <p class="ps">${item.username}</p>
+            </div>
+          </td>
+          <td class="parent-points ps">${formatPoints(item.points)}</td>
+        </tr>`;
+        return tableAHtml;
+      }
+
+      // Function to create table rows for streamers
+      function createTableStreamers(streamer, imgSrc) {
+        const tableHtml = `<tr class="parent-table">
+          <td class="parent-position ps">#${streamer.ranking}</td>
+          <td>
+            <div class="d-flex-start flex-row parent-avatar">
+              <div class="avatar-table avatar-blue">
+                <img src="${imgSrc}" alt="pict_table" class="pict_table">
+              </div>
+              <div class="parent-name">
+                <p class="font-tabel">${streamer.username}</p> 
+                <p class="font-tabel">Stars: <span style="color:orangered;">***</span>**</p>
+              </div>
+            </div>
+          </td>
+          <td class="parent-points ps">${formatPoints(streamer.points)}</td>
+        </tr>`;
+        return tableHtml;
+      }
+
+
+      // Enable or Disable Buttons
+      function toggleButtons(isOptedIn) {
+        $optInBtn.prop("disabled", isOptedIn);
+        $optOutBtn.prop("disabled", !isOptedIn);
+      }
+
+      // Format Points Display
+      function formatPoints(points) {
+        if (points === null || points === undefined) {
+          return "0";
+        }
+        points = Number(points);
+        if (isNaN(points)) {
+          return "0";
+        }
+        if (points < 1000) {
+          return points.toFixed(0);
+        } else if (points < 1000000) {
+          return (points / 1000).toFixed(1) + "k";  // Thousands
+        } else if (points < 1000000000) {
+          return (points / 1000000).toFixed(1) + "M";  // Millions
+        } else {
+          return (points / 1000000000).toFixed(1) + "B";  // Billions
+        }
+      }
+
+      // Check if a Player Exists
+      async function checkIfPlayerExists(username) {
+        try {
+          const response = await $.ajax({
+            url: url + "check/" + username,
+            type: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          return typeof response === "boolean" ? response : response.exists;
+        } catch (error) {
+          console.error("Error checking if player exists:", error);
+          throw error;
+        }
+      }
+   // Function to create table rows for users
+  
+      // Fetch User Data
+      async function fetchDataUsers() {
+        try {
+          $loading.show();
+          const response = await $.ajax({
+            url: url + "data/0",
+            type: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          populateUserTable(response.data);
+          return response.data.some((player) => player.username === username);
+        } catch (error) {
+          console.error("Error fetching player data:", error);
+          throw error;
+        } finally {
+          $loading.hide();
+        }
+      }
+
+      // Populate the User DataTable
+      function populateUserTable(data) {
+        const userData = data.map((player, index) => ({
+          ranking: index + 1,
+          id: player.id,
+          username:  player.id === netbet_id ? username : player.username,
+          points: formatPoints(player.points),
+        }));
+
+        console.log(data,"data");
+        const userTable = $("#playerTable").DataTable({
+          data: userData,
+          columns: [
+            { data: "ranking" },
+            { data: "id" },
+            { data: "username" },
+            { data: "points" },
+          ],
+          pageLength: 10,
+          destroy: true,
+          ordering: false,
+          createdRow: function (row, data) {
+            if (data.username === username) {
+              $(row).addClass("highlight-row");
+            }
+          },
+          dom: 'Bfrtip', 
+                buttons: [
+                    'csv', 'excel', 'pdf', 'print'
+                ]
+        });
+      }
+
+      // Reload the User Table
+      async function reloadUserTable() {
+        try {
+          const table = $("#playerTable").DataTable();
+          table.clear().destroy();
+          const userExists = await fetchDataUsers();
+          toggleButtons(userExists);
+        } catch (error) {
+          console.error("Error reloading user table:", error);
+        }
+      }
+
+      // Opt-In Player
+      async function optInPlayer(username) {
+        try {
+          toggleButtons(true);
+          $loading.show();
+          await $.ajax({
+            url: url + "optin/" + username,
+            type: "POST",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          $message.text(`Player ${username} has been successfully added to the table.`);
+          await reloadUserTable();
+        } catch (error) {
+          if (error.status === 409) {
+            $message.text(`Player ${username} already exists in the table. Cannot opt-in again.`);
+          } else {
+            $message.text("Error adding player. Please try again later.");
+          }
+        } finally {
+          $loading.hide();
+        }
+      }
+
+      // Opt-Out Player
+      async function optOutPlayer(username) {
+        try {
+          toggleButtons(true);
+          $loading.show();
+          await $.ajax({
+            url: url + "optout/" + username,
+            type: "DELETE",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          $message.text(`Player ${username} has been successfully removed from the table.`);
+          await reloadUserTable();
+        } catch (error) {
+          $message.text("Error removing player. Please try again later.");
+        } finally {
+          $loading.hide();
+        }
+      }
+
+      // Fetch Streamer Data
+      async function fetchStreamerData() {
+        try {
+          $loading.show();
+          const response = await $.ajax({
+            url: url + "streamers",
+            type: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          populateStreamerTable(response.data);
+        } catch (error) {
+          console.error("Error fetching streamer data:", error);
+        } finally {
+          $loading.hide();
+        }
+      }
+
+      // Populate the Streamer DataTable
+      function populateStreamerTable(data) {
+        const streamerData = data.map((streamer, index) => ({
+          ranking: index + 1,
+          id: streamer.id,
+          username: streamer.username,
+          points: formatPoints(streamer.points),
+        }));
+
+        $("#streamerTable").DataTable({
+          data: streamerData,
+          columns: [
+            { data: "ranking" },
+            { data: "id" },
+            { data: "username" },
+            { data: "points" },
+          ],
+          pageLength: 10,
+          destroy: true,
+          ordering: false,
+          createdRow: function (row, data) {
+            if (data.id === netbet_id) {
+              $(row).addClass("highlight-row");
+            }
+          },
+        });
+      }
+
+      // Initial Setup
+      $(document).ready(async function () {
+        $loading.show();
+        try {
+          const userExists = await checkIfPlayerExists(username);
+          toggleButtons(userExists);
+        } catch (error) {
+          $message.text("Failed to check player existence. Please try again later.");
+        } finally {
+          $loading.hide();
+        }
+
+        // Fetch and populate the tables
+        await fetchDataUsers();
+        await fetchStreamerData();
+
+        // Set up click events for opt-in and opt-out buttons
+        $optInBtn.click(debounce(() => optInPlayer(username), 300));
+        $optOutBtn.click(debounce(() => optOutPlayer(username), 300));
+      });
+    </script>
+  </body>
+</html>

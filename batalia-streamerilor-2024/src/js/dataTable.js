@@ -15,46 +15,16 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
+
 const username = getCookie("netbet_login");
 const cookie_id = getCookie("netbet_id");
-// const username = "testcozminn";
-// const cookie_id = "39356008";
+
+// const username ="testmarian2024";
+// const cookie_id = "40302497";
+
 const netbet_id = parseInt(cookie_id);
-// Get session true
-let hasRefreshed = sessionStorage.getItem('refreshed') === 'true'; 
-const xtremepushData = JSON.parse(localStorage.getItem('xtremepush.Data'));
 
-console.log(xtremepushData,"data object");
-const localStorageUserId = xtremepushData ? xtremepushData.user_id : null; 
-console.log(localStorageUserId,"localStorageUserId ===" ,netbet_id,"netbet_id" );
-
-function checkLogin() {
-  // Check if the user is logged in and both netbet_id and localStorageUserId match
-  if (username && username !== 'logged_out' && !isNaN(netbet_id) && netbet_id > 0 && localStorageUserId && localStorageUserId === netbet_id) {
-    // If the user is logged in and the page hasn't refreshed yet
-    if (!hasRefreshed) {
-      console.log('user is logged in and user_id === localStorageUserId matches. Page will reload in 3 seconds.');
-      hasRefreshed = true;
-      sessionStorage.setItem('refreshed', 'true');
-      setTimeout(() => {
-        location.reload(); 
-      }, 2000);
-      // Stop the login check interval after the page refresh has been triggered
-      clearInterval(loginCheckInterval);
-    }
-  } else {
-    console.log('user is not logged in or user_id does not match, check repeating... every 2 seconds');
-    sessionStorage.setItem('refreshed', 'false');
-    if ((username === 'logged_out' || !username) && (isNaN(netbet_id) || netbet_id <= 0)) {
-      // Clear xtremepushData from localStorage
-      localStorage.removeItem('xtremepush.Data');
-    }
-  }
-}
-const loginCheckInterval = setInterval(checkLogin, 2000);
-console.log('refreshed state:', sessionStorage.getItem('refreshed'));
-// end Check login 
-
+// console.log(typeof(username), typeof(netbet_id), username, netbet_id);
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
@@ -164,52 +134,90 @@ function debounce(func, delay) {
     debounceTimer = setTimeout(() => func.apply(context, args), delay);
   };
 }
-
 function updateActionButton(userExists, streamerExists) {
-  let buttonHtml = "";
-  if (
-    !username ||
-    username === "logged_out" ||
-    !netbet_id ||
-    username == null
-  ) {
-    // Case 1: No username or netbet_id - Show Register Button
-    buttonHtml = '';
-  } else if (username && netbet_id && !userExists && !streamerExists) {
-    // Case 2: User exists in the system, but not in the table - Show Join Table Button
-    buttonHtml = `
-      <button class="btn desktop shape pointer join-table" id="joinTable">
-        <span></span>Intră în cursă!
-      </button>
-    `;
-  } else if (userExists || streamerExists) {
-    // Case 3: User exists in the table - Show View Table Button
-    buttonHtml = `
-      <button class="btn desktop shape pointer view-table" id="viewTable">
-        <span></span>Vezi Clasamentul
-      </button>
-    `;
-  }
+  console.log('updateActionButton');
 
-  $actionButton.html(buttonHtml);
+  // Initial HTML for the button when the page first loads.
+  // This is a default state where the user can check their eligibility.
+  let buttonHtml = `
+    <a href='#' id="button1">
+      <button class="btn desktop shape pointer">
+        <span></span>Verifica daca esti elibibil
+      </button>
+    </a>
+  `;
+  $actionButton.html(buttonHtml); 
+  console.log('case 1: Initial check for username and netbet_id');
 
-  $("#joinTable").click(debounce(() => {
-    showModal(
-      "optIn",
-      "Felicitări!",
-      "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!",
-      (confirmed) => {
-        if (confirmed) {
-          optInPlayer(username);
-        }
+  const handleLoginCheck = () => {
+    // Checks if both 'username' and 'netbet_id' are defined, which would indicate the user is logged in.
+    if (username && netbet_id) {
+      // updateButtonAfterLogin(userExists, streamerExists);
+      // If both exist, logs that to the console.
+      console.log("username && netbet_id test");
+    } else {
+      // If either is missing, logs the missing status and shows a modal to inform the user they need to log in.
+      console.log('case 4: Username or netbet_id missing');
+      showModal(
+        "loginCheck",
+        "Login Required", 
+        "You need to be logged in to access this feature." 
+      );
+    }
+  };
+
+  // This sets an event listener on the initial button (button1). When clicked, it will trigger the handleLoginCheck function.
+  $(document).off("click", "#button1").on("click", "#button1", handleLoginCheck);
+
+  if (username && netbet_id) {
+    console.log('case 5: Username and netbet_id are valid, setting up button logic');
+    // Reassigns a new click event to the button depending on the status of 'userExists' and 'streamerExists'.
+    $(document).off("click", "#button1").on("click", "#button1", () => {
+      // If neither the user nor the streamer exists, it updates the button to show a "Join the table".
+      if (!userExists && !streamerExists) {
+        console.log(userExists, !userExists, "userExists && !userExists");
+        console.log(streamerExists, !streamerExists, "userExists && !userExists");
+        buttonHtml = `
+          <button class="btn desktop shape pointer join-table" id="joinTable">
+            <span></span>Intră în cursă!
+          </button>
+        `;
+      } else {
+        // If the user or streamer exists, the button changes to show "View Leaderboard".
+        buttonHtml = `
+          <button class="btn desktop shape pointer view-table" id="viewTable">
+            <span></span>Vezi Clasamentul
+          </button>
+        `;
       }
-    );
-  },400));
-  
-  $("#viewTable").click(() =>
-    $("body").animate({ scrollTop: $("#section3").offset().top }, 500)
-  );
+
+      // Updates the button 
+      $actionButton.html(buttonHtml);
+
+      //"Join Table" button is clicked. The debounce function ensures that this action can only happen once within a short time interval (400 ms).
+      $("#joinTable").click(
+        debounce(() => {
+          console.log('case 9: Join Table clicked');
+          showModal(
+            "optIn", 
+            "Felicitări!", 
+            "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!", 
+            (confirmed) => {
+              if (confirmed) {
+                optInPlayer(username); 
+              }
+            }
+          );
+        }, 400) 
+      );
+      // "View Leaderboard" button is clicked.
+      $("#viewTable").click(() => {
+        $("body").animate({ scrollTop: $("#section3").offset().top }, 500);
+      });
+    });
+  }
 }
+
 
 // Create table for streamers
 function createTableStreamers(streamer) {
@@ -300,7 +308,7 @@ async function fetchDataUsers() {
       return [];
       
     }
-
+    console.log(response,"")
     const totalUsers = response.data.length;
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
@@ -414,9 +422,7 @@ async function optInPlayer(username) {
         Authorization: "Bearer " + token,
       },
     });
-
     updateActionButton(true);
-
     console.log("succes added player");
   } catch (error) {
     if (error.status === 409) {
@@ -435,6 +441,7 @@ async function optInPlayer(username) {
       updateActionButton(false);
     }
   } finally {
+    // loading()
   }
 }
 
@@ -541,7 +548,7 @@ async function reloadUserTable() {
     );
     // Check if the user exists
     const userExists = userData.some((user) => user.id === netbet_id);
-    updateActionButton(userExists, streamerExists);
+    // updateActionButton(userExists, streamerExists);
     generateTables(userData, streamerData);
   } catch (error) {
     console.error("Error reloading user table:", error);
