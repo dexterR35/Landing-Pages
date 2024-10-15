@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot Machine Animation</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script>
+        // Set up the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0xffffff, 1); // Set background color to white
+        document.body.appendChild(renderer.domElement);
+
+        // Load the GLB model
+        const loader = new THREE.GLTFLoader();
+        let lever, reels = [];
+        loader.load('./test_slot.glb', function (gltf) {
+            scene.add(gltf.scene);
+
+            // Find lever and reels
+            lever = gltf.scene.getObjectByName('capat_maneta');
+            for (let i = 1; i <= 7; i++) {
+                let reel = gltf.scene.getObjectByName(`rola${i}`);
+                if (reel) reels.push(reel);
+            }
+
+            // Add bounding boxes for debugging
+            if (lever) {
+                const leverBox = new THREE.BoxHelper(lever, 0xff0000);
+                scene.add(leverBox);
+            }
+            reels.forEach(reel => {
+                const reelBox = new THREE.BoxHelper(reel, 0x00ff00);
+                scene.add(reelBox);
+            });
+
+            console.log("Lever:", lever);
+            console.log("Reels:", reels);
+
+            // Adjust camera position
+            camera.position.set(0, 2, 5);
+            camera.lookAt(scene.position);
+        }, undefined, function (error) {
+            console.error(error);
+        });
+
+        // Add raycaster for detecting clicks
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+
+        function onMouseClick(event) {
+            event.preventDefault();
+
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(scene.children, true);
+
+            console.log("Intersects:", intersects);
+
+            if (intersects.length > 0) {
+                intersects.forEach(intersect => {
+                    console.log("Intersected object:", intersect.object.name);
+                });
+
+                const leverIntersect = intersects.find(intersect => intersect.object.name === 'capat_maneta');
+                if (leverIntersect) {
+                    console.log("Lever clicked!");
+                    animateSlots();
+                }
+            } else {
+                console.log("No objects intersected");
+            }
+        }
+
+        function animateSlots() {
+            const duration = 2000; // Duration in milliseconds
+            const start = Date.now();
+
+            function animate() {
+                const now = Date.now();
+                const elapsed = now - start;
+
+                if (elapsed < duration) {
+                    reels.forEach(reel => {
+                        reel.rotation.y = (elapsed / duration) * Math.PI * 2;
+                    });
+                    requestAnimationFrame(animate);
+                } else {
+                    reels.forEach(reel => {
+                        reel.rotation.y = 0;
+                    });
+                }
+            }
+            animate();
+        }
+
+        window.addEventListener('click', onMouseClick, false);
+
+        // Render loop
+        function render() {
+            requestAnimationFrame(render);
+            renderer.render(scene, camera);
+        }
+        render();
+    </script>
+</body>
+</html>

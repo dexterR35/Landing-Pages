@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html {{lang}}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Arial', 'sans-serif';
+      background-color: #f4f4f4;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .header, .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(90deg, #141C33, #1A233A);
+      padding: 20px 0;
+      color: #ffffff;
+    }
+    .header img, .footer img {
+      height: 45px;
+    }
+    .content {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444444;
+      padding: 20px;
+      background-color: #ffffff;
+      margin: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .footer {
+      flex-direction: column;
+      text-align: center;
+      font-size: 12px;
+    }
+    .footer .footer-content {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .footer .left, .footer .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer .right {
+      text-align: right;
+    }
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .footer .social-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .footer .social-icons img {
+      width: 24px;
+      margin: 0 10px;
+    }
+    @media only screen and (max-width: 600px) {
+      .content {
+        font-size: 12px;
+        margin: 10px;
+        padding: 15px;
+      }
+      .footer {
+        font-size: 10px;
+      }
+      .footer .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer .right {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .footer .social-icons img {
+        width: 20px;
+        margin: 0 5px;
+      }
+    }
+    {{styles}}
+  </style>
+</head>
+<body {{attributes}}>
+  <!-- Header with logo -->
+  <div class="header">
+    <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet">
+  </div>
+
+  <!-- Main content area -->
+  <div class="content">
+    {{content}}
+  </div>
+
+  <!-- Optional quoted content -->
+  <div class="content">
+    {{quoted_content}}
+  </div>
+
+  <!-- Footer with gradient background and left/right layout -->
+  <div class="footer">
+    <div class="footer-content">
+      <div class="left">
+        <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet" height="30">
+        <div>
+          <a href="#">Contact Us</a> | 
+          <a href="#">Private policy</a> | 
+          <a href="#">Subscribe</a>
+        </div>
+        <div>@NetBet 2024</div>
+      </div>
+      <div class="right">
+        <div class="social-icons">
+          <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/facebook-icon.png" alt="Facebook"></a>
+          <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/twitter-icon.png" alt="Twitter"></a>
+          <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/instagram-icon.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

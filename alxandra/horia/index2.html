@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html {{lang}}>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Arial', 'sans-serif';
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    .header, .footer {
+      text-align: center;
+      margin: auto;
+      background: linear-gradient(90deg, #141C33, #1A233A);
+      padding: 1% 0;
+    }
+    .header img {
+      height: 45px;
+    }
+    .content {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444444;
+      padding: 2%;
+    }
+    .footer {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
+    .footer-table {
+      width: 100%;
+      text-align: center;
+      margin: auto;
+    }
+    .footer-table td {
+      padding: 10px;
+    }
+    .footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+    .footer .social-icons img {
+      width: 24px;
+      margin: 0 5px;
+    }
+    @media only screen and (max-width: 600px) {
+      .content {
+        font-size: 12px;
+      }
+      .footer {
+        font-size: 10px;
+      }
+      .footer .social-icons img {
+        width: 20px;
+      }
+    }
+    {{styles}}
+  </style>
+</head>
+<body {{attributes}} style="width: 100%; margin: 0; padding: 0;">
+  <!-- Header with logo -->
+  <div class="header">
+    <table border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td align="center">
+            <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet" border="0">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Main content area -->
+  <div class="content">
+    {{content}}
+  </div>
+
+  <!-- Optional quoted content -->
+  <div class="content">
+    {{quoted_content}}
+  </div>
+
+  <!-- Footer with gradient background -->
+  <div class="footer">
+    <table class="footer-table" border="0" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td align="center">
+            <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet" height="30" border="0">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="#">Contact Us</a> | 
+            <a href="#">Terms & Conditions</a> | 
+            <a href="#">Subscribe</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="social-icons">
+            <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/instagram-icon.png" alt="Instagram"></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html {{lang}}>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetBet Newsletter</title> <!-- Added non-empty title element -->
+</head>
+
+<body {{attributes}} style="margin:0;padding:0;font-family:'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen-Sans', 'Ubuntu', 'Cantarell', 'Helvetica Neue', 'Arial', 'sans-serif';background-color:#ffff;">
+
+    <!-- Header with logo -->
+    <table role="presentation" width="100%" style="border-collapse:collapse;background:radial-gradient(circle, hsla(225, 49%, 21%, 1) 0%, hsla(224, 92%, 5%, 1) 100%);"> <!-- Added role="presentation" -->
+        <tr>
+            <td align="center" style="padding:20px;"> <!-- Changed alignment to left -->
+                <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet" style="height:45px;">
+            </td>
+        </tr>
+    </table>
+
+    <!-- Main content area -->
+    <table role="presentation" width="100%" style="border-collapse:collapse;"> <!-- Added role="presentation" -->
+        <tr>
+            <td style="padding:20px;">
+                <div style="font-size:14px;line-height:1.5;color:#444444;padding:20px;background-color:#ffffff;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                    {{content}}
+                </div>
+            </td>
+        </tr>
+        <!-- Optional quoted content -->
+        <tr>
+            <td style="padding:20px;">
+                <div style="font-size:14px;line-height:1.5;color:#444444;padding:20px;background-color:#ffffff;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
+                    {{quoted_content}}
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Footer with gradient background -->
+    <table role="presentation" width="100%" style="border-collapse:collapse;background:radial-gradient(circle, hsla(225, 49%, 21%, 1) 0%, hsla(224, 92%, 5%, 1) 100%);font-size:12px;color:#a0a0a0;"> <!-- Added role="presentation" -->
+        <tr>
+            <td align="center"> <!-- Changed alignment to left -->
+                <img src="https://img.netbet.co.uk/poker/marketing_images/NetBet_logo.png" alt="NetBet" style="height:60px;">
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding:10px;"> <!-- Changed alignment to left -->
+                <a href="#" style="color:#a0a0a0;text-decoration:none;margin:0 5px;">Contact Us</a> |
+                <a href="#" style="color:#a0a0a0;text-decoration:none;margin:0 5px;">Private policy</a> |
+                <a href="#" style="color:#a0a0a0;text-decoration:none;margin:0 5px;">Subscribe</a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding:10px;"> <!-- Changed alignment to left -->
+                <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/twitter-icon.png" alt="Twitter" style="width:24px;margin:0 10px;"></a>
+                <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/twitter-icon.png" alt="Twitter" style="width:24px;margin:0 10px;"></a>
+                <a href="#"><img src="https://img.netbet.co.uk/poker/marketing_images/instagram-icon.png" alt="Instagram" style="width:24px;margin:0 10px;"></a>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding:10px;font-size:11px;"> <!-- Changed alignment to left -->
+                @NetBet 2024
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"
+      integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+  
+
+    <div class="video-container-layout vid text">
+      <p>25fps</p>
+      <video
+        id="video"
+        width="600"
+        height="600"
+        controls="fals"
+        autoplay="autoplay"
+        loop
+        muted
+      >
+        <source
+          src="./images/art.webm"
+          type='video/webm; codecs="vp8, vorbis"'
+        />
+        <p>Sorry, Your Browser Doesn't Support Embedded Videos</p>
+      </video>
+    </div>
+    <div class="video-container-layout3 vid text">
+      <p>30fps</p>
+      <video
+        id="video"
+        width="600"
+        height="600"
+        controls="fals"
+        autoplay="autoplay"
+        loop
+        muted
+      >
+        <source
+          src="./images/art30.webm"
+          type='video/webm; codecs="vp8, vorbis"'
+        />
+        <p>Sorry, Your Browser Doesn't Support Embedded Videos</p>
+      </video>
+    </div>
+    <div class="video-container-layout2 vid text">
+      <p>60fps</p>
+      <video
+        id="video"
+        width="600"
+        height="600"
+        controls="fals"
+        autoplay="autoplay"
+        loop
+        muted
+      >
+        <source
+          src="./images/art60.webm"
+          type='video/webm; codecs="vp8, vorbis"'
+        />
+        <p>Sorry, Your Browser Doesn't Support Embedded Videos</p>
+      </video>
+    </div>
+
+    <style>
+      #lottie-animation {
+        width: 600px !important;
+        height: 600px !important;
+      }
+      .vid {
+        width: auto;
+        display: block;
+        border: 1px solid black;
+      }
+      p {
+        font-size: 25px;
+        font-weight: bold;
+      }
+      body {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        align-items: start;
+        width: 100%;
+      }
+      video::-webkit-media-controls-container {
+        opacity: 0 !important;
+      }
+
+      *::-webkit-media-controls-panel {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+      /* Old shadow dom for play button */
+      *::--webkit-media-controls-play-button {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+      /* New shadow dom for play button */
+      /* This one works */
+      *::-webkit-media-controls-start-playback-button {
+        display: none !important;
+        -webkit-appearance: none;
+      }
+      .text {
+        text-align: center;
+      }
+    </style>
+
+    <script>
+      const lottieJson = "./art2.json";
+
+      // fetch(lottieJson)
+      //   .then(response => {
+      //     // Check if the request was successful
+      //     if (!response.ok) {
+      //         throw new Error('Network response was not ok');
+      //     }
+      //     return response.json(); // Parse JSON body as JavaScript object
+      //   })
+      //   .then(lottieData => {
+      //     // Here lottieData is the parsed JSON object of your Lottie file
+
+      //     // Use lottie-web to render the animation
+      //     // Make sure lottie-web library is included in your HTML or installed via npm
+      //     lottie.loadAnimation({
+      //       container: document.getElementById('lottie-animation'), // The DOM element where the animation will be rendered
+      //       animationData: lottieData, // The parsed Lottie JSON data
+      //       renderer: 'svg', // Render as SVG
+      //       loop: true, // Loop the animation
+      //       autoplay: true, // Play the animation automatically
+      //     //   path: './art 2.json'
+      //     });
+      //   })
+      //   .catch(error => {
+      //     console.error('There was a problem fetching the Lottie file:', error);
+      //   });
+
+      var animation = bodymovin.loadAnimation({
+        container: document.getElementById("lottie-animation"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: lottieJson, // Path to your JSON file
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="stage" class="perspective-on">
+      <div id="rotate">
+        <div id="ring1" class="ring"></div>
+        <div id="ring2" class="ring"></div>
+        <div id="ring3" class="ring"></div>
+        <div id="ring4" class="ring"></div>
+        <div id="ring5" class="ring"></div>
+        <div id="ring6" class="ring"></div>
+      </div>
+      <div>
+        <button class="go">Start spinning</button>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" id="xray" />
+          Show inner workings
+        </label>
+        <label>
+          <input type="checkbox" id="perspective" />
+          Toggle perspective
+        </label>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

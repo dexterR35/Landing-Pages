@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+      integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.min.css"
+    />
+    <link
+      href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+  </head>
+
+  <style>
+     table.dataTable.dtr-inline.collapsed
+       > tbody
+       > tr[role="row"]
+       > td:first-child:before,
+     table.dataTable.dtr-inline.collapsed
+       > tbody
+       > tr[role="row"]
+       > th:first-child:before {
+       top: 28px;
+       right: 14px !important;
+       left: unset;
+       height: 18px;
+       width: 18px;
+       border: none;
+       font-family: unset;
+       box-shadow: none;
+     }
+     .dtr-control div {
+       gap: 10px;
+     }
+
+     table.dataTable > tbody > tr.child ul.dtr-details {
+       width: 100%;
+     }
+
+     table.dataTable > tbody > tr.child span.dtr-title {
+       min-width: 50%;
+     }
+
+     table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
+     table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
+     table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
+       padding: 0.75rem 1rem 0.125rem;
+     }
+
+     div.dataTables_wrapper div.dataTables_length label,
+     div.dataTables_wrapper div.dataTables_filter label {
+       margin-bottom: 0;
+     }
+     .dataTables_wrapper {
+       background: #f5f5f5;
+       border: 1px solid rgb(187, 187, 187);
+       border-radius: 10px;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       /* padding: 2em; */
+       position: relative;
+       padding: 1rem;
+       /* height: 40em; */
+     }
+
+
+     div.dataTables_wrapper div.dataTables_paginate {
+       position: absolute;
+       bottom: 0;
+       right: 0;/
+     }
+
+     @media (max-width: 767px) {
+       div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+         -ms-flex-pack: center !important;
+         justify-content: center !important;
+         margin-top: 1rem;
+       }
+     }
+
+     .dataTables_wrapper .dataTables_paginate .paginate_button {
+       box-sizing: border-box;
+       display: inline-block;
+       min-width: 2em;
+       padding: 0.1em 0.5em;
+       margin-left: 2px;
+       text-align: center;
+       cursor: pointer;
+       color: inherit !important;
+       /* background: transparent; */
+     }
+     .dt-buttons {
+       display: flex;
+       /* background: #000; */
+       color: white;
+       padding: 0.7rem;
+       gap: 10px;
+       display: flex;
+       justify-content: center;
+
+
+     }
+     thead tr th {
+        background: #3d3d3d !important;
+        font-size: 0.8rem !important;
+     }
+     .btn-secondary {
+
+       /* border-radius: 10px; */
+       background: linear-gradient(to bottom, #ff1c26, #a81c1f) !important;
+       padding: 0.5rem 1.5rem;
+       border: none;
+       border: 1px solid white;
+       overflow: hidden;
+       border-radius: 10px;
+
+     }
+
+     .thead-dark {
+       background: #3d3d3d;
+     }
+     .sorting {
+       padding: 1rem !important;
+
+       color: white !important;
+     }
+     table tr td {
+       padding: 1rem !important
+       /* border: 1px solid black; */
+       /* background-color: red; */
+     }
+
+
+     @media (max-width:768px) {
+        .containers{
+            padding: 0rem;
+        };
+        .userTable_wrapper {
+            padding: 0.2rem !important;
+        }
+        .col-12 {
+            padding: 0.2rem;
+        }
+     }
+    table.dataTable.nowrap td {
+         padding: 1.5rem 1rem !important;
+     }
+     .child ul li {
+        text-wrap: pretty !important;
+     }
+     #userTable_filter {
+        padding: 1rem !important;
+     }
+     #userTable {
+        width: 100% !important;
+     }
+  </style>
+  <body>
+    <div class="containers">
+      <div class="row py-2">
+        <h1
+          class="text-center"
+          style="
+            font-weight: bold;
+            padding: 15px 5px;
+            /* border: 1px solid lightgray; */
+            width: fit-content;
+            margin: auto;
+          "
+        >
+          NetBet
+        </h1>
+        <div class="col-12">
+          <table
+            id="userTable"
+            class="tableData table table-hover responsive nowrap"
+            style="width: 100%"
+          >
+            <thead class="thead-dark">
+              <tr class="lowercase">
+                <th>_nume</th>
+                <th>_prenume</th>
+                <th>_telefon</th>
+                <th>_county</th>
+                <th>_oras</th>
+                <th>_strada</th>
+                <th>_bloc</th>
+                <th>_nr</th>
+                <th>_scara</th>
+                <th>_etaj</th>
+                <th>_apartament</th>
+                <th>_codpostal</th>
+                <th>_userName</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+      integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script src=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js"></script>
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>

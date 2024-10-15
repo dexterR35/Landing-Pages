@@ -1,0 +1,116 @@
+/* Modal Background */
+.modal {
+    position: fixed;
+    z-index: 1000; /* Ensure it's on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content Box */
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeInModal 0.3s ease;
+  }
+  
+
+  .modal-content h3 {
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+
+  .modal-content p {
+    font-size: 100%;
+    margin-bottom: 20px;
+    color: #383838;
+    text-align: center;
+  }
+  
+
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .modal-buttons .btn {
+    padding: 12px 2em;
+    font-size: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .modal-buttons .btn.ok-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .modal-buttons .btn.yes-btn {
+    background-color: #d9534f; 
+    color: white;
+  }
+  
+  .modal-buttons .btn.no-btn {
+    background-color: #6c757d; 
+    color: white;
+  }
+  
+  .modal-buttons .btn:hover {
+    opacity: 0.8;
+  }
+  
+  @keyframes fadeInModal {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+  @media (max-width: 600px) {
+    .modal-content {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .modal-buttons .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .modal-content p {
+      font-size: 105%;
+    }
+  }
+
+
+  .c_1, .c_2,.c_3{
+    background: rgba(248, 232, 4, 0.199);
+  }
+  .c_4,.c_5,.c_6,.c_7 {
+    background: #b8b8b86b
+  }
+  
+  .c_8, .c_9,.c_10 {
+    background: #0e83b93f; 
+  }
+  

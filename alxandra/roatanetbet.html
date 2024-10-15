@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <title>Document</title>
+
+    <style>
+      body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container-wheel {
+        position: relative;
+        width: fit-content;
+      }
+      #wheel {
+        width: 200px;
+        height: 200px;
+        background-image: url(https://go-testing.netbet.ro/lp-asset/netbetro/casino/roatanetbet-new/disc-new.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background: linear-gradient(purple, cyan); */
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5em;
+      }
+      #spin {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 400px;
+        width: 70px;
+        height: 70px;
+        border: none;
+        outline: none;
+        border: 1px solid orangered;
+      }
+      #cardsModal {
+        visibility: hidden;
+      }
+      #continueModal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 250px;
+        background: #fff;
+        border: 1px solid #000;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        flex-direction: column;
+      }
+
+      #continueModal p {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-align: center;
+      }
+      #continueBtn,
+      #showCardsBtn {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f16c37;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+      }
+      .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        width: 100px;
+        height: 150px;
+        background-color: #f16c37;
+        margin: 10px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.5em;
+      }
+      .scratch-card {
+        position: relative;
+        border: 4px solid #c7c6cf;
+        border-radius: 8px;
+        padding: 12px;
+        width: 320px;
+        height: 250px;
+        background-color: #fff;
+      }
+      .scratch-card-cover-container {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        border-radius: 4px;
+        width: 100%;
+        height: 100%;
+        filter: url("#remove-black");
+        transition: opacity 0.4s;
+      }
+      .scratch-card-cover-container.clear {
+        opacity: 0;
+      }
+      .scratch-card-cover-container.hidden {
+        display: none;
+      }
+      .scratch-card-canvas {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: grab;
+        touch-action: none;
+      }
+      .scratch-card-canvas.hidden {
+        opacity: 0;
+      }
+      .scratch-card-canvas:active {
+        cursor: grabbing;
+      }
+      .scratch-card-canvas-render {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        transition: background-color 0.2s;
+      }
+      .scratch-card-canvas-render.hidden {
+        display: none;
+      }
+      .scratch-card-text {
+        text-align: center;
+      }
+      .scratch-card-cover {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #cfced6;
+        background-image: linear-gradient(
+          to right,
+          #7e73c7,
+          #8b7dd9,
+          #b09cff,
+          #cac2fb,
+          #c8ceff
+        );
+        overflow: hidden;
+      }
+      /* .scratch-card-cover::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+          135deg,
+          transparent 40%,
+          #000 50%,
+          transparent 60%
+        );
+        background-position: bottom right;
+        background-size: 300% 300%;
+        background-repeat: no-repeat;
+      } */
+      /* .scratch-card-cover.shine::before {
+        animation: shine 8s infinite;
+      } */
+      /* @keyframes shine {
+        50% {
+          background-position: 0% 0%;
+        }
+        100% {
+          background-position: -50% -50%;
+        }
+      } */
+
+      .container-test {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .scratch-card-cover::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        filter: url("#noise");
+      }
+      .scratch-card-cover-background {
+        width: 100%;
+        height: 100%;
+        fill: #555;
+        opacity: 0.1;
+        position: relative;
+        object-fit: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+      }
+      .scratch-card-image {
+        border-radius: 4px;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 4px #000);
+        user-select: none;
+        will-change: transform;
+      }
+      .scratch-card-image.animate {
+        animation: pop-out-in cubic-bezier(0.65, 1.35, 0.5, 1) 1s;
+      }
+      @keyframes pop-out-in {
+        36% {
+          transform: scale(1.125);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-test" id="cardsModal">
+      <div class="scratch-card" id="card1">
+        <div class="scratch-card-cover-container">
+          <canvas class="scratch-card-canvas"></canvas>
+          <!-- only needed for Safari and iOS browsers -->
+          <img class="scratch-card-canvas-render hidden" alt="" />
+          <div class="scratch-card-cover shine">
+            <img
+              class="scratch-card-cover-background"
+              src="https://go-testing.netbet.ro/lp-asset/shared/netbet/netbet-logo.png"
+            />
+          </div>
+        </div>
+        <img
+          class="scratch-card-image"
+          src="https://go.netbet.ro/lp-asset/netbetro/casino/universul-rundelor-gratuite/seven-new.png"
+          alt="Apple 50$ gift card"
+        />
+        <p class="scratch-card-text"></p>
+      </div>
+
+      <svg width="0" height="0">
+        <filter id="remove-black" color-interpolation-filters="sRGB">
+          <feColorMatrix
+            type="matrix"
+            values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  -1 -1 -1 0 1"
+            result="black-pixels"
+          />
+          <feComposite in="SourceGraphic" in2="black-pixels" operator="out" />
+        </filter>
+        <filter id="noise">
+          <feTurbulence baseFrequency="0.5"></feTurbulence>
+        </filter>
+      </svg>
+    </div>
+    <div class="container-wheel">
+      <button id="spin">Spin</button>
+      <div id="wheel">2</div>
+    </div>
+
+    <!-- <div id="cardsModal">
+      <p>razuie</p>
+      <div class="cards"></div>
+    </div> -->
+    <div id="continueModal">
+      <p>
+        felicitari <br />
+        <span>200 runde bonus</span>
+      </p>
+      <button id="continueBtn">Continue</button>
+    </div>
+    <script>
+      $(document).ready(function () {
+        let rotating = false;
+
+        $("#spin").on("click", function () {
+          if (!rotating) {
+            rotating = true;
+
+            $("#wheel").animate(
+              { rotate: "+=1800" },
+              {
+                duration: 2000,
+                easing: "swing", // Change the easing function to linear
+                step: function (now) {
+                  $(this).css("transform", "rotate(" + now + "deg)");
+                },
+                complete: function () {
+                  setTimeout(function () {
+                    showContinueModal();
+                    rotating = false;
+                  }, 400);
+                },
+              }
+            );
+          }
+        });
+
+        function showContinueModal() {
+          $("#continueModal").fadeIn();
+          $("#continueModal").css({ display: "flex" });
+          $("#continueBtn").on("click", function () {
+            $("#continueModal").fadeOut();
+            $(".container-wheel").hide();
+            setTimeout(function () {
+              showCardsModal();
+            }, 500);
+          });
+        }
+
+        function showCardsModal() {
+          $("#cardsModal").fadeIn();
+          $("#cardsModal").css({ display: "flex", visibility: "visible" });
+        }
+      });
+    </script>
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", function () {
+        const isSafari = /^((?!chrome|android).)*safari/i.test(
+          navigator.userAgent
+        );
+
+        const scratchCardCover = document.querySelector(".scratch-card-cover");
+        console.log(scratchCardCover, "cover");
+        const scratchCardCanvasRender = document.querySelector(
+          ".scratch-card-canvas-render"
+        );
+        console.log(scratchCardCanvasRender, "scratchCardCanvasRender");
+        const scratchCardCoverContainer = document.querySelector(
+          ".scratch-card-cover-container"
+        );
+        console.log(scratchCardCoverContainer, "scratchCardCoverContainer");
+        const scratchCardText = document.querySelector(".scratch-card-text");
+        console.log(scratchCardText, "scratchCardCoverContainer");
+        const scratchCardImage = document.querySelector(".scratch-card-image");
+        console.log(scratchCardImage, "scratchCardImage");
+
+        const canvas = document.querySelector("canvas");
+        console.log(canvas, "canvas");
+        const context = canvas.getContext("2d");
+        console.log(context, "context");
+        let isPointerDown = false;
+        let positionX;
+        let positionY;
+        let clearDetectionTimeout = null;
+
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        console.log(devicePixelRatio, "devicePixelRatio");
+        const canvasWidth = canvas.offsetWidth * devicePixelRatio;
+        const canvasHeight = canvas.offsetHeight * devicePixelRatio;
+
+        canvas.width = canvasWidth;
+        canvas.height = canvasHeight;
+
+        context.scale(devicePixelRatio, devicePixelRatio);
+        console.log(
+          context.scale(devicePixelRatio, devicePixelRatio),
+          "context.scale(devicePixelRatio, devicePixelRatio);"
+        );
+        if (isSafari) {
+          canvas.classList.add("hidden");
+        }
+
+        canvas.addEventListener("pointerdown", (e) => {
+          scratchCardCover.classList.remove("shine");
+          ({ x: positionX, y: positionY } = getPosition(e));
+          clearTimeout(clearDetectionTimeout);
+
+          canvas.addEventListener("pointermove", plot);
+
+          window.addEventListener(
+            "pointerup",
+            (e) => {
+              canvas.removeEventListener("pointermove", plot);
+              clearDetectionTimeout = setTimeout(() => {
+                checkBlackFillPercentage();
+              }, 500);
+            },
+            { once: true }
+          );
+        });
+
+        const checkBlackFillPercentage = () => {
+          const imageData = context.getImageData(
+            0,
+            0,
+            canvasWidth,
+            canvasHeight
+          );
+          console.log(imageData, "imageData");
+          const pixelData = imageData.data;
+          console.log(imageData, "imageData");
+          let blackPixelCount = 0;
+
+          for (let i = 0; i < pixelData.length; i += 4) {
+            const red = pixelData[i];
+            const green = pixelData[i + 1];
+            const blue = pixelData[i + 2];
+            const alpha = pixelData[i + 3];
+
+            if (red === 0 && green === 0 && blue === 0 && alpha === 255) {
+              blackPixelCount++;
+            }
+          }
+
+          const blackFillPercentage =
+            (blackPixelCount * 100) / (canvasWidth * canvasHeight);
+
+          if (blackFillPercentage >= 15) {
+            scratchCardCoverContainer.classList.add("clear");
+            confetti({
+              particleCount: 100,
+              spread: 90,
+              origin: {
+                y:
+                  (scratchCardText.getBoundingClientRect().bottom + 60) /
+                  window.innerHeight,
+              },
+            });
+            scratchCardText.textContent = "test confetti";
+            scratchCardImage.classList.add("animate");
+            scratchCardCoverContainer.addEventListener(
+              "transitionend",
+              () => {
+                scratchCardCoverContainer.classList.add("hidden");
+              },
+              { once: true }
+            );
+          }
+        };
+
+        const getPosition = ({ clientX, clientY }) => {
+          const { left, top } = canvas.getBoundingClientRect();
+          return {
+            x: clientX - left,
+            y: clientY - top,
+          };
+        };
+
+        const plotLine = (context, x1, y1, x2, y2) => {
+          var diffX = Math.abs(x2 - x1);
+          var diffY = Math.abs(y2 - y1);
+          var dist = Math.sqrt(diffX * diffX + diffY * diffY);
+          var step = dist / 50;
+          var i = 0;
+          var t;
+          var x;
+          var y;
+
+          while (i < dist) {
+            t = Math.min(1, i / dist);
+
+            x = x1 + (x2 - x1) * t;
+            y = y1 + (y2 - y1) * t;
+
+            context.beginPath();
+            context.arc(x, y, 16, 0, Math.PI * 2);
+            context.fill();
+
+            i += step;
+          }
+        };
+
+        const setImageFromCanvas = () => {
+          canvas.toBlob((blob) => {
+            const url = URL.createObjectURL(blob);
+            previousUrl = scratchCardCanvasRender.src;
+            scratchCardCanvasRender.src = url;
+            if (!previousUrl) {
+              scratchCardCanvasRender.classList.remove("hidden");
+            } else {
+              URL.revokeObjectURL(previousUrl);
+            }
+            previousUrl = url;
+          });
+        };
+
+        let setImageTimeout = null;
+
+        const plot = (e) => {
+          const { x, y } = getPosition(e);
+          plotLine(context, positionX, positionY, x, y);
+          positionX = x;
+          positionY = y;
+          if (isSafari) {
+            clearTimeout(setImageTimeout);
+
+            setImageTimeout = setTimeout(() => {
+              setImageFromCanvas();
+            }, 5);
+          }
+        };
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </body>
+</html>

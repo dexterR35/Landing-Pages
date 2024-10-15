@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			/* background-color: #f4f4f4; */
+		}
+
+		.wrapper_all {
+			/* padding: 5px 20px; */
+			background-color: #fff;
+			border-radius: 10px;
+			width: 100%;
+
+
+		}
+
+		.container_L {
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+
+		.container_L,
+		.container_nb,
+		.container_777,
+		.container_S,
+		.boxes {
+			display: flex;
+			flex-direction: row;
+			justify-content: start;
+		}
+
+		.container_nb,
+		.container_777 {
+			flex-direction: column;
+			border-radius: 16px;
+			padding: 10px;
+			width: 100%;
+		}
+
+		.container_S {
+			border-radius: 16px;
+			padding: 10px;
+			margin-top: 2em;
+		}
+
+		.container_L {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		fieldset {
+			display: flex;
+			flex: 1;
+			border-radius: 5px;
+			border-color: #ffffff;
+		}
+
+		legend {
+			padding: 0px 20px;
+			text-transform: uppercase;
+			color: gray;
+		}
+
+		legend div {
+			font-weight: bold;
+		}
+
+		.box {
+			width: 270px;
+			max-width: 100%;
+			height: 145px;
+			margin: 10px;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+		}
+
+		.container_S .box {
+			height: auto !important;
+		}
+
+		.boxes {
+			flex: 1;
+		}
+
+		.box h3 {
+			margin: 0;
+			font-size: 1.1em;
+			color: #333;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			row-gap: 1.5px;
+			width: fit-content;
+		}
+
+		.box-small h3 {
+			display: flex;
+			flex-direction: row;
+			gap: 10px;
+		}
+
+		hr {
+			border: 1px solid #eee;
+			background: transparent;
+		}
+
+		.box h3 img {
+			width: 24px;
+			height: 16px;
+		}
+
+		.box h3 span {
+			font-size: 0.9em;
+			margin-top: 0.2em;
+		}
+
+		.image {
+			width: 140px;
+			margin: 0 10px;
+			padding: 5px;
+			height: 10%;
+		}
+
+		.image img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.container_777 .image {
+			width: 90px;
+		}
+
+		.box table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.box table td {
+			padding: 5px 0;
+			vertical-align: top;
+			color: #555;
+			text-align: end;
+			font-size: 0.9em;
+		}
+
+		.box table tr {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 20px;
+		}
+
+		.box table td:first-child {
+			/* font-weight: normal; */
+			width: fit-content;
+		}
+
+		.box table td {
+			/* color: red; */
+			font-weight: bold;
+		}
+
+		.box a {
+			color: #1a73e8;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		.box a:hover {
+			text-decoration: underline;
+		}
+
+		.box .header {
+			display: flex;
+			flex-direction: row;
+			justify-content: start;
+			align-items: center;
+			gap: 15px;
+		}
+
+		@media (max-width: 1000px) {
+			.container {
+				flex-wrap: wrap;
+			}
+
+			.wrapper_all {
+				width: 90%;
+				margin: 0 auto;
+			}
+
+			.container_S {
+				padding: 0;
+			}
+
+			.box {
+				width: 80%;
+				margin: 10px auto;
+				height: auto;
+			}
+
+			.box h3 img {
+				width: 20px;
+				height: 13px;
+			}
+
+			.box h3 span {
+				font-size: 0.85em;
+
+			}
+
+			.boxes,
+			.container_S fieldset {
+				flex-direction: column;
+			}
+
+			.container_L {
+				justify-content: center;
+				flex-direction: column;
+			}
+
+			.container_nb,
+			.container_777 {
+				padding: 0;
+			}
+		}
+
+
+
+		@media (max-width: 600px) {
+			/* .box {
+				width: 270px;
+			} */
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper_all">
+		<div class="container_L">
+
+			<div class="container_nb">
+				<fieldset>
+					<legend>
+						<div class="image">
+							<img src="https://admin.livepartners.com/storage/banners/46579/46579.png" alt="nb" />
+						</div>
+					</legend>
+					<div class="boxes">
+						<div class="box">
+							<h3>
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/1200px-Flag_of_Romania.svg.png"
+									alt="RO" />
+								<span><strong>RO</strong></span>
+							</h3>
+							<hr />
+							<table>
+								<tr>
+									<td>Name:</td>
+									<td>Alexandra</td>
+								</tr>
+								<tr>
+									<td>Skype:</td>
+									<td><a href="skype:live:aleexandra1?chat">Alexandra</a></td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+									<td>
+										<div>
+											<a href="mailto:alexadra123@netbet.ro">alexadra123@e.es</a>
+										</div>
+										<div>
+											<a href="mailto:alexadra123@netbet.ro">alexadra123@netbet.ro</a>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="box">
+							<div class="header">
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png"
+										alt="DE" />
+									<span><strong>DE</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/1200px-Flag_of_Austria.svg.png"
+										alt="AT" />
+									<span><strong>AT</strong></span>
+								</h3>
+							</div>
+							<hr />
+							<table>
+								<tr>
+									<td>Name:</td>
+									<td>Heiko</td>
+								</tr>
+								<tr>
+									<td>Skype:</td>
+
+									<td>
+										<a href="skype:live:Heiko:123?chat">Heiko:123</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+									<td>
+										<a href="mailto:Heiko123@e.es">alexadra123@e.es</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="box">
+							<div class="header">
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png"
+										alt="IT" />
+									<span><strong>IT</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg"
+										alt="UK" />
+									<span><strong>UK</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/1200px-Flag_of_Ireland.svg.png"
+										alt="IE" />
+									<span><strong>IE</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/1200px-Flag_of_Greece.svg.png"
+										alt="GR" />
+									<span><strong>GR</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/1200px-Flag_of_Denmark.svg.png"
+										alt="DK" />
+									<span><strong>DK</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/1200px-Flag_of_Finland.svg.png"
+										alt="FI" />
+									<span><strong>FI</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1200px-Flag_of_France.svg.png"
+										alt="FR" />
+									<span><strong>FR</strong></span>
+								</h3>
+							</div>
+							<hr />
+							<table>
+								<tr>
+									<td>Name:</td>
+									<td>Christopher</td>
+								</tr>
+								<tr>
+									<td>Skype:</td>
+									<td>
+										<a href="skype:live:Christopher.mitoli?chat">Christopher.mitoli</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+
+									<td>
+										<a href="mailto:finance@livepartners.com">christopher.mitoli@netbet.it</a>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+			<div class="container_777">
+				<fieldset>
+					<legend>
+						<div class="image">
+							<img src="https://go.bet777.be/src/img/casino777/logo.png" alt="777" />
+						</div>
+					</legend>
+
+					<div class="boxes">
+						<div class="box">
+							<div class="header">
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Belgium.svg/1200px-Flag_of_Belgium.svg.png"
+										alt="BE" />
+									<span><strong>BE</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/1200px-Flag_of_Spain.svg.png"
+										alt="ES" />
+									<span><strong>ES</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/1200px-Flag_of_Switzerland.svg.png"
+										alt="CH" />
+									<span><strong>CH</strong></span>
+								</h3>
+								<h3>
+									<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/1200px-Flag_of_the_Netherlands.svg.png"
+										alt="NL" />
+									<span><strong>NL</strong></span>
+								</h3>
+							</div>
+							<hr />
+							<table>
+								<tr>
+									<td>Name:</td>
+									<td>Sandra</td>
+								</tr>
+								<tr>
+									<td>Skype:</td>
+									<td>
+										<a href="skype:live:Sandra?chat">Sandra:123</a>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>Email:</strong></td>
+									<td>
+										<a href="mailto:andra123@livepartners.com">Sandra123@e.es</a>
+									</td>
+
+								</tr>
+							</table>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="container_S">
+
+
+			<fieldset>
+				<legend>
+					<div>information</div>
+				</legend>
+
+				<div class="box box-small">
+					<table>
+						<h3>
+							<span>🧾</span><span><strong>Invoice</strong></span>
+						</h3>
+						<hr />
+						<tr>
+							<td>
+								<a href="mailto:finance@livepartners.com">finance@livepartners.com</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="box box-small">
+					<table>
+						<h3>
+							<span>🙋‍♂️</span><span><strong>Support</strong></span>
+						</h3>
+						<hr />
+						<tr>
+							<td>
+								<a href="mailto:finance@livepartners.com">support@livepartners.com</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</fieldset>
+		</div>
+
+
+	</div>
+</body>
+
+</html>

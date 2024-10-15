@@ -1,0 +1,364 @@
+.container-table {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+/* table terms */
+table.tableNetBet {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+table.tableNetBet td,
+table.tableNetBet th {
+  border: 1px solid #a8dff4;
+  padding: 10px 4px;
+}
+
+table.tableNetBet tbody td {
+  font-size: 100%;
+}
+
+table.tableNetBet thead {
+  background: var(--button_color);
+}
+
+table.tableNetBet thead th {
+  font-size: 1rem;
+  color: var(--color_white) !important;
+  text-align: center;
+}
+/* end table terms */
+.sorting {
+  text-align: start;
+  padding-bottom: 0.5em;
+}
+
+.sorting:nth-child(1) {
+  text-align: center;
+}
+.sorting:nth-child(3) {
+  text-align: end;
+}
+
+#streamersTable_wrapper,
+#usersTable_wrapper {
+  padding: 13px;
+  height: 540px;
+  min-height: 480px;
+  max-height: 600px;
+}
+
+.t-table {
+  background: var(--button_color);
+  padding: 18px 0;
+  border-radius: 6px;
+  margin-bottom: 2%;
+}
+
+
+.stars img {
+  position: absolute;
+  width: auto;
+  height: 120%;
+  top: -10%;
+  left: 75%;
+}
+@media (max-width:991px) {
+  .stars img {
+    top: 12%;
+    height: 104%;
+  }
+}
+
+
+.table-responsive {
+  width: 44%;
+  max-width: 100%;
+  border-radius: 10px;
+  padding: 20px 20px 0;
+  position: relative;
+}
+
+/* fade table */
+.blob1 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  z-index: -1;
+  border-radius: 19px;
+  height: 100%;
+  background: rgb(3 8 28 / 78%);
+  box-shadow: -10px 10px 30px #ffffff5c;
+}
+
+.blob2 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask: var(--mask-reverse2);
+  z-index: -1;
+  border-radius: 19px;
+  height: 100%;
+  background: rgb(3 8 28 / 78%);
+  border: 1px solid #a8deff;
+}
+
+#usersTable tbody .parent-table {
+  height: 46px;
+}
+
+.parent-table:hover {
+  background: rgb(156 173 187 / 32%) !important;
+  color: var(--color-white);
+  transition: all 0.3s ease;
+}
+
+.font-tabel,
+.ps {
+  font-size: 105%;
+  font-family: 'montBold';
+}
+.ps {
+  text-align: center;
+  padding-right: 10px;
+}
+
+.parent-avatar {
+  position: relative;
+}
+.parent-points {
+  text-align: end;
+}
+
+
+.parent-name {
+  display: flex;
+  justify-content: space-around;
+  align-items: start;
+  height: 100%;
+  gap: 0px;
+  flex-direction: column;
+}
+
+.parent-name p:nth-child(1) {
+  text-transform: capitalize;
+}
+.parent-name p:nth-child(2) {
+  font-size: 1.2rem;
+  width: 100%;
+  color: rgb(254 189 20);
+}
+.avatar-table,
+.parent-position,
+.parent-points {
+  text-shadow: 1px 1px 1px #020d24;
+}
+
+.parent-avatar {
+  margin: 2px 0;
+  width: 100%;
+  padding: 5px;
+  gap: 15px;
+}
+
+.parent-position {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  font-size: 1.1rem;
+}
+
+.parent-points {
+  font-size: 1.1rem;
+}
+.parent-points {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.table-responsive::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 38%;
+  border-radius: 30px;
+  top: 0;
+  right: 0;
+  box-shadow: 6px -8px 16px #ffffff33;
+  z-index: -1;
+}
+
+.table-responsive:nth-child(2) .dataTables_paginate {
+  right: 0;
+  left: unset;
+  float: right;
+}
+
+.dataTables_wrapper {
+  background: #00000014;
+}
+.dataTables_paginate {
+  position: relative;
+  bottom: -5%;
+  left: 0%;
+  width: fit-content;
+  /* background: var(--header_color); */
+}
+
+.dataTables_paginate .paginate_button.current {
+  color: var(--color-white);
+  background: var(--button_color);
+}
+
+.dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 2em;
+  padding: 0.2rem 0.5rem;
+  margin-left: 2px;
+  text-align: center;
+  cursor: pointer;
+  color: inherit !important;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+}
+table.dataTable td.dt-center {
+  text-align: center;
+}
+
+table.dataTable td.dt-right {
+  text-align: right;
+}
+.avatar-table {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  position: relative;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  z-index: 4;
+  overflow: hidden;
+  border: 2px solid rgb(176 212 215 / 76%);
+  box-shadow: 2px 2px 5px #020d24;
+}
+
+
+.avatar-table img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#streamersTable_wrapper .parent-points {
+  text-align: end;
+}
+
+
+.t-table img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10%;
+}
+
+.highlight-row,.highlight-row:hover
+ {
+  background: var(--button_color) !important;
+}
+
+@media (orientation: portrait) {
+  .table-responsive {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1440px) and (orientation:landscape) {
+  .table-responsive {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+  }
+}
+
+@media (max-width: 991px) {
+  #usersTable tbody .parent-table {
+    height: 35px;
+  }
+
+  #streamersTable_wrapper,
+  #usersTable_wrapper {
+    height: 450px;
+    min-height: 450px;
+    max-height: 500px;
+  }
+
+  .dataTables_paginate {
+    left: 0;
+  }
+
+  .sorting {
+    padding-bottom: 1rem;
+  }
+  .font-tabel,
+  .ps {
+    font-size: 111%;
+  }
+
+  .table-responsive {
+    padding: 20px 9px 0;
+  }
+  #streamersTable_wrapper,
+  #usersTable_wrapper {
+    padding: 13px 0px;
+  }
+  .parent-avatar {
+    gap: 9px;
+  }
+  .dataTables_paginate {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .container-table {
+    flex-direction: column;
+    gap: 45px;
+  }
+}
+
+@media (min-width: 992px) and (max-height: 767px) and (orientation: landscape) {
+  .table-responsive {
+    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+  }
+  .font-tabel,
+  .ps {
+    font-size: 115%;
+  }
+}

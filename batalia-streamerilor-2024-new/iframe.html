@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="iframe-wrap" style="z-index:39;"><iframe id="advent_iframe" width="100%" height="850px" style="border: 0px none; display: block; margin-left: auto; margin-right: auto;" src="https://casino-promo.netbet.ro/batalia-streamerilor2024/"></iframe></div>
+
+
+
+
+    <script>
+
+
+// Check if the user is logged in
+const authStatus = {
+  event: "auth_status",
+  details: {
+      isLoggedIn: true // boolean value
+  },
+  source: "http://127.0.0.1:5501/batalia-streamerilor-2024-new"
+};
+console.log(authStatus,"safas")
+// Function to send message to iframe
+function sendMessageToIframe() {
+  const iframe = document.getElementById('advent_iframe');
+  if (iframe) {
+      iframe.contentWindow.postMessage(authStatus, 'http://127.0.0.1:5501/batalia-streamerilor-2024-new'); // Replace '*' with the iframe origin if known, for security.
+  } else {
+      console.log('Iframe not found.');
+  }
+}
+
+// Trigger message send (you can call this function when needed, e.g., on page load)
+sendMessageToIframe();
+
+window.addEventListener('message', function(event) {
+    if (event.origin === 'https://casino-promo.netbet.ro') { // Replace with the expected origin for security
+        const message = event.data;
+        if (message.event === "auth_status") {
+            console.log("Received auth status: ", message.details.isLoggedIn);
+            // Handle the auth status logic here
+        }
+    }
+}, false);
+
+
+    </script>
+</body>
+</html>

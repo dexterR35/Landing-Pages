@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <style>
+        body {
+            
+        }
+      header {
+        width: 100%;
+        height: 4.5em;
+        background-color: rgba(255, 0, 0, 0.356);
+      }
+      .content {
+        /* background-color: rgba(0, 0, 255, 0.438); */
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+      }
+      .sides{
+        border:2px solid black;
+        width: 50%;
+      }
+      .offer {
+        border: 2px solid red;
+        width: 60%;
+      }
+  
+
+
+      ul {
+        display: flex;
+        justify-content: center;
+      }
+      ul li {
+        list-style: none;
+        height: fit-content;
+        padding: 10px 20px;
+        border: 1px solid gray;
+      }
+      .right img {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+      }
+      .right img {
+       transform: translate(-200px,100px) rotate(-20deg);
+      }
+        </style>
+        <div class="container">
+            <header>header</header>
+            <div class="content">
+                <div class="leftSide sides">
+                    <div class="offer">
+                        <h2>nike vapormax</h2>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <button>buy now</button>
+                    </div>
+                </div>
+         
+            <div class="right sides">
+                <img src="./test.jpg" alt="adidas nike">
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

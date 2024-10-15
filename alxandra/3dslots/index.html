@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(233, 233, 233);
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            height: auto;
+            flex-direction: column;
+            font-family: sans-serif;
+        }
+
+        canvas {
+            display: block;
+            z-index: 42;
+        }
+
+        button {
+            position: relative;
+            max-width: fit-content;
+            font-size: 1em;
+            border: none;
+            outline: none;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12% 0% 12%;
+            width: 100%;
+            height: 3em;
+            background-color: rgb(16, 18, 62);
+        }
+
+        button {
+            height: fit-content;
+            padding: 0.5em 1.2em;
+        }
+
+        #winningMessage {
+            z-index: 100;
+        }
+
+        .wrapp {
+            margin: 0 auto;
+            background: transparent;
+            height: auto;
+            width: 100%;
+            height: fit-content;
+            position: absolute;
+
+            top: 0;
+            z-index: 101;
+            /* z-index: 2; */
+        }
+
+        #countDisplay {
+            color: white;
+            font-weight: bold;
+        }
+
+
+        #startButton {
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            padding:10px 20px;
+            font-size:1em;
+z-index: 200;
+background: crimson;
+color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapp">
+        <div class="container">
+            <button id="toggleButton">Enable Orbit Controls</button>
+            <div style="color: white;display: flex; gap:20px;">
+                <button id="rotateButton">Spin</button>
+                <button id="rotateButton">Auto Spin</button>
+            </div>
+            <div style="color: white;display: flex; gap:20px;">
+                <button>Total win</button>
+                <button>buy coins</button>
+                <div id="countDisplay"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.145.0/examples/js/geometries/TextGeometry.js"></script>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

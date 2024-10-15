@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>NetBet Formular</title>
+  </head>
+
+  <body>
+    <div
+      class="container container-page flex lg:flex-row flex-col items-center mx-auto lg:p-4 lg:space-x-6"
+    >
+      <div class="lg:max-w-[50%] flex items-center justify-center">
+        <img
+          src="./png/4_Slide_tst.png"
+          alt=""
+          class="lg:w-[90%] w-[60%] lg:w-[90%] md:w-[50%] h-[100%] object-contain"
+        />
+      </div>
+
+      <div
+        class="container modal_ shadow_custom_lg lg:max-w-[100%] md:max-w-[80%] max-w-[95%] flex flex-col lg:p-6 md:p-7 p-4 w-[95%] rounded-lg"
+      >
+        <div class="container-title text-center">
+          <h1 class="pb-3 text-4xl font-bold title-if"></h1>
+          <h3 class="pb-3 lg:px-4 px-2 md:text-2xl text-md text-if"></h3>
+        </div>
+        <form id="dataForm" class="w-full mx-auto w-full py-3">
+          <div id="messageDiv" class="w-full text-center text-red-600"></div>
+          <div class="container-name w-full md:grid md:grid-cols-3 md:space-x-2">
+            <div class="float-label-input">
+              <label for="_name">Nume</label>
+              <input id="_name" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input">
+              <label for="_lastName">Prenume</label>
+              <input id="_lastName" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input">
+              <label for="_phone">Telefon</label>
+              <input id="_phone" type="number" placeholder="" required />
+            </div>
+          </div>
+          <div class="container-info w-full md:grid md:grid-cols-4 md:space-x-2">
+            <div class="float-label-input">
+              <label for="_county">Județ</label>
+              <input id="_county" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input">
+              <label for="_city">Oraș</label>
+              <input id="_city" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input col-span-2 ">
+              <label for="_street">Stradă</label>
+              <input id="_street" type="text" placeholder="" required />
+            </div>
+           
+          </div>
+          <div class="container-info md:grid grid-cols-5 grid space-x-2">
+            <div class="float-label-input m-0">
+              <label for="_houseNr">Nr</label>
+              <input id="_houseNr" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input">
+              <label for="_building">Bl</label>
+              <input id="_building" type="text" placeholder="" required />
+            </div>
+          
+            <div class="relative float-label-input m-0">
+              <label for="_stair">Sc</label>
+              <input id="_stair" type="text" placeholder="" required />
+            </div>
+            <div class="float-label-input m-0">
+              <label for="_floor">Et</label>
+              <input id="_floor" type="number" placeholder="" required />
+            </div>
+            <div class="float-label-input m-0">
+              <label for="_appartement">Ap</label>
+              <input id="_appartement" type="text" placeholder="" required />
+            </div>
+        
+          </div>
+          <div class="container-info md:grid grid-cols-2 grid space-x-2">
+            <div class="float-label-input m-0">
+              <label for="_postalCode">Cod Poștal</label>
+              <input id="_postalCode" type="number" placeholder="" required />
+            </div>
+            <div class="float-label-input m-0">
+              <label for="_userName">User NetBet </label>
+              <input id="_userName" type="text" placeholder="" required />
+            </div>
+          </div>
+        </form>
+        <a id="hRef" class="mt-5 w-full">
+          <button
+            id="submitBtn"
+            type="button"
+            class="text-white font-bold lg:text-md text-lg w-full p-3 rounded-md uppercase cta-btn _disabled"
+            disabled="disabled"
+          ></button>
+        </a>
+      </div>
+    </div>
+
+    <style>
+      :root {
+        --__sport: rgb(100, 176, 0);
+        --__casino: transparent
+          linear-gradient(312deg, #1f71ad 0%, #00c0fa 100%) 0% 0% no-repeat
+          padding-box;
+        --__sport_hover: linear-gradient(135deg, #90e000, #64b000);
+        --button_color: linear-gradient(to right, #ff1c26, #a81c1f);
+        --button_color-hover: linear-gradient(to left, #ff1c26, #a81c1f);
+        --color_blue: #c5e6ff;
+        --color_red: #ff0000;
+        --color_white: #fff;
+        --color_softGray: #bfbfbf;
+        --header_color: #141c33;
+        --footer_color: #010718;
+        --textShadowFull: var(--textShadow) 0px 0px 10px,
+          var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 5px,
+          var(--textShadow) 0px 0px 16px;
+        --textShadow: #ff0000;
+        --textShadowSmooth: var(--textShadow) 0px 0px 0px,
+          var(--textShadow) 0px 0px 10px, var(--textShadow) 0px 0px 2px,
+          var(--textShadow) 0px 0px 6px;
+      }
+
+      .below-fold,
+      .promo-text,
+      .offer,
+      .cta-button,
+      .bottom {
+        display: none !important;
+        pointer-events: none !important;
+      }
+
+      .hero {
+        overflow: auto !important;
+      }
+
+      body {
+        background-image: url(./png/HeaderImage.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100vh;
+      }
+
+      .container-page {
+        display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 100%;
+    place-content: center;
+    place-items: center;
+
+      }
+
+      .modal_,
+      input {
+        background: var(--header_color) !important;
+      }
+      input {
+        color: var(--color_white);
+      }
+
+      label {
+        color: var(--color_white) !important;
+      }
+
+      .title-if {
+        text-shadow: var(--textShadowFull);
+        color: var(--color_white);
+      }
+
+      .text-if {
+        color: var(--color_blue);
+      }
+
+      .success {
+        color: green !important; 
+      }
+
+      .shadow_custom_lg {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+          rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        border: 1px solid white;
+      }
+
+      .container-hero {
+        height: 100%;
+        width: 100%;
+        top: 4vh !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        min-width: 300px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        margin: 0 auto !important;
+      }
+
+      .float-label-input.focused > label {
+        font-size: 12px;
+      }
+
+      .container-info:nth-child(2) .float-label-input {
+        margin: 0 !important;
+      }
+
+      @media (min-width: 992px) {
+        .container-hero {
+          height: 90vh !important;
+          top: 0vh !important;
+        }
+        .object-contain {
+          top: 20px;
+          position: relative;
+        }
+      }
+
+      .above-fold {
+        height: 100% !important;
+      }
+
+      .float-label-input.focused label {
+        transition: all 0.2s linear;
+        top: -20px;
+        left: -5px;
+      }
+      #messageDiv {
+        color: red !important;
+      }
+    </style>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDiOqUAHF9DX9x-VdRhaGPc2_Yfj305Jxc",
+        authDomain: "netbet-ea33f.firebaseapp.com",
+        databaseURL:
+          "https://netbet-ea33f-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "netbet-ea33f",
+        storageBucket: "netbet-ea33f.appspot.com",
+        messagingSenderId: "184670151760",
+        appId: "1:184670151760:web:08506858f2b8843fb19d55",
+        measurementId: "G-7FX1PZEFQW",
+      };
+      document.addEventListener("DOMContentLoaded", function () {
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const dataForm = document.getElementById("dataForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const messageDiv = document.getElementById("messageDiv");
+
+  const phoneInput = document.getElementById("_phone");
+
+  const inputDiv = document.querySelectorAll("input");
+  const labelDiv = document.querySelectorAll("label");
+  const parentInput = document.querySelectorAll(".float-label-input");
+
+  const dataForms = document.getElementById("dataForm");
+  const textChange = document.querySelector(".text-if");
+  const titleChange = document.querySelector(".title-if");
+  const hRef = document.getElementById("hRef");
+  const imageSwitch = document.querySelector("img");
+
+  function validateAndSetColor(inputElement) {
+    if (inputElement) {
+      const isValid = inputElement.value.trim() !== "";
+      inputElement.style.borderColor = isValid ? "var(--color_blue)" : "var(--color_red)";
+      return isValid;
+    }
+    return false;
+  }
+  function attachInputEventListeners(inputElements) {
+    Object.values(inputElements).forEach((inputElement) => {
+      if (inputElement) {  // Check if the element exists
+        inputElement.addEventListener("input", () => {
+          validateAndSetColor(inputElement);
+          checkFormValidity(inputElements);
+        });
+      } else {
+        console.log("Input element not found:", inputElement);
+      }
+    });
+  }
+
+  function validatePhoneInput(phoneInput) {
+    let phoneValue = phoneInput.value.replace(/\D/g, "");
+    const maxLength = 10;
+    const prefix = "07";
+
+    if (phoneValue.length > maxLength) {
+      phoneValue = phoneValue.slice(0, maxLength);
+      phoneInput.value = phoneValue;
+    }
+
+    const isValid =
+      phoneValue.startsWith(prefix) && phoneValue.length === maxLength;
+    phoneInput.style.borderColor = isValid ? "var(--color_blue)" : "var(--color_red)";
+
+    if (isValid) {
+      messageDiv.innerHTML = "Numar valid";
+      messageDiv.classList.add("success");
+    } else {
+      messageDiv.innerHTML = "Adauga un Numar valid";
+      messageDiv.classList.remove("success");
+    }
+
+    phoneInput.addEventListener("blur", () => {
+      messageDiv.innerHTML = "";
+    });
+
+    return isValid;
+  }
+
+  function checkFormValidity(inputElements) {
+    const areAllValid = Object.values(inputElements).every((inputElement) =>
+      validateAndSetColor(inputElement)
+    );
+    if (areAllValid) {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("_disabled");
+      submitBtn.style.background = "var(--button_color)";
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.add("_disabled");
+      submitBtn.style.background = "gray";
+    }
+  }
+
+  if (dataForm) {
+    dataForm.style.display = "block";
+    textChange.innerHTML =
+      "Te rugăm să completezi formularul de mai jos pentru a intra în posesia premiului.";
+    titleChange.innerHTML = "Felicitări!";
+    submitBtn.innerHTML = "TRIMITE";
+  }
+
+  function handleFormSubmission() {
+
+    const inputElements = {
+      name: document.getElementById("_name"),
+      lastName: document.getElementById("_lastName"),
+      phone: document.getElementById("_phone"),
+      county: document.getElementById("_county"),
+      city: document.getElementById("_city"),
+      street: document.getElementById("_street"),
+      building: document.getElementById("_building"),
+      houseNr: document.getElementById("_houseNr"),
+      stair: document.getElementById("_stair"),
+      floor: document.getElementById("_floor"),
+      appartement: document.getElementById("_appartement"),
+      postalCode: document.getElementById("_postalCode"),
+      userName: document.getElementById("_userName")
+    };
+
+    attachInputEventListeners(inputElements);
+
+    phoneInput.addEventListener("input", () => {
+      validatePhoneInput(phoneInput);
+    });
+
+    submitBtn.disabled = true;
+    submitBtn.style.backgroundColor = "gray";
+
+    submitBtn.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      const isPhoneNumberValid = /^07\d{8}$/.test(inputElements.phone.value);
+      const areAllValid = Object.values(inputElements).every((inputElement) =>
+        validateAndSetColor(inputElement)
+      );
+
+      if (!isPhoneNumberValid) {
+        messageDiv.innerHTML = "Adauga un numar valid";
+        return;
+      }
+
+      if (!areAllValid) {
+        messageDiv.innerHTML = "Vă rugăm să completați toate câmpurile";
+        return;
+      }
+
+      const data = {
+        destinatar_nume: inputElements.name.value,
+        destinatar_prenume: inputElements.lastName.value,
+        destinatar_telefon: inputElements.phone.value,
+        destinatar_judet: inputElements.county.value,
+        destinatar_oras: inputElements.city.value,
+        destinatar_strada: inputElements.street.value,
+        destinatar_bloc: inputElements.building.value,
+        destinatar_nr: inputElements.houseNr.value,
+        destinatar_scara: inputElements.stair.value,
+        destinatar_etaj: inputElements.floor.value,
+        destinatar_apartament: inputElements.appartement.value,
+        destinatar_codpostal: inputElements.postalCode.value,
+        destinatar_userName: inputElements.userName.value
+      };
+
+      try {
+        const docRef = await addDoc(
+          collection(db, "euro_2024_premii"),
+          data
+        );
+
+        if (dataForm) {
+          dataForm.reset();
+          updateContent();
+          Object.values(inputElements).forEach((inputElement) => {
+            if (inputElement) {
+              inputElement.style.borderColor = "";
+            }
+          });
+        }
+        console.log(data, "added successfully");
+        return "Data added successfully";
+      } catch (error) {
+        console.log(`Error adding data: ${error}`);
+        messageDiv.classList.remove("success");
+      }
+    });
+  }
+
+  handleFormSubmission();
+
+  inputDiv.forEach((input) => {
+    input.classList.add(
+      "w-full",
+      "bg-white",
+      "focus:outline-none",
+      "focus:shadow-outline",
+      "border",
+      "border-gray-400",
+      "py-[12px]",
+      "px-[10px]",
+      "block",
+      "appearance-none",
+      "leading-normal",
+      "focus:var(--color_blue)",
+      "rounded-md",
+      "shadow_custom",
+      "text-field-input"
+    );
+  });
+
+  parentInput.forEach((parent) => {
+    parent.classList.add("lg:mt-[30px]", "mt-[23px]", "relative");
+  });
+
+  labelDiv.forEach((label) => {
+    label.classList.add(
+      "absolute",
+      "top-[14px]",
+      "left-[5px]",
+      "focus:shadow-outline",
+      "text-gray-400",
+      "text-[14px]",
+      "lg:text-[16px]",
+      "pointer-events-none",
+      "transition",
+      "duration-200",
+      "ease-in-out",
+      "bg-transparent",
+      "px-3",
+      "text-gray-600",
+      "rounded-t-lg"
+    );
+  });
+
+  function updateContent() {
+    dataForms.style.display = "none";
+    textChange.innerHTML =
+      "Ai completat formularul. Premiile ți-au fost alocate.";
+    titleChange.innerHTML = "Felicitări!";
+    submitBtn.innerHTML = "Continua";
+    submitBtn.removeAttribute("id", "submitBtn");
+    hRef.setAttribute("href", "https://www.google.ro");
+    hRef.setAttribute("target", "_self");
+    hRef.style.margin = "auto";
+    imageSwitch.style.display = "none";
+  }
+
+  $(".text-field-input").on("focus", function () {
+    $(this).closest(".float-label-input").addClass("focused");
+  });
+
+  $(".text-field-input").on("blur", function () {
+    if ($(this).val() === "") {
+      $(this).closest(".float-label-input").removeClass("focused");
+    }
+  });
+});
+    </script>
+  </body>
+</html>

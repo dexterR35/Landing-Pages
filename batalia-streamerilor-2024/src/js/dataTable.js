@@ -15,7 +15,6 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
-
 const username = getCookie("netbet_login");
 const cookie_id = getCookie("netbet_id");
 
@@ -135,7 +134,7 @@ function debounce(func, delay) {
   };
 }
 function updateActionButton(userExists, streamerExists) {
-  console.log('updateActionButton');
+  console.log("updateActionButton");
 
   // Initial HTML for the button when the page first loads.
   // This is a default state where the user can check their eligibility.
@@ -146,8 +145,8 @@ function updateActionButton(userExists, streamerExists) {
       </button>
     </a>
   `;
-  $actionButton.html(buttonHtml); 
-  console.log('case 1: Initial check for username and netbet_id');
+  $actionButton.html(buttonHtml);
+  console.log("case 1: Initial check for username and netbet_id");
 
   const handleLoginCheck = () => {
     // Checks if both 'username' and 'netbet_id' are defined, which would indicate the user is logged in.
@@ -157,67 +156,76 @@ function updateActionButton(userExists, streamerExists) {
       console.log("username && netbet_id test");
     } else {
       // If either is missing, logs the missing status and shows a modal to inform the user they need to log in.
-      console.log('case 4: Username or netbet_id missing');
+      console.log("case 4: Username or netbet_id missing");
       showModal(
         "loginCheck",
-        "Login Required", 
-        "You need to be logged in to access this feature." 
+        "Login Required",
+        "You need to be logged in to access this feature."
       );
     }
   };
 
   // This sets an event listener on the initial button (button1). When clicked, it will trigger the handleLoginCheck function.
-  $(document).off("click", "#button1").on("click", "#button1", handleLoginCheck);
+  $(document)
+    .off("click", "#button1")
+    .on("click", "#button1", handleLoginCheck);
 
   if (username && netbet_id) {
-    console.log('case 5: Username and netbet_id are valid, setting up button logic');
+    console.log(
+      "case 5: Username and netbet_id are valid, setting up button logic"
+    );
     // Reassigns a new click event to the button depending on the status of 'userExists' and 'streamerExists'.
-    $(document).off("click", "#button1").on("click", "#button1", () => {
-      // If neither the user nor the streamer exists, it updates the button to show a "Join the table".
-      if (!userExists && !streamerExists) {
-        console.log(userExists, !userExists, "userExists && !userExists");
-        console.log(streamerExists, !streamerExists, "userExists && !userExists");
-        buttonHtml = `
+    $(document)
+      .off("click", "#button1")
+      .on("click", "#button1", () => {
+        // If neither the user nor the streamer exists, it updates the button to show a "Join the table".
+        if (!userExists && !streamerExists) {
+          console.log(userExists, !userExists, "userExists && !userExists");
+          console.log(
+            streamerExists,
+            !streamerExists,
+            "userExists && !userExists"
+          );
+          buttonHtml = `
           <button class="btn desktop shape pointer join-table" id="joinTable">
             <span></span>Intră în cursă!
           </button>
         `;
-      } else {
-        // If the user or streamer exists, the button changes to show "View Leaderboard".
-        buttonHtml = `
+        } else {
+          // If the user or streamer exists, the button changes to show "View Leaderboard".
+          buttonHtml = `
           <button class="btn desktop shape pointer view-table" id="viewTable">
             <span></span>Vezi Clasamentul
           </button>
         `;
-      }
+        }
 
-      // Updates the button 
-      $actionButton.html(buttonHtml);
+        // Updates the button
+        $actionButton.html(buttonHtml);
 
-      //"Join Table" button is clicked. The debounce function ensures that this action can only happen once within a short time interval (400 ms).
-      $("#joinTable").click(
-        debounce(() => {
-          console.log('case 9: Join Table clicked');
-          showModal(
-            "optIn", 
-            "Felicitări!", 
-            "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!", 
-            (confirmed) => {
-              if (confirmed) {
-                optInPlayer(username); 
+        //"Join Table" button is clicked. The debounce function ensures that this action can only happen once within a short time interval (400 ms).
+        $("#joinTable").click(
+          debounce(() => {
+            console.log("case 9: Join Table clicked");
+            showModal(
+              "optIn",
+              "Felicitări!",
+              "Te-ai alăturat Bătăliei Streamerilor! 🎉 <br> Ești oficial în cursă. Succes!",
+              (confirmed) => {
+                if (confirmed) {
+                  optInPlayer(username);
+                }
               }
-            }
-          );
-        }, 400) 
-      );
-      // "View Leaderboard" button is clicked.
-      $("#viewTable").click(() => {
-        $("body").animate({ scrollTop: $("#section3").offset().top }, 500);
+            );
+          }, 400)
+        );
+        // "View Leaderboard" button is clicked.
+        $("#viewTable").click(() => {
+          $("body").animate({ scrollTop: $("#section3").offset().top }, 500);
+        });
       });
-    });
   }
 }
-
 
 // Create table for streamers
 function createTableStreamers(streamer) {
@@ -306,9 +314,8 @@ async function fetchDataUsers() {
     if (!response || !Array.isArray(response.data)) {
       console.error("Invalid or missing data in response");
       return [];
-      
     }
-    console.log(response,"")
+    console.log(response, "");
     const totalUsers = response.data.length;
     // Find the current user's index in the response data using netbet_id
     const currentUserIndex = response.data.findIndex(
@@ -445,7 +452,6 @@ async function optInPlayer(username) {
   }
 }
 
-
 // Opt-Out
 async function optOutPlayer(username) {
   showModal(
@@ -506,10 +512,10 @@ function generateTables(userData, streamerData) {
     info: false,
     searching: false,
     lengthChange: false,
-language:false,
+    language: false,
     pagingType: "simple_numbers",
     columnDefs: [
-      { width: "10%", targets: 0, className: "dt-center" },
+      { width: "15%", targets: 0, className: "dt-center" }, // from 10 to 15%
       { width: "45%", targets: 1, className: "dt-center" },
       { width: "30%", targets: 2, className: "dt-right" },
     ],
@@ -557,14 +563,20 @@ async function reloadUserTable() {
 
 $(document).ready(async function () {
   try {
-    await reloadUserTable(); 
+    await reloadUserTable();
 
     if ($optOutBtn.length) {
       $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
     }
-
   } catch (error) {
-    console.error("An error occurred during document ready initialization:", error);
-    showModal("error", "Initialization Error", "There was an error initializing the page. Please try again later.");
+    console.error(
+      "An error occurred during document ready initialization:",
+      error
+    );
+    showModal(
+      "error",
+      "Initialization Error",
+      "There was an error initializing the page. Please try again later."
+    );
   }
 });
