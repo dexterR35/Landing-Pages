@@ -1,6 +1,3 @@
-
-
-
 function getCookie(name) {
   const nameEQ = name + "=";
   const ca = document.cookie.split(";");
@@ -23,7 +20,62 @@ const username = getCookie("netbet_login");
 const cookie_id = getCookie("netbet_id");
 const netbet_id = parseInt(cookie_id);
 
-// console.log(typeof(username), typeof(netbet_id), username, netbet_id);
+let messageListenerAdded = false; 
+
+async function sendMessageBasedOnCookies() {
+  try {
+    const isLoggedIn = !!(username && !isNaN(netbet_id)); 
+    const message = {
+      event: "auth_status",
+      details: {
+        isLoggedIn: isLoggedIn,
+        username: isLoggedIn ? username : null,
+        netbet_id: isLoggedIn ? netbet_id : null,
+      },
+      source: "game.netbet",
+    };
+    // Send the message to trigger the action button update
+    window.postMessage(message, "*");  
+    console.log("Message sent:", message);
+  } catch (error) {
+    console.error("Error sending authentication message:", error);
+  }
+}
+
+function listenMessage() {
+  // Prevent multiple event listener addition
+  if (messageListenerAdded) return;
+
+  try {
+    const trustedOrigins = ["https://casino.netbet.ro", "https://casino-promo.netbet.ro", 'http://127.0.0.1:5501'];
+    
+    window.addEventListener("message", function (event) {
+      if (!trustedOrigins.includes(event.origin)) {
+        console.log("Untrusted origin:", event.origin);
+        return;
+      }
+      const message = event.data;
+      if (message && typeof message === "object" && message.event === "auth_status") {
+        const isLoggedIn = message.details.isLoggedIn;
+        console.log("Authentication status received:", isLoggedIn);
+
+        if (isLoggedIn) {
+          console.log("User is logged in with username:", message.details.username);
+          $("#uid-button").off("click");
+          console.log("Click event on #uid-button destroyed.");
+        } else {
+          console.log("User is not logged in.");
+        }
+        // Ensure `users` and `streamerExists` are checked before calling
+        updateActionButton(isLoggedIn, !!users, streamerExists);
+      }
+    }, false);
+
+    messageListenerAdded = true; // Mark that the listener was added
+  } catch (error) {
+    console.error("Error setting up message listener:", error);
+  }
+}
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
@@ -83,23 +135,6 @@ function showModal(type, title, message, callback) {
   }
 }
 
-window.addEventListener("message", (event) => {
-  if (event.origin !== "https://game.netbet") return; // Validate the source of the message
-  if (event.data.event === "auth_status") {
-    const { isLoggedIn } = event.data.details;
-    handleAuthStatus(isLoggedIn);
-  }
-});
-
-function handleAuthStatus(isLoggedIn) {
-  if (isLoggedIn) {
-    reloadUserTable(); // Reload table and action button if logged in
-  } else {
-    // If not logged in, hide the button
-    $actionButton.html(""); // Clears the action button content
-  }
-}
-
 // Format Points
 function formatPoints(points) {
   if (points === null || points === undefined) {
@@ -151,30 +186,20 @@ function debounce(func, delay) {
   };
 }
 
-function updateActionButton(userExists, streamerExists) {
+
+
+function updateActionButton(isLoggedIn,userExists, streamerExists) {
   let buttonHtml = "";
-  if (
-    !username ||
-    username === "logged_out" ||
-    !netbet_id ||
-    username == null
-  ) {
-    // Case 1: No username or netbet_id - Show Register Button
-    buttonHtml = `
-      <a href='https://casino.netbet.ro/?register=1${qsaEnd}'>
-        <button class="btn desktop shape pointer">
-          <span></span>ÎNREGISTREAZĂ-TE
-        </button>
-      </a>
-    `;
-  } else if (username && netbet_id && !userExists && !streamerExists) {
+
+
+ if (isLoggedIn && username && netbet_id && !userExists && !streamerExists) {
     // Case 2: User exists in the system, but not in the table - Show Join Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer join-table" id="joinTable">
         <span></span>Intră în cursă!
       </button>
     `;
-  } else if (userExists || streamerExists) {
+  } else if (isLoggedIn && (userExists || streamerExists)) {
     // Case 3: User exists in the table - Show View Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer view-table" id="viewTable">
@@ -491,7 +516,7 @@ function generateTables(userData, streamerData) {
 language:false,
     pagingType: "simple_numbers",
     columnDefs: [
-      { width: "10%", targets: 0, className: "dt-center" },
+      { width: "20%", targets: 0, className: "dt-center" },
       { width: "45%", targets: 1, className: "dt-center" },
       { width: "30%", targets: 2, className: "dt-right" },
     ],
@@ -545,6 +570,11 @@ $(document).ready(async function () {
       $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
     }
 
+    $("#uid-login").click(() => {
+      sendMessageBasedOnCookies();
+    });
+
+    listenMessage();
   } catch (error) {
     console.error("An error occurred during document ready initialization:", error);
     showModal("error", "Initialization Error", "There was an error initializing the page. Please try again later.");

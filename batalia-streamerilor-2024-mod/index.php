@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 $qsa = '';
 $qsa_with_end = '';
 if (count($_GET) > 0)
@@ -12,7 +12,7 @@ if (!empty($qsa))
 	$qsa_with_end = $qsa;
 	$qsa = '?'.substr($qsa, 1);
 }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -44,7 +44,6 @@ if (!empty($qsa))
 </head>
 
 <body>
-  
   <div class="targetShoot" id="target">
     <main class="panelWrap">
       <section class="section s1 _b" id="section1">
