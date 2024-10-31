@@ -15,67 +15,27 @@ function getCookie(name) {
 const token = "2f97bb641f2096c1e98a723c249a6ece";
 const url = "https://admin.livepartners.com/api/streaming/";
 
-
 const username = getCookie("netbet_login");
 const cookie_id = getCookie("netbet_id");
 const netbet_id = parseInt(cookie_id);
 
-let messageListenerAdded = false; 
+const isLoggedIn = !!(username && !isNaN(netbet_id));
 
-async function sendMessageBasedOnCookies() {
-  try {
-    const isLoggedIn = !!(username && !isNaN(netbet_id)); 
-    const message = {
-      event: "auth_status",
-      details: {
-        isLoggedIn: isLoggedIn,
-        username: isLoggedIn ? username : null,
-        netbet_id: isLoggedIn ? netbet_id : null,
-      },
-      source: "game.netbet",
-    };
-    // Send the message to trigger the action button update
-    window.postMessage(message, "*");  
-    console.log("Message sent:", message);
-  } catch (error) {
-    console.error("Error sending authentication message:", error);
+function AuthStatus() {
+  const message = {
+    event: "auth_status",
+    details: {
+      isLoggedIn: isLoggedIn
+    },
+    source: "game.netbet"
   }
+  window.postMessage(message, "*");
+  console.log("Auth status sent:", message);
 }
 
-function listenMessage() {
-  // Prevent multiple event listener addition
-  if (messageListenerAdded) return;
 
-  try {
-    const trustedOrigins = ["https://casino.netbet.ro", "https://casino-promo.netbet.ro", 'http://127.0.0.1:5501'];
-    
-    window.addEventListener("message", function (event) {
-      if (!trustedOrigins.includes(event.origin)) {
-        console.log("Untrusted origin:", event.origin);
-        return;
-      }
-      const message = event.data;
-      if (message && typeof message === "object" && message.event === "auth_status") {
-        const isLoggedIn = message.details.isLoggedIn;
-        console.log("Authentication status received:", isLoggedIn);
+// END postMessage //
 
-        if (isLoggedIn) {
-          console.log("User is logged in with username:", message.details.username);
-          $("#uid-button").off("click");
-          console.log("Click event on #uid-button destroyed.");
-        } else {
-          console.log("User is not logged in.");
-        }
-        // Ensure `users` and `streamerExists` are checked before calling
-        updateActionButton(isLoggedIn, !!users, streamerExists);
-      }
-    }, false);
-
-    messageListenerAdded = true; // Mark that the listener was added
-  } catch (error) {
-    console.error("Error setting up message listener:", error);
-  }
-}
 const $optOutBtn = $("#optout-btn");
 const $actionButton = $("#actionButton");
 const streamerImages = {
@@ -186,20 +146,18 @@ function debounce(func, delay) {
   };
 }
 
-
-
-function updateActionButton(isLoggedIn,userExists, streamerExists) {
+function updateActionButton(userExists, streamerExists) {
   let buttonHtml = "";
-
-
- if (isLoggedIn && username && netbet_id && !userExists && !streamerExists) {
+  
+ if (username && netbet_id && !userExists && !streamerExists) {
     // Case 2: User exists in the system, but not in the table - Show Join Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer join-table" id="joinTable">
         <span></span>Intră în cursă!
       </button>
     `;
-  } else if (isLoggedIn && (userExists || streamerExists)) {
+  } else if (userExists || streamerExists) {
+
     // Case 3: User exists in the table - Show View Table Button
     buttonHtml = `
       <button class="btn desktop shape pointer view-table" id="viewTable">
@@ -207,7 +165,6 @@ function updateActionButton(isLoggedIn,userExists, streamerExists) {
       </button>
     `;
   }
-
   $actionButton.html(buttonHtml);
 
   $("#joinTable").click(debounce(() => {
@@ -513,7 +470,7 @@ function generateTables(userData, streamerData) {
     info: false,
     searching: false,
     lengthChange: false,
-language:false,
+    language:false,
     pagingType: "simple_numbers",
     columnDefs: [
       { width: "20%", targets: 0, className: "dt-center" },
@@ -556,6 +513,7 @@ async function reloadUserTable() {
     // Check if the user exists
     const userExists = userData.some((user) => user.id === netbet_id);
     updateActionButton(userExists, streamerExists);
+
     generateTables(userData, streamerData);
   } catch (error) {
     console.error("Error reloading user table:", error);
@@ -569,12 +527,8 @@ $(document).ready(async function () {
     if ($optOutBtn.length) {
       $optOutBtn.click(debounce(() => optOutPlayer(username), 400));
     }
-
-    $("#uid-login").click(() => {
-      sendMessageBasedOnCookies();
-    });
-
-    listenMessage();
+ 
+    AuthStatus();
   } catch (error) {
     console.error("An error occurred during document ready initialization:", error);
     showModal("error", "Initialization Error", "There was an error initializing the page. Please try again later.");

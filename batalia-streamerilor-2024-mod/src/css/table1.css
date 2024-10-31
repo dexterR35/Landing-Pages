@@ -126,6 +126,10 @@ table.tableNetBet thead th {
   height: 46px;
 }
 
+#streamersTable, #usersTable {
+  color: white;
+}
+
 .parent-table:hover {
   background: rgb(156 173 187 / 32%) !important;
   color: var(--color-white);
